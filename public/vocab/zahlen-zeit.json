@@ -411,7 +411,7 @@
   {
     "id": "v0098",
     "de": [
-      "vierundfünfzig"
+      "vier-und-fünfzig"
     ],
     "es": "cincuenta y cuatro",
     "pos": "num",
@@ -419,7 +419,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "Tengo cincuenta y cuatro años.",
-      "de": "Ich bin vierundfünfzig Jahre alt."
+      "de": "Ich bin vier-und-fünfzig Jahre alt."
     },
     "note": null,
     "gender": null,
@@ -428,7 +428,7 @@
   {
     "id": "v0099",
     "de": [
-      "dreihundertsiebenundzwanzig"
+      "drei-hundert-sieben-und-zwanzig"
     ],
     "es": "trescientos veintisiete",
     "pos": "num",
@@ -436,7 +436,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "Son trescientos veintisiete pesos.",
-      "de": "Das sind dreihundertsiebenundzwanzig Pesos."
+      "de": "Das sind drei-hundert-sieben-und-zwanzig Pesos."
     },
     "note": "Die Hunderter (-cientos) stimmen im Geschlecht mit dem Nomen überein: trescientos pesos, trescientas personas.",
     "gender": null,
@@ -445,7 +445,7 @@
   {
     "id": "v0100",
     "de": [
-      "zweitausendvierhundertachtundachtzig"
+      "zwei-tausend-vier-hundert-acht-und-achtzig"
     ],
     "es": "dos mil cuatrocientos ochenta y ocho",
     "pos": "num",
@@ -453,7 +453,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "La ciudad está a dos mil cuatrocientos ochenta y ocho metros de altura.",
-      "de": "Die Stadt liegt zweitausendvierhundertachtundachtzig Meter hoch."
+      "de": "Die Stadt liegt zwei-tausend-vier-hundert-acht-und-achtzig Meter hoch."
     },
     "note": "Mil bleibt im Plural unverändert (dos mil).",
     "gender": null,
@@ -462,7 +462,7 @@
   {
     "id": "v0101",
     "de": [
-      "achthunderteinundsechzig"
+      "acht-hundert-ein-und-sechzig"
     ],
     "es": "ochocientos sesenta y uno",
     "pos": "num",
@@ -470,7 +470,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "Es el número ochocientos sesenta y uno.",
-      "de": "Das ist Nummer achthunderteinundsechzig."
+      "de": "Das ist Nummer acht-hundert-ein-und-sechzig."
     },
     "note": null,
     "gender": null,
@@ -513,7 +513,7 @@
   {
     "id": "v0104",
     "de": [
-      "neunundachtzig"
+      "neun-und-achtzig"
     ],
     "es": "ochenta y nueve",
     "pos": "num",
@@ -521,7 +521,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "El libro tiene ochenta y nueve páginas.",
-      "de": "Das Buch hat neunundachtzig Seiten."
+      "de": "Das Buch hat neun-und-achtzig Seiten."
     },
     "note": null,
     "gender": null,
@@ -530,7 +530,7 @@
   {
     "id": "v0105",
     "de": [
-      "siebenhundertdreiundfünfzig"
+      "sieben-hundert-drei-und-fünfzig"
     ],
     "es": "setecientos cincuenta y tres",
     "pos": "num",
@@ -538,7 +538,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "El estadio tiene setecientos cincuenta y tres asientos.",
-      "de": "Das Stadion hat siebenhundertdreiundfünfzig Sitze."
+      "de": "Das Stadion hat sieben-hundert-drei-und-fünfzig Sitze."
     },
     "note": null,
     "gender": null,
@@ -547,7 +547,7 @@
   {
     "id": "v0106",
     "de": [
-      "viertausendfünfhundertzwölf"
+      "vier-tausend-fünf-hundert-zwölf"
     ],
     "es": "cuatro mil quinientos doce",
     "pos": "num",
@@ -555,7 +555,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "Vivo a cuatro mil quinientos doce kilómetros de aquí.",
-      "de": "Ich wohne viertausendfünfhundertzwölf Kilometer von hier entfernt."
+      "de": "Ich wohne vier-tausend-fünf-hundert-zwölf Kilometer von hier entfernt."
     },
     "note": null,
     "gender": null,
@@ -564,7 +564,7 @@
   {
     "id": "v0107",
     "de": [
-      "einhundertsechsundachtzig"
+      "ein-hundert-sechs-und-achtzig"
     ],
     "es": "ciento ochenta y seis",
     "pos": "num",
@@ -572,7 +572,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "Hay ciento ochenta y seis personas en la fila.",
-      "de": "In der Schlange stehen einhundertsechsundachtzig Personen."
+      "de": "In der Schlange stehen ein-hundert-sechs-und-achtzig Personen."
     },
     "note": "Vor Nomen und bei genau 100 heißt es cien; mit weiteren Zahlen ciento (ciento diez).",
     "gender": null,
@@ -615,7 +615,7 @@
   {
     "id": "v0110",
     "de": [
-      "dreiundzwanzigtausendeinhundertelf"
+      "drei-und-zwanzig-tausend-ein-hundert-elf"
     ],
     "es": "veintitrés mil ciento once",
     "pos": "num",
@@ -623,7 +623,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "La casa cuesta veintitrés mil ciento once dólares.",
-      "de": "Das Haus kostet dreiundzwanzigtausendeinhundertelf Dollar."
+      "de": "Das Haus kostet drei-und-zwanzig-tausend-ein-hundert-elf Dollar."
     },
     "note": null,
     "gender": null,
