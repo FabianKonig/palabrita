@@ -51,7 +51,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 
 ### 3.2 Einstellungen und Datensicherung
 - Es gibt **keine Profile und kein Login**: Fortschritt und Einstellungen gelten für den Browser auf diesem Gerät.
-- Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden angezeigt, persistent gespeichert, jederzeit änderbar), automatisches Vorlesen und Theme (System/Hell/Dunkel). Eine Einstellung „neue Karten pro Tag“ gibt es nicht mehr.
+- Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden angezeigt, persistent gespeichert, jederzeit änderbar), automatisches Vorlesen und Theme (System/Hell/Dunkel). Unten steht die Version: Zeitstempel des HEAD-Commits zum Bauzeitpunkt (bei Deployment also des Merges auf `main`), beim Build aus Git in `vite.config.ts` eingesetzt, immer in UTC. Eine Einstellung „neue Karten pro Tag“ gibt es nicht mehr.
 - Fortschritt exportieren und importieren (JSON-Datei), damit nichts verloren geht, wenn Browserdaten gelöscht werden. Import wahlweise **ersetzen** oder **zusammenführen**. Beim Zusammenführen gewinnt je Karte der Stand mit der neueren letzten Bewertung, die lokalen Einstellungen bleiben unverändert (Details: §10.1b). Ältere Exportdateien (mit `newPerDay`, ohne `step`) bleiben importierbar.
 
 ### 3.3 Übersicht und Statistik

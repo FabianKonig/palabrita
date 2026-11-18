@@ -6,6 +6,7 @@ import {
   type Settings as SettingsData,
 } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
+import { APP_VERSION } from "../../version";
 import { DataBackup } from "./DataBackup";
 
 const LEVELS = Object.keys(LEVEL_ORDER) as Level[];
@@ -85,6 +86,7 @@ export function Settings() {
         </label>
       </div>
       <DataBackup />
+      <p className="muted app-version">Version: {APP_VERSION}</p>
     </div>
   );
 }
