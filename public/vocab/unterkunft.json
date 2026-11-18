@@ -449,7 +449,7 @@
       "es": "El ascensor está descompuesto.",
       "de": "Der Aufzug ist kaputt."
     },
-    "note": null,
+    "note": "In Mexiko und Guatemala sagt man meist el elevador.",
     "gender": "m",
     "plural": "los ascensores"
   },
@@ -718,8 +718,7 @@
     "id": "v0261",
     "de": [
       "Föhn",
-      "Haartrockner",
-      "Wäscheständer"
+      "Haartrockner"
     ],
     "es": "el secador",
     "pos": "noun",
@@ -729,7 +728,7 @@
       "es": "El secador no funciona.",
       "de": "Der Föhn funktioniert nicht."
     },
-    "note": "Der Haarföhn; in einigen Regionen auch der Wäscheständer. Nicht verwechseln mit la secadora (Wäschetrockner).",
+    "note": "Der Haarföhn (auch secador de pelo). In Mexiko sagt man dafür oft la secadora (de pelo), die auch den Wäschetrockner bezeichnet.",
     "gender": "m",
     "plural": "los secadores"
   },
@@ -747,7 +746,7 @@
       "es": "¿Hay secadora para la ropa?",
       "de": "Gibt es einen Wäschetrockner für die Wäsche?"
     },
-    "note": "Der Wäschetrockner. Der Haarföhn heißt el secador.",
+    "note": "Der Wäschetrockner. In Mexiko auch der Föhn (la secadora de pelo); sonst heißt der Föhn el secador.",
     "gender": "f",
     "plural": "las secadoras"
   }

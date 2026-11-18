@@ -462,7 +462,8 @@
         "imperativo": {
           "3s": "haya",
           "1p": "hayamos",
-          "3p": "hayan"
+          "3p": "hayan",
+          "2s": "he"
         }
       }
     }
@@ -547,9 +548,6 @@
           "2s": "oyes",
           "3s": "oye",
           "3p": "oyen"
-        },
-        "futuro": {
-          "stem": "oir"
         },
         "imperativo": {
           "2s": "oye",
@@ -1042,7 +1040,7 @@
     "topic": "grundwortschatz",
     "example": {
       "es": "Se realizará una feria el sábado.",
-      "de": "Am Samstag findet ein Markt statt."
+      "de": "Am Samstag findet ein Jahrmarkt statt."
     },
     "note": "realizarse = stattfinden; sich erfüllen.",
     "gender": null,
@@ -1646,7 +1644,7 @@
     "level": "A2",
     "topic": "grundwortschatz",
     "example": {
-      "es": "¿Puede mover su coche, por favor?",
+      "es": "¿Puede mover su carro, por favor?",
       "de": "Können Sie bitte Ihr Auto wegfahren?"
     },
     "note": null,
@@ -1815,7 +1813,7 @@
           "3p": "sonríen"
         },
         "indefinido": {
-          "3s": "sonrio",
+          "3s": "sonrió",
           "3p": "sonrieron"
         },
         "imperativo": {
@@ -2180,7 +2178,7 @@
       "es": "Me ducho con agua caliente.",
       "de": "Ich dusche mit warmem Wasser."
     },
-    "note": null,
+    "note": "In Mexiko sagt man für „duschen“ meist bañarse.",
     "gender": null,
     "plural": null,
     "verb": {
@@ -2218,7 +2216,7 @@
       "es": "Los niños se bañan en el río.",
       "de": "Die Kinder baden im Fluss."
     },
-    "note": null,
+    "note": "In Mexiko auch: duschen (me baño = ich dusche).",
     "gender": null,
     "plural": null,
     "verb": {
@@ -2430,7 +2428,7 @@
           "stem": "pondr"
         },
         "imperativo": {
-          "2s": "ponte"
+          "2s": "pon"
         },
         "participio": "puesto"
       }
@@ -2599,12 +2597,25 @@
       "es": "Nos reunimos todos los viernes en casa de mi tía.",
       "de": "Wir treffen uns jeden Freitag bei meiner Tante."
     },
-    "note": null,
+    "note": "Betonung auf dem u: me reúno, se reúne, reúnete.",
     "gender": null,
     "plural": null,
     "verb": {
       "tags": [],
-      "reflexive": true
+      "reflexive": true,
+      "overrides": {
+        "presente": {
+          "1s": "reúno",
+          "2s": "reúnes",
+          "3s": "reúne",
+          "3p": "reúnen"
+        },
+        "imperativo": {
+          "2s": "reúne",
+          "3s": "reúna",
+          "3p": "reúnan"
+        }
+      }
     }
   },
   {
@@ -3271,7 +3282,7 @@
       "de": "Ich möchte bitte ein Glas Wasser."
     },
     "note": "Feminin, aber im Singular mit el (el agua fría); Plural: las aguas.",
-    "gender": "m",
+    "gender": "f",
     "plural": "las aguas"
   },
   {
@@ -3838,7 +3849,7 @@
     "topic": "grundwortschatz",
     "example": {
       "es": "Mi nivel de español es básico.",
-      "de": "Mein Spanischniveau ist grundlegend."
+      "de": "Mein Spanisch ist noch auf Grundniveau."
     },
     "note": null,
     "gender": "m",
@@ -4077,8 +4088,8 @@
     "level": "A1",
     "topic": "grundwortschatz",
     "example": {
-      "es": "Qué bonito está tu vestido.",
-      "de": "Wie schön dein Kleid ist."
+      "es": "¡Qué bonito está tu vestido!",
+      "de": "Wie schön dein Kleid ist!"
     },
     "note": "In Mexiko und Guatemala sehr gebräuchlich für \"schön\".",
     "gender": null,
@@ -4635,7 +4646,7 @@
       "es": "Vivo con mi familia.",
       "de": "Ich wohne mit meiner Familie."
     },
-    "note": "Mit pronomen: conmigo, contigo.",
+    "note": "Mit Pronomen: conmigo, contigo.",
     "gender": null,
     "plural": null
   },
@@ -5352,8 +5363,8 @@
     "level": "B1",
     "topic": "grundwortschatz",
     "example": {
-      "es": "No sé si llueve, pero iré de todos modos.",
-      "de": "Ich weiß nicht, ob es regnet, aber ich gehe jedenfalls hin."
+      "es": "No sé si va a llover, pero iré de todos modos.",
+      "de": "Ich weiß nicht, ob es regnen wird, aber ich gehe trotzdem hin."
     },
     "note": "Auch: de todas formas.",
     "gender": null,

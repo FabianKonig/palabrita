@@ -322,6 +322,18 @@ describe("conjugate: other verbs", () => {
     expect(c.regularity).toBe("orthographic");
   });
 
+  it("oír, reír: no written accent in the futuro", () => {
+    const oir = conjugate({ es: "oír", verb: verb() });
+    expect(forms(oir.tenses.futuro)).toBe(
+      "oiré oirás oirá oiremos oiréis oirán",
+    );
+    const reir = conjugate({ es: "sonreír", verb: verb() });
+    expect(forms(reir.tenses.futuro)).toBe(
+      "sonreiré sonreirás sonreirá sonreiremos sonreiréis sonreirán",
+    );
+    expect(reir.tenses.futuro[0].irregular).toBe(false);
+  });
+
   it("seguir (i): gu → g", () => {
     const c = conjugate({ es: "seguir", verb: verb(["i"]) });
     expect(forms(c.tenses.presente)).toBe(

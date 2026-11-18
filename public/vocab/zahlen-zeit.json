@@ -488,7 +488,7 @@
     "topic": "zahlen-zeit",
     "example": {
       "es": "Hoy hace mucho sol.",
-      "de": "Heute scheint viel Sonne."
+      "de": "Heute ist es sehr sonnig."
     },
     "note": null,
     "gender": null,
@@ -521,7 +521,7 @@
     "level": "A2",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "La temperatura es cero grados.",
+      "es": "La temperatura es de cero grados.",
       "de": "Die Temperatur beträgt null Grad."
     },
     "note": null,
