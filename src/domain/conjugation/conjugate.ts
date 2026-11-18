@@ -38,6 +38,8 @@ export interface Conjugation {
   notation: string;
   /** Bracket part of the notation, e.g. "(ie)"; empty for regular verbs. */
   annotation: string;
+  /** The single entries of the annotation, e.g. ["e → ie", "-go"]. */
+  labels: string[];
   regularity: Regularity;
   types: IrregularityType[];
   /** Six persons per tense, five for the imperative (see IMPERATIVE_PERSONS). */
@@ -430,6 +432,7 @@ export function conjugate(
     infinitive: vocab.es,
     notation,
     annotation,
+    labels,
     regularity,
     types,
     tenses,

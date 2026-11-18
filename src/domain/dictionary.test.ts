@@ -4,6 +4,7 @@ import {
   matchesQuery,
   normalizeForSearch,
   searchVocab,
+  topicOptions,
 } from "./dictionary";
 import type { Vocab } from "./types";
 
@@ -98,5 +99,37 @@ describe("searchVocab", () => {
   it("does not search words hidden by maxLevel", () => {
     const r = searchVocab(VOCAB, "A1", { ...EMPTY_FILTERS, query: "poder" });
     expect(r).toEqual([]);
+  });
+});
+
+describe("topicOptions", () => {
+  const topics = [
+    { key: "begruessung", label: "Begrüßung" },
+    { key: "essen", label: "Essen" },
+    { key: "grundwortschatz", label: "Grundwortschatz (häufigste Wörter)" },
+  ];
+
+  it("puts Grundwortschatz first, then the other topics, own words last", () => {
+    expect(topicOptions(topics).map(([key]) => key)).toEqual([
+      "grundwortschatz",
+      "begruessung",
+      "essen",
+      "eigene",
+    ]);
+  });
+
+  it("keeps the labels", () => {
+    expect(topicOptions(topics)[0]).toEqual([
+      "grundwortschatz",
+      "Grundwortschatz (häufigste Wörter)",
+    ]);
+    expect(topicOptions(topics).at(-1)).toEqual(["eigene", "Eigene Wörter"]);
+  });
+
+  it("works without a Grundwortschatz topic", () => {
+    expect(topicOptions([topics[0]]).map(([key]) => key)).toEqual([
+      "begruessung",
+      "eigene",
+    ]);
   });
 });

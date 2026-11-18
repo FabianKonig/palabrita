@@ -368,17 +368,28 @@ async function main() {
   await clickText("poder", "a");
   await waitFor(`document.querySelector(".verb")`, "Verbtabelle");
   const verb = await text();
-  check("Verb: Notation poder (ue)", /poder \(ue/.test(verb));
+  check("Verb: Notation poder (ue)", /poder \(o → ue/.test(verb));
   check(
     "Verb: Formen puedo, pude, podré",
     ["puedo", "pude", "podré"].every((f) => verb.includes(f)),
   );
 
-  // 8e. Settings are kept after a reload.
+  // 8e. Settings are kept after a reload. The direction is chosen on the Lernen tab only.
   await send("Page.navigate", { url: `${BASE}#/settings` });
   await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
+  check(
+    "Einstellungen: keine Richtungs-Auswahl mehr",
+    !(await evaluate<boolean>(
+      `!!document.querySelector('select:has(option[value="es-de"])')`,
+    )) && !/Richtung/.test(await text()),
+  );
+  check(
+    "Einstellungen: „Automatisch vorlesen“ ist ein Schalter",
+    await evaluate<boolean>(
+      `!!document.querySelector('label.switch input[type="checkbox"][role="switch"]')`,
+    ),
+  );
   await setInput(`select:has(option[value="A1"])`, "A1");
-  await setInput(`select:has(option[value="es-de"])`, "es-de");
   await sleep(400);
   await evaluate("location.reload()");
   await waitFor(
@@ -386,15 +397,10 @@ async function main() {
     "Einstellungen nach Reload",
   );
   await sleep(400);
-  const kept = await evaluate<string>(`JSON.stringify({
-    level: document.querySelector('select:has(option[value="A1"])').value,
-    dir: document.querySelector('select:has(option[value="es-de"])').value,
-  })`);
-  check(
-    "Einstellungen bleiben nach Neuladen",
-    kept === '{"level":"A1","dir":"es-de"}',
-    kept,
+  const kept = await evaluate<string>(
+    `document.querySelector('select:has(option[value="A1"])').value`,
   );
+  check("Einstellungen bleiben nach Neuladen", kept === "A1", kept);
   check(
     "Einstellungen: kein Feld „Neue pro Tag“",
     !/Neue (Karten )?pro Tag/.test(await text()) &&
@@ -415,8 +421,139 @@ async function main() {
   await send("Page.navigate", { url: `${BASE}#/settings` });
   await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
   await setInput(`select:has(option[value="A1"])`, "B1");
+  await sleep(400);
+
+  // 8e2. Lernen tab: the direction is chosen here and remembered.
+  await send("Page.navigate", { url: BASE });
+  await waitFor(
+    `document.querySelector('select:has(option[value="es-de"])')`,
+    "Richtung im Lernen-Tab",
+  );
+  check(
+    "Lernen: Richtung wählbar (3 Optionen)",
+    (await evaluate<number>(
+      `document.querySelector('select:has(option[value="es-de"])').options.length`,
+    )) === 3,
+  );
+  await setInput(`select:has(option[value="es-de"])`, "es-de");
+  await sleep(400);
+  await evaluate("location.reload()");
+  await waitFor(
+    `document.querySelector('select:has(option[value="es-de"])')`,
+    "Lernen nach Reload",
+  );
+  await sleep(400);
+  check(
+    "Lernen: Richtung bleibt nach Neuladen",
+    (await evaluate<string>(
+      `document.querySelector('select:has(option[value="es-de"])').value`,
+    )) === "es-de",
+  );
   await setInput(`select:has(option[value="es-de"])`, "both");
   await sleep(400);
+  const topicsOrder = await evaluate<string[]>(
+    `[...document.querySelectorAll(".settings-form select")[0].options].map((o) => o.textContent)`,
+  );
+  check(
+    "Lernen: Grundwortschatz steht direkt nach „Alle Themen“",
+    topicsOrder[0] === "Alle Themen" && /^Grundwortschatz/.test(topicsOrder[1]),
+    topicsOrder.slice(0, 3).join(" | "),
+  );
+  await send("Page.navigate", { url: `${BASE}#/` });
+  await waitFor(`document.querySelector(".settings-form")`, "Lernen");
+  await setInput(`.settings-form select:has(option[value="es-de"])`, "both");
+
+  // 8e3. Dictionary: sections, topic order, filters and scroll survive a detail visit
+  // and are reset when switching tabs.
+  await send("Page.navigate", { url: `${BASE}#/dictionary` });
+  await waitFor(`/Einträge/.test(document.body.innerText)`, "Verzeichnis");
+  const sections = await evaluate<string[]>(
+    `[...document.querySelectorAll(".dict-section h2")].map((h) => h.textContent)`,
+  );
+  check(
+    "Verzeichnis: Abschnitte „Neues Wort hinzufügen“ vor „Wörter“",
+    sections.join("|") === "Neues Wort hinzufügen|Wörter",
+    sections.join("|"),
+  );
+  const dictTopics = await evaluate<string[]>(
+    `[...document.querySelector('select[aria-label="Thema"]').options].map((o) => o.textContent)`,
+  );
+  check(
+    "Verzeichnis: Grundwortschatz steht direkt nach „Alle Themen“",
+    dictTopics[0] === "Alle Themen" && /^Grundwortschatz/.test(dictTopics[1]),
+    dictTopics.slice(0, 3).join(" | "),
+  );
+  check(
+    "Dropdowns haben eigenen Pfeil mit Abstand (appearance none, padding)",
+    await evaluate<boolean>(`(() => {
+      const s = getComputedStyle(document.querySelector("select.field"));
+      return s.appearance === "none" && parseFloat(s.paddingRight) >= 40
+        && s.backgroundImage.startsWith("url(");
+    })()`),
+  );
+  await setInput('select[aria-label="Niveau"]', "A1");
+  await setInput('input[type="search"]', "a");
+  await sleep(300);
+  await evaluate("window.scrollTo(0, 1500)");
+  await sleep(300);
+  const clicked = await evaluate<string>(`(() => {
+    const a = [...document.querySelectorAll(".vocab-list a")]
+      .find((e) => e.getBoundingClientRect().top > 100);
+    const es = a.querySelector(".es").textContent;
+    a.click();
+    return es;
+  })()`);
+  await waitFor(`location.hash.startsWith("#/dictionary/")`, "Detailseite");
+  await send("Runtime.evaluate", { expression: "history.back()" });
+  await waitFor(`document.querySelector(".vocab-list")`, "Zurück zur Liste");
+  await sleep(400);
+  const backJson = await evaluate<string>(`JSON.stringify({
+    q: document.querySelector('input[type="search"]').value,
+    level: document.querySelector('select[aria-label="Niveau"]').value,
+    y: Math.round(window.scrollY),
+  })`);
+  const backState = JSON.parse(backJson) as {
+    q: string;
+    level: string;
+    y: number;
+  };
+  check(
+    "Verzeichnis: Suche und Filter bleiben nach Detailansicht und Zurück",
+    backState.q === "a" && backState.level === "A1",
+    backJson,
+  );
+  check(
+    "Verzeichnis: Scrollposition bleibt nach Detailansicht und Zurück",
+    Math.abs(backState.y - 1500) < 5,
+    `${backState.y} (angeklickt: ${clicked})`,
+  );
+  await send("Page.navigate", { url: `${BASE}#/stats` });
+  await waitFor(`/Statistik/.test(document.body.innerText)`, "Statistik");
+  await clickText("Verzeichnis", "a");
+  await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis neu");
+  await sleep(300);
+  const reset = await evaluate<string>(`JSON.stringify({
+    q: document.querySelector('input[type="search"]').value,
+    level: document.querySelector('select[aria-label="Niveau"]').value,
+    y: Math.round(window.scrollY),
+  })`);
+  check(
+    "Verzeichnis: Tabwechsel setzt Suche, Filter und Scrollposition zurück",
+    reset === '{"q":"","level":"","y":0}',
+    reset,
+  );
+  check(
+    "Dunkelmodus: grauer Hintergrund statt fast Schwarz",
+    await evaluate<boolean>(`(() => {
+      const root = document.documentElement;
+      const before = root.dataset.theme;
+      root.dataset.theme = "dark";
+      const [r, g, b] = getComputedStyle(document.body).backgroundColor
+        .match(/\\d+/g).map(Number);
+      if (before === undefined) delete root.dataset.theme; else root.dataset.theme = before;
+      return Math.max(r, g, b) > 30;
+    })()`),
+  );
 
   // 8f. Real lookup on de.wiktionary.org (needs network).
   await send("Page.navigate", { url: `${BASE}#/add` });
@@ -458,10 +595,7 @@ async function main() {
   // 8h. Verb overlay (check 2): "Konjugation" only after revealing, Escape closes,
   // the session stays on the same card.
   await startSession(async () => {
-    await evaluate(`(() => {
-      const box = [...document.querySelectorAll('input[type="checkbox"]')][0];
-      box.click();
-    })()`);
+    await setInput(`select:has(option[value="verb"])`, "verb");
   });
   const verbCard = await frontWord();
   const conjBefore = await evaluate<boolean>(
@@ -503,7 +637,7 @@ async function main() {
       dialogClosed &&
       frontBeforeEscape !== "" &&
       frontNow === frontBeforeEscape &&
-      /^#\/?$/.test(hashNow),
+      /^(#\/?)?$/.test(hashNow),
     JSON.stringify({
       conjBefore,
       dialogOpen,

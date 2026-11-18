@@ -2,7 +2,6 @@ import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GermanText } from "../../components/Flashcard";
 import {
-  EMPTY_FILTERS,
   POS_LABEL,
   topicOptions,
   searchVocab,
@@ -10,20 +9,16 @@ import {
 } from "../../domain/dictionary";
 import { LEVEL_ORDER, type Level, type Pos } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
+import {
+  getSavedFilters,
+  getSavedScroll,
+  saveFilters,
+  saveScroll,
+} from "./viewState";
 
 const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
   (a, b) => LEVEL_ORDER[a] - LEVEL_ORDER[b],
 );
-
-/** Kept while the user stays in the dictionary area, so filters survive a visit to a detail page. */
-let savedFilters: DictionaryFilters = EMPTY_FILTERS;
-let savedScroll = 0;
-
-/** Called when the user switches to another tab: the next visit starts unfiltered. */
-export function resetDictionaryFilters() {
-  savedFilters = EMPTY_FILTERS;
-  savedScroll = 0;
-}
 
 export function Dictionary() {
   const { vocab, topics, settings } = useAppData();
@@ -31,17 +26,17 @@ export function Dictionary() {
 
   // Back from a detail page: return to the scroll position of the list.
   useLayoutEffect(() => {
-    window.scrollTo(0, savedScroll);
+    window.scrollTo(0, getSavedScroll());
   }, []);
   useEffect(() => {
     const onScroll = () => {
-      savedScroll = window.scrollY;
+      saveScroll(window.scrollY);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const [newWord, setNewWord] = useState("");
-  const [filters, setFilters] = useState<DictionaryFilters>(savedFilters);
+  const [filters, setFilters] = useState<DictionaryFilters>(getSavedFilters);
 
   const results = useMemo(
     () => searchVocab(vocab.values(), settings.maxLevel, filters),
@@ -53,8 +48,9 @@ export function Dictionary() {
     value: DictionaryFilters[K],
   ) =>
     setFilters((f) => {
-      savedFilters = { ...f, [key]: value };
-      return savedFilters;
+      const next = { ...f, [key]: value };
+      saveFilters(next);
+      return next;
     });
 
   const topicChoices = topicOptions(topics);

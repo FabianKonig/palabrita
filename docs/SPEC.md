@@ -219,7 +219,7 @@ Zusätzlich gilt für jedes Verb:
 | Styling | Plain CSS mit CSS-Variablen (`src/styles/`), kein UI-Framework. Hell/Dunkel via `prefers-color-scheme` und `data-theme` |
 | Speicher | IndexedDB über `idb` |
 | PWA | `vite-plugin-pwa`, `registerType: 'prompt'` |
-| Tests | Vitest für reine Logik (`srs`, `conjugation`, `day`, `queue`) und für `data/` (`cardRepo`, `exportImport`) mit `fake-indexeddb`. Keine UI-Tests. Zusätzlich ein Browser-Smoke-Test (`scripts/browser-smoke.ts`). |
+| Tests | Vitest für reine Logik (`srs`, `conjugation`, `day`, `queue`) und für `data/` (`cardRepo`, `exportImport`) mit `fake-indexeddb`. Keine Komponenten-Tests; UI-Verhalten (Verzeichnis-Filter und Scrollposition, Schalter, Dropdowns, Richtung im Lernen-Tab) liegt in `features/dictionary/viewState` (Vitest) und im Browser-Smoke-Test (`scripts/browser-smoke.ts`). `src/styles/global.test.ts` schützt Dunkelmodus-Kontrast, Dropdown-Pfeil und Schalter, `features/legend/notations.test.ts` stellt sicher, dass die Legende jede erzeugte Notation erklärt. |
 | Dev-Tools | `tsx` (führt `scripts/validate-vocab.ts` aus), `ajv` (JSON-Schema-Validierung der Vokabeln) |
 | Lint | ESLint + `typescript-eslint` Defaults, Prettier Defaults |
 | Node | 24.x |

@@ -11,10 +11,8 @@ import { TabBar } from "./components/TabBar";
 import { UpdateBanner } from "./components/UpdateBanner";
 import { Add } from "./features/add/Add";
 import { EditWord } from "./features/add/EditWord";
-import {
-  Dictionary,
-  resetDictionaryFilters,
-} from "./features/dictionary/Dictionary";
+import { Dictionary } from "./features/dictionary/Dictionary";
+import { onNavigate } from "./features/dictionary/viewState";
 import { VocabDetail } from "./features/dictionary/VocabDetail";
 import { Legend } from "./features/legend/Legend";
 import { More } from "./features/more/More";
@@ -23,13 +21,10 @@ import { Stats } from "./features/stats/Stats";
 import { Study } from "./features/study/Study";
 import { AppDataProvider } from "./hooks/useAppData";
 
-/** Pages reached from the dictionary; going anywhere else resets its filters. */
-const DICTIONARY_AREA = /^\/(dictionary|add|legend)(\/|$)/;
-
 function Layout() {
   const { pathname } = useLocation();
   useEffect(() => {
-    if (!DICTIONARY_AREA.test(pathname)) resetDictionaryFilters();
+    onNavigate(pathname);
   }, [pathname]);
   return (
     <div className="app">

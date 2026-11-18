@@ -587,3 +587,90 @@ describe("accent helpers", () => {
     expect(attachClitic("vestid", "os", 1)).toBe("vestíos");
   });
 });
+
+describe("conjugate: textbook notation (annotation labels)", () => {
+  const labels = (
+    es: string,
+    tags: VerbData["tags"] = [],
+    overrides?: VerbData["overrides"],
+  ) => conjugate({ es, verb: verb(tags, overrides) }).labels;
+
+  it("writes stem changes as vowel arrows, not as bare tags", () => {
+    expect(labels("querer", ["ie"])).toEqual(["e → ie"]);
+    expect(labels("poder", ["ue"])).toEqual(["o → ue"]);
+    expect(labels("jugar", ["ue"])).toEqual(["u → ue", "g → gu"]);
+    expect(labels("pedir", ["i"])).toEqual(["e → i"]);
+    expect(labels("sentir", ["ie-i"])).toEqual(["e → ie, e → i"]);
+    expect(labels("dormir", ["ue-u"])).toEqual(["o → ue, o → u"]);
+  });
+
+  it("writes yo-form irregularities with a leading hyphen", () => {
+    expect(labels("hacer", ["go"])).toEqual(["-go"]);
+    expect(labels("conocer", ["zco"])).toEqual(["-zco"]);
+    expect(labels("dar", ["oy"])).toEqual(["-oy"]);
+  });
+
+  it("writes -uir verbs as i → y", () => {
+    expect(labels("construir", ["y"])).toEqual(["i → y"]);
+  });
+
+  it("marks irregular pretérito and futuro stems", () => {
+    expect(labels("saber", [], { indefinido: { "1s": "supe" } })).toEqual([
+      "Pretérito irr.",
+    ]);
+    expect(labels("caber", [], { futuro: { stem: "cabr" } })).toEqual([
+      "Futuro irr.",
+    ]);
+    expect(
+      labels("poner", ["go"], {
+        indefinido: { "1s": "puse" },
+        futuro: { stem: "pondr" },
+      }),
+    ).toEqual(["-go", "Pretérito/Futuro irr."]);
+  });
+
+  it("does not add pretérito/futuro labels to verbs already marked irr.", () => {
+    expect(labels("ser", ["irr"], { indefinido: { "1s": "fui" } })).toEqual([
+      "irr.",
+    ]);
+  });
+
+  it("tener: all its irregularities appear in the notation, not only (go)", () => {
+    const c = conjugate({
+      es: "tener",
+      verb: verb(["go", "ie"], {
+        indefinido: {
+          "1s": "tuve",
+          "2s": "tuviste",
+          "3s": "tuvo",
+          "1p": "tuvimos",
+          "2p": "tuvisteis",
+          "3p": "tuvieron",
+        },
+        futuro: { stem: "tendr" },
+      }),
+    });
+    expect(c.labels).toEqual(["e → ie", "-go", "Pretérito/Futuro irr."]);
+    expect(c.notation).toBe("tener (e → ie, -go, Pretérito/Futuro irr.)");
+    const presente = c.tenses.presente.map((f) => f.form);
+    expect(presente).toEqual([
+      "tengo",
+      "tienes",
+      "tiene",
+      "tenemos",
+      "tenéis",
+      "tienen",
+    ]);
+  });
+
+  it("orders labels: vowel change, yo form, spelling", () => {
+    expect(labels("empezar", ["ie"])).toEqual(["e → ie", "z → c"]);
+    expect(labels("seguir", ["i"])).toEqual(["e → i", "gu → g"]);
+  });
+
+  it("regular verbs have no labels and an empty annotation", () => {
+    const c = conjugate({ es: "hablar", verb: verb() });
+    expect(c.labels).toEqual([]);
+    expect(c.annotation).toBe("");
+  });
+});
