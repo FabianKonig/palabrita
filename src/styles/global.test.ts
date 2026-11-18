@@ -88,3 +88,35 @@ describe("form controls", () => {
     expect(css).toMatch(/\.switch input::after \{/);
   });
 });
+
+describe("dictionary list tiles", () => {
+  /** Body of the first rule whose selector is exactly `selector`. */
+  const ruleBody = (selector: string) => {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\>]/g, "\\$&");
+    return new RegExp(`(?:^|\\s)${escaped} \\{([^}]*)\\}`).exec(css);
+  };
+
+  it("stacks spanish, german and level, so the german text gets the full width", () => {
+    const tile = ruleBody(".vocab-list > li > a");
+    expect(tile?.[1]).toMatch(/flex-direction:\s*column/);
+    expect(tile?.[1]).toMatch(/align-items:\s*flex-start/);
+  });
+
+  it("does not let the spanish text squeeze the german text into a narrow column", () => {
+    // A side-by-side row with a growing german column broke the german text
+    // into 2-3 characters per line. Only the stacked layout is allowed.
+    expect(ruleBody(".vocab-list .de")?.[1]).not.toMatch(/flex:\s*1\b/);
+    expect(ruleBody(".vocab-list a")).toBeNull();
+    expect(css).not.toMatch(/\.vocab-list \.de \{[^}]*min-width:\s*0/);
+  });
+
+  it("overrides the generic link-list alignment (same specificity, later in the file)", () => {
+    const generic = css.indexOf(".link-list > li > a,");
+    const tile = css.indexOf(".vocab-list > li > a {");
+    expect(generic).toBeGreaterThan(-1);
+    expect(tile).toBeGreaterThan(generic);
+    // The generic rule is a selector list (a, span); its block follows the list.
+    const genericBlock = /\{([^}]*)\}/.exec(css.slice(generic))?.[1] ?? "";
+    expect(genericBlock).toMatch(/align-items:\s*center/);
+  });
+});

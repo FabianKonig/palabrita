@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { VerbDetail, WordHead } from "../../components/VerbDetail";
 import { POS_LABEL } from "../../domain/dictionary";
@@ -13,6 +13,13 @@ export function VocabDetail() {
   const navigate = useNavigate();
   const [confirmDelete, setConfirmDelete] = useState(false);
   const entry = vocab.get(id);
+
+  // A new detail page always starts at the top. The window keeps the list's scroll
+  // position across the route change, so without this a long verb opened from the
+  // bottom of the list would show its end. Going back restores the list (Dictionary).
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   if (!entry || !isVisible(entry, settings.maxLevel)) {
     return (

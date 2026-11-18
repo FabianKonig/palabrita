@@ -555,6 +555,61 @@ async function main() {
     })()`),
   );
 
+  // 8e4. Tiles: the German text gets the full tile width, not a narrow column
+  // (regression: spanish and german side by side broke the german into 2-3 characters per line).
+  await setInput('input[type="search"]', "construy");
+  await sleep(300);
+  const tile = await evaluate<string>(`(() => {
+    const a = document.querySelector(".vocab-list a");
+    if (!a) return "";
+    const w = (el) => el.getBoundingClientRect().width;
+    return JSON.stringify({
+      tile: Math.round(w(a)),
+      de: Math.round(w(a.querySelector(".de"))),
+      es: a.querySelector(".es").textContent,
+    });
+  })()`);
+  const tileInfo = tile
+    ? (JSON.parse(tile) as { tile: number; de: number; es: string })
+    : null;
+  check(
+    "Verzeichnis: deutsche Übersetzung nimmt volle Kachelbreite ein",
+    !!tileInfo && tileInfo.de >= tileInfo.tile * 0.8,
+    tile || "keine Kachel",
+  );
+
+  // 8e5. A detail page opened from the bottom of a long list starts at the top.
+  // (Regression: the window kept the list's scroll position, so a long verb opened at its end.)
+  await setInput('input[type="search"]', "");
+  await setInput('select[aria-label="Wortart"]', "verb");
+  await sleep(300);
+  await evaluate("window.scrollTo(0, document.documentElement.scrollHeight)");
+  await sleep(300);
+  const listY = Math.round(await evaluate<number>("window.scrollY"));
+  await evaluate(`(() => {
+    const links = document.querySelectorAll(".vocab-list a");
+    links[links.length - 1].click();
+  })()`);
+  await waitFor(
+    `location.hash.startsWith("#/dictionary/")`,
+    "Verb-Detailseite",
+  );
+  await sleep(400);
+  const detail = JSON.parse(
+    await evaluate<string>(`JSON.stringify({
+      y: Math.round(window.scrollY),
+      scrollable: document.documentElement.scrollHeight - window.innerHeight,
+    })`),
+  ) as { y: number; scrollable: number };
+  check(
+    "Detailansicht startet oben, auch wenn die Liste unten angeklickt wurde",
+    listY > 0 && detail.scrollable > 200 && detail.y === 0,
+    `Liste y=${listY}, Detail y=${detail.y}, scrollbar ${detail.scrollable}px`,
+  );
+  await setInput('select[aria-label="Wortart"]', "");
+  await send("Page.navigate", { url: `${BASE}#/dictionary` });
+  await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
+
   // 8f. Real lookup on de.wiktionary.org (needs network).
   await send("Page.navigate", { url: `${BASE}#/add` });
   await waitFor(
