@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { SpeakerIcon } from "../../components/icons";
 import { Flashcard } from "../../components/Flashcard";
 import { VerbOverlay } from "../../components/VerbOverlay";
@@ -140,9 +139,13 @@ function StudySession({
           >
             Weiterlernen
           </button>
-          <Link className="btn btn-block secondary" to="/">
-            Zur Startseite
-          </Link>
+          <button
+            type="button"
+            className="btn btn-block secondary"
+            onClick={onBack}
+          >
+            Neue Auswahl
+          </button>
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
-import { BookIcon, CardsIcon, ChartIcon, HomeIcon, MoreIcon } from "./icons";
+import { BookIcon, CardsIcon, ChartIcon, MoreIcon } from "./icons";
 
 interface Tab {
   to: string;
@@ -11,8 +11,7 @@ interface Tab {
 }
 
 const TABS: Tab[] = [
-  { to: "/", label: "Start", icon: <HomeIcon />, enabled: true },
-  { to: "/study", label: "Lernen", icon: <CardsIcon />, enabled: true },
+  { to: "/", label: "Lernen", icon: <CardsIcon />, enabled: true },
   {
     to: "/dictionary",
     label: "Verzeichnis",

@@ -89,7 +89,7 @@ const toItem = (card: Card): QueueItem => ({
   card,
 });
 
-/** Shared visibility and filter logic for pickNext and queueCounts. */
+/** Visibility and filter logic for pickNext. */
 function scope(input: QueueInput) {
   const filters = input.filters ?? {};
   const dirs = allowedDirections(filters.direction ?? input.settings.direction);
@@ -118,19 +118,6 @@ function newPairs(
     }
   }
   return pairs;
-}
-
-/** Counts for the home screen: due (stage 1 and 2) and new cards available (not capped). */
-export function queueCounts(input: QueueInput): {
-  due: number;
-  fresh: number;
-} {
-  const { visible, dirs, cards } = scope(input);
-  const limit = nextDayStart(input.now);
-  const due = cards.filter((c) =>
-    c.step !== undefined ? c.due <= input.now : c.due < limit,
-  ).length;
-  return { due, fresh: newPairs(visible, dirs, input.cards).length };
 }
 
 /**

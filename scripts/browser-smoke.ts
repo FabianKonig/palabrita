@@ -159,7 +159,7 @@ const frontWord = () =>
   );
 
 async function startSession(setup?: () => Promise<void>) {
-  await send("Page.navigate", { url: `${BASE}#/study` });
+  await send("Page.navigate", { url: BASE });
   await waitFor(
     `[...document.querySelectorAll("button")].some(b => b.textContent.trim() === "Starten")`,
     "Starten",
@@ -205,24 +205,19 @@ async function main() {
       Date.now = () => realNow() + window.__timeOffset;`,
   });
 
-  // 1. Home loads vocabulary and settings.
+  // 1. The Lernen screen (start page) loads vocabulary and settings.
   await send("Page.navigate", { url: BASE });
   check(
-    "Startseite lädt",
+    "Lernen-Seite lädt",
     await waitFor(
-      `document.querySelector("h1")?.textContent === "Palabrita"`,
+      `document.querySelector("h1")?.textContent === "Lernen"`,
       "h1",
     ),
   );
-  await waitFor(
-    `document.querySelector(".stats-line")?.textContent.includes("Fällig")`,
-    "stats-line",
-  );
   const home = await text();
   check(
-    "Startseite zeigt alle 1000 neuen Karten (kein Tageslimit)",
-    /Neu verfügbar: 1000/.test(home),
-    home.match(/Fällig[^\n]*/)?.[0],
+    "Lernen-Seite ohne Zähler und Serie",
+    !/Fällig|Neu verfügbar|Serie/.test(home),
   );
 
   // 2. Dictionary shows all 800 words.
@@ -282,17 +277,9 @@ async function main() {
   await send("Page.navigate", { url: BASE });
   await evaluate("location.reload()");
   await waitFor(
-    `document.querySelector(".stats-line")?.textContent.includes("Fällig")`,
-    "stats-line",
+    `[...document.querySelectorAll("button")].some(b => b.textContent.trim() === "Starten")`,
+    "Starten nach Neuladen",
   );
-  await sleep(500);
-  const afterReload = await text();
-  check(
-    "Fortschritt nach Neuladen: 997 neue Karten verfügbar",
-    /Neu verfügbar: 997/.test(afterReload),
-    afterReload.match(/Fällig[^\n]*/)?.[0],
-  );
-  check("Serie nach Lernen = 1 Tag", /Serie: 1 Tag/.test(afterReload));
 
   // 6. Settings: dark theme is applied.
   await send("Page.navigate", { url: `${BASE}#/settings` });
@@ -514,7 +501,7 @@ async function main() {
       dialogClosed &&
       frontBeforeEscape !== "" &&
       frontNow === frontBeforeEscape &&
-      /^#\/study/.test(hashNow),
+      /^#\/?$/.test(hashNow),
     JSON.stringify({
       conjBefore,
       dialogOpen,

@@ -47,14 +47,14 @@ Reihenfolge einhalten. Jeder Task ist einzeln lauffähig und committbar. Abhaken
 |---|---|
 | `src/domain/types.ts` | `Grade` nur `again`/`good`, `Card.step?`, `Settings.newPerDay` und Default entfernen |
 | `src/domain/srs.ts` | Lernmodell, `previewIntervals`, `formatInterval` (Minuten) |
-| `src/domain/queue.ts` | `pickNext`, `queueCounts`, `MAX_LEARNING`; altes `buildQueue` und `newPerDay`-Logik entfernen |
+| `src/domain/queue.ts` | `pickNext`, `MAX_LEARNING`; altes `buildQueue` und `newPerDay`-Logik entfernen |
 | `src/features/study/Study.tsx` | dynamische Sitzung, Umdrehen, „Beenden“, Zusammenfassung |
 | `src/components/Flashcard.tsx` | `onToggle`, Hinweis auf beiden Seiten |
 | `src/components/VerbDetail.tsx` (neu) | gemeinsame Verbansicht (Kopf + `VerbTable`) |
 | `src/components/VerbOverlay.tsx` (neu) | Dialog/Bottom-Sheet um `VerbDetail` (Fokusfalle, Escape, History-Eintrag) |
 | `src/features/study/StudySetup.tsx`, `src/features/legend/Legend.tsx` | Texte anpassen |
 | `src/features/dictionary/VocabDetail.tsx` | nutzt `VerbDetail` |
-| `src/features/home/Home.tsx`, `src/features/settings/Settings.tsx`, `src/data/exportImport.ts` | siehe T19 |
+| `src/features/settings/Settings.tsx`, `src/data/exportImport.ts` | siehe T19 (`Home.tsx` ist entfernt, die Lernen-Seite ist die Startseite) |
 | `src/data/cardRepo.ts` | `saveReview` unverändert nutzbar; `reviewed` zählt jede gespeicherte Bewertung. „Gewusst“ bei Vorab-Wiederholung wird gar nicht gespeichert (`review()` gibt die Karte unverändert zurück, Aufrufer überspringt `saveReview`) |
 
 ## Tests und Abnahme

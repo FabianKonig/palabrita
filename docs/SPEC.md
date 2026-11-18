@@ -55,7 +55,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 - Fortschritt exportieren und importieren (JSON-Datei), damit nichts verloren geht, wenn Browserdaten gelöscht werden. Import wahlweise **ersetzen** oder **zusammenführen**. Beim Zusammenführen gewinnt je Karte der Stand mit der neueren letzten Bewertung, die lokalen Einstellungen bleiben unverändert (Details: §10.1b). Ältere Exportdateien (mit `newPerDay`, ohne `step`) bleiben importierbar.
 
 ### 3.3 Übersicht und Statistik
-- Startseite: **„Fällig: X · Neu verfügbar: Y · Serie: N Tage“** (Streak in Tagen). X = fällige Karten (Lernkarten zählen nur, wenn schon fällig). Y = Anzahl noch nie gelernter, sichtbarer Karten, nicht gedeckelt. Der Button „Lernen“ bleibt auch bei X = 0 aktiv.
+- Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie. Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung) und den Button „Starten“. Ohne Auswahl startet eine Sitzung über alle Themen.
 - Statistik: gelernte Karten, Verteilung nach Reifegrad (neu, lernend, gefestigt), je Kartenrichtung und nur für das eingestellte Niveau.
 - Durchsuchbares **Vokabelverzeichnis** mit Detailansicht inkl. aller Zusatzinfos.
 
@@ -258,7 +258,7 @@ src/
     settingsRepo.ts  cardRepo.ts  statsRepo.ts
     exportImport.ts
   features/
-    study/  dictionary/  add/  stats/  settings/  home/  legend/  more/
+    study/  dictionary/  add/  stats/  settings/  legend/  more/
   components/               # Flashcard, Speaker, VerbTable, UpdateBanner, ...
   hooks/                    # useSpeech, useSettings, ...
   styles/
@@ -410,8 +410,6 @@ Die Karte, die gerade bewertet wurde (`lastShown`), wird nie sofort wieder gewä
 
 `daily.newIntroduced` wird erhöht, wenn eine neue Karte **zum ersten Mal bewertet** (und damit angelegt) wird, nicht beim Anzeigen.
 
-**Startseitenzähler** (`queueCounts`): X (fällig) = Karten aus Stufe 1 und 2, Y (neu verfügbar) = noch nie gelernte sichtbare Karten im Gesamtvorrat. Beide nutzen dieselbe Sichtbarkeits- und Filterlogik wie `pickNext` (gemeinsame Hilfsfunktion).
-
 ### 12.2 Durchlauf („alles durch, dann von vorn“)
 
 Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Karten übrig), wird **vorzeitig wiederholt**:
@@ -428,11 +426,11 @@ Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Kar
 
 ## 14. Routing und Screens
 
-HashRouter. Routen: `/` Start, `/study` Sitzung, `/dictionary`, `/dictionary/:id`, `/add` (eigenes Wort nachschlagen und hinzufügen, optional `?q=<wort>`), `/stats`, `/settings`, `/legend`, `/more`. „Mehr“ in der Tab-Leiste führt zu Einstellungen und Legende.
+HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/study` leitet auf `/` um, `/dictionary`, `/dictionary/:id`, `/add` (eigenes Wort nachschlagen und hinzufügen, optional `?q=<wort>`), `/stats`, `/settings`, `/legend`, `/more`. „Mehr“ in der Tab-Leiste führt zu Einstellungen und Legende.
 
 **Darstellung mehrerer Übersetzungen:** Überall, wo die deutsche Seite erscheint (Karte, Verzeichnis, Detailansicht), werden alle `de`-Einträge mit „ · “ getrennt angezeigt, das erste hervorgehoben. Die Verzeichnissuche durchsucht alle `de`-Einträge und `es`. Die Einstellungen werden beim ersten Start mit Defaults angelegt.
 
-Layout: mobile-first, untere Tab-Leiste (Start, Lernen, Verzeichnis, Statistik, Mehr). Touch-Ziele ≥ 48 px.
+Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). Touch-Ziele ≥ 48 px.
 
 ### 14.1 Lernsitzung (`features/study/Study.tsx`)
 
@@ -456,7 +454,7 @@ Layout: mobile-first, untere Tab-Leiste (Start, Lernen, Verzeichnis, Statistik, 
 - Bewertungsbuttons „Nochmal“ und „Gewusst“ mit Vorschau des Wiedersehens (`previewIntervals`).
 - Wer später wieder lernt, bekommt zuerst, was fällig ist (auch Minuten-Karten, die inzwischen überfällig sind), dann neue Wörter, dann Wiederholung des Restes (§12).
 - Der Fortschrittsbalken „3 / 12“ entfällt (es gibt kein Ende). Stattdessen oben eine Zeile „Bewertet: N“ (Zähler dieser Sitzung).
-- **Zusammenfassung** („Sitzung beendet“): Anzahl bewerteter Karten, davon „Nochmal“ (eine Lerndauer gibt es nicht, entschieden), sowie die Buttons „Weiterlernen“ (frische Sitzung mit denselben Filtern) und „Zur Startseite“. Die Texte „Fertig für heute“ und „Heute ist nichts fällig“ entfallen.
+- **Zusammenfassung** („Sitzung beendet“): Anzahl bewerteter Karten, davon „Nochmal“ (eine Lerndauer gibt es nicht, entschieden), sowie die Buttons „Weiterlernen“ (frische Sitzung mit denselben Filtern) und „Neue Auswahl“ (zurück zur Filterauswahl, Filter zurückgesetzt). Die Texte „Fertig für heute“ und „Heute ist nichts fällig“ entfallen.
 
 ## 15. PWA
 

@@ -5,7 +5,6 @@ import { Add } from "./features/add/Add";
 import { EditWord } from "./features/add/EditWord";
 import { Dictionary } from "./features/dictionary/Dictionary";
 import { VocabDetail } from "./features/dictionary/VocabDetail";
-import { Home } from "./features/home/Home";
 import { Legend } from "./features/legend/Legend";
 import { More } from "./features/more/More";
 import { Settings } from "./features/settings/Settings";
@@ -31,8 +30,9 @@ export function App() {
       <AppDataProvider>
         <Routes>
           <Route element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="study" element={<Study />} />
+            <Route index element={<Study />} />
+            {/* Old link of the former separate Lernen tab. */}
+            <Route path="study" element={<Navigate to="/" replace />} />
             <Route path="dictionary" element={<Dictionary />} />
             <Route path="dictionary/:id" element={<VocabDetail />} />
             <Route path="legend" element={<Legend />} />

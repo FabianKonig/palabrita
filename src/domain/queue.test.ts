@@ -1,12 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { startOfDay } from "./day";
-import {
-  cardKey,
-  MAX_LEARNING,
-  pickNext,
-  queueCounts,
-  type PickInput,
-} from "./queue";
+import { cardKey, MAX_LEARNING, pickNext, type PickInput } from "./queue";
 import { newCard, review } from "./srs";
 import type { Card, Settings, Vocab } from "./types";
 import { DEFAULT_SETTINGS } from "./types";
@@ -111,7 +105,6 @@ describe("pickNext priorities", () => {
     ];
     const s = settings({ direction: "de-es" });
     expect(id(pick({ vocab: v, cards, settings: s }))).toBe("v002:de-es");
-    expect(queueCounts({ vocab: v, cards, settings: s, now: NOW }).due).toBe(1);
   });
 
   it("a learning card after 5 min comes before new cards", () => {
@@ -341,14 +334,6 @@ describe("visibility and filters", () => {
       settings: settings({ maxLevel: "A1", direction: "de-es" }),
     });
     expect(id(a)).toBe("v1:de-es");
-    expect(
-      queueCounts({
-        vocab: v,
-        cards: [],
-        now: NOW,
-        settings: settings({ maxLevel: "A1", direction: "de-es" }),
-      }).fresh,
-    ).toBe(1);
   });
 
   it("ignores cards of hidden vocab, hidden directions and unknown ids", () => {
@@ -359,7 +344,6 @@ describe("visibility and filters", () => {
       card("v2", "es-de", 0),
       card("gone", "de-es", 0),
     ];
-    expect(queueCounts({ vocab: v, cards, now: NOW, settings: s }).due).toBe(0);
     expect(id(pick({ vocab: v, cards, settings: s }))).toBe("v2:de-es");
   });
 
@@ -394,24 +378,5 @@ describe("visibility and filters", () => {
     expect(id(pick({ vocab: v, settings: s, filters: { pos: "noun" } }))).toBe(
       "v1:de-es",
     );
-  });
-});
-
-describe("queueCounts", () => {
-  it("counts due learning cards, due reviews and uncapped new cards", () => {
-    const v = many(30);
-    const cards = [
-      learning("v001", "de-es", NOW - MIN), // due
-      learning("v002", "de-es", NOW + 20 * MIN), // waiting, not counted
-      card("v003", "de-es", startOfDay("2026-01-15")), // due
-      card("v004", "de-es", TOMORROW_4), // not due
-    ];
-    const c = queueCounts({
-      vocab: v,
-      cards,
-      now: NOW,
-      settings: settings({ direction: "de-es" }),
-    });
-    expect(c).toEqual({ due: 2, fresh: 26 });
   });
 });
