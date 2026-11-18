@@ -527,6 +527,51 @@ async function main() {
     Math.abs(backState.y - 1500) < 5,
     `${backState.y} (angeklickt: ${clicked})`,
   );
+
+  // Leaving a detail page by the tab „Verzeichnis“ or the „← Verzeichnis“ link works like
+  // the back button: the list keeps its scroll position, search and filters. The race
+  // behind a reset to 0 hits most visits, so each path is repeated to make a miss unlikely.
+  const leaveDetail: [string, () => Promise<boolean>][] = [
+    ["Tab", () => clickText("Verzeichnis", ".tabbar a")],
+    ["← Verzeichnis", () => clickText("← Verzeichnis", ".screen a.back")],
+  ];
+  for (const [label, leave] of leaveDetail) {
+    const rounds: string[] = [];
+    for (let round = 0; round < 5; round++) {
+      await evaluate("window.scrollTo(0, 1500)");
+      await sleep(300);
+      await evaluate(`(() => {
+        const a = [...document.querySelectorAll(".vocab-list a")]
+          .find((e) => e.getBoundingClientRect().top > 100);
+        a.click();
+      })()`);
+      await waitFor(`location.hash.startsWith("#/dictionary/")`, "Detailseite");
+      await sleep(300);
+      await leave();
+      await waitFor(
+        `location.hash === "#/dictionary" && document.querySelector(".vocab-list")`,
+        "Verzeichnis nach Detailansicht",
+      );
+      await sleep(400);
+      rounds.push(
+        await evaluate<string>(`JSON.stringify({
+          q: document.querySelector('input[type="search"]').value,
+          level: document.querySelector('select[aria-label="Niveau"]').value,
+          y: Math.round(window.scrollY),
+        })`),
+      );
+    }
+    const ok = rounds.every((r) => {
+      const s = JSON.parse(r) as { q: string; level: string; y: number };
+      return Math.abs(s.y - 1500) < 5 && s.q === "a" && s.level === "A1";
+    });
+    check(
+      `Verzeichnis: ${label} aus der Detailansicht startet an gleicher Stelle wie Zurück`,
+      ok,
+      rounds.join(" | "),
+    );
+  }
+
   await send("Page.navigate", { url: `${BASE}#/stats` });
   await waitFor(`/Statistik/.test(document.body.innerText)`, "Statistik");
   await clickText("Verzeichnis", "a");

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GermanText } from "../../components/Flashcard";
 import {
@@ -24,11 +24,15 @@ export function Dictionary() {
   const { vocab, topics, settings } = useAppData();
   const navigate = useNavigate();
 
-  // Back from a detail page: return to the scroll position of the list.
+  // Back from a detail page (back button or the tab/link „Verzeichnis“): return to the
+  // scroll position of the list.
   useLayoutEffect(() => {
     window.scrollTo(0, getSavedScroll());
   }, []);
-  useEffect(() => {
+  // Layout effect on purpose: its cleanup runs synchronously when the list unmounts, before
+  // the detail page scrolls to the top. With a passive effect the scroll event of that
+  // reset could still be recorded here as position 0 (race, seen in ~70 % of the visits).
+  useLayoutEffect(() => {
     const onScroll = () => {
       saveScroll(window.scrollY);
     };
