@@ -1,0 +1,658 @@
+[
+  {
+    "id": "v0019",
+    "de": [
+      "Pyramide"
+    ],
+    "es": "la pirámide",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Subimos a la pirámide de Chichén Itzá.",
+      "de": "Wir steigen auf die Pyramide von Chichén Itzá."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las pirámides"
+  },
+  {
+    "id": "v0020",
+    "de": [
+      "Mais"
+    ],
+    "es": "el maíz",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Para los mayas, el maíz era sagrado.",
+      "de": "Für die Maya war der Mais heilig."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los maíces"
+  },
+  {
+    "id": "v0526",
+    "de": [
+      "Geschichte"
+    ],
+    "es": "la historia",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "Me gusta la historia de los mayas.",
+      "de": "Ich mag die Geschichte der Maya."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las historias"
+  },
+  {
+    "id": "v0527",
+    "de": [
+      "Tempel"
+    ],
+    "es": "el templo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "El templo de Tikal es muy alto.",
+      "de": "Der Tempel von Tikal ist sehr hoch."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los templos"
+  },
+  {
+    "id": "v0528",
+    "de": [
+      "Stein"
+    ],
+    "es": "la piedra",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "La pirámide está hecha de piedra.",
+      "de": "Die Pyramide ist aus Stein gebaut."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las piedras"
+  },
+  {
+    "id": "v0529",
+    "de": [
+      "Gott"
+    ],
+    "es": "el dios",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "Itzamná era un dios importante.",
+      "de": "Itzamná war ein wichtiger Gott."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los dioses"
+  },
+  {
+    "id": "v0530",
+    "de": [
+      "König"
+    ],
+    "es": "el rey",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "El rey vivía en el palacio.",
+      "de": "Der König lebte im Palast."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los reyes"
+  },
+  {
+    "id": "v0531",
+    "de": [
+      "Buch"
+    ],
+    "es": "el libro",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "El Popol Vuh es un libro sagrado.",
+      "de": "Das Popol Vuh ist ein heiliges Buch."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los libros"
+  },
+  {
+    "id": "v0532",
+    "de": [
+      "Sprache",
+      "Zunge"
+    ],
+    "es": "la lengua",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "En Guatemala se hablan muchas lenguas mayas.",
+      "de": "In Guatemala werden viele Maya-Sprachen gesprochen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las lenguas"
+  },
+  {
+    "id": "v0533",
+    "de": [
+      "Kalender"
+    ],
+    "es": "el calendario",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "El calendario maya es muy exacto.",
+      "de": "Der Maya-Kalender ist sehr genau."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los calendarios"
+  },
+  {
+    "id": "v0534",
+    "de": [
+      "Krieg"
+    ],
+    "es": "la guerra",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "Hubo muchas guerras entre las ciudades.",
+      "de": "Es gab viele Kriege zwischen den Städten."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las guerras"
+  },
+  {
+    "id": "v0535",
+    "de": [
+      "Ruinen"
+    ],
+    "es": "las ruinas",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Visitamos las ruinas de Palenque.",
+      "de": "Wir besuchen die Ruinen von Palenque."
+    },
+    "note": "Meist nur im Plural.",
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v0536",
+    "de": [
+      "Priester"
+    ],
+    "es": "el sacerdote",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "El sacerdote dirigía la ceremonia.",
+      "de": "Der Priester leitete die Zeremonie."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los sacerdotes"
+  },
+  {
+    "id": "v0537",
+    "de": [
+      "Göttin"
+    ],
+    "es": "la diosa",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Ixchel era la diosa de la luna.",
+      "de": "Ixchel war die Göttin des Mondes."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las diosas"
+  },
+  {
+    "id": "v0538",
+    "de": [
+      "Hieroglyphe",
+      "Schriftzeichen"
+    ],
+    "es": "el jeroglífico",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Los jeroglíficos cubren las paredes del templo.",
+      "de": "Die Hieroglyphen bedecken die Wände des Tempels."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los jeroglíficos"
+  },
+  {
+    "id": "v0539",
+    "de": [
+      "Sprache"
+    ],
+    "es": "el idioma",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "El k'iche' es un idioma maya.",
+      "de": "Das K'iche' ist eine Maya-Sprache."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los idiomas"
+  },
+  {
+    "id": "v0540",
+    "de": [
+      "Eroberer"
+    ],
+    "es": "el conquistador",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Pedro de Alvarado fue un conquistador español.",
+      "de": "Pedro de Alvarado war ein spanischer Eroberer."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los conquistadores"
+  },
+  {
+    "id": "v0541",
+    "de": [
+      "Opfer",
+      "Opfergabe"
+    ],
+    "es": "el sacrificio",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "maya",
+    "example": {
+      "es": "Hacían sacrificios para los dioses.",
+      "de": "Sie brachten den Göttern Opfer dar."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los sacrificios"
+  },
+  {
+    "id": "v0542",
+    "de": [
+      "Eroberung"
+    ],
+    "es": "la conquista",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "maya",
+    "example": {
+      "es": "La conquista de Guatemala empezó en 1524.",
+      "de": "Die Eroberung Guatemalas begann 1524."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las conquistas"
+  },
+  {
+    "id": "v0543",
+    "de": [
+      "Kodex",
+      "Handschrift"
+    ],
+    "es": "el códice",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "maya",
+    "example": {
+      "es": "El Códice de Dresde es un libro maya.",
+      "de": "Der Dresdner Kodex ist ein Maya-Buch."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los códices"
+  },
+  {
+    "id": "v0544",
+    "de": [
+      "Reich"
+    ],
+    "es": "el imperio",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "maya",
+    "example": {
+      "es": "Los españoles destruyeron el imperio azteca.",
+      "de": "Die Spanier zerstörten das Aztekenreich."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los imperios"
+  },
+  {
+    "id": "v0545",
+    "de": [
+      "Kolonie"
+    ],
+    "es": "la colonia",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "maya",
+    "example": {
+      "es": "Guatemala fue una colonia española.",
+      "de": "Guatemala war eine spanische Kolonie."
+    },
+    "note": "In Mexiko auch: Stadtviertel.",
+    "gender": "f",
+    "plural": "las colonias"
+  },
+  {
+    "id": "v0546",
+    "de": [
+      "bauen",
+      "errichten"
+    ],
+    "es": "construir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Los mayas construyeron grandes templos.",
+      "de": "Die Maya bauten große Tempel."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "y"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0547",
+    "de": [
+      "erobern"
+    ],
+    "es": "conquistar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Los españoles conquistaron la región.",
+      "de": "Die Spanier eroberten die Region."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0548",
+    "de": [
+      "anbeten",
+      "verehren"
+    ],
+    "es": "adorar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Adoraban al dios del maíz.",
+      "de": "Sie beteten den Maisgott an."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0549",
+    "de": [
+      "regieren",
+      "herrschen"
+    ],
+    "es": "gobernar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "maya",
+    "example": {
+      "es": "Un rey gobernaba cada ciudad.",
+      "de": "Ein König regierte jede Stadt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ie"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0550",
+    "de": [
+      "entdecken"
+    ],
+    "es": "descubrir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "maya",
+    "example": {
+      "es": "Descubrieron una tumba nueva en la selva.",
+      "de": "Sie entdeckten ein neues Grab im Dschungel."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "participio": "descubierto"
+      }
+    }
+  },
+  {
+    "id": "v0551",
+    "de": [
+      "verschwinden"
+    ],
+    "es": "desaparecer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "maya",
+    "example": {
+      "es": "La civilización maya clásica desapareció misteriosamente.",
+      "de": "Die klassische Maya-Zivilisation verschwand auf rätselhafte Weise."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "zco"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0552",
+    "de": [
+      "alt",
+      "antik"
+    ],
+    "es": "antiguo",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "Es una ciudad muy antigua.",
+      "de": "Es ist eine sehr alte Stadt."
+    },
+    "note": "Vor dem Nomen oft „ehemalig“: el antiguo templo.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0553",
+    "de": [
+      "vorher",
+      "früher"
+    ],
+    "es": "antes",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "Antes vivían aquí miles de personas.",
+      "de": "Früher lebten hier Tausende von Menschen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0554",
+    "de": [
+      "zwischen",
+      "unter"
+    ],
+    "es": "entre",
+    "pos": "other",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "La pirámide está entre los árboles.",
+      "de": "Die Pyramide steht zwischen den Bäumen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0555",
+    "de": [
+      "heilig"
+    ],
+    "es": "sagrado",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "El cenote era un lugar sagrado.",
+      "de": "Der Cenote war ein heiliger Ort."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0556",
+    "de": [
+      "während"
+    ],
+    "es": "durante",
+    "pos": "other",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Durante la época clásica crecieron las ciudades.",
+      "de": "Während der klassischen Zeit wuchsen die Städte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0557",
+    "de": [
+      "Maya-",
+      "der Maya"
+    ],
+    "es": "maya",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "maya",
+    "example": {
+      "es": "Hablo con una mujer maya.",
+      "de": "Ich spreche mit einer Maya-Frau."
+    },
+    "note": "Unveränderlich in der Form; auch Nomen: los mayas.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0558",
+    "de": [
+      "Wann wurde diese Pyramide gebaut?"
+    ],
+    "es": "¿Cuándo se construyó esta pirámide?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "¿Cuándo se construyó esta pirámide?",
+      "de": "Wann wurde diese Pyramide gebaut?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0559",
+    "de": [
+      "Was für eine alte Stadt!"
+    ],
+    "es": "¡Qué antigua es esta ciudad!",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "maya",
+    "example": {
+      "es": "¡Qué antigua es esta ciudad!",
+      "de": "Was für eine alte Stadt!"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  }
+]

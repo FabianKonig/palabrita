@@ -1,0 +1,774 @@
+[
+  {
+    "id": "v0426",
+    "de": [
+      "abbiegen",
+      "biegen"
+    ],
+    "es": "doblar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "Doble a la izquierda en la esquina.",
+      "de": "Biegen Sie an der Ecke links ab."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0427",
+    "de": [
+      "überqueren",
+      "kreuzen"
+    ],
+    "es": "cruzar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "Cruzamos la calle con cuidado.",
+      "de": "Wir überqueren die Straße vorsichtig."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0428",
+    "de": [
+      "liegen",
+      "sich befinden"
+    ],
+    "es": "quedar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "El banco queda cerca de la plaza.",
+      "de": "Die Bank liegt in der Nähe des Platzes."
+    },
+    "note": "In Lateinamerika sehr üblich für „sich befinden“: ¿Dónde queda…?",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0429",
+    "de": [
+      "folgen",
+      "weitergehen",
+      "weiterfahren"
+    ],
+    "es": "seguir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "Siga derecho por esta calle.",
+      "de": "Gehen Sie auf dieser Straße geradeaus weiter."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "i"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0430",
+    "de": [
+      "sich verlaufen",
+      "sich verirren"
+    ],
+    "es": "perderse",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "orte",
+    "example": {
+      "es": "Me perdí en el centro de la ciudad.",
+      "de": "Ich habe mich im Stadtzentrum verirrt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ie"
+      ],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0431",
+    "de": [
+      "durchqueren",
+      "abfahren",
+      "bereisen"
+    ],
+    "es": "recorrer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "orte",
+    "example": {
+      "es": "Recorrimos el centro a pie.",
+      "de": "Wir sind zu Fuß durch das Zentrum gelaufen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0432",
+    "de": [
+      "Stadt"
+    ],
+    "es": "la ciudad",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "La ciudad es muy grande.",
+      "de": "Die Stadt ist sehr groß."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las ciudades"
+  },
+  {
+    "id": "v0433",
+    "de": [
+      "Straße"
+    ],
+    "es": "la calle",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "Vivo en esta calle.",
+      "de": "Ich wohne in dieser Straße."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las calles"
+  },
+  {
+    "id": "v0434",
+    "de": [
+      "Platz"
+    ],
+    "es": "la plaza",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "Nos vemos en la plaza central.",
+      "de": "Wir treffen uns auf dem Hauptplatz."
+    },
+    "note": "Fast jede Stadt hat eine „plaza central“ oder „zócalo“ (Mexiko) mit Kirche und Rathaus.",
+    "gender": "f",
+    "plural": "las plazas"
+  },
+  {
+    "id": "v0435",
+    "de": [
+      "Bank"
+    ],
+    "es": "el banco",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "Necesito ir al banco.",
+      "de": "Ich muss zur Bank gehen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los bancos"
+  },
+  {
+    "id": "v0436",
+    "de": [
+      "Park"
+    ],
+    "es": "el parque",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "Los niños juegan en el parque.",
+      "de": "Die Kinder spielen im Park."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los parques"
+  },
+  {
+    "id": "v0437",
+    "de": [
+      "Zentrum",
+      "Innenstadt"
+    ],
+    "es": "el centro",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "El hotel está en el centro.",
+      "de": "Das Hotel ist im Zentrum."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los centros"
+  },
+  {
+    "id": "v0438",
+    "de": [
+      "Kirche"
+    ],
+    "es": "la iglesia",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "La iglesia es muy antigua.",
+      "de": "Die Kirche ist sehr alt."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las iglesias"
+  },
+  {
+    "id": "v0439",
+    "de": [
+      "Adresse",
+      "Richtung"
+    ],
+    "es": "la dirección",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "¿Me da su dirección, por favor?",
+      "de": "Können Sie mir bitte Ihre Adresse geben?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las direcciones"
+  },
+  {
+    "id": "v0440",
+    "de": [
+      "Karte",
+      "Stadtplan"
+    ],
+    "es": "el mapa",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "¿Tiene un mapa de la ciudad?",
+      "de": "Haben Sie einen Stadtplan?"
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los mapas"
+  },
+  {
+    "id": "v0441",
+    "de": [
+      "Ecke",
+      "Straßenecke"
+    ],
+    "es": "la esquina",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "La farmacia está en la esquina.",
+      "de": "Die Apotheke ist an der Ecke."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las esquinas"
+  },
+  {
+    "id": "v0442",
+    "de": [
+      "Häuserblock",
+      "Straßenblock"
+    ],
+    "es": "la cuadra",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "Está a dos cuadras de aquí.",
+      "de": "Es ist zwei Häuserblocks von hier entfernt."
+    },
+    "note": "In Mexiko und Guatemala übliche Entfernungsangabe; in Spanien meist „manzana“ (in Mexiko bezeichnet „manzana“ eher den Gebäudeblock selbst).",
+    "gender": "f",
+    "plural": "las cuadras"
+  },
+  {
+    "id": "v0443",
+    "de": [
+      "Stadtviertel",
+      "Viertel"
+    ],
+    "es": "el barrio",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "Vivimos en un barrio tranquilo.",
+      "de": "Wir wohnen in einem ruhigen Viertel."
+    },
+    "note": "In Mexiko oft „colonia“, in Guatemala „zona“ (z. B. Zona 1).",
+    "gender": "m",
+    "plural": "los barrios"
+  },
+  {
+    "id": "v0444",
+    "de": [
+      "Dorf",
+      "Kleinstadt"
+    ],
+    "es": "el pueblo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "Mi abuela vive en un pueblo pequeño.",
+      "de": "Meine Großmutter lebt in einem kleinen Dorf."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los pueblos"
+  },
+  {
+    "id": "v0445",
+    "de": [
+      "Allee",
+      "Hauptstraße"
+    ],
+    "es": "la avenida",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "La avenida está llena de tiendas.",
+      "de": "Die Hauptstraße ist voller Geschäfte."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las avenidas"
+  },
+  {
+    "id": "v0446",
+    "de": [
+      "Brücke"
+    ],
+    "es": "el puente",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "Cruce el puente y siga derecho.",
+      "de": "Überqueren Sie die Brücke und gehen Sie geradeaus."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los puentes"
+  },
+  {
+    "id": "v0447",
+    "de": [
+      "Post",
+      "Postamt"
+    ],
+    "es": "el correo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "Voy al correo a mandar una carta.",
+      "de": "Ich gehe zur Post, um einen Brief zu schicken."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los correos"
+  },
+  {
+    "id": "v0448",
+    "de": [
+      "Gebäude"
+    ],
+    "es": "el edificio",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "El edificio tiene diez pisos.",
+      "de": "Das Gebäude hat zehn Stockwerke."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los edificios"
+  },
+  {
+    "id": "v0449",
+    "de": [
+      "Bibliothek"
+    ],
+    "es": "la biblioteca",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "La biblioteca abre a las nueve.",
+      "de": "Die Bibliothek öffnet um neun Uhr."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las bibliotecas"
+  },
+  {
+    "id": "v0450",
+    "de": [
+      "Botschaft"
+    ],
+    "es": "la embajada",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "orte",
+    "example": {
+      "es": "La embajada de Alemania está en la capital.",
+      "de": "Die deutsche Botschaft ist in der Hauptstadt."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las embajadas"
+  },
+  {
+    "id": "v0451",
+    "de": [
+      "Kathedrale",
+      "Dom"
+    ],
+    "es": "la catedral",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "orte",
+    "example": {
+      "es": "La catedral está frente al zócalo.",
+      "de": "Die Kathedrale liegt gegenüber dem Zócalo."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las catedrales"
+  },
+  {
+    "id": "v0452",
+    "de": [
+      "Bürgersteig",
+      "Gehweg"
+    ],
+    "es": "la banqueta",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "orte",
+    "example": {
+      "es": "No camines por la banqueta tan cerca del borde.",
+      "de": "Geh auf dem Gehweg nicht so nah am Rand."
+    },
+    "note": "Mexikanismus und Guatemaltekismus für „Bürgersteig“; in Spanien und vielen anderen Ländern „acera“.",
+    "gender": "f",
+    "plural": "las banquetas"
+  },
+  {
+    "id": "v0453",
+    "de": [
+      "Entfernung",
+      "Distanz"
+    ],
+    "es": "la distancia",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "orte",
+    "example": {
+      "es": "La distancia entre los dos pueblos es de diez kilómetros.",
+      "de": "Die Entfernung zwischen den beiden Dörfern beträgt zehn Kilometer."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las distancias"
+  },
+  {
+    "id": "v0454",
+    "de": [
+      "nah",
+      "in der Nähe"
+    ],
+    "es": "cerca",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "El mercado está muy cerca.",
+      "de": "Der Markt ist ganz in der Nähe."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0455",
+    "de": [
+      "weit",
+      "weit weg"
+    ],
+    "es": "lejos",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "Mi casa queda lejos del centro.",
+      "de": "Mein Haus liegt weit vom Zentrum entfernt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0456",
+    "de": [
+      "geradeaus"
+    ],
+    "es": "derecho",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "Siga derecho dos cuadras.",
+      "de": "Gehen Sie zwei Häuserblocks geradeaus."
+    },
+    "note": "In Lateinamerika „derecho“ oder „todo derecho“; in Spanien meist „recto“.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0457",
+    "de": [
+      "dort",
+      "dorthin"
+    ],
+    "es": "allá",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "El museo está allá, junto al parque.",
+      "de": "Das Museum ist dort drüben neben dem Park."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0458",
+    "de": [
+      "gegenüber"
+    ],
+    "es": "enfrente",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "La iglesia está enfrente.",
+      "de": "Die Kirche liegt gegenüber."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0459",
+    "de": [
+      "daneben",
+      "nebenan"
+    ],
+    "es": "al lado",
+    "pos": "other",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "El banco está al lado de la farmacia.",
+      "de": "Die Bank ist neben der Apotheke."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0460",
+    "de": [
+      "hinten",
+      "dahinter"
+    ],
+    "es": "detrás",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "El parque está detrás de la iglesia.",
+      "de": "Der Park liegt hinter der Kirche."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0461",
+    "de": [
+      "in Richtung",
+      "nach … hin"
+    ],
+    "es": "hacia",
+    "pos": "other",
+    "level": "A2",
+    "topic": "orte",
+    "example": {
+      "es": "Camine hacia la plaza.",
+      "de": "Gehen Sie in Richtung des Platzes."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0462",
+    "de": [
+      "zentral gelegen",
+      "zentral"
+    ],
+    "es": "céntrico",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "orte",
+    "example": {
+      "es": "Buscamos un hotel céntrico.",
+      "de": "Wir suchen ein zentral gelegenes Hotel."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0463",
+    "de": [
+      "für Fußgänger"
+    ],
+    "es": "peatonal",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "orte",
+    "example": {
+      "es": "Esta calle es peatonal.",
+      "de": "Diese Straße ist eine Fußgängerzone."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0464",
+    "de": [
+      "rechts",
+      "nach rechts"
+    ],
+    "es": "a la derecha",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "Doble a la derecha en el semáforo.",
+      "de": "Biegen Sie an der Ampel rechts ab."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0465",
+    "de": [
+      "links",
+      "nach links"
+    ],
+    "es": "a la izquierda",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "La iglesia está a la izquierda.",
+      "de": "Die Kirche ist links."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0466",
+    "de": [
+      "Wo liegt …?",
+      "Wo befindet sich …?"
+    ],
+    "es": "¿Dónde queda…?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "¿Dónde queda la embajada?",
+      "de": "Wo befindet sich die Botschaft?"
+    },
+    "note": "Typisch lateinamerikanisch; in Spanien eher „¿Dónde está…?“.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0467",
+    "de": [
+      "Wie komme ich zu …?"
+    ],
+    "es": "¿Cómo llego a…?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "orte",
+    "example": {
+      "es": "¿Cómo llego a la plaza?",
+      "de": "Wie komme ich zum Platz?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  }
+]

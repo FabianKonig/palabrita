@@ -1,0 +1,1177 @@
+[
+  {
+    "id": "v0021",
+    "de": [
+      "Wie heißt du?"
+    ],
+    "es": "¿Cómo te llamas?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Hola, ¿cómo te llamas?",
+      "de": "Hallo, wie heißt du?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0022",
+    "de": [
+      "sprechen",
+      "reden"
+    ],
+    "es": "hablar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¿Hablas inglés?",
+      "de": "Sprichst du Englisch?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0576",
+    "de": [
+      "sein"
+    ],
+    "es": "ser",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Soy de Alemania.",
+      "de": "Ich komme aus Deutschland."
+    },
+    "note": "Für dauerhafte Eigenschaften, Herkunft und Beruf; für Zustände und Orte estar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "irr"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "soy",
+          "2s": "eres",
+          "3s": "es",
+          "1p": "somos",
+          "2p": "sois",
+          "3p": "son"
+        },
+        "indefinido": {
+          "1s": "fui",
+          "2s": "fuiste",
+          "3s": "fue",
+          "1p": "fuimos",
+          "2p": "fuisteis",
+          "3p": "fueron"
+        },
+        "imperfecto": {
+          "1s": "era",
+          "2s": "eras",
+          "3s": "era",
+          "1p": "éramos",
+          "2p": "erais",
+          "3p": "eran"
+        },
+        "imperativo": {
+          "2s": "sé",
+          "3s": "sea",
+          "1p": "seamos",
+          "3p": "sean"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0577",
+    "de": [
+      "sein",
+      "sich befinden"
+    ],
+    "es": "estar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¿Cómo estás?",
+      "de": "Wie geht es dir?"
+    },
+    "note": "Für Zustände und Orte; für Eigenschaften und Herkunft ser.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "oy"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "2s": "estás",
+          "3s": "está",
+          "3p": "están"
+        },
+        "indefinido": {
+          "1s": "estuve",
+          "2s": "estuviste",
+          "3s": "estuvo",
+          "1p": "estuvimos",
+          "2p": "estuvisteis",
+          "3p": "estuvieron"
+        },
+        "imperativo": {
+          "2s": "está"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0578",
+    "de": [
+      "gehen",
+      "fahren"
+    ],
+    "es": "ir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Voy al trabajo en camión.",
+      "de": "Ich fahre mit dem Bus zur Arbeit."
+    },
+    "note": "In Mexiko ist camión der Bus.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "irr"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "voy",
+          "2s": "vas",
+          "3s": "va",
+          "1p": "vamos",
+          "2p": "vais",
+          "3p": "van"
+        },
+        "indefinido": {
+          "1s": "fui",
+          "2s": "fuiste",
+          "3s": "fue",
+          "1p": "fuimos",
+          "2p": "fuisteis",
+          "3p": "fueron"
+        },
+        "imperfecto": {
+          "1s": "iba",
+          "2s": "ibas",
+          "3s": "iba",
+          "1p": "íbamos",
+          "2p": "ibais",
+          "3p": "iban"
+        },
+        "imperativo": {
+          "2s": "ve",
+          "3s": "vaya",
+          "1p": "vamos",
+          "3p": "vayan"
+        },
+        "gerundio": "yendo"
+      }
+    }
+  },
+  {
+    "id": "v0579",
+    "de": [
+      "wollen",
+      "mögen"
+    ],
+    "es": "querer",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Quiero un café, por favor.",
+      "de": "Ich möchte einen Kaffee, bitte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ie"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "quise",
+          "2s": "quisiste",
+          "3s": "quiso",
+          "1p": "quisimos",
+          "2p": "quisisteis",
+          "3p": "quisieron"
+        },
+        "futuro": {
+          "stem": "querr"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0580",
+    "de": [
+      "können",
+      "dürfen"
+    ],
+    "es": "poder",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¿Puedo pasar?",
+      "de": "Darf ich hereinkommen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ue"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "pude",
+          "2s": "pudiste",
+          "3s": "pudo",
+          "1p": "pudimos",
+          "2p": "pudisteis",
+          "3p": "pudieron"
+        },
+        "futuro": {
+          "stem": "podr"
+        },
+        "gerundio": "pudiendo"
+      }
+    }
+  },
+  {
+    "id": "v0581",
+    "de": [
+      "machen",
+      "tun"
+    ],
+    "es": "hacer",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¿Qué haces los fines de semana?",
+      "de": "Was machst du am Wochenende?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "go"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "hice",
+          "2s": "hiciste",
+          "3s": "hizo",
+          "1p": "hicimos",
+          "2p": "hicisteis",
+          "3p": "hicieron"
+        },
+        "futuro": {
+          "stem": "har"
+        },
+        "imperativo": {
+          "2s": "haz"
+        },
+        "participio": "hecho"
+      }
+    }
+  },
+  {
+    "id": "v0582",
+    "de": [
+      "heißen",
+      "sich nennen"
+    ],
+    "es": "llamarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Me llamo Ana.",
+      "de": "Ich heiße Ana."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0583",
+    "de": [
+      "gefallen",
+      "mögen"
+    ],
+    "es": "gustar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Me gusta la música.",
+      "de": "Mir gefällt die Musik."
+    },
+    "note": "Wie im Deutschen „gefallen“: Me gustan los tacos = Mir gefallen die Tacos.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0584",
+    "de": [
+      "wissen",
+      "können"
+    ],
+    "es": "saber",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "No sé la respuesta.",
+      "de": "Ich weiß die Antwort nicht."
+    },
+    "note": "Saber: Wissen und Können (saber nadar); conocer: Personen und Orte kennen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "sé"
+        },
+        "indefinido": {
+          "1s": "supe",
+          "2s": "supiste",
+          "3s": "supo",
+          "1p": "supimos",
+          "2p": "supisteis",
+          "3p": "supieron"
+        },
+        "futuro": {
+          "stem": "sabr"
+        },
+        "imperativo": {
+          "3s": "sepa",
+          "1p": "sepamos",
+          "3p": "sepan"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0585",
+    "de": [
+      "sagen",
+      "sprechen"
+    ],
+    "es": "decir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¿Qué dices?",
+      "de": "Was sagst du?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "go",
+        "i"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "dije",
+          "2s": "dijiste",
+          "3s": "dijo",
+          "1p": "dijimos",
+          "2p": "dijisteis",
+          "3p": "dijeron"
+        },
+        "futuro": {
+          "stem": "dir"
+        },
+        "imperativo": {
+          "2s": "di"
+        },
+        "participio": "dicho"
+      }
+    }
+  },
+  {
+    "id": "v0586",
+    "de": [
+      "kommen"
+    ],
+    "es": "venir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¿Vienes a la fiesta?",
+      "de": "Kommst du zur Party?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "go",
+        "ie-i"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "vine",
+          "2s": "viniste",
+          "3s": "vino",
+          "1p": "vinimos",
+          "2p": "vinisteis"
+        },
+        "futuro": {
+          "stem": "vendr"
+        },
+        "imperativo": {
+          "2s": "ven"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0587",
+    "de": [
+      "sehen",
+      "ansehen"
+    ],
+    "es": "ver",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "No veo bien sin lentes.",
+      "de": "Ohne Brille sehe ich nicht gut."
+    },
+    "note": "Nos vemos = bis bald (in ganz Lateinamerika üblich); lentes = Brille (Lateinamerika).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "veo",
+          "2p": "veis"
+        },
+        "indefinido": {
+          "1s": "vi",
+          "3s": "vio"
+        },
+        "imperfecto": {
+          "1s": "veía",
+          "2s": "veías",
+          "3s": "veía",
+          "1p": "veíamos",
+          "2p": "veíais",
+          "3p": "veían"
+        },
+        "imperativo": {
+          "3s": "vea",
+          "1p": "veamos",
+          "3p": "vean"
+        },
+        "participio": "visto"
+      }
+    }
+  },
+  {
+    "id": "v0588",
+    "de": [
+      "geben",
+      "schenken"
+    ],
+    "es": "dar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Te doy mi número de teléfono.",
+      "de": "Ich gebe dir meine Telefonnummer."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "oy"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "2p": "dais"
+        },
+        "indefinido": {
+          "1s": "di",
+          "2s": "diste",
+          "3s": "dio",
+          "1p": "dimos",
+          "2p": "disteis",
+          "3p": "dieron"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0589",
+    "de": [
+      "verstehen"
+    ],
+    "es": "entender",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "No entiendo bien el chiste.",
+      "de": "Den Witz verstehe ich nicht ganz."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ie"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0590",
+    "de": [
+      "glauben",
+      "denken"
+    ],
+    "es": "creer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Creo que tienes razón.",
+      "de": "Ich glaube, du hast recht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0591",
+    "de": [
+      "Familie"
+    ],
+    "es": "la familia",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Mi familia vive en Guatemala.",
+      "de": "Meine Familie lebt in Guatemala."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las familias"
+  },
+  {
+    "id": "v0592",
+    "de": [
+      "Freund",
+      "Freundin"
+    ],
+    "es": "el amigo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Mi amigo es de Monterrey.",
+      "de": "Mein Freund kommt aus Monterrey."
+    },
+    "note": "Die Freundin heißt la amiga. In Mexiko umgangssprachlich auch el cuate.",
+    "gender": "m",
+    "plural": "los amigos"
+  },
+  {
+    "id": "v0593",
+    "de": [
+      "Bruder"
+    ],
+    "es": "el hermano",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Mi hermano estudia medicina.",
+      "de": "Mein Bruder studiert Medizin."
+    },
+    "note": "Los hermanos kann auch Geschwister bedeuten.",
+    "gender": "m",
+    "plural": "los hermanos"
+  },
+  {
+    "id": "v0594",
+    "de": [
+      "Mutter"
+    ],
+    "es": "la madre",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Mi madre cocina muy rico.",
+      "de": "Meine Mutter kocht sehr lecker."
+    },
+    "note": "Umgangssprachlich: la mamá.",
+    "gender": "f",
+    "plural": "las madres"
+  },
+  {
+    "id": "v0595",
+    "de": [
+      "Sohn",
+      "Kind"
+    ],
+    "es": "el hijo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Tengo un hijo de cinco años.",
+      "de": "Ich habe einen fünfjährigen Sohn."
+    },
+    "note": "Los hijos kann auch Kinder (Söhne und Töchter) bedeuten.",
+    "gender": "m",
+    "plural": "los hijos"
+  },
+  {
+    "id": "v0596",
+    "de": [
+      "Hobby",
+      "Freizeitbeschäftigung"
+    ],
+    "es": "el pasatiempo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Mi pasatiempo favorito es leer.",
+      "de": "Mein liebstes Hobby ist Lesen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los pasatiempos"
+  },
+  {
+    "id": "v0597",
+    "de": [
+      "Meinung"
+    ],
+    "es": "la opinión",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Quiero saber tu opinión.",
+      "de": "Ich möchte deine Meinung wissen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las opiniones"
+  },
+  {
+    "id": "v0598",
+    "de": [
+      "Gefühl",
+      "Empfindung"
+    ],
+    "es": "el sentimiento",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Es difícil hablar de los sentimientos.",
+      "de": "Es ist schwer, über Gefühle zu sprechen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los sentimientos"
+  },
+  {
+    "id": "v0599",
+    "de": [
+      "ich"
+    ],
+    "es": "yo",
+    "pos": "other",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Yo soy profesor.",
+      "de": "Ich bin Lehrer."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0600",
+    "de": [
+      "Sie (höflich)"
+    ],
+    "es": "usted",
+    "pos": "other",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¿Usted es de aquí?",
+      "de": "Sind Sie von hier?"
+    },
+    "note": "In Lateinamerika ist ustedes die Mehrzahl für Sie und ihr (kein vosotros).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0601",
+    "de": [
+      "aber"
+    ],
+    "es": "pero",
+    "pos": "other",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Me gusta el café, pero sin azúcar.",
+      "de": "Ich mag Kaffee, aber ohne Zucker."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0602",
+    "de": [
+      "weil"
+    ],
+    "es": "porque",
+    "pos": "other",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Estudio español porque me gusta.",
+      "de": "Ich lerne Spanisch, weil es mir gefällt."
+    },
+    "note": "Zusammengeschrieben ohne Akzent; die Frage heißt ¿por qué?",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0603",
+    "de": [
+      "auch"
+    ],
+    "es": "también",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Yo también hablo inglés.",
+      "de": "Ich spreche auch Englisch."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0604",
+    "de": [
+      "zufrieden",
+      "froh"
+    ],
+    "es": "contento",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Estoy muy contento con mi trabajo.",
+      "de": "Ich bin mit meiner Arbeit sehr zufrieden."
+    },
+    "note": "Weiblich: contenta.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0605",
+    "de": [
+      "müde"
+    ],
+    "es": "cansado",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Hoy estoy muy cansado.",
+      "de": "Heute bin ich sehr müde."
+    },
+    "note": "Weiblich: cansada.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0606",
+    "de": [
+      "auch nicht",
+      "ebenfalls nicht"
+    ],
+    "es": "tampoco",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Yo tampoco entiendo.",
+      "de": "Ich verstehe es auch nicht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0607",
+    "de": [
+      "obwohl"
+    ],
+    "es": "aunque",
+    "pos": "other",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Voy a salir aunque llueva.",
+      "de": "Ich gehe aus, auch wenn es regnet."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0608",
+    "de": [
+      "während",
+      "solange"
+    ],
+    "es": "mientras",
+    "pos": "other",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Mientras cocino, escucho música.",
+      "de": "Während ich koche, höre ich Musik."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0609",
+    "de": [
+      "Ich komme aus Deutschland."
+    ],
+    "es": "Soy de Alemania.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Soy de Alemania, de Hamburgo.",
+      "de": "Ich komme aus Deutschland, aus Hamburg."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0610",
+    "de": [
+      "Ich verstehe nicht."
+    ],
+    "es": "No entiendo.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Perdón, no entiendo.",
+      "de": "Entschuldigung, ich verstehe nicht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0611",
+    "de": [
+      "Woher kommen Sie?"
+    ],
+    "es": "¿De dónde es usted?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Mucho gusto, ¿de dónde es usted?",
+      "de": "Freut mich, woher kommen Sie?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0612",
+    "de": [
+      "Können Sie das wiederholen?"
+    ],
+    "es": "¿Me puede repetir?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "No oí bien. ¿Me puede repetir?",
+      "de": "Ich habe es nicht gut gehört. Können Sie das wiederholen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0613",
+    "de": [
+      "Bitte langsamer."
+    ],
+    "es": "Más despacio, por favor.",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Más despacio, por favor, estoy aprendiendo.",
+      "de": "Bitte langsamer, ich lerne noch."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0614",
+    "de": [
+      "Wie sagt man … auf Spanisch?"
+    ],
+    "es": "¿Cómo se dice … en español?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¿Cómo se dice “Danke” en español?",
+      "de": "Wie sagt man „Danke“ auf Spanisch?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0615",
+    "de": [
+      "Was bedeutet …?"
+    ],
+    "es": "¿Qué significa…?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¿Qué significa “chamba”?",
+      "de": "Was bedeutet „chamba“?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0616",
+    "de": [
+      "Ich liebe es zu kochen.",
+      "Kochen gefällt mir sehr."
+    ],
+    "es": "Me encanta cocinar.",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Me encanta cocinar con mi mamá.",
+      "de": "Ich liebe es, mit meiner Mama zu kochen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0617",
+    "de": [
+      "Ich habe zwei Geschwister.",
+      "Ich habe zwei Brüder."
+    ],
+    "es": "Tengo dos hermanos.",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Tengo dos hermanos y una hermana.",
+      "de": "Ich habe zwei Brüder und eine Schwester."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0618",
+    "de": [
+      "Was machen Sie beruflich?"
+    ],
+    "es": "¿A qué se dedica?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Disculpe, ¿a qué se dedica?",
+      "de": "Entschuldigung, was machen Sie beruflich?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0619",
+    "de": [
+      "Ich bin einverstanden."
+    ],
+    "es": "Estoy de acuerdo.",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Estoy de acuerdo con tu idea.",
+      "de": "Ich bin mit deiner Idee einverstanden."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0620",
+    "de": [
+      "Ich bin nicht einverstanden."
+    ],
+    "es": "No estoy de acuerdo.",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Lo siento, no estoy de acuerdo.",
+      "de": "Tut mir leid, ich bin nicht einverstanden."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0621",
+    "de": [
+      "Meiner Meinung nach …"
+    ],
+    "es": "En mi opinión…",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "En mi opinión, es una buena idea.",
+      "de": "Meiner Meinung nach ist es eine gute Idee."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0622",
+    "de": [
+      "Wie schade!"
+    ],
+    "es": "¡Qué pena!",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "¡Qué pena que no puedas venir!",
+      "de": "Wie schade, dass du nicht kommen kannst!"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0623",
+    "de": [
+      "Das kommt darauf an."
+    ],
+    "es": "Depende.",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "—¿Te gusta viajar? —Depende del lugar.",
+      "de": "„Reist du gern?“ „Kommt auf den Ort an.“"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  }
+]

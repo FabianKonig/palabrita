@@ -1,0 +1,924 @@
+[
+  {
+    "id": "v0007",
+    "de": [
+      "Essen",
+      "Mahlzeit"
+    ],
+    "es": "la comida",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "La comida mexicana es deliciosa.",
+      "de": "Das mexikanische Essen ist köstlich."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las comidas"
+  },
+  {
+    "id": "v0008",
+    "de": [
+      "Taco"
+    ],
+    "es": "el taco",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Quiero tres tacos de pollo.",
+      "de": "Ich möchte drei Hähnchen-Tacos."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los tacos"
+  },
+  {
+    "id": "v0009",
+    "de": [
+      "Tortilla"
+    ],
+    "es": "la tortilla",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Las tortillas son de maíz.",
+      "de": "Die Tortillas sind aus Mais."
+    },
+    "note": "In Mexiko und Mittelamerika ist die Tortilla ein Maisfladen, kein Omelett.",
+    "gender": "f",
+    "plural": "las tortillas"
+  },
+  {
+    "id": "v0010",
+    "de": [
+      "Bohne"
+    ],
+    "es": "el frijol",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Comemos frijoles con arroz.",
+      "de": "Wir essen Bohnen mit Reis."
+    },
+    "note": "Meist im Plural: los frijoles.",
+    "gender": "m",
+    "plural": "los frijoles"
+  },
+  {
+    "id": "v0023",
+    "de": [
+      "essen"
+    ],
+    "es": "comer",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Vamos a comer tacos.",
+      "de": "Wir gehen Tacos essen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0126",
+    "de": [
+      "trinken"
+    ],
+    "es": "beber",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "¿Qué quieres beber?",
+      "de": "Was möchtest du trinken?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0127",
+    "de": [
+      "bestellen",
+      "bitten um"
+    ],
+    "es": "pedir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Voy a pedir una sopa.",
+      "de": "Ich werde eine Suppe bestellen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "i"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0128",
+    "de": [
+      "trinken",
+      "nehmen"
+    ],
+    "es": "tomar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Tomo café en la mañana.",
+      "de": "Ich trinke morgens Kaffee."
+    },
+    "note": "In Lateinamerika sehr häufig für \"trinken\" (tomar café, tomar agua).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0129",
+    "de": [
+      "frühstücken"
+    ],
+    "es": "desayunar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Desayunamos huevos con frijoles.",
+      "de": "Wir frühstücken Eier mit Bohnen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0130",
+    "de": [
+      "zu Abend essen"
+    ],
+    "es": "cenar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Ustedes cenan muy tarde.",
+      "de": "Ihr esst sehr spät zu Abend."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0131",
+    "de": [
+      "zu Mittag essen",
+      "mittagessen"
+    ],
+    "es": "almorzar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Almorzamos en el mercado.",
+      "de": "Wir essen auf dem Markt zu Mittag."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ue"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0132",
+    "de": [
+      "kochen"
+    ],
+    "es": "cocinar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Mi mamá cocina muy bien.",
+      "de": "Meine Mutter kocht sehr gut."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0133",
+    "de": [
+      "probieren",
+      "kosten"
+    ],
+    "es": "probar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "¿Quieres probar el pozole?",
+      "de": "Möchtest du den Pozole probieren?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ue"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0134",
+    "de": [
+      "zubereiten"
+    ],
+    "es": "preparar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Preparo la salsa con tomate y chile.",
+      "de": "Ich bereite die Salsa mit Tomate und Chili zu."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0135",
+    "de": [
+      "servieren",
+      "auftragen"
+    ],
+    "es": "servir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "Sirven el desayuno hasta las diez.",
+      "de": "Das Frühstück wird bis zehn Uhr serviert."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "i"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0136",
+    "de": [
+      "kochen",
+      "sieden"
+    ],
+    "es": "hervir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "Hay que hervir el agua primero.",
+      "de": "Man muss zuerst das Wasser kochen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ie-i"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0138",
+    "de": [
+      "Milch"
+    ],
+    "es": "la leche",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Tomo el café con leche.",
+      "de": "Ich trinke den Kaffee mit Milch."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las leches"
+  },
+  {
+    "id": "v0139",
+    "de": [
+      "Kaffee"
+    ],
+    "es": "el café",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Un café con azúcar, por favor.",
+      "de": "Einen Kaffee mit Zucker, bitte."
+    },
+    "note": "Guatemala ist ein bedeutendes Kaffeeanbauland.",
+    "gender": "m",
+    "plural": "los cafés"
+  },
+  {
+    "id": "v0140",
+    "de": [
+      "Brot"
+    ],
+    "es": "el pan",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "El pan dulce es muy rico.",
+      "de": "Das Süßgebäck ist sehr lecker."
+    },
+    "note": "Pan dulce: Süßgebäck, in Mexiko und Guatemala zum Frühstück beliebt.",
+    "gender": "m",
+    "plural": "los panes"
+  },
+  {
+    "id": "v0141",
+    "de": [
+      "Reis"
+    ],
+    "es": "el arroz",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Siempre comemos arroz con pollo.",
+      "de": "Wir essen immer Reis mit Hähnchen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los arroces"
+  },
+  {
+    "id": "v0142",
+    "de": [
+      "Fleisch"
+    ],
+    "es": "la carne",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "No como carne.",
+      "de": "Ich esse kein Fleisch."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las carnes"
+  },
+  {
+    "id": "v0143",
+    "de": [
+      "Hähnchen",
+      "Huhn"
+    ],
+    "es": "el pollo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "El pollo está en la mesa.",
+      "de": "Das Hähnchen steht auf dem Tisch."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los pollos"
+  },
+  {
+    "id": "v0144",
+    "de": [
+      "Saft"
+    ],
+    "es": "el jugo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Quiero un jugo de naranja.",
+      "de": "Ich möchte einen Orangensaft."
+    },
+    "note": "In Mexiko und Guatemala sagt man \"jugo\" (in Spanien \"zumo\").",
+    "gender": "m",
+    "plural": "los jugos"
+  },
+  {
+    "id": "v0145",
+    "de": [
+      "Bier"
+    ],
+    "es": "la cerveza",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Una cerveza fría, por favor.",
+      "de": "Ein kaltes Bier, bitte."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las cervezas"
+  },
+  {
+    "id": "v0146",
+    "de": [
+      "Ei"
+    ],
+    "es": "el huevo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Quiero dos huevos con tortillas.",
+      "de": "Ich möchte zwei Eier mit Tortillas."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los huevos"
+  },
+  {
+    "id": "v0147",
+    "de": [
+      "Käse"
+    ],
+    "es": "el queso",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Las quesadillas llevan queso.",
+      "de": "Quesadillas enthalten Käse."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los quesos"
+  },
+  {
+    "id": "v0148",
+    "de": [
+      "Tamal"
+    ],
+    "es": "el tamal",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Los tamales se comen en Navidad.",
+      "de": "Tamales isst man an Weihnachten."
+    },
+    "note": "Gefüllter Maisteig im Maisblatt oder Bananenblatt gedämpft; in Guatemala typisch zu Weihnachten und samstags.",
+    "gender": "m",
+    "plural": "los tamales"
+  },
+  {
+    "id": "v0149",
+    "de": [
+      "Suppe"
+    ],
+    "es": "la sopa",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "La sopa está caliente.",
+      "de": "Die Suppe ist heiß."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las sopas"
+  },
+  {
+    "id": "v0150",
+    "de": [
+      "Salat"
+    ],
+    "es": "la ensalada",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Una ensalada de tomate, por favor.",
+      "de": "Einen Tomatensalat, bitte."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las ensaladas"
+  },
+  {
+    "id": "v0151",
+    "de": [
+      "Rechnung"
+    ],
+    "es": "la cuenta",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "¿Nos trae la cuenta, por favor?",
+      "de": "Bringen Sie uns bitte die Rechnung?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las cuentas"
+  },
+  {
+    "id": "v0152",
+    "de": [
+      "Trinkgeld"
+    ],
+    "es": "la propina",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Dejamos una propina del diez por ciento.",
+      "de": "Wir lassen zehn Prozent Trinkgeld da."
+    },
+    "note": "In Mexiko (etwa 10–15 %) und Guatemala (etwa 10 %) üblich.",
+    "gender": "f",
+    "plural": "las propinas"
+  },
+  {
+    "id": "v0153",
+    "de": [
+      "Kellner"
+    ],
+    "es": "el mesero",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "El mesero nos trae el menú.",
+      "de": "Der Kellner bringt uns die Speisekarte."
+    },
+    "note": "In Mexiko und Guatemala üblich; weiblich: la mesera. In Spanien: camarero.",
+    "gender": "m",
+    "plural": "los meseros"
+  },
+  {
+    "id": "v0154",
+    "de": [
+      "Avocado"
+    ],
+    "es": "el aguacate",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Me gusta el aguacate con limón.",
+      "de": "Ich mag Avocado mit Limette."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los aguacates"
+  },
+  {
+    "id": "v0155",
+    "de": [
+      "Frühstück"
+    ],
+    "es": "el desayuno",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "El desayuno es a las ocho.",
+      "de": "Das Frühstück ist um acht Uhr."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los desayunos"
+  },
+  {
+    "id": "v0156",
+    "de": [
+      "Pepián"
+    ],
+    "es": "el pepián",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "El pepián es un plato típico de Guatemala.",
+      "de": "Der Pepián ist ein typisches Gericht aus Guatemala."
+    },
+    "note": "Würziger Eintopf mit Fleisch, Gemüse, gerösteten Samen (z. B. Kürbiskerne, Sesam) und Chilis; gilt als Nationalgericht Guatemalas.",
+    "gender": "m",
+    "plural": "los pepianes"
+  },
+  {
+    "id": "v0157",
+    "de": [
+      "Pozole"
+    ],
+    "es": "el pozole",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "El pozole rojo lleva carne de cerdo.",
+      "de": "Der rote Pozole enthält Schweinefleisch."
+    },
+    "note": "Mexikanische Suppe mit Maiskörnern (Hominy).",
+    "gender": "m",
+    "plural": "los pozoles"
+  },
+  {
+    "id": "v0158",
+    "de": [
+      "Maiskolben"
+    ],
+    "es": "el elote",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "Compramos un elote en la calle.",
+      "de": "Wir kaufen einen Maiskolben auf der Straße."
+    },
+    "note": "Frischer Maiskolben (Mexiko und Guatemala).",
+    "gender": "m",
+    "plural": "los elotes"
+  },
+  {
+    "id": "v0159",
+    "de": [
+      "Teig",
+      "Maisteig"
+    ],
+    "es": "la masa",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "La masa de las tortillas es de maíz.",
+      "de": "Der Teig der Tortillas ist aus Mais."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las masas"
+  },
+  {
+    "id": "v0160",
+    "de": [
+      "Rezept"
+    ],
+    "es": "la receta",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "Esta receta es de mi abuela.",
+      "de": "Dieses Rezept ist von meiner Großmutter."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las recetas"
+  },
+  {
+    "id": "v0161",
+    "de": [
+      "Imbiss",
+      "Snack"
+    ],
+    "es": "el antojito",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "Los antojitos mexicanos son deliciosos.",
+      "de": "Die mexikanischen Snacks sind köstlich."
+    },
+    "note": "Von antojo (Gelüst): kleine Gerichte aus Maisteig wie Sopes, Quesadillas oder Tlacoyos, vor allem in Mexiko.",
+    "gender": "m",
+    "plural": "los antojitos"
+  },
+  {
+    "id": "v0162",
+    "de": [
+      "köstlich",
+      "lecker"
+    ],
+    "es": "delicioso",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "La sopa está deliciosa.",
+      "de": "Die Suppe ist köstlich."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0163",
+    "de": [
+      "lecker",
+      "reich",
+      "gut"
+    ],
+    "es": "rico",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "El pollo está muy rico.",
+      "de": "Das Hähnchen ist sehr lecker."
+    },
+    "note": "In Lateinamerika sehr häufig für \"lecker\" (¡Qué rico!).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0164",
+    "de": [
+      "scharf"
+    ],
+    "es": "picante",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "La salsa es muy picante.",
+      "de": "Die Salsa ist sehr scharf."
+    },
+    "note": "Auch als Nomen: el picante (Schärfe).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0165",
+    "de": [
+      "süß"
+    ],
+    "es": "dulce",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Prefiero el café dulce.",
+      "de": "Ich bevorzuge süßen Kaffee."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0166",
+    "de": [
+      "salzig",
+      "gesalzen"
+    ],
+    "es": "salado",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "La sopa está muy salada.",
+      "de": "Die Suppe ist sehr salzig."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0167",
+    "de": [
+      "vegetarisch"
+    ],
+    "es": "vegetariano",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "essen",
+    "example": {
+      "es": "¿Tienen platos vegetarianos?",
+      "de": "Haben Sie vegetarische Gerichte?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0168",
+    "de": [
+      "Guten Appetit!"
+    ],
+    "es": "¡Buen provecho!",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "¡Buen provecho a todos!",
+      "de": "Guten Appetit allerseits!"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0169",
+    "de": [
+      "Die Rechnung, bitte."
+    ],
+    "es": "La cuenta, por favor.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "essen",
+    "example": {
+      "es": "Mesero, la cuenta, por favor.",
+      "de": "Kellner, die Rechnung, bitte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0170",
+    "de": [
+      "Was empfehlen Sie mir?"
+    ],
+    "es": "¿Qué me recomienda?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "No conozco el menú. ¿Qué me recomienda?",
+      "de": "Ich kenne die Karte nicht. Was empfehlen Sie mir?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0171",
+    "de": [
+      "Ich habe Hunger."
+    ],
+    "es": "Tengo hambre.",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "essen",
+    "example": {
+      "es": "Tengo hambre y quiero unos tacos.",
+      "de": "Ich habe Hunger und möchte ein paar Tacos."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  }
+]

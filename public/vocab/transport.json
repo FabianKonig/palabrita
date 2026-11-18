@@ -1,0 +1,785 @@
+[
+  {
+    "id": "v0005",
+    "de": [
+      "Bus"
+    ],
+    "es": "el autobús",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "El autobús sale a las ocho.",
+      "de": "Der Bus fährt um acht Uhr ab."
+    },
+    "note": "In Guatemala heißt der bunte Bus „camioneta“.",
+    "gender": "m",
+    "plural": "los autobuses"
+  },
+  {
+    "id": "v0006",
+    "de": [
+      "Auto",
+      "Wagen"
+    ],
+    "es": "el carro",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "Mi carro es nuevo.",
+      "de": "Mein Auto ist neu."
+    },
+    "note": "In Mexiko und Guatemala üblich statt „coche“.",
+    "gender": "m",
+    "plural": "los carros"
+  },
+  {
+    "id": "v0025",
+    "de": [
+      "reisen"
+    ],
+    "es": "viajar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Queremos viajar por Guatemala.",
+      "de": "Wir wollen durch Guatemala reisen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0176",
+    "de": [
+      "ankommen"
+    ],
+    "es": "llegar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "Llegamos a Antigua a las tres.",
+      "de": "Wir kommen um drei Uhr in Antigua an."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0177",
+    "de": [
+      "abfahren",
+      "ausgehen",
+      "hinausgehen"
+    ],
+    "es": "salir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "El camión sale de la terminal a las seis.",
+      "de": "Der Bus fährt um sechs Uhr vom Terminal ab."
+    },
+    "note": "Für Verkehrsmittel: „salir“ = abfahren; auch „ausgehen“ und „hinausgehen“.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "go"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "futuro": {
+          "stem": "saldr"
+        },
+        "imperativo": {
+          "2s": "sal"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0178",
+    "de": [
+      "einsteigen",
+      "hinaufsteigen"
+    ],
+    "es": "subir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "Subimos al camión en la esquina.",
+      "de": "Wir steigen an der Ecke in den Bus ein."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0179",
+    "de": [
+      "aussteigen",
+      "hinuntergehen"
+    ],
+    "es": "bajar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Voy a bajar en la próxima parada.",
+      "de": "Ich steige an der nächsten Haltestelle aus."
+    },
+    "note": "Meist „bajar(se) de“ + Fahrzeug.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0180",
+    "de": [
+      "fliegen"
+    ],
+    "es": "volar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Vamos a volar a Ciudad de Guatemala.",
+      "de": "Wir fliegen nach Guatemala-Stadt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ue"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0181",
+    "de": [
+      "zurückkehren",
+      "zurückfahren"
+    ],
+    "es": "regresar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Regresamos a casa el domingo.",
+      "de": "Wir kehren am Sonntag nach Hause zurück."
+    },
+    "note": "In Lateinamerika sehr gebräuchlich statt „volver“.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0182",
+    "de": [
+      "fahren",
+      "lenken"
+    ],
+    "es": "manejar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Mi papá maneja el carro con cuidado.",
+      "de": "Mein Vater fährt das Auto vorsichtig."
+    },
+    "note": "In Mexiko und Guatemala üblich statt „conducir“.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0183",
+    "de": [
+      "landen"
+    ],
+    "es": "aterrizar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "transport",
+    "example": {
+      "es": "El avión aterriza en diez minutos.",
+      "de": "Das Flugzeug landet in zehn Minuten."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0184",
+    "de": [
+      "starten",
+      "abheben"
+    ],
+    "es": "despegar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "transport",
+    "example": {
+      "es": "El vuelo despega a las siete de la mañana.",
+      "de": "Der Flug startet um sieben Uhr morgens."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0185",
+    "de": [
+      "Taxi"
+    ],
+    "es": "el taxi",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "Necesito un taxi para el aeropuerto.",
+      "de": "Ich brauche ein Taxi zum Flughafen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los taxis"
+  },
+  {
+    "id": "v0186",
+    "de": [
+      "Flugzeug"
+    ],
+    "es": "el avión",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "El avión es muy grande.",
+      "de": "Das Flugzeug ist sehr groß."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los aviones"
+  },
+  {
+    "id": "v0187",
+    "de": [
+      "Flughafen"
+    ],
+    "es": "el aeropuerto",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "El aeropuerto está lejos del centro.",
+      "de": "Der Flughafen liegt weit vom Zentrum entfernt."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los aeropuertos"
+  },
+  {
+    "id": "v0188",
+    "de": [
+      "Zug"
+    ],
+    "es": "el tren",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "El tren llega a las nueve.",
+      "de": "Der Zug kommt um neun Uhr an."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los trenes"
+  },
+  {
+    "id": "v0189",
+    "de": [
+      "Fahrkarte",
+      "Ticket"
+    ],
+    "es": "el boleto",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "Compré dos boletos para Oaxaca.",
+      "de": "Ich habe zwei Fahrkarten nach Oaxaca gekauft."
+    },
+    "note": "In Lateinamerika üblich für Fahr- und Eintrittskarten; in Spanien heißt es „billete“.",
+    "gender": "m",
+    "plural": "los boletos"
+  },
+  {
+    "id": "v0190",
+    "de": [
+      "Bahnhof",
+      "Station"
+    ],
+    "es": "la estación",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "La estación de autobuses está cerca.",
+      "de": "Der Busbahnhof ist in der Nähe."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las estaciones"
+  },
+  {
+    "id": "v0191",
+    "de": [
+      "Koffer"
+    ],
+    "es": "la maleta",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "Mi maleta es azul.",
+      "de": "Mein Koffer ist blau."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las maletas"
+  },
+  {
+    "id": "v0192",
+    "de": [
+      "Haltestelle"
+    ],
+    "es": "la parada",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "La parada está enfrente del banco.",
+      "de": "Die Haltestelle liegt gegenüber der Bank."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las paradas"
+  },
+  {
+    "id": "v0193",
+    "de": [
+      "Flug"
+    ],
+    "es": "el vuelo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Mi vuelo sale a las diez.",
+      "de": "Mein Flug geht um zehn Uhr."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los vuelos"
+  },
+  {
+    "id": "v0194",
+    "de": [
+      "Grenze"
+    ],
+    "es": "la frontera",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Cruzamos la frontera con Guatemala.",
+      "de": "Wir überqueren die Grenze nach Guatemala."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las fronteras"
+  },
+  {
+    "id": "v0195",
+    "de": [
+      "Fahrgast",
+      "Passagier"
+    ],
+    "es": "el pasajero",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Los pasajeros esperan en la parada.",
+      "de": "Die Fahrgäste warten an der Haltestelle."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los pasajeros"
+  },
+  {
+    "id": "v0196",
+    "de": [
+      "Bus",
+      "Lastwagen"
+    ],
+    "es": "el camión",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Esperamos el camión en la esquina.",
+      "de": "Wir warten an der Ecke auf den Bus."
+    },
+    "note": "In Mexiko bedeutet „camión“ auch Stadtbus; sonst Lastwagen.",
+    "gender": "m",
+    "plural": "los camiones"
+  },
+  {
+    "id": "v0197",
+    "de": [
+      "Fahrer"
+    ],
+    "es": "el chofer",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "El chofer espera en la puerta.",
+      "de": "Der Fahrer wartet an der Tür."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los choferes"
+  },
+  {
+    "id": "v0198",
+    "de": [
+      "Reise",
+      "Fahrt"
+    ],
+    "es": "el viaje",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "El viaje a Tikal dura cinco horas.",
+      "de": "Die Fahrt nach Tikal dauert fünf Stunden."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los viajes"
+  },
+  {
+    "id": "v0199",
+    "de": [
+      "Zoll",
+      "Zollbehörde"
+    ],
+    "es": "la aduana",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "transport",
+    "example": {
+      "es": "En la aduana revisan las maletas.",
+      "de": "Beim Zoll werden die Koffer kontrolliert."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las aduanas"
+  },
+  {
+    "id": "v0200",
+    "de": [
+      "Verspätung"
+    ],
+    "es": "el retraso",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "transport",
+    "example": {
+      "es": "El vuelo tiene dos horas de retraso.",
+      "de": "Der Flug hat zwei Stunden Verspätung."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los retrasos"
+  },
+  {
+    "id": "v0201",
+    "de": [
+      "Kleinbus",
+      "Chicken Bus"
+    ],
+    "es": "la camioneta",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "transport",
+    "example": {
+      "es": "Viajamos en camioneta hasta Panajachel.",
+      "de": "Wir fahren mit dem Kleinbus bis Panajachel."
+    },
+    "note": "In Guatemala der bunte „chicken bus“ (ausgemusterte US-Schulbusse); in Mexiko eher Pick-up/SUV.",
+    "gender": "f",
+    "plural": "las camionetas"
+  },
+  {
+    "id": "v0202",
+    "de": [
+      "Strecke",
+      "Fahrt"
+    ],
+    "es": "el trayecto",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "transport",
+    "example": {
+      "es": "El trayecto es largo pero bonito.",
+      "de": "Die Strecke ist lang, aber schön."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los trayectos"
+  },
+  {
+    "id": "v0203",
+    "de": [
+      "schnell"
+    ],
+    "es": "rápido",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "El tren es muy rápido.",
+      "de": "Der Zug ist sehr schnell."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0204",
+    "de": [
+      "langsam"
+    ],
+    "es": "lento",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "El camión es lento pero barato.",
+      "de": "Der Bus ist langsam, aber billig."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0205",
+    "de": [
+      "direkt"
+    ],
+    "es": "directo",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Hay un vuelo directo a Cancún.",
+      "de": "Es gibt einen Direktflug nach Cancún."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0206",
+    "de": [
+      "voll",
+      "besetzt"
+    ],
+    "es": "lleno",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "El camión va lleno.",
+      "de": "Der Bus ist voll."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0207",
+    "de": [
+      "hin und zurück"
+    ],
+    "es": "de ida y vuelta",
+    "pos": "other",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Quiero un boleto de ida y vuelta.",
+      "de": "Ich möchte eine Hin- und Rückfahrkarte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0208",
+    "de": [
+      "verspätet"
+    ],
+    "es": "retrasado",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "transport",
+    "example": {
+      "es": "El vuelo está retrasado.",
+      "de": "Der Flug ist verspätet."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0209",
+    "de": [
+      "Wann fährt der Bus ab?"
+    ],
+    "es": "¿A qué hora sale el camión?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "Perdón, ¿a qué hora sale el camión a Xela?",
+      "de": "Entschuldigung, wann fährt der Bus nach Xela?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0210",
+    "de": [
+      "Eine Fahrkarte nach Antigua, bitte."
+    ],
+    "es": "Un boleto a Antigua, por favor.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "Un boleto a Antigua, por favor.",
+      "de": "Eine Fahrkarte nach Antigua, bitte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0211",
+    "de": [
+      "Wo ist die Haltestelle?"
+    ],
+    "es": "¿Dónde está la parada?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "transport",
+    "example": {
+      "es": "Disculpe, ¿dónde está la parada del camión?",
+      "de": "Entschuldigung, wo ist die Bushaltestelle?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0212",
+    "de": [
+      "Fährt dieser Bus ins Zentrum?"
+    ],
+    "es": "¿Este camión va al centro?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "¿Este camión va al centro?",
+      "de": "Fährt dieser Bus ins Zentrum?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0213",
+    "de": [
+      "Bringen Sie mich bitte zum Flughafen."
+    ],
+    "es": "Lléveme al aeropuerto, por favor.",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "transport",
+    "example": {
+      "es": "Lléveme al aeropuerto, por favor.",
+      "de": "Bringen Sie mich bitte zum Flughafen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0214",
+    "de": [
+      "Ich habe meinen Anschluss verpasst."
+    ],
+    "es": "Perdí mi conexión.",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "transport",
+    "example": {
+      "es": "Perdí mi conexión y no sé qué hacer.",
+      "de": "Ich habe meinen Anschluss verpasst und weiß nicht, was ich tun soll."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  }
+]

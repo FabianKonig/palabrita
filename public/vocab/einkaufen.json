@@ -1,0 +1,771 @@
+[
+  {
+    "id": "v0013",
+    "de": [
+      "Markt"
+    ],
+    "es": "el mercado",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Compramos fruta en el mercado.",
+      "de": "Wir kaufen Obst auf dem Markt."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los mercados"
+  },
+  {
+    "id": "v0014",
+    "de": [
+      "Was kostet das?"
+    ],
+    "es": "¿Cuánto cuesta?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "¿Cuánto cuesta esta bolsa?",
+      "de": "Was kostet diese Tasche?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0276",
+    "de": [
+      "kaufen"
+    ],
+    "es": "comprar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Quiero comprar una playera.",
+      "de": "Ich möchte ein T-Shirt kaufen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0277",
+    "de": [
+      "verkaufen"
+    ],
+    "es": "vender",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Ella vende frutas en el mercado.",
+      "de": "Sie verkauft Obst auf dem Markt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0278",
+    "de": [
+      "bezahlen"
+    ],
+    "es": "pagar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Pago con tarjeta.",
+      "de": "Ich bezahle mit Karte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0279",
+    "de": [
+      "kosten"
+    ],
+    "es": "costar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Las naranjas cuestan veinte pesos el kilo.",
+      "de": "Die Orangen kosten zwanzig Pesos das Kilo."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ue"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0280",
+    "de": [
+      "feilschen",
+      "handeln"
+    ],
+    "es": "regatear",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "En el mercado se puede regatear.",
+      "de": "Auf dem Markt kann man feilschen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0281",
+    "de": [
+      "wechseln",
+      "tauschen"
+    ],
+    "es": "cambiar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Quiero cambiar dólares en pesos.",
+      "de": "Ich möchte Dollar in Pesos wechseln."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0282",
+    "de": [
+      "ausgeben"
+    ],
+    "es": "gastar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Gasté mucho dinero en souvenirs.",
+      "de": "Ich habe viel Geld für Souvenirs ausgegeben."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0283",
+    "de": [
+      "sparen"
+    ],
+    "es": "ahorrar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Queremos ahorrar para el viaje.",
+      "de": "Wir wollen für die Reise sparen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0284",
+    "de": [
+      "zeigen"
+    ],
+    "es": "mostrar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "¿Me puede mostrar otra talla?",
+      "de": "Können Sie mir eine andere Größe zeigen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ue"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0285",
+    "de": [
+      "anbieten"
+    ],
+    "es": "ofrecer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "El vendedor me ofreció un buen precio.",
+      "de": "Der Verkäufer hat mir einen guten Preis angeboten."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "zco"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0286",
+    "de": [
+      "Geld"
+    ],
+    "es": "el dinero",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "No tengo dinero en efectivo.",
+      "de": "Ich habe kein Bargeld."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v0287",
+    "de": [
+      "Preis"
+    ],
+    "es": "el precio",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "¿Cuál es el precio de este sombrero?",
+      "de": "Was ist der Preis dieses Huts?"
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los precios"
+  },
+  {
+    "id": "v0288",
+    "de": [
+      "Geschäft",
+      "Laden"
+    ],
+    "es": "la tienda",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "La tienda abre a las nueve.",
+      "de": "Der Laden öffnet um neun Uhr."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las tiendas"
+  },
+  {
+    "id": "v0289",
+    "de": [
+      "Peso"
+    ],
+    "es": "el peso",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Cuesta cincuenta pesos.",
+      "de": "Es kostet fünfzig Pesos."
+    },
+    "note": "Währung in Mexiko (in Guatemala: der Quetzal).",
+    "gender": "m",
+    "plural": "los pesos"
+  },
+  {
+    "id": "v0290",
+    "de": [
+      "Münze"
+    ],
+    "es": "la moneda",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "¿Tiene monedas de diez pesos?",
+      "de": "Haben Sie Zehn-Peso-Münzen?"
+    },
+    "note": "Auch: Währung eines Landes.",
+    "gender": "f",
+    "plural": "las monedas"
+  },
+  {
+    "id": "v0291",
+    "de": [
+      "Karte",
+      "Kreditkarte"
+    ],
+    "es": "la tarjeta",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "¿Puedo pagar con tarjeta?",
+      "de": "Kann ich mit Karte bezahlen?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las tarjetas"
+  },
+  {
+    "id": "v0292",
+    "de": [
+      "Bargeld"
+    ],
+    "es": "el efectivo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Prefiero pagar en efectivo.",
+      "de": "Ich zahle lieber bar."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v0293",
+    "de": [
+      "Kleidung"
+    ],
+    "es": "la ropa",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Compré ropa nueva.",
+      "de": "Ich habe neue Kleidung gekauft."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v0294",
+    "de": [
+      "Hemd",
+      "Bluse"
+    ],
+    "es": "la camisa",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Esta camisa es de algodón.",
+      "de": "Dieses Hemd ist aus Baumwolle."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las camisas"
+  },
+  {
+    "id": "v0295",
+    "de": [
+      "Hose"
+    ],
+    "es": "el pantalón",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Busco un pantalón negro.",
+      "de": "Ich suche eine schwarze Hose."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los pantalones"
+  },
+  {
+    "id": "v0296",
+    "de": [
+      "Schuh"
+    ],
+    "es": "el zapato",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Estos zapatos me quedan grandes.",
+      "de": "Diese Schuhe sind mir zu groß."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los zapatos"
+  },
+  {
+    "id": "v0297",
+    "de": [
+      "Kleid"
+    ],
+    "es": "el vestido",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "El vestido rojo es muy bonito.",
+      "de": "Das rote Kleid ist sehr schön."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los vestidos"
+  },
+  {
+    "id": "v0298",
+    "de": [
+      "Größe (Kleidung)"
+    ],
+    "es": "la talla",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "¿Qué talla usa usted?",
+      "de": "Welche Größe tragen Sie?"
+    },
+    "note": "Für Schuhe sagt man meist el número.",
+    "gender": "f",
+    "plural": "las tallas"
+  },
+  {
+    "id": "v0299",
+    "de": [
+      "Rabatt",
+      "Preisnachlass"
+    ],
+    "es": "el descuento",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Hay un descuento del diez por ciento.",
+      "de": "Es gibt zehn Prozent Rabatt."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los descuentos"
+  },
+  {
+    "id": "v0300",
+    "de": [
+      "Quittung",
+      "Kassenbon"
+    ],
+    "es": "el recibo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Guarde el recibo, por favor.",
+      "de": "Bewahren Sie bitte die Quittung auf."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los recibos"
+  },
+  {
+    "id": "v0301",
+    "de": [
+      "Wechselgeld"
+    ],
+    "es": "el cambio",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Aquí está su cambio.",
+      "de": "Hier ist Ihr Wechselgeld."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v0302",
+    "de": [
+      "Schnäppchen"
+    ],
+    "es": "la ganga",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Esta chamarra fue una ganga.",
+      "de": "Diese Jacke war ein Schnäppchen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las gangas"
+  },
+  {
+    "id": "v0303",
+    "de": [
+      "billig",
+      "günstig"
+    ],
+    "es": "barato",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "El mercado es más barato que el supermercado.",
+      "de": "Der Markt ist billiger als der Supermarkt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0304",
+    "de": [
+      "teuer"
+    ],
+    "es": "caro",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Este reloj es muy caro.",
+      "de": "Diese Uhr ist sehr teuer."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0305",
+    "de": [
+      "rot"
+    ],
+    "es": "rojo",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Quiero la playera roja.",
+      "de": "Ich möchte das rote T-Shirt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0306",
+    "de": [
+      "blau"
+    ],
+    "es": "azul",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Me gusta el vestido azul.",
+      "de": "Mir gefällt das blaue Kleid."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0307",
+    "de": [
+      "grün"
+    ],
+    "es": "verde",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Busco una bolsa verde.",
+      "de": "Ich suche eine grüne Tasche."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0308",
+    "de": [
+      "schwarz"
+    ],
+    "es": "negro",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Los zapatos negros están en oferta.",
+      "de": "Die schwarzen Schuhe sind im Angebot."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0309",
+    "de": [
+      "gelb"
+    ],
+    "es": "amarillo",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "La blusa amarilla es de Oaxaca.",
+      "de": "Die gelbe Bluse ist aus Oaxaca."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0310",
+    "de": [
+      "gratis",
+      "kostenlos"
+    ],
+    "es": "gratis",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "La entrega es gratis.",
+      "de": "Die Lieferung ist kostenlos."
+    },
+    "note": "Unveränderlich, auch Adverb.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0311",
+    "de": [
+      "Nehmen Sie Karte?"
+    ],
+    "es": "¿Aceptan tarjeta?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "¿Aceptan tarjeta o solo efectivo?",
+      "de": "Nehmen Sie Karte oder nur Bargeld?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0312",
+    "de": [
+      "Geben Sie mir einen Rabatt?"
+    ],
+    "es": "¿Me hace un descuento?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Llevo tres, ¿me hace un descuento?",
+      "de": "Ich nehme drei, geben Sie mir einen Rabatt?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0313",
+    "de": [
+      "Ich nehme es."
+    ],
+    "es": "Me lo llevo.",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Me gusta mucho, me lo llevo.",
+      "de": "Es gefällt mir sehr, ich nehme es."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0314",
+    "de": [
+      "Ich schaue nur."
+    ],
+    "es": "Solo estoy mirando.",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "No, gracias, solo estoy mirando.",
+      "de": "Nein danke, ich schaue nur."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0315",
+    "de": [
+      "Haben Sie Wechselgeld für hundert Pesos?"
+    ],
+    "es": "¿Tiene cambio de cien pesos?",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "einkaufen",
+    "example": {
+      "es": "Perdón, ¿tiene cambio de cien pesos?",
+      "de": "Entschuldigung, haben Sie Wechselgeld für hundert Pesos?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  }
+]

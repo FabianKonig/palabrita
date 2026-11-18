@@ -1,0 +1,687 @@
+[
+  {
+    "id": "v0017",
+    "de": [
+      "Vulkan"
+    ],
+    "es": "el volcán",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "El volcán de Pacaya está en Guatemala.",
+      "de": "Der Vulkan Pacaya liegt in Guatemala."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los volcanes"
+  },
+  {
+    "id": "v0018",
+    "de": [
+      "Strand"
+    ],
+    "es": "la playa",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "La playa está llena de gente.",
+      "de": "Der Strand ist voller Menschen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las playas"
+  },
+  {
+    "id": "v0376",
+    "de": [
+      "regnen"
+    ],
+    "es": "llover",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "En la época de lluvias llueve casi todas las tardes.",
+      "de": "In der Regenzeit regnet es fast jeden Nachmittag."
+    },
+    "note": null,
+    "verb": {
+      "tags": [
+        "ue"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0377",
+    "de": [
+      "schneien"
+    ],
+    "es": "nevar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "En el volcán Popocatépetl a veces nieva.",
+      "de": "Am Vulkan Popocatépetl schneit es manchmal."
+    },
+    "note": null,
+    "verb": {
+      "tags": [
+        "ie"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0378",
+    "de": [
+      "scheinen",
+      "glänzen"
+    ],
+    "es": "brillar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "El sol brilla sobre el lago.",
+      "de": "Die Sonne scheint über dem See."
+    },
+    "note": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0379",
+    "de": [
+      "klettern",
+      "besteigen"
+    ],
+    "es": "escalar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "Mañana vamos a escalar el volcán.",
+      "de": "Morgen besteigen wir den Vulkan."
+    },
+    "note": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0380",
+    "de": [
+      "wachsen"
+    ],
+    "es": "crecer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "natur",
+    "example": {
+      "es": "Los árboles crecen rápido en la selva.",
+      "de": "Die Bäume wachsen im Dschungel schnell."
+    },
+    "note": null,
+    "verb": {
+      "tags": [
+        "zco"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0381",
+    "de": [
+      "Tag werden",
+      "dämmern"
+    ],
+    "es": "amanecer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "natur",
+    "example": {
+      "es": "En el lago amanece muy temprano.",
+      "de": "Am See wird es sehr früh Tag."
+    },
+    "note": null,
+    "verb": {
+      "tags": [
+        "zco"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0382",
+    "de": [
+      "Sonne"
+    ],
+    "es": "el sol",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "Hoy hay mucho sol en la playa.",
+      "de": "Heute scheint viel Sonne am Strand."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los soles"
+  },
+  {
+    "id": "v0383",
+    "de": [
+      "Mond"
+    ],
+    "es": "la luna",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "Esta noche hay luna llena.",
+      "de": "Heute Nacht ist Vollmond."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las lunas"
+  },
+  {
+    "id": "v0384",
+    "de": [
+      "Meer"
+    ],
+    "es": "el mar",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "El mar está muy tranquilo hoy.",
+      "de": "Das Meer ist heute sehr ruhig."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los mares"
+  },
+  {
+    "id": "v0385",
+    "de": [
+      "Fluss"
+    ],
+    "es": "el río",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "El río es muy ancho aquí.",
+      "de": "Der Fluss ist hier sehr breit."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los ríos"
+  },
+  {
+    "id": "v0386",
+    "de": [
+      "Baum"
+    ],
+    "es": "el árbol",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "Hay un árbol grande frente a la casa.",
+      "de": "Vor dem Haus steht ein großer Baum."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los árboles"
+  },
+  {
+    "id": "v0387",
+    "de": [
+      "Regen"
+    ],
+    "es": "la lluvia",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "La lluvia no para desde ayer.",
+      "de": "Der Regen hört seit gestern nicht auf."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las lluvias"
+  },
+  {
+    "id": "v0388",
+    "de": [
+      "Blume"
+    ],
+    "es": "la flor",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "Estas flores son muy bonitas.",
+      "de": "Diese Blumen sind sehr schön."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las flores"
+  },
+  {
+    "id": "v0389",
+    "de": [
+      "Wind"
+    ],
+    "es": "el viento",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "Hoy hace mucho viento.",
+      "de": "Heute ist es sehr windig."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los vientos"
+  },
+  {
+    "id": "v0390",
+    "de": [
+      "Himmel"
+    ],
+    "es": "el cielo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "El cielo está despejado.",
+      "de": "Der Himmel ist wolkenlos."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los cielos"
+  },
+  {
+    "id": "v0391",
+    "de": [
+      "See"
+    ],
+    "es": "el lago",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "El lago de Atitlán es muy hermoso.",
+      "de": "Der Atitlán-See ist sehr schön."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los lagos"
+  },
+  {
+    "id": "v0392",
+    "de": [
+      "Berg",
+      "Gebirge"
+    ],
+    "es": "la montaña",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "Vivimos cerca de las montañas.",
+      "de": "Wir wohnen in der Nähe der Berge."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las montañas"
+  },
+  {
+    "id": "v0393",
+    "de": [
+      "Dschungel",
+      "Urwald"
+    ],
+    "es": "la selva",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "La selva de Chiapas es enorme.",
+      "de": "Der Dschungel von Chiapas ist riesig."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las selvas"
+  },
+  {
+    "id": "v0394",
+    "de": [
+      "Schildkröte"
+    ],
+    "es": "la tortuga",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "En la playa vimos una tortuga.",
+      "de": "Am Strand haben wir eine Schildkröte gesehen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las tortugas"
+  },
+  {
+    "id": "v0395",
+    "de": [
+      "Jaguar"
+    ],
+    "es": "el jaguar",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "El jaguar vive en la selva.",
+      "de": "Der Jaguar lebt im Dschungel."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los jaguares"
+  },
+  {
+    "id": "v0396",
+    "de": [
+      "Quetzal"
+    ],
+    "es": "el quetzal",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "El quetzal es el ave nacional de Guatemala.",
+      "de": "Der Quetzal ist der Nationalvogel Guatemalas."
+    },
+    "note": "Auch Name der Währung Guatemalas.",
+    "gender": "m",
+    "plural": "los quetzales"
+  },
+  {
+    "id": "v0397",
+    "de": [
+      "Wolke"
+    ],
+    "es": "la nube",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "Hay muchas nubes en el cielo.",
+      "de": "Am Himmel sind viele Wolken."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las nubes"
+  },
+  {
+    "id": "v0398",
+    "de": [
+      "Insel"
+    ],
+    "es": "la isla",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "Cozumel es una isla en el Caribe.",
+      "de": "Cozumel ist eine Insel in der Karibik."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las islas"
+  },
+  {
+    "id": "v0399",
+    "de": [
+      "Hurrikan"
+    ],
+    "es": "el huracán",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "natur",
+    "example": {
+      "es": "La temporada de huracanes empieza en junio.",
+      "de": "Die Hurrikansaison beginnt im Juni."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los huracanes"
+  },
+  {
+    "id": "v0400",
+    "de": [
+      "Erdbeben"
+    ],
+    "es": "el terremoto",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "natur",
+    "example": {
+      "es": "Hubo un terremoto anoche.",
+      "de": "Letzte Nacht gab es ein Erdbeben."
+    },
+    "note": "In Mexiko sagt man oft „sismo“ (stärkeres Beben) oder „temblor“ (spürbares Beben).",
+    "gender": "m",
+    "plural": "los terremotos"
+  },
+  {
+    "id": "v0401",
+    "de": [
+      "heiß",
+      "warm"
+    ],
+    "es": "caliente",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "El agua está muy caliente.",
+      "de": "Das Wasser ist sehr heiß."
+    },
+    "note": null
+  },
+  {
+    "id": "v0402",
+    "de": [
+      "kalt"
+    ],
+    "es": "frío",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "El agua del lago está fría.",
+      "de": "Das Wasser des Sees ist kalt."
+    },
+    "note": null
+  },
+  {
+    "id": "v0403",
+    "de": [
+      "hoch",
+      "groß (Person)"
+    ],
+    "es": "alto",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "Ese volcán es muy alto.",
+      "de": "Dieser Vulkan ist sehr hoch."
+    },
+    "note": null
+  },
+  {
+    "id": "v0404",
+    "de": [
+      "feucht",
+      "schwül"
+    ],
+    "es": "húmedo",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "En la costa el clima es húmedo.",
+      "de": "An der Küste ist das Klima feucht."
+    },
+    "note": null
+  },
+  {
+    "id": "v0405",
+    "de": [
+      "bewölkt"
+    ],
+    "es": "nublado",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "El cielo está nublado.",
+      "de": "Der Himmel ist bewölkt."
+    },
+    "note": null
+  },
+  {
+    "id": "v0406",
+    "de": [
+      "sonnig"
+    ],
+    "es": "soleado",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "Es un día soleado.",
+      "de": "Es ist ein sonniger Tag."
+    },
+    "note": null
+  },
+  {
+    "id": "v0407",
+    "de": [
+      "trocken"
+    ],
+    "es": "seco",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "natur",
+    "example": {
+      "es": "La época seca dura hasta mayo.",
+      "de": "Die Trockenzeit dauert bis Mai."
+    },
+    "note": null
+  },
+  {
+    "id": "v0408",
+    "de": [
+      "tropisch"
+    ],
+    "es": "tropical",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "natur",
+    "example": {
+      "es": "El clima tropical es húmedo y caliente.",
+      "de": "Das tropische Klima ist feucht und heiß."
+    },
+    "note": null
+  },
+  {
+    "id": "v0409",
+    "de": [
+      "wild"
+    ],
+    "es": "salvaje",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "natur",
+    "example": {
+      "es": "En la selva hay animales salvajes.",
+      "de": "Im Dschungel gibt es wilde Tiere."
+    },
+    "note": null
+  },
+  {
+    "id": "v0410",
+    "de": [
+      "mild",
+      "gemäßigt"
+    ],
+    "es": "templado",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "natur",
+    "example": {
+      "es": "En las montañas el clima es templado.",
+      "de": "In den Bergen ist das Klima mild."
+    },
+    "note": null
+  },
+  {
+    "id": "v0411",
+    "de": [
+      "Es ist heiß."
+    ],
+    "es": "Hace calor.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "Hace calor en la playa.",
+      "de": "Am Strand ist es heiß."
+    },
+    "note": null
+  },
+  {
+    "id": "v0412",
+    "de": [
+      "Wie ist das Wetter?"
+    ],
+    "es": "¿Qué tiempo hace?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "natur",
+    "example": {
+      "es": "¿Qué tiempo hace hoy en el lago?",
+      "de": "Wie ist heute das Wetter am See?"
+    },
+    "note": null
+  },
+  {
+    "id": "v0425",
+    "de": [
+      "Stern"
+    ],
+    "es": "la estrella",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "example": {
+      "es": "En el lago se ven muchas estrellas por la noche.",
+      "de": "Am See sieht man nachts viele Sterne."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las estrellas"
+  }
+]

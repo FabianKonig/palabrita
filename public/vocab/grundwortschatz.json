@@ -1,0 +1,5362 @@
+[
+  {
+    "id": "v0626",
+    "de": ["legen", "stellen", "setzen"],
+    "es": "poner",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Pon las llaves en la mesa, por favor.",
+      "de": "Leg die Schlüssel bitte auf den Tisch."
+    },
+    "note": "Auch: ponerse = anziehen / werden.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["go"],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "puse",
+          "2s": "pusiste",
+          "3s": "puso",
+          "1p": "pusimos",
+          "2p": "pusisteis",
+          "3p": "pusieron"
+        },
+        "futuro": {
+          "stem": "pondr"
+        },
+        "imperativo": {
+          "2s": "pon"
+        },
+        "participio": "puesto"
+      }
+    }
+  },
+  {
+    "id": "v0627",
+    "de": ["denken", "meinen"],
+    "es": "pensar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Pienso mucho en mi familia.",
+      "de": "Ich denke viel an meine Familie."
+    },
+    "note": "pensar en = denken an; pensar + Infinitiv = vorhaben.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0628",
+    "de": ["fühlen", "spüren", "bedauern"],
+    "es": "sentir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Siento mucho el retraso.",
+      "de": "Die Verspätung tut mir sehr leid."
+    },
+    "note": "Lo siento = Es tut mir leid.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie-i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0629",
+    "de": ["kennen", "kennenlernen"],
+    "es": "conocer",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Conoces Antigua Guatemala?",
+      "de": "Kennst du Antigua Guatemala?"
+    },
+    "note": "Für Personen und Orte; Fakten und Fertigkeiten: saber.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0630",
+    "de": ["finden", "treffen"],
+    "es": "encontrar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No encuentro mi celular.",
+      "de": "Ich finde mein Handy nicht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0631",
+    "de": ["tragen", "bringen", "mitnehmen"],
+    "es": "llevar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Llevo una chamarra porque hace frío.",
+      "de": "Ich trage eine Jacke, weil es kalt ist."
+    },
+    "note": "Auch: Zeit verbringen (Llevo dos días aquí).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0632",
+    "de": ["lassen", "verlassen", "aufhören"],
+    "es": "dejar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Dejé mi mochila en el hotel.",
+      "de": "Ich habe meinen Rucksack im Hotel gelassen."
+    },
+    "note": "dejar de + Infinitiv = aufhören zu.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0633",
+    "de": ["passieren", "vorbeigehen", "verbringen"],
+    "es": "pasar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Qué pasó? Pasé la tarde en el mercado.",
+      "de": "Was ist passiert? Ich habe den Nachmittag auf dem Markt verbracht."
+    },
+    "note": "Auch: reichen (Pásame la sal).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0634",
+    "de": ["zurückkehren", "wiederkommen"],
+    "es": "volver",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Vuelvo a casa a las seis.",
+      "de": "Ich komme um sechs nach Hause zurück."
+    },
+    "note": "volver a + Infinitiv = etwas wieder tun.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false,
+      "overrides": {
+        "participio": "vuelto"
+      }
+    }
+  },
+  {
+    "id": "v0635",
+    "de": ["bringen", "mitbringen"],
+    "es": "traer",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Me trae la cuenta, por favor?",
+      "de": "Bringen Sie mir bitte die Rechnung?"
+    },
+    "note": "traer = zum Sprecher hin; llevar = vom Sprecher weg.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["irr"],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "traigo"
+        },
+        "indefinido": {
+          "1s": "traje",
+          "2s": "trajiste",
+          "3s": "trajo",
+          "1p": "trajimos",
+          "2p": "trajisteis",
+          "3p": "trajeron"
+        },
+        "imperativo": {
+          "3s": "traiga",
+          "1p": "traigamos",
+          "3p": "traigan"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0636",
+    "de": ["lesen"],
+    "es": "leer",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me gusta leer en el camión.",
+      "de": "Ich lese gern im Bus."
+    },
+    "note": "Im Indefinido: leyó, leyeron.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0637",
+    "de": ["schreiben"],
+    "es": "escribir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Te escribo un mensaje por WhatsApp.",
+      "de": "Ich schreibe dir eine Nachricht per WhatsApp."
+    },
+    "note": "Partizip: escrito.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "participio": "escrito"
+      }
+    }
+  },
+  {
+    "id": "v0638",
+    "de": ["öffnen", "aufmachen"],
+    "es": "abrir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿A qué hora abren las tiendas?",
+      "de": "Um wie viel Uhr öffnen die Geschäfte?"
+    },
+    "note": "Partizip: abierto.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "participio": "abierto"
+      }
+    }
+  },
+  {
+    "id": "v0639",
+    "de": ["ansehen", "anschauen"],
+    "es": "mirar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mira, ahí está el volcán.",
+      "de": "Schau, dort ist der Vulkan."
+    },
+    "note": "mirar = bewusst hinschauen; ver = sehen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0640",
+    "de": ["suchen"],
+    "es": "buscar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Busco una farmacia cerca de aquí.",
+      "de": "Ich suche eine Apotheke hier in der Nähe."
+    },
+    "note": "Vor Personen mit „a“: Busco a mi hermano.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0641",
+    "de": ["arbeiten"],
+    "es": "trabajar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Trabajo en una oficina en el centro.",
+      "de": "Ich arbeite in einem Büro im Zentrum."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0642",
+    "de": ["eintreten", "hineingehen"],
+    "es": "entrar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Entramos al museo por la puerta principal.",
+      "de": "Wir betreten das Museum durch den Haupteingang."
+    },
+    "note": "In Mexiko/Guatemala: entrar a + Ort.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0643",
+    "de": ["fragen"],
+    "es": "preguntar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Voy a preguntar cuánto cuesta.",
+      "de": "Ich werde fragen, wie viel es kostet."
+    },
+    "note": "preguntar = eine Frage stellen; pedir = bitten.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0644",
+    "de": ["erhalten", "empfangen"],
+    "es": "recibir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Recibí tu correo ayer.",
+      "de": "Ich habe deine E-Mail gestern erhalten."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0645",
+    "de": ["verlieren", "verpassen"],
+    "es": "perder",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Perdí el autobús por cinco minutos.",
+      "de": "Ich habe den Bus um fünf Minuten verpasst."
+    },
+    "note": "perderse = sich verlaufen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0646",
+    "de": ["haben (Hilfsverb)", "es gibt"],
+    "es": "haber",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hay mucha gente en la plaza. Ya he comido.",
+      "de": "Auf dem Platz sind viele Leute. Ich habe schon gegessen."
+    },
+    "note": "Hilfsverb für zusammengesetzte Zeiten; unpersönlich: hay = es gibt.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["irr"],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "he",
+          "2s": "has",
+          "3s": "ha",
+          "1p": "hemos",
+          "3p": "han"
+        },
+        "indefinido": {
+          "1s": "hube",
+          "2s": "hubiste",
+          "3s": "hubo",
+          "1p": "hubimos",
+          "2p": "hubisteis",
+          "3p": "hubieron"
+        },
+        "futuro": {
+          "stem": "habr"
+        },
+        "imperativo": {
+          "3s": "haya",
+          "1p": "hayamos",
+          "3p": "hayan"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0647",
+    "de": ["scheinen", "aussehen", "vorkommen"],
+    "es": "parecer",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Parece que va a llover.",
+      "de": "Es sieht so aus, als würde es regnen."
+    },
+    "note": "parecerse a = jemandem ähneln.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0648",
+    "de": ["müssen", "sollen", "schulden"],
+    "es": "deber",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Debes tomar más agua con este calor.",
+      "de": "Du solltest bei dieser Hitze mehr Wasser trinken."
+    },
+    "note": "deber + Infinitiv = sollen; deber de = vermutlich.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0649",
+    "de": ["erzählen", "zählen"],
+    "es": "contar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi abuela cuenta historias de su pueblo.",
+      "de": "Meine Großmutter erzählt Geschichten aus ihrem Dorf."
+    },
+    "note": "contar con = zählen auf.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0650",
+    "de": ["hören"],
+    "es": "oír",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Oyes la música? Viene de la fiesta.",
+      "de": "Hörst du die Musik? Sie kommt von der Feier."
+    },
+    "note": "oír = wahrnehmen; escuchar = zuhören.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["irr"],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "oigo",
+          "2s": "oyes",
+          "3s": "oye",
+          "3p": "oyen"
+        },
+        "futuro": {
+          "stem": "oir"
+        },
+        "imperativo": {
+          "2s": "oye",
+          "3s": "oiga",
+          "1p": "oigamos",
+          "3p": "oigan"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0651",
+    "de": ["fallen", "hinfallen"],
+    "es": "caer",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Se me cayó el vaso al piso.",
+      "de": "Mir ist das Glas auf den Boden gefallen."
+    },
+    "note": "caerse = hinfallen; caer bien = sympathisch sein.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["irr"],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "caigo"
+        },
+        "imperativo": {
+          "3s": "caiga",
+          "1p": "caigamos",
+          "3p": "caigan"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0652",
+    "de": ["sterben"],
+    "es": "morir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Las plantas se mueren sin agua.",
+      "de": "Die Pflanzen sterben ohne Wasser."
+    },
+    "note": "Partizip: muerto. morirse de + Nomen = vor etwas fast umkommen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue-u"],
+      "reflexive": false,
+      "overrides": {
+        "participio": "muerto"
+      }
+    }
+  },
+  {
+    "id": "v0653",
+    "de": ["sich erinnern", "erinnern"],
+    "es": "recordar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No recuerdo su nombre.",
+      "de": "Ich erinnere mich nicht an seinen Namen."
+    },
+    "note": "Nicht reflexiv: recordar algo.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0654",
+    "de": ["versuchen", "behandeln"],
+    "es": "tratar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Trato de llegar temprano todos los días.",
+      "de": "Ich versuche, jeden Tag früh anzukommen."
+    },
+    "note": "tratar de + Infinitiv = versuchen; tratarse de = es geht um.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0655",
+    "de": ["erscheinen", "auftauchen"],
+    "es": "aparecer",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi cartera apareció debajo del sillón.",
+      "de": "Mein Geldbeutel ist unter dem Sessel aufgetaucht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0656",
+    "de": ["beginnen", "anfangen"],
+    "es": "comenzar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La clase comienza a las ocho.",
+      "de": "Der Unterricht beginnt um acht Uhr."
+    },
+    "note": "Gleichbedeutend mit empezar; comenzar a + Infinitiv.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0657",
+    "de": ["herausnehmen", "holen", "machen"],
+    "es": "sacar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Voy a sacar dinero del cajero.",
+      "de": "Ich hebe Geld am Geldautomaten ab."
+    },
+    "note": "Auch: sacar fotos, sacar una buena nota.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0658",
+    "de": ["beenden", "enden", "ausgehen"],
+    "es": "acabar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Acabo de llegar a la ciudad.",
+      "de": "Ich bin gerade in der Stadt angekommen."
+    },
+    "note": "acabar de + Infinitiv = gerade etwas getan haben.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0659",
+    "de": ["annehmen", "akzeptieren"],
+    "es": "aceptar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Aceptan tarjeta de crédito?",
+      "de": "Akzeptieren Sie Kreditkarten?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0660",
+    "de": ["erklären"],
+    "es": "explicar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Me puede explicar cómo llegar al centro?",
+      "de": "Können Sie mir erklären, wie ich ins Zentrum komme?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0661",
+    "de": ["erlauben", "ermöglichen"],
+    "es": "permitir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No se permite fumar aquí.",
+      "de": "Rauchen ist hier nicht erlaubt."
+    },
+    "note": "permitirse = sich etwas leisten.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0662",
+    "de": ["geschehen", "sich ereignen", "einfallen"],
+    "es": "ocurrir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Qué ocurrió en la calle?",
+      "de": "Was ist auf der Straße passiert?"
+    },
+    "note": "Mit „se me“: Se me ocurre una idea = mir fällt etwas ein.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0663",
+    "de": ["erreichen", "bekommen", "schaffen"],
+    "es": "conseguir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Conseguí boletos para el concierto.",
+      "de": "Ich habe Karten für das Konzert bekommen."
+    },
+    "note": "conseguir + Infinitiv = es schaffen zu.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0664",
+    "de": ["verstehen", "begreifen"],
+    "es": "comprender",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No comprendo bien el acento de aquí.",
+      "de": "Ich verstehe den Akzent hier nicht gut."
+    },
+    "note": "Etwas förmlicher als entender.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0665",
+    "de": ["halten", "beibehalten", "unterhalten"],
+    "es": "mantener",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mantén la calma, por favor.",
+      "de": "Bleib bitte ruhig."
+    },
+    "note": "mantenerse = sich halten, bleiben.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["go", "ie"],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "mantuve",
+          "2s": "mantuviste",
+          "3s": "mantuvo",
+          "1p": "mantuvimos",
+          "2p": "mantuvisteis",
+          "3p": "mantuvieron"
+        },
+        "futuro": {
+          "stem": "mantendr"
+        },
+        "imperativo": {
+          "2s": "mantén"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0666",
+    "de": ["erhalten", "erlangen"],
+    "es": "obtener",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Obtuvo la visa después de tres meses.",
+      "de": "Er erhielt das Visum nach drei Monaten."
+    },
+    "note": "Formeller als conseguir.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["go", "ie"],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "obtuve",
+          "2s": "obtuviste",
+          "3s": "obtuvo",
+          "1p": "obtuvimos",
+          "2p": "obtuvisteis",
+          "3p": "obtuvieron"
+        },
+        "futuro": {
+          "stem": "obtendr"
+        },
+        "imperativo": {
+          "2s": "obtén"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0667",
+    "de": ["umwandeln", "verwandeln"],
+    "es": "convertir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El cuarto se convirtió en una oficina.",
+      "de": "Das Zimmer wurde in ein Büro verwandelt."
+    },
+    "note": "convertirse en = zu etwas werden.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie-i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0668",
+    "de": ["produzieren", "herstellen", "verursachen"],
+    "es": "producir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Esta región produce mucho café.",
+      "de": "Diese Region produziert viel Kaffee."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "produje",
+          "2s": "produjiste",
+          "3s": "produjo",
+          "1p": "produjimos",
+          "2p": "produjisteis",
+          "3p": "produjeron"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0669",
+    "de": ["sich ergeben", "sich herausstellen", "sein"],
+    "es": "resultar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El viaje resultó más caro de lo esperado.",
+      "de": "Die Reise erwies sich als teurer als erwartet."
+    },
+    "note": "Oft wie „sich als … erweisen“.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0670",
+    "de": ["betrachten", "erwägen", "halten für"],
+    "es": "considerar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Considero que es una buena idea.",
+      "de": "Ich halte das für eine gute Idee."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0671",
+    "de": ["bilden", "gestalten"],
+    "es": "formar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Los estudiantes formaron un grupo de estudio.",
+      "de": "Die Studierenden bildeten eine Lerngruppe."
+    },
+    "note": "formarse = sich bilden, entstehen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0672",
+    "de": ["teilen", "aufbrechen", "abreisen"],
+    "es": "partir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Partimos mañana temprano hacia Oaxaca.",
+      "de": "Wir brechen morgen früh nach Oaxaca auf."
+    },
+    "note": "a partir de = ab, von … an.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0673",
+    "de": ["durchführen", "verwirklichen"],
+    "es": "realizar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Se realizará una feria el sábado.",
+      "de": "Am Samstag findet ein Markt statt."
+    },
+    "note": "realizarse = stattfinden; sich erfüllen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0674",
+    "de": ["annehmen", "vermuten"],
+    "es": "suponer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Supongo que ya llegaron.",
+      "de": "Ich nehme an, dass sie schon angekommen sind."
+    },
+    "note": "Partizip: supuesto; por supuesto = natürlich.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["go"],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "supuse",
+          "2s": "supusiste",
+          "3s": "supuso",
+          "1p": "supusimos",
+          "2p": "supusisteis",
+          "3p": "supusieron"
+        },
+        "futuro": {
+          "stem": "supondr"
+        },
+        "imperativo": {
+          "2s": "supón"
+        },
+        "participio": "supuesto"
+      }
+    }
+  },
+  {
+    "id": "v0675",
+    "de": ["erreichen", "gelingen"],
+    "es": "lograr",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Logramos terminar el proyecto a tiempo.",
+      "de": "Wir haben es geschafft, das Projekt rechtzeitig fertigzustellen."
+    },
+    "note": "lograr + Infinitiv = schaffen zu.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0676",
+    "de": ["lernen", "studieren"],
+    "es": "estudiar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Estudio español todas las noches.",
+      "de": "Ich lerne jeden Abend Spanisch."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0677",
+    "de": ["hören", "zuhören"],
+    "es": "escuchar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me gusta escuchar música en el camión.",
+      "de": "Ich höre gern Musik im Bus."
+    },
+    "note": "Escuchar = bewusst zuhören, oír = hören (wahrnehmen).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0678",
+    "de": ["benutzen", "verwenden"],
+    "es": "usar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Puedo usar su baño, por favor?",
+      "de": "Darf ich Ihre Toilette benutzen, bitte?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0679",
+    "de": ["gehen", "spazieren", "laufen"],
+    "es": "caminar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Caminamos hasta el mercado.",
+      "de": "Wir gehen zu Fuß zum Markt."
+    },
+    "note": "In Mexiko und Guatemala sagt man oft caminar statt andar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0680",
+    "de": ["lernen"],
+    "es": "aprender",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Quiero aprender a bailar salsa.",
+      "de": "Ich möchte Salsa tanzen lernen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0681",
+    "de": ["schließen", "zumachen"],
+    "es": "cerrar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Cierran la tienda a las ocho.",
+      "de": "Sie schließen den Laden um acht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0682",
+    "de": ["waschen"],
+    "es": "lavar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Lavo la ropa los domingos.",
+      "de": "Ich wasche sonntags die Wäsche."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0683",
+    "de": ["rennen", "laufen"],
+    "es": "correr",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Los niños corren en el parque.",
+      "de": "Die Kinder rennen im Park."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0684",
+    "de": ["antworten"],
+    "es": "responder",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No respondió mi mensaje.",
+      "de": "Er hat meine Nachricht nicht beantwortet."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0685",
+    "de": ["bevorzugen", "lieber mögen"],
+    "es": "preferir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Prefiero el café sin azúcar.",
+      "de": "Ich trinke Kaffee lieber ohne Zucker."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie-i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0686",
+    "de": ["geboren werden"],
+    "es": "nacer",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi hija nació en Guatemala.",
+      "de": "Meine Tochter wurde in Guatemala geboren."
+    },
+    "note": "Meist in der Vergangenheit: nací = ich wurde geboren.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0687",
+    "de": ["versuchen"],
+    "es": "intentar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Voy a intentar hablar español con ellos.",
+      "de": "Ich werde versuchen, mit ihnen Spanisch zu sprechen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0688",
+    "de": ["wiederholen"],
+    "es": "repetir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Puede repetir, por favor?",
+      "de": "Können Sie das bitte wiederholen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0689",
+    "de": ["aufpassen auf", "pflegen"],
+    "es": "cuidar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Cuido a mi sobrino por las tardes.",
+      "de": "Ich passe nachmittags auf meinen Neffen auf."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0690",
+    "de": ["weinen"],
+    "es": "llorar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El bebé llora toda la noche.",
+      "de": "Das Baby weint die ganze Nacht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0691",
+    "de": ["lachen"],
+    "es": "reír",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Todos ríen con sus chistes.",
+      "de": "Alle lachen über seine Witze."
+    },
+    "note": "Meist reflexiv gebraucht: reírse de algo = über etwas lachen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["i", "irr"],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "río",
+          "2s": "ríes",
+          "3s": "ríe",
+          "3p": "ríen"
+        },
+        "indefinido": {
+          "3s": "rio",
+          "3p": "rieron"
+        },
+        "imperativo": {
+          "2s": "ríe",
+          "3s": "ría",
+          "3p": "rían"
+        },
+        "gerundio": "riendo"
+      }
+    }
+  },
+  {
+    "id": "v0692",
+    "de": ["lieben"],
+    "es": "amar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Amo a mi familia.",
+      "de": "Ich liebe meine Familie."
+    },
+    "note": "Für Menschen im Alltag sagt man meist querer; amar ist stärker.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0693",
+    "de": ["schicken", "senden"],
+    "es": "mandar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Te mando la dirección por WhatsApp.",
+      "de": "Ich schicke dir die Adresse per WhatsApp."
+    },
+    "note": "Auch: befehlen. In Mexiko sehr häufig für schicken.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0694",
+    "de": ["teilen"],
+    "es": "compartir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Compartimos un taxi al aeropuerto.",
+      "de": "Wir teilen uns ein Taxi zum Flughafen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0695",
+    "de": ["entscheiden", "beschließen"],
+    "es": "decidir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Decidimos quedarnos una semana más.",
+      "de": "Wir beschlossen, eine Woche länger zu bleiben."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0696",
+    "de": ["erkennen", "anerkennen"],
+    "es": "reconocer",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No te reconocí con el sombrero.",
+      "de": "Ich habe dich mit dem Hut nicht erkannt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0697",
+    "de": ["erreichen", "reichen"],
+    "es": "alcanzar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No alcanzo el estante de arriba.",
+      "de": "Ich komme an das obere Regal nicht heran."
+    },
+    "note": "Auch: ausreichen (¿Alcanza el dinero? = Reicht das Geld?).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0698",
+    "de": ["leiten", "lenken"],
+    "es": "dirigir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Ella dirige una escuela pequeña.",
+      "de": "Sie leitet eine kleine Schule."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0699",
+    "de": ["verwenden", "nutzen"],
+    "es": "utilizar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Utilizan productos locales en la cocina.",
+      "de": "Sie verwenden regionale Produkte in der Küche."
+    },
+    "note": "Förmlicher als usar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0700",
+    "de": ["erfüllen", "einhalten"],
+    "es": "cumplir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi hermano cumple veinte años mañana.",
+      "de": "Mein Bruder wird morgen zwanzig."
+    },
+    "note": "Cumplir años = Geburtstag haben.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0701",
+    "de": ["sich vorstellen"],
+    "es": "imaginar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Imagino que ya llegaron.",
+      "de": "Ich nehme an, dass sie schon angekommen sind."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0702",
+    "de": ["wählen", "auswählen"],
+    "es": "elegir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Elijan el color que más les guste.",
+      "de": "Wählen Sie die Farbe, die Ihnen am besten gefällt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0703",
+    "de": ["bewegen", "verschieben"],
+    "es": "mover",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Puede mover su coche, por favor?",
+      "de": "Können Sie bitte Ihr Auto wegfahren?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0704",
+    "de": ["träumen"],
+    "es": "soñar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Anoche soñé con el mar.",
+      "de": "Letzte Nacht habe ich vom Meer geträumt."
+    },
+    "note": "Soñar con = träumen von.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0705",
+    "de": ["lehren", "zeigen"],
+    "es": "enseñar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi abuela me enseñó a hacer tortillas.",
+      "de": "Meine Oma hat mir beigebracht, Tortillas zu machen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0706",
+    "de": ["auswählen", "aussuchen"],
+    "es": "escoger",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Escoge una fruta del mostrador.",
+      "de": "Such dir eine Frucht von der Theke aus."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0707",
+    "de": ["abgeben", "aushändigen"],
+    "es": "entregar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Entregué los documentos en la oficina.",
+      "de": "Ich habe die Unterlagen im Büro abgegeben."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0708",
+    "de": ["schneiden", "abschneiden"],
+    "es": "cortar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Corto las cebollas para la salsa.",
+      "de": "Ich schneide die Zwiebeln für die Soße."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0709",
+    "de": ["belegen", "einnehmen"],
+    "es": "ocupar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Esa mesa ya está ocupada.",
+      "de": "Dieser Tisch ist schon besetzt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0710",
+    "de": ["leiden"],
+    "es": "sufrir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mucha gente sufre por el calor.",
+      "de": "Viele Leute leiden unter der Hitze."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0711",
+    "de": ["lächeln"],
+    "es": "sonreír",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Ella siempre sonríe cuando me ve.",
+      "de": "Sie lächelt immer, wenn sie mich sieht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["i", "irr"],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "sonrío",
+          "2s": "sonríes",
+          "3s": "sonríe",
+          "3p": "sonríen"
+        },
+        "indefinido": {
+          "3s": "sonrio",
+          "3p": "sonrieron"
+        },
+        "imperativo": {
+          "2s": "sonríe",
+          "3s": "sonría",
+          "3p": "sonrían"
+        },
+        "gerundio": "sonriendo"
+      }
+    }
+  },
+  {
+    "id": "v0712",
+    "de": ["schreien", "rufen"],
+    "es": "gritar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No grites, estoy aquí.",
+      "de": "Schrei nicht, ich bin hier."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0713",
+    "de": ["vermeiden"],
+    "es": "evitar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Evito el centro a esa hora.",
+      "de": "Ich meide um diese Zeit die Innenstadt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0714",
+    "de": ["verbessern", "besser werden"],
+    "es": "mejorar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi español mejora cada día.",
+      "de": "Mein Spanisch wird jeden Tag besser."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0715",
+    "de": ["verzeihen", "entschuldigen"],
+    "es": "perdonar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Perdone, ¿dónde está el baño?",
+      "de": "Entschuldigen Sie, wo ist die Toilette?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0716",
+    "de": ["abhängen"],
+    "es": "depender",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Depende del clima.",
+      "de": "Das hängt vom Wetter ab."
+    },
+    "note": "Depender de = abhängen von.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0717",
+    "de": ["diskutieren", "streiten"],
+    "es": "discutir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No quiero discutir con ustedes.",
+      "de": "Ich will nicht mit euch streiten."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0718",
+    "de": ["wegnehmen", "entfernen"],
+    "es": "quitar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Quítele el hielo a mi bebida, por favor.",
+      "de": "Nehmen Sie bitte das Eis aus meinem Getränk."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0719",
+    "de": ["erwähnen"],
+    "es": "mencionar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Nunca mencionó a su familia.",
+      "de": "Er hat seine Familie nie erwähnt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0720",
+    "de": ["Bescheid geben", "benachrichtigen"],
+    "es": "avisar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Avíseme cuando llegue el camión.",
+      "de": "Sagen Sie mir Bescheid, wenn der Bus kommt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0721",
+    "de": ["versprechen"],
+    "es": "prometer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Te prometo que vuelvo pronto.",
+      "de": "Ich verspreche dir, dass ich bald zurückkomme."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0722",
+    "de": ["einladen"],
+    "es": "invitar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Los invito a cenar a mi casa.",
+      "de": "Ich lade euch zum Abendessen zu mir ein."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0723",
+    "de": ["begleiten"],
+    "es": "acompañar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Me acompañas al mercado?",
+      "de": "Begleitest du mich zum Markt?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0724",
+    "de": ["hassen"],
+    "es": "odiar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Odio esperar en las filas largas.",
+      "de": "Ich hasse es, in langen Schlangen zu warten."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0725",
+    "de": ["gehören zu", "angehören"],
+    "es": "pertenecer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Esta casa pertenece a mi tío.",
+      "de": "Dieses Haus gehört meinem Onkel."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0726",
+    "de": ["aufstehen", "sich erheben"],
+    "es": "levantarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me levanto a las seis.",
+      "de": "Ich stehe um sechs Uhr auf."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0727",
+    "de": ["sich hinlegen", "schlafen gehen"],
+    "es": "acostarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Nos acostamos temprano porque mañana hay trabajo.",
+      "de": "Wir gehen früh schlafen, weil morgen Arbeit ist."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0728",
+    "de": ["sich setzen"],
+    "es": "sentarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Siéntese aquí, por favor.",
+      "de": "Setzen Sie sich bitte hierher."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0729",
+    "de": ["sich anziehen"],
+    "es": "vestirse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me visto rápido y salgo.",
+      "de": "Ich ziehe mich schnell an und gehe los."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["i"],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0730",
+    "de": ["duschen", "sich duschen"],
+    "es": "ducharse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me ducho con agua caliente.",
+      "de": "Ich dusche mit warmem Wasser."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0731",
+    "de": ["sich waschen"],
+    "es": "lavarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me lavo las manos antes de comer.",
+      "de": "Ich wasche mir vor dem Essen die Hände."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0732",
+    "de": ["baden", "sich baden"],
+    "es": "bañarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Los niños se bañan en el río.",
+      "de": "Die Kinder baden im Fluss."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0733",
+    "de": ["rufen", "anrufen"],
+    "es": "llamar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Te llamo más tarde.",
+      "de": "Ich rufe dich später an."
+    },
+    "note": "llamarse = heißen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0734",
+    "de": ["ausschalten", "löschen"],
+    "es": "apagar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Apaga la luz, por favor.",
+      "de": "Mach bitte das Licht aus."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0735",
+    "de": ["anschalten", "anzünden"],
+    "es": "encender",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Enciende el ventilador, hace calor.",
+      "de": "Schalt den Ventilator an, es ist heiß."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0736",
+    "de": ["schenken"],
+    "es": "regalar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Le regalé flores a mi mamá.",
+      "de": "Ich habe meiner Mutter Blumen geschenkt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0737",
+    "de": ["zurückgeben", "zurückbringen"],
+    "es": "devolver",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Tengo que devolver este libro a la biblioteca.",
+      "de": "Ich muss dieses Buch zur Bibliothek zurückbringen."
+    },
+    "note": "Partizip: devuelto.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false,
+      "overrides": {
+        "participio": "devuelto"
+      }
+    }
+  },
+  {
+    "id": "v0738",
+    "de": ["besuchen"],
+    "es": "visitar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Visitamos a mis abuelos los domingos.",
+      "de": "Wir besuchen sonntags meine Großeltern."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0739",
+    "de": ["antworten", "beantworten"],
+    "es": "contestar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No contestó el teléfono.",
+      "de": "Er hat das Telefon nicht abgenommen."
+    },
+    "note": "In Mexiko auch: ans Telefon gehen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0740",
+    "de": ["sich ausruhen", "ausruhen"],
+    "es": "descansar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Después del viaje necesito descansar.",
+      "de": "Nach der Reise muss ich mich ausruhen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0741",
+    "de": ["schlafen"],
+    "es": "dormir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Anoche dormí muy bien.",
+      "de": "Letzte Nacht habe ich sehr gut geschlafen."
+    },
+    "note": "dormirse = einschlafen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue-u"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0742",
+    "de": ["anziehen", "werden", "sich aufsetzen"],
+    "es": "ponerse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me pongo la chamarra porque hace frío.",
+      "de": "Ich ziehe die Jacke an, weil es kalt ist."
+    },
+    "note": "Auch: ponerse + Adjektiv = werden (ponerse triste).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["go"],
+      "reflexive": true,
+      "overrides": {
+        "indefinido": {
+          "1s": "puse",
+          "2s": "pusiste",
+          "3s": "puso",
+          "1p": "pusimos",
+          "2p": "pusisteis",
+          "3p": "pusieron"
+        },
+        "futuro": {
+          "stem": "pondr"
+        },
+        "imperativo": {
+          "2s": "ponte"
+        },
+        "participio": "puesto"
+      }
+    }
+  },
+  {
+    "id": "v0743",
+    "de": ["sich erinnern"],
+    "es": "acordarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No me acuerdo de su nombre.",
+      "de": "Ich erinnere mich nicht an seinen Namen."
+    },
+    "note": "acordarse de = sich erinnern an.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0744",
+    "de": ["aufbewahren", "speichern", "wegräumen"],
+    "es": "guardar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Guarda el recibo, por favor.",
+      "de": "Heb bitte den Kassenzettel auf."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0745",
+    "de": ["küssen"],
+    "es": "besar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Ella besó a su hijo en la frente.",
+      "de": "Sie küsste ihren Sohn auf die Stirn."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0746",
+    "de": ["sich amüsieren", "Spaß haben"],
+    "es": "divertirse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Nos divertimos mucho en la fiesta.",
+      "de": "Wir haben auf der Feier viel Spaß gehabt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie-i"],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0747",
+    "de": ["sich Sorgen machen"],
+    "es": "preocuparse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No te preocupes, todo va a salir bien.",
+      "de": "Mach dir keine Sorgen, alles wird gut."
+    },
+    "note": "preocuparse por = sich sorgen um.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0748",
+    "de": ["sich beschweren", "klagen"],
+    "es": "quejarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi vecino siempre se queja del ruido.",
+      "de": "Mein Nachbar beschwert sich immer über den Lärm."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0749",
+    "de": ["wütend werden", "sich ärgern"],
+    "es": "enojarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No te enojes, fue un error.",
+      "de": "Sei nicht böse, es war ein Versehen."
+    },
+    "note": "In Mexiko/Guatemala üblicher als enfadarse.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0750",
+    "de": ["heiraten"],
+    "es": "casarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi hermana se casa en diciembre.",
+      "de": "Meine Schwester heiratet im Dezember."
+    },
+    "note": "casarse con = heiraten (jemanden).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0751",
+    "de": ["sich treffen", "zusammenkommen"],
+    "es": "reunirse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Nos reunimos todos los viernes en casa de mi tía.",
+      "de": "Wir treffen uns jeden Freitag bei meiner Tante."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0752",
+    "de": ["sich nähern", "herankommen"],
+    "es": "acercarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Acércate, no muerdo.",
+      "de": "Komm näher, ich beiße nicht."
+    },
+    "note": "acercarse a = sich nähern.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0753",
+    "de": ["weggehen", "gehen", "abreisen"],
+    "es": "irse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me voy a mi casa; ya es tarde.",
+      "de": "Ich gehe nach Hause; es ist schon spät."
+    },
+    "note": "ir = hingehen; irse = weggehen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["irr"],
+      "reflexive": true,
+      "overrides": {
+        "presente": {
+          "1s": "voy",
+          "2s": "vas",
+          "3s": "va",
+          "1p": "vamos",
+          "2p": "vais",
+          "3p": "van"
+        },
+        "indefinido": {
+          "1s": "fui",
+          "2s": "fuiste",
+          "3s": "fue",
+          "1p": "fuimos",
+          "2p": "fuisteis",
+          "3p": "fueron"
+        },
+        "imperfecto": {
+          "1s": "iba",
+          "2s": "ibas",
+          "3s": "iba",
+          "1p": "íbamos",
+          "2p": "ibais",
+          "3p": "iban"
+        },
+        "imperativo": {
+          "2s": "ve",
+          "3s": "vaya",
+          "1p": "vamos",
+          "3p": "vayan"
+        },
+        "gerundio": "yendo"
+      }
+    }
+  },
+  {
+    "id": "v0754",
+    "de": ["umarmen"],
+    "es": "abrazar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Abracé a mi mamá en el aeropuerto.",
+      "de": "Ich habe meine Mutter am Flughafen umarmt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0755",
+    "de": ["werfen", "wegwerfen", "ziehen"],
+    "es": "tirar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No tires basura en la calle.",
+      "de": "Wirf keinen Müll auf die Straße."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0756",
+    "de": ["schieben", "drücken"],
+    "es": "empujar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Empuja la puerta, no se abre jalando.",
+      "de": "Drück die Tür, sie geht nicht durch Ziehen auf."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0757",
+    "de": ["schlagen", "kleben"],
+    "es": "pegar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Pegó el cartel en la pared.",
+      "de": "Er hat das Plakat an die Wand geklebt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0758",
+    "de": ["zerbrechen", "kaputt machen"],
+    "es": "romper",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Rompí un vaso en la cocina.",
+      "de": "Ich habe in der Küche ein Glas zerbrochen."
+    },
+    "note": "Partizip: roto.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "participio": "roto"
+      }
+    }
+  },
+  {
+    "id": "v0759",
+    "de": ["leihen", "ausleihen"],
+    "es": "prestar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Me prestas tu cargador?",
+      "de": "Leihst du mir dein Ladegerät?"
+    },
+    "note": "prestar = verleihen; pedir prestado = ausleihen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0760",
+    "de": ["abholen", "aufheben", "einsammeln"],
+    "es": "recoger",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Voy a recoger a los niños a la escuela.",
+      "de": "Ich hole die Kinder von der Schule ab."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0761",
+    "de": ["verstecken"],
+    "es": "esconder",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Escondió el regalo en el clóset.",
+      "de": "Er hat das Geschenk im Schrank versteckt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0762",
+    "de": ["unterstützen", "anlehnen"],
+    "es": "apoyar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mis papás me apoyan en mis estudios.",
+      "de": "Meine Eltern unterstützen mich im Studium."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0763",
+    "de": ["erschaffen", "erstellen"],
+    "es": "crear",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Quiero crear una cuenta nueva.",
+      "de": "Ich möchte ein neues Konto erstellen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0764",
+    "de": ["fahren", "lenken"],
+    "es": "conducir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi papá conduce muy despacio.",
+      "de": "Mein Vater fährt sehr langsam."
+    },
+    "note": "In Mexiko/Guatemala oft: manejar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "conduje",
+          "2s": "condujiste",
+          "3s": "condujo",
+          "1p": "condujimos",
+          "2p": "condujisteis",
+          "3p": "condujeron"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0765",
+    "de": ["ausziehen", "ablegen"],
+    "es": "quitarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me quito los zapatos al entrar a la casa.",
+      "de": "Ich ziehe die Schuhe aus, wenn ich ins Haus komme."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0766",
+    "de": ["fehlen", "versäumen"],
+    "es": "faltar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Faltan dos sillas para la cena.",
+      "de": "Für das Abendessen fehlen zwei Stühle."
+    },
+    "note": "Me falta tiempo = Mir fehlt die Zeit.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0767",
+    "de": ["wichtig sein", "ausmachen", "importieren"],
+    "es": "importar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No me importa esperar un poco.",
+      "de": "Es macht mir nichts aus, ein bisschen zu warten."
+    },
+    "note": "Konstruktion wie gustar: me importa.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0768",
+    "de": ["interessieren"],
+    "es": "interesar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me interesa la historia maya.",
+      "de": "Die Maya-Geschichte interessiert mich."
+    },
+    "note": "Konstruktion wie gustar: me interesa.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0769",
+    "de": ["stören", "ärgern"],
+    "es": "molestar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Le molesta si abro la ventana?",
+      "de": "Stört es Sie, wenn ich das Fenster öffne?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0770",
+    "de": ["begeistern", "sehr gefallen"],
+    "es": "encantar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me encanta la comida de mi abuela.",
+      "de": "Ich liebe das Essen meiner Großmutter."
+    },
+    "note": "Konstruktion wie gustar: me encanta.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0771",
+    "de": ["lügen"],
+    "es": "mentir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No me mientas, por favor.",
+      "de": "Lüg mich bitte nicht an."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie-i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0772",
+    "de": ["messen"],
+    "es": "medir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi hermano mide casi dos metros.",
+      "de": "Mein Bruder ist fast zwei Meter groß."
+    },
+    "note": "Auch: groß sein (Körpergröße).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0773",
+    "de": ["verbrennen", "anbrennen"],
+    "es": "quemar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Se me quemó el arroz.",
+      "de": "Mir ist der Reis angebrannt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0774",
+    "de": ["überraschen"],
+    "es": "sorprender",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me sorprendió su respuesta.",
+      "de": "Seine Antwort hat mich überrascht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0775",
+    "de": ["umziehen"],
+    "es": "mudarse",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Nos mudamos a Guadalajara el año pasado.",
+      "de": "Wir sind letztes Jahr nach Guadalajara umgezogen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0776",
+    "de": ["Zeit", "Wetter"],
+    "es": "el tiempo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No tengo tiempo hoy.",
+      "de": "Ich habe heute keine Zeit."
+    },
+    "note": "Auch Wetter: ¿Qué tiempo hace? = Wie ist das Wetter?",
+    "gender": "m",
+    "plural": "los tiempos"
+  },
+  {
+    "id": "v0777",
+    "de": ["Leben"],
+    "es": "la vida",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La vida en el campo es tranquila.",
+      "de": "Das Leben auf dem Land ist ruhig."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las vidas"
+  },
+  {
+    "id": "v0778",
+    "de": ["Haus", "Zuhause"],
+    "es": "la casa",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi casa está cerca del mercado.",
+      "de": "Mein Haus liegt nahe am Markt."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las casas"
+  },
+  {
+    "id": "v0779",
+    "de": ["Leute", "Menschen"],
+    "es": "la gente",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La gente aquí es muy amable.",
+      "de": "Die Leute hier sind sehr freundlich."
+    },
+    "note": "Meist Singular, mit Verb im Singular: la gente es amable.",
+    "gender": "f",
+    "plural": "las gentes"
+  },
+  {
+    "id": "v0780",
+    "de": ["Arbeit", "Job"],
+    "es": "el trabajo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi trabajo empieza a las ocho.",
+      "de": "Meine Arbeit beginnt um acht."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los trabajos"
+  },
+  {
+    "id": "v0781",
+    "de": ["Frau", "Ehefrau"],
+    "es": "la mujer",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La mujer vende flores en la plaza.",
+      "de": "Die Frau verkauft Blumen auf dem Platz."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las mujeres"
+  },
+  {
+    "id": "v0782",
+    "de": ["Mann", "Mensch"],
+    "es": "el hombre",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El hombre espera el camión.",
+      "de": "Der Mann wartet auf den Bus."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los hombres"
+  },
+  {
+    "id": "v0783",
+    "de": ["Sache", "Ding"],
+    "es": "la cosa",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Qué es esa cosa?",
+      "de": "Was ist dieses Ding?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las cosas"
+  },
+  {
+    "id": "v0784",
+    "de": ["Welt"],
+    "es": "el mundo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Quiero conocer el mundo.",
+      "de": "Ich möchte die Welt kennenlernen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los mundos"
+  },
+  {
+    "id": "v0785",
+    "de": ["Land", "Staat"],
+    "es": "el país",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Guatemala es un país bonito.",
+      "de": "Guatemala ist ein schönes Land."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los países"
+  },
+  {
+    "id": "v0786",
+    "de": ["Wasser"],
+    "es": "el agua",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Quiero un vaso de agua, por favor.",
+      "de": "Ich möchte bitte ein Glas Wasser."
+    },
+    "note": "Feminin, aber im Singular mit el (el agua fría); Plural: las aguas.",
+    "gender": "m",
+    "plural": "las aguas"
+  },
+  {
+    "id": "v0787",
+    "de": ["Name"],
+    "es": "el nombre",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi nombre es Ana.",
+      "de": "Mein Name ist Ana."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los nombres"
+  },
+  {
+    "id": "v0788",
+    "de": ["Person", "Mensch"],
+    "es": "la persona",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Había más de cien personas en la fiesta.",
+      "de": "Auf dem Fest waren mehr als hundert Personen."
+    },
+    "note": "Immer feminin, auch für Männer.",
+    "gender": "f",
+    "plural": "las personas"
+  },
+  {
+    "id": "v0789",
+    "de": ["Junge", "Kind"],
+    "es": "el niño",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El niño juega en el parque.",
+      "de": "Der Junge spielt im Park."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los niños"
+  },
+  {
+    "id": "v0790",
+    "de": ["Mädchen"],
+    "es": "la niña",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La niña come un elote.",
+      "de": "Das Mädchen isst einen Maiskolben."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las niñas"
+  },
+  {
+    "id": "v0791",
+    "de": ["Vater"],
+    "es": "el padre",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi padre trabaja en un banco.",
+      "de": "Mein Vater arbeitet bei einer Bank."
+    },
+    "note": "Plural los padres = Eltern. In Mexiko umgangssprachlich: ¡Qué padre! = Wie cool!",
+    "gender": "m",
+    "plural": "los padres"
+  },
+  {
+    "id": "v0792",
+    "de": ["Gesicht"],
+    "es": "la cara",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Tiene la cara roja por el sol.",
+      "de": "Sein Gesicht ist von der Sonne rot."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las caras"
+  },
+  {
+    "id": "v0793",
+    "de": ["Auge"],
+    "es": "el ojo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi hija tiene los ojos azules.",
+      "de": "Meine Tochter hat blaue Augen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los ojos"
+  },
+  {
+    "id": "v0794",
+    "de": ["Körper"],
+    "es": "el cuerpo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El cuerpo necesita agua.",
+      "de": "Der Körper braucht Wasser."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los cuerpos"
+  },
+  {
+    "id": "v0795",
+    "de": ["Schule"],
+    "es": "la escuela",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Los niños van a la escuela a pie.",
+      "de": "Die Kinder gehen zu Fuß zur Schule."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las escuelas"
+  },
+  {
+    "id": "v0796",
+    "de": ["Ort", "Platz"],
+    "es": "el lugar",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Este lugar es muy tranquilo.",
+      "de": "Dieser Ort ist sehr ruhig."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los lugares"
+  },
+  {
+    "id": "v0797",
+    "de": ["Moment", "Augenblick"],
+    "es": "el momento",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Un momento, por favor.",
+      "de": "Einen Moment, bitte."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los momentos"
+  },
+  {
+    "id": "v0798",
+    "de": ["Teil", "Seite"],
+    "es": "la parte",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿En qué parte de la ciudad vives?",
+      "de": "In welchem Teil der Stadt wohnst du?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las partes"
+  },
+  {
+    "id": "v0799",
+    "de": ["Fall"],
+    "es": "el caso",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "En ese caso, mejor tomamos un taxi.",
+      "de": "In diesem Fall nehmen wir besser ein Taxi."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los casos"
+  },
+  {
+    "id": "v0800",
+    "de": ["Art", "Weise"],
+    "es": "la manera",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No me gusta su manera de hablar.",
+      "de": "Seine Art zu sprechen gefällt mir nicht."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las maneras"
+  },
+  {
+    "id": "v0801",
+    "de": ["Wort"],
+    "es": "la palabra",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No conozco esa palabra.",
+      "de": "Ich kenne dieses Wort nicht."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las palabras"
+  },
+  {
+    "id": "v0802",
+    "de": ["Auto", "Wagen"],
+    "es": "el coche",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi coche está en el estacionamiento.",
+      "de": "Mein Auto steht auf dem Parkplatz."
+    },
+    "note": "In Mexiko und Guatemala sagt man meist el carro.",
+    "gender": "m",
+    "plural": "los coches"
+  },
+  {
+    "id": "v0803",
+    "de": ["Frage"],
+    "es": "la pregunta",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Tengo una pregunta para usted.",
+      "de": "Ich habe eine Frage an Sie."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las preguntas"
+  },
+  {
+    "id": "v0804",
+    "de": ["Antwort"],
+    "es": "la respuesta",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No sé la respuesta.",
+      "de": "Ich kenne die Antwort nicht."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las respuestas"
+  },
+  {
+    "id": "v0805",
+    "de": ["Gruppe"],
+    "es": "el grupo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Viajamos con un grupo de turistas.",
+      "de": "Wir reisen mit einer Touristengruppe."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los grupos"
+  },
+  {
+    "id": "v0806",
+    "de": ["Ende", "Schluss"],
+    "es": "el final",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Al final de la calle hay una iglesia.",
+      "de": "Am Ende der Straße ist eine Kirche."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los finales"
+  },
+  {
+    "id": "v0807",
+    "de": ["Mund"],
+    "es": "la boca",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Abre la boca, por favor.",
+      "de": "Mach bitte den Mund auf."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las bocas"
+  },
+  {
+    "id": "v0808",
+    "de": ["Fuß"],
+    "es": "el pie",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me duele el pie derecho.",
+      "de": "Mein rechter Fuß tut weh."
+    },
+    "note": "Zu Fuß: a pie.",
+    "gender": "m",
+    "plural": "los pies"
+  },
+  {
+    "id": "v0809",
+    "de": ["Brief", "Speisekarte"],
+    "es": "la carta",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Escribo una carta a mi abuela.",
+      "de": "Ich schreibe meiner Oma einen Brief."
+    },
+    "note": "Im Restaurant sagt man oft auch el menú.",
+    "gender": "f",
+    "plural": "las cartas"
+  },
+  {
+    "id": "v0810",
+    "de": ["Film"],
+    "es": "la película",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Vimos una película mexicana anoche.",
+      "de": "Wir haben gestern Abend einen mexikanischen Film gesehen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las películas"
+  },
+  {
+    "id": "v0811",
+    "de": ["Beispiel"],
+    "es": "el ejemplo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Por ejemplo, el pozole.",
+      "de": "Zum Beispiel der Pozole."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los ejemplos"
+  },
+  {
+    "id": "v0812",
+    "de": ["Nummer", "Zahl"],
+    "es": "el número",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Cuál es tu número de teléfono?",
+      "de": "Wie lautet deine Telefonnummer?"
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los números"
+  },
+  {
+    "id": "v0813",
+    "de": ["Mal"],
+    "es": "la vez",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Es la primera vez que vengo aquí.",
+      "de": "Ich bin zum ersten Mal hier."
+    },
+    "note": "Plural: veces; a veces = manchmal; otra vez = noch einmal.",
+    "gender": "f",
+    "plural": "las veces"
+  },
+  {
+    "id": "v0814",
+    "de": ["Seite"],
+    "es": "el lado",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El banco está del otro lado de la calle.",
+      "de": "Die Bank liegt auf der anderen Straßenseite."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los lados"
+  },
+  {
+    "id": "v0815",
+    "de": ["Tochter"],
+    "es": "la hija",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi hija estudia en la capital.",
+      "de": "Meine Tochter studiert in der Hauptstadt."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las hijas"
+  },
+  {
+    "id": "v0816",
+    "de": ["Regierung"],
+    "es": "el gobierno",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El gobierno anunció nuevas medidas.",
+      "de": "Die Regierung kündigte neue Maßnahmen an."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los gobiernos"
+  },
+  {
+    "id": "v0817",
+    "de": ["Unternehmen", "Firma"],
+    "es": "la empresa",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Trabaja en una empresa de turismo.",
+      "de": "Er arbeitet in einem Tourismusunternehmen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las empresas"
+  },
+  {
+    "id": "v0818",
+    "de": ["Gesellschaft"],
+    "es": "la sociedad",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La sociedad guatemalteca es muy diversa.",
+      "de": "Die guatemaltekische Gesellschaft ist sehr vielfältig."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las sociedades"
+  },
+  {
+    "id": "v0819",
+    "de": ["Programm", "Sendung"],
+    "es": "el programa",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi programa favorito es de cocina.",
+      "de": "Meine Lieblingssendung ist eine Kochsendung."
+    },
+    "note": "Maskulin trotz der Endung -a.",
+    "gender": "m",
+    "plural": "los programas"
+  },
+  {
+    "id": "v0820",
+    "de": ["Politik"],
+    "es": "la política",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No me gusta hablar de política.",
+      "de": "Ich spreche nicht gern über Politik."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las políticas"
+  },
+  {
+    "id": "v0821",
+    "de": ["Gesetz"],
+    "es": "la ley",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La ley prohíbe fumar aquí.",
+      "de": "Das Gesetz verbietet hier das Rauchen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las leyes"
+  },
+  {
+    "id": "v0822",
+    "de": ["Wirtschaft"],
+    "es": "la economía",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La economía del país está creciendo.",
+      "de": "Die Wirtschaft des Landes wächst."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las economías"
+  },
+  {
+    "id": "v0823",
+    "de": ["Staat", "Bundesstaat", "Zustand"],
+    "es": "el estado",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Oaxaca es un estado del sur de México.",
+      "de": "Oaxaca ist ein Bundesstaat im Süden Mexikos."
+    },
+    "note": "Mexiko ist in estados gegliedert; auch Zustand (estado de ánimo).",
+    "gender": "m",
+    "plural": "los estados"
+  },
+  {
+    "id": "v0824",
+    "de": ["Niveau", "Stufe"],
+    "es": "el nivel",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi nivel de español es básico.",
+      "de": "Mein Spanischniveau ist grundlegend."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los niveles"
+  },
+  {
+    "id": "v0825",
+    "de": ["Projekt", "Vorhaben"],
+    "es": "el proyecto",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Tenemos un proyecto nuevo en la escuela.",
+      "de": "Wir haben ein neues Projekt in der Schule."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los proyectos"
+  },
+  {
+    "id": "v0826",
+    "de": ["gut"],
+    "es": "bueno",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La comida de mi abuela es muy buena.",
+      "de": "Das Essen meiner Oma ist sehr gut."
+    },
+    "note": "Vor männlichen Nomen verkürzt: buen día.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0827",
+    "de": ["schlecht", "schlimm"],
+    "es": "malo",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hoy hace mal tiempo.",
+      "de": "Heute ist schlechtes Wetter."
+    },
+    "note": "Vor männlichen Nomen verkürzt: mal día.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0828",
+    "de": ["groß"],
+    "es": "grande",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi casa no es muy grande.",
+      "de": "Mein Haus ist nicht sehr groß."
+    },
+    "note": "Vor Nomen oft gran: un gran amigo (= ein großartiger Freund).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0829",
+    "de": ["klein"],
+    "es": "pequeño",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Vivimos en un pueblo pequeño.",
+      "de": "Wir leben in einem kleinen Dorf."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0830",
+    "de": ["neu"],
+    "es": "nuevo",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Compré un celular nuevo.",
+      "de": "Ich habe ein neues Handy gekauft."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0831",
+    "de": ["alt"],
+    "es": "viejo",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi carro es muy viejo.",
+      "de": "Mein Auto ist sehr alt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0832",
+    "de": ["viel", "sehr viel"],
+    "es": "mucho",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hay mucha gente en el mercado.",
+      "de": "Auf dem Markt sind viele Leute."
+    },
+    "note": "Richtet sich nach dem Nomen: mucho, mucha, muchos, muchas.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0833",
+    "de": ["wenig"],
+    "es": "poco",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Tengo poco tiempo hoy.",
+      "de": "Ich habe heute wenig Zeit."
+    },
+    "note": "Richtet sich nach dem Nomen: poco, poca, pocos, pocas.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0834",
+    "de": ["besser", "beste"],
+    "es": "mejor",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Este restaurante es el mejor del barrio.",
+      "de": "Dieses Restaurant ist das beste im Viertel."
+    },
+    "note": "Gleiche Form für m/f; Plural: mejores.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0835",
+    "de": ["schlechter", "schlimmer"],
+    "es": "peor",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hoy me siento peor que ayer.",
+      "de": "Heute fühle ich mich schlechter als gestern."
+    },
+    "note": "Plural: peores.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0836",
+    "de": ["lang"],
+    "es": "largo",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El camino al pueblo es muy largo.",
+      "de": "Der Weg ins Dorf ist sehr lang."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0837",
+    "de": ["kurz"],
+    "es": "corto",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Prefiero el pelo corto.",
+      "de": "Ich mag kurze Haare lieber."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0838",
+    "de": ["glücklich", "froh"],
+    "es": "feliz",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Estoy feliz de verte.",
+      "de": "Ich bin froh, dich zu sehen."
+    },
+    "note": "Gleiche Form für m/f; Plural: felices.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0839",
+    "de": ["traurig"],
+    "es": "triste",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi hermana está triste hoy.",
+      "de": "Meine Schwester ist heute traurig."
+    },
+    "note": "Gleiche Form für m/f.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0840",
+    "de": ["hübsch", "schön"],
+    "es": "bonito",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Qué bonito está tu vestido.",
+      "de": "Wie schön dein Kleid ist."
+    },
+    "note": "In Mexiko und Guatemala sehr gebräuchlich für \"schön\".",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0841",
+    "de": ["hässlich"],
+    "es": "feo",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Ese edificio es muy feo.",
+      "de": "Dieses Gebäude ist sehr hässlich."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0842",
+    "de": ["leicht", "einfach"],
+    "es": "fácil",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El examen fue muy fácil.",
+      "de": "Die Prüfung war sehr leicht."
+    },
+    "note": "Gleiche Form für m/f; Plural: fáciles.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0843",
+    "de": ["schwierig", "schwer"],
+    "es": "difícil",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Es difícil encontrar trabajo aquí.",
+      "de": "Es ist schwer, hier Arbeit zu finden."
+    },
+    "note": "Gleiche Form für m/f; Plural: difíciles.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0844",
+    "de": ["Zukunft"],
+    "es": "el futuro",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Quiero un buen futuro para mis hijos.",
+      "de": "Ich wünsche meinen Kindern eine gute Zukunft."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los futuros"
+  },
+  {
+    "id": "v0845",
+    "de": ["Idee", "Einfall"],
+    "es": "la idea",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Es una buena idea ir a la playa.",
+      "de": "Es ist eine gute Idee, an den Strand zu fahren."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las ideas"
+  },
+  {
+    "id": "v0846",
+    "de": ["jung"],
+    "es": "joven",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi tío es todavía muy joven.",
+      "de": "Mein Onkel ist noch sehr jung."
+    },
+    "note": "Gleiche Form für m/f; Plural: jóvenes. Auch Nomen: el joven (junger Mann).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0847",
+    "de": ["gleich", "selbe", "selbst"],
+    "es": "mismo",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Vivimos en la misma calle.",
+      "de": "Wir wohnen in derselben Straße."
+    },
+    "note": "Richtet sich nach dem Nomen: mismo, misma, mismos, mismas.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0848",
+    "de": ["älter", "größer", "älteste"],
+    "es": "mayor",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi hermano mayor trabaja en la capital.",
+      "de": "Mein älterer Bruder arbeitet in der Hauptstadt."
+    },
+    "note": "Gleiche Form für m/f; Plural: mayores. Auch: personas mayores = Ältere.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0849",
+    "de": ["jünger", "kleiner", "geringer"],
+    "es": "menor",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mi hermana menor estudia en la universidad.",
+      "de": "Meine jüngere Schwester studiert an der Universität."
+    },
+    "note": "Gleiche Form für m/f; Plural: menores.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0850",
+    "de": ["wichtig"],
+    "es": "importante",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Es importante llegar temprano.",
+      "de": "Es ist wichtig, früh anzukommen."
+    },
+    "note": "Gleiche Form für m/f; Plural: importantes.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0851",
+    "de": ["möglich"],
+    "es": "posible",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Es posible pagar con tarjeta?",
+      "de": "Kann man mit Karte bezahlen?"
+    },
+    "note": "Gleiche Form für m/f; Plural: posibles.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0852",
+    "de": ["notwendig", "nötig"],
+    "es": "necesario",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No es necesario llamar antes.",
+      "de": "Es ist nicht nötig, vorher anzurufen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0853",
+    "de": ["anders", "verschieden"],
+    "es": "diferente",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Cada región tiene una comida diferente.",
+      "de": "Jede Region hat ein anderes Essen."
+    },
+    "note": "Gleiche Form für m/f; Plural: diferentes.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0854",
+    "de": ["gleich", "egal"],
+    "es": "igual",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Para mí es igual.",
+      "de": "Mir ist es egal."
+    },
+    "note": "Gleiche Form für m/f; Plural: iguales. Auch: igual que = genauso wie.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0855",
+    "de": ["einzig", "einzigartig"],
+    "es": "único",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Es el único restaurante abierto.",
+      "de": "Es ist das einzige geöffnete Restaurant."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0856",
+    "de": ["allein", "einsam"],
+    "es": "solo",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Vivo solo en la ciudad.",
+      "de": "Ich lebe allein in der Stadt."
+    },
+    "note": "Richtet sich nach dem Nomen: solo, sola, solos, solas.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0857",
+    "de": ["stark", "laut", "kräftig"],
+    "es": "fuerte",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El viento está muy fuerte hoy.",
+      "de": "Der Wind ist heute sehr stark."
+    },
+    "note": "Gleiche Form für m/f; Plural: fuertes.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0858",
+    "de": ["schwach"],
+    "es": "débil",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Después de la gripe me siento débil.",
+      "de": "Nach der Grippe fühle ich mich schwach."
+    },
+    "note": "Gleiche Form für m/f; Plural: débiles.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0859",
+    "de": ["bereit", "schlau", "fertig"],
+    "es": "listo",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Ya estás listo para salir?",
+      "de": "Bist du schon bereit zu gehen?"
+    },
+    "note": "Mit estar: bereit/fertig; mit ser: schlau.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0860",
+    "de": ["klar", "hell"],
+    "es": "claro",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El agua del lago es muy clara.",
+      "de": "Das Wasser des Sees ist sehr klar."
+    },
+    "note": "Als Antwort: ¡Claro! = Klar! / Natürlich!",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0861",
+    "de": ["Vergangenheit"],
+    "es": "el pasado",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No quiero hablar del pasado.",
+      "de": "Ich will nicht über die Vergangenheit sprechen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los pasados"
+  },
+  {
+    "id": "v0862",
+    "de": ["Unterschied"],
+    "es": "la diferencia",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Cuál es la diferencia entre los dos?",
+      "de": "Was ist der Unterschied zwischen den beiden?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las diferencias"
+  },
+  {
+    "id": "v0863",
+    "de": ["Ergebnis", "Resultat"],
+    "es": "el resultado",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mañana sale el resultado del examen.",
+      "de": "Morgen kommt das Ergebnis der Prüfung."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los resultados"
+  },
+  {
+    "id": "v0864",
+    "de": ["Notwendigkeit", "Bedürfnis", "Not"],
+    "es": "la necesidad",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Tengo la necesidad de descansar.",
+      "de": "Ich habe das Bedürfnis, mich auszuruhen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las necesidades"
+  },
+  {
+    "id": "v0865",
+    "de": ["Möglichkeit"],
+    "es": "la posibilidad",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hay una posibilidad de lluvia.",
+      "de": "Es besteht die Möglichkeit von Regen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las posibilidades"
+  },
+  {
+    "id": "v0866",
+    "de": ["sicher", "wahr", "gewiss"],
+    "es": "cierto",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Es cierto que el precio subió.",
+      "de": "Es stimmt, dass der Preis gestiegen ist."
+    },
+    "note": "Vor Nomen: ein gewisser (cierta persona).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0867",
+    "de": ["eigen"],
+    "es": "propio",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Quiero tener mi propio negocio.",
+      "de": "Ich möchte mein eigenes Geschäft haben."
+    },
+    "note": "Steht meist vor dem Nomen: mi propia casa.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0868",
+    "de": ["nächster", "folgend"],
+    "es": "siguiente",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Nos vemos la siguiente semana.",
+      "de": "Wir sehen uns nächste Woche."
+    },
+    "note": "Gleiche Form für m/f; Plural: siguientes.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0869",
+    "de": ["letzter", "neuester"],
+    "es": "último",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Fue el último día de clases.",
+      "de": "Es war der letzte Schultag."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0870",
+    "de": ["allgemein"],
+    "es": "general",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "En general, la gente es amable.",
+      "de": "Im Allgemeinen sind die Leute freundlich."
+    },
+    "note": "Gleiche Form für m/f; Plural: generales. en general = im Allgemeinen.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0871",
+    "de": ["sozial", "gesellschaftlich"],
+    "es": "social",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Es un problema social muy serio.",
+      "de": "Das ist ein sehr ernstes gesellschaftliches Problem."
+    },
+    "note": "Gleiche Form für m/f; Plural: sociales.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0872",
+    "de": ["politisch"],
+    "es": "político",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hay mucha tensión política en el país.",
+      "de": "Im Land gibt es viel politische Spannung."
+    },
+    "note": "Auch Nomen: el político (Politiker).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0873",
+    "de": ["Freiheit"],
+    "es": "la libertad",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La libertad de expresión es importante.",
+      "de": "Die Meinungsfreiheit ist wichtig."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las libertades"
+  },
+  {
+    "id": "v0874",
+    "de": ["Hoffnung"],
+    "es": "la esperanza",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Todavía tengo esperanza de verlo.",
+      "de": "Ich habe noch Hoffnung, ihn zu sehen."
+    },
+    "note": "Auch: la esperanza de vida = Lebenserwartung.",
+    "gender": "f",
+    "plural": "las esperanzas"
+  },
+  {
+    "id": "v0875",
+    "de": ["Sinn", "Bedeutung", "Richtung"],
+    "es": "el sentido",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Esa frase no tiene sentido.",
+      "de": "Dieser Satz ergibt keinen Sinn."
+    },
+    "note": "Auch: sentido común = gesunder Menschenverstand.",
+    "gender": "m",
+    "plural": "los sentidos"
+  },
+  {
+    "id": "v0876",
+    "de": ["dass", "der/die/das (Relativpronomen)"],
+    "es": "que",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Creo que tienes razón.",
+      "de": "Ich glaube, dass du recht hast."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0877",
+    "de": ["mit"],
+    "es": "con",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Vivo con mi familia.",
+      "de": "Ich wohne mit meiner Familie."
+    },
+    "note": "Mit pronomen: conmigo, contigo.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0878",
+    "de": ["ohne"],
+    "es": "sin",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Quiero el café sin azúcar.",
+      "de": "Ich möchte den Kaffee ohne Zucker."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0879",
+    "de": ["für", "um zu"],
+    "es": "para",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Este regalo es para ti.",
+      "de": "Dieses Geschenk ist für dich."
+    },
+    "note": "Zweck/Ziel; bei Ursache oder Weg dagegen por.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0880",
+    "de": ["durch", "wegen", "pro"],
+    "es": "por",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Gracias por tu ayuda.",
+      "de": "Danke für deine Hilfe."
+    },
+    "note": "Ursache/Grund: por; Zweck: para.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0881",
+    "de": ["sehr"],
+    "es": "muy",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "La comida está muy rica.",
+      "de": "Das Essen ist sehr lecker."
+    },
+    "note": "Steht vor Adjektiven und Adverbien, nicht allein.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0882",
+    "de": ["mehr", "plus"],
+    "es": "más",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Puede hablar más despacio?",
+      "de": "Können Sie langsamer sprechen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0883",
+    "de": ["gut", "wohl"],
+    "es": "bien",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hoy me siento bien.",
+      "de": "Heute fühle ich mich gut."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0884",
+    "de": ["schlecht", "schlimm"],
+    "es": "mal",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Dormí muy mal anoche.",
+      "de": "Ich habe letzte Nacht sehr schlecht geschlafen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0885",
+    "de": ["hier", "hierher"],
+    "es": "aquí",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Aquí hay un buen restaurante.",
+      "de": "Hier gibt es ein gutes Restaurant."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0886",
+    "de": ["was", "welche(r)"],
+    "es": "qué",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Qué quieres comer?",
+      "de": "Was willst du essen?"
+    },
+    "note": "Fragewort mit Akzent.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0887",
+    "de": ["wie"],
+    "es": "cómo",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Cómo se prepara este platillo?",
+      "de": "Wie wird dieses Gericht zubereitet?"
+    },
+    "note": "Fragewort mit Akzent.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0888",
+    "de": ["über", "auf"],
+    "es": "sobre",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "El libro es sobre la historia maya.",
+      "de": "Das Buch handelt von der Geschichte der Maya."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0889",
+    "de": ["seit", "von ... an"],
+    "es": "desde",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Vivo aquí desde hace tres años.",
+      "de": "Ich wohne seit drei Jahren hier."
+    },
+    "note": "Mit desde hace + Zeitraum.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0890",
+    "de": ["bis", "sogar"],
+    "es": "hasta",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Trabajo hasta las seis.",
+      "de": "Ich arbeite bis sechs Uhr."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0891",
+    "de": ["wenn", "als"],
+    "es": "cuando",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Cuando llueve, me quedo en casa.",
+      "de": "Wenn es regnet, bleibe ich zu Hause."
+    },
+    "note": "Als Fragewort mit Akzent: cuándo.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0892",
+    "de": ["wo"],
+    "es": "donde",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Esta es la casa donde nací.",
+      "de": "Das ist das Haus, in dem ich geboren wurde."
+    },
+    "note": "Als Fragewort mit Akzent: dónde.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0893",
+    "de": ["wer"],
+    "es": "quién",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Quién llamó por teléfono?",
+      "de": "Wer hat angerufen?"
+    },
+    "note": "Plural: quiénes.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0894",
+    "de": ["wie viel"],
+    "es": "cuánto",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Cuánto cuesta el boleto?",
+      "de": "Wie viel kostet die Fahrkarte?"
+    },
+    "note": "Angleichung: cuánta, cuántos, cuántas.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0895",
+    "de": ["weniger", "minus"],
+    "es": "menos",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hoy hay menos gente en la plaza.",
+      "de": "Heute sind weniger Leute auf dem Platz."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0896",
+    "de": ["schon", "bereits", "jetzt"],
+    "es": "ya",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Ya terminé la tarea.",
+      "de": "Ich habe die Hausaufgaben schon fertig."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0897",
+    "de": ["nie", "niemals"],
+    "es": "nunca",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Nunca he probado el mole.",
+      "de": "Ich habe noch nie Mole probiert."
+    },
+    "note": "Mit Verb ohne no, oder: no ... nunca.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0898",
+    "de": ["nichts"],
+    "es": "nada",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No quiero nada, gracias.",
+      "de": "Ich möchte nichts, danke."
+    },
+    "note": "Mit Verb: no ... nada.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0899",
+    "de": ["zweiter", "Sekunde"],
+    "es": "segundo",
+    "pos": "num",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Vivo en el segundo piso.",
+      "de": "Ich wohne im zweiten Stock."
+    },
+    "note": "Als Zahl: segundo/a; als Nomen: el segundo (Sekunde).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0900",
+    "de": ["laut", "gemäß"],
+    "es": "según",
+    "pos": "other",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Según el pronóstico, mañana lloverá.",
+      "de": "Laut Vorhersage wird es morgen regnen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0901",
+    "de": ["noch", "immer noch"],
+    "es": "todavía",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Todavía no he desayunado.",
+      "de": "Ich habe noch nicht gefrühstückt."
+    },
+    "note": "Gleichbedeutend: aún.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0902",
+    "de": ["fast", "beinahe"],
+    "es": "casi",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Casi llego tarde al trabajo.",
+      "de": "Ich wäre beinahe zu spät zur Arbeit gekommen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0903",
+    "de": ["vielleicht"],
+    "es": "quizás",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Quizás vaya a la playa este fin de semana.",
+      "de": "Vielleicht gehe ich dieses Wochenende an den Strand."
+    },
+    "note": "Mit Konjunktiv bei Unsicherheit; auch quizá.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0904",
+    "de": ["außerdem", "zudem"],
+    "es": "además",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Es barato y además muy cómodo.",
+      "de": "Es ist günstig und außerdem sehr bequem."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0905",
+    "de": ["jeder", "je"],
+    "es": "cada",
+    "pos": "other",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Cada día aprendo palabras nuevas.",
+      "de": "Jeden Tag lerne ich neue Wörter."
+    },
+    "note": "Unveränderlich; steht immer vor einem Nomen.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0906",
+    "de": ["zum Beispiel"],
+    "es": "por ejemplo",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Me gustan las frutas, por ejemplo, la papaya.",
+      "de": "Ich mag Früchte, zum Beispiel Papaya."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0907",
+    "de": ["manchmal"],
+    "es": "a veces",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "A veces camino al trabajo.",
+      "de": "Manchmal gehe ich zu Fuß zur Arbeit."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0908",
+    "de": ["müssen"],
+    "es": "tener que + infinitivo",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Tengo que estudiar esta noche.",
+      "de": "Ich muss heute Abend lernen."
+    },
+    "note": "Persönliche Pflicht; tener wird konjugiert.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0909",
+    "de": ["man muss", "es ist nötig"],
+    "es": "hay que + infinitivo",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hay que reservar con anticipación.",
+      "de": "Man muss rechtzeitig reservieren."
+    },
+    "note": "Unpersönlich, immer nur hay que.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0910",
+    "de": ["werden (Nahzukunft)", "vorhaben zu"],
+    "es": "ir a + infinitivo",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Mañana voy a visitar Tikal.",
+      "de": "Morgen werde ich Tikal besuchen."
+    },
+    "note": "Übliche Form für die Zukunft im Alltag.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0911",
+    "de": ["vielleicht"],
+    "es": "tal vez",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Tal vez vengamos más tarde.",
+      "de": "Vielleicht kommen wir später."
+    },
+    "note": "Meist mit Konjunktiv.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0912",
+    "de": ["noch einmal", "wieder"],
+    "es": "otra vez",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Me lo explica otra vez, por favor?",
+      "de": "Erklären Sie es mir bitte noch einmal?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0913",
+    "de": ["Warum?"],
+    "es": "¿Por qué?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿Por qué no vienes a la fiesta?",
+      "de": "Warum kommst du nicht zur Party?"
+    },
+    "note": "Frage: por qué, Antwort: porque.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0914",
+    "de": ["deshalb", "darum"],
+    "es": "por eso",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Llovía mucho, por eso no salimos.",
+      "de": "Es regnete stark, deshalb gingen wir nicht aus."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0915",
+    "de": ["wenigstens", "mindestens"],
+    "es": "por lo menos",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Por lo menos llámame mañana.",
+      "de": "Ruf mich wenigstens morgen an."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0916",
+    "de": ["plötzlich"],
+    "es": "de repente",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "De repente se fue la luz.",
+      "de": "Plötzlich fiel der Strom aus."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0917",
+    "de": ["erneut", "wieder"],
+    "es": "de nuevo",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Tengo que intentarlo de nuevo.",
+      "de": "Ich muss es erneut versuchen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0918",
+    "de": ["am Ende", "schließlich"],
+    "es": "al final",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Al final compré la camisa azul.",
+      "de": "Am Ende kaufte ich das blaue Hemd."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0919",
+    "de": ["sofort", "gleich"],
+    "es": "en seguida",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Ahorita se lo traigo, en seguida.",
+      "de": "Ich bringe es Ihnen gleich, sofort."
+    },
+    "note": "Auch: enseguida.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0920",
+    "de": ["es fehlt", "es ist nötig"],
+    "es": "hace falta",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Hace falta más tiempo para terminar.",
+      "de": "Es braucht mehr Zeit, um fertig zu werden."
+    },
+    "note": "Mit Objekt: me hace falta = ich brauche.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0921",
+    "de": ["wirklich", "echt"],
+    "es": "de verdad",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "¿De verdad vives en Guatemala?",
+      "de": "Wohnst du wirklich in Guatemala?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0922",
+    "de": ["jedoch", "trotzdem"],
+    "es": "sin embargo",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Es caro; sin embargo, vale la pena.",
+      "de": "Es ist teuer; trotzdem lohnt es sich."
+    },
+    "note": "Eher schriftlich oder formell.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0923",
+    "de": ["trotz"],
+    "es": "a pesar de",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "A pesar de la lluvia, fuimos al mercado.",
+      "de": "Trotz des Regens gingen wir zum Markt."
+    },
+    "note": "Danach Nomen oder Infinitiv.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0924",
+    "de": ["dagegen", "hingegen"],
+    "es": "en cambio",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "Yo prefiero el café; ella, en cambio, el té.",
+      "de": "Ich bevorzuge Kaffee; sie hingegen Tee."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0925",
+    "de": ["jedenfalls", "trotzdem"],
+    "es": "de todos modos",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "example": {
+      "es": "No sé si llueve, pero iré de todos modos.",
+      "de": "Ich weiß nicht, ob es regnet, aber ich gehe jedenfalls hin."
+    },
+    "note": "Auch: de todas formas.",
+    "gender": null,
+    "plural": null
+  }
+]

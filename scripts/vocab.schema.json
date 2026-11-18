@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Palabrita static vocabulary file (array of entries)",
+  "type": "array",
+  "items": { "$ref": "#/definitions/vocab" },
+  "definitions": {
+    "nonEmptyString": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "person": { "type": "string", "pattern": "^\\S.*$" },
+    "tenseOverride": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "1s": { "$ref": "#/definitions/person" },
+        "2s": { "$ref": "#/definitions/person" },
+        "3s": { "$ref": "#/definitions/person" },
+        "1p": { "$ref": "#/definitions/person" },
+        "2p": { "$ref": "#/definitions/person" },
+        "3p": { "$ref": "#/definitions/person" },
+        "stem": { "$ref": "#/definitions/person" }
+      }
+    },
+    "verb": {
+      "type": "object",
+      "required": ["tags", "reflexive"],
+      "additionalProperties": false,
+      "properties": {
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "ie",
+              "ue",
+              "i",
+              "ie-i",
+              "ue-u",
+              "go",
+              "zco",
+              "oy",
+              "y",
+              "irr"
+            ]
+          }
+        },
+        "reflexive": { "type": "boolean" },
+        "overrides": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "presente": { "$ref": "#/definitions/tenseOverride" },
+            "indefinido": { "$ref": "#/definitions/tenseOverride" },
+            "imperfecto": { "$ref": "#/definitions/tenseOverride" },
+            "futuro": { "$ref": "#/definitions/tenseOverride" },
+            "imperativo": { "$ref": "#/definitions/tenseOverride" },
+            "participio": { "$ref": "#/definitions/person" },
+            "gerundio": { "$ref": "#/definitions/person" }
+          }
+        }
+      }
+    },
+    "vocab": {
+      "type": "object",
+      "required": ["id", "de", "es", "pos", "level", "topic", "example"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^v\\d{4}$" },
+        "de": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": { "$ref": "#/definitions/nonEmptyString" }
+        },
+        "es": { "$ref": "#/definitions/nonEmptyString" },
+        "pos": {
+          "enum": ["verb", "noun", "adj", "adv", "num", "phrase", "other"]
+        },
+        "level": { "enum": ["A1", "A2", "B1"] },
+        "topic": {
+          "enum": [
+            "begruessung",
+            "zahlen-zeit",
+            "essen",
+            "transport",
+            "unterkunft",
+            "einkaufen",
+            "gesundheit",
+            "natur",
+            "orte",
+            "kultur",
+            "maya",
+            "smalltalk",
+            "grundwortschatz"
+          ]
+        },
+        "example": {
+          "type": "object",
+          "required": ["es", "de"],
+          "additionalProperties": false,
+          "properties": {
+            "es": { "$ref": "#/definitions/nonEmptyString" },
+            "de": { "$ref": "#/definitions/nonEmptyString" }
+          }
+        },
+        "note": { "type": ["string", "null"] },
+        "gender": { "enum": ["m", "f", "m/f", null] },
+        "plural": { "type": ["string", "null"] },
+        "adj": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "f": { "$ref": "#/definitions/nonEmptyString" },
+            "pl": { "$ref": "#/definitions/nonEmptyString" },
+            "fpl": { "$ref": "#/definitions/nonEmptyString" }
+          }
+        },
+        "verb": {
+          "anyOf": [{ "$ref": "#/definitions/verb" }, { "type": "null" }]
+        }
+      }
+    }
+  }
+}

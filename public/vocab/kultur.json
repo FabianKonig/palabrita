@@ -1,0 +1,689 @@
+[
+  {
+    "id": "v0476",
+    "de": [
+      "feiern"
+    ],
+    "es": "celebrar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "Ustedes celebran la Navidad en familia.",
+      "de": "Ihr feiert Weihnachten im Familienkreis."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0477",
+    "de": [
+      "tanzen"
+    ],
+    "es": "bailar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "Mis abuelos bailan en la fiesta.",
+      "de": "Meine Großeltern tanzen auf dem Fest."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0478",
+    "de": [
+      "singen"
+    ],
+    "es": "cantar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "Los niños cantan una canción.",
+      "de": "Die Kinder singen ein Lied."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0479",
+    "de": [
+      "spielen"
+    ],
+    "es": "jugar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "Los domingos jugamos fútbol en el parque.",
+      "de": "Sonntags spielen wir im Park Fußball."
+    },
+    "note": "Sport: jugar fútbol/al fútbol; Musikinstrument: tocar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ue"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0480",
+    "de": [
+      "spielen (Instrument)",
+      "berühren"
+    ],
+    "es": "tocar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Él toca la marimba muy bien.",
+      "de": "Er spielt sehr gut Marimba."
+    },
+    "note": "Für Instrumente tocar, für Spiele/Sport jugar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0481",
+    "de": [
+      "malen"
+    ],
+    "es": "pintar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Ella pinta las máscaras a mano.",
+      "de": "Sie bemalt die Masken von Hand."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0482",
+    "de": [
+      "gewinnen"
+    ],
+    "es": "ganar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Hoy gana nuestro equipo.",
+      "de": "Heute gewinnt unsere Mannschaft."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0483",
+    "de": [
+      "beten"
+    ],
+    "es": "rezar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "kultur",
+    "example": {
+      "es": "Mucha gente reza en la iglesia.",
+      "de": "Viele Leute beten in der Kirche."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0484",
+    "de": [
+      "Fest",
+      "Party"
+    ],
+    "es": "la fiesta",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "Hay una fiesta en el pueblo.",
+      "de": "Im Dorf gibt es ein Fest."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las fiestas"
+  },
+  {
+    "id": "v0485",
+    "de": [
+      "Musik"
+    ],
+    "es": "la música",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "Me gusta la música mexicana.",
+      "de": "Ich mag mexikanische Musik."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v0486",
+    "de": [
+      "Tanz"
+    ],
+    "es": "el baile",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "El baile empieza a las ocho.",
+      "de": "Der Tanz beginnt um acht."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los bailes"
+  },
+  {
+    "id": "v0487",
+    "de": [
+      "Lied"
+    ],
+    "es": "la canción",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "Esa canción es muy bonita.",
+      "de": "Dieses Lied ist sehr schön."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las canciones"
+  },
+  {
+    "id": "v0488",
+    "de": [
+      "Spiel (Wettkampf)"
+    ],
+    "es": "el partido",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "El partido de fútbol es mañana.",
+      "de": "Das Fußballspiel ist morgen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los partidos"
+  },
+  {
+    "id": "v0489",
+    "de": [
+      "Flagge",
+      "Fahne"
+    ],
+    "es": "la bandera",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "La bandera de México es verde, blanca y roja.",
+      "de": "Die Flagge Mexikos ist grün, weiß und rot."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las banderas"
+  },
+  {
+    "id": "v0490",
+    "de": [
+      "Umzug",
+      "Parade"
+    ],
+    "es": "el desfile",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "El desfile del Día de la Independencia es muy grande.",
+      "de": "Die Parade zum Unabhängigkeitstag ist sehr groß."
+    },
+    "note": "Der Unabhängigkeitstag wird in Mexiko am 16. September gefeiert, in Guatemala am 15. September.",
+    "gender": "m",
+    "plural": "los desfiles"
+  },
+  {
+    "id": "v0491",
+    "de": [
+      "Mariachi (Musiker und Musikgruppe)"
+    ],
+    "es": "el mariachi",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Los mariachis tocan en la plaza.",
+      "de": "Die Mariachis spielen auf dem Platz."
+    },
+    "note": "Mexikanische Musikgruppe mit Trompeten, Geigen und Gitarren.",
+    "gender": "m",
+    "plural": "los mariachis"
+  },
+  {
+    "id": "v0492",
+    "de": [
+      "Marimba"
+    ],
+    "es": "la marimba",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "La marimba es el instrumento nacional de Guatemala.",
+      "de": "Die Marimba ist das Nationalinstrument Guatemalas."
+    },
+    "note": "Holzxylofon, besonders in Guatemala und Chiapas beliebt.",
+    "gender": "f",
+    "plural": "las marimbas"
+  },
+  {
+    "id": "v0493",
+    "de": [
+      "Piñata"
+    ],
+    "es": "la piñata",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Los niños rompen la piñata.",
+      "de": "Die Kinder zerschlagen die Piñata."
+    },
+    "note": "Gehört zu Geburtstagen und zu den posadas.",
+    "gender": "f",
+    "plural": "las piñatas"
+  },
+  {
+    "id": "v0494",
+    "de": [
+      "Maske"
+    ],
+    "es": "la máscara",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Compré una máscara de madera.",
+      "de": "Ich habe eine Holzmaske gekauft."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las máscaras"
+  },
+  {
+    "id": "v0495",
+    "de": [
+      "Kunsthandwerk"
+    ],
+    "es": "la artesanía",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "En el mercado venden artesanías.",
+      "de": "Auf dem Markt verkauft man Kunsthandwerk."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las artesanías"
+  },
+  {
+    "id": "v0496",
+    "de": [
+      "Huipil (traditionelle Bluse der Maya-Frauen)"
+    ],
+    "es": "el huipil",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "example": {
+      "es": "Ella teje un huipil con flores.",
+      "de": "Sie webt einen Huipil mit Blumen."
+    },
+    "note": "Muster und Farben zeigen oft die Herkunft aus einem bestimmten Dorf.",
+    "gender": "m",
+    "plural": "los huipiles"
+  },
+  {
+    "id": "v0497",
+    "de": [
+      "Opfergabe",
+      "Altargabe"
+    ],
+    "es": "la ofrenda",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "example": {
+      "es": "Ponemos una ofrenda para los difuntos.",
+      "de": "Wir stellen einen Altar für die Verstorbenen auf."
+    },
+    "note": "Am Día de Muertos: der Altar mit Fotos, Blumen und Speisen.",
+    "gender": "f",
+    "plural": "las ofrendas"
+  },
+  {
+    "id": "v0498",
+    "de": [
+      "Totenkopf"
+    ],
+    "es": "la calavera",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "example": {
+      "es": "Compramos calaveras de azúcar.",
+      "de": "Wir kaufen Totenköpfe aus Zucker."
+    },
+    "note": "Typisch zum Día de Muertos.",
+    "gender": "f",
+    "plural": "las calaveras"
+  },
+  {
+    "id": "v0499",
+    "de": [
+      "Posada (Weihnachtsfest vor Heiligabend)"
+    ],
+    "es": "la posada",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "example": {
+      "es": "Las posadas empiezan el 16 de diciembre.",
+      "de": "Die Posadas beginnen am 16. Dezember."
+    },
+    "note": "Auch: Gasthaus, Herberge. In Mexiko und Guatemala Weihnachtsbrauch mit Umzug und Fest.",
+    "gender": "f",
+    "plural": "las posadas"
+  },
+  {
+    "id": "v0500",
+    "de": [
+      "Prozession"
+    ],
+    "es": "la procesión",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "example": {
+      "es": "La procesión sale de la iglesia.",
+      "de": "Die Prozession kommt aus der Kirche."
+    },
+    "note": "Besonders in der Semana Santa.",
+    "gender": "f",
+    "plural": "las procesiones"
+  },
+  {
+    "id": "v0501",
+    "de": [
+      "Lucha libre (mexikanisches Wrestling)"
+    ],
+    "es": "la lucha libre",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "example": {
+      "es": "Vamos a ver la lucha libre el sábado.",
+      "de": "Am Samstag schauen wir uns Lucha libre an."
+    },
+    "note": "Die Luchadores (Kämpfer) tragen oft Masken.",
+    "gender": "f",
+    "plural": "las luchas libres"
+  },
+  {
+    "id": "v0502",
+    "de": [
+      "traditionell"
+    ],
+    "es": "tradicional",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Es una comida tradicional.",
+      "de": "Das ist ein traditionelles Essen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0503",
+    "de": [
+      "beliebt",
+      "volkstümlich"
+    ],
+    "es": "popular",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "La lucha libre es muy popular.",
+      "de": "Lucha libre ist sehr beliebt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0504",
+    "de": [
+      "bunt"
+    ],
+    "es": "colorido",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "El mercado es muy colorido.",
+      "de": "Der Markt ist sehr bunt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0505",
+    "de": [
+      "religiös"
+    ],
+    "es": "religioso",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Es una fiesta religiosa.",
+      "de": "Das ist ein religiöses Fest."
+    },
+    "note": "Feminin: religiosa.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0506",
+    "de": [
+      "handwerklich",
+      "kunsthandwerklich"
+    ],
+    "es": "artesanal",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Es un tejido artesanal.",
+      "de": "Das ist ein handgewebter Stoff."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0507",
+    "de": [
+      "katholisch"
+    ],
+    "es": "católico",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "kultur",
+    "example": {
+      "es": "Mi familia es católica.",
+      "de": "Meine Familie ist katholisch."
+    },
+    "note": "Feminin: católica.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0508",
+    "de": [
+      "Es lebe Mexiko!"
+    ],
+    "es": "¡Viva México!",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "¡Viva México! gritan todos.",
+      "de": "„Viva México!“, rufen alle."
+    },
+    "note": "Ruf am Abend des 15. September.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0509",
+    "de": [
+      "Frohe Weihnachten!"
+    ],
+    "es": "¡Feliz Navidad!",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "¡Feliz Navidad a todos!",
+      "de": "Frohe Weihnachten an alle!"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0510",
+    "de": [
+      "Frohes neues Jahr!"
+    ],
+    "es": "¡Feliz Año Nuevo!",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "¡Feliz Año Nuevo, familia!",
+      "de": "Frohes neues Jahr, Familie!"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0511",
+    "de": [
+      "Was für schöne Musik!"
+    ],
+    "es": "¡Qué bonita música!",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "¡Qué bonita música! ¿Quién canta?",
+      "de": "Was für schöne Musik! Wer singt?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0512",
+    "de": [
+      "Gibt es heute ein Fest?"
+    ],
+    "es": "¿Hay una fiesta hoy?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "¿Hay una fiesta hoy en el pueblo?",
+      "de": "Gibt es heute ein Fest im Dorf?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0513",
+    "de": [
+      "Der Día de Muertos ist am zweiten November."
+    ],
+    "es": "El Día de Muertos es el dos de noviembre.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "kultur",
+    "example": {
+      "es": "El Día de Muertos es el dos de noviembre.",
+      "de": "Der Día de Muertos ist am zweiten November."
+    },
+    "note": "Gefeiert wird am 1. und 2. November; der 2. ist der Gedenktag für die Verstorbenen.",
+    "gender": null,
+    "plural": null
+  }
+]

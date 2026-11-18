@@ -1,0 +1,724 @@
+[
+  {
+    "id": "v0015",
+    "de": [
+      "Apotheke"
+    ],
+    "es": "la farmacia",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "¿Dónde hay una farmacia?",
+      "de": "Wo gibt es eine Apotheke?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las farmacias"
+  },
+  {
+    "id": "v0016",
+    "de": [
+      "Arzt"
+    ],
+    "es": "el médico",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Necesito un médico, por favor.",
+      "de": "Ich brauche bitte einen Arzt."
+    },
+    "note": "Für Ärztin: la médica.",
+    "gender": "m",
+    "plural": "los médicos"
+  },
+  {
+    "id": "v0326",
+    "de": [
+      "wehtun",
+      "schmerzen"
+    ],
+    "es": "doler",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Me duele la cabeza.",
+      "de": "Mein Kopf tut weh."
+    },
+    "note": "Wird wie gustar gebraucht: Me duele la mano / Me duelen los pies.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ue"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0327",
+    "de": [
+      "sich fühlen"
+    ],
+    "es": "sentirse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Hoy me siento mal.",
+      "de": "Heute fühle ich mich schlecht."
+    },
+    "note": "Mit Adverb oder Adjektiv: sentirse bien/mal/enfermo.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ie-i"
+      ],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0328",
+    "de": [
+      "brauchen"
+    ],
+    "es": "necesitar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Necesito un médico.",
+      "de": "Ich brauche einen Arzt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0329",
+    "de": [
+      "helfen"
+    ],
+    "es": "ayudar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "¿Me puede ayudar, por favor?",
+      "de": "Können Sie mir bitte helfen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0330",
+    "de": [
+      "husten"
+    ],
+    "es": "toser",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Tosí toda la noche.",
+      "de": "Ich habe die ganze Nacht gehustet."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0331",
+    "de": [
+      "atmen"
+    ],
+    "es": "respirar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "No puedo respirar bien.",
+      "de": "Ich kann nicht gut atmen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0332",
+    "de": [
+      "sich übergeben",
+      "erbrechen"
+    ],
+    "es": "vomitar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Mi hijo vomitó después de comer.",
+      "de": "Mein Sohn hat sich nach dem Essen übergeben."
+    },
+    "note": "Umgangssprachlich in Lateinamerika auch: devolver (wörtlich „zurückgeben“).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0333",
+    "de": [
+      "ohnmächtig werden",
+      "in Ohnmacht fallen"
+    ],
+    "es": "desmayarse",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Mi abuelo se desmayó en la calle.",
+      "de": "Mein Großvater ist auf der Straße ohnmächtig geworden."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0334",
+    "de": [
+      "Kopf"
+    ],
+    "es": "la cabeza",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Me duele la cabeza.",
+      "de": "Mein Kopf tut weh."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las cabezas"
+  },
+  {
+    "id": "v0335",
+    "de": [
+      "Hand"
+    ],
+    "es": "la mano",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Me lastimé la mano.",
+      "de": "Ich habe mir die Hand verletzt."
+    },
+    "note": "Trotz der Endung -o ist mano weiblich.",
+    "gender": "f",
+    "plural": "las manos"
+  },
+  {
+    "id": "v0336",
+    "de": [
+      "Arm"
+    ],
+    "es": "el brazo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Me duele el brazo derecho.",
+      "de": "Mein rechter Arm tut weh."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los brazos"
+  },
+  {
+    "id": "v0337",
+    "de": [
+      "Bein"
+    ],
+    "es": "la pierna",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Tengo la pierna hinchada.",
+      "de": "Mein Bein ist geschwollen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las piernas"
+  },
+  {
+    "id": "v0338",
+    "de": [
+      "Schmerz",
+      "Schmerzen"
+    ],
+    "es": "el dolor",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Tengo mucho dolor.",
+      "de": "Ich habe starke Schmerzen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los dolores"
+  },
+  {
+    "id": "v0339",
+    "de": [
+      "Fieber"
+    ],
+    "es": "la fiebre",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "El niño tiene fiebre.",
+      "de": "Das Kind hat Fieber."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las fiebres"
+  },
+  {
+    "id": "v0340",
+    "de": [
+      "Medizin",
+      "Medikament"
+    ],
+    "es": "la medicina",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "¿Dónde puedo comprar esta medicina?",
+      "de": "Wo kann ich dieses Medikament kaufen?"
+    },
+    "note": "Auch: el medicamento.",
+    "gender": "f",
+    "plural": "las medicinas"
+  },
+  {
+    "id": "v0341",
+    "de": [
+      "Magen"
+    ],
+    "es": "el estómago",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Me duele el estómago.",
+      "de": "Mein Magen tut weh."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los estómagos"
+  },
+  {
+    "id": "v0342",
+    "de": [
+      "Hals"
+    ],
+    "es": "la garganta",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Me duele la garganta.",
+      "de": "Mein Hals tut weh."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las gargantas"
+  },
+  {
+    "id": "v0343",
+    "de": [
+      "Krankenhaus"
+    ],
+    "es": "el hospital",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Llévenme al hospital, por favor.",
+      "de": "Bringen Sie mich bitte ins Krankenhaus."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los hospitales"
+  },
+  {
+    "id": "v0344",
+    "de": [
+      "Krankenwagen"
+    ],
+    "es": "la ambulancia",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "La ambulancia llegó muy rápido.",
+      "de": "Der Krankenwagen kam sehr schnell."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las ambulancias"
+  },
+  {
+    "id": "v0345",
+    "de": [
+      "Tablette"
+    ],
+    "es": "la pastilla",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Tomo una pastilla cada ocho horas.",
+      "de": "Ich nehme alle acht Stunden eine Tablette."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las pastillas"
+  },
+  {
+    "id": "v0346",
+    "de": [
+      "Allergie"
+    ],
+    "es": "la alergia",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Tengo alergia al polen.",
+      "de": "Ich habe eine Pollenallergie."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las alergias"
+  },
+  {
+    "id": "v0347",
+    "de": [
+      "Husten"
+    ],
+    "es": "la tos",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Tengo tos desde ayer.",
+      "de": "Ich habe seit gestern Husten."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las toses"
+  },
+  {
+    "id": "v0348",
+    "de": [
+      "Erkältung"
+    ],
+    "es": "el resfriado",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Tengo un resfriado fuerte.",
+      "de": "Ich habe eine starke Erkältung."
+    },
+    "note": "In Mexiko und Guatemala sagt man oft „la gripa“ (Erkältung, Grippe).",
+    "gender": "m",
+    "plural": "los resfriados"
+  },
+  {
+    "id": "v0349",
+    "de": [
+      "Wunde"
+    ],
+    "es": "la herida",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "La herida no deja de sangrar.",
+      "de": "Die Wunde hört nicht auf zu bluten."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las heridas"
+  },
+  {
+    "id": "v0350",
+    "de": [
+      "Notfall"
+    ],
+    "es": "la emergencia",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Es una emergencia.",
+      "de": "Es ist ein Notfall."
+    },
+    "note": "Notruf in Mexiko: 911. In Guatemala gelten andere Nummern, vor der Reise nachschlagen.",
+    "gender": "f",
+    "plural": "las emergencias"
+  },
+  {
+    "id": "v0351",
+    "de": [
+      "Versicherung"
+    ],
+    "es": "el seguro",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "¿Tiene seguro médico?",
+      "de": "Haben Sie eine Krankenversicherung?"
+    },
+    "note": "Seguro médico = Krankenversicherung.",
+    "gender": "m",
+    "plural": "los seguros"
+  },
+  {
+    "id": "v0352",
+    "de": [
+      "krank"
+    ],
+    "es": "enfermo",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Mi hijo está enfermo.",
+      "de": "Mein Sohn ist krank."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0353",
+    "de": [
+      "schwindelig"
+    ],
+    "es": "mareado",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Estoy mareado.",
+      "de": "Mir ist schwindelig."
+    },
+    "note": "Estar mareado: auch übel/benommen.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0354",
+    "de": [
+      "allergisch"
+    ],
+    "es": "alérgico",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Soy alérgico a las nueces.",
+      "de": "Ich bin allergisch gegen Nüsse."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0355",
+    "de": [
+      "gesund"
+    ],
+    "es": "sano",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Come sano y hace ejercicio.",
+      "de": "Er isst gesund und treibt Sport."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0356",
+    "de": [
+      "ernst",
+      "schwer"
+    ],
+    "es": "grave",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Es una enfermedad grave.",
+      "de": "Es ist eine schwere Krankheit."
+    },
+    "note": "Unveränderlich für m/f.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0357",
+    "de": [
+      "verletzt"
+    ],
+    "es": "herido",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Hay dos personas heridas.",
+      "de": "Es gibt zwei verletzte Personen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0358",
+    "de": [
+      "Hilfe"
+    ],
+    "es": "¡Ayuda!",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "¡Ayuda! ¡Llamen a la policía!",
+      "de": "Hilfe! Rufen Sie die Polizei!"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0359",
+    "de": [
+      "Ich habe Kopfschmerzen"
+    ],
+    "es": "Me duele la cabeza.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Me duele la cabeza y tengo fiebre.",
+      "de": "Ich habe Kopfschmerzen und Fieber."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0360",
+    "de": [
+      "Mir geht es schlecht"
+    ],
+    "es": "Me siento mal.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Me siento mal desde la mañana.",
+      "de": "Mir geht es seit dem Morgen schlecht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0361",
+    "de": [
+      "Wo tut es Ihnen weh"
+    ],
+    "es": "¿Dónde le duele?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "¿Dónde le duele exactamente?",
+      "de": "Wo genau tut es Ihnen weh?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0362",
+    "de": [
+      "Rufen Sie einen Krankenwagen"
+    ],
+    "es": "Llame a una ambulancia.",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "gesundheit",
+    "example": {
+      "es": "¡Rápido, llame a una ambulancia!",
+      "de": "Schnell, rufen Sie einen Krankenwagen!"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0363",
+    "de": [
+      "Ich bin allergisch gegen Penicillin"
+    ],
+    "es": "Tengo alergia a la penicilina.",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "gesundheit",
+    "example": {
+      "es": "Tengo alergia a la penicilina, no me la dé.",
+      "de": "Ich bin allergisch gegen Penicillin, geben Sie sie mir nicht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  }
+]

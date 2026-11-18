@@ -1,0 +1,726 @@
+[
+  {
+    "id": "v0001",
+    "de": [
+      "Hallo"
+    ],
+    "es": "hola",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "¡Hola! ¿Cómo estás?",
+      "de": "Hallo! Wie geht es dir?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0002",
+    "de": [
+      "Guten Morgen"
+    ],
+    "es": "buenos días",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Buenos días, señora.",
+      "de": "Guten Morgen, gnädige Frau."
+    },
+    "note": "Wird bis zum Mittag verwendet.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0003",
+    "de": [
+      "Danke"
+    ],
+    "es": "gracias",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Muchas gracias por su ayuda.",
+      "de": "Vielen Dank für Ihre Hilfe."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0004",
+    "de": [
+      "Bitte"
+    ],
+    "es": "por favor",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Un café, por favor.",
+      "de": "Einen Kaffee, bitte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0026",
+    "de": [
+      "grüßen",
+      "begrüßen"
+    ],
+    "es": "saludar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Siempre saludo a mis vecinos.",
+      "de": "Ich grüße immer meine Nachbarn."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0027",
+    "de": [
+      "der Gruß"
+    ],
+    "es": "el saludo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Un saludo a tu familia.",
+      "de": "Einen Gruß an deine Familie."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los saludos"
+  },
+  {
+    "id": "v0028",
+    "de": [
+      "der Herr",
+      "Herr"
+    ],
+    "es": "el señor",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "El señor López ya llegó.",
+      "de": "Herr López ist schon angekommen."
+    },
+    "note": "Als Anrede vor dem Nachnamen: señor López.",
+    "gender": "m",
+    "plural": "los señores"
+  },
+  {
+    "id": "v0029",
+    "de": [
+      "die Frau",
+      "Frau (Anrede)"
+    ],
+    "es": "la señora",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "La señora es de Guatemala.",
+      "de": "Die Dame ist aus Guatemala."
+    },
+    "note": "Höfliche Anrede für Frauen; in Mexiko und Guatemala sehr gebräuchlich.",
+    "gender": "f",
+    "plural": "las señoras"
+  },
+  {
+    "id": "v0030",
+    "de": [
+      "willkommen"
+    ],
+    "es": "bienvenido",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Bienvenidos a México.",
+      "de": "Willkommen in Mexiko."
+    },
+    "note": "Richtet sich nach der angesprochenen Person: bienvenido, bienvenida, bienvenidos.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0031",
+    "de": [
+      "erfreut",
+      "sehr angenehm"
+    ],
+    "es": "encantado",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Encantada de conocerla.",
+      "de": "Sehr erfreut, Sie kennenzulernen."
+    },
+    "note": "Männer sagen encantado, Frauen encantada.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0032",
+    "de": [
+      "Entschuldigung",
+      "Verzeihung"
+    ],
+    "es": "perdón",
+    "pos": "other",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Perdón, ¿está libre este asiento?",
+      "de": "Entschuldigung, ist dieser Platz frei?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0033",
+    "de": [
+      "Guten Tag",
+      "Guten Nachmittag"
+    ],
+    "es": "buenas tardes",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Buenas tardes, ¿cómo le va?",
+      "de": "Guten Tag, wie geht es Ihnen?"
+    },
+    "note": "Gilt vom Mittag bis zum Einbruch der Dunkelheit; in Mexiko und Guatemala auch kurz: buenas.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0034",
+    "de": [
+      "Guten Abend",
+      "Gute Nacht"
+    ],
+    "es": "buenas noches",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Buenas noches, hasta mañana.",
+      "de": "Gute Nacht, bis morgen."
+    },
+    "note": "Dient als Gruß am Abend und als Gute-Nacht-Wunsch.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0035",
+    "de": [
+      "Auf Wiedersehen",
+      "Tschüss"
+    ],
+    "es": "adiós",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Adiós, ¡que te vaya bien!",
+      "de": "Tschüss, mach es gut!"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0036",
+    "de": [
+      "bis später",
+      "bis bald"
+    ],
+    "es": "hasta luego",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Hasta luego, nos vemos en la tarde.",
+      "de": "Bis später, wir sehen uns am Nachmittag."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0037",
+    "de": [
+      "Bitte (Antwort auf Danke)",
+      "gern geschehen"
+    ],
+    "es": "de nada",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "begruessung",
+    "example": {
+      "es": "—Gracias. —De nada.",
+      "de": "„Danke.“ „Bitte.“"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0038",
+    "de": [
+      "sich vorstellen"
+    ],
+    "es": "presentarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Me presento: soy Laura.",
+      "de": "Ich stelle mich vor: Ich bin Laura."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0039",
+    "de": [
+      "sich verabschieden"
+    ],
+    "es": "despedirse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Nos despedimos en la estación.",
+      "de": "Wir verabschieden uns am Bahnhof."
+    },
+    "note": "Wie pedir: ich verabschiede mich = me despido, er verabschiedet sich = se despide.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "i"
+      ],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0040",
+    "de": [
+      "der Gefallen",
+      "die Gefälligkeit"
+    ],
+    "es": "el favor",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "¿Me hace un favor?",
+      "de": "Tun Sie mir einen Gefallen?"
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los favores"
+  },
+  {
+    "id": "v0041",
+    "de": [
+      "der Abschied",
+      "die Verabschiedung"
+    ],
+    "es": "la despedida",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "La despedida fue muy emotiva.",
+      "de": "Der Abschied war sehr emotional."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las despedidas"
+  },
+  {
+    "id": "v0042",
+    "de": [
+      "freundlich",
+      "nett"
+    ],
+    "es": "amable",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Usted es muy amable.",
+      "de": "Sie sind sehr freundlich."
+    },
+    "note": "Gleiche Form für männlich und weiblich.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0043",
+    "de": [
+      "gleichfalls",
+      "ebenso"
+    ],
+    "es": "igualmente",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "—Mucho gusto. —Igualmente.",
+      "de": "„Freut mich.“ „Gleichfalls.“"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0044",
+    "de": [
+      "Mit Ihrer Erlaubnis",
+      "Entschuldigung, darf ich vorbei"
+    ],
+    "es": "con permiso",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Con permiso, necesito pasar.",
+      "de": "Entschuldigung, ich muss vorbei."
+    },
+    "note": "Wird beim Vorbeigehen, Betreten oder Verlassen eines Raums gesagt.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0045",
+    "de": [
+      "Entschuldigen Sie",
+      "Verzeihen Sie"
+    ],
+    "es": "disculpe",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Disculpe, ¿me puede ayudar?",
+      "de": "Entschuldigen Sie, können Sie mir helfen?"
+    },
+    "note": "Höfliche Form (usted); unter Freunden: disculpa.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0046",
+    "de": [
+      "es tut mir leid"
+    ],
+    "es": "lo siento",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Lo siento mucho, llegué tarde.",
+      "de": "Es tut mir sehr leid, ich bin zu spät gekommen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0047",
+    "de": [
+      "freut mich",
+      "angenehm"
+    ],
+    "es": "mucho gusto",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Mucho gusto, me llamo Pablo.",
+      "de": "Freut mich, ich heiße Pablo."
+    },
+    "note": "Üblich beim Vorstellen; Antwort: igualmente oder el gusto es mío.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0048",
+    "de": [
+      "Wie heißen Sie?"
+    ],
+    "es": "¿Cómo se llama usted?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "¿Cómo se llama usted, por favor?",
+      "de": "Wie heißen Sie, bitte?"
+    },
+    "note": "Unter Gleichaltrigen: ¿Cómo te llamas?",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0049",
+    "de": [
+      "ich heiße…"
+    ],
+    "es": "me llamo…",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Me llamo Sofía y soy alemana.",
+      "de": "Ich heiße Sofía und bin Deutsche."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0050",
+    "de": [
+      "Wie geht es Ihnen?"
+    ],
+    "es": "¿Cómo está usted?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Buenos días, ¿cómo está usted?",
+      "de": "Guten Morgen, wie geht es Ihnen?"
+    },
+    "note": "Höfliche Form; unter Freunden: ¿Cómo estás?",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0051",
+    "de": [
+      "bis morgen"
+    ],
+    "es": "hasta mañana",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Hasta mañana, que descanse.",
+      "de": "Bis morgen, schlafen Sie gut."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0052",
+    "de": [
+      "wir sehen uns",
+      "bis dann"
+    ],
+    "es": "nos vemos",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "Nos vemos el viernes.",
+      "de": "Wir sehen uns am Freitag."
+    },
+    "note": "Sehr gebräuchlich als lockere Verabschiedung.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0053",
+    "de": [
+      "Wie geht’s?",
+      "Was gibt’s?"
+    ],
+    "es": "¿Qué tal?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "begruessung",
+    "example": {
+      "es": "¡Hola, Juan! ¿Qué tal?",
+      "de": "Hallo, Juan! Wie geht’s?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0054",
+    "de": [
+      "danken",
+      "sich bedanken bei"
+    ],
+    "es": "agradecer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Le agradezco su amabilidad.",
+      "de": "Ich danke Ihnen für Ihre Freundlichkeit."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "zco"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0055",
+    "de": [
+      "die Erlaubnis",
+      "die Genehmigung"
+    ],
+    "es": "el permiso",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "begruessung",
+    "example": {
+      "es": "¿Me da permiso de entrar?",
+      "de": "Erlauben Sie mir einzutreten?"
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los permisos"
+  },
+  {
+    "id": "v0056",
+    "de": [
+      "höflich"
+    ],
+    "es": "cortés",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "begruessung",
+    "example": {
+      "es": "El mesero fue muy cortés.",
+      "de": "Der Kellner war sehr höflich."
+    },
+    "note": "Gleiche Form für männlich und weiblich; Plural: corteses.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0057",
+    "de": [
+      "alles Gute",
+      "machen Sie es gut"
+    ],
+    "es": "que le vaya bien",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Gracias por todo, que le vaya bien.",
+      "de": "Danke für alles, alles Gute für Sie."
+    },
+    "note": "Höfliche Verabschiedung (usted); unter Freunden: que te vaya bien.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0058",
+    "de": [
+      "machen Sie sich keine Sorgen",
+      "kein Problem"
+    ],
+    "es": "no se preocupe",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "begruessung",
+    "example": {
+      "es": "No se preocupe, no pasa nada.",
+      "de": "Keine Sorge, es ist nichts passiert."
+    },
+    "note": "Höflich (usted); unter Freunden: no te preocupes.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0059",
+    "de": [
+      "zu Ihren Diensten"
+    ],
+    "es": "a sus órdenes",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Buenas tardes, a sus órdenes.",
+      "de": "Guten Tag, womit kann ich dienen?"
+    },
+    "note": "Höfliche Floskel von Verkäufern und Kellnern, vor allem in Mexiko; in Guatemala ist auch a la orden üblich.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0060",
+    "de": [
+      "Wie bitte?",
+      "Ja, bitte?"
+    ],
+    "es": "¿Mande?",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "begruessung",
+    "example": {
+      "es": "—¡Juan! —¿Mande?",
+      "de": "„Juan!“ „Ja, bitte?“"
+    },
+    "note": "Typisch mexikanisch, höfliche Rückfrage, wenn man gerufen wird oder etwas nicht verstanden hat.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0061",
+    "de": [
+      "ich danke Ihnen sehr"
+    ],
+    "es": "le agradezco mucho",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "begruessung",
+    "example": {
+      "es": "Le agradezco mucho su atención.",
+      "de": "Ich danke Ihnen sehr für Ihre Aufmerksamkeit."
+    },
+    "note": "Förmlicher als muchas gracias.",
+    "gender": null,
+    "plural": null
+  }
+]

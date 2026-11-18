@@ -1,0 +1,753 @@
+[
+  {
+    "id": "v0076",
+    "de": [
+      "warten"
+    ],
+    "es": "esperar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Espero el camión en la esquina.",
+      "de": "Ich warte an der Ecke auf den Bus."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0077",
+    "de": [
+      "anfangen",
+      "beginnen"
+    ],
+    "es": "empezar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "La clase empieza a las nueve.",
+      "de": "Der Unterricht beginnt um neun Uhr."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ie"
+      ],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0078",
+    "de": [
+      "dauern"
+    ],
+    "es": "durar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "El viaje dura tres horas.",
+      "de": "Die Fahrt dauert drei Stunden."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0079",
+    "de": [
+      "brauchen (zeitlich)",
+      "sich verspäten"
+    ],
+    "es": "tardar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Tardamos diez minutos en llegar.",
+      "de": "Wir brauchen zehn Minuten bis zur Ankunft."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0080",
+    "de": [
+      "beenden",
+      "enden"
+    ],
+    "es": "terminar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "La fiesta termina a medianoche.",
+      "de": "Die Feier endet um Mitternacht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0081",
+    "de": [
+      "aufwachen"
+    ],
+    "es": "despertarse",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Me despierto a las seis todos los días.",
+      "de": "Ich wache jeden Tag um sechs auf."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "ie"
+      ],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0082",
+    "de": [
+      "Tag"
+    ],
+    "es": "el día",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Hoy es un día bonito.",
+      "de": "Heute ist ein schöner Tag."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los días"
+  },
+  {
+    "id": "v0083",
+    "de": [
+      "Woche"
+    ],
+    "es": "la semana",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Estoy aquí una semana.",
+      "de": "Ich bin eine Woche hier."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las semanas"
+  },
+  {
+    "id": "v0084",
+    "de": [
+      "Monat"
+    ],
+    "es": "el mes",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Viajamos el próximo mes.",
+      "de": "Wir reisen nächsten Monat."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los meses"
+  },
+  {
+    "id": "v0085",
+    "de": [
+      "Jahr"
+    ],
+    "es": "el año",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Vivo aquí desde hace un año.",
+      "de": "Ich wohne seit einem Jahr hier."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los años"
+  },
+  {
+    "id": "v0086",
+    "de": [
+      "Stunde",
+      "Uhrzeit"
+    ],
+    "es": "la hora",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "¿A qué hora sale el camión?",
+      "de": "Um wie viel Uhr fährt der Bus?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las horas"
+  },
+  {
+    "id": "v0087",
+    "de": [
+      "Morgen",
+      "Vormittag"
+    ],
+    "es": "la mañana",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Por la mañana desayunamos en el hotel.",
+      "de": "Morgens frühstücken wir im Hotel."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las mañanas"
+  },
+  {
+    "id": "v0088",
+    "de": [
+      "Nachmittag"
+    ],
+    "es": "la tarde",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Por la tarde visitamos el mercado.",
+      "de": "Am Nachmittag besuchen wir den Markt."
+    },
+    "note": "La tarde reicht bis zur Dunkelheit; danach beginnt la noche.",
+    "gender": "f",
+    "plural": "las tardes"
+  },
+  {
+    "id": "v0089",
+    "de": [
+      "Nacht",
+      "Abend (spät)"
+    ],
+    "es": "la noche",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Esta noche vamos al cine.",
+      "de": "Heute Abend gehen wir ins Kino."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las noches"
+  },
+  {
+    "id": "v0090",
+    "de": [
+      "Minute"
+    ],
+    "es": "el minuto",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Espere un minuto, por favor.",
+      "de": "Warten Sie bitte eine Minute."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los minutos"
+  },
+  {
+    "id": "v0091",
+    "de": [
+      "Wochenende"
+    ],
+    "es": "el fin de semana",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "El fin de semana vamos al lago.",
+      "de": "Am Wochenende fahren wir zum See."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los fines de semana"
+  },
+  {
+    "id": "v0092",
+    "de": [
+      "Uhr",
+      "Armbanduhr"
+    ],
+    "es": "el reloj",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Mi reloj está atrasado.",
+      "de": "Meine Uhr geht nach."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los relojes"
+  },
+  {
+    "id": "v0093",
+    "de": [
+      "Montag"
+    ],
+    "es": "el lunes",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "El lunes empiezo mi curso de español.",
+      "de": "Am Montag beginne ich meinen Spanischkurs."
+    },
+    "note": "Wochentage werden kleingeschrieben; der Plural ist gleich (los lunes).",
+    "gender": "m",
+    "plural": "los lunes"
+  },
+  {
+    "id": "v0094",
+    "de": [
+      "Samstag"
+    ],
+    "es": "el sábado",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "El sábado hay mercado en el pueblo.",
+      "de": "Am Samstag ist im Dorf Markt."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los sábados"
+  },
+  {
+    "id": "v0095",
+    "de": [
+      "Sonntag"
+    ],
+    "es": "el domingo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "El domingo descansamos.",
+      "de": "Am Sonntag ruhen wir uns aus."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los domingos"
+  },
+  {
+    "id": "v0096",
+    "de": [
+      "Mittag"
+    ],
+    "es": "el mediodía",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Al mediodía hace mucho calor.",
+      "de": "Mittags ist es sehr heiß."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los mediodías"
+  },
+  {
+    "id": "v0097",
+    "de": [
+      "Geburtstag"
+    ],
+    "es": "el cumpleaños",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Mañana es mi cumpleaños.",
+      "de": "Morgen ist mein Geburtstag."
+    },
+    "note": "Der Singular ist gleich dem Plural: el cumpleaños, los cumpleaños.",
+    "gender": "m",
+    "plural": "los cumpleaños"
+  },
+  {
+    "id": "v0098",
+    "de": [
+      "eins",
+      "ein"
+    ],
+    "es": "uno",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Solo tengo un hermano.",
+      "de": "Ich habe nur einen Bruder."
+    },
+    "note": "Vor männlichen Nomen wird uno zu un, vor weiblichen zu una.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0099",
+    "de": [
+      "zwei"
+    ],
+    "es": "dos",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Dos cafés, por favor.",
+      "de": "Zwei Kaffee, bitte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0100",
+    "de": [
+      "drei"
+    ],
+    "es": "tres",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Hay tres habitaciones libres.",
+      "de": "Es gibt drei freie Zimmer."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0101",
+    "de": [
+      "zehn"
+    ],
+    "es": "diez",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Llego en diez minutos.",
+      "de": "Ich komme in zehn Minuten an."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0102",
+    "de": [
+      "heute"
+    ],
+    "es": "hoy",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Hoy hace mucho sol.",
+      "de": "Heute scheint viel Sonne."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0103",
+    "de": [
+      "jetzt"
+    ],
+    "es": "ahora",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Ahora no puedo hablar.",
+      "de": "Jetzt kann ich nicht sprechen."
+    },
+    "note": "In Mexiko ist auch ahorita (gleich, jetzt gleich) sehr gebräuchlich.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0104",
+    "de": [
+      "null"
+    ],
+    "es": "cero",
+    "pos": "num",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "La temperatura es cero grados.",
+      "de": "Die Temperatur beträgt null Grad."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0105",
+    "de": [
+      "fünf"
+    ],
+    "es": "cinco",
+    "pos": "num",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Son las cinco de la tarde.",
+      "de": "Es ist fünf Uhr nachmittags."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0106",
+    "de": [
+      "zwanzig"
+    ],
+    "es": "veinte",
+    "pos": "num",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Mi cumpleaños es el veinte de mayo.",
+      "de": "Mein Geburtstag ist am zwanzigsten Mai."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0107",
+    "de": [
+      "hundert"
+    ],
+    "es": "cien",
+    "pos": "num",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Hay cien personas en la fila.",
+      "de": "In der Schlange stehen hundert Leute."
+    },
+    "note": "Vor Nomen und bei genau 100 heißt es cien; mit weiteren Zahlen ciento (ciento diez).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0108",
+    "de": [
+      "gestern"
+    ],
+    "es": "ayer",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Ayer llegamos a Antigua.",
+      "de": "Gestern sind wir in Antigua angekommen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0109",
+    "de": [
+      "früh"
+    ],
+    "es": "temprano",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Mañana salimos temprano.",
+      "de": "Morgen fahren wir früh los."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0110",
+    "de": [
+      "tausend"
+    ],
+    "es": "mil",
+    "pos": "num",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "El boleto cuesta mil pesos.",
+      "de": "Das Ticket kostet tausend Pesos."
+    },
+    "note": "Mil bleibt im Plural unverändert (dos mil).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0111",
+    "de": [
+      "erster"
+    ],
+    "es": "primero",
+    "pos": "num",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Es mi primera vez en Guatemala.",
+      "de": "Es ist mein erstes Mal in Guatemala."
+    },
+    "note": "Vor männlichen Nomen im Singular wird primero zu primer (el primer día).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0112",
+    "de": [
+      "immer"
+    ],
+    "es": "siempre",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Siempre desayuno a las siete.",
+      "de": "Ich frühstücke immer um sieben."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0113",
+    "de": [
+      "später",
+      "danach"
+    ],
+    "es": "luego",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Primero comemos y luego caminamos.",
+      "de": "Zuerst essen wir und danach gehen wir spazieren."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0114",
+    "de": [
+      "Wie spät ist es?"
+    ],
+    "es": "¿Qué hora es?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Perdón, ¿qué hora es?",
+      "de": "Entschuldigung, wie spät ist es?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0115",
+    "de": [
+      "Welcher Tag ist heute?"
+    ],
+    "es": "¿Qué día es hoy?",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "¿Qué día es hoy? ¿Jueves?",
+      "de": "Welcher Tag ist heute? Donnerstag?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0116",
+    "de": [
+      "Es ist drei Uhr."
+    ],
+    "es": "Son las tres.",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "Son las tres y media.",
+      "de": "Es ist halb vier."
+    },
+    "note": "Bei ein Uhr heißt es Es la una (Singular).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0117",
+    "de": [
+      "Um wie viel Uhr öffnet es?"
+    ],
+    "es": "¿A qué hora abre?",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "example": {
+      "es": "¿A qué hora abre el museo?",
+      "de": "Um wie viel Uhr öffnet das Museum?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  }
+]

@@ -1,0 +1,717 @@
+[
+  {
+    "id": "v0011",
+    "de": [
+      "Zimmer",
+      "Raum"
+    ],
+    "es": "la habitación",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Necesito una habitación doble.",
+      "de": "Ich brauche ein Doppelzimmer."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las habitaciones"
+  },
+  {
+    "id": "v0012",
+    "de": [
+      "Hotel"
+    ],
+    "es": "el hotel",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "El hotel está cerca de la plaza.",
+      "de": "Das Hotel liegt nahe am Platz."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los hoteles"
+  },
+  {
+    "id": "v0024",
+    "de": [
+      "wohnen",
+      "leben"
+    ],
+    "es": "vivir",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Vivo en Ciudad de México.",
+      "de": "Ich wohne in Mexiko-Stadt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0226",
+    "de": [
+      "haben",
+      "besitzen"
+    ],
+    "es": "tener",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Tengo una reservación para dos noches.",
+      "de": "Ich habe eine Reservierung für zwei Nächte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "go",
+        "ie"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "tuve",
+          "2s": "tuviste",
+          "3s": "tuvo",
+          "1p": "tuvimos",
+          "2p": "tuvisteis",
+          "3p": "tuvieron"
+        },
+        "futuro": {
+          "stem": "tendr"
+        },
+        "imperativo": {
+          "2s": "ten"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0227",
+    "de": [
+      "bleiben",
+      "übernachten"
+    ],
+    "es": "quedarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Me quedo tres noches en el hotel.",
+      "de": "Ich bleibe drei Nächte im Hotel."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0228",
+    "de": [
+      "vergessen"
+    ],
+    "es": "olvidar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Olvidé la llave en la habitación.",
+      "de": "Ich habe den Schlüssel im Zimmer vergessen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0229",
+    "de": [
+      "reservieren",
+      "buchen"
+    ],
+    "es": "reservar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Quiero reservar una habitación para el viernes.",
+      "de": "Ich möchte ein Zimmer für Freitag reservieren."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0230",
+    "de": [
+      "funktionieren"
+    ],
+    "es": "funcionar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "El aire acondicionado no funciona.",
+      "de": "Die Klimaanlage funktioniert nicht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0231",
+    "de": [
+      "putzen",
+      "reinigen"
+    ],
+    "es": "limpiar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "¿Pueden limpiar la habitación, por favor?",
+      "de": "Können Sie bitte das Zimmer reinigen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0232",
+    "de": [
+      "unterkommen",
+      "übernachten"
+    ],
+    "es": "alojarse",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Nos alojamos en un hostal del centro.",
+      "de": "Wir übernachten in einem Hostal im Zentrum."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0233",
+    "de": [
+      "Schlüssel"
+    ],
+    "es": "la llave",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "La llave está en la recepción.",
+      "de": "Der Schlüssel ist an der Rezeption."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las llaves"
+  },
+  {
+    "id": "v0234",
+    "de": [
+      "Bad",
+      "Badezimmer"
+    ],
+    "es": "el baño",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "El baño está limpio.",
+      "de": "Das Bad ist sauber."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los baños"
+  },
+  {
+    "id": "v0235",
+    "de": [
+      "Bett"
+    ],
+    "es": "la cama",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "La habitación tiene dos camas.",
+      "de": "Das Zimmer hat zwei Betten."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las camas"
+  },
+  {
+    "id": "v0236",
+    "de": [
+      "Tür"
+    ],
+    "es": "la puerta",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "La puerta no cierra bien.",
+      "de": "Die Tür schließt nicht richtig."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las puertas"
+  },
+  {
+    "id": "v0237",
+    "de": [
+      "WLAN",
+      "Wi-Fi"
+    ],
+    "es": "el wifi",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "¿El wifi es gratis?",
+      "de": "Ist das WLAN kostenlos?"
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los wifis"
+  },
+  {
+    "id": "v0238",
+    "de": [
+      "Reservierung",
+      "Buchung"
+    ],
+    "es": "la reservación",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Tengo una reservación a nombre de Müller.",
+      "de": "Ich habe eine Reservierung auf den Namen Müller."
+    },
+    "note": "In Mexiko und Guatemala üblicher als la reserva.",
+    "gender": "f",
+    "plural": "las reservaciones"
+  },
+  {
+    "id": "v0239",
+    "de": [
+      "Hostal",
+      "einfache Pension"
+    ],
+    "es": "el hostal",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Buscamos un hostal barato.",
+      "de": "Wir suchen ein günstiges Hostal."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los hostales"
+  },
+  {
+    "id": "v0240",
+    "de": [
+      "Passwort"
+    ],
+    "es": "la contraseña",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "¿Cuál es la contraseña del wifi?",
+      "de": "Wie lautet das WLAN-Passwort?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las contraseñas"
+  },
+  {
+    "id": "v0241",
+    "de": [
+      "Rezeption"
+    ],
+    "es": "la recepción",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Pregunte en la recepción.",
+      "de": "Fragen Sie an der Rezeption."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las recepciones"
+  },
+  {
+    "id": "v0242",
+    "de": [
+      "Handtuch"
+    ],
+    "es": "la toalla",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Necesitamos más toallas.",
+      "de": "Wir brauchen mehr Handtücher."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las toallas"
+  },
+  {
+    "id": "v0243",
+    "de": [
+      "Dusche"
+    ],
+    "es": "la ducha",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "La ducha no tiene agua caliente.",
+      "de": "In der Dusche gibt es kein warmes Wasser."
+    },
+    "note": "In Mexiko sagt man oft la regadera.",
+    "gender": "f",
+    "plural": "las duchas"
+  },
+  {
+    "id": "v0244",
+    "de": [
+      "Gepäck"
+    ],
+    "es": "el equipaje",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "¿Puedo dejar mi equipaje aquí?",
+      "de": "Kann ich mein Gepäck hier lassen?"
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los equipajes"
+  },
+  {
+    "id": "v0245",
+    "de": [
+      "Aufzug",
+      "Fahrstuhl"
+    ],
+    "es": "el ascensor",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "El ascensor está descompuesto.",
+      "de": "Der Aufzug ist kaputt."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los ascensores"
+  },
+  {
+    "id": "v0246",
+    "de": [
+      "Klimaanlage"
+    ],
+    "es": "el aire acondicionado",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "El aire acondicionado hace mucho ruido.",
+      "de": "Die Klimaanlage ist sehr laut."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los aires acondicionados"
+  },
+  {
+    "id": "v0247",
+    "de": [
+      "Gast",
+      "Hotelgast"
+    ],
+    "es": "el huésped",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Los huéspedes desayunan de siete a diez.",
+      "de": "Die Gäste frühstücken von sieben bis zehn."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los huéspedes"
+  },
+  {
+    "id": "v0248",
+    "de": [
+      "Kopfkissen"
+    ],
+    "es": "la almohada",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Quisiera otra almohada, por favor.",
+      "de": "Ich hätte gern noch ein Kopfkissen."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las almohadas"
+  },
+  {
+    "id": "v0249",
+    "de": [
+      "Bettlaken",
+      "Laken"
+    ],
+    "es": "la sábana",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Las sábanas están sucias.",
+      "de": "Die Laken sind schmutzig."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las sábanas"
+  },
+  {
+    "id": "v0250",
+    "de": [
+      "Ventilator"
+    ],
+    "es": "el ventilador",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Hace calor; ¿hay un ventilador?",
+      "de": "Es ist heiß; gibt es einen Ventilator?"
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los ventiladores"
+  },
+  {
+    "id": "v0251",
+    "de": [
+      "frei",
+      "verfügbar"
+    ],
+    "es": "libre",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "¿Hay una habitación libre?",
+      "de": "Gibt es ein freies Zimmer?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0252",
+    "de": [
+      "besetzt",
+      "belegt"
+    ],
+    "es": "ocupado",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Esa habitación está ocupada.",
+      "de": "Dieses Zimmer ist belegt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0253",
+    "de": [
+      "ruhig"
+    ],
+    "es": "tranquilo",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Buscamos un hotel tranquilo.",
+      "de": "Wir suchen ein ruhiges Hotel."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0254",
+    "de": [
+      "sauber"
+    ],
+    "es": "limpio",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "La habitación está limpia.",
+      "de": "Das Zimmer ist sauber."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0255",
+    "de": [
+      "kaputt",
+      "defekt"
+    ],
+    "es": "descompuesto",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "La regadera está descompuesta.",
+      "de": "Die Dusche ist kaputt."
+    },
+    "note": "In Mexiko sagt man für „kaputt“ meist descompuesto; la regadera = Dusche.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0256",
+    "de": [
+      "inklusive",
+      "inbegriffen"
+    ],
+    "es": "incluido",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "¿El desayuno está incluido?",
+      "de": "Ist das Frühstück inbegriffen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0257",
+    "de": [
+      "Haben Sie freie Zimmer?"
+    ],
+    "es": "¿Tiene habitaciones libres?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "¿Tiene habitaciones libres para esta noche?",
+      "de": "Haben Sie heute Nacht freie Zimmer?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0258",
+    "de": [
+      "Den Schlüssel, bitte."
+    ],
+    "es": "La llave, por favor.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "Buenas tardes, la llave del 205, por favor.",
+      "de": "Guten Tag, den Schlüssel für 205, bitte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0259",
+    "de": [
+      "Gibt es WLAN im Hotel?"
+    ],
+    "es": "¿Hay wifi en el hotel?",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "¿Hay wifi en el hotel?",
+      "de": "Gibt es WLAN im Hotel?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v0260",
+    "de": [
+      "Ich möchte mich beschweren."
+    ],
+    "es": "Quisiera presentar una queja.",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "unterkunft",
+    "example": {
+      "es": "No hay agua caliente; quisiera presentar una queja.",
+      "de": "Es gibt kein warmes Wasser; ich möchte mich beschweren."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  }
+]

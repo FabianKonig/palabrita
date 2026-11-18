@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "topics": [
+    {
+      "key": "begruessung",
+      "label": "Begrüßung & Höflichkeit",
+      "file": "begruessung.json"
+    },
+    {
+      "key": "zahlen-zeit",
+      "label": "Zahlen & Zeit",
+      "file": "zahlen-zeit.json"
+    },
+    {
+      "key": "essen",
+      "label": "Essen & Trinken",
+      "file": "essen.json"
+    },
+    {
+      "key": "transport",
+      "label": "Unterwegs & Transport",
+      "file": "transport.json"
+    },
+    {
+      "key": "unterkunft",
+      "label": "Unterkunft",
+      "file": "unterkunft.json"
+    },
+    {
+      "key": "einkaufen",
+      "label": "Einkaufen & Geld",
+      "file": "einkaufen.json"
+    },
+    {
+      "key": "gesundheit",
+      "label": "Gesundheit & Notfall",
+      "file": "gesundheit.json"
+    },
+    {
+      "key": "natur",
+      "label": "Natur & Wetter",
+      "file": "natur.json"
+    },
+    {
+      "key": "orte",
+      "label": "Orte & Wegbeschreibung",
+      "file": "orte.json"
+    },
+    {
+      "key": "kultur",
+      "label": "Kultur & Feste",
+      "file": "kultur.json"
+    },
+    {
+      "key": "maya",
+      "label": "Maya & Geschichte",
+      "file": "maya.json"
+    },
+    {
+      "key": "smalltalk",
+      "label": "Smalltalk & Alltag",
+      "file": "smalltalk.json"
+    },
+    {
+      "key": "grundwortschatz",
+      "label": "Grundwortschatz (häufigste Wörter)",
+      "file": "grundwortschatz.json"
+    }
+  ]
+}
