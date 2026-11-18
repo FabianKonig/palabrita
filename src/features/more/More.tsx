@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { APP_VERSION } from "../../version";
 
 interface Entry {
   to: string;
@@ -27,6 +28,7 @@ export function More() {
           </li>
         ))}
       </ul>
+      <p className="muted app-version">Version: {APP_VERSION}</p>
     </div>
   );
 }
