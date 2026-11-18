@@ -15,8 +15,13 @@ const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
   (a, b) => LEVEL_ORDER[a] - LEVEL_ORDER[b],
 );
 
-/** Kept while the app is open, so filters survive a visit to a detail page. */
+/** Kept while the user stays in the dictionary area, so filters survive a visit to a detail page. */
 let savedFilters: DictionaryFilters = EMPTY_FILTERS;
+
+/** Called when the user switches to another tab: the next visit starts unfiltered. */
+export function resetDictionaryFilters() {
+  savedFilters = EMPTY_FILTERS;
+}
 
 export function Dictionary() {
   const { vocab, topics, settings } = useAppData();
