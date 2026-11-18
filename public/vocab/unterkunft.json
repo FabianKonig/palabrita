@@ -718,7 +718,8 @@
     "id": "v0261",
     "de": [
       "Föhn",
-      "Haartrockner"
+      "Haartrockner",
+      "Wäscheständer"
     ],
     "es": "el secador",
     "pos": "noun",
@@ -728,7 +729,7 @@
       "es": "El secador no funciona.",
       "de": "Der Föhn funktioniert nicht."
     },
-    "note": "Der Haarföhn. Nicht verwechseln mit la secadora (Wäschetrockner).",
+    "note": "Der Haarföhn; in einigen Regionen auch der Wäscheständer. Nicht verwechseln mit la secadora (Wäschetrockner).",
     "gender": "m",
     "plural": "los secadores"
   },
