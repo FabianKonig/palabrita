@@ -35,10 +35,16 @@ export function Flashcard({ vocab, dir, flipped, onToggle }: Props) {
       return "";
     }
   }, [vocab]);
-  /** Spanish headword; verbs get the conjugation hint (e.g. "(ie)") on its own line. */
+  /**
+   * Spanish headword. Nouns show the plural in smaller type below the singular;
+   * verbs get the conjugation hint (e.g. "(ie)") on its own line.
+   */
   const spanish = (
     <>
       <span className="word">{vocab.es}</span>
+      {vocab.pos === "noun" && vocab.plural && (
+        <span className="plural">{vocab.plural}</span>
+      )}
       {annotation && <span className="annotation">{annotation}</span>}
     </>
   );

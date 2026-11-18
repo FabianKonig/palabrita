@@ -278,6 +278,15 @@ body:has(.session-bar) .screen {
   font-weight: 700;
 }
 
+.flashcard .plural {
+  margin-top: -6px;
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--muted);
+}
+
 .flashcard .annotation {
   margin-top: -6px;
   font-size: 1rem;
