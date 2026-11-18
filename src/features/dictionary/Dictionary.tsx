@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GermanText } from "../../components/Flashcard";
 import {
@@ -17,15 +17,29 @@ const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
 
 /** Kept while the user stays in the dictionary area, so filters survive a visit to a detail page. */
 let savedFilters: DictionaryFilters = EMPTY_FILTERS;
+let savedScroll = 0;
 
 /** Called when the user switches to another tab: the next visit starts unfiltered. */
 export function resetDictionaryFilters() {
   savedFilters = EMPTY_FILTERS;
+  savedScroll = 0;
 }
 
 export function Dictionary() {
   const { vocab, topics, settings } = useAppData();
   const navigate = useNavigate();
+
+  // Back from a detail page: return to the scroll position of the list.
+  useLayoutEffect(() => {
+    window.scrollTo(0, savedScroll);
+  }, []);
+  useEffect(() => {
+    const onScroll = () => {
+      savedScroll = window.scrollY;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const [newWord, setNewWord] = useState("");
   const [filters, setFilters] = useState<DictionaryFilters>(savedFilters);
 
