@@ -540,9 +540,13 @@ body:has(.session-bar) .screen {
   font-size: 0.875rem;
 }
 
-.vocab-list a {
-  gap: 12px;
-  flex-wrap: wrap;
+/* Stacked: spanish, german and level each get the full tile width.
+   A side-by-side row let the long spanish text take almost all width and
+   squeezed the german column down to a few characters per line. */
+.vocab-list > li > a {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   padding-block: 8px;
 }
 
@@ -552,8 +556,7 @@ body:has(.session-bar) .screen {
 }
 
 .vocab-list .de {
-  flex: 1;
-  min-width: 0;
+  align-self: stretch;
   overflow-wrap: anywhere;
 }
 
