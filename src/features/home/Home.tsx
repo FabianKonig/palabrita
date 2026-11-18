@@ -37,7 +37,7 @@ export function Home() {
   return (
     <div className="screen">
       <h1>Palabrita</h1>
-      <div className="panel">
+      <div className="panel home-hero">
         <p className="stats-line">
           {summary
             ? `Fällig: ${summary.due} · Neu verfügbar: ${summary.fresh} · Serie: ${summary.streak} ${summary.streak === 1 ? "Tag" : "Tage"}`

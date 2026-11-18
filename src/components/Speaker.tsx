@@ -1,3 +1,4 @@
+import { SpeakerIcon } from "./icons";
 import { useSpeech } from "../hooks/useSpeech";
 
 /** Speaker button for a Spanish text plus the "no voice" notice (SPEC §13). */
@@ -16,7 +17,7 @@ export function Speaker({ es }: { es: string }) {
           speech.available ? "Aussprache anhören" : "Keine spanische Stimme"
         }
       >
-        🔊
+        <SpeakerIcon />
       </button>
       {showNotice && (
         <p className="notice">

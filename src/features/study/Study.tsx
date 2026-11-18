@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { SpeakerIcon } from "../../components/icons";
 import { Flashcard } from "../../components/Flashcard";
 import { VerbOverlay } from "../../components/VerbOverlay";
 import { getAllCards, saveReview } from "../../data/cardRepo";
@@ -264,7 +265,7 @@ function StudySession({
                   : "Keine spanische Stimme"
               }
             >
-              🔊
+              <SpeakerIcon />
             </button>
           )}
         </div>

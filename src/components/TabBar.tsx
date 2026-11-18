@@ -1,19 +1,26 @@
+import type { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
+import { BookIcon, CardsIcon, ChartIcon, HomeIcon, MoreIcon } from "./icons";
 
 interface Tab {
   to: string;
   label: string;
-  icon: string;
+  icon: ReactNode;
   /** false = target screen does not exist yet (comes with a later task). */
   enabled: boolean;
 }
 
 const TABS: Tab[] = [
-  { to: "/", label: "Start", icon: "🏠", enabled: true },
-  { to: "/study", label: "Lernen", icon: "🃏", enabled: true },
-  { to: "/dictionary", label: "Verzeichnis", icon: "📖", enabled: true },
-  { to: "/stats", label: "Statistik", icon: "📊", enabled: true },
-  { to: "/more", label: "Mehr", icon: "⋯", enabled: true },
+  { to: "/", label: "Start", icon: <HomeIcon />, enabled: true },
+  { to: "/study", label: "Lernen", icon: <CardsIcon />, enabled: true },
+  {
+    to: "/dictionary",
+    label: "Verzeichnis",
+    icon: <BookIcon />,
+    enabled: true,
+  },
+  { to: "/stats", label: "Statistik", icon: <ChartIcon />, enabled: true },
+  { to: "/more", label: "Mehr", icon: <MoreIcon />, enabled: true },
 ];
 
 export function TabBar() {
@@ -27,9 +34,7 @@ export function TabBar() {
             end={t.to === "/"}
             className={({ isActive }) => `tab${isActive ? " active" : ""}`}
           >
-            <span className="icon" aria-hidden="true">
-              {t.icon}
-            </span>
+            <span className="icon">{t.icon}</span>
             {t.label}
           </NavLink>
         ) : (
@@ -39,9 +44,7 @@ export function TabBar() {
             aria-disabled="true"
             title="Kommt bald"
           >
-            <span className="icon" aria-hidden="true">
-              {t.icon}
-            </span>
+            <span className="icon">{t.icon}</span>
             {t.label}
           </span>
         ),
