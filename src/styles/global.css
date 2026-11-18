@@ -958,6 +958,11 @@ fieldset.setting {
   font-weight: 400;
 }
 
+.app-version {
+  margin-top: 32px;
+  font-size: 0.85rem;
+}
+
 .setting select,
 .setting input {
   min-height: 48px;
