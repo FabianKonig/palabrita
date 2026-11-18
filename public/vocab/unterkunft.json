@@ -713,5 +713,41 @@
     "note": null,
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v0261",
+    "de": [
+      "Föhn",
+      "Haartrockner"
+    ],
+    "es": "el secador",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "El secador no funciona.",
+      "de": "Der Föhn funktioniert nicht."
+    },
+    "note": "Der Haarföhn. Nicht verwechseln mit la secadora (Wäschetrockner).",
+    "gender": "m",
+    "plural": "los secadores"
+  },
+  {
+    "id": "v0262",
+    "de": [
+      "Wäschetrockner",
+      "Trockner"
+    ],
+    "es": "la secadora",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "example": {
+      "es": "¿Hay secadora para la ropa?",
+      "de": "Gibt es einen Wäschetrockner für die Wäsche?"
+    },
+    "note": "Der Wäschetrockner. Der Haarföhn heißt el secador.",
+    "gender": "f",
+    "plural": "las secadoras"
   }
 ]
