@@ -273,13 +273,14 @@ function StudySession({
           )}
         </div>
 
-        <label className="toggle">
+        <label className="switch">
           <input
+            role="switch"
             type="checkbox"
             checked={autoSpeak}
             onChange={(e) => void onToggleAutoSpeak(e.target.checked)}
           />
-          Automatisch vorlesen
+          <span>Automatisch vorlesen</span>
         </label>
 
         <div className="actions">

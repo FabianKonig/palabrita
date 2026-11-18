@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { POS_LABEL } from "../../domain/dictionary";
+import { POS_LABEL, topicOptions } from "../../domain/dictionary";
 import type { QueueFilters } from "../../domain/queue";
 import {
   LEVEL_ORDER,
@@ -30,10 +30,7 @@ export function StudySetup({
   const [level, setLevel] = useState<Level | "">("");
   const [pos, setPos] = useState<Pos | "">("");
 
-  const topicOptions = [
-    ...new Map(topics.map((t) => [t.key, t.label])).entries(),
-    ["eigene", "Eigene Wörter"] as const,
-  ];
+  const topicChoices = topicOptions(topics);
 
   function start() {
     const filters: QueueFilters = {};
@@ -51,7 +48,7 @@ export function StudySetup({
           <span>Thema</span>
           <select value={topic} onChange={(e) => setTopic(e.target.value)}>
             <option value="">Alle Themen</option>
-            {topicOptions.map(([key, label]) => (
+            {topicChoices.map(([key, label]) => (
               <option key={key} value={key}>
                 {label}
               </option>

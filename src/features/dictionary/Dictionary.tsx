@@ -4,6 +4,7 @@ import { GermanText } from "../../components/Flashcard";
 import {
   EMPTY_FILTERS,
   POS_LABEL,
+  topicOptions,
   searchVocab,
   type DictionaryFilters,
 } from "../../domain/dictionary";
@@ -14,11 +15,14 @@ const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
   (a, b) => LEVEL_ORDER[a] - LEVEL_ORDER[b],
 );
 
+/** Kept while the app is open, so filters survive a visit to a detail page. */
+let savedFilters: DictionaryFilters = EMPTY_FILTERS;
+
 export function Dictionary() {
   const { vocab, topics, settings } = useAppData();
   const navigate = useNavigate();
   const [newWord, setNewWord] = useState("");
-  const [filters, setFilters] = useState<DictionaryFilters>(EMPTY_FILTERS);
+  const [filters, setFilters] = useState<DictionaryFilters>(savedFilters);
 
   const results = useMemo(
     () => searchVocab(vocab.values(), settings.maxLevel, filters),
@@ -28,12 +32,13 @@ export function Dictionary() {
   const set = <K extends keyof DictionaryFilters>(
     key: K,
     value: DictionaryFilters[K],
-  ) => setFilters((f) => ({ ...f, [key]: value }));
+  ) =>
+    setFilters((f) => {
+      savedFilters = { ...f, [key]: value };
+      return savedFilters;
+    });
 
-  const topicOptions = [
-    ...new Map(topics.map((t) => [t.key, t.label])).entries(),
-    ["eigene", "Eigene Wörter"] as const,
-  ];
+  const topicChoices = topicOptions(topics);
 
   return (
     <div className="screen">
@@ -82,7 +87,7 @@ export function Dictionary() {
             onChange={(e) => set("topic", e.target.value)}
           >
             <option value="">Alle Themen</option>
-            {topicOptions.map(([key, label]) => (
+            {topicChoices.map(([key, label]) => (
               <option key={key} value={key}>
                 {label}
               </option>

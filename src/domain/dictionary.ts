@@ -61,3 +61,13 @@ export function searchVocab(
 function headword(v: Vocab): string {
   return v.es.replace(/^(el|la|los|las|un|una)\s+/i, "");
 }
+
+/** Topic dropdown entries: Grundwortschatz first, the rest in file order, own words last. */
+export function topicOptions(
+  topics: readonly { key: string; label: string }[],
+): [string, string][] {
+  const entries = [...new Map(topics.map((t) => [t.key, t.label])).entries()];
+  const core = entries.filter(([key]) => key === "grundwortschatz");
+  const rest = entries.filter(([key]) => key !== "grundwortschatz");
+  return [...core, ...rest, ["eigene", "Eigene Wörter"]];
+}
