@@ -345,8 +345,10 @@ async function main() {
   );
   const legend = await text();
   check(
-    "Legende erklärt (ie), (ue), (i), (go), (zco)",
-    ["(ie)", "(ue)", "(i)", "(go)", "(zco)"].every((n) => legend.includes(n)),
+    "Legende erklärt (e → ie), (o → ue), (e → i), (-go), (-zco)",
+    ["(e → ie)", "(o → ue)", "(e → i)", "(-go)", "(-zco)"].every((n) =>
+      legend.includes(n),
+    ),
   );
 
   // 8c. Several German words on one entry are all shown.

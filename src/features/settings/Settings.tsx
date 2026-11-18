@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   LEVEL_ORDER,
-  type DirectionSetting,
   type Level,
   type Settings as SettingsData,
 } from "../../domain/types";
@@ -10,12 +9,6 @@ import { useAppData } from "../../hooks/useAppData";
 import { DataBackup } from "./DataBackup";
 
 const LEVELS = Object.keys(LEVEL_ORDER) as Level[];
-
-const DIRECTIONS: { value: DirectionSetting; label: string }[] = [
-  { value: "de-es", label: "Deutsch → Spanisch" },
-  { value: "es-de", label: "Spanisch → Deutsch" },
-  { value: "both", label: "Beide Richtungen" },
-];
 
 const THEMES: { value: SettingsData["theme"]; label: string }[] = [
   { value: "system", label: "Wie das Gerät" },
@@ -62,25 +55,6 @@ export function Settings() {
           <small className="muted">
             Ein niedrigeres Niveau blendet Vokabeln nur aus. Fortschritt bleibt
             erhalten.
-          </small>
-        </label>
-
-        <label className="setting">
-          <span>Richtung</span>
-          <select
-            value={settings.direction}
-            onChange={(e) =>
-              change({ direction: e.target.value as DirectionSetting })
-            }
-          >
-            {DIRECTIONS.map((d) => (
-              <option key={d.value} value={d.value}>
-                {d.label}
-              </option>
-            ))}
-          </select>
-          <small className="muted">
-            Der Fortschritt wird je Richtung getrennt gespeichert.
           </small>
         </label>
 

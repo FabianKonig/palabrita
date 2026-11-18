@@ -317,18 +317,32 @@ function applyOverrides(table: Table, o: Overrides): Table {
   return out;
 }
 
-const TAG_LABEL: [VerbTag, string][] = [
-  ["go", "go"],
-  ["zco", "zco"],
-  ["oy", "oy"],
-  ["ie", "ie"],
-  ["ue", "ue"],
-  ["i", "i"],
-  ["ie-i", "ie, i"],
-  ["ue-u", "ue, u"],
-  ["y", "y"],
-  ["irr", "irr."],
-];
+/** Textbook notation of the vowel change per tag (e → ie, o → ue, ...). */
+const STEM_LABEL: Record<StemTag, string> = {
+  ie: "e → ie",
+  ue: "o → ue",
+  i: "e → i",
+  "ie-i": "e → ie, e → i",
+  "ue-u": "o → ue, o → u",
+};
+
+/** Labels of the tags, in fixed order: vowel change, yo form, -uir, irregular. */
+function tagLabels(p: Parsed, tags: ReadonlySet<VerbTag>): string[] {
+  const labels: string[] = [];
+  const change = STEM_TAGS.find((t) => tags.has(t));
+  if (change) {
+    // jugar: u → ue
+    const jugar =
+      change === "ue" && !p.stem.includes("o") && p.stem.includes("u");
+    labels.push(jugar ? "u → ue" : STEM_LABEL[change]);
+  }
+  if (tags.has("go")) labels.push("-go");
+  if (tags.has("zco")) labels.push("-zco");
+  if (tags.has("oy")) labels.push("-oy");
+  if (tags.has("y")) labels.push("i → y");
+  if (tags.has("irr")) labels.push("irr.");
+  return labels;
+}
 
 export interface ConjugateOptions {
   /** false: only what the tags generate (for validation: is an override redundant?). */
@@ -401,10 +415,14 @@ export function conjugate(
   else if (types.includes("yo-irregular")) regularity = "yo-irregular";
   else if (types.includes("orthographic")) regularity = "orthographic";
 
-  const labels = [
-    ...TAG_LABEL.filter(([t]) => tags.has(t)).map(([, l]) => l),
-    ...ortho,
-  ];
+  const labels = [...tagLabels(p, tags), ...ortho];
+  if (!tags.has("irr")) {
+    const pret = overridden("indefinido");
+    const fut = overridden("futuro");
+    if (pret && fut) labels.push("Pretérito/Futuro irr.");
+    else if (pret) labels.push("Pretérito irr.");
+    else if (fut) labels.push("Futuro irr.");
+  }
   const annotation = labels.length ? `(${labels.join(", ")})` : "";
   const notation = annotation ? `${vocab.es} ${annotation}` : vocab.es;
 

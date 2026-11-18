@@ -329,7 +329,7 @@ describe("conjugate: other verbs", () => {
     );
     expect(c.tenses.indefinido[2].form).toBe("siguió");
     expect(forms(c.tenses.imperativo)).toBe("sigue siga sigamos seguid sigan");
-    expect(c.notation).toBe("seguir (i, gu → g)");
+    expect(c.notation).toBe("seguir (e → i, gu → g)");
   });
 
   it("coger, vencer, averiguar, jugar", () => {
@@ -500,17 +500,17 @@ describe("conjugate: notation, regularity, types", () => {
   });
   it("stem change", () => {
     expect(info("pedir", verb(["i"]))).toEqual({
-      n: "pedir (i)",
+      n: "pedir (e → i)",
       r: "stem-change",
       t: ["stem-change"],
     });
-    expect(info("sentir", verb(["ie-i"])).n).toBe("sentir (ie, i)");
-    expect(info("dormir", verb(["ue-u"])).n).toBe("dormir (ue, u)");
-    expect(info("construir", verb(["y"])).n).toBe("construir (y)");
+    expect(info("sentir", verb(["ie-i"])).n).toBe("sentir (e → ie, e → i)");
+    expect(info("dormir", verb(["ue-u"])).n).toBe("dormir (o → ue, o → u)");
+    expect(info("construir", verb(["y"])).n).toBe("construir (i → y)");
   });
   it("yo-irregular", () => {
     expect(info("conocer", verb(["zco"]))).toEqual({
-      n: "conocer (zco)",
+      n: "conocer (-zco)",
       r: "yo-irregular",
       t: ["yo-irregular"],
     });
@@ -521,7 +521,7 @@ describe("conjugate: notation, regularity, types", () => {
       r: "orthographic",
       t: ["orthographic"],
     });
-    expect(info("empezar", verb(["ie"])).n).toBe("empezar (ie, z → c)");
+    expect(info("empezar", verb(["ie"])).n).toBe("empezar (e → ie, z → c)");
     expect(info("llegar", verb()).n).toBe("llegar (g → gu)");
     expect(info("coger", verb()).n).toBe("coger (g → j)");
   });
@@ -533,13 +533,13 @@ describe("conjugate: notation, regularity, types", () => {
         futuro: { stem: "tendr" },
       }),
     });
-    expect(tener.notation).toBe("tener (go, ie)");
+    expect(tener.notation).toBe("tener (e → ie, -go, Pretérito/Futuro irr.)");
     expect(tener.regularity).toBe("irregular");
     expect(tener.types).toEqual(["stem-change", "yo-irregular", "strong-stem"]);
   });
   it("annotation is the bracket part of the notation, empty for regular verbs", () => {
     expect(conjugate({ es: "querer", verb: verb(["ie"]) }).annotation).toBe(
-      "(ie)",
+      "(e → ie)",
     );
     expect(conjugate({ es: "llegar", verb: verb() }).annotation).toBe(
       "(g → gu)",

@@ -19,18 +19,16 @@ const DIRECTION_LABEL: Record<DirectionSetting, string> = {
   both: "Beide Richtungen",
 };
 
-/** Filters before the session starts. The direction applies to this session only. */
+/** Filters and direction before the session starts. The direction is remembered. */
 export function StudySetup({
   onStart,
 }: {
   onStart: (filters: QueueFilters) => void;
 }) {
-  const { topics, settings } = useAppData();
+  const { topics, settings, updateSettings } = useAppData();
   const [topic, setTopic] = useState("");
   const [level, setLevel] = useState<Level | "">("");
   const [pos, setPos] = useState<Pos | "">("");
-  // "" = as in the settings
-  const [direction, setDirection] = useState<DirectionSetting | "">("");
 
   const topicOptions = [
     ...new Map(topics.map((t) => [t.key, t.label])).entries(),
@@ -42,7 +40,6 @@ export function StudySetup({
     if (topic) filters.topic = topic;
     if (level) filters.level = level;
     if (pos) filters.pos = pos;
-    if (direction) filters.direction = direction;
     onStart(filters);
   }
 
@@ -92,16 +89,15 @@ export function StudySetup({
           </select>
         </label>
         <label className="setting">
-          <span>Richtung (nur für diese Sitzung)</span>
+          <span>Richtung</span>
           <select
-            value={direction}
+            value={settings.direction}
             onChange={(e) =>
-              setDirection(e.target.value as DirectionSetting | "")
+              void updateSettings({
+                direction: e.target.value as DirectionSetting,
+              })
             }
           >
-            <option value="">
-              Wie in den Einstellungen ({DIRECTION_LABEL[settings.direction]})
-            </option>
             {(Object.keys(DIRECTION_LABEL) as DirectionSetting[]).map((d) => (
               <option key={d} value={d}>
                 {DIRECTION_LABEL[d]}

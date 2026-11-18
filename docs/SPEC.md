@@ -41,7 +41,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 
 > Der Absatz beschreibt die Lernsitzung. Technische Details: §11 (Lernmodell), §12 (Kartenauswahl), §14.1 (Bedienung).
 
-- **Karteikarten:** Vorderseite Deutsch, Rückseite Spanisch (Richtung umschaltbar). Die Karte lässt sich per Tipp **beliebig oft** umdrehen. Hat eine Vokabel mehrere deutsche Wörter, stehen **alle** auf der deutschen Seite, getrennt durch „ · “ (z. B. *Auto · Wagen*). Das erste Wort ist die Hauptübersetzung. Bei Verben steht auf der spanischen Seite (egal in welcher Richtung) unter dem Wort in einer eigenen, kleineren grauen Zeile der Klammerzusatz der Notation (§5.1), z. B. *(ie)*, *(go, ie)*, *(c → qu)*, *(irr.)*; regelmäßige Verben haben keine Zeile. Aussprache und Suche nutzen weiter nur das Wort.
+- **Karteikarten:** Vorderseite Deutsch, Rückseite Spanisch (Richtung im Tab „Lernen“ wählbar). Die Karte lässt sich per Tipp **beliebig oft** umdrehen. Hat eine Vokabel mehrere deutsche Wörter, stehen **alle** auf der deutschen Seite, getrennt durch „ · “ (z. B. *Auto · Wagen*). Das erste Wort ist die Hauptübersetzung. Bei Verben steht auf der spanischen Seite (egal in welcher Richtung) unter dem Wort in einer eigenen, kleineren grauen Zeile der Klammerzusatz der Notation (§5.1), z. B. *(ie)*, *(e → ie, -go, Pretérito/Futuro irr.)*, *(c → qu)*, *(irr.)*; regelmäßige Verben haben keine Zeile. Aussprache und Suche nutzen weiter nur das Wort.
 - **Bewertung mit zwei Buttons:** **Nochmal** (nicht gewusst) und **Gewusst**. Jeder Button zeigt, wann die Karte wiederkommt („5 Min“, „1 T“, „8 T“ …).
 - **Endlose Sitzung:** Es gibt **kein Tageslimit** und kein „Fertig für heute“. Der Nutzer lernt so lange er will und beendet selbst über „Beenden“ (zeigt eine Zusammenfassung). Jede Bewertung wird sofort gespeichert. Ist alles durch, beginnt ein neuer Durchlauf.
 - **Spaced Repetition:** Nicht gewusste Wörter kommen **nach Minuten** wieder, sicher gewusste immer seltener. Pro Karte werden Fälligkeit, Intervall, Ease-Faktor und Lernschritt gespeichert (§11).
@@ -51,7 +51,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 
 ### 3.2 Einstellungen und Datensicherung
 - Es gibt **keine Profile und kein Login**: Fortschritt und Einstellungen gelten für den Browser auf diesem Gerät.
-- Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden angezeigt, persistent gespeichert, jederzeit änderbar), **Kartenrichtung** (DE→ES, ES→DE, beide), automatisches Vorlesen und Theme (System/Hell/Dunkel). Eine Einstellung „neue Karten pro Tag“ gibt es nicht mehr.
+- Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden angezeigt, persistent gespeichert, jederzeit änderbar), automatisches Vorlesen und Theme (System/Hell/Dunkel). Eine Einstellung „neue Karten pro Tag“ gibt es nicht mehr.
 - Fortschritt exportieren und importieren (JSON-Datei), damit nichts verloren geht, wenn Browserdaten gelöscht werden. Import wahlweise **ersetzen** oder **zusammenführen**. Beim Zusammenführen gewinnt je Karte der Stand mit der neueren letzten Bewertung, die lokalen Einstellungen bleiben unverändert (Details: §10.1b). Ältere Exportdateien (mit `newPerDay`, ohne `step`) bleiben importierbar.
 
 ### 3.3 Übersicht und Statistik
@@ -137,16 +137,17 @@ Zu jedem Verb soll klar erkennbar sein, **ob und wie** es unregelmäßig ist. Di
 
 | Notation | Bedeutung | Beispiel |
 |---|---|---|
-| *(ie)* | Stammvokal-Wechsel e → ie in den betonten Formen (yo, tú, él, ellos im Präsens), **nicht** bei nosotros/vosotros | *querer (ie)*: quiero, quieres, quiere, queremos, queréis, quieren |
-| *(ue)* | Stammvokal-Wechsel o → ue (bzw. u → ue bei *jugar*) | *poder (ue)*: puedo, podemos |
-| *(i)* | Stammvokal-Wechsel e → i (nur bei -ir-Verben), auch im Pretérito (3. Person) und Gerundio | *pedir (i)*: pido, pidió, pidiendo |
-| *(ie, i)* | Wechsel e → ie im Präsens, e → i im Pretérito/Gerundio | *sentir (ie, i)*: siento, sintió, sintiendo |
-| *(ue, u)* | Wechsel o → ue im Präsens, o → u im Pretérito/Gerundio | *dormir (ue, u)*: duermo, durmió, durmiendo |
-| *(go)* | Nur **1. Person Singular** unregelmäßig, mit -g- | *tener (go, ie)*: tengo; *hacer (go)*: hago; *salir (go)*: salgo |
-| *(zco)* | Nur 1. Person Singular, -zco | *conocer (zco)*: conozco |
-| *(oy)* | 1. Person Singular auf -oy | *dar (oy)*: doy; *estar*: estoy |
-| *(y)* | -uir-Verben: y vor a/e/o | *construir (y)*: construyo, construyes |
-| *(c → qu)*, *(z → c)*, *(g → gu)*, *(g → j)*, *(gu → gü)* | **Orthographische Änderung** zur Erhaltung des Lautes, nicht wirklich unregelmäßig | *buscar*: busqué; *empezar*: empecé; *llegar*: llegué; *coger*: cojo |
+| *(e → ie)* | Stammwechsel e → ie in den betonten Formen (yo, tú, él, ellos im Präsens), **nicht** bei nosotros/vosotros | *querer (e → ie)*: quiero, quieres, quiere, queremos, queréis, quieren |
+| *(o → ue)*, *(u → ue)* | Stammwechsel o → ue (bei *jugar* u → ue), gleiche Formen | *poder (o → ue)*: puedo, podemos |
+| *(e → i)* | Stammwechsel e → i (nur -ir-Verben), auch im Pretérito (3. Person) und Gerundio | *pedir (e → i)*: pido, pidió, pidiendo |
+| *(e → ie, e → i)* | e → ie im Präsens, e → i im Pretérito/Gerundio | *sentir*: siento, sintió, sintiendo |
+| *(o → ue, o → u)* | o → ue im Präsens, o → u im Pretérito/Gerundio | *dormir*: duermo, durmió, durmiendo |
+| *(-go)* | 1. Person Singular Präsens mit -g- (Subjuntivo/Imperativ bauen darauf auf); weitere Abweichungen stehen als eigene Angaben | *hacer (-go)*: hago; *salir (-go)*: salgo |
+| *(-zco)* | 1. Person Singular auf -zco | *conocer (-zco)*: conozco |
+| *(-oy)* | 1. Person Singular auf -oy | *dar (-oy)*: doy; *estar*: estoy |
+| *(i → y)* | -uir-Verben: i → y zwischen Vokalen | *construir (i → y)*: construyo, construyó |
+| *(Pretérito irr.)*, *(Futuro irr.)*, *(Pretérito/Futuro irr.)* | Unregelmäßiger Stamm im Pretérito bzw. Futuro (Overrides) | *tener*: tuve; tendré |
+| *(c → qu)*, *(z → c)*, *(g → gu)*, *(g → j)*, *(gu → gü)*, *(gu → g)*, *(c → z)* | **Orthographische Änderung** zur Erhaltung des Lautes, nicht wirklich unregelmäßig | *buscar*: busqué; *empezar*: empecé; *coger*: cojo |
 | *(irr.)* | Stark unregelmäßig, Formen vollständig angeben | *ser*, *ir*, *haber* |
 
 ### 5.1 Verb-Datenformat (entschieden)
@@ -168,7 +169,7 @@ Pro Verb werden nur gespeichert: `tags`, `reflexive`, `overrides`. Alles andere 
 - Ein Override ersetzt die berechnete Form. Es werden keine Formen wiederholt, die schon richtig generiert würden.
 
 **Berechnet** (für UI und Statistik):
-- `notation`: Infinitiv plus Klammerzusatz in fester Reihenfolge, z. B. *poder (ue)*, *tener (go, ie)*, *buscar (c → qu)*, *ser (irr.)*.
+- `notation`: Infinitiv plus Klammerzusatz in fester Reihenfolge, z. B. *poder (ue)*, *tener (e → ie, -go, Pretérito/Futuro irr.)*, *buscar (c → qu)*, *ser (irr.)*.
 - `regularity` (ein einzelner Wert, der „schwerste“ zutreffende): `irregular`, wenn das Tag `irr` gesetzt ist **oder** `overrides` für `indefinido`, `imperfecto` oder `futuro` existieren (starke Stämme wie *pude*, *tuve*, *podré*). Sonst `stem-change`, `yo-irregular`, `orthographic` oder `regular`. Overrides allein für `imperativo`, `participio` oder `gerundio` ändern `regularity` nicht.
 - `irregularity_types`: Liste aller zutreffenden Typen: `stem-change`, `yo-irregular`, `orthographic`, `strong-stem` (Overrides auf `indefinido`/`imperfecto`/`futuro`), `irregular` (Tag `irr`). Mischformen sind möglich (*tener*: `yo-irregular`, `stem-change`, `strong-stem`). Die **Notation** (Klammerzusatz) bleibt davon unberührt und nennt nur die Tags, z. B. *poder (ue)*. Starke Stämme sieht man in der farbigen Formentabelle und am Etikett „unregelmäßig“.
 - **Hervorhebung:** Jede Form, die vom regelmäßigen Muster abweicht, ist in der Tabelle farbig. Dazu vergleicht das Modul die endgültige Form mit der rein regelmäßigen. Dafür wird nichts gepflegt.
