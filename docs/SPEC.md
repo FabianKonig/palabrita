@@ -67,7 +67,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 Der Nutzer gibt ein spanisches Wort ein, das er irgendwo aufgeschnappt hat. Es wird nachgeschlagen und der Vokabelliste hinzugefügt. Danach lässt es sich wie jede andere Vokabel lernen.
 
 **Ablauf (Screen `/add`):**
-1. Eingabefeld „Spanisches Wort“ und Button „Nachschlagen“. Aufrufbar nur über den Button „Wort hinzufügen“ **über der Trefferliste im Verzeichnis**, der **immer** sichtbar ist (auch bei Treffern, z. B. um dasselbe Wort mit anderer Wortart als weitere Karte anzulegen) (Suchtext wird übernommen).
+1. Eingabefeld „Spanisches Wort“ und Button „Nachschlagen“. Aufrufbar nur über den Button „Neues Wort hinzufügen“ **am Ende der Trefferliste im Verzeichnis**, der **immer** sichtbar ist (auch bei Treffern, z. B. um dasselbe Wort mit anderer Wortart als weitere Karte anzulegen). Ein Text im Suchfeld des Verzeichnisses wird übernommen.
 2. **Nachschlagen** in der deutschen Wiktionary (`de.wiktionary.org`, MediaWiki-API, ohne Schlüssel). Nur auf Knopfdruck, es wird ausschließlich das eingegebene Wort gesendet. Findet die deutsche Wiktionary das Wort nicht, fragt die App `es.wiktionary.org` ab (nur Wortart und Genus, die deutsche Bedeutung trägt der Nutzer ein, die App weist darauf hin). Ergebnis: Wortart, deutsche Bedeutungen (maximal die ersten 4), bei Nomen Genus und Plural, falls vorhanden, ein Beispielsatz, falls vorhanden.
    - Gibt es mehrere Wortarten (z. B. *llama*: Nomen und Verbform), wählt der Nutzer eine.
    - Ist die Eingabe eine **gebeugte Form** (z. B. *puedo*), bietet die App die **Grundform** an (*poder*).

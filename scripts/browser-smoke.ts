@@ -471,9 +471,17 @@ async function main() {
     `[...document.querySelectorAll(".dict-section h2")].map((h) => h.textContent)`,
   );
   check(
-    "Verzeichnis: Abschnitte „Neues Wort hinzufügen“ vor „Wörter“",
-    sections.join("|") === "Neues Wort hinzufügen|Wörter",
+    "Verzeichnis: nur ein Abschnitt „Wörter“ (Suche oben)",
+    sections.join("|") === "Wörter",
     sections.join("|"),
+  );
+  check(
+    "Verzeichnis: „Neues Wort hinzufügen“ steht am Ende der Liste",
+    await evaluate<boolean>(`(() => {
+      const btn = document.querySelector(".dict-add");
+      return !!btn && btn.textContent === "Neues Wort hinzufügen"
+        && btn.closest(".dict-section").lastElementChild === btn;
+    })()`),
   );
   const dictTopics = await evaluate<string[]>(
     `[...document.querySelector('select[aria-label="Thema"]').options].map((o) => o.textContent)`,

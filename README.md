@@ -47,7 +47,7 @@ Der Lernfortschritt (IndexedDB) ist an die Adresse (Origin) gebunden. Eine neue 
 ## Daten und Datenschutz
 
 - Alles läuft im Browser, es gibt kein Backend, keine Tracker und keine Konten.
-- **Einzige Ausnahme:** Beim Hinzufügen eines eigenen Wortes (**Verzeichnis → Wort hinzufügen → Nachschlagen**) wird auf Knopfdruck das eingegebene Wort an `de.wiktionary.org` gesendet, falls es dort fehlt, an `es.wiktionary.org` (liefert Wortart und Genus, die deutsche Bedeutung trägst du selbst ein). Nur das Nachschlagen braucht Netz, das manuelle Anlegen eines Wortes funktioniert auch offline. Der Service Worker speichert diese Anfragen nicht.
+- **Einzige Ausnahme:** Beim Hinzufügen eines eigenen Wortes (**Verzeichnis → Suchfeld → Neues Wort hinzufügen → Nachschlagen**) wird auf Knopfdruck das eingegebene Wort an `de.wiktionary.org` gesendet, falls es dort fehlt, an `es.wiktionary.org` (liefert Wortart und Genus, die deutsche Bedeutung trägst du selbst ein). Nur das Nachschlagen braucht Netz, das manuelle Anlegen eines Wortes funktioniert auch offline. Der Service Worker speichert diese Anfragen nicht.
 - Quelle für die Wortsuche: [Wiktionary](https://de.wiktionary.org) und [spanische Wiktionary](https://es.wiktionary.org), Inhalte unter CC BY-SA.
 - Sichern: **Einstellungen → Daten sichern** exportiert Einstellungen, Karten, Tagesdaten und eigene Wörter. Beim Import gibt es „Zusammenführen“ (die Karte mit dem neueren Lernstand gewinnt) und „Ersetzen“.
 

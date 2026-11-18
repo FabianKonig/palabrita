@@ -39,7 +39,6 @@ export function Dictionary() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const [newWord, setNewWord] = useState("");
   const [filters, setFilters] = useState<DictionaryFilters>(getSavedFilters);
 
   const results = useMemo(
@@ -62,30 +61,6 @@ export function Dictionary() {
   return (
     <div className="screen">
       <h1>Verzeichnis</h1>
-
-      <section className="dict-section" aria-labelledby="dict-add">
-        <h2 id="dict-add">Neues Wort hinzufügen</h2>
-        <form
-          className="add-search"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const w = newWord.trim();
-            void navigate(`/add${w ? `?q=${encodeURIComponent(w)}` : ""}`);
-          }}
-        >
-          <input
-            className="field"
-            aria-label="Neues spanisches Wort"
-            placeholder="Spanisches Wort"
-            autoCapitalize="none"
-            value={newWord}
-            onChange={(e) => setNewWord(e.target.value)}
-          />
-          <button type="submit" className="btn">
-            Hinzufügen
-          </button>
-        </form>
-      </section>
 
       <section className="dict-section" aria-labelledby="dict-list">
         <h2 id="dict-list">Wörter</h2>
@@ -173,6 +148,18 @@ export function Dictionary() {
             ))}
           </ul>
         )}
+
+        {/* Immer sichtbar. Ein vorhandener Suchtext wird auf die Hinzufügen-Seite übernommen. */}
+        <button
+          type="button"
+          className="btn dict-add"
+          onClick={() => {
+            const q = filters.query.trim();
+            void navigate(`/add${q ? `?q=${encodeURIComponent(q)}` : ""}`);
+          }}
+        >
+          Neues Wort hinzufügen
+        </button>
       </section>
     </div>
   );
