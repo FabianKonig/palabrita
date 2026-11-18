@@ -96,6 +96,14 @@ export function Dictionary() {
           aria-label="Suchen"
           value={filters.query}
           onChange={(e) => set("query", e.target.value)}
+          enterKeyHint="search"
+          onKeyDown={(e) => {
+            // Such-Taste der mobilen Tastatur: Tastatur schließen
+            if (e.key === "Enter") {
+              e.preventDefault();
+              e.currentTarget.blur();
+            }
+          }}
         />
 
         <div className="filters">
