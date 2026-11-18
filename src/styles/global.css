@@ -752,29 +752,29 @@ table.forms th {
   :root:not([data-theme="light"]) {
     --turquoise: #2dd4bf;
     --turquoise-dark: #5eead4;
-    --turquoise-soft: #134e48;
+    --turquoise-soft: #25524d;
     --magenta: #f472a8;
-    --magenta-soft: #4a1630;
+    --magenta-soft: #53283d;
     --yellow: #fbcf3a;
-    --yellow-soft: #4a3d0c;
+    --yellow-soft: #51451c;
     --warn-text: #fde68a;
-    --bg: #0b1514;
-    --surface: #12211f;
-    --surface-2: #18302d;
-    --text: #e8f2f0;
-    --muted: #93a9a5;
-    --border: #233634;
+    --bg: #242c2b;
+    --surface: #2d3736;
+    --surface-2: #384543;
+    --text: #d5dfdd;
+    --muted: #a0b0ac;
+    --border: #44544f;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.35);
-    --btn-bg: #14b8a6;
+    --btn-bg: #2bb3a3;
     --btn-bg-hover: #2dd4bf;
     --btn-bg-strong: #5eead4;
     --on-btn: #04211d;
     --ok: #4ade80;
-    --ok-soft: #12361f;
+    --ok-soft: #274a33;
     --bad: #f87171;
-    --bad-soft: #431a17;
+    --bad-soft: #542b28;
     --warn: #fbbf24;
-    --warn-soft: #42300c;
+    --warn-soft: #503f1d;
     color-scheme: dark;
   }
 }
@@ -782,29 +782,29 @@ table.forms th {
 :root[data-theme="dark"] {
   --turquoise: #2dd4bf;
   --turquoise-dark: #5eead4;
-  --turquoise-soft: #134e48;
+  --turquoise-soft: #25524d;
   --magenta: #f472a8;
-  --magenta-soft: #4a1630;
+  --magenta-soft: #53283d;
   --yellow: #fbcf3a;
-  --yellow-soft: #4a3d0c;
+  --yellow-soft: #51451c;
   --warn-text: #fde68a;
-  --bg: #0b1514;
-  --surface: #12211f;
-  --surface-2: #18302d;
-  --text: #e8f2f0;
-  --muted: #93a9a5;
-  --border: #233634;
+  --bg: #242c2b;
+  --surface: #2d3736;
+  --surface-2: #384543;
+  --text: #d5dfdd;
+  --muted: #a0b0ac;
+  --border: #44544f;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.35);
-  --btn-bg: #14b8a6;
+  --btn-bg: #2bb3a3;
   --btn-bg-hover: #2dd4bf;
   --btn-bg-strong: #5eead4;
   --on-btn: #04211d;
   --ok: #4ade80;
-  --ok-soft: #12361f;
+  --ok-soft: #274a33;
   --bad: #f87171;
-  --bad-soft: #431a17;
+  --bad-soft: #542b28;
   --warn: #fbbf24;
-  --warn-soft: #42300c;
+  --warn-soft: #503f1d;
   color-scheme: dark;
 }
 
