@@ -1,9 +1,30 @@
 /// <reference types="vitest/config" />
+import { execFileSync } from "node:child_process";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
+import { formatVersionStamp } from "./src/domain/versionStamp";
+
+/**
+ * Zeitstempel des HEAD-Commits (Committer-Datum, ISO 8601). Beim Merge auf
+ * `main` ist das der Merge-Zeitpunkt. Ohne Git-Verlauf: null.
+ */
+function headCommitDate(): string | null {
+  try {
+    return execFileSync("git", ["log", "-1", "--format=%cI"], {
+      cwd: import.meta.dirname,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+  } catch {
+    return null;
+  }
+}
 
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(formatVersionStamp(headCommitDate())),
+  },
   plugins: [
     react(),
     VitePWA({

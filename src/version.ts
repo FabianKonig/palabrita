@@ -1,10 +1,10 @@
 /**
- * Versionsstempel der App, fest als Text hinterlegt.
+ * Versionsstempel der App.
  *
- * Immer in UTC, damit alle Nutzer weltweit dieselbe Angabe sehen,
- * unabhängig von ihrer Zeitzone.
- *
- * Beim Merge auf `main` aktualisieren: Zeitstempel des Merge-Commits
- * (Format `TT.MM.JJJJ, HH:MM UTC`).
+ * `__APP_VERSION__` setzt `vite.config.ts` beim Bauen: Zeitstempel des
+ * HEAD-Commits (bei einem Merge auf `main` also der Merge-Zeitpunkt), immer
+ * in UTC. Der Wert wird nicht von Hand gepflegt.
  */
-export const APP_VERSION = "18.11.2026, 23:20 UTC";
+declare const __APP_VERSION__: string;
+
+export const APP_VERSION: string = __APP_VERSION__;
