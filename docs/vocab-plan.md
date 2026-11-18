@@ -34,7 +34,7 @@ Hinweise zum Plan:
 ## Inhaltliche Schwerpunkte
 
 - **begruessung:** Grüße je Tageszeit, Verabschiedung, Höflichkeit (*usted*, *con permiso*, *disculpe*), Vorstellen, Dank und Bitte. Viele Phrasen.
-- **zahlen-zeit:** Zahlen 0–1000, Ordnungszahlen, Wochentage, Monate, Uhrzeit, Tageszeiten, Zeitadverbien (*hoy*, *mañana*, *ahora*).
+- **zahlen-zeit:** Grund- und Mehrstellige Zahlen bis in den vierstelligen Bereich (z. B. *cincuenta y cuatro*, *dos mil cuatrocientos ochenta y ocho*), Ordnungszahlen, Wochentage, Monate, Uhrzeit, Tageszeiten, Zeitadverbien (*hoy*, *mañana*, *ahora*).
 - **essen:** Grundnahrungsmittel, Getränke (*jugo*, *café*), mexikanische und guatemaltekische Gerichte (*tamal*, *pozole*, *pepián*, *frijoles*), Restaurant (*la cuenta*, *la propina*), Verben (*comer*, *beber*, *pedir*, *probar*).
 - **transport:** Bus (*camión*, *chicken bus* im Hinweis), Taxi, Flug, Ticket, Haltestelle, Grenze, Verben des Reisens.
 - **unterkunft:** Hotel, Reservierung, Zimmer, Schlüssel, Check-in, Hostal, Wi-Fi, Probleme im Zimmer.

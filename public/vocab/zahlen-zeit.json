@@ -411,67 +411,66 @@
   {
     "id": "v0098",
     "de": [
-      "eins",
-      "ein"
+      "vierundfünfzig"
     ],
-    "es": "uno",
+    "es": "cincuenta y cuatro",
     "pos": "num",
     "level": "A1",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "Solo tengo un hermano.",
-      "de": "Ich habe nur einen Bruder."
+      "es": "Tengo cincuenta y cuatro años.",
+      "de": "Ich bin vierundfünfzig Jahre alt."
     },
-    "note": "Vor männlichen Nomen wird uno zu un, vor weiblichen zu una.",
+    "note": null,
     "gender": null,
     "plural": null
   },
   {
     "id": "v0099",
     "de": [
-      "zwei"
+      "dreihundertsiebenundzwanzig"
     ],
-    "es": "dos",
+    "es": "trescientos veintisiete",
     "pos": "num",
     "level": "A1",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "Dos cafés, por favor.",
-      "de": "Zwei Kaffee, bitte."
+      "es": "Son trescientos veintisiete pesos.",
+      "de": "Das sind dreihundertsiebenundzwanzig Pesos."
     },
-    "note": null,
+    "note": "Die Hunderter (-cientos) stimmen im Geschlecht mit dem Nomen überein: trescientos pesos, trescientas personas.",
     "gender": null,
     "plural": null
   },
   {
     "id": "v0100",
     "de": [
-      "drei"
+      "zweitausendvierhundertachtundachtzig"
     ],
-    "es": "tres",
+    "es": "dos mil cuatrocientos ochenta y ocho",
     "pos": "num",
     "level": "A1",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "Hay tres habitaciones libres.",
-      "de": "Es gibt drei freie Zimmer."
+      "es": "La ciudad está a dos mil cuatrocientos ochenta y ocho metros de altura.",
+      "de": "Die Stadt liegt zweitausendvierhundertachtundachtzig Meter hoch."
     },
-    "note": null,
+    "note": "Mil bleibt im Plural unverändert (dos mil).",
     "gender": null,
     "plural": null
   },
   {
     "id": "v0101",
     "de": [
-      "zehn"
+      "achthunderteinundsechzig"
     ],
-    "es": "diez",
+    "es": "ochocientos sesenta y uno",
     "pos": "num",
     "level": "A1",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "Llego en diez minutos.",
-      "de": "Ich komme in zehn Minuten an."
+      "es": "Es el número ochocientos sesenta y uno.",
+      "de": "Das ist Nummer achthunderteinundsechzig."
     },
     "note": null,
     "gender": null,
@@ -514,15 +513,15 @@
   {
     "id": "v0104",
     "de": [
-      "null"
+      "neunundachtzig"
     ],
-    "es": "cero",
+    "es": "ochenta y nueve",
     "pos": "num",
     "level": "A2",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "La temperatura es cero grados.",
-      "de": "Die Temperatur beträgt null Grad."
+      "es": "El libro tiene ochenta y nueve páginas.",
+      "de": "Das Buch hat neunundachtzig Seiten."
     },
     "note": null,
     "gender": null,
@@ -531,15 +530,15 @@
   {
     "id": "v0105",
     "de": [
-      "fünf"
+      "siebenhundertdreiundfünfzig"
     ],
-    "es": "cinco",
+    "es": "setecientos cincuenta y tres",
     "pos": "num",
     "level": "A2",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "Son las cinco de la tarde.",
-      "de": "Es ist fünf Uhr nachmittags."
+      "es": "El estadio tiene setecientos cincuenta y tres asientos.",
+      "de": "Das Stadion hat siebenhundertdreiundfünfzig Sitze."
     },
     "note": null,
     "gender": null,
@@ -548,15 +547,15 @@
   {
     "id": "v0106",
     "de": [
-      "zwanzig"
+      "viertausendfünfhundertzwölf"
     ],
-    "es": "veinte",
+    "es": "cuatro mil quinientos doce",
     "pos": "num",
     "level": "A2",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "Mi cumpleaños es el veinte de mayo.",
-      "de": "Mein Geburtstag ist am zwanzigsten Mai."
+      "es": "Vivo a cuatro mil quinientos doce kilómetros de aquí.",
+      "de": "Ich wohne viertausendfünfhundertzwölf Kilometer von hier entfernt."
     },
     "note": null,
     "gender": null,
@@ -565,15 +564,15 @@
   {
     "id": "v0107",
     "de": [
-      "hundert"
+      "einhundertsechsundachtzig"
     ],
-    "es": "cien",
+    "es": "ciento ochenta y seis",
     "pos": "num",
     "level": "A2",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "Hay cien personas en la fila.",
-      "de": "In der Schlange stehen hundert Leute."
+      "es": "Hay ciento ochenta y seis personas en la fila.",
+      "de": "In der Schlange stehen einhundertsechsundachtzig Personen."
     },
     "note": "Vor Nomen und bei genau 100 heißt es cien; mit weiteren Zahlen ciento (ciento diez).",
     "gender": null,
@@ -616,17 +615,17 @@
   {
     "id": "v0110",
     "de": [
-      "tausend"
+      "dreiundzwanzigtausendeinhundertelf"
     ],
-    "es": "mil",
+    "es": "veintitrés mil ciento once",
     "pos": "num",
     "level": "B1",
     "topic": "zahlen-zeit",
     "example": {
-      "es": "El boleto cuesta mil pesos.",
-      "de": "Das Ticket kostet tausend Pesos."
+      "es": "La casa cuesta veintitrés mil ciento once dólares.",
+      "de": "Das Haus kostet dreiundzwanzigtausendeinhundertelf Dollar."
     },
-    "note": "Mil bleibt im Plural unverändert (dos mil).",
+    "note": null,
     "gender": null,
     "plural": null
   },
