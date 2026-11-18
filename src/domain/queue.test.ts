@@ -7,7 +7,7 @@ import {
   queueCounts,
   type PickInput,
 } from "./queue";
-import { newCard } from "./srs";
+import { newCard, review } from "./srs";
 import type { Card, Settings, Vocab } from "./types";
 import { DEFAULT_SETTINGS } from "./types";
 
@@ -180,7 +180,7 @@ describe("pickNext priorities", () => {
     expect(p?.kind).toBe("early-learning");
   });
 
-  it("4 only without review cards: with a review card a waiting learning card yields an early review", () => {
+  it("4 before 5: a waiting learning card beats an early review", () => {
     const v = many(15);
     const cards = [
       ...v.slice(0, 14).map((x) => learning(x.id, "de-es", NOW + 20 * MIN)),
@@ -191,8 +191,56 @@ describe("pickNext priorities", () => {
       settings: settings({ direction: "de-es" }),
       cards,
     });
+    expect(p?.kind).toBe("early-learning");
+    expect(id(p)).toBe("v001:de-es");
+  });
+
+  it("regression: rapid 'good' on learning cards never falls back to two review cards", () => {
+    // Bug: the two graduated review cards (stage 5) ran before the learning cards
+    // (stage 4), so only those two alternated for the whole session.
+    const v = many(40);
+    const s = settings({ direction: "de-es" });
+    // 25 learning cards in step 1, due in 30 min, plus 2 graduated review cards.
+    let cards: Card[] = [
+      ...v
+        .slice(0, MAX_LEARNING)
+        .map((x, i) => learning(x.id, "de-es", NOW + (30 * MIN + i * 1000), 1)),
+      card("v030", "de-es", TOMORROW_4 + 1000),
+      card("v031", "de-es", TOMORROW_4 + 2000),
+    ];
+    let now = NOW + 40 * MIN; // all learning cards are due now
+    let last: string | null = null;
+    const picked: string[] = [];
+    for (let i = 0; i < 2 * MAX_LEARNING; i++) {
+      const p = pick({ vocab: v, cards, settings: s, now, lastShown: last });
+      expect(p).not.toBeNull();
+      expect(p?.kind).not.toBe("pass");
+      const key = cardKey(p!.item.vocabId, p!.item.dir);
+      picked.push(key);
+      // "Gewusst" on a card in step 1 graduates it; a new card is stored as a learning card.
+      const base = p!.item.card ?? newCard(p!.item.vocabId, p!.item.dir, now);
+      const next = review(base, "good", now);
+      cards = [...cards.filter((c) => cardKey(c.vocabId, c.dir) !== key), next];
+      last = key;
+      now += 1000;
+    }
+    // The two review cards were never picked, while learning cards were available.
+    expect(picked).not.toContain("v030:de-es");
+    expect(picked).not.toContain("v031:de-es");
+  });
+
+  it("5 only when no learning card is waiting: the pass takes over", () => {
+    const v = many(2);
+    const cards = [
+      card("v001", "de-es", TOMORROW_4 + 1000),
+      card("v002", "de-es", TOMORROW_4 + 2000),
+    ];
+    const p = pick({
+      vocab: v,
+      cards,
+      settings: settings({ direction: "de-es" }),
+    });
     expect(p?.kind).toBe("pass");
-    expect(id(p)).toBe("v015:de-es");
   });
 
   it("5: pass over early reviews by due, skips sessionSeen, starts over at the end", () => {

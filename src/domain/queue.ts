@@ -190,7 +190,15 @@ function pick(input: PickInput, avoid: string | null): NextPick | null {
       };
   }
 
-  // 5 (checked before 4): early review of cards in the review phase, one pass per session.
+  // 4. Waiting learning cards are shown right away, earliest due first. Before the
+  // early review (5), otherwise a couple of review cards would block all learning cards.
+  const waiting = cards
+    .filter((c) => c.step !== undefined && ok(c))
+    .sort((a, b) => a.due - b.due);
+  if (waiting[0])
+    return { kind: "early-learning", item: toItem(waiting[0]), newPass: false };
+
+  // 5. Early review of cards in the review phase, one pass per session.
   const reviewCards = cards
     .filter((c) => c.step === undefined && ok(c))
     .sort((a, b) => a.due - b.due);
@@ -205,13 +213,6 @@ function pick(input: PickInput, avoid: string | null): NextPick | null {
       newPass: unseen.length === 0,
     };
   }
-
-  // 4. Only learning cards left and none due: show the earliest one right away.
-  const waiting = cards
-    .filter((c) => c.step !== undefined && ok(c))
-    .sort((a, b) => a.due - b.due);
-  if (waiting[0])
-    return { kind: "early-learning", item: toItem(waiting[0]), newPass: false };
 
   return null;
 }
