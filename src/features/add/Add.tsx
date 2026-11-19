@@ -123,7 +123,7 @@ export function Add() {
         >
           selbst eintragen
         </button>
-        .
+        . Mehr dazu in der <Link to="/privacy">Datenschutzerklärung</Link>.
       </p>
 
       {step.kind === "loading" && <p className="muted">Suche …</p>}

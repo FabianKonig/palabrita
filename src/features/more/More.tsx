@@ -12,6 +12,8 @@ interface Entry {
 const ENTRIES: Entry[] = [
   { to: "/settings", label: "Einstellungen", enabled: true },
   { to: "/legend", label: "Legende", enabled: true },
+  { to: "/privacy", label: "Datenschutz", enabled: true },
+  { to: "/imprint", label: "Impressum", enabled: true },
 ];
 
 export function More() {
