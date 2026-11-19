@@ -412,6 +412,12 @@ Die Karte, die gerade bewertet wurde (`lastShown`), wird nie sofort wieder gewä
 
 `daily.newIntroduced` wird erhöht, wenn eine neue Karte **zum ersten Mal bewertet** (und damit angelegt) wird, nicht beim Anzeigen.
 
+### 12.1a Überarbeitung der Kartenauswahl (Anforderung 2026-11-19, noch nicht umgesetzt, Detailspezifikation folgt)
+
+Der Algorithmus, nach dem die nächste Karte angezeigt wird (`pickNext`, §12.1), soll **dringend überarbeitet** werden. Der bisherige Stand ist für den Nutzer nicht zufriedenstellend. Konkrete Mängel und Sollverhalten werden in der Detailspezifikation festgelegt. Bis dahin bleibt §12.1 gültig, und die Änderung darf die Regeln in §11 (SRS-Modell) nicht verletzen, solange nicht ausdrücklich anders beschlossen.
+
+Offen für die Spezifikation: welche Reihenfolge und Mischung von fälligen, lernenden und neuen Karten gewünscht ist, wie stark „Nochmal“-Karten zurückkehren sollen, und ob sich die Auswahl je Richtung oder über beide Richtungen hinweg verhält.
+
 ### 12.2 Durchlauf („alles durch, dann von vorn“)
 
 Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Karten übrig), wird **vorzeitig wiederholt**:
