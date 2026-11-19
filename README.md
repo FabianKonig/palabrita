@@ -1,6 +1,6 @@
 # Palabrita
 
-Vokabel-Lern-App für Spanisch (lateinamerikanische Variante, Mexiko und Guatemala) mit Karteikarten, Wiederholungsplan (Spaced Repetition mit „Nochmal“ und „Gewusst“, endlose Sitzung), Aussprache und Verbtabellen. Läuft komplett im Browser, ist als PWA installierbar und funktioniert offline.
+Vokabel-Lern-App für Spanisch (lateinamerikanische Variante, Mexiko und Guatemala) mit Karteikarten, Wiederholungsplan (Spaced Repetition mit „Nochmal“ und „Gewusst“, Ablauf nach dem Vorbild von Anki), Aussprache und Verbtabellen. Läuft komplett im Browser, ist als PWA installierbar und funktioniert offline.
 
 Der Lernfortschritt liegt im Browser (IndexedDB), je Gerät getrennt.
 

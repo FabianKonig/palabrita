@@ -29,3 +29,4 @@ IDs haben das Format `v` plus vier Ziffern, sind eindeutig und werden nie wieder
 - Verben: nur `tags`, `reflexive`, `overrides` nach `docs/SPEC.md` §5.1. Overrides nur für Formen, die vom Generator abweichen (der Validator meldet Redundanz). Verbformen im Zweifel mit `npm run validate:vocab` prüfen.
 - Regionale Besonderheiten (Mexikanismen, Guatemaltekismen) im Feld `note`.
 - Keine Dubletten über Themen hinweg (gleiche Form und gleiche Wortart).
+- `added` (Pflicht) ist das Datum, an dem die Vokabel hinzugefügt wurde (`YYYY-MM-DD`), bei neuen Einträgen also das heutige Datum. Nie nachträglich ändern: Nutzer, die die App schon verwenden, bekommen Wörter mit einem Datum nach ihrem ersten Start zuerst als neue Karten (SPEC §12.1).
