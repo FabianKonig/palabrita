@@ -66,7 +66,7 @@ export function Dictionary() {
     topicLabel,
     filters.level || undefined,
     filters.pos ? POS_LABEL[filters.pos] : undefined,
-    query ? `Suche „${query}“` : undefined,
+    query ? `Suchwort „${query}“` : undefined,
   ].filter((part): part is string => Boolean(part));
   const dropdownsActive = hasDropdownFilter(filters);
   const activeCount = [filters.topic, filters.level, filters.pos].filter(
@@ -97,18 +97,22 @@ export function Dictionary() {
 
         {activeParts.length > 0 && (
           <div className="dict-status">
-            <span>
-              Aktiv: <strong>{activeParts.join(" · ")}</strong>
-            </span>
-            {dropdownsActive && (
-              <button
-                type="button"
-                className="dict-status-clear"
-                onClick={() => update(clearDropdownFilters(filters))}
-              >
-                Filter löschen
-              </button>
-            )}
+            <span>Aktiv: {activeParts.join(" · ")}</span>
+            <button
+              type="button"
+              className="dict-status-clear"
+              onClick={() =>
+                // Gibt es Dropdown-Filter, werden nur sie gelöscht. Bei reinem Suchtext
+                // leert der Knopf das Suchfeld.
+                update(
+                  dropdownsActive
+                    ? clearDropdownFilters(filters)
+                    : { ...filters, query: "" },
+                )
+              }
+            >
+              Filter löschen
+            </button>
           </div>
         )}
 
