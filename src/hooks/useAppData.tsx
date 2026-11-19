@@ -4,20 +4,19 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useRef,
   useState,
   type ReactNode,
 } from "react";
 import { getSettings, saveSettings } from "../data/settingsRepo";
 import { loadVocab } from "../data/vocabRepo";
-import type { Settings, Topic, Vocab } from "../domain/types";
+import type { Settings, SettingsPatch, Topic, Vocab } from "../domain/types";
 
 interface AppData {
   vocab: Map<string, Vocab>;
   topics: Topic[];
   settings: Settings;
-  /** Applies the change at once and persists it. */
-  updateSettings: (patch: Partial<Settings>) => Promise<void>;
+  /** Persists the change and then shows the stored record. */
+  updateSettings: (patch: SettingsPatch) => Promise<void>;
 }
 
 type State =
@@ -35,14 +34,12 @@ const Ctx = createContext<AppData | null>(null);
 /** Loads vocabulary and settings once and renders children when ready. */
 export function AppDataProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<State>({ status: "loading" });
-  const latest = useRef<Settings | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     Promise.all([loadVocab(), getSettings()])
       .then(([{ vocab, topics }, settings]) => {
         if (cancelled) return;
-        latest.current = settings;
         setState({ status: "ready", vocab, topics, settings });
       })
       .catch((e: unknown) => {
@@ -65,12 +62,9 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     else root.dataset.theme = theme;
   }, [theme]);
 
-  const updateSettings = useCallback(async (patch: Partial<Settings>) => {
-    if (!latest.current) return;
-    const next = { ...latest.current, ...patch };
-    latest.current = next;
-    setState((s) => (s.status === "ready" ? { ...s, settings: next } : s));
-    await saveSettings(next);
+  const updateSettings = useCallback(async (patch: SettingsPatch) => {
+    const saved = await saveSettings(patch);
+    setState((s) => (s.status === "ready" ? { ...s, settings: saved } : s));
   }, []);
 
   const data = useMemo<AppData | null>(

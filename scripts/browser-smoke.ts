@@ -806,6 +806,7 @@ async function main() {
   await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
 
   // 8e6. Logo oben rechts steht auf jeder Seite an derselben Stelle, außer „Mehr“.
+  // Sitzung, Zusammenfassung und „Für heute geschafft“ haben das Logo oben mittig (8j, 8k).
   // Gemessen relativ zur Inhaltsspalte (.screen), damit Scrollleisten keine Rolle spielen.
   // Neue Seiten hier ergänzen.
   const cornerRoutes = [
@@ -1289,24 +1290,38 @@ async function main() {
   await send("Emulation.setTouchEmulationEnabled", { enabled: false });
   await send("Emulation.clearDeviceMetricsOverride");
 
-  // 8i. Wait for the first-card check on a clean database, then the 5-minute rule (check 4).
-  // Start: one card in the review phase (not due), so "Nochmal" is not shown again at once (stage 4).
+  // 8i. Learning steps 1 / 10 min (SPEC 11, check 8). Start: one card in the review phase
+  // (not due, rated yesterday), so it neither comes up nor locks its partner.
   await send("Page.navigate", { url: `${BASE}#/` });
   await idb(`store.clear(); store.put({
     vocabId: "v0001", dir: "de-es", due: Date.now() + 10 * 86400000,
     interval: 10, ease: 2.5, reps: 3, lapses: 0,
-    lastReviewed: Date.now() - 86400000, state: "learning",
+    lastReviewed: Date.now() - 86400000,
+    introduced: Date.now() - 20 * 86400000, state: "learning",
   });`);
   await evaluate("window.__timeOffset = 0");
   await startSession();
   const cardA = await frontWord();
+  await evaluate(
+    `[...document.querySelectorAll("button")].find((b) => b.textContent.trim() === "Umdrehen")?.click()`,
+  );
+  await waitFor(`document.querySelector(".grade-good")`, "Bewertung");
+  const newPreview = await evaluate<string>(
+    `[...document.querySelectorAll(".grade small")].map((s) => s.textContent).join("|")`,
+  );
+  check(
+    "Neue Karte: Vorschau „1 Min“ / „10 Min“",
+    newPreview === "1 Min|10 Min",
+    newPreview,
+  );
   await rate("Nochmal");
   const cardB = await frontWord();
-  await evaluate("window.__timeOffset = 6 * 60 * 1000");
+  // 2 Min später ist A (Schritt 0, 1 Min) fällig und kommt vor der nächsten neuen Karte.
+  await evaluate("window.__timeOffset = 2 * 60 * 1000");
   await rate("Gewusst"); // B
   const cardC = await frontWord();
   check(
-    "Nochmal: Karte kommt nach 5 Min (Zeitsprung) wieder, vor neuen Karten",
+    "Nochmal: Karte kommt nach 1 Min (Zeitsprung) wieder, vor neuen Karten",
     cardA !== "" && cardB !== cardA && cardC === cardA,
     `A=${cardA} B=${cardB} C=${cardC}`,
   );
@@ -1354,20 +1369,68 @@ async function main() {
     `${cardsBefore} -> ${cardsAfter} Karten, Buttons: ${JSON.stringify(summaryButtons)}`,
   );
 
-  // 8k. Endless session (SPEC 3.1, 12.1): 20 ratings in a row (the session has no end),
-  // never "Fertig für heute", no waiting counter.
+  // 8k. "Für heute geschafft" and "10 weitere neue Karten" (SPEC 3.1, 12.2, 14.1).
+  // Start: 19 cards introduced and rated today (not due, ids without vocabulary, they only
+  // count for the daily limit). The 20th new card reaches the limit; it comes back at once
+  // (stage 3, nothing else left) and graduates, then the session is done.
+  await evaluate("window.__timeOffset = 0");
+  await send("Page.navigate", { url: `${BASE}#/` });
+  await idb(`store.clear();
+    for (let i = 0; i < 19; i++) store.put({
+      vocabId: "x" + String(i).padStart(4, "0"), dir: "de-es",
+      due: Date.now() + 3 * 86400000, interval: 1, ease: 2.5, reps: 1, lapses: 0,
+      lastReviewed: Date.now() - 60000, introduced: Date.now() - 60000, state: "learning",
+    });`);
   await startSession();
-  const RATED = 20;
-  for (let i = 0; i < RATED; i++) await rate("Gewusst");
-  const endless = await text();
+  const doneLogoBefore = await evaluate<string>(logoPos);
+  const limitCard = await frontWord();
+  await rate("Gewusst");
+  const limitCardAgain = await frontWord();
+  await rate("Gewusst");
+  const doneOk = await waitFor(
+    `document.querySelector(".screen h1")?.textContent === "Für heute geschafft"`,
+    "Für heute geschafft",
+  );
+  const doneText = await text();
+  const doneButtons = await evaluate<string[]>(
+    `[...document.querySelectorAll(".screen button")].map((b) => b.textContent.trim())`,
+  );
   check(
-    `Endlose Sitzung: ${RATED} Bewertungen ohne „Fertig für heute“ und ohne Wartezähler`,
-    !/Fertig für heute/.test(endless) &&
-      !/Jetzt zeigen|Warte/.test(endless) &&
-      (await evaluate<string>(
-        `document.querySelector(".session-count-num")?.textContent ?? ""`,
-      )) === String(RATED) &&
-      (await evaluate<boolean>(`!!document.querySelector(".flashcard")`)),
+    "Limit erreicht: „Für heute geschafft“ mit Kacheln, Satz und beiden Buttons",
+    doneOk &&
+      limitCard !== "" &&
+      limitCardAgain === limitCard &&
+      /2\s+Karten geübt/.test(doneText) &&
+      /Das Limit für neue Karten ist erreicht\./.test(doneText) &&
+      JSON.stringify(doneButtons) ===
+        JSON.stringify(["10 weitere neue Karten", "Beenden"]),
+    `Karte ${limitCard}/${limitCardAgain}, Buttons: ${JSON.stringify(doneButtons)}`,
+  );
+  const doneLogoAfter = await evaluate<string>(logoPos);
+  check(
+    "Für heute geschafft: Logo oben mittig wie in der Sitzung, ohne Ecken-Logo und Tab-Leiste",
+    doneLogoAfter === doneLogoBefore &&
+      (await evaluate<boolean>(`(() => {
+        const corner = document.querySelector(".corner-logo");
+        const tabs = document.querySelector(".tabbar");
+        return (!corner || getComputedStyle(corner).display === "none")
+          && (!tabs || getComputedStyle(tabs).display === "none");
+      })()`)),
+    `Sitzung ${doneLogoBefore} | Für heute geschafft ${doneLogoAfter}`,
+  );
+  await clickText("10 weitere neue Karten", "button");
+  const moreOk = await waitFor(
+    `!!document.querySelector(".flashcard")`,
+    "Karte nach „10 weitere“",
+  );
+  const moreCard = await frontWord();
+  const moreCount = await evaluate<string>(
+    `document.querySelector(".session-count-num")?.textContent ?? ""`,
+  );
+  check(
+    "10 weitere neue Karten: die Sitzung läuft mit einer neuen Karte und demselben Zähler weiter",
+    moreOk && moreCard !== "" && moreCard !== limitCard && moreCount === "2",
+    `${moreCard}, Geübt ${moreCount}`,
   );
 
   // 9. Service worker active, then offline reload still works.

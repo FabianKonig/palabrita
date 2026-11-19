@@ -5,6 +5,7 @@ import {
   LEVEL_ORDER,
   type Level,
   type Settings as SettingsData,
+  type SettingsPatch,
 } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
 
@@ -20,7 +21,7 @@ export function Settings() {
   const { settings, updateSettings } = useAppData();
   const [error, setError] = useState<string | null>(null);
 
-  function change(patch: Partial<SettingsData>) {
+  function change(patch: SettingsPatch) {
     setError(null);
     updateSettings(patch).catch((e: unknown) =>
       setError(e instanceof Error ? e.message : String(e)),
