@@ -1095,14 +1095,14 @@ fieldset.setting {
   color: var(--muted);
 }
 
-.welcome-credit {
-  margin-top: 8px;
+/* Widmung „Con ♥ de Fabian König“, auf der Karte und im Tab „Mehr“ gleich */
+.credit {
   font-size: 0.8rem;
   line-height: 1.35;
   color: var(--muted);
 }
 
-.welcome-heart {
+.heart {
   display: inline-block;
   width: 0.95em;
   height: 0.95em;
@@ -1227,7 +1227,6 @@ fieldset.setting {
   font-weight: 500;
   color: var(--muted);
 }
-
 /* Dropdowns: own arrow with proper inset */
 select.field,
 .setting select {
