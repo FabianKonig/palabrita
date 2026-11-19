@@ -59,7 +59,7 @@ export function searchVocab(
 
 /** Spanish word without leading article, used for sorting. */
 function headword(v: Vocab): string {
-  return v.es.replace(/^(el|la|los|las|un|una)\s+/i, "");
+  return v.es.replace(/^(el\/la|el|la|los|las|un|una)\s+/i, "");
 }
 
 /** Topic dropdown entries: Grundwortschatz first, the rest in file order, own words last. */

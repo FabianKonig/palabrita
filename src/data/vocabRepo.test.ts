@@ -46,6 +46,17 @@ describe("user vocabulary", () => {
     expect(edited.createdAt).toBe(123);
   });
 
+  it("sets updatedAt on every save", async () => {
+    const first = await saveUserVocab({ ...base, createdAt: 123 });
+    expect(first.updatedAt).toBeGreaterThanOrEqual(first.createdAt ?? 0);
+    const edited = await saveUserVocab({
+      ...first,
+      updatedAt: 1,
+      de: ["Heim"],
+    });
+    expect(edited.updatedAt).toBeGreaterThan(1);
+  });
+
   it("deleting a word removes both of its cards but no others", async () => {
     await saveUserVocab(base);
     const db = await getDb();

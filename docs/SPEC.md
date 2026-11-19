@@ -54,7 +54,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 
 ### 3.3 Übersicht und Statistik
 - Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie (Streak). Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung, steht bei jedem Aufruf auf „Beide Richtungen“, wird nicht gespeichert) und den Button „Starten“. Ohne Auswahl startet eine Sitzung über alle Themen.
-- Statistik: gelernte Karten, Verteilung nach Reifegrad (neu, lernend, gefestigt), je Kartenrichtung und nur für das eingestellte Niveau.
+- Statistik: Verteilung der Karten nach Reifegrad (neu, lernend, gefestigt), je Kartenrichtung und nur für das eingestellte Niveau.
 - Durchsuchbares **Vokabelverzeichnis** (alphabetisch nach spanischem Stichwort ohne Artikel) mit Detailansicht inkl. aller Zusatzinfos.
 - **Verzeichnissuche (Spanisch und Deutsch):** Das Suchfeld findet jede Vokabel, deren `es` oder einer der `de`-Einträge den Begriff enthält, ohne Beachtung von Groß-/Kleinschreibung, Akzenten und Umlauten (*cafe* findet *café*). So sieht der Nutzer zu einem deutschen Wort, ob er das spanische schon hat. Es gelten das eingestellte Maximalniveau und die Filter Thema, Niveau, Wortart. Filter, Suchtext und Scrollposition bleiben erhalten, solange der Nutzer im Bereich des Verzeichnisses bleibt (Detailseite, Hinzufügen, Legende), ein Wechsel auf einen anderen Tab setzt sie zurück. Offen (Anforderung 2026-11-19): (a) Der Treffer soll kenntlich machen, dass er über die deutsche Übersetzung kam (z. B. welche `de`-Form passt). (b) Die Wortsuche unter „Neues Wort hinzufügen“ (§3.5) soll deutsche Eingaben vorab gegen die eigene Datenbank prüfen und „Schon vorhanden: <spanisch>“ zeigen, bevor im Wörterbuch nachgeschlagen wird. (c) Verhalten bei mehreren Treffern und bei Wörtern außerhalb des eingestellten Niveaus.
 - **Formsuche** (gebeugte Formen finden): Anforderung in `docs/FORMSUCHE.md`, noch nicht spezifiziert.
@@ -77,7 +77,7 @@ Der Nutzer gibt ein spanisches Wort ein, das er irgendwo aufgeschnappt hat. Es w
 
 **Eigenschaften eigener Vokabeln:**
 - Sie liegen **nur im Browser** (IndexedDB), nicht in den statischen Dateien, und sind im **Export/Import** enthalten.
-- ID: `u` plus zufälliger Teil (z. B. `u8k2m4qz`), damit zwischen Geräten keine Kollisionen entstehen. Feld `createdAt`.
+- ID: `u` plus zufälliger Teil (z. B. `u8k2m4qz`), damit zwischen Geräten keine Kollisionen entstehen. Felder `createdAt` (Anlegen) und `updatedAt` (letzte Änderung, wird bei jedem Speichern gesetzt).
 - Thema: **„Eigene Wörter“** (eigener Filter). Niveau: **keins** (`level: null`). Eigene Wörter werden deshalb **unabhängig vom eingestellten Maximalniveau immer angezeigt**.
 - In der Lernsitzung kommen neue eigene Wörter **vor** den neuen Standardvokabeln (nach `createdAt`), die Begrenzung gleichzeitiger Lernkarten (§12) gilt weiterhin.
 - Eigene Wörter lassen sich in der Detailansicht **bearbeiten und löschen** (Löschen entfernt auch ihre Karten, mit Rückfrage).
@@ -292,6 +292,7 @@ interface Vocab {
   topic: string;         // einer der 13 Schlüssel (siehe unten), bei eigenen Wörtern 'eigene'
   origin?: 'user';       // gesetzt bei eigenen Wörtern (IndexedDB), fehlt bei statischen
   createdAt?: number;    // nur eigene Wörter (ms)
+  updatedAt?: number;    // nur eigene Wörter: letzte Änderung (ms), älteren Exporten fehlt es
   verified?: false;      // nur eigene Verben: Formen ungeprüft (Hinweis in der UI)
   example: { es: string; de: string } | null;  // null nur bei eigenen Wörtern erlaubt
   note?: string | null; gender?: 'm'|'f'|'m/f'|null; plural?: string | null;
@@ -327,9 +328,9 @@ Feste Themen-Schlüssel (13): `begruessung`, `zahlen-zeit`, `essen`, `transport`
 ### 10.1b Export/Import (`data/exportImport.ts`)
 Exportdatei: `{ schemaVersion, exportedAt, settings, cards, userVocab }`.
 - **Ersetzen:** alle lokalen Daten (Einstellungen, Cards, userVocab) werden durch die Datei ersetzt, nach Rückfrage.
-- **Zusammenführen:** Einstellungen bleiben lokal unverändert. `cards`: pro Schlüssel `[vocabId, dir]` gewinnt der Stand mit dem größeren `lastReviewed` (bei Gleichstand der lokale; `null` verliert gegen einen Wert); nur in einer Seite vorhandene Karten bleiben. `userVocab`: per ID, bei Konflikt gewinnt der Eintrag mit dem größeren `createdAt`, bei Gleichstand der lokale.
+- **Zusammenführen:** Einstellungen bleiben lokal unverändert. `cards`: pro Schlüssel `[vocabId, dir]` gewinnt der Stand mit dem größeren `lastReviewed` (bei Gleichstand der lokale; `null` verliert gegen einen Wert); nur in einer Seite vorhandene Karten bleiben. `userVocab`: per ID, bei Konflikt gewinnt der Eintrag mit der jüngeren Änderung (`updatedAt`, fehlt es, zählt `createdAt`), bei Gleichstand der lokale.
 - Import validiert `schemaVersion` und Struktur, lehnt unbekannte neuere Versionen mit Fehlermeldung ab und ändert bei Fehlern nichts (alles-oder-nichts in einer Transaktion).
-- Karten ohne `step` sind gültig (Wiederholungsphase).
+- Karten ohne `step` sind gültig (Wiederholungsphase). Ist `step` gesetzt, muss er `0` oder `1` sein, sonst wird die Datei abgelehnt.
 
 ### 10.2 IndexedDB (`palabrita`, Version 1)
 
@@ -337,7 +338,7 @@ Exportdatei: `{ schemaVersion, exportedAt, settings, cards, userVocab }`.
 |---|---|---|
 | `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, theme: 'system'\|'light'\|'dark' }` (Defaults: B1, system). Die Richtung ist keine Einstellung, sondern gilt nur für die Sitzung (§3.3). |
 | `cards` | `[vocabId, dir]` | `{ vocabId, dir: 'de-es'\|'es-de', due: number(ms), interval: number(Tage), ease: number, reps: number, lapses: number, lastReviewed: number\|null, state: 'new'\|'learning'\|'mature', step?: 0\|1 }`. `step`: siehe §11. |
-| `userVocab` | `id` | vollständiges `Vocab` mit `origin: 'user'`, `level: null`, `topic: 'eigene'`, `createdAt` |
+| `userVocab` | `id` | vollständiges `Vocab` mit `origin: 'user'`, `level: null`, `topic: 'eigene'`, `createdAt`, `updatedAt` |
 
 Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zwischen Geräten hilft nur Export/Import. Eine Karte wird nur gespeichert, wenn die Bewertung sie ändert (nicht bei „Gewusst“ in der Vorab-Wiederholung, §11).
 
@@ -420,7 +421,7 @@ Offen für die Spezifikation: welche Reihenfolge und Mischung von fälligen, ler
 
 Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Karten übrig), wird **vorzeitig wiederholt**:
 - Kandidaten: alle sichtbaren, gefilterten Karten in der Wiederholungsphase, die noch **nicht** in `sessionSeen` stehen, sortiert nach `due` aufsteigend (am bald fälligsten zuerst).
-- Jede gezeigte oder bewertete Karte kommt in `sessionSeen` (Stufen 1 bis 4 ebenfalls). Sind alle Kandidaten durch, wird `sessionSeen` geleert und der Durchlauf beginnt von vorn. Eine kurze Einblendung „Neuer Durchlauf“ ist optional.
+- Jede **bewertete** Karte kommt in `sessionSeen` (auch bei Stufen 1 bis 4). Eine nur angezeigte, nicht bewertete Karte zählt nicht. Sind alle Kandidaten durch, wird `sessionSeen` geleert und der Durchlauf beginnt von vorn. Eine kurze Einblendung „Neuer Durchlauf“ ist optional.
 - Bewertung dieser Karten nach der Regel **Vorab-Wiederholung** (§11), damit die Intervalle nicht verfälscht werden.
 - `sessionSeen` lebt nur im Speicher der Sitzung (nicht gespeichert).
 

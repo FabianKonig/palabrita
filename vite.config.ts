@@ -3,7 +3,7 @@ import { execFileSync } from "node:child_process";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
-import { formatVersionStamp } from "./src/domain/versionStamp";
+import { formatVersionStamp } from "./src/domain/versionStamp.ts";
 
 /**
  * Zeitstempel des HEAD-Commits (Committer-Datum, ISO 8601). Beim Merge auf

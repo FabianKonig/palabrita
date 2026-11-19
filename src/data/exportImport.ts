@@ -45,7 +45,8 @@ function validCard(c: unknown): c is Card {
     isNum(c.reps) &&
     isNum(c.lapses) &&
     (c.lastReviewed === null || isNum(c.lastReviewed)) &&
-    STATES.includes(c.state as string)
+    STATES.includes(c.state as string) &&
+    (c.step === undefined || c.step === 0 || c.step === 1)
   );
 }
 
@@ -128,12 +129,15 @@ export function mergeCards(local: Card[], incoming: Card[]): Card[] {
   return [...map.values()];
 }
 
-/** Per id; larger createdAt wins, ties keep the local entry. */
+/** Time of the last change of a user word; words from before `updatedAt` count by createdAt. */
+const changedAt = (v: Vocab) => v.updatedAt ?? v.createdAt ?? 0;
+
+/** Per id; the more recently changed entry wins, ties keep the local entry. */
 export function mergeUserVocab(local: Vocab[], incoming: Vocab[]): Vocab[] {
   const map = new Map(local.map((v) => [v.id, v]));
   for (const v of incoming) {
     const mine = map.get(v.id);
-    if (!mine || (v.createdAt ?? 0) > (mine.createdAt ?? 0)) map.set(v.id, v);
+    if (!mine || changedAt(v) > changedAt(mine)) map.set(v.id, v);
   }
   return [...map.values()];
 }

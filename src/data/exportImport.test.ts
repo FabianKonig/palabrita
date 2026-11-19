@@ -30,7 +30,12 @@ function card(
   };
 }
 
-function word(id: string, createdAt: number, es = id): Vocab {
+function word(
+  id: string,
+  createdAt: number,
+  es = id,
+  updatedAt?: number,
+): Vocab {
   return {
     id,
     de: ["x"],
@@ -40,6 +45,7 @@ function word(id: string, createdAt: number, es = id): Vocab {
     topic: "eigene",
     origin: "user",
     createdAt,
+    ...(updatedAt !== undefined && { updatedAt }),
     example: null,
   };
 }
@@ -104,7 +110,7 @@ describe("merge rules", () => {
     expect(merged[0].interval).toBe(1);
   });
 
-  it("userVocab: larger createdAt wins, tie keeps local", () => {
+  it("userVocab: the more recent change wins, tie keeps local", () => {
     const merged = mergeUserVocab(
       [word("a", 10, "local"), word("b", 10, "local")],
       [word("a", 20, "new"), word("b", 10, "other"), word("c", 1)],
@@ -113,6 +119,21 @@ describe("merge rules", () => {
     expect(by.get("a")).toBe("new");
     expect(by.get("b")).toBe("local");
     expect(by.has("c")).toBe(true);
+  });
+
+  it("userVocab: an edit (updatedAt) beats an older copy, even with the same createdAt", () => {
+    const edited = word("a", 10, "edited", 500);
+    expect(mergeUserVocab([word("a", 10, "old")], [edited])[0].es).toBe(
+      "edited",
+    );
+    // the other way round the local edit stays
+    expect(mergeUserVocab([edited], [word("a", 10, "old")])[0].es).toBe(
+      "edited",
+    );
+    // words without updatedAt (older exports) count by createdAt
+    expect(
+      mergeUserVocab([word("b", 10, "x")], [word("b", 5, "y", 7)])[0].es,
+    ).toBe("x");
   });
 
   it("merge keeps local settings", async () => {
@@ -145,6 +166,29 @@ describe("parseExport validation", () => {
     expect(file.cards[0].step).toBeUndefined();
     await applyImport(file, "replace");
     expect(await (await getDb()).getAll("cards")).toHaveLength(1);
+  });
+
+  it("rejects a card with an invalid step", () => {
+    for (const step of [7, -1, "0", null]) {
+      expect(() =>
+        parseExport(
+          JSON.stringify({
+            ...valid(),
+            cards: [{ ...card("v1", 100, 6), step }],
+          }),
+        ),
+      ).toThrow(/Karten/);
+    }
+    for (const step of [0, 1]) {
+      expect(() =>
+        parseExport(
+          JSON.stringify({
+            ...valid(),
+            cards: [{ ...card("v1", 100, 6), step }],
+          }),
+        ),
+      ).not.toThrow();
+    }
   });
 
   it("rejects broken JSON, newer versions and bad structure", () => {

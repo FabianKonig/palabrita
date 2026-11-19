@@ -65,7 +65,7 @@ export async function newUserId(): Promise<string> {
   }
 }
 
-/** Creates or overwrites a user word (origin, level and topic are enforced). */
+/** Creates or overwrites a user word (origin, level and topic are enforced, updatedAt is set). */
 export async function saveUserVocab(v: Vocab): Promise<Vocab> {
   const db = await getDb();
   const saved: Vocab = {
@@ -74,6 +74,7 @@ export async function saveUserVocab(v: Vocab): Promise<Vocab> {
     level: null,
     topic: "eigene",
     createdAt: v.createdAt ?? Date.now(),
+    updatedAt: Date.now(),
   };
   await db.put("userVocab", saved);
   return saved;

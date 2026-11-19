@@ -32,6 +32,8 @@ export interface Vocab {
   topic: string;
   origin?: "user";
   createdAt?: number;
+  /** Last edit of a user word (ms), decides merge conflicts on import. */
+  updatedAt?: number;
   verified?: false;
   example: { es: string; de: string } | null;
   note?: string | null;

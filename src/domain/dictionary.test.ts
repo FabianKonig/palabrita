@@ -72,6 +72,19 @@ describe("searchVocab", () => {
     expect(sorted).toEqual(["1", "2", "5", "4", "3"]);
   });
 
+  it("sorts el/la words by the word after the article", () => {
+    const list = [
+      v({ id: "a", es: "el/la turista", gender: "m/f" }),
+      v({ id: "b", es: "la casa" }),
+      v({ id: "c", es: "el/la estudiante", gender: "m/f" }),
+    ];
+    expect(ids(searchVocab(list, "B1", EMPTY_FILTERS))).toEqual([
+      "b",
+      "c",
+      "a",
+    ]);
+  });
+
   it("filters by topic, level and pos", () => {
     const f = EMPTY_FILTERS;
     expect(ids(searchVocab(VOCAB, "B1", { ...f, topic: "essen" }))).toEqual([
