@@ -1345,7 +1345,7 @@ table.forms th {
   color: var(--muted);
 }
 
-/* Leiste der Zusammenfassung: gleiche Höhe wie die Leiste in der Sitzung, damit das Logo an derselben Stelle steht */
+/* Leiste der Zusammenfassung und des Hinweises „Keine Karten“: gleiche Höhe wie die Leiste in der Sitzung, damit das Logo an derselben Stelle steht */
 .session-end-bar {
   min-height: 40px;
 }

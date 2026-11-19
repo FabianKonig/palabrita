@@ -150,6 +150,12 @@ function StudySession({
   if (!item || !entry) {
     return (
       <div className="screen center">
+        {/* Wie auf der Zusammenfassung: Logo oben mittig, nicht in der Ecke. */}
+        <div className="session-bar session-end-bar">
+          <span />
+          <Logo />
+          <span />
+        </div>
         <h1>Keine Karten für diese Auswahl</h1>
         <p className="muted">Bitte Filter oder Niveau anpassen.</p>
         <button type="button" className="btn" onClick={onBack}>
