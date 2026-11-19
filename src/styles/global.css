@@ -1237,6 +1237,27 @@ fieldset.setting {
   text-shadow: 0.06em 0.06em 0 var(--magenta);
 }
 
+/* Name im Markenkopf als Knopf (öffnet die Begrüßungskarte erneut), sieht aus wie der Schriftzug */
+.wordmark-button {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0.1em;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-shadow: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wordmark-button:focus-visible {
+  outline: 3px solid var(--magenta);
+  outline-offset: 4px;
+}
+
 .wordmark-greca {
   width: 5.2em;
   height: 0.3em;

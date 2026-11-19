@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   HashRouter,
   Navigate,
@@ -9,7 +9,10 @@ import {
 } from "react-router-dom";
 import { TabBar } from "./components/TabBar";
 import { UpdateBanner } from "./components/UpdateBanner";
-import { WelcomeOverlay } from "./components/WelcomeOverlay";
+import {
+  WelcomeOverlay,
+  type WelcomeOutletContext,
+} from "./components/WelcomeOverlay";
 import { isWelcomeSeen, markWelcomeSeen } from "./data/welcomeFlag";
 import { Add } from "./features/add/Add";
 import { EditWord } from "./features/add/EditWord";
@@ -28,17 +31,25 @@ import { AppDataProvider } from "./hooks/useAppData";
 function Layout() {
   const { pathname } = useLocation();
   const [welcomeSeen, setWelcomeSeen] = useState(() => isWelcomeSeen());
+  // Vom Markenkopf im Tab „Mehr“ erneut geöffnet; speichert nichts.
+  const [welcomeReplay, setWelcomeReplay] = useState(false);
   useEffect(() => {
     onNavigate(pathname);
   }, [pathname]);
+  const openWelcome = useCallback(() => setWelcomeReplay(true), []);
+  const closeWelcomeReplay = useCallback(() => setWelcomeReplay(false), []);
+  const outletContext = useMemo<WelcomeOutletContext>(
+    () => ({ openWelcome }),
+    [openWelcome],
+  );
   // Erststart-Begrüßung liegt über der Lernseite; die App dahinter ist solange gesperrt.
   const showWelcome = pathname === "/" && !welcomeSeen;
   return (
     <>
-      <div className="app" inert={showWelcome}>
+      <div className="app" inert={showWelcome || welcomeReplay}>
         <UpdateBanner />
         <main>
-          <Outlet />
+          <Outlet context={outletContext} />
         </main>
         <TabBar />
       </div>
@@ -49,6 +60,9 @@ function Layout() {
             setWelcomeSeen(true);
           }}
         />
+      )}
+      {!showWelcome && welcomeReplay && (
+        <WelcomeOverlay onDismiss={closeWelcomeReplay} />
       )}
     </>
   );
