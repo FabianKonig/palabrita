@@ -1173,6 +1173,56 @@ fieldset.setting {
   }
 }
 
+/* Markenkopf im Tab „Mehr“: Wimpel, Name, Greca, Slogan */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0 24px;
+  text-align: center;
+}
+
+.brand-bunting {
+  width: min(300px, 90%);
+  height: auto;
+  overflow: visible;
+}
+
+.brand-string {
+  stroke: var(--muted);
+  stroke-width: 1.5;
+}
+
+.brand-name {
+  margin: 4px 0 0;
+  font-family: var(--font-head);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--turquoise-dark);
+  text-shadow: 3px 3px 0 var(--magenta);
+}
+
+.brand-greca {
+  width: min(240px, 80%);
+  height: 12px;
+  margin: 6px 0 2px;
+  overflow: visible;
+}
+
+.brand-greca path {
+  stroke: var(--yellow);
+}
+
+.brand-tagline {
+  margin: 4px 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
 /* Dropdowns: own arrow with proper inset */
 select.field,
 .setting select {

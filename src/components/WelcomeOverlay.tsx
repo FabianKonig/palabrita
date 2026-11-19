@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { TAGLINE_ES } from "./Brand";
 
 /** Spanisch auf der Vorderseite, Deutsch auf der Rückseite. */
 const FRONT = "¡Bienvenido a Palabrita!";
 const BACK = "Willkommen zu Palabrita!";
 /** Kleine Zeile unter dem Haupttext, Spanisch vorne, Deutsch hinten. */
-const FRONT_SUB = "Tu app de vocabulario de español";
+const FRONT_SUB = TAGLINE_ES;
 const BACK_SUB = "Deine Spanisch-Vokabel-App";
 /** Kleinste Zeile: Widmung, das Herz ersetzt das Wort „Liebe“. */
 const FRONT_CREDIT = "Con";

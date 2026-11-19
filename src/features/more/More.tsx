@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Brand } from "../../components/Brand";
 import { APP_VERSION } from "../../version";
 
 interface Entry {
@@ -16,7 +17,7 @@ const ENTRIES: Entry[] = [
 export function More() {
   return (
     <div className="screen">
-      <h1>Mehr</h1>
+      <Brand />
       <ul className="link-list">
         {ENTRIES.map((e) => (
           <li key={e.to}>
