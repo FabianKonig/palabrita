@@ -35,9 +35,9 @@ const run = (list: Vocab[], file = "begruessung.json") =>
   validateVocab([{ file, data: list }]);
 
 describe("plan", () => {
-  it("has 13 topics with unique, non-overlapping ID ranges and 800 entries", () => {
+  it("has 13 topics with unique, non-overlapping ID ranges and 802 entries", () => {
     expect(TOPICS).toHaveLength(13);
-    expect(TOTAL_TARGET).toBe(800);
+    expect(TOTAL_TARGET).toBe(802);
     for (let i = 1; i < TOPICS.length; i++)
       expect(TOPICS[i].idStart).toBeGreaterThan(TOPICS[i - 1].idEnd);
     expect(TOPICS[0].idStart).toBe(26);
@@ -144,7 +144,7 @@ describe("validateVocab", () => {
       final: true,
     });
     expect(r.errors.join()).toMatch(/Plan 40/);
-    expect(r.errors.join()).toMatch(/Ziel 800/);
+    expect(r.errors.join()).toMatch(/Ziel 802/);
   });
 });
 

@@ -691,17 +691,17 @@ async function main() {
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
 
-  // 8e4. Version steht unter „Mehr“ (nach Einstellungen und Legende), nicht mehr unter Einstellungen.
+  // 8e4. Version steht unter „Mehr“ (nach den Einträgen), nicht mehr unter Einstellungen.
   await send("Page.navigate", { url: `${BASE}#/more` });
   await waitFor(`document.querySelector(".link-list")`, "Mehr");
   check(
-    "Mehr: Version steht unter Einstellungen und Legende",
+    "Mehr: Version steht unter Einstellungen, Legende, Datenschutz und Impressum",
     await evaluate<boolean>(`(() => {
       const list = document.querySelector(".link-list");
       const v = document.querySelector(".app-version");
       return !!v && /^Version: /.test(v.textContent)
         && !!(list.compareDocumentPosition(v) & Node.DOCUMENT_POSITION_FOLLOWING)
-        && [...list.querySelectorAll("a")].map((a) => a.textContent).join("|") === "Einstellungen|Legende";
+        && [...list.querySelectorAll("a")].map((a) => a.textContent).join("|") === "Einstellungen|Legende|Datenschutz|Impressum";
     })()`),
   );
   await send("Page.navigate", { url: `${BASE}#/settings` });
