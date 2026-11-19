@@ -143,7 +143,7 @@ h1 {
   font-weight: 800;
   line-height: 1;
   color: var(--turquoise-dark);
-  text-shadow: 0.06em 0.06em 0 var(--magenta);
+  text-shadow: 0.025em 0.025em 0 var(--magenta);
 }
 
 .muted {
@@ -1258,7 +1258,7 @@ fieldset.setting {
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--turquoise-dark);
-  text-shadow: 0.06em 0.06em 0 var(--magenta);
+  text-shadow: 0.025em 0.025em 0 var(--magenta);
 }
 
 /* Ganzer Markenblock im Tab „Mehr“ als Knopf: öffnet die Begrüßungskarte erneut */
