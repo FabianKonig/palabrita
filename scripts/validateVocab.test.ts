@@ -262,3 +262,62 @@ describe("checkVerb (SPEC §5.1)", () => {
     ).toMatch(/1s/);
   });
 });
+
+describe("adj-Warnungen (SPEC §14.3)", () => {
+  const adj = (es: string, extra?: Vocab["adj"], id = "v0060") =>
+    entry({
+      id,
+      es,
+      de: ["x"],
+      pos: "adj",
+      gender: null,
+      plural: null,
+      adj: extra,
+    });
+  const warnings = (v: Vocab) => run([v]).warnings;
+
+  it("warnt bei -és/-ol ohne adj.f (Regel 6 wäre für Nationalitäten falsch)", () => {
+    expect(warnings(adj("inglés")).join("\n")).toMatch(/inglés.*adj\.f/);
+    expect(warnings(adj("español")).join("\n")).toMatch(/español.*adj\.f/);
+    expect(warnings(adj("cortés", { pl: "corteses" })).join("\n")).toMatch(
+      /adj\.f/,
+    );
+  });
+
+  it("adj.f bestätigt die Femininform: keine Warnung, auch wenn sie der Regel gleicht", () => {
+    expect(warnings(adj("cortés", { f: "cortés" }))).toEqual([]);
+    expect(warnings(adj("inglés", { f: "inglesa" }))).toEqual([]);
+    expect(run([adj("español", { f: "española" })]).errors).toEqual([]);
+  });
+
+  it("warnt bei überflüssigen adj-Einträgen, die der Regel gleichen", () => {
+    expect(warnings(adj("rojo", { f: "roja" })).join("\n")).toMatch(
+      /adj\.f "roja".*überflüssig/,
+    );
+    expect(warnings(adj("rojo", { pl: "rojos" })).join("\n")).toMatch(
+      /adj\.pl/,
+    );
+    expect(warnings(adj("joven", { pl: "jóvenes" })).join("\n")).toMatch(
+      /adj\.pl/,
+    );
+  });
+
+  it("fpl ist überflüssig, wenn er der Ableitung aus adj.f gleicht", () => {
+    expect(
+      warnings(adj("inglés", { f: "inglesa", fpl: "inglesas" })).join("\n"),
+    ).toMatch(/adj\.fpl "inglesas"/);
+    // abweichender fpl ist gewollt
+    expect(
+      warnings(adj("inglés", { f: "inglesa", fpl: "inglesitas" })),
+    ).toEqual([]);
+  });
+
+  it("ein abweichender Eintrag ist keine Warnung", () => {
+    expect(warnings(adj("bueno", { pl: "buenazos" }))).toEqual([]);
+    expect(warnings(adj("rojo"))).toEqual([]);
+  });
+
+  it("andere Wortarten werden nicht geprüft", () => {
+    expect(warnings(entry())).toEqual([]);
+  });
+});

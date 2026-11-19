@@ -1,4 +1,5 @@
 import Ajv from "ajv";
+import { adjectiveForms } from "../src/domain/adjectiveForms";
 import { conjugate } from "../src/domain/conjugation";
 import { findDuplicate } from "../src/domain/findDuplicate";
 import type { Tense, VerbData, VerbTag, Vocab } from "../src/domain/types";
@@ -146,6 +147,35 @@ export function checkVerb(v: Vocab): string[] {
   return out;
 }
 
+/**
+ * Warnings for the `adj` field (SPEC §14.3): adjectives on -és/-ol need an explicit feminine
+ * form (nationalities differ from rule 6), and `adj` must not repeat what the rules produce.
+ */
+export function checkAdjective(v: Vocab): string[] {
+  if (v.pos !== "adj") return [];
+  const out: string[] = [];
+  const nationality = /(és|ol)$/.test(v.es);
+  if (nationality && !v.adj?.f)
+    out.push(
+      `Adjektiv auf -és/-ol ohne adj.f: Regel 6 setzt das Feminin gleich der Grundform, bei Nationalitäten ist es -esa/-ola (ist die Femininform wirklich gleich, "adj": { "f": "${v.es}" } bestätigt das)`,
+    );
+  for (const key of ["f", "pl", "fpl"] as const) {
+    const given = v.adj?.[key];
+    if (!given) continue;
+    // adj.f on -és/-ol is a confirmation, not a redundancy
+    if (key === "f" && nationality) continue;
+    const without = adjectiveForms({
+      es: v.es,
+      adj: { ...v.adj, [key]: undefined },
+    });
+    if (without[key] === given)
+      out.push(
+        `adj.${key} "${given}" entspricht der erzeugten Form (Eintrag überflüssig)`,
+      );
+  }
+  return out;
+}
+
 /** Semantic checks for one schema-valid entry. */
 function checkEntry(v: Vocab, file: string): string[] {
   const out: string[] = [];
@@ -203,6 +233,8 @@ export function validateVocab(
       all.push({ v, file });
       for (const msg of checkEntry(v, file))
         errors.push(`${file} ${v.id} (${v.es}): ${msg}`);
+      for (const msg of checkAdjective(v))
+        warnings.push(`${file} ${v.id} (${v.es}): ${msg}`);
     }
   }
 
