@@ -29,6 +29,8 @@ export function StudySetup({
   const { topics, settings } = useAppData();
   const [topic, setTopic] = useState("");
   const [level, setLevel] = useState<Level | "">("");
+  // Bei Maximalniveau A1 gibt es nur ein Niveau: nichts zu wählen (SPEC §3.3).
+  const onlyA1 = settings.maxLevel === "A1";
   const [pos, setPos] = useState<Pos | "">("");
   const [direction, setDirection] = useState<DirectionSetting>("both");
 
@@ -61,10 +63,11 @@ export function StudySetup({
         <label className="setting">
           <span>Niveau</span>
           <select
-            value={level}
+            value={onlyA1 ? "A1" : level}
+            disabled={onlyA1}
             onChange={(e) => setLevel(e.target.value as Level | "")}
           >
-            <option value="">Alle Niveaus</option>
+            {!onlyA1 && <option value="">Alle Niveaus</option>}
             {LEVELS.filter(
               (l) => LEVEL_ORDER[l] <= LEVEL_ORDER[settings.maxLevel],
             ).map((l) => (

@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { lookupWord } from "../../data/lookup";
 import { newUserId } from "../../data/vocabRepo";
-import { POS_LABEL } from "../../domain/dictionary";
+import { findExisting, POS_LABEL } from "../../domain/dictionary";
 import type {
   LookupCandidate,
   LookupResult,
@@ -29,9 +29,14 @@ const ES_NOTICE =
 export function Add() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
-  const { saveWord } = useAppData();
+  const { saveWord, vocab } = useAppData();
   const [word, setWord] = useState(params.get("q") ?? "");
   const [step, setStep] = useState<Step>({ kind: "input" });
+  // Vorabprüfung (SPEC §3.5): offline gegen alle Vokabeln, nur ein Hinweis.
+  const existing = useMemo(
+    () => findExisting(vocab.values(), word),
+    [vocab, word],
+  );
 
   async function search(w: string) {
     const query = w.trim();
@@ -108,6 +113,26 @@ export function Add() {
           Nachschlagen
         </button>
       </form>
+      {existing.total > 0 && (
+        <div className="notice existing" role="status">
+          <p>Schon vorhanden:</p>
+          <ul className="existing-list">
+            {existing.items.map(({ vocab: v, viaDe }) => (
+              <li key={v.id}>
+                <Link to={`/dictionary/${encodeURIComponent(v.id)}`}>
+                  <span>
+                    {v.es}
+                    {viaDe && <span className="via">{` (${viaDe})`}</span>}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          {existing.total > existing.items.length && (
+            <p>… und {existing.total - existing.items.length} weitere</p>
+          )}
+        </div>
+      )}
       <p className="muted legend-hint">
         Beim Nachschlagen wird dieses Wort samt deiner IP-Adresse an
         de.wiktionary.org gesendet, falls es dort fehlt, an es.wiktionary.org

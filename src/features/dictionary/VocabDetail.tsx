@@ -2,7 +2,7 @@ import { useLayoutEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { VerbDetail, WordHead } from "../../components/VerbDetail";
 import { POS_LABEL } from "../../domain/dictionary";
-import { isVisible } from "../../domain/types";
+import { LEVEL_ORDER } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
 
 const GENDER_LABEL = { m: "maskulin", f: "feminin", "m/f": "maskulin/feminin" };
@@ -21,17 +21,14 @@ export function VocabDetail() {
     window.scrollTo(0, 0);
   }, [id]);
 
-  if (!entry || !isVisible(entry, settings.maxLevel)) {
+  if (!entry) {
     return (
       <div className="screen">
         <Link to="/dictionary" className="back">
           ← Verzeichnis
         </Link>
         <h1>Nicht gefunden</h1>
-        <p className="muted">
-          Dieses Wort gibt es nicht oder es liegt über deinem eingestellten
-          Niveau.
-        </p>
+        <p className="muted">Dieses Wort gibt es nicht.</p>
       </div>
     );
   }
@@ -51,6 +48,14 @@ export function VocabDetail() {
           <span className="badge">{GENDER_LABEL[entry.gender]}</span>
         )}
       </p>
+
+      {entry.level &&
+        LEVEL_ORDER[entry.level] > LEVEL_ORDER[settings.maxLevel] && (
+          <p className="muted">
+            Liegt über deinem Niveau ({settings.maxLevel}), wird derzeit nicht
+            gelernt.
+          </p>
+        )}
 
       {entry.plural && (
         <p>

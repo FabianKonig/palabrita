@@ -1492,3 +1492,32 @@ select.field,
 .legal a {
   color: var(--turquoise-dark);
 }
+
+/* Vorabprüfung beim Hinzufügen: „Schon vorhanden“ mit Links (Touch-Ziel ≥ 48 px) */
+.existing {
+  margin: 12px 0;
+}
+
+.existing p {
+  margin: 0;
+}
+
+.existing-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.existing-list a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.existing-list .via {
+  font-weight: 400;
+}

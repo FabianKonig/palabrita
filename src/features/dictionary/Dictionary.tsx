@@ -4,6 +4,7 @@ import { GermanText } from "../../components/Flashcard";
 import { PageTitle } from "../../components/PageTitle";
 import {
   POS_LABEL,
+  changeFilter,
   topicOptions,
   searchVocab,
   type DictionaryFilters,
@@ -22,7 +23,7 @@ const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
 );
 
 export function Dictionary() {
-  const { vocab, topics, settings } = useAppData();
+  const { vocab, topics } = useAppData();
   const navigate = useNavigate();
 
   // Back from a detail page (back button or the tab/link „Verzeichnis“): return to the
@@ -43,8 +44,8 @@ export function Dictionary() {
   const [filters, setFilters] = useState<DictionaryFilters>(getSavedFilters);
 
   const results = useMemo(
-    () => searchVocab(vocab.values(), settings.maxLevel, filters),
-    [vocab, settings.maxLevel, filters],
+    () => searchVocab(vocab.values(), filters),
+    [vocab, filters],
   );
 
   const set = <K extends keyof DictionaryFilters>(
@@ -52,7 +53,7 @@ export function Dictionary() {
     value: DictionaryFilters[K],
   ) =>
     setFilters((f) => {
-      const next = { ...f, [key]: value };
+      const next = changeFilter(f, key, value);
       saveFilters(next);
       return next;
     });
@@ -103,9 +104,7 @@ export function Dictionary() {
             onChange={(e) => set("level", e.target.value as Level | "")}
           >
             <option value="">Alle Niveaus</option>
-            {LEVELS.filter(
-              (l) => LEVEL_ORDER[l] <= LEVEL_ORDER[settings.maxLevel],
-            ).map((l) => (
+            {LEVELS.map((l) => (
               <option key={l} value={l}>
                 {l}
               </option>
