@@ -58,6 +58,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 - Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie. Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung) und den Button „Starten“. Ohne Auswahl startet eine Sitzung über alle Themen.
 - Statistik: gelernte Karten, Verteilung nach Reifegrad (neu, lernend, gefestigt), je Kartenrichtung und nur für das eingestellte Niveau.
 - Durchsuchbares **Vokabelverzeichnis** mit Detailansicht inkl. aller Zusatzinfos.
+- **Deutsch-Suche (Anforderung 2026-11-19):** Im Verzeichnis lässt sich nach einem deutschen Wort suchen. Die Suche findet alle Vokabeln, deren deutsche Übersetzung (alle `de`-Einträge) den Begriff enthält, und zeigt das spanische Wort, damit der Nutzer sieht, ob er es schon hat. Die Suche über `de` ist umgesetzt (§14). Offen für die Spezifikation: (a) soll der Treffer kenntlich machen, dass er über die deutsche Übersetzung kam (z. B. welche `de`-Form passt); (b) soll die Wortsuche unter „Neues Wort hinzufügen“ (§3.5) ebenfalls deutsche Eingaben gegen die eigene Datenbank prüfen und „Schon vorhanden: <spanisch>“ zeigen, bevor im Wörterbuch nachgeschlagen wird; (c) Verhalten bei mehreren Treffern und bei Wörtern außerhalb des eingestellten Niveaus.
 
 ### 3.4 PWA
 - Web-Manifest, Icons, Service Worker (App-Shell und Vokabeldaten gecacht), komplett offline nutzbar (Ausnahme: das Nachschlagen eigener Wörter braucht Netz, siehe 3.5).
