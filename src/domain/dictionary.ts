@@ -5,7 +5,7 @@ export interface DictionaryFilters {
   query: string;
   /** Topic key, "" = all. */
   topic: string;
-  /** Level, "" = all. User words (level null) match no concrete level. */
+  /** Level, "" = all. */
   level: Level | "";
   /** Part of speech, "" = all. */
   pos: Pos | "";
@@ -46,8 +46,6 @@ interface Match {
   rank: Rank;
   /** The Spanish headword matches (with or without its article). */
   viaEs: boolean;
-  /** First matching `de` entry, if any. */
-  viaDe?: string;
 }
 
 /** Best match of a vocab entry against an already normalized, non-empty query. */
@@ -56,18 +54,14 @@ function matchVocab(v: Vocab, q: string): Match | null {
   const esRanks = es.map((t) => rankOf(t, q)).filter((r) => r !== null);
   const esRank = esRanks.length ? Math.min(...esRanks) : null;
   let deRank: Rank | null = null;
-  let viaDe: string | undefined;
   for (const d of v.de) {
     const r = rankOf(normalizeForSearch(d), q);
-    if (r === null) continue;
-    viaDe ??= d;
-    if (deRank === null || r < deRank) deRank = r;
+    if (r !== null && (deRank === null || r < deRank)) deRank = r;
   }
   if (esRank === null && deRank === null) return null;
   return {
     rank: Math.min(esRank ?? 2, deRank ?? 2) as Rank,
     viaEs: esRank !== null,
-    viaDe,
   };
 }
 
@@ -118,32 +112,6 @@ export function searchVocab(
   return out.sort(compareHeadword);
 }
 
-export interface ExistingHit {
-  vocab: Vocab;
-  /** Matching German entry, only set when the Spanish word itself does not match. */
-  viaDe?: string;
-}
-
-export const EXISTING_MIN_LENGTH = 2;
-
-/** Pre-check when adding a word: what the dictionary search would find (all levels). */
-export function findExisting(
-  vocab: Iterable<Vocab>,
-  input: string,
-  limit = 5,
-): { items: ExistingHit[]; total: number } {
-  const q = normalizeForSearch(input);
-  if (q.length < EXISTING_MIN_LENGTH) return { items: [], total: 0 };
-  const all = matchAll(vocab, q);
-  return {
-    items: all.slice(0, limit).map(({ vocab: v, match }) => ({
-      vocab: v,
-      viaDe: match.viaEs ? undefined : match.viaDe,
-    })),
-    total: all.length,
-  };
-}
-
 const ARTICLE = /^(el\/la|el|la|los|las|un|una)\s+/i;
 
 /** Spanish word without leading article, used for sorting and matching. */
@@ -155,14 +123,14 @@ function compareHeadword(a: Vocab, b: Vocab): number {
   return stripArticle(a.es).localeCompare(stripArticle(b.es), "es");
 }
 
-/** Topic dropdown entries: Grundwortschatz first, the rest in file order, own words last. */
+/** Topic dropdown entries: Grundwortschatz first, the rest in file order. */
 export function topicOptions(
   topics: readonly { key: string; label: string }[],
 ): [string, string][] {
   const entries = [...new Map(topics.map((t) => [t.key, t.label])).entries()];
   const core = entries.filter(([key]) => key === "grundwortschatz");
   const rest = entries.filter(([key]) => key !== "grundwortschatz");
-  return [...core, ...rest, ["eigene", "Eigene Wörter"]];
+  return [...core, ...rest];
 }
 
 /**

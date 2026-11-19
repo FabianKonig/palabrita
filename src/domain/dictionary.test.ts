@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import {
   changeFilter,
   EMPTY_FILTERS,
-  findExisting,
   matchesQuery,
   normalizeForSearch,
   searchVocab,
@@ -16,7 +15,7 @@ function v(partial: Partial<Vocab> & Pick<Vocab, "id" | "es">): Vocab {
     pos: "noun",
     level: "A1",
     topic: "essen",
-    example: null,
+    example: { es: "Ejemplo.", de: "Beispiel." },
     ...partial,
   };
 }
@@ -34,7 +33,6 @@ const VOCAB: Vocab[] = [
     verb: { tags: ["ue"], reflexive: false },
   }),
   v({ id: "4", es: "el pasado", de: ["Vergangenheit"], level: "B1" }),
-  v({ id: "5", es: "mi palabra", de: ["Wort"], level: null, topic: "eigene" }),
 ];
 
 const ids = (list: Vocab[]) => list.map((x) => x.id);
@@ -61,7 +59,7 @@ describe("matchesQuery", () => {
 
 describe("searchVocab", () => {
   it("shows all levels, the maximum level does not matter", () => {
-    expect(ids(searchVocab(VOCAB, EMPTY_FILTERS))).toHaveLength(5);
+    expect(ids(searchVocab(VOCAB, EMPTY_FILTERS))).toHaveLength(4);
     expect(
       ids(searchVocab(VOCAB, { ...EMPTY_FILTERS, query: "poder" })),
     ).toEqual(["3"]);
@@ -69,7 +67,7 @@ describe("searchVocab", () => {
 
   it("sorts by Spanish headword without article, ignoring input order", () => {
     const sorted = ids(searchVocab([...VOCAB].reverse(), EMPTY_FILTERS));
-    expect(sorted).toEqual(["1", "2", "5", "4", "3"]);
+    expect(sorted).toEqual(["1", "2", "4", "3"]);
   });
 
   it("sorts el/la words by the word after the article", () => {
@@ -89,11 +87,6 @@ describe("searchVocab", () => {
     ]);
     expect(ids(searchVocab(VOCAB, { ...f, level: "A2" }))).toEqual(["3"]);
     expect(ids(searchVocab(VOCAB, { ...f, pos: "verb" }))).toEqual(["3"]);
-  });
-
-  it("a concrete level filter excludes user words (level null)", () => {
-    const r = searchVocab(VOCAB, { ...EMPTY_FILTERS, level: "A1" });
-    expect(ids(r)).not.toContain("5");
   });
 
   it("ignores the filters while a search text is set", () => {
@@ -162,58 +155,6 @@ describe("searchVocab ranking", () => {
   });
 });
 
-describe("findExisting", () => {
-  const list = [
-    v({ id: "1", es: "el coche", de: ["Auto", "Wagen"], level: "B1" }),
-    v({ id: "2", es: "la autopista", de: ["Autobahn"] }),
-    v({
-      id: "3",
-      es: "mi palabra",
-      de: ["Wort"],
-      level: null,
-      topic: "eigene",
-    }),
-  ];
-
-  it("finds German input, including words above any level, with the matching de entry", () => {
-    const r = findExisting(list, "Auto");
-    expect(r.total).toBe(2);
-    expect(r.items.map((h) => h.vocab.id)).toEqual(["1", "2"]);
-    expect(r.items[0].viaDe).toBe("Auto");
-    expect(r.items[1].viaDe).toBeUndefined(); // "autopista" matches via es
-  });
-
-  it("finds Spanish input without viaDe", () => {
-    const r = findExisting(list, "palabra");
-    expect(r.items).toEqual([{ vocab: list[2], viaDe: undefined }]);
-  });
-
-  it("is accent and umlaut insensitive", () => {
-    expect(findExisting(list, "COCHE").total).toBe(1);
-    expect(
-      findExisting([v({ id: "u", es: "sobre", de: ["über"] })], "uber").total,
-    ).toBe(1);
-  });
-
-  it("returns nothing for input shorter than 2 characters", () => {
-    expect(findExisting(list, "a")).toEqual({ items: [], total: 0 });
-    expect(findExisting(list, "  ")).toEqual({ items: [], total: 0 });
-  });
-
-  it("limits the items but reports the total", () => {
-    const many = Array.from({ length: 8 }, (_, i) =>
-      v({ id: String(i), es: "casa" + i, de: ["Haus"] }),
-    );
-    const r = findExisting(many, "haus", 5);
-    expect(r.items).toHaveLength(5);
-    expect(r.total).toBe(8);
-  });
-
-  it("no match, no items", () => {
-    expect(findExisting(list, "xyz")).toEqual({ items: [], total: 0 });
-  });
-});
-
 describe("topicOptions", () => {
   const topics = [
     { key: "begruessung", label: "Begrüßung" },
@@ -221,12 +162,11 @@ describe("topicOptions", () => {
     { key: "grundwortschatz", label: "Grundwortschatz (häufigste Wörter)" },
   ];
 
-  it("puts Grundwortschatz first, then the other topics, own words last", () => {
+  it("puts Grundwortschatz first, then the other topics in order", () => {
     expect(topicOptions(topics).map(([key]) => key)).toEqual([
       "grundwortschatz",
       "begruessung",
       "essen",
-      "eigene",
     ]);
   });
 
@@ -235,13 +175,11 @@ describe("topicOptions", () => {
       "grundwortschatz",
       "Grundwortschatz (häufigste Wörter)",
     ]);
-    expect(topicOptions(topics).at(-1)).toEqual(["eigene", "Eigene Wörter"]);
   });
 
   it("works without a Grundwortschatz topic", () => {
     expect(topicOptions([topics[0]]).map(([key]) => key)).toEqual([
       "begruessung",
-      "eigene",
     ]);
   });
 });

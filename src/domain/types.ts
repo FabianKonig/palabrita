@@ -27,15 +27,10 @@ export interface Vocab {
   de: string[];
   es: string;
   pos: Pos;
-  /** null only for user words: always visible. */
-  level: Level | null;
+  level: Level;
+  /** One of the topic keys in public/vocab/index.json. */
   topic: string;
-  origin?: "user";
-  createdAt?: number;
-  /** Last edit of a user word (ms), decides merge conflicts on import. */
-  updatedAt?: number;
-  verified?: false;
-  example: { es: string; de: string } | null;
+  example: { es: string; de: string };
   note?: string | null;
   gender?: "m" | "f" | "m/f" | null;
   plural?: string | null;
@@ -45,7 +40,7 @@ export interface Vocab {
 
 /** The single visibility rule. */
 export function isVisible(v: Pick<Vocab, "level">, maxLevel: Level): boolean {
-  return v.level === null || LEVEL_ORDER[v.level] <= LEVEL_ORDER[maxLevel];
+  return LEVEL_ORDER[v.level] <= LEVEL_ORDER[maxLevel];
 }
 
 export type Direction = "de-es" | "es-de";

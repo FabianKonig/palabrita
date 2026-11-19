@@ -127,22 +127,8 @@ describe("pickNext priorities", () => {
     expect(later?.kind).toBe("learning");
   });
 
-  it("3: new cards: own words first (createdAt), then static by id", () => {
-    const v = [
-      vocab("v0001"),
-      vocab("u1", {
-        level: null,
-        origin: "user",
-        createdAt: 200,
-        topic: "eigene",
-      }),
-      vocab("u0", {
-        level: null,
-        origin: "user",
-        createdAt: 100,
-        topic: "eigene",
-      }),
-    ];
+  it("3: new cards in the order of the vocabulary ids", () => {
+    const v = [vocab("v0001"), vocab("v0003"), vocab("v0002")];
     const s = settings({ maxLevel: "A1", direction: "de-es" });
     const order: string[] = [];
     let cards: Card[] = [];
@@ -151,7 +137,7 @@ describe("pickNext priorities", () => {
       order.push(id(p)!);
       cards = [...cards, learning(p!.item.vocabId, p!.item.dir, NOW + MIN)];
     }
-    expect(order).toEqual(["u0:de-es", "u1:de-es", "v0001:de-es"]);
+    expect(order).toEqual(["v0001:de-es", "v0002:de-es", "v0003:de-es"]);
   });
 
   it("MAX_LEARNING caps new cards: 25 learning -> no 26th, 24 -> new one", () => {
@@ -344,25 +330,6 @@ describe("visibility and filters", () => {
       card("gone", "de-es", 0),
     ];
     expect(id(pick({ vocab: v, cards, settings: s }))).toBe("v2:de-es");
-  });
-
-  it("level filter excludes user words, topic filter selects them", () => {
-    const v = [
-      vocab("v1"),
-      vocab("u1", {
-        level: null,
-        origin: "user",
-        createdAt: 1,
-        topic: "eigene",
-      }),
-    ];
-    const s = settings({ direction: "de-es" });
-    expect(id(pick({ vocab: v, settings: s, filters: { level: "A1" } }))).toBe(
-      "v1:de-es",
-    );
-    expect(
-      id(pick({ vocab: v, settings: s, filters: { topic: "eigene" } })),
-    ).toBe("u1:de-es");
   });
 
   it("filters by pos", () => {

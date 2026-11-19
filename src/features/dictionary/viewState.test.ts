@@ -27,20 +27,17 @@ describe("dictionary view state", () => {
     expect(getSavedScroll()).toBe(1234);
   });
 
-  it.each([
-    "/dictionary",
-    "/dictionary/v0042",
-    "/dictionary/v0042/edit",
-    "/add",
-    "/legend",
-  ])("keeps filters and scroll on %s (reached from the dictionary)", (path) => {
-    saveFilters(FILTERS);
-    saveScroll(500);
-    onNavigate(path);
-    expect(isDictionaryArea(path)).toBe(true);
-    expect(getSavedFilters()).toEqual(FILTERS);
-    expect(getSavedScroll()).toBe(500);
-  });
+  it.each(["/dictionary", "/dictionary/v0042", "/legend"])(
+    "keeps filters and scroll on %s (reached from the dictionary)",
+    (path) => {
+      saveFilters(FILTERS);
+      saveScroll(500);
+      onNavigate(path);
+      expect(isDictionaryArea(path)).toBe(true);
+      expect(getSavedFilters()).toEqual(FILTERS);
+      expect(getSavedScroll()).toBe(500);
+    },
+  );
 
   it.each(["/", "/stats", "/more", "/settings"])(
     "resets filters and scroll when switching to %s",
@@ -56,6 +53,5 @@ describe("dictionary view state", () => {
 
   it("does not treat similar paths as the dictionary area", () => {
     expect(isDictionaryArea("/dictionaryx")).toBe(false);
-    expect(isDictionaryArea("/addons")).toBe(false);
   });
 });

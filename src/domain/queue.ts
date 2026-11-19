@@ -70,12 +70,8 @@ function matchesFilters(v: Vocab, f: QueueFilters): boolean {
   return true;
 }
 
-/** Own words (by createdAt) first, then static words by id. */
+/** New cards in the order of the vocabulary ids. */
 function compareNewOrder(a: Vocab, b: Vocab): number {
-  const aUser = a.origin === "user";
-  const bUser = b.origin === "user";
-  if (aUser !== bUser) return aUser ? -1 : 1;
-  if (aUser) return (a.createdAt ?? 0) - (b.createdAt ?? 0);
   return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
 }
 

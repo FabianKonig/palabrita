@@ -15,8 +15,6 @@ import {
   type WelcomeOutletContext,
 } from "./components/WelcomeOverlay";
 import { isWelcomeSeen, markWelcomeSeen } from "./data/welcomeFlag";
-import { Add } from "./features/add/Add";
-import { EditWord } from "./features/add/EditWord";
 import { Dictionary } from "./features/dictionary/Dictionary";
 import { onNavigate } from "./features/dictionary/viewState";
 import { VocabDetail } from "./features/dictionary/VocabDetail";
@@ -81,8 +79,6 @@ export function App() {
             <Route path="dictionary" element={<Dictionary />} />
             <Route path="dictionary/:id" element={<VocabDetail />} />
             <Route path="legend" element={<Legend />} />
-            <Route path="add" element={<Add />} />
-            <Route path="dictionary/:id/edit" element={<EditWord />} />
             <Route path="stats" element={<Stats />} />
             <Route path="settings" element={<Settings />} />
             <Route path="more" element={<More />} />

@@ -1,13 +1,12 @@
 import "fake-indexeddb/auto";
 import { IDBFactory } from "fake-indexeddb";
 import { beforeEach, describe, expect, it } from "vitest";
-import { DEFAULT_SETTINGS, type Card, type Vocab } from "../domain/types";
+import { DEFAULT_SETTINGS, type Card } from "../domain/types";
 import { closeDb, getDb } from "./db";
 import {
   applyImport,
   buildExport,
   mergeCards,
-  mergeUserVocab,
   parseExport,
   SCHEMA_VERSION,
 } from "./exportImport";
@@ -30,26 +29,6 @@ function card(
   };
 }
 
-function word(
-  id: string,
-  createdAt: number,
-  es = id,
-  updatedAt?: number,
-): Vocab {
-  return {
-    id,
-    de: ["x"],
-    es,
-    pos: "noun",
-    level: null,
-    topic: "eigene",
-    origin: "user",
-    createdAt,
-    ...(updatedAt !== undefined && { updatedAt }),
-    example: null,
-  };
-}
-
 beforeEach(async () => {
   await closeDb();
   globalThis.indexedDB = new IDBFactory();
@@ -59,7 +38,6 @@ async function seed() {
   const db = await getDb();
   await db.put("settings", { ...DEFAULT_SETTINGS, maxLevel: "A2" }, "main");
   await db.put("cards", card("v1", 100, 6));
-  await db.put("userVocab", word("u1", 10));
 }
 
 describe("export/import roundtrip", () => {
@@ -73,7 +51,6 @@ describe("export/import roundtrip", () => {
     const again = await buildExport(0);
     expect(again).toEqual(JSON.parse(text));
     expect(again.settings.maxLevel).toBe("A2");
-    expect(again.userVocab).toHaveLength(1);
   });
 
   it("replace removes local data that is not in the file", async () => {
@@ -110,32 +87,6 @@ describe("merge rules", () => {
     expect(merged[0].interval).toBe(1);
   });
 
-  it("userVocab: the more recent change wins, tie keeps local", () => {
-    const merged = mergeUserVocab(
-      [word("a", 10, "local"), word("b", 10, "local")],
-      [word("a", 20, "new"), word("b", 10, "other"), word("c", 1)],
-    );
-    const by = new Map(merged.map((v) => [v.id, v.es]));
-    expect(by.get("a")).toBe("new");
-    expect(by.get("b")).toBe("local");
-    expect(by.has("c")).toBe(true);
-  });
-
-  it("userVocab: an edit (updatedAt) beats an older copy, even with the same createdAt", () => {
-    const edited = word("a", 10, "edited", 500);
-    expect(mergeUserVocab([word("a", 10, "old")], [edited])[0].es).toBe(
-      "edited",
-    );
-    // the other way round the local edit stays
-    expect(mergeUserVocab([edited], [word("a", 10, "old")])[0].es).toBe(
-      "edited",
-    );
-    // words without updatedAt (older exports) count by createdAt
-    expect(
-      mergeUserVocab([word("b", 10, "x")], [word("b", 5, "y", 7)])[0].es,
-    ).toBe("x");
-  });
-
   it("merge keeps local settings", async () => {
     await seed();
     const file = parseExport(JSON.stringify(await buildExport(0)));
@@ -152,11 +103,17 @@ describe("parseExport validation", () => {
     exportedAt: "x",
     settings: DEFAULT_SETTINGS,
     cards: [],
-    userVocab: [],
   });
 
   it("accepts a valid file", () => {
     expect(() => parseExport(JSON.stringify(valid()))).not.toThrow();
+  });
+
+  it("ignores the own-words list of files from older versions", () => {
+    const file = parseExport(
+      JSON.stringify({ ...valid(), userVocab: [{ id: "u1" }] }),
+    );
+    expect(file).not.toHaveProperty("userVocab");
   });
 
   it("accepts cards without step (review phase)", async () => {

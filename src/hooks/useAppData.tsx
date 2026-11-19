@@ -9,7 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import { getSettings, saveSettings } from "../data/settingsRepo";
-import { deleteUserVocab, loadVocab, saveUserVocab } from "../data/vocabRepo";
+import { loadVocab } from "../data/vocabRepo";
 import type { Settings, Topic, Vocab } from "../domain/types";
 
 interface AppData {
@@ -18,10 +18,6 @@ interface AppData {
   settings: Settings;
   /** Applies the change at once and persists it. */
   updateSettings: (patch: Partial<Settings>) => Promise<void>;
-  /** Creates or edits a user word; returns the stored word. */
-  saveWord: (v: Vocab) => Promise<Vocab>;
-  /** Deletes a user word including its cards. */
-  removeWord: (id: string) => Promise<void>;
 }
 
 type State =
@@ -77,26 +73,6 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     await saveSettings(next);
   }, []);
 
-  const saveWord = useCallback(async (v: Vocab) => {
-    const saved = await saveUserVocab(v);
-    setState((s) =>
-      s.status === "ready"
-        ? { ...s, vocab: new Map(s.vocab).set(saved.id, saved) }
-        : s,
-    );
-    return saved;
-  }, []);
-
-  const removeWord = useCallback(async (id: string) => {
-    await deleteUserVocab(id);
-    setState((s) => {
-      if (s.status !== "ready") return s;
-      const vocab = new Map(s.vocab);
-      vocab.delete(id);
-      return { ...s, vocab };
-    });
-  }, []);
-
   const data = useMemo<AppData | null>(
     () =>
       state.status === "ready"
@@ -105,11 +81,9 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
             topics: state.topics,
             settings: state.settings,
             updateSettings,
-            saveWord,
-            removeWord,
           }
         : null,
-    [state, updateSettings, saveWord, removeWord],
+    [state, updateSettings],
   );
 
   if (state.status === "loading")

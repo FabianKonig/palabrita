@@ -1,4 +1,4 @@
-import type { Card, Settings, Vocab } from "../domain/types";
+import type { Card, Settings } from "../domain/types";
 import { DEFAULT_SETTINGS } from "../domain/types";
 import { getDb } from "./db";
 
@@ -9,7 +9,6 @@ export interface ExportFile {
   exportedAt: string;
   settings: Settings;
   cards: Card[];
-  userVocab: Vocab[];
 }
 
 export type ImportMode = "merge" | "replace";
@@ -50,19 +49,6 @@ function validCard(c: unknown): c is Card {
   );
 }
 
-function validUserVocab(v: unknown): v is Vocab {
-  return (
-    isObj(v) &&
-    typeof v.id === "string" &&
-    typeof v.es === "string" &&
-    Array.isArray(v.de) &&
-    v.de.length > 0 &&
-    v.de.every((d) => typeof d === "string") &&
-    typeof v.pos === "string" &&
-    typeof v.topic === "string"
-  );
-}
-
 /** Parses and validates an export file. Throws an Error with a German message. */
 export function parseExport(text: string): ExportFile {
   let raw: unknown;
@@ -82,9 +68,6 @@ export function parseExport(text: string): ExportFile {
     throw new Error("Die Einstellungen in der Datei sind ungültig.");
   if (!Array.isArray(raw.cards) || !raw.cards.every(validCard))
     throw new Error("Die Karten in der Datei sind ungültig.");
-  const userVocab = raw.userVocab;
-  if (!Array.isArray(userVocab) || !userVocab.every(validUserVocab))
-    throw new Error("Die eigenen Wörter in der Datei sind ungültig.");
   return {
     schemaVersion: raw.schemaVersion,
     exportedAt: typeof raw.exportedAt === "string" ? raw.exportedAt : "",
@@ -93,7 +76,6 @@ export function parseExport(text: string): ExportFile {
       theme: raw.settings.theme,
     },
     cards: raw.cards,
-    userVocab,
   };
 }
 
@@ -111,7 +93,6 @@ export async function buildExport(now = Date.now()): Promise<ExportFile> {
     exportedAt: new Date(now).toISOString(),
     settings,
     cards: await db.getAll("cards"),
-    userVocab: await db.getAll("userVocab"),
   };
 }
 
@@ -129,43 +110,23 @@ export function mergeCards(local: Card[], incoming: Card[]): Card[] {
   return [...map.values()];
 }
 
-/** Time of the last change of a user word; words from before `updatedAt` count by createdAt. */
-const changedAt = (v: Vocab) => v.updatedAt ?? v.createdAt ?? 0;
-
-/** Per id; the more recently changed entry wins, ties keep the local entry. */
-export function mergeUserVocab(local: Vocab[], incoming: Vocab[]): Vocab[] {
-  const map = new Map(local.map((v) => [v.id, v]));
-  for (const v of incoming) {
-    const mine = map.get(v.id);
-    if (!mine || changedAt(v) > changedAt(mine)) map.set(v.id, v);
-  }
-  return [...map.values()];
-}
-
 /** Applies an already validated file in one transaction (all or nothing). */
 export async function applyImport(
   file: ExportFile,
   mode: ImportMode,
 ): Promise<void> {
   const db = await getDb();
-  const tx = db.transaction(["settings", "cards", "userVocab"], "readwrite");
+  const tx = db.transaction(["settings", "cards"], "readwrite");
   const cards = tx.objectStore("cards");
-  const userVocab = tx.objectStore("userVocab");
 
   let nextCards: Card[];
-  let nextVocab: Vocab[];
   if (mode === "replace") {
     nextCards = file.cards;
-    nextVocab = file.userVocab;
     await tx.objectStore("settings").put(file.settings, "main");
-    await Promise.all([cards.clear(), userVocab.clear()]);
+    await cards.clear();
   } else {
     nextCards = mergeCards(await cards.getAll(), file.cards);
-    nextVocab = mergeUserVocab(await userVocab.getAll(), file.userVocab);
   }
-  await Promise.all([
-    ...nextCards.map((c) => cards.put(c)),
-    ...nextVocab.map((v) => userVocab.put(v)),
-  ]);
+  await Promise.all(nextCards.map((c) => cards.put(c)));
   await tx.done;
 }

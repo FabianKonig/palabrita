@@ -1,5 +1,5 @@
-import { useLayoutEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useLayoutEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { VerbDetail, WordHead } from "../../components/VerbDetail";
 import { POS_LABEL } from "../../domain/dictionary";
 import { LEVEL_ORDER } from "../../domain/types";
@@ -9,9 +9,7 @@ const GENDER_LABEL = { m: "maskulin", f: "feminin", "m/f": "maskulin/feminin" };
 
 export function VocabDetail() {
   const { id = "" } = useParams();
-  const { vocab, topics, settings, removeWord } = useAppData();
-  const navigate = useNavigate();
-  const [confirmDelete, setConfirmDelete] = useState(false);
+  const { vocab, topics, settings } = useAppData();
   const entry = vocab.get(id);
 
   // A new detail page always starts at the top. The window keeps the list's scroll
@@ -33,29 +31,25 @@ export function VocabDetail() {
     );
   }
 
-  const topic =
-    entry.topic === "eigene"
-      ? "Eigene Wörter"
-      : (topics.find((t) => t.key === entry.topic)?.label ?? entry.topic);
+  const topic = topics.find((t) => t.key === entry.topic)?.label ?? entry.topic;
 
   const body = (
     <>
       <p className="tags">
         <span className="badge">{POS_LABEL[entry.pos]}</span>
-        {entry.level && <span className="badge">{entry.level}</span>}
+        <span className="badge">{entry.level}</span>
         <span className="badge">{topic}</span>
         {entry.gender && (
           <span className="badge">{GENDER_LABEL[entry.gender]}</span>
         )}
       </p>
 
-      {entry.level &&
-        LEVEL_ORDER[entry.level] > LEVEL_ORDER[settings.maxLevel] && (
-          <p className="muted">
-            Liegt über deinem Niveau ({settings.maxLevel}), wird derzeit nicht
-            gelernt.
-          </p>
-        )}
+      {LEVEL_ORDER[entry.level] > LEVEL_ORDER[settings.maxLevel] && (
+        <p className="muted">
+          Liegt über deinem Niveau ({settings.maxLevel}), wird derzeit nicht
+          gelernt.
+        </p>
+      )}
 
       {entry.plural && (
         <p>
@@ -76,12 +70,10 @@ export function VocabDetail() {
       )}
       {entry.note && <p className="notice">{entry.note}</p>}
 
-      {entry.example && (
-        <blockquote className="example-box">
-          <span className="example">{entry.example.es}</span>
-          <span className="example-de">{entry.example.de}</span>
-        </blockquote>
-      )}
+      <blockquote className="example-box">
+        <span className="example">{entry.example.es}</span>
+        <span className="example-de">{entry.example.de}</span>
+      </blockquote>
     </>
   );
 
@@ -98,50 +90,6 @@ export function VocabDetail() {
           <WordHead vocab={entry} />
           {body}
         </>
-      )}
-
-      {entry.origin === "user" && (
-        <div className="backup-actions">
-          <Link
-            className="btn"
-            to={`/dictionary/${encodeURIComponent(id)}/edit`}
-          >
-            Bearbeiten
-          </Link>
-          {!confirmDelete ? (
-            <button
-              type="button"
-              className="btn"
-              onClick={() => setConfirmDelete(true)}
-            >
-              Löschen …
-            </button>
-          ) : (
-            <>
-              <span className="notice">
-                Wort und Lernfortschritt endgültig löschen?
-              </span>
-              <button
-                type="button"
-                className="btn"
-                onClick={() =>
-                  void removeWord(entry.id).then(() =>
-                    navigate("/dictionary", { replace: true }),
-                  )
-                }
-              >
-                Ja, löschen
-              </button>
-              <button
-                type="button"
-                className="btn"
-                onClick={() => setConfirmDelete(false)}
-              >
-                Abbrechen
-              </button>
-            </>
-          )}
-        </div>
       )}
     </div>
   );

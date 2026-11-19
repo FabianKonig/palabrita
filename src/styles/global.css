@@ -921,66 +921,6 @@ table.forms th {
   margin: 12px 0;
 }
 
-/* Add word */
-.add-search {
-  display: flex;
-  gap: 8px;
-}
-
-.add-search .field {
-  flex: 1;
-}
-
-.de-row {
-  display: flex;
-  gap: 8px;
-}
-
-.de-row input {
-  flex: 1;
-}
-
-.btn-small,
-.link-button,
-.choice {
-  min-height: 48px;
-  padding: 0 16px;
-  border: 0;
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  color: var(--text);
-  font: inherit;
-  cursor: pointer;
-}
-
-.link-button {
-  min-height: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--turquoise-dark);
-  text-decoration: underline;
-}
-
-.choice {
-  width: 100%;
-  padding: 12px 16px;
-  text-align: left;
-}
-
-.tag-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 16px;
-}
-
-fieldset.setting {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
 /* Update banner */
 .update-banner {
   position: sticky;
@@ -1409,11 +1349,6 @@ select.field,
   margin: 12px 0;
 }
 
-.dict-section .dict-add {
-  width: 100%;
-  margin-top: 16px;
-}
-
 /* Switch (checkbox shown as toggle) */
 .switch {
   display: flex;
@@ -1491,33 +1426,4 @@ select.field,
 
 .legal a {
   color: var(--turquoise-dark);
-}
-
-/* Vorabprüfung beim Hinzufügen: „Schon vorhanden“ mit Links (Touch-Ziel ≥ 48 px) */
-.existing {
-  margin: 12px 0;
-}
-
-.existing p {
-  margin: 0;
-}
-
-.existing-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.existing-list a {
-  display: flex;
-  align-items: center;
-  min-height: 48px;
-  color: inherit;
-  font-weight: 700;
-  text-decoration: underline;
-  overflow-wrap: anywhere;
-}
-
-.existing-list .via {
-  font-weight: 400;
 }

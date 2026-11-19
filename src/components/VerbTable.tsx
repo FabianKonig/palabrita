@@ -94,9 +94,6 @@ export function VerbTable({
           {regularLabel}
         </span>
       </p>
-      {vocab.verified === false && (
-        <p className="notice">Formen automatisch erzeugt, nicht geprüft.</p>
-      )}
 
       {(Object.keys(TENSE_LABEL) as Tense[]).map((tense) => (
         <div className="tense" key={tense}>

@@ -1,14 +1,14 @@
 import { EMPTY_FILTERS, type DictionaryFilters } from "../../domain/dictionary";
 
 /**
- * What the dictionary list remembers while the user stays in its area (detail page, edit,
- * add word, legend): filters and scroll position. Switching to another tab resets it.
+ * What the dictionary list remembers while the user stays in its area (detail page, legend):
+ * filters and scroll position. Switching to another tab resets it.
  */
 let filters: DictionaryFilters = EMPTY_FILTERS;
 let scroll = 0;
 
 /** Pages reached from the dictionary; going anywhere else resets the view state. */
-const DICTIONARY_AREA = /^\/(dictionary|add|legend)(\/|$)/;
+const DICTIONARY_AREA = /^\/(dictionary|legend)(\/|$)/;
 
 export const isDictionaryArea = (pathname: string) =>
   DICTIONARY_AREA.test(pathname);

@@ -34,7 +34,7 @@ describe("legend", () => {
     expect([...missing]).toEqual([]);
   });
 
-  it("explains all notations the app can generate (also for user words)", () => {
+  it("explains all notations the app can generate", () => {
     const all = [
       "e → ie",
       "o → ue",

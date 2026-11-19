@@ -350,34 +350,6 @@ async function main() {
       /Lernend[\s\S]{0,6}3/.test(statsText),
   );
 
-  // 8. Add a word by hand (works without network), then keep it after reload.
-  await send("Page.navigate", { url: `${BASE}#/add` });
-  await waitFor(
-    `document.querySelector('input[aria-label="Spanisches Wort"]')`,
-    "Add",
-  );
-  await setInput('input[aria-label="Spanisches Wort"]', "la quesadilla");
-  await clickText("selbst eintragen", "button");
-  await waitFor(
-    `document.querySelector('input[aria-label="Deutsch 1"]')`,
-    "Formular",
-  );
-  await setInput('input[aria-label="Deutsch 1"]', "Quesadilla");
-  await clickText("Zur Vokabelliste hinzufügen", "button");
-  const added = await waitFor(
-    `location.hash.startsWith("#/dictionary/u")`,
-    "Detailseite eigenes Wort",
-  );
-  check(
-    "Eigenes Wort wird angelegt (ID u…)",
-    added,
-    await evaluate<string>("location.hash"),
-  );
-  await evaluate("location.reload()");
-  await waitFor(`document.querySelector("h1")`, "h1");
-  await sleep(500);
-  check("Eigenes Wort bleibt nach Neuladen", /quesadilla/.test(await text()));
-
   // 8b. Legend explains the verb notation.
   await send("Page.navigate", { url: `${BASE}#/legend` });
   await waitFor(
@@ -569,14 +541,6 @@ async function main() {
     "Verzeichnis: nur ein Abschnitt „Wörter“ (Suche oben)",
     sections.join("|") === "Wörter",
     sections.join("|"),
-  );
-  check(
-    "Verzeichnis: „Neues Wort hinzufügen“ steht am Ende der Liste",
-    await evaluate<boolean>(`(() => {
-      const btn = document.querySelector(".dict-add");
-      return !!btn && btn.textContent === "Neues Wort hinzufügen"
-        && btn.closest(".dict-section").lastElementChild === btn;
-    })()`),
   );
   const dictTopics = await evaluate<string[]>(
     `[...document.querySelector('select[aria-label="Thema"]').options].map((o) => o.textContent)`,
@@ -783,7 +747,6 @@ async function main() {
     "legend",
     "imprint",
     "privacy",
-    "add",
   ];
   const cornerPositions: string[] = [];
   for (const route of cornerRoutes) {
@@ -827,100 +790,6 @@ async function main() {
     "Einstellungen: keine Versionszeile mehr",
     !(await evaluate<boolean>(`!!document.querySelector(".app-version")`)),
   );
-
-  // 8e8. „Neues Wort hinzufügen“ am Ende der Liste übernimmt den Suchtext.
-  await send("Page.navigate", { url: `${BASE}#/dictionary` });
-  await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
-  await setInput('input[type="search"]', "gato");
-  await sleep(300);
-  check(
-    "Verzeichnis: Button „Neues Wort hinzufügen“ ist letztes Element der Liste",
-    await evaluate<boolean>(`(() => {
-      const btn = document.querySelector(".dict-add");
-      return !!btn && btn.textContent === "Neues Wort hinzufügen"
-        && btn.closest(".dict-section").lastElementChild === btn;
-    })()`),
-  );
-  await evaluate(`document.querySelector(".dict-add").click()`);
-  await waitFor(
-    `location.hash === "#/add?q=gato"`,
-    "Hinzufügen-Seite mit Suchtext",
-  );
-  check(
-    "Verzeichnis: Button übernimmt Suchtext ins Feld",
-    await evaluate<boolean>(
-      `document.querySelector('input[aria-label="Spanisches Wort"]').value === "gato"`,
-    ),
-  );
-  // Vorabprüfung (SPEC §3.5): „Schon vorhanden“ mit Link, ohne Netz, Nachschlagen bleibt aktiv.
-  await setInput('input[aria-label="Spanisches Wort"]', "casa");
-  await waitFor(`document.querySelector(".existing")`, "Vorabprüfung");
-  await sleep(300);
-  const hint = await evaluate<string>(`JSON.stringify({
-    text: document.querySelector(".existing")?.innerText ?? "",
-    href: document.querySelector(".existing a")?.getAttribute("href") ?? "",
-    h: Math.round(document.querySelector(".existing a")?.getBoundingClientRect().height ?? 0),
-    btn: !document.querySelector('.add-search button[type="submit"]').disabled,
-  })`);
-  const hintObj = JSON.parse(hint) as {
-    text: string;
-    href: string;
-    h: number;
-    btn: boolean;
-  };
-  check(
-    "Hinzufügen: Vorabprüfung zeigt „Schon vorhanden“ mit Link, Nachschlagen bleibt aktiv",
-    /Schon vorhanden/.test(hintObj.text) &&
-      /la casa/.test(hintObj.text) &&
-      hintObj.href.startsWith("#/dictionary/") &&
-      hintObj.h >= 48 &&
-      hintObj.btn,
-    hint,
-  );
-  await setInput('input[aria-label="Spanisches Wort"]', "Bohne");
-  await sleep(300);
-  const bohne = await evaluate<string>(
-    `document.querySelector(".existing")?.innerText ?? ""`,
-  );
-  check(
-    "Hinzufügen: deutsche Eingabe „Bohne“ zeigt „el frijol (Bohne)“",
-    /el frijol \(Bohne\)/.test(bohne),
-    bohne.replace(/\s+/g, " "),
-  );
-  await setInput('input[aria-label="Spanisches Wort"]', "xqzv");
-  await sleep(300);
-  check(
-    "Hinzufügen: ohne Treffer keine Vorabprüfung",
-    !(await evaluate<boolean>(`!!document.querySelector(".existing")`)),
-  );
-  // Suchtext wieder leeren, sonst zählt der Offline-Test nur die Treffer.
-  await send("Page.navigate", { url: `${BASE}#/dictionary` });
-  await waitFor(`document.querySelector('input[type="search"]')`, "Suche");
-  await setInput('input[type="search"]', "");
-  await sleep(300);
-
-  // 8f. Real lookup on de.wiktionary.org (needs network).
-  await send("Page.navigate", { url: `${BASE}#/add` });
-  await waitFor(
-    `document.querySelector('input[aria-label="Spanisches Wort"]')`,
-    "Add",
-  );
-  await setInput('input[aria-label="Spanisches Wort"]', "casa");
-  await clickText("Nachschlagen", "button");
-  const found = await waitFor(
-    `document.querySelector('input[value="la casa"]')`,
-    "Treffer casa",
-    15000,
-  );
-  check("Wortsuche findet casa (Formular mit „la casa“)", found);
-  await setInput('input[aria-label="Spanisches Wort"]', "puedo");
-  await clickText("Nachschlagen", "button");
-  const base = await waitFor(
-    `/poder nachschlagen/.test(document.body.innerText)`,
-    "Grundform poder",
-    15000,
-  );
-  check("Wortsuche bietet für puedo die Grundform poder an", base);
 
   // 8g. Speech button on the detail page (voice availability depends on the machine).
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
@@ -1234,8 +1103,8 @@ async function main() {
   );
   check("Offline: App lädt und zeigt das Verzeichnis", offlineOk);
   check(
-    `Offline: ${TOTAL_VOCAB + 1} Einträge (alle + eigenes Wort)`,
-    new RegExp(`${TOTAL_VOCAB + 1} Einträge`).test(await text()),
+    `Offline: ${TOTAL_VOCAB} Einträge`,
+    new RegExp(`${TOTAL_VOCAB} Einträge`).test(await text()),
   );
 }
 

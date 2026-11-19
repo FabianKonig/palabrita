@@ -1,5 +1,5 @@
 import { useLayoutEffect, useMemo, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GermanText } from "../../components/Flashcard";
 import { PageTitle } from "../../components/PageTitle";
 import {
@@ -24,7 +24,6 @@ const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
 
 export function Dictionary() {
   const { vocab, topics } = useAppData();
-  const navigate = useNavigate();
 
   // Back from a detail page (back button or the tab/link „Verzeichnis“): return to the
   // scroll position of the list.
@@ -142,24 +141,12 @@ export function Dictionary() {
                   <span className="de">
                     <GermanText de={v.de} />
                   </span>
-                  <span className="meta">{v.level ?? "eigen"}</span>
+                  <span className="meta">{v.level}</span>
                 </Link>
               </li>
             ))}
           </ul>
         )}
-
-        {/* Immer sichtbar. Ein vorhandener Suchtext wird auf die Hinzufügen-Seite übernommen. */}
-        <button
-          type="button"
-          className="btn dict-add"
-          onClick={() => {
-            const q = filters.query.trim();
-            void navigate(`/add${q ? `?q=${encodeURIComponent(q)}` : ""}`);
-          }}
-        >
-          Neues Wort hinzufügen
-        </button>
       </section>
     </div>
   );

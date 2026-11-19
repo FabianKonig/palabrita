@@ -9,12 +9,8 @@ beforeEach(async () => {
 });
 
 describe("db", () => {
-  it("creates the three stores of a fresh database", async () => {
+  it("creates the two stores of a fresh database", async () => {
     const db = await getDb();
-    expect([...db.objectStoreNames].sort()).toEqual([
-      "cards",
-      "settings",
-      "userVocab",
-    ]);
+    expect([...db.objectStoreNames].sort()).toEqual(["cards", "settings"]);
   });
 });

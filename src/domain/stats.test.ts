@@ -10,7 +10,7 @@ function v(id: string, level: Vocab["level"]): Vocab {
     pos: "noun",
     level,
     topic: "t",
-    example: null,
+    example: { es: "a", de: "b" },
   };
 }
 
@@ -29,18 +29,18 @@ function c(vocabId: string, dir: Card["dir"], state: Card["state"]): Card {
 }
 
 describe("computeStats", () => {
-  const vocab = [v("a", "A1"), v("b", "A2"), v("c", "B1"), v("u", null)];
+  const vocab = [v("a", "A1"), v("b", "A2"), v("c", "B1")];
 
   it("counts unseen cards as new, per direction", () => {
     const s = computeStats(vocab, [c("a", "de-es", "learning")], "B1");
-    expect(s["de-es"]).toEqual({ new: 3, learning: 1, mature: 0 });
-    expect(s["es-de"]).toEqual({ new: 4, learning: 0, mature: 0 });
+    expect(s["de-es"]).toEqual({ new: 2, learning: 1, mature: 0 });
+    expect(s["es-de"]).toEqual({ new: 3, learning: 0, mature: 0 });
   });
 
-  it("only counts vocabulary up to maxLevel (user words always)", () => {
+  it("only counts vocabulary up to maxLevel", () => {
     const cards = [c("c", "de-es", "mature"), c("b", "de-es", "mature")];
     const s = computeStats(vocab, cards, "A2");
-    expect(s["de-es"]).toEqual({ new: 2, learning: 0, mature: 1 });
+    expect(s["de-es"]).toEqual({ new: 1, learning: 0, mature: 1 });
   });
 
   it("ignores cards of vocabulary that no longer exists", () => {

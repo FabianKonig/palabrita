@@ -1,4 +1,4 @@
-import type { Pos, Vocab } from "../types";
+import type { Pos, Vocab } from "./types";
 
 export interface DuplicateResult {
   /** Same normalized form and same part of speech: blocks creating. */

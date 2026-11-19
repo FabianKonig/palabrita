@@ -55,8 +55,7 @@ export default defineConfig({
       workbox: {
         // App shell and all vocabulary files are available offline.
         globPatterns: ["**/*.{js,css,html,svg,png,json,webmanifest}"],
-        // No runtime caching: requests to de/es.wiktionary.org are neither
-        // intercepted nor cached.
+        // No runtime caching: the app makes no requests beyond its own files.
       },
     }),
   ],

@@ -1,6 +1,6 @@
 import Ajv from "ajv";
 import { conjugate } from "../src/domain/conjugation";
-import { findDuplicate } from "../src/domain/lookup/findDuplicate";
+import { findDuplicate } from "../src/domain/findDuplicate";
 import type { Tense, VerbData, VerbTag, Vocab } from "../src/domain/types";
 import schema from "./vocab.schema.json";
 

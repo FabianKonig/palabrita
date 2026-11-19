@@ -38,16 +38,16 @@ export function Imprint() {
       </p>
       <h2>Haftung für Links</h2>
       <p>
-        Die App verweist auf externe Seiten (z. B. Wiktionary). Auf deren
-        Inhalte habe ich keinen Einfluss. Für sie ist stets der jeweilige
-        Anbieter verantwortlich. Bei Bekanntwerden von Rechtsverletzungen
-        entferne ich solche Links umgehend.
+        Die App verlinkt auf externe Seiten (z. B. die Wiktionary als Quelle der
+        Vokabeln). Auf deren Inhalte habe ich keinen Einfluss. Für sie ist stets
+        der jeweilige Anbieter verantwortlich. Bei Bekanntwerden von
+        Rechtsverletzungen entferne ich solche Links umgehend.
       </p>
       <h2>Urheberrecht und Quellen</h2>
       <p>
         Die von mir erstellten Inhalte und Werke unterliegen dem deutschen
         Urheberrecht. Der Quellcode ist nicht zur Vervielfältigung oder
-        Weiterverbreitung freigegeben. Texte, die über die Wortsuche aus der{" "}
+        Weiterverbreitung freigegeben. Die Vokabeln beruhen auf Inhalten aus der{" "}
         <a href="https://de.wiktionary.org" target="_blank" rel="noreferrer">
           deutschen
         </a>{" "}
@@ -55,7 +55,7 @@ export function Imprint() {
         <a href="https://es.wiktionary.org" target="_blank" rel="noreferrer">
           spanischen Wiktionary
         </a>{" "}
-        übernommen werden, stehen unter der Lizenz{" "}
+        und stehen unter der Lizenz{" "}
         <a
           href="https://creativecommons.org/licenses/by-sa/4.0/deed.de"
           target="_blank"

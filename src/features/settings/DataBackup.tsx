@@ -62,9 +62,9 @@ export function DataBackup() {
     <section className="backup">
       <h2>Daten sichern</h2>
       <p className="muted">
-        Fortschritt, Einstellungen und eigene Wörter liegen nur in diesem
-        Browser. Mit Export und Import lassen sie sich sichern oder auf ein
-        anderes Gerät übertragen.
+        Fortschritt und Einstellungen liegen nur in diesem Browser. Mit Export
+        und Import lassen sie sich sichern oder auf ein anderes Gerät
+        übertragen.
       </p>
       {error && (
         <p className="notice" role="alert">
@@ -97,10 +97,7 @@ export function DataBackup() {
 
       {pending && (
         <div className="panel">
-          <p>
-            Datei gelesen: {pending.cards.length} Karten,{" "}
-            {pending.userVocab.length} eigene Wörter. Wie importieren?
-          </p>
+          <p>Datei gelesen: {pending.cards.length} Karten. Wie importieren?</p>
           {!confirmReplace ? (
             <div className="backup-actions">
               <button
