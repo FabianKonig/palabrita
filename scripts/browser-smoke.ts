@@ -561,23 +561,73 @@ async function main() {
         && s.backgroundImage.startsWith("url(");
     })()`),
   );
-  // Suchtext und Filter schließen sich aus: Filter wählen leert den Suchtext, Tippen setzt Filter zurück.
+  // Suchtext und Filter wirken zusammen: Die Suche läuft innerhalb der gefilterten Liste.
+  // Die Statuszeile nennt alle aktiven Kriterien, „Filter löschen“ setzt nur die Dropdowns zurück.
   await setInput('input[type="search"]', "a");
   await setInput('select[aria-label="Niveau"]', "A1");
   await sleep(300);
-  const filterWins = await evaluate<boolean>(
-    `document.querySelector('input[type="search"]').value === ""`,
+  const combinedJson = await evaluate<string>(`JSON.stringify({
+    q: document.querySelector('input[type="search"]').value,
+    level: document.querySelector('select[aria-label="Niveau"]').value,
+    status: document.querySelector(".dict-status")?.textContent ?? "",
+  })`);
+  const combined = JSON.parse(combinedJson) as {
+    q: string;
+    level: string;
+    status: string;
+  };
+  check(
+    "Verzeichnis: Suche und Filter wirken zusammen, Statuszeile nennt beides",
+    combined.q === "a" &&
+      combined.level === "A1" &&
+      combined.status.includes("A1") &&
+      combined.status.includes("Suchwort „a“") &&
+      !(await evaluate<boolean>(
+        `!!document.querySelector(".dict-status strong")`,
+      )),
+    combinedJson,
+  );
+  await clickText("Filter löschen", ".dict-status button");
+  await sleep(300);
+  const clearedJson = await evaluate<string>(`JSON.stringify({
+    q: document.querySelector('input[type="search"]').value,
+    level: document.querySelector('select[aria-label="Niveau"]').value,
+    status: document.querySelector(".dict-status")?.textContent ?? "",
+  })`);
+  const cleared = JSON.parse(clearedJson) as {
+    q: string;
+    level: string;
+    status: string;
+  };
+  check(
+    "Verzeichnis: „Filter löschen“ setzt nur die Dropdowns zurück, der Suchtext bleibt",
+    cleared.q === "a" &&
+      cleared.level === "" &&
+      !cleared.status.includes("A1") &&
+      cleared.status.includes("Suchwort „a“"),
+    clearedJson,
+  );
+  // Nur noch Suchtext: „Filter löschen“ ist weiter da und leert das Suchfeld.
+  const searchOnlyBefore = await evaluate<boolean>(
+    `!!document.querySelector(".dict-status button")`,
+  );
+  await clickText("Filter löschen", ".dict-status button");
+  await sleep(300);
+  const searchOnlyJson = await evaluate<string>(`JSON.stringify({
+    q: document.querySelector('input[type="search"]').value,
+    status: document.querySelector(".dict-status")?.textContent ?? "",
+  })`);
+  const searchOnly = JSON.parse(searchOnlyJson) as {
+    q: string;
+    status: string;
+  };
+  check(
+    "Verzeichnis: bei reinem Suchtext leert „Filter löschen“ das Suchfeld",
+    searchOnlyBefore && searchOnly.q === "" && searchOnly.status === "",
+    searchOnlyJson,
   );
   await setInput('input[type="search"]', "a");
   await sleep(300);
-  const searchWins = await evaluate<boolean>(
-    `document.querySelector('select[aria-label="Niveau"]').value === ""`,
-  );
-  check(
-    "Verzeichnis: Filter wählen leert den Suchtext, Suchtext setzt Filter zurück",
-    filterWins && searchWins,
-    `${filterWins} / ${searchWins}`,
-  );
   await evaluate("window.scrollTo(0, 1500)");
   await sleep(300);
   const clicked = await evaluate<string>(`(() => {
