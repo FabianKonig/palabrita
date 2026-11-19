@@ -6,6 +6,7 @@ import { findDuplicate } from "../../domain/lookup/findDuplicate";
 import type { LookupCandidate } from "../../domain/lookup/parseWiktionary";
 import type { Pos, Vocab, VerbTag } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
+import { FROM_APP_STATE } from "../legend/Legend";
 
 const VERB_TAGS: VerbTag[] = [
   "ie",
@@ -280,7 +281,11 @@ export function WordForm({ initial, submitLabel, editingId, onSubmit }: Props) {
       {d.pos === "verb" && (
         <fieldset className="setting">
           <legend>
-            Unregelmäßigkeiten (<Link to="/legend">Was bedeuten sie?</Link>)
+            Unregelmäßigkeiten (
+            <Link to="/legend" state={FROM_APP_STATE}>
+              Was bedeuten sie?
+            </Link>
+            )
           </legend>
           <div className="tag-grid">
             {VERB_TAGS.map((t) => (

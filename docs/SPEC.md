@@ -71,7 +71,7 @@ Der Nutzer gibt ein spanisches Wort ein, das er irgendwo aufgeschnappt hat. Es w
 2. **Nachschlagen** in der deutschen Wiktionary (`de.wiktionary.org`, MediaWiki-API, ohne Schlüssel). Nur auf Knopfdruck, es wird ausschließlich das eingegebene Wort gesendet. Findet die deutsche Wiktionary das Wort nicht, fragt die App `es.wiktionary.org` ab (nur Wortart und Genus, die deutsche Bedeutung trägt der Nutzer ein, die App weist darauf hin). Ergebnis: Wortart, deutsche Bedeutungen (maximal die ersten 4), bei Nomen Genus und Plural, falls vorhanden, ein Beispielsatz, falls vorhanden.
    - Gibt es mehrere Wortarten (z. B. *llama*: Nomen und Verbform), wählt der Nutzer eine.
    - Ist die Eingabe eine **gebeugte Form** (z. B. *puedo*), bietet die App die **Grundform** an (*poder*).
-3. **Vorschau-Formular, vollständig editierbar:** spanisches Wort (mit Artikel bei Nomen), 1–4 deutsche Wörter (entfernen, ergänzen, ändern), Wortart, Genus/Plural, Hinweis, optionaler Beispielsatz. Bei **Verben** wählt der Nutzer die Tags (`ie`, `ue`, `go` …, siehe §5.1) und sieht die erzeugte Formentabelle als Kontrolle. Ohne Tags wird das Verb als regelmäßig behandelt. Solche Verben tragen den Hinweis „Formen automatisch erzeugt, nicht geprüft“.
+3. **Vorschau-Formular, vollständig editierbar:** spanisches Wort (mit Artikel bei Nomen), 1–4 deutsche Wörter (entfernen, ergänzen, ändern), Wortart, Genus/Plural, Hinweis, optionaler Beispielsatz. Bei **Verben** wählt der Nutzer die Tags (`ie`, `ue`, `go` …, siehe §5.1) und sieht die erzeugte Formentabelle als Kontrolle. Ohne Tags wird das Verb als regelmäßig behandelt. **Alle** eigenen Verben (mit und ohne Tags) tragen den Hinweis „Formen automatisch erzeugt, nicht geprüft“ (`verified: false`, §10.1).
 4. **„Zur Vokabelliste hinzufügen“** speichert die Vokabel. Kein Treffer, kein Netz oder Fehler der Suche: das Formular erscheint leer zum **manuellen Ausfüllen** („Nichts gefunden, bitte selbst eintragen“). Die App funktioniert ohne Netz weiter, nur das Nachschlagen entfällt.
 5. **Dublettenprüfung** (Algorithmus: §10.1a): Existiert das spanische Wort mit **derselben Wortart** schon, erscheint „Schon vorhanden“ mit Link zur Vokabel, doppeltes Anlegen wird verhindert. Gibt es nur ein gleiches Wort anderer Wortart oder eines, das sich nur im Akzent unterscheidet (*papa/papá*, *te/té*, *el poder/poder*), erscheint der Warnhinweis „Ähnliches Wort vorhanden“ mit Link, Anlegen bleibt möglich.
 
@@ -144,7 +144,7 @@ Zu jedem Verb soll klar erkennbar sein, **ob und wie** es unregelmäßig ist. Di
 | *(-go)* | 1. Person Singular Präsens mit -g- (Subjuntivo/Imperativ bauen darauf auf); weitere Abweichungen stehen als eigene Angaben | *hacer (-go)*: hago; *salir (-go)*: salgo |
 | *(-zco)* | 1. Person Singular auf -zco | *conocer (-zco)*: conozco |
 | *(-oy)* | 1. Person Singular auf -oy | *dar (-oy)*: doy; *estar*: estoy |
-| *(i → y)* | -uir-Verben: i → y zwischen Vokalen | *construir (i → y)*: construyo, construyó |
+| *(i → y)* | i → y zwischen Vokalen: bei -uir-Verben (Tag `y`) im Presente, Pretérito und Gerundio, bei -eer/-aer/-oír (automatisch) nur im Pretérito (3. Person) und Gerundio | *construir (i → y)*: construyo, construyó; *leer (i → y)*: leyó, leyendo |
 | *(Pretérito irr.)*, *(Futuro irr.)*, *(Pretérito/Futuro irr.)* | Unregelmäßiger Stamm im Pretérito bzw. Futuro (Overrides) | *tener*: tuve; tendré |
 | *(c → qu)*, *(z → c)*, *(g → gu)*, *(g → j)*, *(gu → gü)*, *(gu → g)*, *(c → z)* | **Orthographische Änderung** zur Erhaltung des Lautes, nicht wirklich unregelmäßig | *buscar*: busqué; *empezar*: empecé; *coger*: cojo |
 | *(irr.)* | Stark unregelmäßig, Formen vollständig angeben | *ser*, *ir*, *haber* |
@@ -158,7 +158,7 @@ Pro Verb werden nur gespeichert: `tags`, `reflexive`, `overrides`. Alles andere 
 - `go`/`zco`/`oy`: 1. Person Singular im Presente (*tengo*, *conozco*, *doy*). `go` und `zco` ändern auch den Stamm im Presente-Subjuntivo, der für den Imperativ gebraucht wird.
 - `y`: -uir-Verben (*construyo*, *construyó*, *construyendo*).
 - `irr`: stark unregelmäßig (*ser*, *ir*, *haber*). Es gibt keine Stammwechsel-Generierung, es gilt nur das regelmäßige Grundmuster. In `overrides` stehen wie bei allen Verben **nur die Formen, die vom Grundmuster abweichen** (beim Futuro von *ser* z. B. nichts, da *seré* regelmäßig gebildet wird). Das Konjugationsmodul wird für `irr`-Verben gegen die vollständige Referenzliste getestet, damit keine Form fehlt.
-- **Rechtschreibänderungen** (*busqué*, *empecé*, *llegué*, *cojo*) braucht niemand zu taggen. Das Modul erkennt sie automatisch am Wortende und zeigt sie als `(c → qu)` usw.
+- **Rechtschreibänderungen** (*busqué*, *empecé*, *llegué*, *cojo*) braucht niemand zu taggen. Das Modul erkennt sie automatisch am Wortende und zeigt sie als `(c → qu)` usw. Dazu gehört auch `(i → y)` bei Verben auf -eer, -aer und -oír (*leer*, *creer*, *caer*, *oír*: *leyó*, *leyendo*). Bei -uir-Verben steht `(i → y)` dagegen für das Tag `y`.
 
 **`overrides`** enthält nur Formen, die sich nicht aus den Tags ergeben (starke Pretérito-Stämme wie *pude*/*tuve*, unregelmäßige Futurstämme wie *podré*, unregelmäßige Imperative wie *ten*/*haz*):
 - Zeitschlüssel: `presente`, `indefinido`, `imperfecto`, `futuro`, `imperativo`.
@@ -262,7 +262,7 @@ src/
     vocabRepo.ts            # lädt/cached vocab JSON + eigene Vokabeln (userVocab)
     lookup.ts               # fetch an de/es.wiktionary.org (einziger Netzzugriff der App)
     db.ts                   # idb-Schema, Migrationen
-    settingsRepo.ts  cardRepo.ts  statsRepo.ts
+    settingsRepo.ts  cardRepo.ts
     exportImport.ts
     welcomeFlag.ts          # Begrüßung gesehen (localStorage)
   features/
@@ -319,7 +319,7 @@ Feste Themen-Schlüssel (13): `begruessung`, `zahlen-zeit`, `essen`, `transport`
 ### 10.1a Eigene Vokabeln und Wortsuche
 - **Speicher:** Store `userVocab` (siehe §10.2). ID `'u' + 8 Zeichen base36 aus crypto.getRandomValues`, bei Kollision neu würfeln.
 - **Modul `domain/lookup/`** (rein, ohne `fetch`): `parseWiktionary(wikitext, word) → LookupResult` mit `candidates: { pos, es, de: string[] (max. 4), gender?, plural?, example? }[]` und `inflectedOf?: string` (Grundform bei gebeugten Formen). Tests mit **echten, im Repo gespeicherten Antworten** (`src/domain/lookup/fixtures/*.json`, einmalig beim Entwickeln abgerufen) für mindestens: ein Nomen (*casa*), ein Verb (*poder*), eine gebeugte Form (*puedo*), ein Wort mit mehreren Wortarten (*llama*), ein unbekanntes Wort.
-- **Modul `data/lookup.ts`:** `fetch('https://de.wiktionary.org/w/api.php?action=parse&page=<wort>&prop=wikitext&format=json&redirects=1&origin=*')`, Timeout 8 s, Fehler/Offline → `{ status: 'unavailable' }`, unbekannt → `{ status: 'notfound' }`. Findet `de.wiktionary.org` nichts (Seite fehlt oder kein spanischer Abschnitt, z. B. *palabra*), folgt ein Fallback auf `es.wiktionary.org` mit `parseEsWiktionary` (Wortart und Genus aus den Überschrift-Templates, Grundform bei Formen wie *puedo*; keine deutschen Bedeutungen, `de: []`). Die Antwort trägt `source: 'de' | 'es'`, bei `es` zeigt die App einen Hinweis. Fehler/Offline bei de bricht ohne Fallback mit `unavailable` ab. Die Parser sind tolerant: was nicht erkannt wird, bleibt leer und wird im Formular manuell ergänzt.
+- **Modul `data/lookup.ts`:** `fetch('https://de.wiktionary.org/w/api.php?action=parse&page=<wort>&prop=wikitext&format=json&redirects=1&origin=*')`, Timeout 8 s, Fehler/Offline → `{ status: 'unavailable' }`, unbekannt → `{ status: 'notfound' }`. Findet `de.wiktionary.org` nichts (Seite fehlt oder kein spanischer Abschnitt, z. B. *palabra*), folgt ein Fallback auf `es.wiktionary.org` mit `parseEsWiktionary` (Wortart und Genus aus den Überschrift-Templates, Grundform bei Formen wie *puedo*; keine deutschen Bedeutungen, `de: []`). Die Antwort trägt `source: 'de' | 'es'`, bei `es` zeigt die App einen Hinweis. Fehler/Offline bei de bricht ohne Fallback mit `unavailable` ab. Schlägt dagegen die Abfrage bei `es.wiktionary.org` fehl (Netzfehler, Timeout), meldet die App `notfound` („Nichts gefunden …“), nicht `unavailable`, und das Formular erscheint leer zum manuellen Ausfüllen. Die Parser sind tolerant: was nicht erkannt wird, bleibt leer und wird im Formular manuell ergänzt.
 - **Dublettenprüfung** `findDuplicate(vocab, es, pos)` → `{ exact?: Vocab, similar: Vocab[] }`. Normalisierung: Kleinschreibung, ohne führenden Artikel `el/la|el|la|los|las|un|una`, **Akzente bleiben erhalten**. `exact` = gleiche normalisierte Form **und gleiche Wortart** (blockiert das Anlegen, Link zur Vokabel). `similar` = gleiche Form bei anderer Wortart, oder gleiche Form nur nach Entfernen der Akzente (*papa/papá*, *te/té*). Die UI-Wirkung steht in §3.5, der Vokabel-Validator nutzt dieselbe Funktion (§5.1).
 - **Service Worker:** Anfragen an `de.wiktionary.org` und `es.wiktionary.org` werden nicht gecacht und nicht abgefangen (kein Workbox-Route dafür). Sollte später eine CSP gesetzt werden, braucht `connect-src` diese Hosts.
 - **Verben:** Tags wählt der Nutzer manuell, das Modul `conjugation` liefert die Vorschau. Kein automatisches Raten der Tags.
@@ -371,7 +371,7 @@ Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` vo
 
 **Wiederholungsphase** (Karte ist fällig, `due < nextDayStart`):
 - **Nochmal (Rückfall):** `lapses += 1`, `reps = 0`, `ease = max(MIN_EASE, ease − EASE_LOSS)`, `interval = 1` (gilt später als Abschlussintervall), `step = 0`, `due = now + 5 Min`. Danach durchläuft die Karte die Lernphase; ihr Abschluss ergibt `interval = 1 T`.
-- **Gewusst:** `interval = max(interval + 1, round(interval × ease))` mit der Ease **vor** dieser Bewertung, danach `ease = min(MAX_EASE, ease + EASE_GAIN)`, `reps += 1`, `due` auf 04:00 des Fälligkeitstages.
+- **Gewusst:** `interval = max(interval + 1, round(interval × ease))` mit der Ease **vor** dieser Bewertung, danach `ease = min(MAX_EASE, ease + EASE_GAIN)`, `reps += 1`, `due = startOfDay(addDays(dayKey(now), interval))`, also 04:00 des Tages „heute + neues Intervall“ (nicht vom alten Fälligkeitsdatum aus gerechnet).
 - Die Schwierigkeit eines Wortes steckt allein in der Ease: Jedes „Nochmal“ senkt sie, jedes „Gewusst“ hebt sie leicht. Wörter, an denen der Nutzer oft scheitert, wachsen dadurch langsam (bei Ease 1,3 nur ×1,3), sichere Wörter immer schneller. Beispiel bei durchgehend „Gewusst“: ≈ 1, 3, 8, 21, 56 Tage.
 
 **Vorab-Wiederholung** (Karte in der Wiederholungsphase, aber **noch nicht fällig**, siehe §12.2). Der Zeitplan darf durch Üben nicht aufgebläht werden:
@@ -383,7 +383,7 @@ Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` vo
 
 `state`: `learning` solange `step` gesetzt ist oder `interval < 21`, sonst `mature`. (`new` nur für noch nicht gespeicherte Karten.)
 
-`previewIntervals(card, now)` liefert je Button entweder Minuten oder Tage. `formatInterval` hat eine Minuten-Variante („5 Min“, „1 Std“ ab 60 Min, sonst Tage). Vorschau bei Vorab-Wiederholung: „Gewusst“ zeigt das unveränderte Fälligkeitsdatum.
+`previewIntervals(card, now)` liefert je Button entweder Minuten oder Tage. `formatInterval` hat eine Minuten-Variante („5 Min“, „1 Std“ ab 60 Min). Bei Tagen: „1 T“ bis „29 T“, ab 30 Tagen Monate („2 Mon“, auf ganze Monate gerundet), ab 365 Tagen Jahre („1,2 J“, eine Nachkommastelle). Vorschau bei Vorab-Wiederholung: „Gewusst“ zeigt das unveränderte Fälligkeitsdatum.
 
 **Jede Bewertung, die etwas ändert, wird gespeichert** (`saveReview`). Ausnahme: „Gewusst“ bei der Vorab-Wiederholung (siehe oben).
 
@@ -434,7 +434,7 @@ Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Kar
 
 HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/dictionary`, `/dictionary/:id`, `/dictionary/:id/edit` (eigenes Wort bearbeiten), `/add` (eigenes Wort nachschlagen und hinzufügen, optional `?q=<wort>`), `/stats`, `/settings`, `/legend`, `/privacy`, `/imprint`, `/more`. Unbekannte Pfade leiten auf `/` um.
 
-**Tab „Mehr“:** Markenkopf (Wortmarke, Slogan, Widmung, siehe §14.1 zum erneuten Öffnen der Begrüßung), darunter die Einträge Einstellungen, Legende, Datenschutz und Impressum, darunter die Version (§3.2). Die Seiten dieser Einträge haben den Zurück-Link „← Mehr“ (Klasse `back`).
+**Tab „Mehr“:** Markenkopf (Wortmarke, Slogan, Widmung, siehe §14.1 zum erneuten Öffnen der Begrüßung), darunter die Einträge Einstellungen, Legende, Datenschutz und Impressum, darunter die Version (§3.2). Die Seiten dieser Einträge haben den Zurück-Link „← Mehr“ (Klasse `back`). Ausnahme **Legende**: Wird sie aus der App geöffnet (ⓘ in der Verbtabelle, „Was bedeuten sie?“ im Wortformular), steht dort „← Zurück“ und führt zur vorherigen Seite (Router-Zustand `fromApp`), damit Filter und Verzeichnisbereich (§3.3) erhalten bleiben. Nur über „Mehr → Legende“ steht „← Mehr“.
 
 **Darstellung mehrerer Übersetzungen:** Überall, wo die deutsche Seite erscheint (Karte, Verzeichnis, Detailansicht), werden alle `de`-Einträge mit „ · “ getrennt angezeigt, das erste hervorgehoben. Die Verzeichnissuche: §3.3. Die Einstellungen werden beim ersten Start mit Defaults angelegt.
 
@@ -469,6 +469,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 **Sitzungsverhalten:**
 - Oben immer sichtbar: Button **„Beenden“**, ohne Rückfrage. Er führt zur Zusammenfassung. Auch Wegnavigieren oder Schließen der App ist ohne Datenverlust möglich, weil jede Bewertung sofort gespeichert wird.
 - Bewertungsbuttons „Nochmal“ und „Gewusst“ mit Vorschau des Wiedersehens (`previewIntervals`).
+- **Navigation:** Die Sitzung (Zähler „Geübt“, gewählte Filter und Richtung, `sessionSeen`) lebt nur im Speicher der Lernen-Seite. Wechselt der Nutzer in einen anderen Tab und kommt zurück, beginnt er wieder bei der Filterauswahl, der Zähler ist zurückgesetzt. Bewertungen gehen dabei nicht verloren, weil jede sofort gespeichert wird (§11).
 - Wer später wieder lernt, bekommt zuerst, was fällig ist (auch Minuten-Karten, die inzwischen überfällig sind), dann neue Wörter, dann Wiederholung des Restes (§12).
 - Es gibt keinen Fortschrittsbalken (die Sitzung hat kein Ende). Oben steht links „Geübt: N“ (Zähler dieser Sitzung), in der Mitte das Logo (Wimpel über dem Schriftzug), rechts „Beenden“.
 - **Zusammenfassung** („Sitzung beendet“): Oben mittig das Logo an exakt derselben Stelle wie in der Sitzungsleiste, darunter der Titel und zwei große Kacheln: links die Anzahl geübter Karten, rechts die Anzahl „Nochmal“ (eine Lerndauer gibt es nicht, entschieden), sowie die Buttons „Weiterlernen“ (frische Sitzung mit denselben Filtern) und „Beenden“ (zurück zur Filterauswahl, Filter zurückgesetzt).

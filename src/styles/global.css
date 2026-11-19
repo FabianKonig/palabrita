@@ -627,6 +627,15 @@ body:has(.session-bar) .screen {
   text-decoration: none;
 }
 
+/* „← Zurück“ als Button (Legende, aus der App geöffnet) sieht aus wie der Link */
+button.back {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
 /* Zurück-Link oben links: seine Mitte liegt genau auf der Mitte des Logos oben rechts
    (Logo ist 34,5 px hoch, Link 48 px). Unten gleicht der Abstand aus, die Überschrift bleibt an ihrer Stelle. */
 .screen > .back:first-child {

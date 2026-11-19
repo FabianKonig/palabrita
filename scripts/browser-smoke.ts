@@ -404,6 +404,23 @@ async function main() {
     ["puedo", "pude", "podré"].every((f) => verb.includes(f)),
   );
 
+  // 8d2. Legend opened from the verb detail goes "← Zurück" to the verb, directly it says "← Mehr".
+  await clickText("ⓘ", "a");
+  await waitFor(`document.querySelector("dt")`, "Legende aus der Verbtabelle");
+  check(
+    "Legende aus der Verbtabelle: „← Zurück“ führt zum Verb",
+    /← Zurück/.test(await text()),
+  );
+  await clickText("← Zurück", ".screen .back");
+  await waitFor(`document.querySelector(".verb")`, "Verb nach Zurück");
+  check(
+    "Zurück aus der Legende zeigt wieder das Verb",
+    /poder \(o → ue/.test(await text()),
+  );
+  await send("Page.navigate", { url: `${BASE}#/legend` });
+  await waitFor(`document.querySelector("dt")`, "Legende direkt");
+  check("Legende direkt geöffnet: „← Mehr“", /← Mehr/.test(await text()));
+
   // 8e. Settings are kept after a reload. The direction is chosen on the Lernen tab only.
   await send("Page.navigate", { url: `${BASE}#/settings` });
   await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
@@ -726,7 +743,7 @@ async function main() {
     cornerPositions.join(" | "),
   );
 
-  // 8e4. Version steht unter „Mehr“ (nach den Einträgen), nicht mehr unter Einstellungen.
+  // 8e7. Version steht unter „Mehr“ (nach den Einträgen), nicht mehr unter Einstellungen.
 
   await send("Page.navigate", { url: `${BASE}#/more` });
   await waitFor(`document.querySelector(".link-list")`, "Mehr");
@@ -747,7 +764,7 @@ async function main() {
     !(await evaluate<boolean>(`!!document.querySelector(".app-version")`)),
   );
 
-  // 8e5. „Neues Wort hinzufügen“ am Ende der Liste übernimmt den Suchtext.
+  // 8e8. „Neues Wort hinzufügen“ am Ende der Liste übernimmt den Suchtext.
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
   await setInput('input[type="search"]', "gato");
@@ -932,7 +949,7 @@ async function main() {
     `${cardsBefore} -> ${cardsAfter} Karten`,
   );
 
-  // 8k. Endless session (SPEC 3.1, 12.1): more than MAX_LEARNING (15) new cards in a row,
+  // 8k. Endless session (SPEC 3.1, 12.1): 20 ratings in a row (the session has no end),
   // never "Fertig für heute", no waiting counter.
   await startSession();
   const RATED = 20;

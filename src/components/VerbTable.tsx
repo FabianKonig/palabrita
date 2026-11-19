@@ -6,6 +6,7 @@ import {
   type FormInfo,
 } from "../domain/conjugation";
 import type { Person, Tense, Vocab } from "../domain/types";
+import { FROM_APP_STATE } from "../features/legend/Legend";
 
 const PERSON_LABEL: Record<Person, string> = {
   "1s": "yo",
@@ -78,6 +79,7 @@ export function VerbTable({
           <>
             <Link
               to="/legend"
+              state={FROM_APP_STATE}
               className="info"
               aria-label="Was bedeutet die Klammer?"
               title="Was bedeutet die Klammer?"

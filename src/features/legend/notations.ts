@@ -56,8 +56,9 @@ export const NOTATIONS: { mark: string; meaning: string; example: string }[] = [
   {
     mark: "(i → y)",
     meaning:
-      "Verben auf -uir: Zwischen Vokalen wird i zu y, im Präsens in den betonten Formen und im Pretérito (3. Person) und Gerundio.",
-    example: "construir: construyo, construimos; construyó; construyendo",
+      "Zwischen Vokalen wird i zu y. Bei Verben auf -uir betrifft das auch das Präsens (betonte Formen), bei Verben auf -eer, -aer und -oír nur das Pretérito (3. Person) und das Gerundio.",
+    example:
+      "construir: construyo, construimos; construyó; construyendo. leer: leyó, leyendo",
   },
   {
     mark: "(Pretérito irr.), (Futuro irr.), (Pretérito/Futuro irr.)",
