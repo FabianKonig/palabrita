@@ -65,7 +65,7 @@ function Layout() {
         />
       )}
       {!showWelcome && welcomeReplay && (
-        <WelcomeOverlay onDismiss={closeWelcomeReplay} />
+        <WelcomeOverlay closeOnBackdrop onDismiss={closeWelcomeReplay} />
       )}
     </>
   );
