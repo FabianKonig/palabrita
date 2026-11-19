@@ -636,6 +636,12 @@ body:has(.session-bar) .screen {
   text-decoration: none;
 }
 
+/* Zurück-Link oben links: seine Mitte liegt genau auf der Mitte des Logos oben rechts
+   (Logo ist 34,5 px hoch, Link 48 px). Unten gleicht der Abstand aus, die Überschrift bleibt an ihrer Stelle. */
+.screen > .back:first-child {
+  margin: calc((34.5px - 48px) / 2) 0 calc((48px - 34.5px) / 2);
+}
+
 .detail-head {
   display: flex;
   align-items: center;
