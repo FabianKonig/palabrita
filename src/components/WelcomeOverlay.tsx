@@ -13,10 +13,18 @@ const BACK_CREDIT = "Mit";
 /** Dauer des Ausblendens, bevor das Overlay verschwindet. */
 const CLOSE_MS = 250;
 
+/** Kontext, den die Layout-Route an Unterseiten weitergibt (z. B. Tab „Mehr“). */
+export interface WelcomeOutletContext {
+  /** Öffnet die Begrüßungskarte erneut. Speichert nichts. */
+  openWelcome: () => void;
+}
+
 /**
- * Erststart-Hinweis: eine Lernkarte schwebt über der Lernseite.
+ * Begrüßungskarte: eine Lernkarte schwebt über der aktuellen Seite.
  * Erstes Tippen dreht sie um, zweites Tippen schließt das Overlay.
- * Der Aufrufer sperrt die Seite dahinter und speichert, dass der Hinweis gesehen wurde.
+ * Beim Erststart speichert der Aufrufer, dass der Hinweis gesehen wurde;
+ * wird die Karte über den Markenkopf erneut geöffnet, passiert dabei nichts weiter.
+ * Der Aufrufer sperrt die Seite dahinter.
  */
 export function WelcomeOverlay({ onDismiss }: { onDismiss: () => void }) {
   const [flipped, setFlipped] = useState(false);
