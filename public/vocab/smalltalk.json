@@ -1173,5 +1173,42 @@
     "note": null,
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v0926",
+    "de": [
+      "aufrichten",
+      "erheben"
+    ],
+    "es": "erguir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "smalltalk",
+    "example": {
+      "es": "Mi perro yergue las orejas cuando oye la puerta.",
+      "de": "Mein Hund stellt die Ohren auf, wenn er die Tür hört."
+    },
+    "note": "Im Presente sind auch die Formen mit i- korrekt (irgo, irgues, irgue, irguen). Oft reflexiv: erguirse (sich aufrichten).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [
+        "i"
+      ],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "yergo",
+          "2s": "yergues",
+          "3s": "yergue",
+          "3p": "yerguen"
+        },
+        "imperativo": {
+          "2s": "yergue",
+          "3s": "yerga",
+          "3p": "yergan"
+        }
+      }
+    }
   }
 ]
