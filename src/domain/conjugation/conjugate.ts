@@ -248,10 +248,12 @@ function generate(
   const indefinido = {} as Record<Person, string>;
   const imperfecto = {} as Record<Person, string>;
   const futuro = {} as Record<Person, string>;
+  // oír, reír: the accent of the infinitive falls away (oiré, reiré).
+  const futureStem = base.replace(/ír$/, "ir");
   PERSONS.forEach((person, n) => {
     indefinido[person] = j(pretStem(person), ENDINGS.indefinido[kind][n]);
     imperfecto[person] = j(stem, ENDINGS.imperfecto[kind][n]);
-    futuro[person] = base + FUTURE_ENDINGS[n];
+    futuro[person] = futureStem + FUTURE_ENDINGS[n];
   });
 
   // Present subjunctive, needed for the imperative (usted, nosotros, ustedes).
