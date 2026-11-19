@@ -6,7 +6,7 @@ Diese Datei führt nur, was noch zu tun ist. Erledigtes steht in `docs/SPEC.md`,
 
 Die Spezifikation steht, ein Agent kann direkt umsetzen.
 
-- [ ] **Formsuche umsetzen**: spezifiziert in SPEC §3.3a (Verhalten) und §14.3 (Umsetzung, Tests, Doku danach).
+- Derzeit nichts offen.
 
 ## Anforderungen ohne Detailspezifikation
 
@@ -26,3 +26,5 @@ Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), da
 - Bekannte Einschränkung: Gehört ein deutsches Wort zu mehreren spanischen Vokabeln, sind die DE→ES-Karten für den Nutzer mehrdeutig. In v1 nicht behandelt.
 - Verworfen: eine Docker-Image-Variante (GHCR, `docker compose pull` auf einem VPS). Nicht umsetzen, die App läuft über GitHub Pages.
 - Annahmen, die ein Agent bei Unklarheit trifft, kommen als kurzer Eintrag in diesen Abschnitt.
+- Annahme (Formsuche, 2026-11-19): Eine Formzeile in der Verzeichnisliste zeigt unten in einer Zeile zuerst das Niveau-Kennzeichen und daneben die Bezeichnung („1. Pl. Presente + 1 weitere Form“). So steht das Kennzeichen wie bei normalen Zeilen als letzte Zeile links, und die Zeile hat genau drei Zeilen (SPEC §3.3a nennt das Kennzeichen bei Zeile 2).
+- Annahme (Formsuche): Der Formenindex wird erst gebaut, wenn der Suchtext mindestens 2 Zeichen hat (nicht beim Öffnen des Verzeichnisses). Gemessen mit 6-fach gedrosselter CPU: einmalig etwa 100 ms, jeder weitere Tastendruck liegt bei der Bildschirmfrequenz; auf einem echten Handy nicht geprüft.

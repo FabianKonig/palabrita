@@ -63,9 +63,9 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
   - **Reihenfolge:** Ohne Suchtext alphabetisch nach spanischem Stichwort ohne Artikel. Mit Suchtext nach **Trefferqualität**: je Vokabel zählt der beste Treffer über `es` und alle `de`-Einträge (normalisiert wie oben; beim spanischen Stichwort zählt es mit und ohne führenden Artikel): Eintrag ist gleich dem Suchtext (Stufe 0), Eintrag beginnt damit (Stufe 1), Eintrag enthält ihn (Stufe 2). Gleiche Stufe: Treffer über `es` vor reinem `de`-Treffer, danach alphabetisch. So steht bei „Auto“ das Wort mit der Übersetzung „Auto“ vor „Autobahn“ und „Mietauto“.
   - **Keine Kennzeichnung des Treffers:** Es wird nicht markiert, ob ein Treffer über `es` oder über `de` kam. Jede Zeile zeigt ohnehin Spanisch und alle deutschen Übersetzungen (§14).
   - **Mehrere Treffer:** Alle werden gezeigt, es gibt keine Begrenzung. Gehört ein deutsches Wort zu mehreren spanischen Vokabeln, sind die DE→ES-Karten beim Lernen mehrdeutig. Das ist eine bekannte Einschränkung der Karten, nicht der Suche, und in v1 nicht behandelt.
-- **Formsuche** (gebeugte Formen finden): §3.3a, noch nicht umgesetzt.
+- **Formsuche** (gebeugte Formen finden): §3.3a.
 
-### 3.3a Formsuche im Verzeichnis (festgelegt 2026-11-19, noch nicht umgesetzt)
+### 3.3a Formsuche im Verzeichnis (festgelegt und umgesetzt 2026-11-19)
 
 **Anlass:** Auf der Reise stößt der Nutzer auf gebeugte Formen (*podemos*, *fue*, *canciones*, *buenas*), deren Grundform er kennt oder lernen will. Die Verzeichnissuche (§3.3) findet deshalb zusätzlich gebeugte Formen und führt zur Grundform. Technische Umsetzung: §14.3.
 
@@ -282,7 +282,7 @@ Zusätzlich gilt für jedes Verb:
 | Styling | Plain CSS mit CSS-Variablen (`src/styles/`), kein UI-Framework. Hell/Dunkel via `prefers-color-scheme` und `data-theme` |
 | Speicher | IndexedDB über `idb` |
 | PWA | `vite-plugin-pwa`, `registerType: 'prompt'` |
-| Tests | Vitest (`npm test`) für reine Logik in `domain/` (SRS, Tageswechsel, Warteschlange, Konjugation, Dublettenprüfung, Statistik, Verzeichnissuche, Sprachausgabe, Versionsstempel), für `data/` (Karten, Vokabeln, Begrüßungs-Flag) mit `fake-indexeddb` und für den Vokabel-Validator. Keine Komponenten-Tests. UI-Verhalten (Verzeichnis-Filter und Scrollposition in `features/dictionary/viewState`, Schalter, Dropdowns, Richtung im Lernen-Tab) deckt der Browser-Smoke-Test (`scripts/browser-smoke.ts`, braucht `npm run build` und `npm run preview`) ab. `src/styles/global.test.ts` schützt Dunkelmodus-Kontrast, Dropdown-Pfeil und Schalter, `features/legend/notations.test.ts` stellt sicher, dass die Legende jede erzeugte Notation erklärt. |
+| Tests | Vitest (`npm test`) für reine Logik in `domain/` (SRS, Tageswechsel, Warteschlange, Konjugation, Dublettenprüfung, Statistik, Verzeichnissuche, Formsuche und Formenindex, Adjektivformen, Sprachausgabe, Versionsstempel), für `data/` (Karten, Vokabeln, Begrüßungs-Flag) mit `fake-indexeddb` und für den Vokabel-Validator (auch die `adj`-Warnungen). Keine Komponenten-Tests. UI-Verhalten (Verzeichnis-Filter und Scrollposition in `features/dictionary/viewState`, Formzeilen und Hervorhebung der Formsuche, Schalter, Dropdowns, Richtung im Lernen-Tab) deckt der Browser-Smoke-Test (`scripts/browser-smoke.ts`, braucht `npm run build` und `npm run preview`) ab. `src/styles/global.test.ts` schützt Dunkelmodus-Kontrast, Dropdown-Pfeil, Schalter und den Kontrast der Formhervorhebung, `features/legend/notations.test.ts` stellt sicher, dass die Legende jede erzeugte Notation erklärt. |
 | Dev-Tools | `tsx` (führt `scripts/*.ts` aus), `ajv` (JSON-Schema-Validierung der Vokabeln), `sharp` (PWA-Icons aus dem SVG) |
 | Lint | ESLint (`@eslint/js`, `typescript-eslint`, `eslint-plugin-react-hooks`, jeweils Empfehlungen), Prettier Defaults |
 | Node | 24.x |
@@ -314,12 +314,15 @@ src/
     srs.ts                  # Lernmodell
     day.ts                  # Tageswechsel 04:00
     queue.ts                # Auswahl der nächsten Karte
-    dictionary.ts           # Verzeichnissuche, Filter, Wortart-Labels
+    dictionary.ts           # Verzeichnissuche (inkl. Formsuche), Filter, Wortart-Labels
+    forms.ts                # Formenindex, Bezeichnungen der Formen (Formsuche)
+    adjectiveForms.ts       # Adjektivformen nach Regeln (Detailseite, Formenindex)
+    text.ts                 # normalizeForSearch, stripArticle
     findDuplicate.ts        # Dublettenprüfung (Vokabel-Validator)
     stats.ts                # Statistik
     speech.ts               # Stimmenwahl, Sprechtext
     versionStamp.ts         # Formatierung des Versionsstempels
-    conjugation/            # Konjugationsmodul
+    conjugation/            # Konjugationsmodul (conjugate, accent, labels)
   data/
     vocabRepo.ts            # lädt/cached vocab JSON
     db.ts                   # idb-Schema (settings, cards)
@@ -522,18 +525,20 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - **Impressum:** Angaben zum Betreiber (Name, Anschrift, Kontakt). Diese Angaben liefert der Nutzer, sie werden nicht erfunden. Der Nutzer hat entschieden (2026-11-19): Das Impressum ist in dieser Form ausreichend.
 - Umsetzung: `src/features/legal/` (`Imprint.tsx` unter `/imprint`, `Privacy.tsx` unter `/privacy`, Betreiberangaben zentral in `operator.ts`). Beide Seiten sind Teil der App und damit offline verfügbar. Die Datenschutzerklärung nennt Hosting (GitHub Pages), lokale Speicherung (§ 25 Abs. 2 Nr. 2 TDDDG, keine Einwilligung nötig), Vorlesefunktion, E-Mail-Kontakt und Betroffenenrechte; Aufsichtsbehörde: HBDI. Das Impressum folgt § 5 DDG. Wiktionary-Lizenzhinweis (CC BY-SA) steht im Impressum. Die Erklärung enthält eine Übersicht der Verarbeitungen und einen abgesetzten Widerspruchshinweis (Art. 21 Abs. 4 DSGVO). Ändern sich Hosting, Dienste oder Betreiberangaben, müssen beide Seiten angepasst werden.
 
-### 14.3 Formsuche: Umsetzung (festgelegt 2026-11-19, noch nicht umgesetzt)
+### 14.3 Formsuche: Umsetzung (festgelegt und umgesetzt 2026-11-19)
 
 Verhalten: §3.3a. Hier steht, wie es gebaut wird. Es gibt keine neue Seite und keine neue Route.
 
 **Domäne (rein, ohne React/DOM, mit Vitest getestet):**
-- `domain/adjectiveForms.ts`: `adjectiveForms(v: Vocab): { f: string; pl: string; fpl: string }` erzeugt die Formen eines Adjektivs aus `es` nach den Regeln unten. Jedes in `v.adj` gesetzte Feld ersetzt die erzeugte Form. **Ableitung von f. Pl.:** Ist `adj.f` gesetzt und `adj.fpl` nicht, wird f. Pl. als Plural von `adj.f` gebildet (Pluralregeln unten, angewandt auf die Femininform: *inglesa* → *inglesas*, *española* → *españolas*, *cortés* → *corteses*). Ein vergessenes `fpl` führt so nicht zu einer falschen Form. Reihenfolge: `adj.fpl`, sonst Plural von `adj.f`, sonst Regel. Die Detailseite (§3.3a) und der Formenindex nutzen beide nur diese Funktion.
+- `domain/adjectiveForms.ts`: `adjectiveForms(v: Vocab): { f: string; pl: string; fpl: string }` erzeugt die Formen eines Adjektivs aus `es` nach den Regeln unten. Jedes in `v.adj` gesetzte Feld ersetzt die erzeugte Form. **Ableitung von f. Pl.:** Ist `adj.f` gesetzt und `adj.fpl` nicht, wird f. Pl. als Plural von `adj.f` gebildet (Pluralregeln unten, angewandt auf die Femininform: *inglesa* → *inglesas*, *española* → *españolas*, *cortés* → *corteses*). Ein vergessenes `fpl` führt so nicht zu einer falschen Form. Reihenfolge: `adj.fpl`, sonst Plural von `adj.f`, sonst Regel. Die Detailseite (§3.3a) und der Formenindex nutzen beide nur diese Funktion. Dazu gehören `pluralOf(word)` (Plural eines Wortes), `adjectiveFormLines(v)` (die Einträge der Zeile „Formen“ der Detailseite: ohne Formen gleich der Grundform, „Plural“ zusammengefasst, wenn m. und f. Plural gleich sind) und in `domain/conjugation/accent.ts` die Funktionen `respell` (Endung ersetzen, Betonung auf demselben Vokal halten, Akzent setzen oder entfernen) und `isStressedOnLastSyllable`.
 - `domain/forms.ts`: Formenindex und Formsuche.
   - `FormSlot` beschreibt, wo eine Form steht: `{ kind: 'verb'; tense: Tense; person: Person }`, `{ kind: 'verb'; tense: 'participio' | 'gerundio' }`, `{ kind: 'plural' }`, `{ kind: 'adj'; which: 'f' | 'pl' | 'fpl' }`.
   - `buildFormIndex(vocab: Iterable<Vocab>): FormIndex` erzeugt je Vokabel alle Formen mit Slot, Originalschreibung und normalisierter Schreibung (`normalizeForSearch` aus `domain/dictionary.ts`). Verben über `conjugate()` (`domain/conjugation`), also exakt die Formen der Tabelle. Bei reflexiven Verben wird außerhalb des Imperativs das vorangestellte Pronomen (`me`, `te`, `se`, `nos`, `os` plus Leerzeichen) entfernt. Imperativ, Participio und Gerundio bleiben, wie `conjugate()` sie liefert. Nomen: `plural` ohne Artikel (Artikel-Regel wie `stripArticle` in `dictionary.ts`). Adjektive: `adjectiveForms()`. Formen, die normalisiert der normalisierten Grundform (ohne Artikel) gleichen, kommen nicht in den Index.
   - `formLabel(slots: FormSlot[]): string` erzeugt die Bezeichnung aus §3.3a, einschließlich des Zusammenfassens („1./3. Sg. Imperfecto“, „ · “ zwischen Zeitformen, „Pl.“ bei gleichen Adjektiv-Pluralen). Die Zeitformnamen kommen aus derselben Quelle wie in `components/VerbTable.tsx` (`TENSE_LABEL`). Diese Tabelle wird dafür in die Domäne verschoben (z. B. `domain/conjugation/labels.ts`) und von beiden genutzt.
+  - `hasSlot(slots, slot)` prüft, ob ein Slot unter den hervorzuhebenden Slots ist (Detailseite). `cachedFormIndex(vocab)` baut den Index je Vokabel-Map einmal (`WeakMap`). `FormIndex` ist eine `Map` von Vokabel-ID auf die Formen in Tabellenreihenfolge.
+  - `normalizeForSearch` und `stripArticle` liegen in `domain/text.ts` (`dictionary.ts` exportiert `normalizeForSearch` weiter), damit sich `forms.ts` und `dictionary.ts` nicht gegenseitig importieren.
   - Die Suche gruppiert die Indexeinträge einer Vokabel nach Originalform. Eine „Form“ im Sinne von „+ N weitere Formen“ ist eine verschiedene Originalschreibung mit allen ihren Slots.
-- `domain/dictionary.ts`: `searchVocab` (bzw. eine Nachfolgefunktion) liefert statt `Vocab[]` Zeilen `{ vocab: Vocab; form?: { form: string; label: string; more: number; highlight: FormSlot[] } }`. Ohne `form` ist es ein normaler Treffer. Sie bekommt den Formenindex als Parameter. Ablauf: Filter wie bisher, dann je Vokabel die Grundstufe G (bisherige Logik) und die Formstufe F (Formstufe 0 ab 2 Zeichen, Formstufe 1 ab 3 Zeichen normalisierter Eingabe; Leerzeichen zählen als Zeichen), Einordnung und Sortierung nach §3.3a. `highlight` enthält die Slots aller Formen, die auf Stufe F getroffen haben. Für die Auswahl der gezeigten Form (§3.3a) wird zusätzlich die Eingabe nur kleingeschrieben, aber mit Akzenten, mit der kleingeschriebenen Originalform verglichen. Ohne Suchtext bleibt alles wie bisher.
+- `domain/dictionary.ts`: `searchVocab` (bzw. eine Nachfolgefunktion) liefert statt `Vocab[]` Zeilen `{ vocab: Vocab; form?: { form: string; label: string; more: number; highlight: FormSlot[] } }`. Ohne `form` ist es ein normaler Treffer. Sie bekommt den Formenindex als dritten Parameter (Pflicht; ohne Formen `EMPTY_FORM_INDEX`). Ablauf: Filter wie bisher, dann je Vokabel die Grundstufe G (bisherige Logik) und die Formstufe F (Formstufe 0 ab 2 Zeichen, Formstufe 1 ab 3 Zeichen normalisierter Eingabe; Leerzeichen zählen als Zeichen), Einordnung und Sortierung nach §3.3a. `highlight` enthält die Slots aller Formen, die auf Stufe F getroffen haben. Für die Auswahl der gezeigten Form (§3.3a) wird zusätzlich die Eingabe nur kleingeschrieben, aber mit Akzenten, mit der kleingeschriebenen Originalform verglichen. Ohne Suchtext bleibt alles wie bisher.
 - Performance: Der Index wird **einmal je Vokabelbestand** gebaut (beim ersten Gebrauch im Verzeichnis, gemerkt z. B. per `useMemo` über der Vokabel-Map aus `useAppData`), nicht je Tastendruck. Rund 800 Vokabeln ergeben etwa 8 400 Einträge. Ein linearer Durchlauf je Eingabe genügt, ein Präfixbaum ist nicht nötig. Die Eingabe bleibt ohne spürbare Verzögerung (kein Debounce nötig, auf dem Handy zu prüfen).
 
 **Bildungsregeln der Adjektive** (`adjectiveForms`; die Betonung bleibt auf derselben Silbe, Akzente werden nach den spanischen Regeln gesetzt oder entfernt, dafür `domain/conjugation/accent.ts` nutzen bzw. erweitern):
@@ -559,7 +564,6 @@ Beim Umsetzen werden die erzeugten Formen aller Adjektive in `public/vocab/` dur
 - Vitest: alle Soll-Beispiele aus §3.3a (mit den echten Vokabeldaten oder mit Testvokabeln), die Regel F < G, Mindestlängen (1 Zeichen: nichts; 2 Zeichen: nur Formstufe 0; ab 3: beide), Nomen-Plurale mit Leerzeichen, Akzent- und Großschreibung, Auswahl der gezeigten Form bei Akzentpaaren (*compre*/*compré*, *levanto*/*levantó*), Sortierung in den vier Gruppen aus §3.3a, Zusammenspiel mit Filtern, Bezeichnungen samt Zusammenfassen (auch gemischte Zahl, per Testvokabel), „+ 1 weitere Form“ / „+ N weitere Formen“, reflexive Verben (ohne Pronomen, Imperativ mit Pronomen, *ir* und *irse* nebeneinander), vosotros-Formen. Für `adjectiveForms` je Regel mindestens ein Beispiel, die Komparative, Akzentfälle (*joven, cortés, alemán, iraní* per Testvokabel) dass `adj` überschreibt (*español* per Testvokabel) und die Ableitung von f. Pl. aus `adj.f` (*inglés* nur mit `f` ergibt *inglesas*; ein gesetztes `fpl` hat Vorrang). Für den Vokabel-Validator: beide Warnungen zu `adj` (fehlende Femininform bei -és/-ol, überflüssiger Eintrag samt Ausnahme für bestätigtes `adj.f`).
 - Browser-Smoke-Test (`scripts/browser-smoke.ts`): Im Verzeichnis „podemos“ eingeben, die Zeile „podemos → poder“ mit „1. Pl. Presente“ erscheint. Antippen öffnet die Detailseite von *poder*, die Zelle *podemos* ist hervorgehoben und sichtbar. Zurück: Suchtext und Filter sind erhalten. Eine Adjektiv-Detailseite zeigt die Zeile „Formen“.
 
-**Nach der Umsetzung:** In §3.3, §3.3a und hier den Vermerk „noch nicht umgesetzt“ entfernen, §9 (neue Dateien) und die Testzeile in §8 ergänzen und den Punkt aus `docs/TASKS.md` streichen. Weicht die Umsetzung an einer Stelle von dieser Spezifikation ab, wird das mit dem Nutzer geklärt.
 
 ## 15. PWA
 
