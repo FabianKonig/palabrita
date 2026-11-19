@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { TAGLINE_ES } from "./Brand";
+import { TAGLINE_ES, Wordmark } from "./Brand";
 
-/** Spanisch auf der Vorderseite, Deutsch auf der Rückseite. */
-const FRONT = "¡Bienvenido a Palabrita!";
-const BACK = "Willkommen zu Palabrita!";
-/** Kleine Zeile unter dem Haupttext, Spanisch vorne, Deutsch hinten. */
+/** Vorderseite Spanisch, Rückseite Deutsch. Der Schriftzug „Palabrita“ steht in der Mitte. */
+const FRONT_LEAD = "¡Bienvenido a";
+const BACK_LEAD = "Willkommen zu";
+/** Kleine Zeile unter dem Schriftzug, Spanisch vorne, Deutsch hinten. */
 const FRONT_SUB = TAGLINE_ES;
 const BACK_SUB = "Deine Spanisch-Vokabel-App";
 /** Kleinste Zeile: Widmung, das Herz ersetzt das Wort „Liebe“. */
@@ -67,7 +67,8 @@ export function WelcomeOverlay({ onDismiss }: { onDismiss: () => void }) {
         <span className="welcome-inner">
           <span className="welcome-face" aria-hidden={flipped}>
             <span className="welcome-tag">Spanisch</span>
-            <span className="welcome-text front">{FRONT}</span>
+            <span className="welcome-lead">{FRONT_LEAD}</span>
+            <Wordmark />
             <span className="welcome-sub">{FRONT_SUB}</span>
             <span className="welcome-credit">
               {FRONT_CREDIT} <Heart /> de Fabian König
@@ -76,7 +77,8 @@ export function WelcomeOverlay({ onDismiss }: { onDismiss: () => void }) {
           </span>
           <span className="welcome-face back" aria-hidden={!flipped}>
             <span className="welcome-tag">Deutsch</span>
-            <span className="welcome-text">{BACK}</span>
+            <span className="welcome-lead">{BACK_LEAD}</span>
+            <Wordmark />
             <span className="welcome-sub">{BACK_SUB}</span>
             <span className="welcome-credit">
               {BACK_CREDIT} <Heart /> von Fabian König

@@ -1001,7 +1001,7 @@ fieldset.setting {
 .welcome-card {
   display: block;
   width: min(340px, 100%);
-  height: 360px;
+  height: 400px;
   padding: 0;
   border: 0;
   border-radius: 28px;
@@ -1040,8 +1040,8 @@ fieldset.setting {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  padding: 56px 24px 48px;
+  gap: 12px;
+  padding: 52px 20px 44px;
   border-radius: 28px;
   background: var(--surface);
   box-shadow: var(--shadow);
@@ -1080,20 +1080,16 @@ fieldset.setting {
   color: var(--muted);
 }
 
-.welcome-text {
+/* „¡Bienvenido a“ / „Willkommen zu“ über dem Schriftzug */
+.welcome-lead {
   font-family: var(--font-head);
-  font-size: 2.1rem;
-  line-height: 1.15;
-  font-weight: 700;
-  text-wrap: balance;
-}
-
-.welcome-text.front {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.2;
   color: var(--turquoise-dark);
 }
 
 .welcome-sub {
-  margin-top: -4px;
   font-size: 0.95rem;
   line-height: 1.35;
   color: var(--muted);
@@ -1173,51 +1169,60 @@ fieldset.setting {
   }
 }
 
-/* Markenkopf im Tab „Mehr“: Wimpel, Name, Greca, Slogan */
-.brand {
+/* Wortmarke „Palabrita“: Wimpel, Name, Greca. Alles in em, damit sie überall gleich aussieht. */
+.wordmark {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 8px 0 24px;
-  text-align: center;
+  gap: 0.12em;
+  font-size: 2.6rem;
+  line-height: 1;
 }
 
-.brand-bunting {
-  width: min(300px, 90%);
+.wordmark-bunting {
+  width: 6.5em;
   height: auto;
   overflow: visible;
 }
 
-.brand-string {
+.wordmark-string {
   stroke: var(--muted);
   stroke-width: 1.5;
 }
 
-.brand-name {
-  margin: 4px 0 0;
+.wordmark-name {
+  margin: 0;
   font-family: var(--font-head);
-  font-size: 3rem;
+  font-size: 1em;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--turquoise-dark);
-  text-shadow: 3px 3px 0 var(--magenta);
+  text-shadow: 0.06em 0.06em 0 var(--magenta);
 }
 
-.brand-greca {
-  width: min(240px, 80%);
-  height: 12px;
-  margin: 6px 0 2px;
+.wordmark-greca {
+  width: 5.2em;
+  height: 0.3em;
   overflow: visible;
 }
 
-.brand-greca path {
+.wordmark-greca path {
   stroke: var(--yellow);
 }
 
+/* Markenkopf im Tab „Mehr“: Wortmarke und Slogan */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 0 24px;
+  text-align: center;
+}
+
 .brand-tagline {
-  margin: 4px 0 0;
+  margin: 0;
   font-size: 1rem;
   font-weight: 500;
   color: var(--muted);

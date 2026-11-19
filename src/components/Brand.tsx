@@ -17,13 +17,13 @@ function Bunting() {
   });
   return (
     <svg
-      className="brand-bunting"
+      className="wordmark-bunting"
       viewBox={`0 0 ${WIDTH} 40`}
       aria-hidden="true"
       focusable="false"
     >
       <path
-        className="brand-string"
+        className="wordmark-string"
         d={`M0 4 Q${WIDTH / 2} 14 ${WIDTH} 4`}
         fill="none"
       />
@@ -42,7 +42,7 @@ function Bunting() {
 function Greca() {
   return (
     <svg
-      className="brand-greca"
+      className="wordmark-greca"
       viewBox="0 0 160 12"
       preserveAspectRatio="none"
       aria-hidden="true"
@@ -59,13 +59,28 @@ function Greca() {
   );
 }
 
-/** Markenkopf: Wimpel, Name, Greca und Slogan. */
+/**
+ * Wortmarke „Palabrita“: Wimpel, Name, Greca. Alle Maße sind in `em` festgelegt,
+ * damit sie überall gleich aussieht (Markenkopf und Begrüßungskarte).
+ * `asHeading` macht den Namen zur Hauptüberschrift; dann ist die Hülle ein `div`.
+ */
+export function Wordmark({ asHeading = false }: { asHeading?: boolean }) {
+  const Wrap = asHeading ? "div" : "span";
+  const Name = asHeading ? "h1" : "span";
+  return (
+    <Wrap className="wordmark">
+      <Bunting />
+      <Name className="wordmark-name">Palabrita</Name>
+      <Greca />
+    </Wrap>
+  );
+}
+
+/** Markenkopf im Tab „Mehr“: Wortmarke und Slogan. */
 export function Brand() {
   return (
     <header className="brand">
-      <Bunting />
-      <h1 className="brand-name">Palabrita</h1>
-      <Greca />
+      <Wordmark asHeading />
       <p className="brand-tagline">{TAGLINE_ES}</p>
     </header>
   );
