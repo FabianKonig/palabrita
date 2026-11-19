@@ -5,7 +5,7 @@ import { useRegisterSW } from "virtual:pwa-register/react";
  * geöffnet ist. Timer pausieren im Hintergrund; die Prüfung beim Zurückkehren
  * in den Vordergrund deckt den Rest ab.
  */
-const UPDATE_CHECK_MS = 30 * 60 * 1000;
+const UPDATE_CHECK_MS = 15 * 60 * 1000;
 
 /**
  * Shown when a new app version is waiting; the click activates it and reloads.

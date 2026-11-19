@@ -599,7 +599,7 @@ Beim Umsetzen werden die erzeugten Formen aller Adjektive in `public/vocab/` dur
 
 ## 15. PWA
 
-`vite-plugin-pwa` mit `registerType: 'prompt'`, Workbox-Precache für App-Shell und `vocab/*.json`. `UpdateBanner` über `useRegisterSW` (`needRefresh`), Button ruft `updateServiceWorker(true)`. Der Banner prüft auf neue Versionen alle 30 Minuten solange die App geöffnet ist (`registration.update()`) und beim Zurückkehren in den Vordergrund (`visibilitychange`). Aktiv wird die neue Version nach Klick auf „Aktualisieren“ oder, wenn keine Seite der alten Version mehr offen ist, beim nächsten Start. Manifest: Name „Palabrita“, `display: standalone`, `lang: de`, Theme-Farbe Türkis. Icons 192/512/maskable aus SVG (`scripts/make-icons.ts`).
+`vite-plugin-pwa` mit `registerType: 'prompt'`, Workbox-Precache für App-Shell und `vocab/*.json`. `UpdateBanner` über `useRegisterSW` (`needRefresh`), Button ruft `updateServiceWorker(true)`. Der Banner prüft auf neue Versionen alle 15 Minuten solange die App geöffnet ist (`registration.update()`) und beim Zurückkehren in den Vordergrund (`visibilitychange`). Aktiv wird die neue Version nach Klick auf „Aktualisieren“ oder, wenn keine Seite der alten Version mehr offen ist, beim nächsten Start. Manifest: Name „Palabrita“, `display: standalone`, `lang: de`, Theme-Farbe Türkis. Icons 192/512/maskable aus SVG (`scripts/make-icons.ts`).
 
 ## 16. Test und Deployment
 
