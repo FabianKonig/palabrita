@@ -82,8 +82,7 @@ body {
 }
 
 /* Überschriften laufen nicht unter das Logo */
-.screen:not(.center) > h1,
-.detail-head h1 {
+.screen:not(.center) > h1 {
   padding-right: 92px;
 }
 
@@ -652,9 +651,11 @@ button.back {
   margin: 0;
 }
 
+/* Lautsprecher rechts oben in der Kopfzeile: fester Platz, unabhängig von der Wortlänge */
 .speak-inline {
   position: static;
   flex: none;
+  margin-left: auto;
 }
 
 .detail-de {

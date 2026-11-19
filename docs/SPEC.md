@@ -43,7 +43,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 - **Endlose Sitzung:** Es gibt **kein Tageslimit** und kein „Fertig für heute“. Der Nutzer lernt so lange er will und beendet selbst über „Beenden“ (zeigt eine Zusammenfassung). Jede Bewertung wird sofort gespeichert. Ist alles durch, beginnt ein neuer Durchlauf.
 - **Spaced Repetition:** Nicht gewusste Wörter kommen **nach Minuten** wieder, sicher gewusste immer seltener. Pro Karte werden Fälligkeit, Intervall, Ease-Faktor und Lernschritt gespeichert (§11).
 - **Konjugation aus der Sitzung:** Bei Verben öffnet ein Klick auf „Konjugation“ (erst nach dem Aufdecken) ein Overlay mit der Formentabelle, ohne die Sitzung zu verlassen.
-- **Audio-Aussprache:** Browser-Sprachausgabe (Web Speech API), spanische Stimme bevorzugt `es-MX`. Ein Lautsprecher-Button steht auf der Karte, sobald die spanische Seite sichtbar ist. Automatisches Vorlesen ist ein Schalter der Lernsitzung (Standard aus, nicht gespeichert). Details und Stimmenwahl: §13.
+- **Audio-Aussprache:** Browser-Sprachausgabe (Web Speech API), spanische Stimme bevorzugt `es-MX`. Ein Lautsprecher-Button steht auf der Karte, sobald die spanische Seite sichtbar ist. Automatisches Vorlesen ist ein Schalter der Lernsitzung (Standard aus, nicht gespeichert). Auf der Wortdetailseite und im Konjugations-Overlay steht der Lautsprecher rechts oben in der Kopfzeile, unabhängig von der Wortlänge. Details und Stimmenwahl: §13.
 - **Filter:** nach Thema, Niveau (A1/A2/B1), Wortart (Verb, Nomen, …).
 
 ### 3.2 Einstellungen und Datensicherung
