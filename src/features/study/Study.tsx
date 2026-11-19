@@ -50,9 +50,11 @@ function StudySession({
   filters: QueueFilters;
   onBack: () => void;
 }) {
-  const { vocab, settings, updateSettings } = useAppData();
-  const { maxLevel, direction, autoSpeak } = settings;
+  const { vocab, settings } = useAppData();
+  const { maxLevel, direction } = settings;
   const [session, setSession] = useState<Session | null>(null);
+  // Automatisches Vorlesen ist nur für diese Sitzung manuell einschaltbar und startet immer aus.
+  const [autoSpeak, setAutoSpeak] = useState(false);
   const [flipped, setFlipped] = useState(false);
   // Becomes true with the first reveal of a card: the rating buttons stay until the next card.
   const [revealed, setRevealed] = useState(false);
@@ -210,14 +212,6 @@ function StudySession({
     }
   }
 
-  async function onToggleAutoSpeak(value: boolean) {
-    try {
-      await updateSettings({ autoSpeak: value });
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
-    }
-  }
-
   // eslint-disable-next-line react-hooks/purity -- Vorschau der Intervalle braucht die aktuelle Zeit
   const now = Date.now();
   const previews = previewIntervals(
@@ -278,7 +272,7 @@ function StudySession({
             role="switch"
             type="checkbox"
             checked={autoSpeak}
-            onChange={(e) => void onToggleAutoSpeak(e.target.checked)}
+            onChange={(e) => setAutoSpeak(e.target.checked)}
           />
           <span>Automatisch vorlesen</span>
         </label>

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getAllCards } from "../../data/cardRepo";
-import { getStreak } from "../../data/statsRepo";
 import { computeStats, type DirectionStats } from "../../domain/stats";
 import { useAppData } from "../../hooks/useAppData";
 
@@ -11,21 +10,15 @@ const DIR_LABEL = {
 
 export function Stats() {
   const { vocab, settings } = useAppData();
-  const [data, setData] = useState<{
-    stats: DirectionStats;
-    streak: number;
-  } | null>(null);
+  const [data, setData] = useState<DirectionStats | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
-    Promise.all([getAllCards(), getStreak(Date.now())])
-      .then(([cards, streak]) => {
+    getAllCards()
+      .then((cards) => {
         if (cancelled) return;
-        setData({
-          stats: computeStats(vocab.values(), cards, settings.maxLevel),
-          streak,
-        });
+        setData(computeStats(vocab.values(), cards, settings.maxLevel));
       })
       .catch((e: unknown) => {
         if (!cancelled) setError(e instanceof Error ? e.message : String(e));
@@ -46,14 +39,11 @@ export function Stats() {
   return (
     <div className="screen">
       <h1>Statistik</h1>
-      <p className="stats-line">
-        Serie: {data.streak} {data.streak === 1 ? "Tag" : "Tage"}
-      </p>
       <p className="muted">
         Gezählt werden Vokabeln bis Niveau {settings.maxLevel}.
       </p>
       {(Object.keys(DIR_LABEL) as (keyof typeof DIR_LABEL)[]).map((dir) => {
-        const s = data.stats[dir];
+        const s = data[dir];
         const total = s.new + s.learning + s.mature;
         return (
           <section key={dir} className="panel stat-block">

@@ -7,7 +7,7 @@ import { DEFAULT_SETTINGS } from "../domain/types";
 import { getAllCards, getCard, saveReview } from "./cardRepo";
 import { closeDb } from "./db";
 import { getSettings, saveSettings } from "./settingsRepo";
-import { computeStreak, getDaily, getStreak } from "./statsRepo";
+import { getDaily } from "./statsRepo";
 
 const NOW = new Date(2026, 0, 15, 10, 0).getTime();
 
@@ -57,7 +57,6 @@ describe("settingsRepo", () => {
   it("keeps changed settings after a reload", async () => {
     const changed = {
       maxLevel: "A1" as const,
-      autoSpeak: true,
       direction: "es-de" as const,
       theme: "dark" as const,
     };
@@ -80,44 +79,5 @@ describe("settingsRepo", () => {
     await saveSettings({ ...DEFAULT_SETTINGS, direction: "both" });
     expect(await getCard("v1", "de-es")).toBeDefined();
     expect(await getCard("v1", "es-de")).toBeUndefined();
-  });
-});
-
-describe("streak", () => {
-  it("counts from today when today was learned", () => {
-    const days = new Set([
-      "2026-01-15",
-      "2026-01-14",
-      "2026-01-13",
-      "2026-01-10",
-    ]);
-    expect(computeStreak(days, NOW)).toBe(3);
-  });
-
-  it("counts from yesterday when today is not learned yet", () => {
-    expect(computeStreak(new Set(["2026-01-14", "2026-01-13"]), NOW)).toBe(2);
-  });
-
-  it("is 0 when yesterday was missed too", () => {
-    expect(computeStreak(new Set(["2026-01-13"]), NOW)).toBe(0);
-  });
-
-  it("uses the 04:00 day rule", () => {
-    const at0330 = new Date(2026, 0, 15, 3, 30).getTime(); // still the 14th
-    expect(computeStreak(new Set(["2026-01-14"]), at0330)).toBe(1);
-  });
-
-  it("reads reviewed days from the database", async () => {
-    await saveReview(
-      review(newCard("v1", "de-es", NOW), "good", NOW),
-      true,
-      "2026-01-14",
-    );
-    await saveReview(
-      review(newCard("v2", "de-es", NOW), "good", NOW),
-      true,
-      "2026-01-15",
-    );
-    expect(await getStreak(NOW)).toBe(2);
   });
 });

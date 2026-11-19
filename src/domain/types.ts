@@ -53,14 +53,12 @@ export type Grade = "again" | "good";
 
 export interface Settings {
   maxLevel: Level;
-  autoSpeak: boolean;
   direction: DirectionSetting;
   theme: "system" | "light" | "dark";
 }
 
 export const DEFAULT_SETTINGS: Settings = {
   maxLevel: "B1",
-  autoSpeak: false,
   direction: "both",
   theme: "system",
 };

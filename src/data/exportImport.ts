@@ -31,7 +31,6 @@ function validSettings(s: unknown): s is Settings {
   return (
     isObj(s) &&
     LEVELS.includes(s.maxLevel as string) &&
-    typeof s.autoSpeak === "boolean" &&
     ["de-es", "es-de", "both"].includes(s.direction as string) &&
     ["system", "light", "dark"].includes(s.theme as string)
   );
@@ -104,7 +103,6 @@ export function parseExport(text: string): ExportFile {
     exportedAt: typeof raw.exportedAt === "string" ? raw.exportedAt : "",
     settings: {
       maxLevel: raw.settings.maxLevel,
-      autoSpeak: raw.settings.autoSpeak,
       direction: raw.settings.direction,
       theme: raw.settings.theme,
     },
@@ -116,7 +114,14 @@ export function parseExport(text: string): ExportFile {
 
 export async function buildExport(now = Date.now()): Promise<ExportFile> {
   const db = await getDb();
-  const settings = (await db.get("settings", "main")) ?? DEFAULT_SETTINGS;
+  const stored = await db.get("settings", "main");
+  const settings = stored
+    ? {
+        maxLevel: stored.maxLevel,
+        direction: stored.direction,
+        theme: stored.theme,
+      }
+    : DEFAULT_SETTINGS;
   return {
     schemaVersion: SCHEMA_VERSION,
     exportedAt: new Date(now).toISOString(),

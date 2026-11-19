@@ -399,10 +399,8 @@ async function main() {
     )) && !/Richtung/.test(await text()),
   );
   check(
-    "Einstellungen: „Automatisch vorlesen“ ist ein Schalter",
-    await evaluate<boolean>(
-      `!!document.querySelector('label.switch input[type="checkbox"][role="switch"]')`,
-    ),
+    "Einstellungen: kein „Automatisch vorlesen“ mehr",
+    !/Automatisch vorlesen/.test(await text()),
   );
   await setInput(`select:has(option[value="A1"])`, "A1");
   await sleep(400);

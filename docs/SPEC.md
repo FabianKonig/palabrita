@@ -46,12 +46,12 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 - **Endlose Sitzung:** Es gibt **kein Tageslimit** und kein „Fertig für heute“. Der Nutzer lernt so lange er will und beendet selbst über „Beenden“ (zeigt eine Zusammenfassung). Jede Bewertung wird sofort gespeichert. Ist alles durch, beginnt ein neuer Durchlauf.
 - **Spaced Repetition:** Nicht gewusste Wörter kommen **nach Minuten** wieder, sicher gewusste immer seltener. Pro Karte werden Fälligkeit, Intervall, Ease-Faktor und Lernschritt gespeichert (§11).
 - **Konjugation aus der Sitzung:** Bei Verben öffnet ein Klick auf „Konjugation“ (erst nach dem Aufdecken) ein Overlay mit der Formentabelle, ohne die Sitzung zu verlassen.
-- **Audio-Aussprache:** Browser-Sprachausgabe (Web Speech API, `speechSynthesis`) mit Stimme `es-MX`, Fallback `es-ES`/`es`. Ein Lautsprecher-Button steht auf jeder Karte, optional mit automatischem Vorlesen (einmal je Karte). Wenn keine spanische Stimme verfügbar ist, erscheint ein Hinweis.
+- **Audio-Aussprache:** Browser-Sprachausgabe (Web Speech API, `speechSynthesis`) mit Stimme `es-MX`, Fallback `es-ES`/`es`. Ein Lautsprecher-Button steht auf jeder Karte. Automatisches Vorlesen (einmal je Karte) lässt sich in der Lernsitzung manuell einschalten; es ist standardmäßig aus, gilt nur für diese Sitzung und wird nicht gespeichert. Wenn keine spanische Stimme verfügbar ist, erscheint ein Hinweis.
 - **Filter:** nach Thema, Niveau (A1/A2/B1), Wortart (Verb, Nomen, …).
 
 ### 3.2 Einstellungen und Datensicherung
 - Es gibt **keine Profile und kein Login**: Fortschritt und Einstellungen gelten für den Browser auf diesem Gerät.
-- Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden angezeigt, persistent gespeichert, jederzeit änderbar), automatisches Vorlesen und Theme (System/Hell/Dunkel). Die Version steht nicht hier, sondern unter „Mehr“ (unter „Einstellungen“ und „Legende“): Zeitstempel des HEAD-Commits zum Bauzeitpunkt (bei Deployment also des Merges auf `main`), beim Build aus Git in `vite.config.ts` eingesetzt, immer in UTC. Eine Einstellung „neue Karten pro Tag“ gibt es nicht mehr.
+- Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden angezeigt, persistent gespeichert, jederzeit änderbar) und Theme (System/Hell/Dunkel). Die Version steht nicht hier, sondern unter „Mehr“ (unter „Einstellungen“ und „Legende“): Zeitstempel des HEAD-Commits zum Bauzeitpunkt (bei Deployment also des Merges auf `main`), beim Build aus Git in `vite.config.ts` eingesetzt, immer in UTC. Eine Einstellung „neue Karten pro Tag“ gibt es nicht mehr.
 - Fortschritt exportieren und importieren (JSON-Datei), damit nichts verloren geht, wenn Browserdaten gelöscht werden. Import wahlweise **ersetzen** oder **zusammenführen**. Beim Zusammenführen gewinnt je Karte der Stand mit der neueren letzten Bewertung, die lokalen Einstellungen bleiben unverändert (Details: §10.1b). Ältere Exportdateien (mit `newPerDay`, ohne `step`) bleiben importierbar.
 
 ### 3.3 Übersicht und Statistik
@@ -328,7 +328,7 @@ Exportdatei: `{ schemaVersion, exportedAt, settings, cards, daily, userVocab }`.
 
 | Store | Key | Wert |
 |---|---|---|
-| `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, autoSpeak: boolean, direction: 'de-es'\|'es-de'\|'both', theme: 'system'\|'light'\|'dark' }` (Defaults: B1, false, both, system). Das Feld `newPerDay` entfällt (vorhandene Datensätze mit dem Feld verursachen keinen Fehler). |
+| `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, direction: 'de-es'\|'es-de'\|'both', theme: 'system'\|'light'\|'dark' }` (Defaults: B1, both, system). Die Felder `newPerDay` und `autoSpeak` entfallen (vorhandene Datensätze mit diesen Feldern verursachen keinen Fehler; der Import ignoriert sie). |
 | `cards` | `[vocabId, dir]` | `{ vocabId, dir: 'de-es'\|'es-de', due: number(ms), interval: number(Tage), ease: number, reps: number, lapses: number, lastReviewed: number\|null, state: 'new'\|'learning'\|'mature', step?: 0\|1 }`. `step` ist neu, siehe §11. |
 | `daily` | `dayKey` | `{ dayKey: 'YYYY-MM-DD', newIntroduced: number, reviewed: number }` |
 | `userVocab` | `id` | vollständiges `Vocab` mit `origin: 'user'`, `level: null`, `topic: 'eigene'`, `createdAt` |
@@ -336,19 +336,19 @@ Exportdatei: `{ schemaVersion, exportedAt, settings, cards, daily, userVocab }`.
 
 Index auf `cards`: `by-due` = `due`.
 
-Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. `daily.newIntroduced` zählt neu eingeführte **Karten** (nicht Vokabeln) bei der ersten Bewertung. `daily.reviewed` zählt **jede gespeicherte Bewertung**, auch Wiederholungen derselben Karte am selben Tag. Ein „Gewusst“ bei der Vorab-Wiederholung (§11) ändert nichts an der Karte, wird **nicht gespeichert** und zählt **nicht**. Ein Tag mit `reviewed > 0` gehört zum Streak. Zwischen Geräten hilft nur Export/Import.
+Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. `daily.newIntroduced` zählt neu eingeführte **Karten** (nicht Vokabeln) bei der ersten Bewertung. `daily.reviewed` zählt **jede gespeicherte Bewertung**, auch Wiederholungen derselben Karte am selben Tag. Ein „Gewusst“ bei der Vorab-Wiederholung (§11) ändert nichts an der Karte, wird **nicht gespeichert** und zählt **nicht**. Zwischen Geräten hilft nur Export/Import.
 
 Eine Karte wird **erst beim ersten Lernen angelegt** (kein Vorab-Befüllen von 1000 Karten). „Neu“ = Vokabel ohne Card-Eintrag für diese Richtung.
 
 **Alle fünf Stores werden schon in Version 1 angelegt**, auch `userVocab` (zunächst leer), damit für eigene Wörter keine Migration nötig ist. Das neue Feld `step` braucht **keine Migration**: bestehende Karten ohne `step` gelten als Wiederholungsphase.
 
-Streak (`statsRepo`): Anzahl aufeinanderfolgender Tage mit `reviewed > 0`, rückwärts ab **heute**. Hat der Nutzer heute noch nicht gelernt, zählt die Serie ab **gestern** (sie bricht erst ab, wenn auch gestern kein Lerntag war).
+Eine Serie (Streak) gibt es nicht. Weder Anzeige noch Berechnung sind vorhanden (entfernt, Anforderung 2026-11-19).
 
 Migrationen laufen über `upgrade(db, oldVersion)` in `data/db.ts`. Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht). Löscht der Nutzer ein **eigenes** Wort, werden auch seine Cards gelöscht (Rückfrage in der UI).
 
 ## 11. Lernmodell (`domain/srs.ts`)
 
-**Tageswechsel (`domain/day.ts`):** `dayKey(now)` = lokales Datum von `now − 4 h`. `startOfDay(dayKey)` liefert 04:00 lokal. `addDays` rechnet in **Kalendertagen** auf dem `dayKey`, nicht mit `+ 24 h`, damit Zeitumstellungen nichts verschieben. Streak und Zähler zählen bis 04:00 zum Vortag.
+**Tageswechsel (`domain/day.ts`):** `dayKey(now)` = lokales Datum von `now − 4 h`. `startOfDay(dayKey)` liefert 04:00 lokal. `addDays` rechnet in **Kalendertagen** auf dem `dayKey`, nicht mit `+ 24 h`, damit Zeitumstellungen nichts verschieben. Die Tageszähler zählen bis 04:00 zum Vortag.
 
 Reine Funktion `review(card, grade, now): Card`. `Grade` ist `"again" | "good"` (Beschriftung: „Nochmal“, „Gewusst“). Die früheren Stufen `hard` und `easy` entfallen aus Typen, `GRADES`, UI und Tests.
 
@@ -377,7 +377,7 @@ Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` vo
 
 **Vorab-Wiederholung** (Karte in der Wiederholungsphase, aber **noch nicht fällig**, siehe §12.2). Der Zeitplan darf durch Üben nicht aufgebläht werden:
 - **Nochmal:** wie Rückfall oben (bewusst hart: `lapses += 1`, `reps = 0`, Ease −0,2, Intervall 1 T). Wer beim freiwilligen Durchlauf ein Wort nicht mehr weiß, hat es wirklich vergessen, auch wenn es eine Karte mit z. B. 56 Tagen Intervall war. Der Plan wird dadurch verkürzt, aber nie verlängert.
-- **Gewusst:** Karte bleibt **vollständig unverändert**, auch `lastReviewed` (entschieden). Es wird nichts gespeichert, `daily.reviewed` zählt nicht, und es zählt nicht für die Serie. So kann reines Üben beim Zusammenführen (§10.1b) keinen echten, neueren Lernstand eines anderen Geräts verdrängen. In der Sitzung zählt es trotzdem zu „Bewertet: N“ und die Karte kommt in `sessionSeen`.
+- **Gewusst:** Karte bleibt **vollständig unverändert**, auch `lastReviewed` (entschieden). Es wird nichts gespeichert, `daily.reviewed` zählt nicht, So kann reines Üben beim Zusammenführen (§10.1b) keinen echten, neueren Lernstand eines anderen Geräts verdrängen. In der Sitzung zählt es trotzdem zu „Bewertet: N“ und die Karte kommt in `sessionSeen`.
 - `review()` bekommt dafür keinen Zusatzparameter: „nicht fällig“ wird in der Funktion aus `card.due >= nextDayStart(now)` erkannt.
 
 **Ease-Rundung:** Die Ease wird nach jeder Änderung auf 2 Dezimalstellen gerundet (gegen Gleitkomma-Rauschen wie 2,3499999) und danach auf `MIN_EASE`/`MAX_EASE` begrenzt. Bestehende Karten mit Ease über 3,0 (vom alten „Leicht“ mit +0,15) werden bei der nächsten Bewertung auf 3,0 gekappt. Das Intervall dieser einen Bewertung nutzt noch die ungekappte Ease.
@@ -423,7 +423,7 @@ Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Kar
 
 `speechSynthesis`; Stimmen laden über `voiceschanged`. Auswahl: `es-MX` → `es-US` → `es-*` → erste mit `lang` beginnend mit `es`. Nicht verfügbar: Hinweisbanner „Keine spanische Stimme gefunden“, Button deaktiviert. Gesprochen wird immer der spanische Text `es` **inklusive Artikel** (*el autobús*). Text in Klammern wird entfernt, bei Alternativen mit `/` (*el/la turista*) wird nur die erste gesprochen.
 
-**Auto-Vorlesen** liest **einmal je Karte** vor, nämlich wenn die spanische Seite zum ersten Mal sichtbar wird. Weiteres Hin- und Herdrehen löst es nicht erneut aus. Der 🔊-Button funktioniert, solange die spanische Seite sichtbar ist.
+**Auto-Vorlesen** ist ein Schalter in der Lernsitzung (Standard aus, nur für diese Sitzung). Es liest **einmal je Karte** vor, nämlich wenn die spanische Seite zum ersten Mal sichtbar wird. Weiteres Hin- und Herdrehen löst es nicht erneut aus. Der 🔊-Button funktioniert, solange die spanische Seite sichtbar ist.
 
 ## 14. Routing und Screens
 
@@ -479,7 +479,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 
 ## 17. Annahmen (gelten, solange nichts anderes entschieden wird)
 
-- **Tageswechsel:** um 04:00 Uhr lokaler Zeit (Streak und Tageszähler zählen bis dahin zum Vortag), siehe §11.
+- **Tageswechsel:** um 04:00 Uhr lokaler Zeit (Tageszähler zählen bis dahin zum Vortag), siehe §11.
 - **Routing:** Hash-Router (`/#/...`), damit der statische Host keine SPA-Fallback-Regel braucht.
 - **Tests:** Vitest für `srs.ts`, `queue.ts` und das Konjugationsmodul.
 - **Icons/Logo:** einfaches SVG-Icon (Schriftzug oder Symbol in den Landesfarben) und daraus die PWA-Icons (192, 512, maskable).

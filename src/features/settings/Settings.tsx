@@ -58,16 +58,6 @@ export function Settings() {
           </small>
         </label>
 
-        <label className="switch">
-          <input
-            role="switch"
-            type="checkbox"
-            checked={settings.autoSpeak}
-            onChange={(e) => change({ autoSpeak: e.target.checked })}
-          />
-          <span>Automatisch vorlesen</span>
-        </label>
-
         <label className="setting">
           <span>Darstellung</span>
           <select

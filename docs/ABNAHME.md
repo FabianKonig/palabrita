@@ -22,6 +22,6 @@ Prüft das Modell aus `docs/SPEC.md` §3.1, §11, §12, §14.1.
 
 - [ ] Zurück-Taste des Geräts schließt nur das Verb-Overlay, die Sitzung bleibt
 - [ ] Tab-Taste bleibt im Overlay gefangen, Fokus kehrt zum Button „Konjugation“ zurück
-- [ ] Auto-Vorlesen spricht je Karte genau einmal (mit spanischer Stimme hörbar)
+- [ ] Auto-Vorlesen spricht je Karte genau einmal (mit spanischer Stimme hörbar), nach Einschalten im Lernen-Schalter; Einstellungen zeigen keinen Schalter mehr
 - [ ] Vorab-Wiederholung auf einem Gerät mit echtem Lernstand: „Gewusst“ lässt Intervall und Serie unverändert
 - [ ] Bedienung auf dem Handy: Bottom-Sheet, Buttons gut erreichbar

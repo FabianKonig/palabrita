@@ -405,23 +405,11 @@ body:has(.session-bar) .screen {
   box-shadow: var(--shadow);
 }
 
-.stats-line {
-  margin: 0 0 20px;
-  font-size: 1.05rem;
-  line-height: 1.5;
-}
-
 /* Startseite: große Türkis-Karte mit dem Hauptknopf. */
 .home-hero {
   background: var(--btn-bg);
   color: var(--on-btn);
   box-shadow: var(--shadow);
-}
-
-.home-hero .stats-line {
-  font-family: var(--font-head);
-  font-size: 1.15rem;
-  font-weight: 600;
 }
 
 .home-hero .btn {
