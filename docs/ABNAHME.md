@@ -15,8 +15,7 @@ Prüft das Modell aus `docs/SPEC.md` §3.1, §11, §12, §14.1.
 | 7 | Verb-Overlay: „Konjugation“ erst nach dem Aufdecken, Tabelle, Escape, gleiche Karte | **bestanden** (Zurück-Taste und Fokusfalle nicht automatisch geprüft, siehe unten) | Smoke-Test |
 | 8 | „Nochmal“ kommt nach 5 Min wieder, vor neuen Karten | **bestanden** | Smoke-Test mit Uhr-Offset (`Date.now`), Ausgangslage mit einer Karte in der Wiederholphase |
 | 9 | „Beenden“ zeigt Zusammenfassung, Neuladen behält Fortschritt | **bestanden** | Smoke-Test |
-| 10 | Export und Import (Ersetzen, Zusammenführen, Karten ohne `step`) | **bestanden** | `exportImport.test.ts` |
-| 11 | Einstellungen ohne „Neue pro Tag“, Lernen-Seite ohne Zähler und Serie (Streak) | **bestanden** | Smoke-Test |
+| 10 | Einstellungen ohne „Neue pro Tag“, Lernen-Seite ohne Zähler und Serie (Streak) | **bestanden** | Smoke-Test |
 
 ## Manuelle Abnahme
 

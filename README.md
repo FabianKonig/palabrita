@@ -2,7 +2,7 @@
 
 Vokabel-Lern-App für Spanisch (lateinamerikanische Variante, Mexiko und Guatemala) mit Karteikarten, Wiederholungsplan (Spaced Repetition mit „Nochmal“ und „Gewusst“, endlose Sitzung), Aussprache und Verbtabellen. Läuft komplett im Browser, ist als PWA installierbar und funktioniert offline.
 
-Der Lernfortschritt liegt im Browser (IndexedDB), je Gerät getrennt. Zum Sichern oder Umziehen gibt es **Einstellungen → Daten sichern** (Export/Import als JSON-Datei).
+Der Lernfortschritt liegt im Browser (IndexedDB), je Gerät getrennt.
 
 ## Lokal testen
 
@@ -20,7 +20,7 @@ Service Worker, Offline-Betrieb und Installierbarkeit lassen sich nur mit `build
 Weitere Befehle:
 
 ```powershell
-npm test                      # Unit-Tests (SRS, Konjugation, Export/Import, ...)
+npm test                      # Unit-Tests (SRS, Konjugation, ...)
 npm run lint                  # ESLint
 npm run validate:vocab        # Vokabeldateien prüfen (Schema, IDs, Dubletten, Verbformen)
 ```
@@ -36,7 +36,7 @@ Einmalige Einrichtung:
 
 Aktualisieren: Jeder Push auf `main` startet den Workflow und veröffentlicht die neue Version (nur bei grünem Lint, Tests und Vokabelprüfung). Zusätzlich lässt er sich unter *Actions → Pages → Run workflow* manuell starten.
 
-Der Lernfortschritt (IndexedDB) ist an die Adresse (Origin) gebunden. Eine neue Adresse startet leer; Export und Import in den Einstellungen übertragen ihn.
+Der Lernfortschritt (IndexedDB) ist an die Adresse (Origin) gebunden. Eine neue Adresse startet leer.
 
 ## Installation auf dem Handy
 
@@ -47,7 +47,6 @@ Der Lernfortschritt (IndexedDB) ist an die Adresse (Origin) gebunden. Eine neue 
 
 - Alles läuft im Browser, es gibt kein Backend, keine Tracker und keine Konten.
 - Quelle der Vokabeln: [Wiktionary](https://de.wiktionary.org) und [spanische Wiktionary](https://es.wiktionary.org), Inhalte unter CC BY-SA.
-- Sichern: **Einstellungen → Daten sichern** exportiert Einstellungen und Karten. Beim Import gibt es „Zusammenführen“ (die Karte mit dem neueren Lernstand gewinnt) und „Ersetzen“.
 
 ## Projektaufbau
 

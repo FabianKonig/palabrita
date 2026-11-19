@@ -112,9 +112,7 @@ export function Privacy() {
       <p>
         <strong>Löschung:</strong> Du kannst die Daten jederzeit über die
         Website-Daten deines Browsers löschen bzw. die installierte App
-        entfernen. Mit der Funktion „Daten sichern“ in den Einstellungen
-        exportierst du eine Datei, die ausschließlich bei dir liegt. Wie du sie
-        aufbewahrst, entscheidest du selbst.
+        entfernen.
       </p>
 
       <h2>6. Vorlesefunktion</h2>

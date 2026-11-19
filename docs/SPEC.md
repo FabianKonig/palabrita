@@ -46,10 +46,9 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 - **Audio-Aussprache:** Browser-Sprachausgabe (Web Speech API), spanische Stimme bevorzugt `es-MX`. Ein Lautsprecher-Button steht auf der Karte, sobald die spanische Seite sichtbar ist. Automatisches Vorlesen ist ein Schalter der Lernsitzung (Standard aus, nicht gespeichert). Details und Stimmenwahl: §13.
 - **Filter:** nach Thema, Niveau (A1/A2/B1), Wortart (Verb, Nomen, …).
 
-### 3.2 Einstellungen und Datensicherung
+### 3.2 Einstellungen
 - Es gibt **keine Profile und kein Login**: Fortschritt und Einstellungen gelten für den Browser auf diesem Gerät.
 - Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden gelernt und in der Statistik gezählt, das Verzeichnis zeigt dagegen alle Wörter, §3.3; persistent gespeichert, jederzeit änderbar) und Theme (System/Hell/Dunkel). Die Version steht nicht hier, sondern unter „Mehr“ unterhalb der Einträge: Zeitstempel des HEAD-Commits zum Bauzeitpunkt (bei Deployment also des Merges auf `main`), beim Build aus Git in `vite.config.ts` eingesetzt, Format `TT.MM.JJJJ, HH:MM UTC`, immer in UTC.
-- Fortschritt exportieren und importieren (JSON-Datei), damit nichts verloren geht, wenn Browserdaten gelöscht werden. Import wahlweise **ersetzen** oder **zusammenführen**. Beim Zusammenführen gewinnt je Karte der Stand mit der neueren letzten Bewertung, die lokalen Einstellungen bleiben unverändert (Details: §10.1b).
 
 ### 3.3 Übersicht und Statistik
 - Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie (Streak). Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung, steht bei jedem Aufruf auf „Beide Richtungen“, wird nicht gespeichert) und den Button „Starten“. Das Niveau-Dropdown bietet „Alle Niveaus“ und die Niveaus bis zum Maximalniveau. Ist das Maximalniveau A1, gibt es nur dieses eine Niveau: Das Dropdown zeigt dann nur „A1“ (ohne „Alle Niveaus“), ist ausgewählt und deaktiviert (ausgegraut). Ohne Auswahl startet eine Sitzung über alle Themen.
@@ -201,7 +200,7 @@ Zusätzlich gilt für jedes Verb:
 | Styling | Plain CSS mit CSS-Variablen (`src/styles/`), kein UI-Framework. Hell/Dunkel via `prefers-color-scheme` und `data-theme` |
 | Speicher | IndexedDB über `idb` |
 | PWA | `vite-plugin-pwa`, `registerType: 'prompt'` |
-| Tests | Vitest (`npm test`) für reine Logik in `domain/` (SRS, Tageswechsel, Warteschlange, Konjugation, Dublettenprüfung, Statistik, Verzeichnissuche, Sprachausgabe, Versionsstempel), für `data/` (Karten, Export/Import, Vokabeln, Begrüßungs-Flag) mit `fake-indexeddb` und für den Vokabel-Validator. Keine Komponenten-Tests. UI-Verhalten (Verzeichnis-Filter und Scrollposition in `features/dictionary/viewState`, Schalter, Dropdowns, Richtung im Lernen-Tab) deckt der Browser-Smoke-Test (`scripts/browser-smoke.ts`, braucht `npm run build` und `npm run preview`) ab. `src/styles/global.test.ts` schützt Dunkelmodus-Kontrast, Dropdown-Pfeil und Schalter, `features/legend/notations.test.ts` stellt sicher, dass die Legende jede erzeugte Notation erklärt. |
+| Tests | Vitest (`npm test`) für reine Logik in `domain/` (SRS, Tageswechsel, Warteschlange, Konjugation, Dublettenprüfung, Statistik, Verzeichnissuche, Sprachausgabe, Versionsstempel), für `data/` (Karten, Vokabeln, Begrüßungs-Flag) mit `fake-indexeddb` und für den Vokabel-Validator. Keine Komponenten-Tests. UI-Verhalten (Verzeichnis-Filter und Scrollposition in `features/dictionary/viewState`, Schalter, Dropdowns, Richtung im Lernen-Tab) deckt der Browser-Smoke-Test (`scripts/browser-smoke.ts`, braucht `npm run build` und `npm run preview`) ab. `src/styles/global.test.ts` schützt Dunkelmodus-Kontrast, Dropdown-Pfeil und Schalter, `features/legend/notations.test.ts` stellt sicher, dass die Legende jede erzeugte Notation erklärt. |
 | Dev-Tools | `tsx` (führt `scripts/*.ts` aus), `ajv` (JSON-Schema-Validierung der Vokabeln), `sharp` (PWA-Icons aus dem SVG) |
 | Lint | ESLint (`@eslint/js`, `typescript-eslint`, `eslint-plugin-react-hooks`, jeweils Empfehlungen), Prettier Defaults |
 | Node | 24.x |
@@ -243,7 +242,6 @@ src/
     vocabRepo.ts            # lädt/cached vocab JSON
     db.ts                   # idb-Schema (settings, cards)
     settingsRepo.ts  cardRepo.ts
-    exportImport.ts
     welcomeFlag.ts          # Begrüßung gesehen (localStorage)
   features/
     study/  dictionary/  stats/  settings/  legend/  legal/  more/
@@ -293,13 +291,6 @@ Berechnete Werte (`notation`, `regularity`, `irregularity_types`, alle Formen mi
 ```
 Feste Themen-Schlüssel (13): `begruessung`, `zahlen-zeit`, `essen`, `transport`, `unterkunft`, `einkaufen`, `gesundheit`, `natur`, `orte`, `kultur`, `maya`, `smalltalk`, `grundwortschatz`. `Vocab.topic` ist immer einer dieser Schlüssel, die Labels (deutsch) kommen aus `index.json` und werden für die Filter genutzt. Jede Themendatei ist ein JSON-Array von `Vocab`. Der Loader lädt alle Dateien einmal je Seitenaufruf, validiert minimal (id, de, es, level, ungültige Einträge werden mit Warnung übersprungen) und liefert eine `Map<id, Vocab>`. `vocabRepo` lädt alle statischen Vokabeln in eine Map.
 
-### 10.1b Export/Import (`data/exportImport.ts`)
-Exportdatei: `{ schemaVersion, exportedAt, settings, cards }`.
-- **Ersetzen:** alle lokalen Daten (Einstellungen, Karten) werden durch die Datei ersetzt, nach Rückfrage.
-- **Zusammenführen:** Einstellungen bleiben lokal unverändert. `cards`: pro Schlüssel `[vocabId, dir]` gewinnt der Stand mit dem größeren `lastReviewed` (bei Gleichstand der lokale; `null` verliert gegen einen Wert); nur in einer Seite vorhandene Karten bleiben.
-- Import validiert `schemaVersion` und Struktur, lehnt unbekannte neuere Versionen mit Fehlermeldung ab und ändert bei Fehlern nichts (alles-oder-nichts in einer Transaktion).
-- Karten ohne `step` sind gültig (Wiederholungsphase). Ist `step` gesetzt, muss er `0` oder `1` sein, sonst wird die Datei abgelehnt.
-
 ### 10.2 IndexedDB (`palabrita`, Version 1)
 
 | Store | Key | Wert |
@@ -307,7 +298,7 @@ Exportdatei: `{ schemaVersion, exportedAt, settings, cards }`.
 | `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, theme: 'system'\|'light'\|'dark' }` (Defaults: B1, system). Die Richtung ist keine Einstellung, sondern gilt nur für die Sitzung (§3.3). |
 | `cards` | `[vocabId, dir]` | `{ vocabId, dir: 'de-es'\|'es-de', due: number(ms), interval: number(Tage), ease: number, reps: number, lapses: number, lastReviewed: number\|null, state: 'new'\|'learning'\|'mature', step?: 0\|1 }`. `step`: siehe §11. |
 
-Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zwischen Geräten hilft nur Export/Import. Eine Karte wird nur gespeichert, wenn die Bewertung sie ändert (nicht bei „Gewusst“ in der Vorab-Wiederholung, §11).
+Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zwischen Geräten gibt es keine Übertragung des Fortschritts. Eine Karte wird nur gespeichert, wenn die Bewertung sie ändert (nicht bei „Gewusst“ in der Vorab-Wiederholung, §11).
 
 Eine Karte wird **erst beim ersten Lernen angelegt** (kein Vorab-Befüllen von 1000 Karten). „Neu“ = Vokabel ohne Card-Eintrag für diese Richtung.
 
@@ -344,7 +335,7 @@ Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` vo
 
 **Vorab-Wiederholung** (Karte in der Wiederholungsphase, aber **noch nicht fällig**, siehe §12.2). Der Zeitplan darf durch Üben nicht aufgebläht werden:
 - **Nochmal:** wie Rückfall oben (bewusst hart: `lapses += 1`, `reps = 0`, Ease −0,2, Intervall 1 T). Wer beim freiwilligen Durchlauf ein Wort nicht mehr weiß, hat es wirklich vergessen, auch wenn es eine Karte mit z. B. 56 Tagen Intervall war. Der Plan wird dadurch verkürzt, aber nie verlängert.
-- **Gewusst:** Karte bleibt **vollständig unverändert**, auch `lastReviewed` (entschieden). Es wird nichts gespeichert. So kann reines Üben beim Zusammenführen (§10.1b) keinen echten, neueren Lernstand eines anderen Geräts verdrängen. In der Sitzung zählt es trotzdem zu „Geübt: N“ und die Karte kommt in `sessionSeen`.
+- **Gewusst:** Karte bleibt **vollständig unverändert**, auch `lastReviewed` (entschieden). Es wird nichts gespeichert. In der Sitzung zählt es trotzdem zu „Geübt: N“ und die Karte kommt in `sessionSeen`.
 - `review()` bekommt dafür keinen Zusatzparameter: „nicht fällig“ wird in der Funktion aus `card.due >= nextDayStart(now)` erkannt.
 
 **Ease-Rundung:** Die Ease wird nach jeder Änderung auf 2 Dezimalstellen gerundet (gegen Gleitkomma-Rauschen wie 2,3499999) und danach auf `MIN_EASE`/`MAX_EASE` begrenzt.
@@ -415,7 +406,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 **Begrüßung beim Erststart** (`components/WelcomeOverlay.tsx`, Flag in `data/welcomeFlag.ts`):
 - Beim ersten Öffnen liegt über der Lernseite (`/`) eine schwebende Lernkarte. Vorderseite Spanisch („¡Bienvenido a“ über der Wortmarke „Palabrita“), Rückseite Deutsch („Willkommen zu“ über derselben Wortmarke). Die Wortmarke ist dieselbe Komponente wie der Markenkopf im Tab „Mehr“ (`components/Brand.tsx`). Der Rest der App ist solange `inert`.
 - Erstes Tippen dreht die Karte um, zweites Tippen schließt das Overlay. Enter oder Leertaste wirken wie Tippen. Beim Erststart reagiert die Fläche neben der Karte nicht: es muss die Karte angetippt werden.
-- Gemerkt wird das Schließen pro Gerät in `localStorage` (`palabrita.welcomeSeen`), nicht in IndexedDB. Export und Import sind davon nicht betroffen. Ist der Speicher nicht nutzbar, erscheint der Hinweis nicht.
+- Gemerkt wird das Schließen pro Gerät in `localStorage` (`palabrita.welcomeSeen`), nicht in IndexedDB. Ist der Speicher nicht nutzbar, erscheint der Hinweis nicht.
 - Erneut öffnen: Ein Tippen auf den ganzen Markenblock im Tab „Mehr“ (Wimpel, Schriftzug, Slogan und Widmung) zeigt dieselbe Karte, wieder Spanisch vorne. Umdrehen und Schließen funktionieren gleich, danach bleibt man auf „Mehr“. Ein Klick auf die Fläche neben der Karte schließt sie beim erneuten Öffnen sofort. Das speichert nichts, und der Erststart-Zustand ändert sich dadurch nicht. Die Karte liegt in `Layout` (`App.tsx`) über der App, die Unterseite bekommt `openWelcome` über den Router-Kontext.
 
 **Karte umdrehen** (`components/Flashcard.tsx`):
@@ -445,7 +436,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 ### 14.2 Impressum und Datenschutz
 
 - Erreichbar über „Mehr“ (je ein Eintrag, eigene Seite unter `/imprint` und `/privacy`). Gleiche Gestaltung wie die Legende.
-- **Datenschutz:** beschreibt den tatsächlichen Stand. Kein Backend, kein Konto, kein Tracking, keine Analyse-Werkzeuge. Fortschritt liegt nur im Browser (IndexedDB) und verlässt das Gerät nicht, außer der Nutzer exportiert ihn selbst. Es gibt keine externen Anfragen außer dem Abruf der App. Das Hosting (GitHub Pages) erzeugt beim Abruf technisch übliche Zugriffsdaten beim Anbieter; der Hinweis darauf gehört hinein.
+- **Datenschutz:** beschreibt den tatsächlichen Stand. Kein Backend, kein Konto, kein Tracking, keine Analyse-Werkzeuge. Fortschritt liegt nur im Browser (IndexedDB) und verlässt das Gerät nicht. Es gibt keine externen Anfragen außer dem Abruf der App. Das Hosting (GitHub Pages) erzeugt beim Abruf technisch übliche Zugriffsdaten beim Anbieter; der Hinweis darauf gehört hinein.
 - **Impressum:** Angaben zum Betreiber (Name, Anschrift, Kontakt). Diese Angaben liefert der Nutzer, sie werden nicht erfunden. Der Nutzer hat entschieden (2026-11-19): Das Impressum ist in dieser Form ausreichend.
 - Umsetzung: `src/features/legal/` (`Imprint.tsx` unter `/imprint`, `Privacy.tsx` unter `/privacy`, Betreiberangaben zentral in `operator.ts`). Beide Seiten sind Teil der App und damit offline verfügbar. Die Datenschutzerklärung nennt Hosting (GitHub Pages), lokale Speicherung (§ 25 Abs. 2 Nr. 2 TDDDG, keine Einwilligung nötig), Vorlesefunktion, E-Mail-Kontakt und Betroffenenrechte; Aufsichtsbehörde: HBDI. Das Impressum folgt § 5 DDG. Wiktionary-Lizenzhinweis (CC BY-SA) steht im Impressum. Die Erklärung enthält eine Übersicht der Verarbeitungen und einen abgesetzten Widerspruchshinweis (Art. 21 Abs. 4 DSGVO). Ändern sich Hosting, Dienste oder Betreiberangaben, müssen beide Seiten angepasst werden.
 
@@ -461,7 +452,7 @@ Befehle, lokaler Test (`npm run dev`, `npm run build` + `npm run preview`), Einr
 - Statische Auslieferung von `dist/` über GitHub Pages, `.github/workflows/pages.yml` (Lint, Tests, Vokabelprüfung, Build, Veröffentlichung; Start bei Push auf `main` und per `workflow_dispatch`). Erwartete URL: `https://fabiankonig.github.io/palabrita/`.
 - **HTTPS ist Pflicht**, damit die PWA auf dem Handy installierbar ist; Pages liefert es mit. Die App läuft unter einem Unterpfad (`base: "./"`, Hash-Router, relative Manifest-Pfade).
 - Pages setzt `Cache-Control: max-age=600`. Updates laufen über den `UpdateBanner` (Service Worker), nicht über Cache-Header.
-- Der Lernfortschritt liegt je Gerät und je Origin im Browser. PC und Handy sind nicht synchronisiert, daher gibt es Export und Import (§3.2).
+- Der Lernfortschritt liegt je Gerät und je Origin im Browser. PC und Handy sind nicht synchronisiert, und es gibt keine Übertragung zwischen ihnen.
 
 ## 17. Annahmen und offene Punkte
 

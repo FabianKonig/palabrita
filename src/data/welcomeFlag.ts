@@ -1,6 +1,6 @@
 /**
  * Erststart-Hinweis: merkt sich pro Gerät, dass die Begrüßung geschlossen wurde.
- * Liegt in `localStorage`, nicht in IndexedDB, damit Export/Import und Datenmodell unberührt bleiben.
+ * Liegt in `localStorage`, nicht in IndexedDB, damit das Datenmodell unberührt bleibt.
  */
 
 const KEY = "palabrita.welcomeSeen";

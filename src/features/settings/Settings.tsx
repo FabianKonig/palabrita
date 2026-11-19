@@ -7,7 +7,6 @@ import {
   type Settings as SettingsData,
 } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
-import { DataBackup } from "./DataBackup";
 
 const LEVELS = Object.keys(LEVEL_ORDER) as Level[];
 
@@ -75,7 +74,6 @@ export function Settings() {
           </select>
         </label>
       </div>
-      <DataBackup />
     </div>
   );
 }
