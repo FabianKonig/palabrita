@@ -440,6 +440,8 @@ HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/study` leitet auf `/` um
 
 Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). Touch-Ziele ≥ 48 px.
 
+**Logo:** Seitenköpfe (Lernen, Verzeichnis, Statistik, Einstellungen, Legende) zeigen oben rechts das Logo: drei Wimpel über dem Schriftzug „Palabrita“ (`components/Brand.tsx`, Komponente `Logo`, Baustein `PageTitle`). Der Markenkopf im Tab „Mehr“ nutzt die große Wortmarke.
+
 ### 14.2 Impressum und Datenschutz (Anforderung 2026-11-19, noch nicht umgesetzt, Detailspezifikation folgt)
 
 - Erreichbar über „Mehr“ (je ein Eintrag, eigene Seite, z. B. `/imprint` und `/privacy`). Gleiche Gestaltung wie die Legende, mit Zurück-Link „← Mehr“ (Klasse `back`).
@@ -474,7 +476,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Oben immer sichtbar: Button **„Beenden“**, ohne Rückfrage. Er führt zur Zusammenfassung. Auch Wegnavigieren oder Schließen der App ist ohne Datenverlust möglich, weil jede Bewertung sofort gespeichert wird.
 - Bewertungsbuttons „Nochmal“ und „Gewusst“ mit Vorschau des Wiedersehens (`previewIntervals`).
 - Wer später wieder lernt, bekommt zuerst, was fällig ist (auch Minuten-Karten, die inzwischen überfällig sind), dann neue Wörter, dann Wiederholung des Restes (§12).
-- Der Fortschrittsbalken „3 / 12“ entfällt (es gibt kein Ende). Stattdessen oben eine Zeile „Geübt: N“ (Zähler dieser Sitzung), in der Mitte das Markenzeichen (drei Wimpel), rechts „Beenden“.
+- Der Fortschrittsbalken „3 / 12“ entfällt (es gibt kein Ende). Stattdessen oben eine Zeile „Geübt: N“ (Zähler dieser Sitzung), in der Mitte das Logo (Wimpel über dem Schriftzug), rechts „Beenden“.
 - **Zusammenfassung** („Sitzung beendet“): Anzahl geübter Karten, davon „Nochmal“ (eine Lerndauer gibt es nicht, entschieden), sowie die Buttons „Weiterlernen“ (frische Sitzung mit denselben Filtern) und „Neue Auswahl“ (zurück zur Filterauswahl, Filter zurückgesetzt). Die Texte „Fertig für heute“ und „Heute ist nichts fällig“ entfallen.
 
 ## 15. PWA

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Mark } from "../../components/Brand";
+import { Logo } from "../../components/Brand";
 import { SpeakerIcon } from "../../components/icons";
 import { Flashcard } from "../../components/Flashcard";
 import { VerbOverlay } from "../../components/VerbOverlay";
@@ -225,7 +225,7 @@ function StudySession({
       <div className="screen" inert={conjugation}>
         <div className="session-bar">
           <p className="progress">Geübt: {session.rated}</p>
-          <Mark />
+          <Logo />
           <button
             type="button"
             className="btn secondary"

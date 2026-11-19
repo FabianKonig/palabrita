@@ -102,7 +102,7 @@ h1 {
   line-height: 1.15;
 }
 
-/* Seitenüberschrift mit Markenzeichen oben rechts */
+/* Seitenüberschrift mit Logo oben rechts */
 .page-title {
   display: flex;
   align-items: flex-start;
@@ -115,15 +115,32 @@ h1 {
   margin: 0;
 }
 
-.page-title .brand-mark {
+.page-title .logo {
   flex: none;
-  width: 48px;
-  height: auto;
   margin-top: 4px;
 }
 
-.brand-mark {
+/* Logo: Wimpel über dem Schriftzug, auf Seitenköpfen und in der Lernleiste gleich */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.logo .brand-mark {
+  width: 40px;
+  height: auto;
   overflow: visible;
+}
+
+.logo-name {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--turquoise-dark);
+  text-shadow: 0.06em 0.06em 0 var(--magenta);
 }
 
 .muted {
@@ -177,7 +194,7 @@ h1 {
   opacity: 0.8;
 }
 
-/* Oben in der Sitzung: Zähler links, Markenzeichen in der Mitte, „Beenden“ rechts */
+/* Oben in der Sitzung: Zähler links, Logo in der Mitte, „Beenden“ rechts */
 .session-bar {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -191,9 +208,7 @@ h1 {
   justify-self: start;
 }
 
-.session-bar .brand-mark {
-  width: 48px;
-  height: auto;
+.session-bar .logo {
   justify-self: center;
 }
 

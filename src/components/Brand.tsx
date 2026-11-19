@@ -121,6 +121,16 @@ export function Mark() {
   );
 }
 
+/** Logo für Seitenköpfe und Lernleiste: Wimpel über dem Schriftzug, überall gleich. */
+export function Logo() {
+  return (
+    <span className="logo">
+      <Mark />
+      <span className="logo-name">Palabrita</span>
+    </span>
+  );
+}
+
 /** Markenkopf im Tab „Mehr“: Wortmarke, Slogan und Widmung. */
 export function Brand() {
   return (
