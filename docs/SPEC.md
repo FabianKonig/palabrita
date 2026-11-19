@@ -458,5 +458,4 @@ Befehle, lokaler Test (`npm run dev`, `npm run build` + `npm run preview`), Einr
 
 ## 17. Annahmen und offene Punkte
 
-- **Vokabelqualität:** Es gibt keine externe Prüfung. Verbformen werden per Code erzeugt und getestet, Fehler in der JSON-Datei sind leicht korrigierbar. Eine menschliche Prüfung der Vokabeln steht aus.
 - **Offene Punkte:** siehe `docs/TASKS.md`.

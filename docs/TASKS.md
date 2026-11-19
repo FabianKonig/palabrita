@@ -10,10 +10,6 @@ Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), da
 - [ ] **Formsuche** (gebeugte Formen im Verzeichnis finden): `docs/FORMSUCHE.md`, Einordnung in SPEC §3.3.
 - [ ] **Erklärvideo der App** (KI-erzeugt, zeigt alle Funktionen): Anforderung aufgenommen (2026-11-19), Spezifikation fehlt noch (Umfang, Länge, Format, Sprache, Erzeugungsweg, Ablage). Erst mit dem Nutzer klären, dann spezifizieren. Die App selbst bleibt davon unberührt.
 
-## Prüfungen und Entscheidungen des Nutzers
-
-- [ ] **Menschliche Prüfung der Vokabeln** (SPEC §17).
-
 ## Hinweise
 
 - Bekannte Einschränkung: Gehört ein deutsches Wort zu mehreren spanischen Vokabeln, sind die DE→ES-Karten für den Nutzer mehrdeutig. In v1 nicht behandelt.
