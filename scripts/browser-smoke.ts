@@ -1,7 +1,8 @@
 import { spawn } from "node:child_process";
-import { existsSync, mkdtempSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 /**
  * End-to-end smoke test in a real (headless) Edge/Chrome, driven via the DevTools protocol.
@@ -23,6 +24,20 @@ const BROWSER = [
 ].find((p) => p && existsSync(p));
 
 if (!BROWSER) throw new Error("Kein Edge/Chrome gefunden");
+
+/** Gesamtzahl der Vokabeln laut `public/vocab`, damit der Test nicht bei jeder neuen Vokabel bricht. */
+const TOTAL_VOCAB = (() => {
+  const dir = fileURLToPath(new URL("../public/vocab/", import.meta.url));
+  const index = JSON.parse(readFileSync(join(dir, "index.json"), "utf8")) as {
+    topics: { file: string }[];
+  };
+  return index.topics.reduce(
+    (sum, t) =>
+      sum +
+      (JSON.parse(readFileSync(join(dir, t.file), "utf8")) as unknown[]).length,
+    0,
+  );
+})();
 
 const results: { name: string; ok: boolean; info: string }[] = [];
 function check(name: string, ok: boolean, info = "") {
@@ -220,13 +235,13 @@ async function main() {
     !/Fällig|Neu verfügbar|Serie/.test(home),
   );
 
-  // 2. Dictionary shows all 800 words.
+  // 2. Dictionary shows all words.
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   const dictOk = await waitFor(
-    `/800 Einträge/.test(document.body.innerText)`,
-    "800 Einträge",
+    `/${TOTAL_VOCAB} Einträge/.test(document.body.innerText)`,
+    `${TOTAL_VOCAB} Einträge`,
   );
-  check("Verzeichnis zeigt 800 Einträge", dictOk);
+  check(`Verzeichnis zeigt ${TOTAL_VOCAB} Einträge`, dictOk);
 
   // 3. Dictionary search finds a word via its German translation.
   await setInput('input[type="search"]', "Bohne");
@@ -414,8 +429,8 @@ async function main() {
     `document.body.innerText.match(/(\\d+) Einträge/)?.[1] ?? ""`,
   );
   check(
-    "Niveau A1 blendet höhere Niveaus aus (weniger als 800)",
-    Number(a1) > 0 && Number(a1) < 800,
+    `Niveau A1 blendet höhere Niveaus aus (weniger als ${TOTAL_VOCAB})`,
+    Number(a1) > 0 && Number(a1) < TOTAL_VOCAB,
     `${a1} Einträge`,
   );
   await send("Page.navigate", { url: `${BASE}#/settings` });
@@ -663,6 +678,56 @@ async function main() {
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
 
+  // 8e4. Version steht unter „Mehr“ (nach Einstellungen und Legende), nicht mehr unter Einstellungen.
+  await send("Page.navigate", { url: `${BASE}#/more` });
+  await waitFor(`document.querySelector(".link-list")`, "Mehr");
+  check(
+    "Mehr: Version steht unter Einstellungen und Legende",
+    await evaluate<boolean>(`(() => {
+      const list = document.querySelector(".link-list");
+      const v = document.querySelector(".app-version");
+      return !!v && /^Version: /.test(v.textContent)
+        && !!(list.compareDocumentPosition(v) & Node.DOCUMENT_POSITION_FOLLOWING)
+        && [...list.querySelectorAll("a")].map((a) => a.textContent).join("|") === "Einstellungen|Legende";
+    })()`),
+  );
+  await send("Page.navigate", { url: `${BASE}#/settings` });
+  await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
+  check(
+    "Einstellungen: keine Versionszeile mehr",
+    !(await evaluate<boolean>(`!!document.querySelector(".app-version")`)),
+  );
+
+  // 8e5. „Neues Wort hinzufügen“ am Ende der Liste übernimmt den Suchtext.
+  await send("Page.navigate", { url: `${BASE}#/dictionary` });
+  await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
+  await setInput('input[type="search"]', "gato");
+  await sleep(300);
+  check(
+    "Verzeichnis: Button „Neues Wort hinzufügen“ ist letztes Element der Liste",
+    await evaluate<boolean>(`(() => {
+      const btn = document.querySelector(".dict-add");
+      return !!btn && btn.textContent === "Neues Wort hinzufügen"
+        && btn.closest(".dict-section").lastElementChild === btn;
+    })()`),
+  );
+  await evaluate(`document.querySelector(".dict-add").click()`);
+  await waitFor(
+    `location.hash === "#/add?q=gato"`,
+    "Hinzufügen-Seite mit Suchtext",
+  );
+  check(
+    "Verzeichnis: Button übernimmt Suchtext ins Feld",
+    await evaluate<boolean>(
+      `document.querySelector('input[aria-label="Spanisches Wort"]').value === "gato"`,
+    ),
+  );
+  // Suchtext wieder leeren, sonst zählt der Offline-Test nur die Treffer.
+  await send("Page.navigate", { url: `${BASE}#/dictionary` });
+  await waitFor(`document.querySelector('input[type="search"]')`, "Suche");
+  await setInput('input[type="search"]', "");
+  await sleep(300);
+
   // 8f. Real lookup on de.wiktionary.org (needs network).
   await send("Page.navigate", { url: `${BASE}#/add` });
   await waitFor(
@@ -847,8 +912,8 @@ async function main() {
   );
   check("Offline: App lädt und zeigt das Verzeichnis", offlineOk);
   check(
-    "Offline: 801 Einträge (800 + eigenes Wort)",
-    /801 Einträge/.test(await text()),
+    `Offline: ${TOTAL_VOCAB + 1} Einträge (alle + eigenes Wort)`,
+    new RegExp(`${TOTAL_VOCAB + 1} Einträge`).test(await text()),
   );
 }
 
