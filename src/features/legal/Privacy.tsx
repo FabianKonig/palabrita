@@ -33,7 +33,39 @@ export function Privacy() {
         </li>
       </ul>
 
-      <h2>2. Verantwortlicher</h2>
+      <h2>2. Übersicht der Verarbeitungen</h2>
+      <ul>
+        <li>
+          <strong>Abruf der App (Hosting):</strong> IP-Adresse und technische
+          Zugriffsdaten, bei GitHub. Zweck: Bereitstellung der App.
+          Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 S. 1 lit. f
+          DSGVO).
+        </li>
+        <li>
+          <strong>Speicherung auf dem Gerät:</strong> Lernfortschritt,
+          Einstellungen, eigene Wörter, App-Cache, nur auf deinem Gerät. Zweck:
+          Funktion der App. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG, Art. 6
+          Abs. 1 S. 1 lit. f DSGVO.
+        </li>
+        <li>
+          <strong>Wortsuche:</strong> eingegebenes Wort und IP-Adresse, bei der
+          Wikimedia Foundation, nur auf Knopfdruck. Zweck: Vorausfüllen eines
+          neuen Wortes. Rechtsgrundlage: Einwilligung (Art. 6 Abs. 1 S. 1 lit.
+          a, Art. 49 Abs. 1 S. 1 lit. a DSGVO).
+        </li>
+        <li>
+          <strong>Kontakt per E-Mail:</strong> E-Mail-Adresse und Nachricht.
+          Zweck: Bearbeitung deines Anliegens. Rechtsgrundlage: Art. 6 Abs. 1 S.
+          1 lit. f bzw. lit. b DSGVO.
+        </li>
+      </ul>
+      <p>
+        Betroffen sind die Nutzerinnen und Nutzer der App sowie Personen, die
+        mir schreiben. Es werden keine besonderen Kategorien personenbezogener
+        Daten verarbeitet.
+      </p>
+
+      <h2>3. Verantwortlicher</h2>
       <p>
         {OPERATOR.name}, {OPERATOR.street}, {OPERATOR.city}
         <br />
@@ -42,7 +74,7 @@ export function Privacy() {
         Siehe auch das <Link to="/imprint">Impressum</Link>.
       </p>
 
-      <h2>3. Hosting bei GitHub Pages</h2>
+      <h2>4. Hosting bei GitHub Pages</h2>
       <p>
         Die App wird als statische Webseite über GitHub Pages ausgeliefert (
         {OPERATOR.appUrl}). Anbieter ist die GitHub Inc., 88 Colin P. Kelly Jr.
@@ -73,7 +105,7 @@ export function Privacy() {
         .
       </p>
 
-      <h2>4. Speicherung auf deinem Gerät</h2>
+      <h2>5. Speicherung auf deinem Gerät</h2>
       <p>
         Die App speichert Lernfortschritt, Einstellungen, eigene Wörter und den
         Hinweis, dass die Begrüßung gezeigt wurde, in <em>IndexedDB</em> und im{" "}
@@ -95,7 +127,7 @@ export function Privacy() {
         aufbewahrst, entscheidest du selbst.
       </p>
 
-      <h2>5. Wortsuche (Wiktionary)</h2>
+      <h2>6. Wortsuche (Wiktionary)</h2>
       <p>
         Wenn du beim Hinzufügen eines Wortes auf „Nachschlagen“ tippst, sendet
         dein Browser das eingegebene Wort an <strong>de.wiktionary.org</strong>
@@ -125,7 +157,7 @@ export function Privacy() {
         .
       </p>
 
-      <h2>6. Vorlesefunktion</h2>
+      <h2>7. Vorlesefunktion</h2>
       <p>
         Das Vorlesen nutzt die Sprachausgabe deines Browsers bzw.
         Betriebssystems. Palabrita übermittelt dafür keine Daten an Dritte. Je
@@ -142,7 +174,7 @@ export function Privacy() {
         statt.
       </p>
 
-      <h2>8. Deine Rechte</h2>
+      <h2>9. Deine Rechte</h2>
       <p>
         Dir stehen nach der DSGVO insbesondere folgende Rechte zu: Auskunft
         (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der
@@ -156,6 +188,19 @@ export function Privacy() {
         <a href={`mailto:${OPERATOR.email}`}>{OPERATOR.email}</a>.
       </p>
       <p>
+        <strong>
+          Widerspruchsrecht: Du hast das Recht, aus Gründen, die sich aus deiner
+          besonderen Situation ergeben, jederzeit gegen die Verarbeitung der
+          dich betreffenden personenbezogenen Daten, die aufgrund von Art. 6
+          Abs. 1 lit. e oder f DSGVO erfolgt, Widerspruch einzulegen. Das gilt
+          auch für ein auf diese Bestimmungen gestütztes Profiling. Legst du
+          Widerspruch ein, verarbeite ich die Daten nicht mehr, es sei denn, ich
+          kann zwingende schutzwürdige Gründe nachweisen, die deine Interessen
+          überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung
+          oder Verteidigung von Rechtsansprüchen.
+        </strong>
+      </p>
+      <p>
         <strong>Beschwerderecht:</strong> Du kannst dich bei einer
         Datenschutzaufsichtsbehörde beschweren. Für mich zuständig ist der
         Hessische Beauftragte für Datenschutz und Informationsfreiheit,
@@ -166,7 +211,7 @@ export function Privacy() {
         .
       </p>
 
-      <h2>9. Kontakt per E-Mail</h2>
+      <h2>10. Kontakt per E-Mail</h2>
       <p>
         Wenn du mir schreibst, verarbeite ich deine E-Mail-Adresse und den
         Inhalt der Nachricht, um dein Anliegen zu bearbeiten (Art. 6 Abs. 1 S. 1
@@ -174,7 +219,7 @@ export function Privacy() {
         ist und keine Aufbewahrungspflichten entgegenstehen.
       </p>
 
-      <h2>10. Änderungen</h2>
+      <h2>11. Änderungen</h2>
       <p>
         Ich passe diese Erklärung an, wenn sich die App oder die Rechtslage
         ändert. Es gilt die jeweils hier abrufbare Fassung.
