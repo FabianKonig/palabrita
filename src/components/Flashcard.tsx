@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { conjugate } from "../domain/conjugation";
+import { GENDER_LABEL } from "../domain/gender";
 import type { Direction, Vocab } from "../domain/types";
 
 /** All German entries joined with " · ", the first one highlighted. */
@@ -36,12 +37,16 @@ export function Flashcard({ vocab, dir, flipped, onToggle }: Props) {
     }
   }, [vocab]);
   /**
-   * Spanish headword. Nouns show the plural in smaller type below the singular;
-   * verbs get the conjugation hint (e.g. "(ie)") on its own line.
+   * Spanish headword. Nouns show their gender badge (maskulin, feminin, maskulin/feminin)
+   * and the plural in smaller type below the singular; verbs get the conjugation hint
+   * (e.g. "(ie)") on its own line.
    */
   const spanish = (
     <>
       <span className="word">{vocab.es}</span>
+      {vocab.pos === "noun" && vocab.gender && (
+        <span className="gender">{GENDER_LABEL[vocab.gender]}</span>
+      )}
       {vocab.pos === "noun" && vocab.plural && (
         <span className="plural">{vocab.plural}</span>
       )}

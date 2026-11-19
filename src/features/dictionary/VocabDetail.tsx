@@ -3,11 +3,10 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { VerbDetail, WordHead } from "../../components/VerbDetail";
 import { adjectiveFormLines } from "../../domain/adjectiveForms";
 import { POS_LABEL } from "../../domain/dictionary";
+import { GENDER_LABEL } from "../../domain/gender";
 import { hasSlot, type FormSlot } from "../../domain/forms";
 import { LEVEL_ORDER } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
-
-const GENDER_LABEL = { m: "maskulin", f: "feminin", "m/f": "maskulin/feminin" };
 
 /** Forms to highlight, handed over by a form hit of the dictionary (router state, this visit only). */
 function highlightOf(state: unknown): FormSlot[] | undefined {
