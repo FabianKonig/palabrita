@@ -216,7 +216,10 @@ function StudySession({
     <>
       <div className="screen" inert={conjugation}>
         <div className="session-bar">
-          <p className="progress">Geübt: {session.rated}</p>
+          <p className="session-count">
+            <span className="session-count-num">{session.rated}</span>
+            <span className="session-count-label">Geübt</span>
+          </p>
           <Logo />
           <button
             type="button"

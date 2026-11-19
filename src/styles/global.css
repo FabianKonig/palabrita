@@ -213,9 +213,31 @@ h1 {
   margin-bottom: 12px;
 }
 
-.session-bar .progress {
+/* Zähler: Zahl über Beschriftung, höchstens so hoch wie der Button „Beenden“ (40 px) */
+.session-bar .session-count {
   margin: 0;
   justify-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.session-count-num {
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--turquoise-dark);
+}
+
+.session-count-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .session-bar .logo {
@@ -391,12 +413,6 @@ body:has(.session-bar) .screen {
 }
 
 /* Study */
-.progress {
-  margin: 0 0 12px;
-  text-align: center;
-  color: var(--muted);
-}
-
 .progress-bar {
   height: 8px;
   margin-bottom: 16px;

@@ -306,11 +306,11 @@ async function main() {
 
   for (let i = 0; i < 3; i++) await rate("Gewusst");
   const progress = await evaluate<string>(
-    `document.querySelector(".progress")?.textContent ?? ""`,
+    `document.querySelector(".session-count")?.textContent ?? ""`,
   );
   check(
-    "Nach 3 Bewertungen steht „Geübt: 3“",
-    /Geübt: 3/.test(progress),
+    "Nach 3 Bewertungen steht „3 Geübt“",
+    /^3\s*Geübt$/.test(progress),
     progress,
   );
 
@@ -1144,7 +1144,9 @@ async function main() {
     `Endlose Sitzung: ${RATED} Bewertungen ohne „Fertig für heute“ und ohne Wartezähler`,
     !/Fertig für heute/.test(endless) &&
       !/Jetzt zeigen|Warte/.test(endless) &&
-      new RegExp(`Geübt: ${RATED}`).test(endless) &&
+      (await evaluate<string>(
+        `document.querySelector(".session-count-num")?.textContent ?? ""`,
+      )) === String(RATED) &&
       (await evaluate<boolean>(`!!document.querySelector(".flashcard")`)),
   );
 
