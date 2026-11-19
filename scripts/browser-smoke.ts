@@ -888,6 +888,69 @@ async function main() {
     }),
   );
 
+  // 8h2. Bottom sheet on a phone: a downward swipe closes it, a short pull snaps back.
+  await send("Emulation.setDeviceMetricsOverride", {
+    width: 390,
+    height: 800,
+    deviceScaleFactor: 1,
+    mobile: true,
+  });
+  await send("Emulation.setTouchEmulationEnabled", { enabled: true });
+  const touch = (type: string, y: number) =>
+    send("Input.dispatchTouchEvent", {
+      type,
+      touchPoints: type === "touchEnd" ? [] : [{ x: 195, y }],
+    });
+  const swipe = async (from: number, to: number, steps = 8) => {
+    await touch("touchStart", from);
+    for (let i = 1; i <= steps; i++) {
+      await touch("touchMove", from + ((to - from) * i) / steps);
+      await sleep(20);
+    }
+    await touch("touchEnd", to);
+  };
+  const openSheet = async () => {
+    await clickText("Konjugation", "button");
+    return waitFor(`document.querySelector('[role="dialog"] .verb')`, "Sheet");
+  };
+  const sheetOpened = openSheet();
+  const gripVisible = await evaluate<boolean>(
+    `getComputedStyle(document.querySelector(".overlay-grip")).display !== "none"`,
+  );
+  await sheetOpened;
+  const sheetTop = await evaluate<number>(
+    `document.querySelector(".overlay-sheet").getBoundingClientRect().top`,
+  );
+  await swipe(sheetTop + 40, sheetTop + 90); // short, slow pull: snaps back
+  await sleep(400);
+  const stayedOpen = await evaluate<boolean>(
+    `!!document.querySelector('[role="dialog"]') && getComputedStyle(document.querySelector(".overlay-sheet")).transform === "none"`,
+  );
+  await swipe(sheetTop + 40, sheetTop + 400); // far pull: closes
+  const swipeClosed = await waitFor(
+    `!document.querySelector('[role="dialog"]')`,
+    "Sheet per Wischen geschlossen",
+  );
+  const hashAfterSwipe = await evaluate<string>("location.hash");
+  const frontAfterSwipe = await frontWord();
+  await send("Emulation.setTouchEmulationEnabled", { enabled: false });
+  await send("Emulation.clearDeviceMetricsOverride");
+  check(
+    "Bottom-Sheet: kurzer Zug federt zurück, Wischen nach unten schließt, Sitzung bleibt",
+    gripVisible &&
+      stayedOpen &&
+      swipeClosed &&
+      /^(#\/?)?$/.test(hashAfterSwipe) &&
+      frontAfterSwipe === frontNow,
+    JSON.stringify({
+      gripVisible,
+      stayedOpen,
+      swipeClosed,
+      hashAfterSwipe,
+      frontAfterSwipe,
+    }),
+  );
+
   // 8i. Wait for the first-card check on a clean database, then the 5-minute rule (check 4).
   // Start: one card in the review phase (not due), so "Nochmal" is not shown again at once (stage 4).
   await send("Page.navigate", { url: `${BASE}#/` });

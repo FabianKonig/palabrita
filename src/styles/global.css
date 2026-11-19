@@ -1216,11 +1216,27 @@ fieldset.setting {
   background: var(--surface);
   color: var(--text);
   outline: none;
+  /* Kein Pull-to-Refresh und keine Scrollkette, wenn die Wischgeste das Sheet zieht */
+  overscroll-behavior: contain;
+}
+
+/* Griffleiste: Hinweis auf die Wischgeste, nur beim Bottom-Sheet auf dem Handy */
+.overlay-grip {
+  width: 40px;
+  height: 5px;
+  margin: -8px auto 14px;
+  border-radius: 3px;
+  background: var(--muted);
+  opacity: 0.45;
 }
 
 @media (min-width: 700px) {
   .overlay-backdrop {
     align-items: center;
+  }
+
+  .overlay-grip {
+    display: none;
   }
 
   .overlay-sheet {

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
+import { useSwipeToClose } from "../hooks/useSwipeToClose";
 import type { Vocab } from "../domain/types";
 import { VerbDetail } from "./VerbDetail";
 
@@ -19,6 +20,7 @@ export function VerbOverlay({
   onClose: () => void;
 }) {
   const dialog = useRef<HTMLDivElement>(null);
+  const backdrop = useRef<HTMLDivElement>(null);
   const onCloseRef = useRef(onClose);
   useEffect(() => {
     onCloseRef.current = onClose;
@@ -42,6 +44,9 @@ export function VerbOverlay({
     if (window.history.state?.[HISTORY_FLAG]) window.history.back();
     else onCloseRef.current();
   }, []);
+
+  // Phones: dragging the sheet down closes it.
+  useSwipeToClose(dialog, backdrop, requestClose);
 
   // Focus: into the dialog on open, back to the previous element on close.
   useEffect(() => {
@@ -76,6 +81,7 @@ export function VerbOverlay({
 
   return (
     <div
+      ref={backdrop}
       className="overlay-backdrop"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) requestClose();
@@ -90,6 +96,7 @@ export function VerbOverlay({
         tabIndex={-1}
         onKeyDown={onKeyDown}
       >
+        <div className="overlay-grip" aria-hidden="true" />
         <VerbDetail
           vocab={vocab}
           titleId="verb-overlay-title"

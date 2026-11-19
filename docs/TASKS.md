@@ -7,16 +7,12 @@ Diese Datei führt nur, was noch zu tun ist. Erledigtes steht in `docs/SPEC.md`,
 Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), dann umsetzen.
 
 - [ ] **Überarbeitung der Kartenauswahl** (`pickNext`): SPEC §12.1a.
-- [ ] **Bottom-Sheet per Wischgeste schließen** (Verb-Overlay): SPEC §14.1.
 - [ ] **Formsuche** (gebeugte Formen im Verzeichnis finden): `docs/FORMSUCHE.md`, Einordnung in SPEC §3.3.
 - [ ] **Deutsch-Suche, offene Fragen** (Treffer kenntlich machen, Prüfung beim Hinzufügen, mehrere Treffer): SPEC §3.3.
 
 ## Prüfungen und Entscheidungen des Nutzers
 
-- [ ] **Manuelle Abnahme** auf dem Handy und mit echtem Lernstand: Liste am Ende von `docs/ABNAHME.md`.
-- [ ] **Impressum:** Welche Pflichtangaben gelten für eine nicht-kommerzielle Lern-App (SPEC §14.2)?
 - [ ] **Menschliche Prüfung der Vokabeln** (SPEC §17).
-- [ ] **Lizenz des Repos:** Wird das Repo öffentlich, vorher die Herkunft der Vokabeln und eine `LICENSE`-Datei klären. Das ist eine Entscheidung des Nutzers, keine `LICENSE`-Datei eigenmächtig anlegen.
 
 ## Hinweise
 
