@@ -17,6 +17,8 @@ import { Dictionary } from "./features/dictionary/Dictionary";
 import { onNavigate } from "./features/dictionary/viewState";
 import { VocabDetail } from "./features/dictionary/VocabDetail";
 import { Legend } from "./features/legend/Legend";
+import { Imprint } from "./features/legal/Imprint";
+import { Privacy } from "./features/legal/Privacy";
 import { More } from "./features/more/More";
 import { Settings } from "./features/settings/Settings";
 import { Stats } from "./features/stats/Stats";
@@ -69,6 +71,8 @@ export function App() {
             <Route path="stats" element={<Stats />} />
             <Route path="settings" element={<Settings />} />
             <Route path="more" element={<More />} />
+            <Route path="imprint" element={<Imprint />} />
+            <Route path="privacy" element={<Privacy />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

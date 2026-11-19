@@ -1355,3 +1355,22 @@ select.field,
     transition: none;
   }
 }
+
+.legal h2 {
+  margin: 24px 0 8px;
+  font-size: 1.1rem;
+}
+
+.legal p,
+.legal li {
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.legal ul {
+  padding-left: 20px;
+}
+
+.legal a {
+  color: var(--turquoise-dark);
+}

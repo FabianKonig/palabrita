@@ -434,18 +434,18 @@ Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Kar
 
 ## 14. Routing und Screens
 
-HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/study` leitet auf `/` um, `/dictionary`, `/dictionary/:id`, `/add` (eigenes Wort nachschlagen und hinzufügen, optional `?q=<wort>`), `/stats`, `/settings`, `/legend`, `/more`. „Mehr“ in der Tab-Leiste führt zu Einstellungen und Legende.
+HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/study` leitet auf `/` um, `/dictionary`, `/dictionary/:id`, `/add` (eigenes Wort nachschlagen und hinzufügen, optional `?q=<wort>`), `/stats`, `/settings`, `/legend`, `/privacy`, `/imprint`, `/more`. „Mehr“ in der Tab-Leiste führt zu Einstellungen, Legende, Datenschutz und Impressum.
 
 **Darstellung mehrerer Übersetzungen:** Überall, wo die deutsche Seite erscheint (Karte, Verzeichnis, Detailansicht), werden alle `de`-Einträge mit „ · “ getrennt angezeigt, das erste hervorgehoben. Die Verzeichnissuche durchsucht alle `de`-Einträge und `es`. Die Einstellungen werden beim ersten Start mit Defaults angelegt.
 
 Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). Touch-Ziele ≥ 48 px.
 
-### 14.2 Impressum und Datenschutz (Anforderung 2026-11-19, noch nicht umgesetzt, Detailspezifikation folgt)
+### 14.2 Impressum und Datenschutz (umgesetzt 2026-11-19)
 
 - Erreichbar über „Mehr“ (je ein Eintrag, eigene Seite, z. B. `/imprint` und `/privacy`). Gleiche Gestaltung wie die Legende, mit Zurück-Link „← Mehr“ (Klasse `back`).
 - **Datenschutz:** beschreibt den tatsächlichen Stand. Kein Backend, kein Konto, kein Tracking, keine Analyse-Werkzeuge. Fortschritt und eigene Wörter liegen nur im Browser (IndexedDB) und verlassen das Gerät nicht, außer der Nutzer exportiert sie selbst. Einzige externe Anfragen: Wortsuche bei `de.wiktionary.org` (Fallback `es.wiktionary.org`), nur auf Knopfdruck (AGENTS.md). Das Hosting (GitHub Pages) erzeugt beim Abruf technisch übliche Zugriffsdaten beim Anbieter; der Hinweis darauf gehört hinein.
 - **Impressum:** Angaben zum Betreiber (Name, Anschrift, Kontakt). Diese Angaben liefert der Nutzer, sie werden nicht erfunden. Offen: welche Pflichtangaben für eine nicht-kommerzielle Lern-App gelten.
-- Offen für die Spezifikation: Wortlaut beider Seiten (Deutsch), ob sie offline verfügbar sein müssen (Service-Worker-Cache), ob die Seiten in die Versionszeile oder Lizenzhinweise (Wiktionary, CC BY-SA, siehe README) eingebunden werden.
+- Umsetzung: `src/features/legal/` (`Imprint.tsx` unter `/imprint`, `Privacy.tsx` unter `/privacy`, Betreiberangaben zentral in `operator.ts`). Beide Seiten sind Teil der App und damit offline verfügbar. Die Datenschutzerklärung nennt Hosting (GitHub Pages), lokale Speicherung (§ 25 Abs. 2 Nr. 2 TDDDG, keine Einwilligung nötig), Wortsuche (Wiktionary, Einwilligung durch Knopfdruck, Art. 49 Abs. 1 lit. a DSGVO), Vorlesefunktion und Betroffenenrechte; Aufsichtsbehörde: HBDI. Das Impressum folgt § 5 DDG. Wiktionary-Lizenzhinweis (CC BY-SA) steht im Impressum, der Link zur Datenschutzerklärung neben dem Nachschlagen-Knopf in `Add.tsx`. Ändern sich Hosting, Dienste oder Betreiberangaben, müssen beide Seiten angepasst werden.
 
 ### 14.1 Lernsitzung (`features/study/Study.tsx`)
 
