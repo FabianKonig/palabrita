@@ -152,7 +152,7 @@
     "level": "A2",
     "topic": "einkaufen",
     "example": {
-      "es": "Quiero cambiar dólares en pesos.",
+      "es": "Quiero cambiar dólares a pesos.",
       "de": "Ich möchte Dollar in Pesos wechseln."
     },
     "note": null,
@@ -392,8 +392,7 @@
   {
     "id": "v0294",
     "de": [
-      "Hemd",
-      "Bluse"
+      "Hemd"
     ],
     "es": "la camisa",
     "pos": "noun",

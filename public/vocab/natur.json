@@ -169,7 +169,7 @@
     "topic": "natur",
     "example": {
       "es": "Hoy hay mucho sol en la playa.",
-      "de": "Heute scheint viel Sonne am Strand."
+      "de": "Heute ist es am Strand sehr sonnig."
     },
     "note": null,
     "gender": "m",
@@ -459,8 +459,8 @@
     "level": "B1",
     "topic": "natur",
     "example": {
-      "es": "La temporada de huracanes empieza en junio.",
-      "de": "Die Hurrikansaison beginnt im Juni."
+      "es": "La temporada de huracanes en el Caribe empieza en junio.",
+      "de": "Die Hurrikansaison in der Karibik beginnt im Juni."
     },
     "note": null,
     "gender": "m",
@@ -479,7 +479,7 @@
       "es": "Hubo un terremoto anoche.",
       "de": "Letzte Nacht gab es ein Erdbeben."
     },
-    "note": "In Mexiko sagt man oft „sismo“ (stärkeres Beben) oder „temblor“ (spürbares Beben).",
+    "note": "In Mexiko sagt man meist „sismo“ (allgemeines und fachliches Wort, z. B. in den Nachrichten) oder umgangssprachlich „temblor“ (meist für ein Beben ohne große Schäden); „terremoto“ ist ein schweres Beben.",
     "gender": "m",
     "plural": "los terremotos"
   },

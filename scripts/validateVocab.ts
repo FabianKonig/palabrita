@@ -175,7 +175,9 @@ function checkEntry(v: Vocab, file: string): string[] {
     else if (
       ARTICLE_GENDER[m[1]] !== v.gender &&
       m[1] !== "los" &&
-      m[1] !== "las"
+      m[1] !== "las" &&
+      // el agua, el hambre: feminine nouns with stressed a- take el in the singular
+      !(m[1] === "el" && v.gender === "f" && /^el h?[aá]/.test(v.es))
     )
       out.push(`Artikel "${m[1]}" passt nicht zu gender "${v.gender}"`);
   }

@@ -109,6 +109,16 @@ describe("validateVocab", () => {
     expect(run([entry({ es: "casa" })]).errors.join()).toMatch(/ohne Artikel/);
   });
 
+  it("el before a feminine noun with stressed a- (el agua) is allowed", () => {
+    expect(
+      run([entry({ es: "el agua", plural: "las aguas", de: ["Wasser"] })])
+        .errors,
+    ).toEqual([]);
+    expect(
+      run([entry({ es: "el libro", plural: "los libros" })]).errors.join(),
+    ).toMatch(/passt nicht zu gender/);
+  });
+
   it("verb object exists exactly for verbs", () => {
     expect(run([verb({ verb: null })]).errors.join()).toMatch(
       /Verb ohne verb-Objekt/,

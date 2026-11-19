@@ -624,8 +624,7 @@
   {
     "id": "v0592",
     "de": [
-      "Freund",
-      "Freundin"
+      "Freund"
     ],
     "es": "el amigo",
     "pos": "noun",
@@ -885,7 +884,8 @@
   {
     "id": "v0607",
     "de": [
-      "obwohl"
+      "obwohl",
+      "auch wenn"
     ],
     "es": "aunque",
     "pos": "other",
