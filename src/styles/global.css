@@ -651,11 +651,9 @@ button.back {
   margin: 0;
 }
 
-/* Lautsprecher rechts oben in der Kopfzeile: fester Platz, unabhängig von der Wortlänge */
 .speak-inline {
   position: static;
   flex: none;
-  margin-left: auto;
 }
 
 .detail-de {
