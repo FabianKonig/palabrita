@@ -4,6 +4,7 @@ import {
   conjugate,
   type Conjugation,
   type FormInfo,
+  TENSE_LABEL,
 } from "../domain/conjugation";
 import type { Person, Tense, Vocab } from "../domain/types";
 import { FROM_APP_STATE } from "../features/legend/Legend";
@@ -15,14 +16,6 @@ const PERSON_LABEL: Record<Person, string> = {
   "1p": "nosotros",
   "2p": "vosotros",
   "3p": "ustedes/ellos",
-};
-
-const TENSE_LABEL: Record<Tense, string> = {
-  presente: "Presente",
-  indefinido: "Pretérito indefinido",
-  imperfecto: "Imperfecto",
-  futuro: "Futuro",
-  imperativo: "Imperativo",
 };
 
 const REGULARITY_LABEL: Record<Conjugation["regularity"], string> = {
