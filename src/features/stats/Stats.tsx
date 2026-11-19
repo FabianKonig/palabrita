@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PageTitle } from "../../components/PageTitle";
 import { getAllCards } from "../../data/cardRepo";
 import { computeStats, type DirectionStats } from "../../domain/stats";
 import { useAppData } from "../../hooks/useAppData";
@@ -38,7 +39,7 @@ export function Stats() {
 
   return (
     <div className="screen">
-      <h1>Statistik</h1>
+      <PageTitle>Statistik</PageTitle>
       <p className="muted">
         Gezählt werden Vokabeln bis Niveau {settings.maxLevel}.
       </p>

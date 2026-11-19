@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { PageTitle } from "../../components/PageTitle";
 import {
   LEVEL_ORDER,
   type Level,
@@ -34,7 +35,7 @@ export function Settings() {
           ← Mehr
         </Link>
       </p>
-      <h1>Einstellungen</h1>
+      <PageTitle>Einstellungen</PageTitle>
       {error && (
         <p className="notice" role="alert">
           Speichern fehlgeschlagen: {error}

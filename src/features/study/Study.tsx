@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Mark } from "../../components/Brand";
 import { SpeakerIcon } from "../../components/icons";
 import { Flashcard } from "../../components/Flashcard";
 import { VerbOverlay } from "../../components/VerbOverlay";
@@ -124,7 +125,7 @@ function StudySession({
       <div className="screen center">
         <h1>Sitzung beendet</h1>
         <p>
-          {session.rated} {session.rated === 1 ? "Karte" : "Karten"} bewertet,
+          {session.rated} {session.rated === 1 ? "Karte" : "Karten"} geübt,
           davon {session.again}× „Nochmal“.
         </p>
         <div className="actions">
@@ -223,7 +224,8 @@ function StudySession({
     <>
       <div className="screen" inert={conjugation}>
         <div className="session-bar">
-          <p className="progress">Bewertet: {session.rated}</p>
+          <p className="progress">Geübt: {session.rated}</p>
+          <Mark />
           <button
             type="button"
             className="btn secondary"

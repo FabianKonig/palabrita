@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PageTitle } from "../../components/PageTitle";
 import { POS_LABEL, topicOptions } from "../../domain/dictionary";
 import type { QueueFilters } from "../../domain/queue";
 import {
@@ -42,7 +43,7 @@ export function StudySetup({
 
   return (
     <div className="screen">
-      <h1>Lernen</h1>
+      <PageTitle>Lernen</PageTitle>
       <div className="settings-form">
         <label className="setting">
           <span>Thema</span>

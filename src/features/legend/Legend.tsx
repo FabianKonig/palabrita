@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { PageTitle } from "../../components/PageTitle";
 import { NOTATIONS } from "./notations";
 
 export function Legend() {
@@ -7,7 +8,7 @@ export function Legend() {
       <Link to="/more" className="back">
         ← Mehr
       </Link>
-      <h1>Was bedeutet (e → ie)?</h1>
+      <PageTitle>Was bedeutet (e → ie)?</PageTitle>
       <p className="muted">
         Hinter manchen Verben steht ein Klammerzusatz. Er zeigt, wie das Verb
         von der Regel abweicht. In den Formentabellen sind abweichende Formen

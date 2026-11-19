@@ -94,6 +94,33 @@ export function Credit({ lead, tail }: { lead: string; tail: string }) {
   );
 }
 
+/** Kleines Markenzeichen: drei Wimpel an kurzer Schnur, ohne Schriftzug (für Seitenköpfe und Leisten). */
+export function Mark() {
+  // Schnur: Bézierkurve von (0,3) über (30,10) nach (60,3).
+  const y = (t: number) => 3 * (1 - t) ** 2 + 20 * t * (1 - t) + 3 * t * t;
+  const flags = [0, 1, 2].map((i) => {
+    const t = (2 * i + 1) / 6;
+    return { x: 60 * t, top: y(t), color: FLAG_COLORS[i] };
+  });
+  return (
+    <svg
+      className="brand-mark"
+      viewBox="0 0 60 26"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path className="wordmark-string" d="M0 3 Q30 10 60 3" fill="none" />
+      {flags.map((f) => (
+        <path
+          key={f.x}
+          d={`M${f.x - 6} ${f.top} L${f.x + 6} ${f.top} L${f.x} ${f.top + 12} Z`}
+          style={{ fill: f.color }}
+        />
+      ))}
+    </svg>
+  );
+}
+
 /** Markenkopf im Tab „Mehr“: Wortmarke, Slogan und Widmung. */
 export function Brand() {
   return (

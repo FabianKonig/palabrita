@@ -10,7 +10,7 @@ Reihenfolge einhalten. Jeder Task ist einzeln lauffähig und committbar. Abhaken
 `domain/types.ts` (`Grade` = again/good, `Card.step`, `newPerDay` entfernen), `domain/srs.ts` (Lernmodell SPEC §11, `previewIntervals`, `formatInterval` mit Minuten), `domain/queue.ts` (`pickNext`, `queueCounts`, `MAX_LEARNING`; `buildQueue` entfällt). Bestehende Tests anpassen (nicht löschen), neue laut „Tests“ unten.
 
 ### [x] T17 – Lernsitzung und Umdrehen
-`Study.tsx` dynamisch (kein festes Array, „Bewertet: N“, „Beenden“, Zusammenfassung, kein `practice`, kein Wartezähler), `Flashcard.tsx` mit `onToggle`, Auto-Vorlesen einmal je Karte (SPEC §13, §14.1).
+`Study.tsx` dynamisch (kein festes Array, „Geübt: N“, „Beenden“, Zusammenfassung, kein `practice`, kein Wartezähler), `Flashcard.tsx` mit `onToggle`, Auto-Vorlesen einmal je Karte (SPEC §13, §14.1).
 
 ### [x] T18 – Verb-Overlay
 `components/VerbDetail.tsx` aus `features/dictionary/VocabDetail.tsx` herausziehen, `components/VerbOverlay.tsx` (Dialog/Bottom-Sheet, Escape, Zurück-Taste, Fokusfalle), Button „Konjugation“ erst nach dem Aufdecken (SPEC §14.1).
@@ -64,7 +64,7 @@ Unit-Tests (Vitest, `npm test` grün; die bestehenden SRS-/Queue-Tests werden an
 - `pickNext`: Prioritäten 1–6, Lernkarte nach 5 Min wird vor neuen Karten gewählt, `MAX_LEARNING` (25) deckelt neue Karten (bei 25 Lernkarten wird keine 26. neue Karte eingeführt, bei 24 schon), Partnerkarte erst nach Abschluss der ersten Richtung, `lastShown` wird nicht sofort wiederholt, Durchlauf beginnt nach dem Ende von vorn, leere Auswahl.
 - Import: Datei mit `newPerDay` und Karten ohne `step` lässt sich importieren.
 - Partnerkarte: Richtung nur ES→DE führt ES→DE-Karten ein, ohne dass DE→ES existiert (keine Selbstsperre). Bei Richtung `both` bleibt ES→DE gesperrt, bis DE→ES abgeschlossen ist.
-- Vorab-Wiederholung „Gewusst“: Karte unverändert (auch `lastReviewed`), `daily.reviewed` und Serie ändern sich nicht, nur der Sitzungszähler „Bewertet“ steigt.
+- Vorab-Wiederholung „Gewusst“: Karte unverändert (auch `lastReviewed`), `daily.reviewed` und Serie ändern sich nicht, nur der Sitzungszähler „Geübt“ steigt.
 - Vorab-Wiederholung „Nochmal“ auf eine Karte mit großem Intervall: Rückfall auf 1 T, `lapses += 1`, `reps = 0`.
 - Ease-Kappung: Karte mit Ease 3,4 wird bei „Gewusst“ auf 3,0 gekappt, das Intervall nutzt noch 3,4.
 - `pickNext` mit Wiederholungskarten und wartender Lernkarte liefert eine Vorab-Wiederholung (Stufe 4 nur ohne Wiederholungskarten). Sind alle sichtbaren Karten in der Lernphase und keine fällig, liefert `pickNext` sofort die Lernkarte mit dem frühesten `due` (kein Wartezähler); `lastShown` wird dabei gemieden, solange eine andere da ist.
@@ -72,7 +72,7 @@ Unit-Tests (Vitest, `npm test` grün; die bestehenden SRS-/Queue-Tests werden an
 Browser-Smoke-Test (`scripts/browser-smoke.ts`):
 1. Karte zweimal umdrehen, Vorderseite erscheint wieder, Bewertungsbuttons bleiben sichtbar.
 2. Bei einem Verb: „Konjugation“ erst nach dem Aufdecken sichtbar, Overlay zeigt die Tabelle, Escape schließt, die Sitzung steht auf derselben Karte.
-3. Mehr als 25 neue Karten (z. B. 30) hintereinander mit „Gewusst“ bewerten: es erscheint nie „Fertig für heute“, kein Wartezähler, der Zähler zeigt „Bewertet: 30“. Die Karten 26 bis 30 sind wartende Lernkarten, die sofort gezeigt werden (SPEC §12.1 Stufe 4).
+3. Mehr als 25 neue Karten (z. B. 30) hintereinander mit „Gewusst“ bewerten: es erscheint nie „Fertig für heute“, kein Wartezähler, der Zähler zeigt „Geübt: 30“. Die Karten 26 bis 30 sind wartende Lernkarten, die sofort gezeigt werden (SPEC §12.1 Stufe 4).
 4. „Nochmal“ drücken, Karte erscheint nach Zeitsprung (Uhr im Test setzen) von 5 Min wieder vor neuen Karten. Ausgangslage: mindestens eine Karte in der Wiederholphase, sonst wird die Karte wegen Stufe 4 ohnehin sofort wieder gezeigt. Zeitsprung per `Page.addScriptToEvaluateOnNewDocument` (Offset auf `Date.now`), das Skript nutzt das DevTools-Protokoll, nicht Playwright.
 5. „Beenden“ zeigt die Zusammenfassung, Neuladen behält den Fortschritt.
 

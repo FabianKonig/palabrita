@@ -235,6 +235,21 @@ async function main() {
     !/Fällig|Neu verfügbar|Serie/.test(home),
   );
 
+  // 1b. Erststart-Begrüßung: erscheint einmal, zwei Tipps schließen sie und merken es sich.
+  check(
+    "Begrüßung erscheint beim ersten Start",
+    await waitFor(`!!document.querySelector(".welcome-card")`, "Begrüßung"),
+  );
+  await evaluate(`document.querySelector(".welcome-card").click()`);
+  await evaluate(`document.querySelector(".welcome-card").click()`);
+  check(
+    "Begrüßung schließt nach zwei Tipps und wird gemerkt",
+    await waitFor(
+      `!document.querySelector(".welcome-backdrop") && localStorage.getItem("palabrita.welcomeSeen") === "1"`,
+      "Begrüßung geschlossen",
+    ),
+  );
+
   // 2. Dictionary shows all words.
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   const dictOk = await waitFor(
@@ -283,8 +298,8 @@ async function main() {
     `document.querySelector(".progress")?.textContent ?? ""`,
   );
   check(
-    "Nach 3 Bewertungen steht „Bewertet: 3“",
-    /Bewertet: 3/.test(progress),
+    "Nach 3 Bewertungen steht „Geübt: 3“",
+    /Geübt: 3/.test(progress),
     progress,
   );
 
@@ -861,7 +876,7 @@ async function main() {
   check(
     "Beenden: Zusammenfassung, Neuladen behält den Fortschritt",
     summaryOk &&
-      /2 Karten bewertet/.test(summary) &&
+      /2 Karten geübt/.test(summary) &&
       /Weiterlernen/.test(summary) &&
       cardsBefore >= 3 &&
       cardsAfter === cardsBefore,
@@ -878,7 +893,7 @@ async function main() {
     `Endlose Sitzung: ${RATED} Bewertungen ohne „Fertig für heute“ und ohne Wartezähler`,
     !/Fertig für heute/.test(endless) &&
       !/Jetzt zeigen|Warte/.test(endless) &&
-      new RegExp(`Bewertet: ${RATED}`).test(endless) &&
+      new RegExp(`Geübt: ${RATED}`).test(endless) &&
       (await evaluate<boolean>(`!!document.querySelector(".flashcard")`)),
   );
 

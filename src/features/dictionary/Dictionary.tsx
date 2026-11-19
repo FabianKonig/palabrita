@@ -1,6 +1,7 @@
 import { useLayoutEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GermanText } from "../../components/Flashcard";
+import { PageTitle } from "../../components/PageTitle";
 import {
   POS_LABEL,
   topicOptions,
@@ -60,7 +61,7 @@ export function Dictionary() {
 
   return (
     <div className="screen">
-      <h1>Verzeichnis</h1>
+      <PageTitle>Verzeichnis</PageTitle>
 
       <section className="dict-section" aria-labelledby="dict-list">
         <h2 id="dict-list">Wörter</h2>
