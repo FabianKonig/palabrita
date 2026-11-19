@@ -166,7 +166,7 @@ export function Privacy() {
       </p>
 
       <h2>
-        7. Keine Pflicht zur Bereitstellung, keine automatisierte Entscheidung
+        8. Keine Pflicht zur Bereitstellung, keine automatisierte Entscheidung
       </h2>
       <p>
         Du musst keine personenbezogenen Daten angeben, um die App zu nutzen.

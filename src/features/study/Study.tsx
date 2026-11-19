@@ -52,7 +52,7 @@ function StudySession({
   onBack: () => void;
 }) {
   const { vocab, settings } = useAppData();
-  const { maxLevel, direction } = settings;
+  const { maxLevel } = settings;
   const [session, setSession] = useState<Session | null>(null);
   // Automatisches Vorlesen ist nur für diese Sitzung manuell einschaltbar und startet immer aus.
   const [autoSpeak, setAutoSpeak] = useState(false);
@@ -70,7 +70,6 @@ function StudySession({
 
   const item = session?.pick?.item;
   const entry = item ? vocab.get(item.vocabId) : undefined;
-  // The Spanish side is visible on the front of es-de cards and on the back of de-es cards.
   // The Spanish side is visible on the front of es-de cards and on the back of de-es cards.
   const spanishVisible = item ? item.dir === "es-de" || flipped : false;
   const { available, speak } = speech;
@@ -94,7 +93,7 @@ function StudySession({
         if (cancelled) return;
         const seen = new Set<string>();
         const pick = pickNext({
-          settings: { maxLevel, direction },
+          settings: { maxLevel },
           vocab: vocab.values(),
           cards,
           now: Date.now(),
@@ -110,7 +109,7 @@ function StudySession({
     return () => {
       cancelled = true;
     };
-  }, [maxLevel, direction, vocab, filters, round]);
+  }, [maxLevel, vocab, filters, round]);
 
   if (error)
     return (
@@ -188,7 +187,7 @@ function StudySession({
       const seen = session.pick?.newPass ? new Set<string>() : session.seen;
       seen.add(key);
       const pick = pickNext({
-        settings: { maxLevel, direction },
+        settings: { maxLevel },
         vocab: vocab.values(),
         cards,
         now,

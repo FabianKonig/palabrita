@@ -1,6 +1,6 @@
 # Palabrita – Offene Aufgaben
 
-Die erledigten Aufgaben (T1 bis T25: Lernmodell, Lernsitzung, Verb-Overlay, Verzeichnis, Umstellung auf GitHub Pages) stehen nicht mehr hier, ihr Ergebnis steht in `docs/SPEC.md`, der Verlauf in der Git-Historie. Diese Datei führt nur, was noch zu tun ist. Wird ein Punkt erledigt, kommt das Ergebnis in die Spezifikation und der Punkt hier raus.
+Diese Datei führt nur, was noch zu tun ist. Erledigtes steht in `docs/SPEC.md`, der Verlauf in der Git-Historie. Wird ein Punkt erledigt, kommt das Ergebnis in die Spezifikation und der Punkt hier raus.
 
 ## Anforderungen ohne Detailspezifikation
 
@@ -15,7 +15,6 @@ Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), da
 
 - [ ] **Manuelle Abnahme** auf dem Handy und mit echtem Lernstand: Liste am Ende von `docs/ABNAHME.md`.
 - [ ] **Impressum:** Welche Pflichtangaben gelten für eine nicht-kommerzielle Lern-App (SPEC §14.2)?
-- [ ] **Logo** (SPEC §17).
 - [ ] **Menschliche Prüfung der Vokabeln** (SPEC §17).
 - [ ] **Lizenz des Repos:** Wird das Repo öffentlich, vorher die Herkunft der Vokabeln und eine `LICENSE`-Datei klären. Das ist eine Entscheidung des Nutzers, keine `LICENSE`-Datei eigenmächtig anlegen.
 

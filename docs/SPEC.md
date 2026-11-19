@@ -39,7 +39,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 
 > Der Absatz beschreibt die Lernsitzung. Technische Details: §11 (Lernmodell), §12 (Kartenauswahl), §14.1 (Bedienung).
 
-- **Karteikarten:** Vorderseite Deutsch, Rückseite Spanisch (Richtung im Tab „Lernen“ wählbar). Die Karte lässt sich per Tipp **beliebig oft** umdrehen. Hat eine Vokabel mehrere deutsche Wörter, stehen **alle** auf der deutschen Seite, getrennt durch „ · “ (z. B. *Auto · Wagen*). Das erste Wort ist die Hauptübersetzung. Die Rückseite zeigt zusätzlich den Beispielsatz (Spanisch und Deutsch) und, falls vorhanden, den Hinweis (`note`). Bei Verben steht auf der spanischen Seite (egal in welcher Richtung) unter dem Wort in einer eigenen, kleineren grauen Zeile der Klammerzusatz der Notation (§5.1), z. B. *(ie)*, *(e → ie, -go, Pretérito/Futuro irr.)*, *(c → qu)*, *(irr.)*; regelmäßige Verben haben keine Zeile. Bei Nomen steht auf der spanischen Seite unter dem Singular (mit Artikel) der Plural in kleinerer grauer Schrift, z. B. *el saludo* / *los saludos*, sofern eine Pluralform hinterlegt ist. Aussprache und Suche nutzen weiter nur das Wort.
+- **Karteikarten:** Vorderseite Deutsch, Rückseite Spanisch (Richtung im Tab „Lernen“ für die Sitzung wählbar). Die Karte lässt sich per Tipp **beliebig oft** umdrehen. Hat eine Vokabel mehrere deutsche Wörter, stehen **alle** auf der deutschen Seite, getrennt durch „ · “ (z. B. *Auto · Wagen*). Das erste Wort ist die Hauptübersetzung. Die Rückseite zeigt zusätzlich den Beispielsatz (Spanisch und Deutsch) und, falls vorhanden, den Hinweis (`note`). Bei Verben steht auf der spanischen Seite (egal in welcher Richtung) unter dem Wort in einer eigenen, kleineren grauen Zeile der Klammerzusatz der Notation (§5.1), z. B. *(ie)*, *(e → ie, -go, Pretérito/Futuro irr.)*, *(c → qu)*, *(irr.)*; regelmäßige Verben haben keine Zeile. Bei Nomen steht auf der spanischen Seite unter dem Singular (mit Artikel) der Plural in kleinerer grauer Schrift, z. B. *el saludo* / *los saludos*, sofern eine Pluralform hinterlegt ist. Aussprache und Suche nutzen weiter nur das Wort.
 - **Bewertung mit zwei Buttons:** **Nochmal** (nicht gewusst) und **Gewusst**. Jeder Button zeigt, wann die Karte wiederkommt („5 Min“, „1 T“, „8 T“ …).
 - **Endlose Sitzung:** Es gibt **kein Tageslimit** und kein „Fertig für heute“. Der Nutzer lernt so lange er will und beendet selbst über „Beenden“ (zeigt eine Zusammenfassung). Jede Bewertung wird sofort gespeichert. Ist alles durch, beginnt ein neuer Durchlauf.
 - **Spaced Repetition:** Nicht gewusste Wörter kommen **nach Minuten** wieder, sicher gewusste immer seltener. Pro Karte werden Fälligkeit, Intervall, Ease-Faktor und Lernschritt gespeichert (§11).
@@ -53,7 +53,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 - Fortschritt exportieren und importieren (JSON-Datei), damit nichts verloren geht, wenn Browserdaten gelöscht werden. Import wahlweise **ersetzen** oder **zusammenführen**. Beim Zusammenführen gewinnt je Karte der Stand mit der neueren letzten Bewertung, die lokalen Einstellungen bleiben unverändert (Details: §10.1b). Ältere Exportdateien bleiben importierbar (§10.1b).
 
 ### 3.3 Übersicht und Statistik
-- Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie (Streak). Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung) und den Button „Starten“. Ohne Auswahl startet eine Sitzung über alle Themen.
+- Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie (Streak). Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung, steht bei jedem Aufruf auf „Beide Richtungen“, wird nicht gespeichert) und den Button „Starten“. Ohne Auswahl startet eine Sitzung über alle Themen.
 - Statistik: gelernte Karten, Verteilung nach Reifegrad (neu, lernend, gefestigt), je Kartenrichtung und nur für das eingestellte Niveau.
 - Durchsuchbares **Vokabelverzeichnis** (alphabetisch nach spanischem Stichwort ohne Artikel) mit Detailansicht inkl. aller Zusatzinfos.
 - **Verzeichnissuche (Spanisch und Deutsch):** Das Suchfeld findet jede Vokabel, deren `es` oder einer der `de`-Einträge den Begriff enthält, ohne Beachtung von Groß-/Kleinschreibung, Akzenten und Umlauten (*cafe* findet *café*). So sieht der Nutzer zu einem deutschen Wort, ob er das spanische schon hat. Es gelten das eingestellte Maximalniveau und die Filter Thema, Niveau, Wortart. Filter, Suchtext und Scrollposition bleiben erhalten, solange der Nutzer im Bereich des Verzeichnisses bleibt (Detailseite, Hinzufügen, Legende), ein Wechsel auf einen anderen Tab setzt sie zurück. Offen (Anforderung 2026-11-19): (a) Der Treffer soll kenntlich machen, dass er über die deutsche Übersetzung kam (z. B. welche `de`-Form passt). (b) Die Wortsuche unter „Neues Wort hinzufügen“ (§3.5) soll deutsche Eingaben vorab gegen die eigene Datenbank prüfen und „Schon vorhanden: <spanisch>“ zeigen, bevor im Wörterbuch nachgeschlagen wird. (c) Verhalten bei mehreren Treffern und bei Wörtern außerhalb des eingestellten Niveaus.
@@ -331,17 +331,16 @@ Exportdatei: `{ schemaVersion, exportedAt, settings, cards, daily, userVocab }`.
 - **Ersetzen:** alle lokalen Daten (Einstellungen, Cards, Daily, userVocab) werden durch die Datei ersetzt, nach Rückfrage.
 - **Zusammenführen:** Einstellungen bleiben lokal unverändert. `cards`: pro Schlüssel `[vocabId, dir]` gewinnt der Stand mit dem größeren `lastReviewed` (bei Gleichstand der lokale; `null` verliert gegen einen Wert); nur in einer Seite vorhandene Karten bleiben. `daily`: je `dayKey` das Maximum von `newIntroduced` und `reviewed`. `userVocab`: per ID, bei Konflikt gewinnt der Eintrag mit dem größeren `createdAt`, bei Gleichstand der lokale.
 - Import validiert `schemaVersion` und Struktur, lehnt unbekannte neuere Versionen mit Fehlermeldung ab und ändert bei Fehlern nichts (alles-oder-nichts in einer Transaktion).
-- Das Feld `settings.newPerDay` in älteren Dateien wird **ignoriert** und nicht mehr verlangt. Karten ohne `step` sind gültig.
+- Die Felder `settings.newPerDay` und `settings.direction` in älteren Dateien werden **ignoriert** und nicht mehr verlangt. Karten ohne `step` sind gültig.
 
-### 10.2 IndexedDB (`palabrita`, Version 1)
+### 10.2 IndexedDB (`palabrita`, Version 2)
 
 | Store | Key | Wert |
 |---|---|---|
-| `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, direction: 'de-es'\|'es-de'\|'both', theme: 'system'\|'light'\|'dark' }` (Defaults: B1, both, system). Vorhandene Datensätze mit den früheren Feldern `newPerDay`/`autoSpeak` verursachen keinen Fehler, der Import ignoriert sie. |
+| `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, theme: 'system'\|'light'\|'dark' }` (Defaults: B1, system). Die Richtung ist keine Einstellung, sondern gilt nur für die Sitzung (§3.3). Vorhandene Datensätze mit früheren Feldern (`newPerDay`, `autoSpeak`, `direction`) verursachen keinen Fehler, die App liest nur die bekannten Felder, der Import ignoriert die übrigen. |
 | `cards` | `[vocabId, dir]` | `{ vocabId, dir: 'de-es'\|'es-de', due: number(ms), interval: number(Tage), ease: number, reps: number, lapses: number, lastReviewed: number\|null, state: 'new'\|'learning'\|'mature', step?: 0\|1 }`. `step`: siehe §11. |
 | `daily` | `dayKey` | `{ dayKey: 'YYYY-MM-DD', newIntroduced: number, reviewed: number }` |
 | `userVocab` | `id` | vollständiges `Vocab` mit `origin: 'user'`, `level: null`, `topic: 'eigene'`, `createdAt` |
-| `meta` | `key` | `{ key: 'schemaVersion', value }` |
 
 Index auf `cards`: `by-due` = `due`.
 
@@ -349,7 +348,7 @@ Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. `d
 
 Eine Karte wird **erst beim ersten Lernen angelegt** (kein Vorab-Befüllen von 1000 Karten). „Neu“ = Vokabel ohne Card-Eintrag für diese Richtung.
 
-**Alle fünf Stores werden schon in Version 1 angelegt**, auch `userVocab` (zunächst leer), damit für eigene Wörter keine Migration nötig ist. Das Feld `step` braucht **keine Migration**: Karten ohne `step` gelten als Wiederholungsphase.
+**Alle vier Stores werden gleich beim Anlegen erzeugt**, auch `userVocab` (zunächst leer), damit für eigene Wörter keine Migration nötig ist. Das Feld `step` braucht **keine Migration**: Karten ohne `step` gelten als Wiederholungsphase. Version 1 legte zusätzlich einen nie genutzten Store `meta` an, Version 2 löscht ihn beim Upgrade (die `schemaVersion` steht nur in der Exportdatei).
 
 Migrationen laufen über `upgrade(db, oldVersion)` in `data/db.ts`. Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht). Löscht der Nutzer ein **eigenes** Wort, werden auch seine Cards gelöscht (Rückfrage in der UI).
 
@@ -399,9 +398,9 @@ Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` vo
 
 ### 12.1 `pickNext`
 
-Eine Funktion **`pickNext(input): Pick`** ersetzt `buildQueue`. Sie ist **rein** (kein Zugriff auf Datenbank oder Uhr, `now` kommt als Parameter) und wird nach **jeder** Bewertung neu aufgerufen. Eingabe: Einstellungen (`maxLevel`, `direction`), Vokabeln, alle Cards, `now`, Sitzungsfilter (Thema, Niveau, Wortart, optional Richtung), `sessionSeen: Set<string>` (Kartenschlüssel `vocabId|dir`, siehe §12.2), `lastShown: string | null`. Rückgabe: `{ kind, item, newPass }` oder `null` (keine sichtbare Karte). `kind` nennt die Stufe (`learning`, `review`, `new`, `early-learning`, `pass`), bei `newPass` leert der Aufrufer `sessionSeen`.
+Eine Funktion **`pickNext(input): Pick`** ersetzt `buildQueue`. Sie ist **rein** (kein Zugriff auf Datenbank oder Uhr, `now` kommt als Parameter) und wird nach **jeder** Bewertung neu aufgerufen. Eingabe: Einstellungen (`maxLevel`), Vokabeln, alle Cards, `now`, Sitzungsfilter (Thema, Niveau, Wortart, Richtung), `sessionSeen: Set<string>` (Kartenschlüssel `vocabId|dir`, siehe §12.2), `lastShown: string | null`. Rückgabe: `{ kind, item, newPass }` oder `null` (keine sichtbare Karte). `kind` nennt die Stufe (`learning`, `review`, `new`, `early-learning`, `pass`), bei `newPass` leert der Aufrufer `sessionSeen`.
 
-Sichtbarkeit und Filter: Sichtbar sind nur Vokabeln mit `isVisible(v, settings.maxLevel)` (eigene Wörter mit `level: null` immer), danach Filter (Thema, Niveau, Wortart). Eigene Wörter wählt man über das Thema „Eigene Wörter“ (`eigene`); ein gesetzter Niveau-Filter A1/A2/B1 schließt sie aus. Erlaubte Richtungen: bei `both` beide, sonst nur die eingestellte (der Sitzungsfilter kann sie überschreiben). Karten ausgeblendeter Vokabeln oder Richtungen bleiben unverändert in der DB.
+Sichtbarkeit und Filter: Sichtbar sind nur Vokabeln mit `isVisible(v, settings.maxLevel)` (eigene Wörter mit `level: null` immer), danach Filter (Thema, Niveau, Wortart). Eigene Wörter wählt man über das Thema „Eigene Wörter“ (`eigene`); ein gesetzter Niveau-Filter A1/A2/B1 schließt sie aus. Erlaubte Richtungen: bei der Sitzungsrichtung `both` (Standard) beide, sonst nur die gewählte. Karten ausgeblendeter Vokabeln oder Richtungen bleiben unverändert in der DB.
 
 Priorität, die erste passende Stufe gewinnt:
 
@@ -409,7 +408,7 @@ Priorität, die erste passende Stufe gewinnt:
 2. **Wiederholungen fällig:** Karten ohne `step`, `due < nextDayStart(now)` mit `nextDayStart = startOfDay(addDays(dayKey(now), 1))` (04:00 des Folgetags, **exklusiv**: eine Karte mit `due` = morgen 04:00 ist heute **nicht** fällig), sortiert nach `due`.
 3. **Neue Karte einführen**, wenn weniger als `MAX_LEARNING = 25` Karten gleichzeitig in der Lernphase sind (`step` gesetzt, sichtbar und im Filter). Das verhindert, dass 500 neue Wörter auf einmal „offen“ werden, und ersetzt das Tageslimit. Reihenfolge der neuen Karten: eigene Wörter zuerst nach `createdAt`, dann statische nach `id`, je Wort zuerst DE→ES.
    - **Partnerkarte:** Die Karte der zweiten Richtung (ES→DE) einer Vokabel wird erst eingeführt, wenn die erste Richtung die Lernphase abgeschlossen hat (kein `step`, Card existiert), damit sie die Lösung nicht verrät. Gibt es nur gesperrte Partnerkarten, wird Stufe 3 übersprungen.
-   - Die Sperre gilt nur, wenn die Partnerkarte (DE→ES) in der aktuellen Richtungsauswahl liegt (Einstellung `direction` und Sitzungsfilter) **und noch nicht abgeschlossen ist** (keine Card oder Card mit `step`). Ist DE→ES ausgeschlossen (z. B. Richtung nur ES→DE), ist ES→DE nicht gesperrt. Eine existierende Card wird nie nachträglich gesperrt, die Sperre betrifft nur das **Einführen** neuer Karten.
+   - Die Sperre gilt nur, wenn die Partnerkarte (DE→ES) in der Sitzungsrichtung liegt **und noch nicht abgeschlossen ist** (keine Card oder Card mit `step`). Ist DE→ES ausgeschlossen (z. B. Richtung nur ES→DE), ist ES→DE nicht gesperrt. Eine existierende Card wird nie nachträglich gesperrt, die Sperre betrifft nur das **Einführen** neuer Karten.
 4. **Wartende Lernkarte vorzeitig zeigen** (`step` gesetzt, `due > now`, noch nicht fällig): Die Lernkarte mit dem frühesten `due` wird **sofort** gezeigt, statt auf den Ablauf der 5 bzw. 30 Minuten zu warten. Die Stufe steht **vor** Stufe 5. Grund: Stünde die Vorab-Wiederholung davor, würden wenige Wiederholungskarten alle Lernkarten blockieren, bis deren Wartezeit abgelaufen ist (Regressionstest „rapid 'good' …“ in `queue.test.ts`). Es gibt **keinen Wartezähler und keinen „Jetzt zeigen“-Button** (entschieden). Folge: Bei wenigen Karten wirken die Minutenpausen kaum, der Nutzer sieht dieselben Karten schnell wieder. Das ist gewollt. Fällige Lernkarten (Stufe 1) und fällige Wiederholungen (Stufe 2) haben weiterhin Vorrang.
 5. **Vorab-Wiederholung („von vorn“):** nur wenn keine Lernkarte mehr wartet, siehe §12.2.
 6. Gibt es überhaupt keine sichtbare Karte (leeres Filterergebnis, Niveau zu niedrig): Hinweis „Keine Karten für diese Auswahl“ mit Link zur Filterauswahl. Das ist der **einzige** Fall, in dem die Sitzung leer ist.
@@ -503,4 +502,4 @@ Befehle, lokaler Test (`npm run dev`, `npm run build` + `npm run preview`), Einr
 ## 17. Annahmen und offene Punkte
 
 - **Vokabelqualität:** Es gibt keine externe Prüfung. Verbformen werden per Code erzeugt und getestet, Fehler in der JSON-Datei sind leicht korrigierbar. Eine menschliche Prüfung der Vokabeln steht aus.
-- **Offene Punkte:** Logo (App-Name ist entschieden: **Palabrita**). Weitere offene Punkte stehen in `docs/TASKS.md`.
+- **Offene Punkte:** siehe `docs/TASKS.md`.

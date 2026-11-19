@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { startOfDay } from "./day";
 import { cardKey, MAX_LEARNING, pickNext, type PickInput } from "./queue";
 import { newCard, review } from "./srs";
-import type { Card, Settings, Vocab } from "./types";
+import type { Card, DirectionSetting, Settings, Vocab } from "./types";
 import { DEFAULT_SETTINGS } from "./types";
 
 const NOW = new Date(2026, 0, 15, 10, 0).getTime(); // dayKey 2026-01-15
@@ -22,8 +22,11 @@ function vocab(id: string, over: Partial<Vocab> = {}): Vocab {
   };
 }
 
-function settings(over: Partial<Settings> = {}): Settings {
-  return { ...DEFAULT_SETTINGS, ...over };
+/** Settings plus the session direction, which `pick` passes on as a filter. */
+type TestSettings = Settings & { direction: DirectionSetting };
+
+function settings(over: Partial<TestSettings> = {}): TestSettings {
+  return { ...DEFAULT_SETTINGS, direction: "both", ...over };
 }
 
 /** Card in the review phase. */
@@ -48,16 +51,21 @@ function learning(
   return { ...card(vocabId, dir, due), interval: 1, reps: 0, step };
 }
 
-const pick = (over: Partial<PickInput> = {}) =>
-  pickNext({
-    settings: settings(),
+const pick = (
+  over: Partial<Omit<PickInput, "settings">> & { settings?: TestSettings } = {},
+) => {
+  const { settings: s = settings(), filters, ...rest } = over;
+  return pickNext({
+    settings: { maxLevel: s.maxLevel },
     vocab: [],
     cards: [],
     now: NOW,
     sessionSeen: new Set(),
     lastShown: null,
-    ...over,
+    ...rest,
+    filters: { direction: s.direction, ...filters },
   });
+};
 
 const id = (p: ReturnType<typeof pick>) =>
   p ? `${p.item.vocabId}:${p.item.dir}` : null;
@@ -314,15 +322,6 @@ describe("partner cards", () => {
     const p = pick({ vocab: v, settings: settings({ direction: "es-de" }) });
     expect(id(p)).toBe("v001:es-de");
     expect(p?.kind).toBe("new");
-  });
-
-  it("session filter direction overrides the setting for the lock", () => {
-    const p = pick({
-      vocab: v,
-      settings: settings({ direction: "both" }),
-      filters: { direction: "es-de" },
-    });
-    expect(id(p)).toBe("v001:es-de");
   });
 });
 

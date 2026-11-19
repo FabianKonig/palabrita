@@ -7,7 +7,11 @@ const KEY = "main";
 export async function getSettings(): Promise<Settings> {
   const db = await getDb();
   const stored = await db.get("settings", KEY);
-  if (stored) return { ...DEFAULT_SETTINGS, ...stored };
+  if (stored) {
+    // Only known fields: records of older versions may carry obsolete ones.
+    const { maxLevel, theme } = { ...DEFAULT_SETTINGS, ...stored };
+    return { maxLevel, theme };
+  }
   await db.put("settings", { ...DEFAULT_SETTINGS }, KEY);
   return { ...DEFAULT_SETTINGS };
 }

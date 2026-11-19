@@ -57,7 +57,6 @@ describe("settingsRepo", () => {
   it("keeps changed settings after a reload", async () => {
     const changed = {
       maxLevel: "A1" as const,
-      direction: "es-de" as const,
       theme: "dark" as const,
     };
     await saveSettings(changed);
@@ -65,18 +64,14 @@ describe("settingsRepo", () => {
     expect(await getSettings()).toEqual(changed);
   });
 
-  it("deletes no cards when settings change; directions stay separate", async () => {
+  it("deletes no cards when settings change", async () => {
     await saveReview(
       review(newCard("v1", "de-es", NOW), "good", NOW),
       true,
       dayKey(NOW),
     );
-    await saveSettings({
-      ...DEFAULT_SETTINGS,
-      maxLevel: "A1",
-      direction: "es-de",
-    });
-    await saveSettings({ ...DEFAULT_SETTINGS, direction: "both" });
+    await saveSettings({ ...DEFAULT_SETTINGS, maxLevel: "A1" });
+    await saveSettings(DEFAULT_SETTINGS);
     expect(await getCard("v1", "de-es")).toBeDefined();
     expect(await getCard("v1", "es-de")).toBeUndefined();
   });

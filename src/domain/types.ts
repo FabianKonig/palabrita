@@ -53,13 +53,11 @@ export type Grade = "again" | "good";
 
 export interface Settings {
   maxLevel: Level;
-  direction: DirectionSetting;
   theme: "system" | "light" | "dark";
 }
 
 export const DEFAULT_SETTINGS: Settings = {
   maxLevel: "B1",
-  direction: "both",
   theme: "system",
 };
 

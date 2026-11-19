@@ -20,16 +20,17 @@ const DIRECTION_LABEL: Record<DirectionSetting, string> = {
   both: "Beide Richtungen",
 };
 
-/** Filters and direction before the session starts. The direction is remembered. */
+/** Filters and direction before the session starts. Nothing is remembered. */
 export function StudySetup({
   onStart,
 }: {
   onStart: (filters: QueueFilters) => void;
 }) {
-  const { topics, settings, updateSettings } = useAppData();
+  const { topics, settings } = useAppData();
   const [topic, setTopic] = useState("");
   const [level, setLevel] = useState<Level | "">("");
   const [pos, setPos] = useState<Pos | "">("");
+  const [direction, setDirection] = useState<DirectionSetting>("both");
 
   const topicChoices = topicOptions(topics);
 
@@ -38,6 +39,7 @@ export function StudySetup({
     if (topic) filters.topic = topic;
     if (level) filters.level = level;
     if (pos) filters.pos = pos;
+    filters.direction = direction;
     onStart(filters);
   }
 
@@ -89,12 +91,8 @@ export function StudySetup({
         <label className="setting">
           <span>Richtung</span>
           <select
-            value={settings.direction}
-            onChange={(e) =>
-              void updateSettings({
-                direction: e.target.value as DirectionSetting,
-              })
-            }
+            value={direction}
+            onChange={(e) => setDirection(e.target.value as DirectionSetting)}
           >
             {(Object.keys(DIRECTION_LABEL) as DirectionSetting[]).map((d) => (
               <option key={d} value={d}>

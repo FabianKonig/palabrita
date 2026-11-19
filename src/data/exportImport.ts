@@ -31,7 +31,6 @@ function validSettings(s: unknown): s is Settings {
   return (
     isObj(s) &&
     LEVELS.includes(s.maxLevel as string) &&
-    ["de-es", "es-de", "both"].includes(s.direction as string) &&
     ["system", "light", "dark"].includes(s.theme as string)
   );
 }
@@ -103,7 +102,6 @@ export function parseExport(text: string): ExportFile {
     exportedAt: typeof raw.exportedAt === "string" ? raw.exportedAt : "",
     settings: {
       maxLevel: raw.settings.maxLevel,
-      direction: raw.settings.direction,
       theme: raw.settings.theme,
     },
     cards: raw.cards,
@@ -118,7 +116,6 @@ export async function buildExport(now = Date.now()): Promise<ExportFile> {
   const settings = stored
     ? {
         maxLevel: stored.maxLevel,
-        direction: stored.direction,
         theme: stored.theme,
       }
     : DEFAULT_SETTINGS;

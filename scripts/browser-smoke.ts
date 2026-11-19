@@ -451,7 +451,7 @@ async function main() {
   await setInput(`select:has(option[value="A1"])`, "B1");
   await sleep(400);
 
-  // 8e2. Lernen tab: the direction is chosen here and remembered.
+  // 8e2. Lernen tab: the direction is chosen here and applies to the session only.
   await send("Page.navigate", { url: BASE });
   await waitFor(
     `document.querySelector('select:has(option[value="es-de"])')`,
@@ -472,10 +472,10 @@ async function main() {
   );
   await sleep(400);
   check(
-    "Lernen: Richtung bleibt nach Neuladen",
+    "Lernen: Richtung ist nur für die Sitzung (nach Neuladen wieder Beide)",
     (await evaluate<string>(
       `document.querySelector('select:has(option[value="es-de"])').value`,
-    )) === "es-de",
+    )) === "both",
   );
   await setInput(`select:has(option[value="es-de"])`, "both");
   await sleep(400);

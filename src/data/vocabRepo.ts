@@ -37,7 +37,7 @@ function isValidVocab(v: unknown): v is Vocab {
 
 async function load() {
   const index = await fetchJson<VocabIndex>("vocab/index.json");
-  // Several topics may point to the same file (seed.json in T1-T9), so load each file once.
+  // Several topics may point to the same file, so load each file once.
   const files = [...new Set(index.topics.map((t) => t.file))];
   const lists = await Promise.all(
     files.map((f) => fetchJson<unknown[]>(`vocab/${f}`)),
@@ -51,7 +51,7 @@ async function load() {
     }
   }
 
-  // User words (store exists from schema version 1, empty until T9a).
+  // User words (own store, empty until the first one is added).
   const db = await getDb();
   for (const u of await db.getAll("userVocab")) vocab.set(u.id, u);
 

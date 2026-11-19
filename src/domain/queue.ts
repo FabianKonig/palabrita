@@ -17,7 +17,7 @@ export interface QueueFilters {
   topic?: string;
   level?: Level;
   pos?: Pos;
-  /** Overrides settings.direction for this session. */
+  /** Card direction of this session, default both. */
   direction?: DirectionSetting;
 }
 
@@ -29,7 +29,7 @@ export interface QueueItem {
 }
 
 export interface QueueInput {
-  settings: Pick<Settings, "maxLevel" | "direction">;
+  settings: Pick<Settings, "maxLevel">;
   vocab: Iterable<Vocab>;
   cards: Card[];
   now: number;
@@ -92,7 +92,7 @@ const toItem = (card: Card): QueueItem => ({
 /** Visibility and filter logic for pickNext. */
 function scope(input: QueueInput) {
   const filters = input.filters ?? {};
-  const dirs = allowedDirections(filters.direction ?? input.settings.direction);
+  const dirs = allowedDirections(filters.direction ?? "both");
   const visible = new Map<string, Vocab>();
   for (const v of input.vocab) {
     if (isVisible(v, input.settings.maxLevel) && matchesFilters(v, filters))

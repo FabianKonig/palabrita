@@ -161,14 +161,15 @@ describe("parseExport validation", () => {
     expect(() => parseExport(JSON.stringify(valid()))).not.toThrow();
   });
 
-  it("imports an old file with newPerDay and cards without step", async () => {
+  it("imports an old file with newPerDay, direction and cards without step", async () => {
     const old = {
       ...valid(),
-      settings: { ...DEFAULT_SETTINGS, newPerDay: 25 },
+      settings: { ...DEFAULT_SETTINGS, newPerDay: 25, direction: "es-de" },
       cards: [card("v1", 100, 6)],
     };
     const file = parseExport(JSON.stringify(old));
     expect(file.settings).not.toHaveProperty("newPerDay");
+    expect(file.settings).not.toHaveProperty("direction");
     expect(file.cards[0].step).toBeUndefined();
     await applyImport(file, "replace");
     const db = await getDb();
