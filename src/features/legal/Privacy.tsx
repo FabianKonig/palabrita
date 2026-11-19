@@ -9,7 +9,7 @@ export function Privacy() {
       <Link to="/more" className="back">
         ← Mehr
       </Link>
-      <h1>Datenschutzerklärung</h1>
+      <h1>Datenschutz&shy;erklärung</h1>
       <p className="muted">Stand: {OPERATOR.updated}</p>
 
       <h2>1. Das Wichtigste in Kürze</h2>
