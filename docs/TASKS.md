@@ -7,7 +7,8 @@ Diese Datei führt nur, was noch zu tun ist. Erledigtes steht in `docs/SPEC.md`,
 Die Spezifikation steht, ein Agent kann direkt umsetzen.
 
 - [ ] **Kartenauswahl und Lernmodell nach Anki** (spezifiziert 2026-11-19): SPEC §11, §12, §3.1, §10.2 und §14.1 („Für heute geschafft“). Umzusetzen:
-  - `domain/types.ts`: `Card.introduced`, `Settings.orderSeed`.
+  - Vokabeln: Feld `added` in `scripts/vocab.schema.json` als Pflicht (Muster `^\d{4}-\d{2}-\d{2}$`), in `scripts/validateVocab.ts` gültiges Kalenderdatum prüfen (mit Test), allen vorhandenen Vokabeln in `public/vocab/*.json` `"added": "2026-11-19"` geben (einmalig per `tsx`-Skript oder Node-Einzeiler, Feldreihenfolge wie in SPEC §4.2 hinter `topic`), danach `npm run validate:vocab`.
+  - `domain/types.ts`: `Vocab.added`, `Card.introduced`, `Settings.orderSeed` und `Settings.startedAt`.
   - `domain/srs.ts`: Lernschritte 1 / 10 Min (`LEARN_STEPS_MIN`, `RELEARN_STEP_MIN` statt `STEP_MINUTES`), Wiederlernphase mit einem Schritt von 10 Min (`lapses > 0`), Bonus für überfällige Karten, `MAX_INTERVAL`, Vorab-Wiederholung entfernen (`isEarly`, Sonderfall in `previewIntervals`), `introduced` in `newCard`. `srs.test.ts` anpassen.
   - `domain/queue.ts`: `pickNext` nach §12.2 (Stufen 1 bis 4, `newLimit`, Mischung 4 zu 1, Gefährdung, Tagessperre, `position()`, Rückgabe `done`), `MAX_LEARNING`, `sessionSeen`, `newPass` und Durchlauf entfernen.
   - `queue.test.ts` neu schreiben. Die Hilfsfunktionen dürfen Karten nicht über `newCard(…, NOW)` mit `introduced = NOW` bauen, sonst zählen sie zum heutigen Limit. Mindestens diese Fälle:
@@ -16,13 +17,14 @@ Die Spezifikation steht, ein Agent kann direkt umsetzen.
     - Limit: 20 heute eingeführte Karten → keine neue, `done` mit `moreNew = true`; `newLimit` 30 → neue Karte. Karten von gestern zählen nicht.
     - Tagessperre: DE→ES heute bewertet → ES→DE (neu oder fällige Wiederholung) nicht gewählt, auch bei Sitzungsrichtung nur ES→DE; gestern bewertet → frei; Lernkarte ES→DE trotz heute bewertetem Partner gewählt.
     - Position: zwei Seeds ergeben verschiedene Reihenfolgen, derselbe Seed immer dieselbe; die freigegebene ES→DE-Karte eines früheren Worts kommt vor DE→ES späterer Wörter; Niveaus gemischt.
+    - Neuzugänge: `startedAt` am 2026-12-01, Vokabel mit `added` 2026-12-05 kommt vor allen anderen neuen Karten (auch vor freigegebenen ES→DE-Karten älterer Wörter), `added` 2026-12-01 oder früher nicht; nur innerhalb des Filters; untereinander nach Position.
     - Gefährdung: 1-Tages-Karte 3 Tage überfällig vor 30-Tages-Karte 3 Tage überfällig.
     - `lastShown`: wird übergangen, solange eine andere Karte aus Stufe 1 bis 3 da ist; einzige offene Lernkarte nach „Nochmal“ → erneut gezeigt, nicht `done`.
     - Keine Schleife: Simulation mit nur 2 Vokabeln, Richtung beide, immer „Gewusst“, Uhr läuft je Bewertung 8 s → nach höchstens 4 Bewertungen `done`, kein Wechsel DE→ES/ES→DE desselben Worts am selben Tag.
     - `null` nur bei leerer Auswahl; Auswahl mit Vokabeln, aber nichts mehr für heute → `done`.
-  - `data/` (Einstellungen): `orderSeed` beim ersten Anlegen würfeln (`DEFAULT_SETTINGS` kann ihn nicht enthalten); `cardRepo.test.ts` (Vergleich mit `DEFAULT_SETTINGS`) anpassen.
+  - `data/` (Einstellungen): `orderSeed` beim ersten Anlegen würfeln und `startedAt` setzen (`DEFAULT_SETTINGS` kann ihn nicht enthalten); `cardRepo.test.ts` (Vergleich mit `DEFAULT_SETTINGS`) anpassen.
   - `domain/stats.test.ts`: Card-Literal um `introduced` ergänzen (sonst bricht `npm run build`).
-  - `features/study/Study.tsx`: `seen`/`newPass` und die Prüfung `changed` (Vorab-Gewusst nicht speichern) entfernen; `reviewsSinceNew` nach `kind` der bewerteten Karte führen; `newLimit` mit Tag führen und um 04:00 zurücksetzen; `orderSeed` und `lastShown` übergeben; `done` von `null` unterscheiden (heute zeigt `!item` immer „Keine Karten“); Seite „Für heute geschafft“ mit „10 weitere neue Karten“.
+  - `features/study/Study.tsx`: `seen`/`newPass` und die Prüfung `changed` (Vorab-Gewusst nicht speichern) entfernen; `reviewsSinceNew` nach `kind` der bewerteten Karte führen; `newLimit` mit Tag führen und um 04:00 zurücksetzen; `orderSeed`, `startedAt` und `lastShown` übergeben; `done` von `null` unterscheiden (heute zeigt `!item` immer „Keine Karten“); Seite „Für heute geschafft“ mit „10 weitere neue Karten“.
   - `scripts/browser-smoke.ts`: 8i („Nochmal nach 5 Min“, nutzt Stufe 4 und eine nicht fällige Wiederholungskarte) auf 1 bzw. 10 Min umstellen, Vorlage um `introduced` ergänzen; 8k („Endlose Sitzung … ohne Fertig für heute“) ersetzen durch eine Prüfung von „Für heute geschafft“ und „10 weitere neue Karten“; Logo-Prüfung (8e6) um „Für heute geschafft“ ergänzen.
   - `docs/ABNAHME.md` nach der Umsetzung neu prüfen und umschreiben: Kriterien 1 („Std“ kommt nicht mehr vor), 2 bis 5 und 8, die Zahl der Prüfungen (Z. 5) und die manuelle Prüfung „Vorab-Wiederholung“ (Z. 22).
 

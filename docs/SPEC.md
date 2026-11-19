@@ -41,7 +41,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 
 - **Karteikarten:** Vorderseite Deutsch, Rückseite Spanisch (Richtung im Tab „Lernen“ für die Sitzung wählbar). Die Karte lässt sich per Tipp **beliebig oft** umdrehen. Hat eine Vokabel mehrere deutsche Wörter, stehen **alle** auf der deutschen Seite, getrennt durch „ · “ (z. B. *Auto · Wagen*). Das erste Wort ist die Hauptübersetzung. Die Rückseite zeigt zusätzlich den Beispielsatz (Spanisch und Deutsch) und, falls vorhanden, den Hinweis (`note`). Bei Verben steht auf der spanischen Seite (egal in welcher Richtung) unter dem Wort in einer eigenen, kleineren grauen Zeile der Klammerzusatz der Notation (§5.1), z. B. *(ie)*, *(e → ie, -go, Pretérito/Futuro irr.)*, *(c → qu)*, *(irr.)*; regelmäßige Verben haben keine Zeile. Bei Nomen steht auf der spanischen Seite unter dem Singular (mit Artikel) der Plural in kleinerer grauer Schrift, z. B. *el saludo* / *los saludos*, sofern eine Pluralform hinterlegt ist. Aussprache und Suche nutzen weiter nur das Wort.
 - **Bewertung mit zwei Buttons:** **Nochmal** (nicht gewusst) und **Gewusst**. Jeder Button zeigt, wann die Karte wiederkommt („1 Min“, „10 Min“, „1 T“, „8 T“ …).
-- **Tagespensum wie bei Anki:** Pro Tag kommen die fälligen Wiederholungen und **höchstens 20 neue Karten** (gezählt über alle Sitzungen; jede Richtung eines Worts ist eine eigene Karte, auf Dauer sind das also etwa 10 neue Wörter pro Tag). Wurde eine Richtung eines Worts heute schon gelernt, kommt die andere erst am nächsten Tag. Neue Wörter kommen in einer zufälligen, aber festen Reihenfolge über alle Themen und Niveaus. Ist alles erledigt, erscheint „Für heute geschafft“. Wer weiterlernen will, tippt dort auf „10 weitere neue Karten“, beliebig oft, solange es neue Karten gibt. Der Nutzer kann jederzeit über „Beenden“ aufhören (zeigt eine Zusammenfassung). Jede Bewertung wird sofort gespeichert. Ein Tageslimit als Einstellung gibt es nicht.
+- **Tagespensum wie bei Anki:** Pro Tag kommen die fälligen Wiederholungen und **höchstens 20 neue Karten** (gezählt über alle Sitzungen; jede Richtung eines Worts ist eine eigene Karte, auf Dauer sind das also etwa 10 neue Wörter pro Tag). Wurde eine Richtung eines Worts heute schon gelernt, kommt die andere erst am nächsten Tag. Neue Wörter kommen in einer zufälligen, aber festen Reihenfolge über alle Themen und Niveaus. Wörter, die nach dem ersten Start der App zum Bestand hinzukommen, kommen vor allen anderen neuen Wörtern, damit man sie schnell lernt. Ist alles erledigt, erscheint „Für heute geschafft“. Wer weiterlernen will, tippt dort auf „10 weitere neue Karten“, beliebig oft, solange es neue Karten gibt. Der Nutzer kann jederzeit über „Beenden“ aufhören (zeigt eine Zusammenfassung). Jede Bewertung wird sofort gespeichert. Ein Tageslimit als Einstellung gibt es nicht.
 - **Spaced Repetition:** Nicht gewusste Wörter kommen **nach Minuten** wieder (1 bzw. 10 Min), die andere Richtung eines Worts frühestens am nächsten Tag, sicher gewusste immer seltener. Pro Karte werden Fälligkeit, Intervall, Ease-Faktor und Lernschritt gespeichert (§11).
 - **Konjugation aus der Sitzung:** Bei Verben öffnet ein Klick auf „Konjugation“ (erst nach dem Aufdecken) ein Overlay mit der Formentabelle, ohne die Sitzung zu verlassen.
 - **Audio-Aussprache:** Browser-Sprachausgabe (Web Speech API), spanische Stimme bevorzugt `es-MX`. Ein Lautsprecher-Button steht auf der Karte, sobald die spanische Seite sichtbar ist. Automatisches Vorlesen ist ein Schalter der Lernsitzung (Standard aus, nicht gespeichert). Details und Stimmenwahl: §13.
@@ -165,6 +165,7 @@ Beispiele mit Wörtern, die es (noch) nicht in den Daten gibt, prüfen die Tests
   "pos": "verb",
   "level": "A1",
   "topic": "einkaufen",
+  "added": "2026-11-19",
   "example": { "es": "¿Puedo pagar con tarjeta?", "de": "Kann ich mit Karte bezahlen?" },
   "note": "Freitext, z. B. regionale Verwendung",
   "gender": null,
@@ -191,6 +192,7 @@ Regeln:
 - Das Feld `topic` ist einer der 13 Themen-Schlüssel aus `public/vocab/index.json` (siehe §10.1).
 - `verb` ist bei **jedem** Verb Pflicht (mindestens `{ "tags": [], "reflexive": false }` für ein regelmäßiges Verb) und bei allen anderen Wortarten leer.
 - Jede Vokabel hat mindestens einen Beispielsatz (Spanisch plus Deutsch).
+- `added` ist **Pflicht**: das Datum (`YYYY-MM-DD`), an dem die Vokabel zum Bestand kam. Alle Vokabeln des Startbestands haben `2026-11-19`. Eine neue Vokabel bekommt das Datum, an dem sie hinzugefügt wird. Das Datum wird danach nie geändert, auch nicht bei Korrekturen am Eintrag. Der Validator prüft Format und gültiges Kalenderdatum. Das Feld steuert, welche neuen Wörter beim Lernen zuerst kommen (§12.1, Neuzugänge).
 
 ## 5. Zusatzinfos zu Verben: Notation der Unregelmäßigkeiten
 
@@ -353,6 +355,7 @@ interface Vocab {
   es: string; pos: Pos;
   level: Level;          // A1, A2 oder B1
   topic: string;         // einer der 13 Schlüssel (siehe unten)
+  added: string;         // 'YYYY-MM-DD', Pflicht, §4.2
   example: { es: string; de: string };  // Pflicht
   note?: string | null; gender?: 'm'|'f'|'m/f'|null; plural?: string | null;
   adj?: { f?: string; pl?: string; fpl?: string } | null;  // nur pos 'adj', nur abweichende Formen
@@ -380,7 +383,7 @@ Feste Themen-Schlüssel (13): `begruessung`, `zahlen-zeit`, `essen`, `transport`
 
 | Store | Key | Wert |
 |---|---|---|
-| `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, theme: 'system'\|'light'\|'dark', orderSeed: number }` (Defaults: B1, system; `orderSeed` ist eine zufällige 32-Bit-Ganzzahl, die beim ersten Anlegen der Einstellungen gewürfelt und danach nie geändert wird, §12.1). Die Richtung ist keine Einstellung, sondern gilt nur für die Sitzung (§3.3). |
+| `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, theme: 'system'\|'light'\|'dark', orderSeed: number }` (Defaults: B1, system; `orderSeed` ist eine zufällige 32-Bit-Ganzzahl, die beim ersten Anlegen der Einstellungen gewürfelt wird; `startedAt: number` (ms) ist der Zeitpunkt dieses ersten Anlegens. Beide werden danach nie geändert, §12.1). Die Richtung ist keine Einstellung, sondern gilt nur für die Sitzung (§3.3). |
 | `cards` | `[vocabId, dir]` | `{ vocabId, dir: 'de-es'\|'es-de', due: number(ms), interval: number(Tage), ease: number, reps: number, lapses: number, lastReviewed: number\|null, introduced: number(ms, erste Bewertung), state: 'new'\|'learning'\|'mature', step?: 0\|1 }`. `step`: siehe §11. |
 
 Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zwischen Geräten gibt es keine Übertragung des Fortschritts. Jede Bewertung wird gespeichert (§11).
@@ -457,14 +460,15 @@ Vorbild ist die **Warteschlange von Anki** (v3) mit Standardeinstellungen (entsc
 - **Tageslimit neue Karten:** `NEW_PER_DAY = 20`. Gezählt werden alle gespeicherten Karten mit `introduced >= startOfDay(dayKey(now))`, also über alle Sitzungen, Filter, Richtungen und Niveaus. Jede Richtung zählt als eigene Karte. Eine angezeigte, aber nicht bewertete neue Karte zählt nicht (sie wird erst beim ersten Bewerten angelegt, §10.2). Das geltende Limit `newLimit` hält die Sitzung: Start `NEW_PER_DAY`. Der Button „10 weitere neue Karten“ (§14.1) setzt `newLimit = max(newLimit, eingeführt heute) + 10`, bringt also immer genau 10 weitere Karten, auch in einer zweiten Sitzung am selben Tag, in der schon mehr als 20 eingeführt wurden. Das erhöhte Limit gilt nur in dieser Sitzung und nur für den Tag, an dem es gesetzt wurde: Wechselt `dayKey(now)` während der Sitzung (04:00), rechnet der Aufrufer wieder mit `NEW_PER_DAY`. Es wird nicht gespeichert.
 - **Partnerkarte:** die Karte der anderen Richtung derselben Vokabel. Maßgeblich ist die gespeicherte Card, unabhängig von Filter und Sitzungsrichtung.
 - **Tagessperre** (wie Ankis „Geschwister zurückstellen“): Eine neue Karte oder eine Wiederholungskarte ist heute gesperrt, wenn ihre Partnerkarte heute schon bewertet wurde (`partner.lastReviewed >= startOfDay(dayKey(now))`). Das gilt unabhängig von der Sitzungsrichtung, also auch in einer Sitzung nur ES→DE. Für Lernkarten gilt die Sperre nicht, sie würden sonst stehen bleiben. Eine gesperrte Wiederholungskarte bleibt fällig und kommt am nächsten Tag; ihr Intervall rechnet ab dem Tag, an dem sie bewertet wird (§11). Randfall (kein Fehler): „Heute“ beginnt um 04:00. Wurde eine Richtung um 03:55 bewertet, ist die andere ab 04:00 frei.
-- **Position** einer Vokabel (wie Ankis Einfügereihenfolge „zufällig“): eine feste Pseudo-Zufallszahl `position(vocabId, orderSeed)`, z. B. 32-Bit-FNV-1a über `` `${orderSeed}|${vocabId}` ``, als reine Funktion in `domain/queue.ts`. Beide Richtungen einer Vokabel haben dieselbe Position. Neue Karten kommen nach Position aufsteigend, bei gleicher Position DE→ES vor ES→DE, bei gleichem Wert danach nach `vocabId`. So sind die Wörter über alle Themen und Niveaus gemischt, die Reihenfolge ist aber je Installation fest. Die zweite Richtung eines Worts steht dadurch vor allen späteren Wörtern: Sobald die Tagessperre sie freigibt (meist am nächsten Tag), ist sie unter den ersten neuen Karten. Eine eigene Regel „ES→DE erst nach DE→ES“ gibt es nicht; ist DE→ES noch in der Lernphase, kommt diese Lernkarte als fällige oder vorgezogene Lernkarte vor jeder neuen Karte dran und sperrt damit ES→DE für heute.
+- **Position** einer Vokabel (wie Ankis Einfügereihenfolge „zufällig“): eine feste Pseudo-Zufallszahl `position(vocabId, orderSeed)`, z. B. 32-Bit-FNV-1a über `` `${orderSeed}|${vocabId}` ``, als reine Funktion in `domain/queue.ts`. Beide Richtungen einer Vokabel haben dieselbe Position. **Reihenfolge neuer Karten:** zuerst die Neuzugänge (unten), danach alle übrigen; innerhalb jeder Gruppe nach Position aufsteigend, bei gleicher Position DE→ES vor ES→DE, bei gleichem Wert danach nach `vocabId`. So sind die Wörter über alle Themen und Niveaus gemischt, die Reihenfolge ist aber je Installation fest. Die zweite Richtung eines Worts steht dadurch vor allen späteren Wörtern: Sobald die Tagessperre sie freigibt (meist am nächsten Tag), ist sie unter den ersten neuen Karten. Eine eigene Regel „ES→DE erst nach DE→ES“ gibt es nicht; ist DE→ES noch in der Lernphase, kommt diese Lernkarte als fällige oder vorgezogene Lernkarte vor jeder neuen Karte dran und sperrt damit ES→DE für heute.
+- **Neuzugang:** eine Vokabel, die nach dem ersten Start der App zum Bestand kam: `v.added > dayKey(settings.startedAt)` (Vergleich der Datumstexte `YYYY-MM-DD`). Wer die App neu installiert, hat also keine Neuzugänge und bekommt die normale gemischte Reihenfolge. Wer sie schon nutzt, bekommt später ergänzte Wörter als nächste neue Karten, innerhalb des Filters und des Maximalniveaus (ein neues B1-Wort erscheint nur, wer B1 lernt). Fällige Wiederholungen, die Mischung 4 zu 1 und das Tageslimit gelten unverändert.
 - **Gefährdung** einer fälligen Wiederholungskarte: `diffDays(dayKey(lastReviewed), dayKey(now)) / interval`, also vergangene Tage im Verhältnis zum geplanten Abstand. Größer = gefährdeter. Beispiel: Eine 1-Tages-Karte, die 3 Tage überfällig ist (4/1 = 4), kommt vor einer 30-Tages-Karte, die 3 Tage überfällig ist (33/30 = 1,1). `lastReviewed` ist bei Wiederholungskarten immer gesetzt.
 
 ### 12.2 `pickNext`
 
 Die Funktion **`pickNext(input)`** wählt die nächste Karte. Sie ist **rein und deterministisch** (kein Zugriff auf Datenbank, Uhr oder Zufall) und wird nach **jeder** Bewertung neu aufgerufen.
 
-Eingabe: Einstellungen (`maxLevel`, `orderSeed`), Vokabeln, alle Cards, `now`, Sitzungsfilter (Thema, Niveau, Wortart, Richtung), `lastShown: string | null` (Kartenschlüssel `vocabId|dir` der zuletzt bewerteten Karte), `reviewsSinceNew: number` (Anzahl der Wiederholungskarten, die in dieser Sitzung seit der letzten neuen Karte bewertet wurden, Start 0), `newLimit: number` (geltendes Tageslimit, §12.1).
+Eingabe: Einstellungen (`maxLevel`, `orderSeed`, `startedAt`), Vokabeln, alle Cards, `now`, Sitzungsfilter (Thema, Niveau, Wortart, Richtung), `lastShown: string | null` (Kartenschlüssel `vocabId|dir` der zuletzt bewerteten Karte), `reviewsSinceNew: number` (Anzahl der Wiederholungskarten, die in dieser Sitzung seit der letzten neuen Karte bewertet wurden, Start 0), `newLimit: number` (geltendes Tageslimit, §12.1).
 
 Rückgabe:
 - `{ kind, item }` mit `kind` = `learning` | `review` | `new` | `learn-ahead` (die Stufe unten),
@@ -476,7 +480,7 @@ Priorität, die erste Stufe mit einem Kandidaten gewinnt:
 1. **Fällige Lernkarten** (`learning`), die am längsten überfällige zuerst (`due` aufsteigend).
 2. **Fällige Wiederholungen und neue Karten, gemischt im Verhältnis 4 zu 1** (`review` bzw. `new`):
    - Wiederholungs-Kandidaten: fällig und nicht gesperrt, sortiert nach Gefährdung absteigend, bei Gleichstand nach Position der Vokabel, dann DE→ES vor ES→DE.
-   - Neue Kandidaten: nicht gesperrt und Tageslimit (`eingeführt heute < newLimit`) noch nicht erreicht. Gewählt wird der Kandidat mit der kleinsten **Position** (§12.1). Bei „Alle Niveaus“ sind also A1, A2 und B1 gemischt (bis zum Maximalniveau), bei einem gewählten Niveau kommen nur dessen Wörter, in derselben festen Reihenfolge.
+   - Neue Kandidaten: nicht gesperrt und Tageslimit (`eingeführt heute < newLimit`) noch nicht erreicht. Gewählt wird der erste Kandidat in der **Reihenfolge neuer Karten** (§12.1: Neuzugänge zuerst, dann nach Position). Bei „Alle Niveaus“ sind also A1, A2 und B1 gemischt (bis zum Maximalniveau), bei einem gewählten Niveau kommen nur dessen Wörter, in derselben festen Reihenfolge.
    - Gibt es beide: eine neue Karte, wenn `reviewsSinceNew >= REVIEWS_PER_NEW` (`= 4`), sonst eine Wiederholung. Bei einem Rückstau kommen also 4 Wiederholungen, 1 neue, 4 Wiederholungen usw. Gibt es nur eine Art, kommt diese.
    - Der Aufrufer zählt `reviewsSinceNew` nach jeder bewerteten Karte der Art `review` um 1 hoch und setzt es nach jeder bewerteten Karte der Art `new` auf 0. Lernkarten zählen nicht.
 3. **Lernkarten vorziehen** (`learn-ahead`): Lernkarten mit `due <= now + LEARN_AHEAD_MIN` (`= 20` Min), die früheste zuerst. Sie werden normal bewertet (§11). Weil kein Lernschritt länger als 10 Min ist, betrifft das jede Lernkarte: Solange noch Lernkarten im Filter offen sind, ist die Sitzung nicht fertig.
@@ -487,7 +491,7 @@ Priorität, die erste Stufe mit einem Kandidaten gewinnt:
 Eine neue Karte wird erst **beim ersten Bewerten** angelegt (§10.2), nicht beim Anzeigen. Es gibt keine Grenze für gleichzeitig offene Lernkarten (früher `MAX_LEARNING`) und keine Vorab-Wiederholung nicht fälliger Karten (früher „Durchlauf“); das Tageslimit ersetzt beides.
 
 **Bewusste Abweichungen von Anki:**
-- Neue Karten kommen in **fester Zufallsreihenfolge** (in Anki die Einfügereihenfolge „zufällig“, Standard ist „der Reihe nach“). Kommen später Wörter zum Bestand hinzu, ergibt sich ihre Position ebenfalls aus `orderSeed`; sie landen also gemischt zwischen den übrigen neuen Wörtern, nicht am Ende.
+- Neue Karten kommen in **fester Zufallsreihenfolge** (in Anki die Einfügereihenfolge „zufällig“, Standard ist „der Reihe nach“). Später ergänzte Wörter (Neuzugänge, §12.1) kommen vor allen übrigen neuen Wörtern, in Anki dagegen ans Ende der Reihe.
 - Die Mischung ist fest **4 Wiederholungen zu 1 neuen Karte** (Anki verteilt die neuen Karten gleichmäßig nach der Anzahl).
 - Wiederholungen kommen nach **Gefährdung** (Anki mit SM-2: nach Fälligkeit).
 - Die **Tagessperre** der Partnerkarte ist immer aktiv (in Anki eine Einstellung).
