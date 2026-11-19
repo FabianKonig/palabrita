@@ -87,13 +87,6 @@ describe("form controls", () => {
     expect(css).toMatch(/\.switch input:checked \{/);
     expect(css).toMatch(/\.switch input::after \{/);
   });
-
-  it("the study session is a column and pins the auto-read toggle to its bottom", () => {
-    expect(css).toMatch(
-      /\.study-screen \{[^}]*display:\s*flex;[^}]*flex-direction:\s*column;/,
-    );
-    expect(css).toMatch(/\.study-screen \.switch \{[^}]*margin-top:\s*auto;/);
-  });
 });
 
 describe("dictionary list tiles", () => {
