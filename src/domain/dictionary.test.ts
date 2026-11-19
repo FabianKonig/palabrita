@@ -5,9 +5,11 @@ import {
   hasDropdownFilter,
   matchesQuery,
   normalizeForSearch,
-  searchVocab,
+  searchVocab as searchRows,
   topicOptions,
+  type DictionaryFilters,
 } from "./dictionary";
+import { buildFormIndex } from "./forms";
 import type { Vocab } from "./types";
 
 function v(partial: Partial<Vocab> & Pick<Vocab, "id" | "es">): Vocab {
@@ -37,6 +39,10 @@ const VOCAB: Vocab[] = [
 ];
 
 const ids = (list: Vocab[]) => list.map((x) => x.id);
+
+/** Plain search (headword and German): the vocab of the rows, form hits are tested in forms.test.ts. */
+const searchVocab = (list: Vocab[], filters: DictionaryFilters) =>
+  searchRows(list, filters, buildFormIndex(list)).map((r) => r.vocab);
 
 describe("normalizeForSearch", () => {
   it("ignores case, accents and umlauts", () => {

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { FormSlot } from "../domain/forms";
 import type { Vocab } from "../domain/types";
 import { GermanText } from "./Flashcard";
 import { Speaker } from "./Speaker";
@@ -33,19 +34,22 @@ export function VerbDetail({
   vocab,
   titleId,
   legendLink = true,
+  highlight,
   children,
 }: {
   vocab: Vocab;
   titleId?: string;
   /** False inside the study overlay: leaving the session via the link would lose it. */
   legendLink?: boolean;
+  /** Forms to mark in the table (from a form hit in the dictionary), see SPEC §3.3a. */
+  highlight?: readonly FormSlot[];
   children?: ReactNode;
 }) {
   return (
     <>
       <WordHead vocab={vocab} titleId={titleId} />
       {children}
-      <VerbTable vocab={vocab} legendLink={legendLink} />
+      <VerbTable vocab={vocab} legendLink={legendLink} highlight={highlight} />
     </>
   );
 }

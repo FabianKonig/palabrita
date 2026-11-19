@@ -73,3 +73,41 @@ export function attachClitic(word: string, clitic: string, drop = 0): string {
     combined.slice(stressed + 1)
   );
 }
+
+const PLAIN: Record<string, string> = {
+  á: "a",
+  é: "e",
+  í: "i",
+  ó: "o",
+  ú: "u",
+};
+
+/** Does the stress of the word fall on its last syllable (written accent or natural stress)? */
+export function isStressedOnLastSyllable(word: string): boolean {
+  const stressed = stressedIndex(word);
+  if (stressed < 0) return false;
+  const last = nuclei(word).at(-1) ?? [];
+  return last.includes(stressed);
+}
+
+/**
+ * Replaces the last `drop` letters of `word` with `suffix` and keeps the stress on the same
+ * vowel: the written accent is removed if the new word does not need it and added if it does
+ * (joven+es → jóvenes, cortés+es → corteses, fácil+es → fáciles, iraní+es → iraníes).
+ */
+export function respell(word: string, drop: number, suffix: string): string {
+  const stressed = stressedIndex(word);
+  const base = word.slice(0, word.length - drop);
+  if (stressed < 0 || stressed >= base.length) return base + suffix;
+  const plain =
+    base.slice(0, stressed) +
+    (PLAIN[base[stressed]] ?? base[stressed]) +
+    base.slice(stressed + 1);
+  const combined = plain + suffix;
+  if (stressedIndex(combined) === stressed) return combined;
+  return (
+    combined.slice(0, stressed) +
+    ACCENT[combined[stressed]] +
+    combined.slice(stressed + 1)
+  );
+}

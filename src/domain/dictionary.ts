@@ -1,4 +1,10 @@
+import type { FormEntry, FormIndex, FormSlot } from "./forms";
+import { formLabel } from "./forms";
+import { normalizeForSearch, stripArticle } from "./text";
+
 import type { Level, Pos, Vocab } from "./types";
+
+export { normalizeForSearch };
 
 export interface DictionaryFilters {
   /** Free text, matched against `es` and all `de` entries. */
@@ -27,11 +33,6 @@ export const POS_LABEL: Record<Pos, string> = {
   phrase: "Redewendung",
   other: "Sonstiges",
 };
-
-/** Lowercase and without accents/umlauts, so "cafe" finds "café" and "uber" finds "über". */
-export function normalizeForSearch(text: string): string {
-  return text.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().trim();
-}
 
 /** Match quality: the entry equals the query (0), starts with it (1) or contains it (2). */
 type Rank = 0 | 1 | 2;
@@ -90,32 +91,108 @@ function matchesFilters(v: Vocab, filters: DictionaryFilters): boolean {
   return true;
 }
 
+/** The form that matched a search text, shown in the row of its headword (SPEC §3.3a). */
+export interface FormHit {
+  /** The form as written in the table (with accents). */
+  form: string;
+  /** Label of the form, e.g. "1. Pl. Presente". */
+  label: string;
+  /** Number of other written forms that matched on the same stage. */
+  more: number;
+  /** Slots of all forms that matched on the best form stage (highlighted on the detail page). */
+  highlight: FormSlot[];
+}
+
+/** A row of the result list: a normal hit (without `form`) or a form hit. */
+export interface SearchRow {
+  vocab: Vocab;
+  form?: FormHit;
+}
+
+/** Minimum length of the search text for form stage 0 (form equals the text) and 1 (form starts with it). */
+const FORM_MIN_EQUAL = 2;
+const FORM_MIN_PREFIX = 3;
+
+/** Best form stage of a vocab entry (0 equal, 1 starts with) and the form to show. */
+function matchForms(
+  entries: readonly FormEntry[] | undefined,
+  q: string,
+  typed: string,
+): { stage: 0 | 1; hit: FormHit } | null {
+  if (!entries || q.length < FORM_MIN_EQUAL) return null;
+  let hits = entries.filter((e) => e.norm === q);
+  let stage: 0 | 1 = 0;
+  if (hits.length === 0 && q.length >= FORM_MIN_PREFIX) {
+    hits = entries.filter((e) => e.norm.startsWith(q));
+    stage = 1;
+  }
+  if (hits.length === 0) return null;
+
+  // One entry per written form, in table order (entries are in table order already).
+  const byForm = new Map<string, FormEntry[]>();
+  for (const e of hits) byForm.set(e.form, [...(byForm.get(e.form) ?? []), e]);
+  const forms = [...byForm.entries()];
+  // The form that matches the typed text with its accents comes first (compre / compré).
+  const exact = ([form]: [string, FormEntry[]]) => {
+    const lower = form.normalize("NFC").toLowerCase();
+    return stage === 0 ? lower === typed : lower.startsWith(typed);
+  };
+  const [form, slots] = forms.find(exact) ?? forms[0];
+  return {
+    stage,
+    hit: {
+      form,
+      label: formLabel(slots.map((e) => e.slot)),
+      more: forms.length - 1,
+      highlight: hits.map((e) => e.slot),
+    },
+  };
+}
+
 /**
  * All vocabulary (the dictionary ignores maxLevel). Search text and filters combine: the
  * search runs inside the filtered list. Without a search text the result is sorted by
- * Spanish headword, with one it is ranked by match quality.
+ * Spanish headword, with one it is ranked by match quality. Inflected forms (SPEC §3.3a)
+ * also match, via `formIndex`: a vocab entry is a form hit only if its form matches better
+ * than its headword or German text, and appears once. Four groups: exact normal hits, exact
+ * form hits, other normal hits, form hits by prefix.
  */
 export function searchVocab(
   vocab: Iterable<Vocab>,
   filters: DictionaryFilters,
-): Vocab[] {
+  formIndex: FormIndex,
+): SearchRow[] {
   const candidates = [...vocab].filter((v) => matchesFilters(v, filters));
   const q = normalizeForSearch(filters.query);
-  if (!q) return candidates.sort(compareHeadword);
-  return candidates
-    .flatMap((vocab) => {
-      const match = matchVocab(vocab, q);
-      return match ? [{ vocab, match }] : [];
-    })
-    .sort(compareMatches)
-    .map((m) => m.vocab);
-}
+  if (!q) return candidates.sort(compareHeadword).map((vocab) => ({ vocab }));
 
-const ARTICLE = /^(el\/la|el|la|los|las|un|una)\s+/i;
-
-/** Spanish word without leading article, used for sorting and matching. */
-function stripArticle(es: string): string {
-  return es.replace(ARTICLE, "");
+  const typed = filters.query.normalize("NFC").trim().toLowerCase();
+  const ranked: { row: SearchRow; group: number; match: Match | null }[] = [];
+  for (const vocab of candidates) {
+    const match = matchVocab(vocab, q);
+    const forms = matchForms(formIndex.get(vocab.id), q, typed);
+    if (forms && (!match || forms.stage < match.rank)) {
+      ranked.push({
+        row: { vocab, form: forms.hit },
+        group: forms.stage === 0 ? 1 : 3,
+        match: null,
+      });
+    } else if (match) {
+      ranked.push({ row: { vocab }, group: match.rank === 0 ? 0 : 2, match });
+    }
+  }
+  return ranked
+    .sort(
+      (a, b) =>
+        a.group - b.group ||
+        (a.match && b.match
+          ? compareMatches(
+              { vocab: a.row.vocab, match: a.match },
+              { vocab: b.row.vocab, match: b.match },
+            )
+          : compareHeadword(a.row.vocab, b.row.vocab)),
+    )
+    .map((r) => r.row);
 }
 
 function compareHeadword(a: Vocab, b: Vocab): number {

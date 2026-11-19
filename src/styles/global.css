@@ -32,6 +32,9 @@
   --bad-soft: #fde1de;
   --warn: #b45309;
   --warn-soft: #fdebd0;
+  /* Formtreffer (Formsuche): Hintergrund und Text, zusammen mit Fettdruck */
+  --hit-bg: #fcd34d;
+  --hit-text: #12201e;
   color-scheme: light;
 }
 
@@ -686,6 +689,39 @@ input[type="search"].field::-webkit-search-cancel-button {
   color: var(--muted);
 }
 
+/* Formtreffer in der Verzeichnisliste (SPEC §3.3a): gefundene Form fett, Pfeil, Grundform */
+.vocab-list .form-word {
+  font-weight: 700;
+}
+
+.vocab-list .form-base {
+  font-weight: 400;
+}
+
+.vocab-list .form-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  align-self: stretch;
+}
+
+.vocab-list .form-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* Hervorgehobene Form auf der Detailseite: Hintergrund und Fettdruck, nicht nur Farbe */
+.form-hit,
+.form.irr.form-hit {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--hit-bg);
+  color: var(--hit-text);
+  font-weight: 700;
+}
+
 .back {
   display: inline-flex;
   align-items: center;
@@ -902,6 +938,8 @@ table.forms th {
     --bad-soft: #542b28;
     --warn: #fbbf24;
     --warn-soft: #503f1d;
+    --hit-bg: #6b5a1e;
+    --hit-text: #fff3c4;
     color-scheme: dark;
   }
 }
@@ -932,6 +970,8 @@ table.forms th {
   --bad-soft: #542b28;
   --warn: #fbbf24;
   --warn-soft: #503f1d;
+  --hit-bg: #6b5a1e;
+  --hit-text: #fff3c4;
   color-scheme: dark;
 }
 

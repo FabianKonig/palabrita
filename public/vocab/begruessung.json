@@ -633,7 +633,10 @@
     },
     "note": "Gleiche Form für männlich und weiblich; Plural: corteses.",
     "gender": null,
-    "plural": null
+    "plural": null,
+    "adj": {
+      "f": "cortés"
+    }
   },
   {
     "id": "v0057",

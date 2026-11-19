@@ -860,6 +860,226 @@ async function main() {
     !(await evaluate<boolean>(`!!document.querySelector(".app-version")`)),
   );
 
+  // 8e8. Formsuche (SPEC §3.3a, §14.3): gebeugte Formen finden die Grundform, die Detailseite
+  // hebt die gefundene Form hervor. Läuft in Handy-Breite, damit Umbruch und Touch-Ziele zählen.
+  await send("Emulation.setDeviceMetricsOverride", {
+    width: 390,
+    height: 800,
+    deviceScaleFactor: 1,
+    mobile: true,
+  });
+  await send("Page.navigate", { url: `${BASE}#/dictionary` });
+  await waitFor(
+    `document.querySelector(".vocab-list")`,
+    "Verzeichnis (Formsuche)",
+  );
+  await setInput('select[aria-label="Wortart"]', "verb");
+  await setInput('input[type="search"]', "podemos");
+  await waitFor(
+    `document.querySelector(".vocab-list .form-word")`,
+    "Formzeile podemos",
+  );
+  const formRow = await evaluate<string>(`(() => {
+    const a = document.querySelector(".vocab-list a");
+    return JSON.stringify({
+      word: a.querySelector(".form-word")?.textContent,
+      base: a.querySelector(".form-base")?.textContent,
+      label: a.querySelector(".form-label")?.textContent,
+      aria: a.getAttribute("aria-label"),
+      height: Math.round(a.getBoundingClientRect().height),
+      overflow: document.documentElement.scrollWidth > window.innerWidth,
+      lines: a.querySelectorAll(":scope > span").length,
+    });
+  })()`);
+  const fr = JSON.parse(formRow) as Record<string, unknown>;
+  check(
+    "Formsuche: „podemos“ zeigt die Zeile „podemos → poder“ mit „1. Pl. Presente“",
+    fr.word === "podemos" &&
+      fr.base === "poder" &&
+      fr.label === "1. Pl. Presente" &&
+      fr.aria === "podemos, Form von poder, 1. Pl. Presente",
+    formRow,
+  );
+  check(
+    "Formsuche: Zeile ist ein Touch-Ziel ≥ 48 px, drei Zeilen, kein horizontales Scrollen",
+    (fr.height as number) >= 48 && fr.lines === 3 && fr.overflow === false,
+    formRow,
+  );
+
+  // Antippen: Detailseite von poder, die Zelle „podemos“ ist hervorgehoben und sichtbar.
+  await evaluate(`document.querySelector(".vocab-list a").click()`);
+  await waitFor(
+    `location.hash.startsWith("#/dictionary/")`,
+    "Detailseite poder",
+  );
+  await waitFor(`document.querySelector(".form-hit")`, "Hervorhebung");
+  await sleep(300);
+  const hit = await evaluate<string>(`(() => {
+    const hits = [...document.querySelectorAll(".form-hit")];
+    const el = hits[0];
+    const r = el?.getBoundingClientRect();
+    const cs = el && getComputedStyle(el);
+    return JSON.stringify({
+      texts: hits.map((h) => h.textContent),
+      weight: cs && Number(cs.fontWeight),
+      bg: cs?.backgroundColor,
+      visible: !!r && r.top >= 0 && r.bottom <= window.innerHeight,
+      title: document.querySelector("h1")?.textContent,
+    });
+  })()`);
+  const h = JSON.parse(hit) as {
+    texts: string[];
+    weight: number;
+    bg: string;
+    visible: boolean;
+    title: string;
+  };
+  check(
+    "Formsuche: Detailseite von poder, Zelle „podemos“ ist hervorgehoben (Hintergrund und Fettdruck)",
+    h.title === "poder" &&
+      h.texts.join() === "podemos" &&
+      h.weight >= 700 &&
+      h.bg !== "rgba(0, 0, 0, 0)",
+    hit,
+  );
+  check(
+    "Formsuche: die hervorgehobene Zelle ist sichtbar (gescrollt)",
+    h.visible,
+    hit,
+  );
+
+  // Zurück: Suchtext und Filter sind erhalten.
+  await send("Runtime.evaluate", { expression: "history.back()" });
+  await waitFor(
+    `document.querySelector(".vocab-list")`,
+    "Zurück zur Formsuche",
+  );
+  await sleep(300);
+  const backForm = await evaluate<string>(`JSON.stringify({
+    q: document.querySelector('input[type="search"]').value,
+    pos: document.querySelector('select[aria-label="Wortart"]').value,
+    word: document.querySelector(".vocab-list .form-word")?.textContent,
+  })`);
+  check(
+    "Formsuche: Zurück behält Suchtext und Filter",
+    backForm === '{"q":"podemos","pos":"verb","word":"podemos"}',
+    backForm,
+  );
+
+  // Ein direkter Aufruf der URL (kein Router-Zustand) zeigt keine Hervorhebung.
+  const detailHash = await evaluate<string>(
+    `document.querySelector(".vocab-list a").getAttribute("href")`,
+  );
+  await send("Page.navigate", { url: `${BASE}#/stats` });
+  await waitFor(
+    `/Statistik/.test(document.body.innerText)`,
+    "Statistik (Formsuche)",
+  );
+  await send("Page.navigate", { url: `${BASE}${detailHash}` });
+  await waitFor(`document.querySelector(".verb")`, "poder direkt");
+  await sleep(200);
+  check(
+    "Formsuche: direkter Aufruf der Detailseite zeigt keine Hervorhebung",
+    (await evaluate<number>(
+      `document.querySelectorAll(".form-hit").length`,
+    )) === 0,
+  );
+
+  // „vamos“: zwei Zeilen (ir, irse); bei ir sind beide Zellen hervorgehoben.
+  await send("Page.navigate", { url: `${BASE}#/dictionary` });
+  await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis (vamos)");
+  await setInput('select[aria-label="Wortart"]', "");
+  await setInput('input[type="search"]', "vamos");
+  await waitFor(`document.querySelector(".vocab-list .form-word")`, "vamos");
+  const vamos = await evaluate<string>(`JSON.stringify(
+    [...document.querySelectorAll(".vocab-list li")].map((li) => li.querySelector(".form-base")?.textContent + ": " + li.querySelector(".form-label")?.textContent)
+  )`);
+  check(
+    "Formsuche: „vamos“ zeigt ir und irse, je eine Zeile",
+    vamos ===
+      '["ir: 1. Pl. Presente · 1. Pl. Imperativo","irse: 1. Pl. Presente"]',
+    vamos,
+  );
+  await evaluate(`document.querySelector(".vocab-list a").click()`);
+  await waitFor(`document.querySelector(".form-hit")`, "Hervorhebung ir");
+  check(
+    "Formsuche: bei „vamos“ sind beide Zellen von ir hervorgehoben",
+    (await evaluate<number>(
+      `document.querySelectorAll(".form-hit").length`,
+    )) === 2,
+  );
+
+  // Nomen und Adjektiv: Pluralzeile bzw. Zeile „Formen“.
+  await send("Runtime.evaluate", { expression: "history.back()" });
+  await waitFor(`document.querySelector(".vocab-list")`, "Zurück (Nomen)");
+  await setInput('input[type="search"]', "canciones");
+  await waitFor(
+    `document.querySelector(".vocab-list .form-word")`,
+    "canciones",
+  );
+  const noun = await evaluate<string>(`(() => {
+    const a = document.querySelector(".vocab-list a");
+    return a.querySelector(".form-word").textContent + " → " + a.querySelector(".form-base").textContent + " | " + a.querySelector(".form-label").textContent;
+  })()`);
+  check(
+    "Formsuche: „canciones“ → la canción, Plural",
+    noun === "canciones → la canción | Plural",
+    noun,
+  );
+  await evaluate(`document.querySelector(".vocab-list a").click()`);
+  await waitFor(`document.querySelector(".form-hit")`, "Hervorhebung Plural");
+  check(
+    "Formsuche: bei Nomen ist die Pluralzeile hervorgehoben",
+    (
+      await evaluate<string>(
+        `document.querySelector(".form-hit").parentElement.textContent`,
+      )
+    ).startsWith("Plural:"),
+  );
+
+  await send("Runtime.evaluate", { expression: "history.back()" });
+  await waitFor(`document.querySelector(".vocab-list")`, "Zurück (Adjektiv)");
+  await setInput('input[type="search"]', "buenas");
+  await waitFor(`document.querySelector(".vocab-list .form-word")`, "buenas");
+  const adjRow = await evaluate<string>(
+    `document.querySelector(".vocab-list .form-base").textContent + " | " + document.querySelector(".vocab-list .form-label").textContent`,
+  );
+  check(
+    "Formsuche: „buenas“ → bueno, f. Pl.",
+    adjRow === "bueno | f. Pl.",
+    adjRow,
+  );
+  await evaluate(`document.querySelector(".vocab-list a").click()`);
+  await waitFor(`document.querySelector(".form-hit")`, "Hervorhebung Adjektiv");
+  const adjLine = await evaluate<string>(`(() => {
+    const p = document.querySelector(".form-hit").closest("p");
+    return p.textContent + " || " + document.querySelector(".form-hit").textContent;
+  })()`);
+  check(
+    "Formsuche: Adjektiv-Detailseite zeigt die Zeile „Formen“, die gefundene Form ist hervorgehoben",
+    adjLine ===
+      "Formen: feminin buena · Plural buenos · feminin Plural buenas || buenas",
+    adjLine,
+  );
+
+  // Adjektiv ohne Suche: die Zeile „Formen“ steht auch ohne adj-Feld in den Daten.
+  await send("Page.navigate", { url: `${BASE}#/dictionary` });
+  await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis (rojo)");
+  await setInput('input[type="search"]', "rojo");
+  await waitFor(`document.querySelector(".vocab-list a")`, "rojo");
+  await evaluate(`document.querySelector(".vocab-list a").click()`);
+  await waitFor(`/Formen:/.test(document.body.innerText)`, "Formen rojo");
+  check(
+    "Formsuche: Adjektiv-Detailseite zeigt die Formen immer (rojo), ohne Hervorhebung",
+    /Formen: feminin roja · Plural rojos · feminin Plural rojas/.test(
+      await text(),
+    ) &&
+      (await evaluate<number>(
+        `document.querySelectorAll(".form-hit").length`,
+      )) === 0,
+  );
+  await send("Emulation.clearDeviceMetricsOverride");
+
   // 8g. Speech button on the detail page (voice availability depends on the machine).
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   await waitFor(`document.querySelector('input[type="search"]')`, "Suche");
