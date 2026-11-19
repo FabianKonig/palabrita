@@ -34,6 +34,7 @@ function v(partial: Partial<Vocab> & Pick<Vocab, "id" | "es">): Vocab {
     pos: "noun",
     level: "A1",
     topic: "essen",
+    added: "2026-11-19",
     example: { es: "Ejemplo.", de: "Beispiel." },
     ...partial,
   };
