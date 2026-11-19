@@ -1,11 +1,32 @@
 import { useRegisterSW } from "virtual:pwa-register/react";
 
-/** Shown when a new app version is waiting; the click activates it and reloads. */
+/**
+ * Intervall, in dem der Browser auf eine neue Version prüft, solange die App
+ * geöffnet ist. Timer pausieren im Hintergrund; die Prüfung beim Zurückkehren
+ * in den Vordergrund deckt den Rest ab.
+ */
+const UPDATE_CHECK_MS = 15 * 60 * 1000;
+
+/**
+ * Shown when a new app version is waiting; the click activates it and reloads.
+ * Prüft periodisch und beim Zurückkehren in den Vordergrund, ob eine neue
+ * Version bereitliegt, ohne dass die Seite neu geladen werden muss.
+ */
 export function UpdateBanner() {
   const {
     needRefresh: [needRefresh],
     updateServiceWorker,
-  } = useRegisterSW();
+  } = useRegisterSW({
+    onRegisteredSW(_swUrl, registration) {
+      if (!registration) return;
+      window.setInterval(() => void registration.update(), UPDATE_CHECK_MS);
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+          void registration.update();
+        }
+      });
+    },
+  });
 
   if (!needRefresh) return null;
   return (
