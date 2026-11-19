@@ -433,6 +433,13 @@ HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/study` leitet auf `/` um
 
 Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). Touch-Ziele ≥ 48 px.
 
+### 14.2 Impressum und Datenschutz (Anforderung 2026-11-19, noch nicht umgesetzt, Detailspezifikation folgt)
+
+- Erreichbar über „Mehr“ (je ein Eintrag, eigene Seite, z. B. `/imprint` und `/privacy`). Gleiche Gestaltung wie die Legende, mit Zurück-Link „← Mehr“ (Klasse `back`).
+- **Datenschutz:** beschreibt den tatsächlichen Stand. Kein Backend, kein Konto, kein Tracking, keine Analyse-Werkzeuge. Fortschritt und eigene Wörter liegen nur im Browser (IndexedDB) und verlassen das Gerät nicht, außer der Nutzer exportiert sie selbst. Einzige externe Anfragen: Wortsuche bei `de.wiktionary.org` (Fallback `es.wiktionary.org`), nur auf Knopfdruck (AGENTS.md). Das Hosting (GitHub Pages) erzeugt beim Abruf technisch übliche Zugriffsdaten beim Anbieter; der Hinweis darauf gehört hinein.
+- **Impressum:** Angaben zum Betreiber (Name, Anschrift, Kontakt). Diese Angaben liefert der Nutzer, sie werden nicht erfunden. Offen: welche Pflichtangaben für eine nicht-kommerzielle Lern-App gelten.
+- Offen für die Spezifikation: Wortlaut beider Seiten (Deutsch), ob sie offline verfügbar sein müssen (Service-Worker-Cache), ob die Seiten in die Versionszeile oder Lizenzhinweise (Wiktionary, CC BY-SA, siehe README) eingebunden werden.
+
 ### 14.1 Lernsitzung (`features/study/Study.tsx`)
 
 **Karte umdrehen** (`components/Flashcard.tsx`):
