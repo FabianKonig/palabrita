@@ -901,11 +901,11 @@ async function main() {
       type,
       touchPoints: type === "touchEnd" ? [] : [{ x: 195, y }],
     });
-  const swipe = async (from: number, to: number, steps = 8) => {
+  const swipe = async (from: number, to: number, steps = 8, pause = 20) => {
     await touch("touchStart", from);
     for (let i = 1; i <= steps; i++) {
       await touch("touchMove", from + ((to - from) * i) / steps);
-      await sleep(20);
+      if (pause) await sleep(pause);
     }
     await touch("touchEnd", to);
   };
@@ -933,8 +933,6 @@ async function main() {
   );
   const hashAfterSwipe = await evaluate<string>("location.hash");
   const frontAfterSwipe = await frontWord();
-  await send("Emulation.setTouchEmulationEnabled", { enabled: false });
-  await send("Emulation.clearDeviceMetricsOverride");
   check(
     "Bottom-Sheet: kurzer Zug federt zurück, Wischen nach unten schließt, Sitzung bleibt",
     gripVisible &&
@@ -950,6 +948,83 @@ async function main() {
       frontAfterSwipe,
     }),
   );
+
+  // 8h3. More gesture cases: flick, scrolled content, tablet width.
+  const dialogGone = () =>
+    waitFor(`!document.querySelector('[role="dialog"]')`, "Sheet geschlossen");
+  const sheetTopNow = () =>
+    evaluate<number>(
+      `document.querySelector(".overlay-sheet").getBoundingClientRect().top`,
+    );
+  const sheetIdle = () =>
+    evaluate<boolean>(
+      `!!document.querySelector('[role="dialog"]') && getComputedStyle(document.querySelector(".overlay-sheet")).transform === "none"`,
+    );
+
+  // Flick: a fast pull closes without reaching 30 % of the height (the emulated touch events
+  // arrive only every 30 to 50 ms, so the path is longer than a real flick, yet still short of 30 %).
+  await openSheet();
+  const flickTop = await sheetTopNow();
+  const sheetHeight = await evaluate<number>(
+    `document.querySelector(".overlay-sheet")?.offsetHeight ?? 0`,
+  );
+  await swipe(flickTop + 40, flickTop + 220, 3, 0);
+  const flickDy = 220 - 40 - (220 - 40) / 3;
+  const flickClosed = await dialogGone();
+  check(
+    "Bottom-Sheet: schneller kurzer Wisch (Flick) schließt",
+    flickClosed && flickDy < sheetHeight * 0.3,
+    JSON.stringify({ flickClosed, flickDy, sheetHeight }),
+  );
+
+  // Scrolled content: the sheet scrolls instead of being dragged.
+  await send("Emulation.setDeviceMetricsOverride", {
+    width: 390,
+    height: 420,
+    deviceScaleFactor: 1,
+    mobile: true,
+  });
+  await openSheet();
+  const scrollable = await evaluate<boolean>(
+    `(() => { const e = document.querySelector(".overlay-sheet"); return e.scrollHeight > e.clientHeight; })()`,
+  );
+  await evaluate(`document.querySelector(".overlay-sheet").scrollTop = 150`);
+  const scrolledTop = await sheetTopNow();
+  await swipe(scrolledTop + 60, scrolledTop + 200);
+  await sleep(400);
+  const scrolledStayed = await sheetIdle();
+  check(
+    "Bottom-Sheet: bei gescrolltem Inhalt wird gescrollt statt gezogen, Sheet bleibt offen",
+    scrollable && scrolledStayed,
+    JSON.stringify({ scrollable, scrolledStayed }),
+  );
+  await clickText("Schließen", "button");
+  await dialogGone();
+
+  // Tablet width: no grip, no gesture.
+  await send("Emulation.setDeviceMetricsOverride", {
+    width: 800,
+    height: 800,
+    deviceScaleFactor: 1,
+    mobile: true,
+  });
+  await openSheet();
+  const gripHidden = await evaluate<boolean>(
+    `getComputedStyle(document.querySelector(".overlay-grip")).display === "none"`,
+  );
+  const wideTop = await sheetTopNow();
+  await swipe(wideTop + 40, wideTop + 400);
+  await sleep(400);
+  const wideStayed = await sheetIdle();
+  check(
+    "Bottom-Sheet: ab 700 px keine Griffleiste und keine Wischgeste",
+    gripHidden && wideStayed,
+    JSON.stringify({ gripHidden, wideStayed }),
+  );
+  await clickText("Schließen", "button");
+  await dialogGone();
+  await send("Emulation.setTouchEmulationEnabled", { enabled: false });
+  await send("Emulation.clearDeviceMetricsOverride");
 
   // 8i. Wait for the first-card check on a clean database, then the 5-minute rule (check 4).
   // Start: one card in the review phase (not due), so "Nochmal" is not shown again at once (stage 4).
