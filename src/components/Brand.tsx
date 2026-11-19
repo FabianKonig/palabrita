@@ -142,9 +142,9 @@ export function Mark() {
 }
 
 /** Logo für Seitenköpfe und Lernleiste: Wimpel über dem Schriftzug, überall gleich. */
-export function Logo() {
+export function Logo({ className }: { className?: string } = {}) {
   return (
-    <span className="logo">
+    <span className={className ? `logo ${className}` : "logo"}>
       <Mark />
       <span className="logo-name">Palabrita</span>
     </span>
