@@ -1099,6 +1099,21 @@ fieldset.setting {
   color: var(--muted);
 }
 
+.welcome-credit {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.welcome-heart {
+  display: inline-block;
+  width: 0.95em;
+  height: 0.95em;
+  vertical-align: -0.1em;
+  fill: #dc2626;
+}
+
 .welcome-hint {
   position: absolute;
   bottom: 16px;
