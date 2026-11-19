@@ -6,13 +6,18 @@ Diese Datei führt nur, was noch zu tun ist. Erledigtes steht in `docs/SPEC.md`,
 
 Die Spezifikation steht, ein Agent kann direkt umsetzen.
 
-- Derzeit nichts offen.
+- [ ] **Kartenauswahl und Lernmodell nach Anki** (spezifiziert 2026-11-19): SPEC §11, §12, §3.1, §10.2 und §14.1 („Für heute geschafft“). Umzusetzen:
+  - `domain/srs.ts`: Lernschritte 1 / 10 Min, Wiederlernphase mit einem Schritt von 10 Min (`lapses > 0`), Bonus für überfällige Karten, `MAX_INTERVAL`, Vorab-Wiederholung entfernen, `introduced` in `newCard`. `srs.test.ts` anpassen.
+  - `domain/types.ts`: `Card.introduced`.
+  - `domain/queue.ts`: `pickNext` nach §12.2 (Stufen 1 bis 4, Tageslimit 20, Mischung 4 zu 1, Gefährdung, Tagessperre, Zufallsgeber als Parameter, Rückgabe `done`), `MAX_LEARNING`, `sessionSeen` und Durchlauf entfernen. `queue.test.ts` neu schreiben, dabei die Fälle aus dem Gespräch abdecken: kein Wiedersehen derselben Reihenfolge, keine Schleife mit zwei Wörtern, ES→DE nie am selben Tag wie DE→ES.
+  - `features/study/Study.tsx`: `reviewsSinceNew`, `extraNew`, Seite „Für heute geschafft“.
+  - `scripts/browser-smoke.ts`: Prüfung „Nochmal nach 5 Min“ auf 1 bzw. 10 Min umstellen, „Für heute geschafft“ und „10 weitere neue Wörter“ prüfen.
+  - `docs/ABNAHME.md`: Kriterien 2 bis 5 und 8 beziehen sich auf das alte Modell und werden nach der Umsetzung neu geprüft und umgeschrieben.
 
 ## Anforderungen ohne Detailspezifikation
 
 Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), dann umsetzen.
 
-- [ ] **Überarbeitung der Kartenauswahl** (`pickNext`): SPEC §12.1a.
 - [ ] **Erklärvideo der App** (KI-erzeugt, zeigt alle Funktionen): Anforderung aufgenommen (2026-11-19), Spezifikation fehlt noch (Umfang, Länge, Format, Sprache, Erzeugungsweg, Ablage). Erst mit dem Nutzer klären, dann spezifizieren. Die App selbst bleibt davon unberührt.
 
 ## Prüfungen und Entscheidungen des Nutzers
@@ -28,3 +33,5 @@ Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), da
 - Annahmen, die ein Agent bei Unklarheit trifft, kommen als kurzer Eintrag in diesen Abschnitt.
 - Annahme (Formsuche, 2026-11-19): Eine Formzeile in der Verzeichnisliste zeigt unten in einer Zeile zuerst das Niveau-Kennzeichen und daneben die Bezeichnung („1. Pl. Presente + 1 weitere Form“). So steht das Kennzeichen wie bei normalen Zeilen als letzte Zeile links, und die Zeile hat genau drei Zeilen (SPEC §3.3a nennt das Kennzeichen bei Zeile 2).
 - Annahme (Formsuche): Der Formenindex wird erst gebaut, wenn der Suchtext mindestens 2 Zeichen hat (nicht beim Öffnen des Verzeichnisses). Gemessen mit 6-fach gedrosselter CPU: einmalig etwa 100 ms, jeder weitere Tastendruck liegt bei der Bildschirmfrequenz; auf einem echten Handy nicht geprüft.
+- Annahme (Kartenauswahl, 2026-11-19): „10 weitere neue Wörter“ gilt nur für die laufende Sitzung und wird nicht gespeichert. Wer am selben Tag eine neue Sitzung beginnt, sieht nach den fälligen Karten wieder „Für heute geschafft“ und tippt den Button erneut.
+- Annahme (Kartenauswahl): Bei gleicher Gefährdung zweier Wiederholungen entscheidet der Zufall, nicht das Fälligkeitsdatum.

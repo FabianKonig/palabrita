@@ -18,7 +18,7 @@ Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte
 |---|---|
 | Plattform | Web-App als **PWA** (im Browser, aufs Handy installierbar, offline nutzbar) |
 | Nutzer / Level | **Ein Nutzer pro Browser, keine Profile** (entschieden). Niveaustufen A1 bis B1 sind einstellbar. |
-| Lernmodi v1 | **Karteikarten** und **Spaced Repetition** (zwei Bewertungsbuttons, endlose Sitzung, siehe §3.1) |
+| Lernmodi v1 | **Karteikarten** und **Spaced Repetition** (zwei Bewertungsbuttons, Ablauf nach dem Vorbild von Anki mit höchstens 20 neuen Wörtern pro Tag, siehe §3.1) |
 | Inhalte | Reise-Alltag, Kultur & Orte, Audio-Aussprache |
 | Vokabeln | **Über 800 Startvokabeln**, von Claude generiert, mit Zusatzinfos, ohne festen Gesamtumfang |
 | Speicherung | **Nur lokal im Browser**, kein Server, kein Login |
@@ -40,9 +40,9 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 > Der Absatz beschreibt die Lernsitzung. Technische Details: §11 (Lernmodell), §12 (Kartenauswahl), §14.1 (Bedienung).
 
 - **Karteikarten:** Vorderseite Deutsch, Rückseite Spanisch (Richtung im Tab „Lernen“ für die Sitzung wählbar). Die Karte lässt sich per Tipp **beliebig oft** umdrehen. Hat eine Vokabel mehrere deutsche Wörter, stehen **alle** auf der deutschen Seite, getrennt durch „ · “ (z. B. *Auto · Wagen*). Das erste Wort ist die Hauptübersetzung. Die Rückseite zeigt zusätzlich den Beispielsatz (Spanisch und Deutsch) und, falls vorhanden, den Hinweis (`note`). Bei Verben steht auf der spanischen Seite (egal in welcher Richtung) unter dem Wort in einer eigenen, kleineren grauen Zeile der Klammerzusatz der Notation (§5.1), z. B. *(ie)*, *(e → ie, -go, Pretérito/Futuro irr.)*, *(c → qu)*, *(irr.)*; regelmäßige Verben haben keine Zeile. Bei Nomen steht auf der spanischen Seite unter dem Singular (mit Artikel) der Plural in kleinerer grauer Schrift, z. B. *el saludo* / *los saludos*, sofern eine Pluralform hinterlegt ist. Aussprache und Suche nutzen weiter nur das Wort.
-- **Bewertung mit zwei Buttons:** **Nochmal** (nicht gewusst) und **Gewusst**. Jeder Button zeigt, wann die Karte wiederkommt („5 Min“, „1 T“, „8 T“ …).
-- **Endlose Sitzung:** Es gibt **kein Tageslimit** und kein „Fertig für heute“. Der Nutzer lernt so lange er will und beendet selbst über „Beenden“ (zeigt eine Zusammenfassung). Jede Bewertung wird sofort gespeichert. Ist alles durch, beginnt ein neuer Durchlauf.
-- **Spaced Repetition:** Nicht gewusste Wörter kommen **nach Minuten** wieder, sicher gewusste immer seltener. Pro Karte werden Fälligkeit, Intervall, Ease-Faktor und Lernschritt gespeichert (§11).
+- **Bewertung mit zwei Buttons:** **Nochmal** (nicht gewusst) und **Gewusst**. Jeder Button zeigt, wann die Karte wiederkommt („1 Min“, „10 Min“, „1 T“, „8 T“ …).
+- **Tagespensum wie bei Anki:** Pro Tag kommen alle fälligen Wiederholungen und **höchstens 20 neue Wörter** (gezählt über alle Sitzungen, jede Richtung einzeln). Ist beides erledigt, erscheint „Für heute geschafft“. Wer weiterlernen will, tippt dort auf „10 weitere neue Wörter“, beliebig oft, solange es neue Wörter gibt. Der Nutzer kann jederzeit über „Beenden“ aufhören (zeigt eine Zusammenfassung). Jede Bewertung wird sofort gespeichert. Ein Tageslimit als Einstellung gibt es nicht.
+- **Spaced Repetition:** Nicht gewusste Wörter kommen **nach Minuten** wieder (1 bzw. 10 Min), die andere Richtung eines Worts frühestens am nächsten Tag, sicher gewusste immer seltener. Pro Karte werden Fälligkeit, Intervall, Ease-Faktor und Lernschritt gespeichert (§11).
 - **Konjugation aus der Sitzung:** Bei Verben öffnet ein Klick auf „Konjugation“ (erst nach dem Aufdecken) ein Overlay mit der Formentabelle, ohne die Sitzung zu verlassen.
 - **Audio-Aussprache:** Browser-Sprachausgabe (Web Speech API), spanische Stimme bevorzugt `es-MX`. Ein Lautsprecher-Button steht auf der Karte, sobald die spanische Seite sichtbar ist. Automatisches Vorlesen ist ein Schalter der Lernsitzung (Standard aus, nicht gespeichert). Details und Stimmenwahl: §13.
 - **Filter:** nach Thema, Niveau (A1/A2/B1), Wortart (Verb, Nomen, …).
@@ -381,9 +381,9 @@ Feste Themen-Schlüssel (13): `begruessung`, `zahlen-zeit`, `essen`, `transport`
 | Store | Key | Wert |
 |---|---|---|
 | `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, theme: 'system'\|'light'\|'dark' }` (Defaults: B1, system). Die Richtung ist keine Einstellung, sondern gilt nur für die Sitzung (§3.3). |
-| `cards` | `[vocabId, dir]` | `{ vocabId, dir: 'de-es'\|'es-de', due: number(ms), interval: number(Tage), ease: number, reps: number, lapses: number, lastReviewed: number\|null, state: 'new'\|'learning'\|'mature', step?: 0\|1 }`. `step`: siehe §11. |
+| `cards` | `[vocabId, dir]` | `{ vocabId, dir: 'de-es'\|'es-de', due: number(ms), interval: number(Tage), ease: number, reps: number, lapses: number, lastReviewed: number\|null, introduced: number(ms, erste Bewertung), state: 'new'\|'learning'\|'mature', step?: 0\|1 }`. `step`: siehe §11. |
 
-Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zwischen Geräten gibt es keine Übertragung des Fortschritts. Eine Karte wird nur gespeichert, wenn die Bewertung sie ändert (nicht bei „Gewusst“ in der Vorab-Wiederholung, §11).
+Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zwischen Geräten gibt es keine Übertragung des Fortschritts. Jede Bewertung wird gespeichert (§11).
 
 Eine Karte wird **erst beim ersten Lernen angelegt** (kein Vorab-Befüllen von 1000 Karten). „Neu“ = Vokabel ohne Card-Eintrag für diese Richtung.
 
@@ -391,82 +391,106 @@ Beide Stores werden beim Anlegen erzeugt. Es gibt keine Migrationen: Das Projekt
 
 ## 11. Lernmodell (`domain/srs.ts`)
 
-**Tageswechsel (`domain/day.ts`):** `dayKey(now)` = lokales Datum von `now − 4 h`. `startOfDay(dayKey)` liefert 04:00 lokal. `addDays` rechnet in **Kalendertagen** auf dem `dayKey`, nicht mit `+ 24 h`, damit Zeitumstellungen nichts verschieben.
+Vorbild ist das **klassische Anki-Verfahren** (SM-2-Variante) mit dessen Standardeinstellungen (entschieden 2026-11-19). Bewusste Abweichungen von Anki stehen am Ende des Abschnitts.
+
+**Tageswechsel (`domain/day.ts`):** `dayKey(now)` = lokales Datum von `now − 4 h`. `startOfDay(dayKey)` liefert 04:00 lokal. `addDays` rechnet in **Kalendertagen** auf dem `dayKey`, nicht mit `+ 24 h`, damit Zeitumstellungen nichts verschieben. `diffDays(a, b)` = Anzahl Kalendertage von `a` nach `b`.
 
 Reine Funktion `review(card, grade, now): Card`. `Grade` ist `"again" | "good"` (Beschriftung: „Nochmal“, „Gewusst“).
 
-**Phase einer Karte** (`Card.step?: 0 | 1`, `domain/types.ts`): Ist `step` gesetzt, ist die Karte in der **Lernphase** (Minutenabstände). Fehlt `step`, ist sie in der **Wiederholungsphase** (Tagesabstände).
+**Phase einer Karte** (`Card.step?: 0 | 1`, `domain/types.ts`): Ist `step` gesetzt, ist die Karte in der **Lernphase** (Minutenabstände). Fehlt `step`, ist sie in der **Wiederholungsphase** (Tagesabstände). Eine Lernkarte mit `lapses > 0` ist in der **Wiederlernphase** (nach einem Rückfall); in die Lernphase kommt eine Karte nur als neue Karte oder durch einen Rückfall, daher genügt `lapses` zur Unterscheidung.
 
-Konstanten (`domain/srs.ts`): `STEP_MINUTES = [5, 30]`, `START_EASE = 2.5`, `MIN_EASE = 1.3`, `MAX_EASE = 3.0`, `EASE_LOSS = 0.2`, `EASE_GAIN = 0.05`, `GRADUATE_DAYS = 1`, `MATURE_INTERVAL = 21`.
+Konstanten (`domain/srs.ts`): `LEARN_STEPS_MIN = [1, 10]`, `RELEARN_STEP_MIN = 10`, `START_EASE = 2.5`, `MIN_EASE = 1.3`, `MAX_EASE = 3.0`, `EASE_LOSS = 0.2`, `EASE_GAIN = 0.05`, `GRADUATE_DAYS = 1`, `MATURE_INTERVAL = 21`, `MAX_INTERVAL = 36500`.
 
-**Lernphase** (neue Karte oder nach „Nochmal“ in der Wiederholungsphase). `due` ist hier ein exakter Zeitpunkt `now + Minuten`:
+**Lernphase** (neue Karte, `lapses = 0`). `due` ist hier ein exakter Zeitpunkt `now + Minuten`:
 
 | Zustand | Nochmal | Gewusst |
 |---|---|---|
-| neu (nie bewertet) | Schritt 0, in 5 Min | Schritt 1, in 30 Min |
-| Schritt 0 | Schritt 0, in 5 Min | Schritt 1, in 30 Min |
-| Schritt 1 | Schritt 0, in 5 Min | **Abschluss**, Intervall 1 T |
+| neu (nie bewertet) | Schritt 0, in 1 Min | Schritt 1, in 10 Min |
+| Schritt 0 | Schritt 0, in 1 Min | Schritt 1, in 10 Min |
+| Schritt 1 | Schritt 0, in 1 Min | **Abschluss**, Intervall 1 T |
 
-Ein Wort muss also zweimal nacheinander gewusst werden, bevor es in den Tagesplan wechselt. Die Lernphase ändert die Ease nicht.
+**Wiederlernphase** (nach einem Rückfall, `lapses > 0`, immer Schritt 1, wie Ankis einzelner Wiederlernschritt von 10 Min):
 
-**Abschluss** = `step` entfernen, `interval` setzen, `reps += 1`, `due = startOfDay(addDays(dayKey(now), interval))` (04:00-Regel, Kalendertage über `addDays`). Die Basis ist immer **heute** (`dayKey(now)`), nicht das alte Fälligkeitsdatum. Überfällige Karten werden dadurch nicht „nachgerechnet“. Das gilt auch für „Gewusst“ in der Wiederholungsphase.
+| Zustand | Nochmal | Gewusst |
+|---|---|---|
+| Schritt 1 | Schritt 1, in 10 Min | **Abschluss**, Intervall 1 T |
+
+Ein neues Wort muss also zweimal nacheinander gewusst werden, bevor es in den Tagesplan wechselt, ein vergessenes einmal. Lern- und Wiederlernphase ändern die Ease nicht.
+
+**Abschluss** = `step` entfernen, `interval = max(GRADUATE_DAYS, interval)` (nach einem Rückfall ist `interval` schon 1), `reps += 1`, `due = startOfDay(addDays(dayKey(now), interval))` (04:00-Regel, Kalendertage über `addDays`). Die Basis ist immer **heute** (`dayKey(now)`), nicht das alte Fälligkeitsdatum. Das gilt auch für „Gewusst“ in der Wiederholungsphase.
 
 Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` von gestern, die Karte ist dann heute 04:00 fällig, also in 2 Stunden, die Vorschau zeigt trotzdem „1 T“. Ein Abschluss um 23:00 ist morgen 04:00 fällig, also in 5 Stunden.
 
-**Wiederholungsphase** (Karte ist fällig, `due < nextDayStart`):
-- **Nochmal (Rückfall):** `lapses += 1`, `reps = 0`, `ease = max(MIN_EASE, ease − EASE_LOSS)`, `interval = 1` (gilt später als Abschlussintervall), `step = 0`, `due = now + 5 Min`. Danach durchläuft die Karte die Lernphase; ihr Abschluss ergibt `interval = 1 T`.
-- **Gewusst:** `interval = max(interval + 1, round(interval × ease))` mit der Ease **vor** dieser Bewertung, danach `ease = min(MAX_EASE, ease + EASE_GAIN)`, `reps += 1`, `due = startOfDay(addDays(dayKey(now), interval))`, also 04:00 des Tages „heute + neues Intervall“ (nicht vom alten Fälligkeitsdatum aus gerechnet).
-- Die Schwierigkeit eines Wortes steckt allein in der Ease: Jedes „Nochmal“ senkt sie, jedes „Gewusst“ hebt sie leicht. Wörter, an denen der Nutzer oft scheitert, wachsen dadurch langsam (bei Ease 1,3 nur ×1,3), sichere Wörter immer schneller. Beispiel bei durchgehend „Gewusst“: ≈ 1, 3, 8, 21, 56 Tage.
+**Wiederholungsphase:**
+- **Nochmal (Rückfall):** `lapses += 1`, `reps = 0`, `ease = max(MIN_EASE, ease − EASE_LOSS)`, `interval = 1` (gilt später als Abschlussintervall), `step = 1`, `due = now + RELEARN_STEP_MIN`. Danach durchläuft die Karte die Wiederlernphase.
+- **Gewusst:** Verspätung `late = max(0, diffDays(dayKey(card.due), dayKey(now)))` (ganze Tage, die die Karte schon überfällig ist). Neues Intervall `interval = min(MAX_INTERVAL, max(interval + 1, round((interval + floor(late / 2)) × ease)))` mit der Ease **vor** dieser Bewertung (Anki: die halbe Verspätung zählt mit, weil das Wort auch nach längerer Zeit noch gewusst wurde). Danach `ease = min(MAX_EASE, ease + EASE_GAIN)`, `reps += 1`, `due = startOfDay(addDays(dayKey(now), interval))`.
+- Die Schwierigkeit eines Wortes steckt allein in der Ease: Jedes „Nochmal“ senkt sie um 0,2, jedes „Gewusst“ hebt sie um 0,05. Bei 80 % Erfolg bleibt sie gleich, darüber wächst das Wort schneller, darunter langsamer; ein „Nochmal“ ist nach 4 × „Gewusst“ ausgeglichen. Beispiel bei durchgehend „Gewusst“ und pünktlichem Lernen: ≈ 1, 3, 8, 21, 56 Tage.
+- Eine Wiederholungskarte, die noch nicht fällig ist, wählt `pickNext` nie aus (§12, es gibt keine Vorab-Wiederholung). Wird `review()` trotzdem für sie aufgerufen, gilt sie als pünktlich (`late = 0`).
 
-**Vorab-Wiederholung** (Karte in der Wiederholungsphase, aber **noch nicht fällig**, siehe §12.2). Der Zeitplan darf durch Üben nicht aufgebläht werden:
-- **Nochmal:** wie Rückfall oben (bewusst hart: `lapses += 1`, `reps = 0`, Ease −0,2, Intervall 1 T). Wer beim freiwilligen Durchlauf ein Wort nicht mehr weiß, hat es wirklich vergessen, auch wenn es eine Karte mit z. B. 56 Tagen Intervall war. Der Plan wird dadurch verkürzt, aber nie verlängert.
-- **Gewusst:** Karte bleibt **vollständig unverändert**, auch `lastReviewed` (entschieden). Es wird nichts gespeichert. In der Sitzung zählt es trotzdem zu „Geübt: N“ und die Karte kommt in `sessionSeen`.
-- `review()` bekommt dafür keinen Zusatzparameter: „nicht fällig“ wird in der Funktion aus `card.due >= nextDayStart(now)` erkannt.
+**Vorgezogene Lernkarten** (§12, bis 20 Min vor `due`) werden ganz normal bewertet, „Gewusst“ zählt als Schritt. Es gibt dafür keine Sonderregel.
 
 **Ease-Rundung:** Die Ease wird nach jeder Änderung auf 2 Dezimalstellen gerundet (gegen Gleitkomma-Rauschen wie 2,3499999) und danach auf `MIN_EASE`/`MAX_EASE` begrenzt.
 
 `state`: `learning` solange `step` gesetzt ist oder `interval < 21`, sonst `mature`. (`new` nur für noch nicht gespeicherte Karten.)
 
-`previewIntervals(card, now)` liefert je Button entweder Minuten oder Tage. `formatInterval` hat eine Minuten-Variante („5 Min“, „1 Std“ ab 60 Min). Bei Tagen: „1 T“ bis „29 T“, ab 30 Tagen Monate („2 Mon“, auf ganze Monate gerundet), ab 365 Tagen Jahre („1,2 J“, eine Nachkommastelle). Vorschau bei Vorab-Wiederholung: „Gewusst“ zeigt das unveränderte Fälligkeitsdatum.
+`introduced`: Zeitpunkt der ersten Bewertung (ms). `newCard(vocabId, dir, now)` setzt ihn, `review()` ändert ihn nie. Er zählt für das Tageslimit neuer Karten (§12).
 
-**Jede Bewertung, die etwas ändert, wird gespeichert** (`saveReview`). Ausnahme: „Gewusst“ bei der Vorab-Wiederholung (siehe oben).
+`previewIntervals(card, now)` liefert je Button entweder Minuten oder Tage. `formatInterval` hat eine Minuten-Variante („1 Min“, „10 Min“, „1 Std“ ab 60 Min). Bei Tagen: „1 T“ bis „29 T“, ab 30 Tagen Monate („2 Mon“, auf ganze Monate gerundet), ab 365 Tagen Jahre („1,2 J“, eine Nachkommastelle).
+
+**Jede Bewertung wird gespeichert** (`saveReview`).
+
+**Bewusste Abweichungen von Anki:**
+- **Zwei Buttons** statt vier (kein „Schwer“, kein „Einfach“). Damit die Ease nicht nur sinken kann („Ease-Hölle“), hebt „Gewusst“ sie um 0,05 (Anki: unverändert), mit Obergrenze 3,0 (Anki: keine).
+- **Keine Zufallsstreuung** der Intervalle (Ankis „Fuzz“).
 
 ## 12. Auswahl der nächsten Karte (`domain/queue.ts`)
 
-### 12.1 `pickNext`
+Vorbild ist die **Warteschlange von Anki** (v3) mit Standardeinstellungen (entschieden 2026-11-19): fällige Lernkarten zuerst, dann fällige Wiederholungen gemischt mit höchstens 20 neuen Karten pro Tag, dann Lernkarten bis 20 Minuten vorgezogen, dann „Für heute geschafft“. Bewusste Abweichungen stehen am Ende von §12.2.
 
-Die Funktion **`pickNext(input)`** wählt die nächste Karte. Sie ist **rein** (kein Zugriff auf Datenbank oder Uhr, `now` kommt als Parameter) und wird nach **jeder** Bewertung neu aufgerufen. Eingabe: Einstellungen (`maxLevel`), Vokabeln, alle Cards, `now`, Sitzungsfilter (Thema, Niveau, Wortart, Richtung), `sessionSeen: Set<string>` (Kartenschlüssel `vocabId|dir`, siehe §12.2), `lastShown: string | null`. Rückgabe: `{ kind, item, newPass }` oder `null` (keine sichtbare Karte). `kind` nennt die Stufe (`learning`, `review`, `new`, `early-learning`, `pass`), bei `newPass` leert der Aufrufer `sessionSeen`.
+### 12.1 Begriffe
 
-Sichtbarkeit und Filter: Sichtbar sind nur Vokabeln mit `isVisible(v, settings.maxLevel)` danach Filter (Thema, Niveau, Wortart). Erlaubte Richtungen: bei der Sitzungsrichtung `both` (Standard) beide, sonst nur die gewählte. Karten ausgeblendeter Vokabeln oder Richtungen bleiben unverändert in der DB.
+- **Sichtbarkeit und Filter:** Sichtbar sind nur Vokabeln mit `isVisible(v, settings.maxLevel)`, danach wirken die Sitzungsfilter (Thema, Niveau, Wortart). Erlaubte Richtungen: bei der Sitzungsrichtung `both` (Standard) beide, sonst nur die gewählte. Karten ausgeblendeter Vokabeln oder Richtungen bleiben unverändert in der DB und werden in der Sitzung nicht gezeigt; sie warten, bis ein Filter sie wieder einschließt.
+- **Kartenarten:** *Lernkarte* = Card mit `step`. *Wiederholungskarte* = Card ohne `step`. *Neue Karte* = sichtbare Vokabel im Filter ohne Card für diese Richtung.
+- **Fällig:** Eine Lernkarte ist fällig bei `due <= now`. Eine Wiederholungskarte ist fällig bei `due < nextDayStart(now)` mit `nextDayStart = startOfDay(addDays(dayKey(now), 1))` (04:00 des Folgetags, **exklusiv**: eine Karte mit `due` = morgen 04:00 ist heute **nicht** fällig).
+- **Tageslimit neue Karten:** `NEW_PER_DAY = 20`. Gezählt werden alle gespeicherten Karten mit `introduced >= startOfDay(dayKey(now))`, also über alle Sitzungen, Filter, Richtungen und Niveaus. Jede Richtung zählt als eigene Karte. Eine angezeigte, aber nicht bewertete neue Karte zählt nicht (sie wird erst beim ersten Bewerten angelegt, §10.2). Das Limit für diese Sitzung ist `NEW_PER_DAY + extraNew`, `extraNew` erhöht der Button „10 weitere neue Wörter“ (§14.1).
+- **Partnerkarte:** die Karte der anderen Richtung derselben Vokabel. Maßgeblich ist die gespeicherte Card, unabhängig von Filter und Sitzungsrichtung.
+- **Tagessperre** (wie Ankis „Geschwister zurückstellen“): Eine neue Karte oder eine Wiederholungskarte ist heute gesperrt, wenn ihre Partnerkarte heute schon bewertet wurde (`partner.lastReviewed >= startOfDay(dayKey(now))`). Das gilt unabhängig von der Sitzungsrichtung, also auch in einer Sitzung nur ES→DE. Für Lernkarten gilt die Sperre nicht, sie würden sonst stehen bleiben. Eine gesperrte Wiederholungskarte bleibt fällig und kommt am nächsten Tag; ihr Intervall rechnet ab dem Tag, an dem sie bewertet wird (§11).
+- **Reihenfolge der Richtungen bei neuen Wörtern:** Liegt DE→ES in der Sitzungsrichtung, wird eine neue ES→DE-Karte erst eingeführt, wenn die DE→ES-Karte existiert und die Lernphase abgeschlossen hat (kein `step`). Zusammen mit der Tagessperre heißt das: frühestens am Tag nach dem Abschluss von DE→ES. Ist DE→ES ausgeschlossen (Richtung nur ES→DE), entfällt diese Regel; die Tagessperre gilt trotzdem.
+- **Gefährdung** einer fälligen Wiederholungskarte: `diffDays(dayKey(lastReviewed), dayKey(now)) / interval`, also vergangene Tage im Verhältnis zum geplanten Abstand. Größer = gefährdeter. Beispiel: Eine 1-Tages-Karte, die 3 Tage überfällig ist (4/1 = 4), kommt vor einer 30-Tages-Karte, die 3 Tage überfällig ist (33/30 = 1,1). `lastReviewed` ist bei Wiederholungskarten immer gesetzt.
 
-Priorität, die erste passende Stufe gewinnt:
+### 12.2 `pickNext`
 
-1. **Lernkarten fällig:** Karten mit `step` gesetzt und `due <= now`, die am längsten überfällige zuerst.
-2. **Wiederholungen fällig:** Karten ohne `step`, `due < nextDayStart(now)` mit `nextDayStart = startOfDay(addDays(dayKey(now), 1))` (04:00 des Folgetags, **exklusiv**: eine Karte mit `due` = morgen 04:00 ist heute **nicht** fällig), sortiert nach `due`.
-3. **Neue Karte einführen**, wenn weniger als `MAX_LEARNING = 25` Karten gleichzeitig in der Lernphase sind (`step` gesetzt, sichtbar und im Filter). Das verhindert, dass 500 neue Wörter auf einmal „offen“ werden, und ersetzt das Tageslimit. Reihenfolge der neuen Karten: nach `id` der Vokabel, je Wort zuerst DE→ES.
-   - **Partnerkarte:** Die Karte der zweiten Richtung (ES→DE) einer Vokabel wird erst eingeführt, wenn die erste Richtung die Lernphase abgeschlossen hat (kein `step`, Card existiert), damit sie die Lösung nicht verrät. Gibt es nur gesperrte Partnerkarten, wird Stufe 3 übersprungen.
-   - Die Sperre gilt nur, wenn die Partnerkarte (DE→ES) in der Sitzungsrichtung liegt **und noch nicht abgeschlossen ist** (keine Card oder Card mit `step`). Ist DE→ES ausgeschlossen (z. B. Richtung nur ES→DE), ist ES→DE nicht gesperrt. Eine existierende Card wird nie nachträglich gesperrt, die Sperre betrifft nur das **Einführen** neuer Karten.
-4. **Wartende Lernkarte vorzeitig zeigen** (`step` gesetzt, `due > now`, noch nicht fällig): Die Lernkarte mit dem frühesten `due` wird **sofort** gezeigt, statt auf den Ablauf der 5 bzw. 30 Minuten zu warten. Die Stufe steht **vor** Stufe 5. Grund: Stünde die Vorab-Wiederholung davor, würden wenige Wiederholungskarten alle Lernkarten blockieren, bis deren Wartezeit abgelaufen ist (Regressionstest „rapid 'good' …“ in `queue.test.ts`). Es gibt **keinen Wartezähler und keinen „Jetzt zeigen“-Button** (entschieden). Folge: Bei wenigen Karten wirken die Minutenpausen kaum, der Nutzer sieht dieselben Karten schnell wieder. Das ist gewollt. Fällige Lernkarten (Stufe 1) und fällige Wiederholungen (Stufe 2) haben weiterhin Vorrang.
-5. **Vorab-Wiederholung („von vorn“):** nur wenn keine Lernkarte mehr wartet, siehe §12.2.
-6. Gibt es überhaupt keine sichtbare Karte (leeres Filterergebnis, Niveau zu niedrig): Hinweis „Keine Karten für diese Auswahl“ mit Link zur Filterauswahl. Oben mittig steht das Logo wie auf der Zusammenfassung (§14.1), die Tab-Leiste ist ausgeblendet. Das ist der **einzige** Fall, in dem die Sitzung leer ist.
+Die Funktion **`pickNext(input)`** wählt die nächste Karte. Sie ist **rein** (kein Zugriff auf Datenbank, Uhr oder `Math.random`) und wird nach **jeder** Bewertung neu aufgerufen.
 
-Die Karte, die gerade bewertet wurde (`lastShown`), wird nie sofort wieder gewählt, wenn eine andere Karte zur Verfügung steht. Das gilt auch bei „Nochmal“ mit nur einer Restkarte: Dann greift Stufe 4 mit der frühesten **anderen** wartenden Lernkarte. Gibt es gar keine andere Karte, wird dieselbe Karte erneut gezeigt (der Sitzungsbildschirm bleibt nie leer).
+Eingabe: Einstellungen (`maxLevel`), Vokabeln, alle Cards, `now`, Sitzungsfilter (Thema, Niveau, Wortart, Richtung), `lastShown: string | null` (Kartenschlüssel `vocabId|dir` der zuletzt bewerteten Karte), `reviewsSinceNew: number` (Anzahl der Wiederholungskarten, die in dieser Sitzung seit der letzten neuen Karte bewertet wurden, Start 0), `extraNew: number` (Start 0), `random: () => number` (gleichverteilt in [0, 1), in der App `Math.random`, in Tests fest vorgegeben).
 
-Eine neue Karte wird erst **beim ersten Bewerten** angelegt (§10.2), nicht beim Anzeigen.
+Rückgabe:
+- `{ kind, item }` mit `kind` = `learning` | `review` | `new` | `learn-ahead` (die Stufe unten),
+- `{ kind: 'done', moreNew: boolean }`, wenn für heute alles erledigt ist; `moreNew` ist wahr, wenn es ohne Tageslimit noch eine neue Karte gäbe (Tagessperre und Richtungsregel beachtet),
+- `null`, wenn die Auswahl keine einzige sichtbare Vokabel enthält (leeres Filterergebnis, Niveau zu niedrig). Das zeigt den Hinweis „Keine Karten für diese Auswahl“ (§14.1).
 
-### 12.1a Überarbeitung der Kartenauswahl (Anforderung 2026-11-19, noch nicht umgesetzt, Detailspezifikation folgt)
+Priorität, die erste Stufe mit einem Kandidaten gewinnt:
 
-Der Algorithmus, nach dem die nächste Karte angezeigt wird (`pickNext`, §12.1), soll **dringend überarbeitet** werden. Der bisherige Stand ist für den Nutzer nicht zufriedenstellend. Konkrete Mängel und Sollverhalten werden in der Detailspezifikation festgelegt. Bis dahin bleibt §12.1 gültig, und die Änderung darf die Regeln in §11 (SRS-Modell) nicht verletzen, solange nicht ausdrücklich anders beschlossen.
+1. **Fällige Lernkarten** (`learning`), die am längsten überfällige zuerst (`due` aufsteigend).
+2. **Fällige Wiederholungen und neue Karten, gemischt im Verhältnis 4 zu 1** (`review` bzw. `new`):
+   - Wiederholungs-Kandidaten: fällig und nicht gesperrt, sortiert nach Gefährdung absteigend, bei Gleichstand zufällig (`random`).
+   - Neue Kandidaten: nicht gesperrt, Richtungsregel erfüllt, Tageslimit noch nicht erreicht. Gewählt wird **zufällig gleichverteilt** über alle Kandidaten, ohne Ordnung nach Niveau, Thema oder `id`. Bei „Alle Niveaus“ sind also A1, A2 und B1 gemischt (bis zum Maximalniveau), bei einem gewählten Niveau nur dieses.
+   - Gibt es beide: eine neue Karte, wenn `reviewsSinceNew >= REVIEWS_PER_NEW` (`= 4`), sonst eine Wiederholung. Bei einem Rückstau kommen also 4 Wiederholungen, 1 neue, 4 Wiederholungen usw. Gibt es nur eine Art, kommt diese.
+   - Der Aufrufer zählt `reviewsSinceNew` nach jeder bewerteten Karte der Art `review` um 1 hoch und setzt es nach jeder bewerteten Karte der Art `new` auf 0. Lernkarten zählen nicht.
+3. **Lernkarten vorziehen** (`learn-ahead`): Lernkarten mit `due <= now + LEARN_AHEAD_MIN` (`= 20` Min), die früheste zuerst. Sie werden normal bewertet (§11). Weil kein Lernschritt länger als 10 Min ist, betrifft das jede Lernkarte: Solange noch Lernkarten im Filter offen sind, ist die Sitzung nicht fertig.
+4. **Für heute geschafft** (`done`): keine Karte aus Stufe 1 bis 3.
 
-Offen für die Spezifikation: welche Reihenfolge und Mischung von fälligen, lernenden und neuen Karten gewünscht ist, wie stark „Nochmal“-Karten zurückkehren sollen, und ob sich die Auswahl je Richtung oder über beide Richtungen hinweg verhält.
+**`lastShown`:** Die zuletzt bewertete Karte wird in Stufe 1 bis 3 übergangen, solange irgendeine andere Karte aus Stufe 1 bis 3 in Frage kommt. Gibt es keine andere, wird sie erneut gezeigt (z. B. die letzte offene Lernkarte nach „Nochmal“), statt `done` zu liefern.
 
-### 12.2 Durchlauf („alles durch, dann von vorn“)
+Eine neue Karte wird erst **beim ersten Bewerten** angelegt (§10.2), nicht beim Anzeigen. Es gibt keine Grenze für gleichzeitig offene Lernkarten (früher `MAX_LEARNING`) und keine Vorab-Wiederholung nicht fälliger Karten (früher „Durchlauf“); beides ersetzt das Tageslimit.
 
-Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Karten übrig), wird **vorzeitig wiederholt**:
-- Kandidaten: alle sichtbaren, gefilterten Karten in der Wiederholungsphase, die noch **nicht** in `sessionSeen` stehen, sortiert nach `due` aufsteigend (am bald fälligsten zuerst).
-- Jede **bewertete** Karte kommt in `sessionSeen` (auch bei Stufen 1 bis 4). Eine nur angezeigte, nicht bewertete Karte zählt nicht. Sind alle Kandidaten durch, wird `sessionSeen` geleert und der Durchlauf beginnt von vorn. Eine kurze Einblendung „Neuer Durchlauf“ ist optional.
-- Bewertung dieser Karten nach der Regel **Vorab-Wiederholung** (§11), damit die Intervalle nicht verfälscht werden.
-- `sessionSeen` lebt nur im Speicher der Sitzung (nicht gespeichert).
+**Bewusste Abweichungen von Anki:**
+- Neue Karten kommen **zufällig** (Anki-Standard: in der Reihenfolge des Hinzufügens).
+- Die Mischung ist fest **4 Wiederholungen zu 1 neuen Karte** (Anki verteilt die neuen Karten gleichmäßig nach der Anzahl).
+- Wiederholungen kommen nach **Gefährdung** (Anki mit SM-2: nach Fälligkeit).
+- Die **Tagessperre** der Partnerkarte ist immer aktiv (in Anki eine Einstellung).
+- **Kein Tageslimit für Wiederholungen** (Anki: 200).
+- „10 weitere neue Wörter“ entspricht Ankis „Limit für neue Karten heute erhöhen“, gilt aber nur für die laufende Sitzung.
 
 ## 13. Audio (`hooks/useSpeech.ts`)
 
@@ -513,10 +537,12 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 **Sitzungsverhalten:**
 - Oben immer sichtbar: Button **„Beenden“**, ohne Rückfrage. Er führt zur Zusammenfassung. Auch Wegnavigieren oder Schließen der App ist ohne Datenverlust möglich, weil jede Bewertung sofort gespeichert wird.
 - Bewertungsbuttons „Nochmal“ und „Gewusst“ mit Vorschau des Wiedersehens (`previewIntervals`).
-- **Navigation:** Die Sitzung (Zähler „Geübt“, gewählte Filter und Richtung, `sessionSeen`) lebt nur im Speicher der Lernen-Seite. Wechselt der Nutzer in einen anderen Tab und kommt zurück, beginnt er wieder bei der Filterauswahl, der Zähler ist zurückgesetzt. Bewertungen gehen dabei nicht verloren, weil jede sofort gespeichert wird (§11).
-- Wer später wieder lernt, bekommt zuerst, was fällig ist (auch Minuten-Karten, die inzwischen überfällig sind), dann neue Wörter, dann Wiederholung des Restes (§12).
-- Es gibt keinen Fortschrittsbalken (die Sitzung hat kein Ende). Oben steht links der Zähler dieser Sitzung: die Zahl groß, darunter klein „GEÜBT“ (gestapelt, ohne Hintergrund). Er ist höchstens so hoch wie der Button „Beenden“ (40 px), damit die Leiste nicht höher wird. In der Mitte das Logo (Wimpel über dem Schriftzug), rechts „Beenden“.
+- **Navigation:** Die Sitzung (Zähler „Geübt“, gewählte Filter und Richtung, `reviewsSinceNew`, `extraNew`, §12.2) lebt nur im Speicher der Lernen-Seite. Wechselt der Nutzer in einen anderen Tab und kommt zurück, beginnt er wieder bei der Filterauswahl, der Zähler ist zurückgesetzt. Bewertungen gehen dabei nicht verloren, weil jede sofort gespeichert wird (§11).
+- Wer später wieder lernt, bekommt zuerst fällige Lernkarten (auch Minuten-Karten, die inzwischen überfällig sind), dann fällige Wiederholungen gemischt mit neuen Wörtern bis zum Tageslimit (§12).
+- Es gibt keinen Fortschrittsbalken. Oben steht links der Zähler dieser Sitzung: die Zahl groß, darunter klein „GEÜBT“ (gestapelt, ohne Hintergrund). Er ist höchstens so hoch wie der Button „Beenden“ (40 px), damit die Leiste nicht höher wird. In der Mitte das Logo (Wimpel über dem Schriftzug), rechts „Beenden“.
 - **Zusammenfassung** („Sitzung beendet“): Oben mittig das Logo an exakt derselben Stelle wie in der Sitzungsleiste, darunter der Titel und zwei große Kacheln: links die Anzahl geübter Karten, rechts die Anzahl „Nochmal“ (eine Lerndauer gibt es nicht, entschieden), darunter nur der Button „Beenden“ (zurück zur Filterauswahl, Filter zurückgesetzt). Ein Button „Weiterlernen“ gibt es nicht (entschieden 2026-11-19).
+- **„Für heute geschafft“** (`pickNext` liefert `done`, §12.2): Aufbau wie die Zusammenfassung (Logo oben mittig, die zwei Kacheln mit den Zahlen dieser Sitzung, auch wenn sie 0 sind), Titel „Für heute geschafft“. Darunter ein Satz: bei `moreNew` „Alle fälligen Karten sind erledigt und das Tageslimit von 20 neuen Wörtern ist erreicht.“, sonst „Alle fälligen Karten sind erledigt. In dieser Auswahl gibt es heute keine neuen Wörter mehr.“ Buttons: „10 weitere neue Wörter“ (nur bei `moreNew`, Hauptbutton: `extraNew += 10`, die Sitzung läuft mit denselben Zählern weiter) und „Beenden“ (zurück zur Filterauswahl, wie auf der Zusammenfassung). Die Seite kann auch direkt beim Starten erscheinen, wenn für heute nichts mehr ansteht. Die Tab-Leiste ist ausgeblendet wie in der Sitzung.
+- **„Keine Karten für diese Auswahl“** (`pickNext` liefert `null`, §12.2): Hinweis mit Link zur Filterauswahl. Oben mittig steht das Logo wie auf der Zusammenfassung, die Tab-Leiste ist ausgeblendet. Das ist der **einzige** Fall, in dem die Sitzung ohne Karte beginnt, weil die Auswahl gar keine sichtbare Vokabel enthält.
 
 ### 14.2 Impressum und Datenschutz
 
