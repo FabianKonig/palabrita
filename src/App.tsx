@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   HashRouter,
   Navigate,
@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import { TabBar } from "./components/TabBar";
 import { UpdateBanner } from "./components/UpdateBanner";
+import { WelcomeOverlay } from "./components/WelcomeOverlay";
+import { isWelcomeSeen, markWelcomeSeen } from "./data/welcomeFlag";
 import { Add } from "./features/add/Add";
 import { EditWord } from "./features/add/EditWord";
 import { Dictionary } from "./features/dictionary/Dictionary";
@@ -23,17 +25,30 @@ import { AppDataProvider } from "./hooks/useAppData";
 
 function Layout() {
   const { pathname } = useLocation();
+  const [welcomeSeen, setWelcomeSeen] = useState(() => isWelcomeSeen());
   useEffect(() => {
     onNavigate(pathname);
   }, [pathname]);
+  // Erststart-Begrüßung liegt über der Lernseite; die App dahinter ist solange gesperrt.
+  const showWelcome = pathname === "/" && !welcomeSeen;
   return (
-    <div className="app">
-      <UpdateBanner />
-      <main>
-        <Outlet />
-      </main>
-      <TabBar />
-    </div>
+    <>
+      <div className="app" inert={showWelcome}>
+        <UpdateBanner />
+        <main>
+          <Outlet />
+        </main>
+        <TabBar />
+      </div>
+      {showWelcome && (
+        <WelcomeOverlay
+          onDismiss={() => {
+            markWelcomeSeen();
+            setWelcomeSeen(true);
+          }}
+        />
+      )}
+    </>
   );
 }
 
