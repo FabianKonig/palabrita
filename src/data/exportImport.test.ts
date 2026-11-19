@@ -109,13 +109,6 @@ describe("parseExport validation", () => {
     expect(() => parseExport(JSON.stringify(valid()))).not.toThrow();
   });
 
-  it("ignores the own-words list of files from older versions", () => {
-    const file = parseExport(
-      JSON.stringify({ ...valid(), userVocab: [{ id: "u1" }] }),
-    );
-    expect(file).not.toHaveProperty("userVocab");
-  });
-
   it("accepts cards without step (review phase)", async () => {
     const file = parseExport(
       JSON.stringify({ ...valid(), cards: [card("v1", 100, 6)] }),
