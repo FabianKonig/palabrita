@@ -75,15 +75,21 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 - **Adjektive:** feminin Singular, maskulin Plural und feminin Plural. Sie werden **nach Regeln erzeugt** (§4.2, §14.3), `adj` in der JSON überschreibt nur Abweichungen. Formen, die der Grundform gleichen (*amable* f. Sg. = *amable*), sind keine eigenen Formen.
 - Andere Wortarten haben keine Formen. Gesucht wird nur über die spanische Seite.
 
-**Wann eine Form trifft:** Eingabe und Form werden normalisiert wie in der Verzeichnissuche (Groß-/Kleinschreibung, Akzente und Umlaute egal: *cancion* findet *canciones*, *podia* findet *podía*). Formtreffer gibt es nur, wenn die normalisierte Eingabe **mindestens 3 Zeichen** lang ist und **kein Leerzeichen** enthält. Dann trifft eine Form, wenn sie
-- der Eingabe **gleicht** (Formstufe 0) oder
-- mit der Eingabe **beginnt** (Formstufe 1).
+**Wann eine Form trifft:** Eingabe und Form werden normalisiert wie in der Verzeichnissuche (Groß-/Kleinschreibung, Akzente und Umlaute egal: *cancion* findet *canciones*, *podia* findet *podía*). Formtreffer gibt es nur, wenn die normalisierte Eingabe **kein Leerzeichen** enthält. Dann trifft eine Form, wenn sie
+- der Eingabe **gleicht** (Formstufe 0), ab **2 Zeichen** Eingabe, damit kurze Formen wie *va*, *ve* und *es* gefunden werden, oder
+- mit der Eingabe **beginnt** (Formstufe 1), erst ab **3 Zeichen** Eingabe.
 
-„Enthält“ gilt für Formen nicht. Die bisherige Suche über Grundform und Deutsch (§3.3, Stufen 0 bis 2) bleibt unverändert.
+„Enthält“ gilt für Formen nicht. Bei 1 Zeichen gibt es keine Formtreffer. Die bisherige Suche über Grundform und Deutsch (§3.3, Stufen 0 bis 2) bleibt unverändert.
 
 **Eine Zeile je Wort:** Jede Vokabel erscheint höchstens einmal in der Trefferliste. Passt sie sowohl über Grundform/Deutsch (beste Stufe G) als auch über Formen (beste Formstufe F), ist sie ein **Formtreffer nur, wenn F < G** gilt (die Form passt genauer). Sonst ist sie ein normaler Treffer und sieht aus wie bisher. Beispiele: *come* → *comer* ist Formtreffer (Form gleich, Grundform nur Anfang); *pod* → *poder* ist normaler Treffer (beides Anfang); *poder* → normaler Treffer ohne Formhinweis.
 
-**Reihenfolge:** Zuerst alle normalen Treffer in der Reihenfolge aus §3.3, danach alle Formtreffer. Unter den Formtreffern zuerst Formstufe 0, dann Formstufe 1, bei Gleichstand alphabetisch nach spanischem Stichwort ohne Artikel (wie §3.3). Beispiel *fue*: *fuerte* (normaler Treffer, die Grundform beginnt mit „fue“) steht vor *ser* und *ir* (Formtreffer). Es gibt keine Begrenzung der Trefferzahl (wie §3.3).
+**Reihenfolge** (Entscheidung 2026-11-19: genaue Formen nach genauen Grundformen, damit kurze Formen nicht unter vielen Teilwort-Treffern verschwinden; bei *es* gibt es 148 normale Treffer, bei *ve* 76):
+1. normale Treffer der Stufe 0 (Grundform oder Deutsch gleich der Eingabe),
+2. Formtreffer der Formstufe 0 (Form gleich der Eingabe),
+3. alle übrigen normalen Treffer (Stufen 1 und 2),
+4. Formtreffer der Formstufe 1 (Form beginnt mit der Eingabe).
+
+Innerhalb der Gruppen 1 und 3 gilt die Reihenfolge aus §3.3, innerhalb der Gruppen 2 und 4 alphabetisch nach spanischem Stichwort ohne Artikel. Beispiele: Bei *es* steht *ser* ganz oben, vor *escalar*, *la escuela* usw. Bei *fue* stehen *ser* und *ir* vor *fuerte* (die Grundform beginnt nur mit „fue“). Bei *ve* stehen *ir* und *ver* vor *convertir*, *vender* usw. Es gibt keine Begrenzung der Trefferzahl (wie §3.3).
 
 **Filter und Niveau:** Thema, Niveau und Wortart wirken wie bei der normalen Suche (UND, §3.3) und beziehen sich auf die Vokabel. Wie das ganze Verzeichnis zeigt die Formsuche **alle Niveaus**, unabhängig vom Maximalniveau. Die Statuszeile und die Trefferzahl („N Wörter“ o. Ä.) zählen Formtreffer wie andere Zeilen mit.
 
@@ -112,7 +118,11 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 | `podemos` | poder | Form | 1. Pl. Presente |
 | `vamos` | ir | Form | 1. Pl. Presente · 1. Pl. Imperativo |
 | `fue` | ser, ir (je eine Zeile) | Form | 3. Sg. Pretérito indefinido |
-| `fue` | fuerte | normal, steht vor ser/ir | – |
+| `fue` | fuerte | normal, steht nach ser/ir | – |
+| `va` | ir, irse (je eine Zeile) | Form | 3. Sg. Presente |
+| `ve` | ir | Form | 2. Sg. Imperativo |
+| `ve` | ver | Form, steht vor convertir, vender … | 3. Sg. Presente · 2. Sg. Imperativo |
+| `es` | ser | Form, steht als erste Zeile | 3. Sg. Presente |
 | `podia` | poder | Form | 1./3. Sg. Imperfecto |
 | `come` | comer | Form | 3. Sg. Presente · 2. Sg. Imperativo |
 | `pod` | poder | normal (keine Formzeile) | – |
@@ -122,7 +132,8 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 | `canciones` | la canción | Form | Plural |
 | `buenas` | bueno | Form | f. Pl. |
 | `amables` | amable | Form | Pl. |
-| `po` | – (zu kurz für Formen) | – | – |
+| `pu` | – (2 Zeichen: nur genaue Formen, keine Form heißt „pu“) | – | – |
+| `v` | – (1 Zeichen: keine Formtreffer) | – | – |
 
 Beispiele mit Wörtern, die es (noch) nicht in den Daten gibt, prüfen die Tests mit eigenen Testvokabeln.
 
@@ -515,7 +526,7 @@ Verhalten: §3.3a. Hier steht, wie es gebaut wird. Es gibt keine neue Seite und 
   - `buildFormIndex(vocab: Iterable<Vocab>): FormIndex` erzeugt je Vokabel alle Formen mit Slot, Originalschreibung und normalisierter Schreibung (`normalizeForSearch` aus `domain/dictionary.ts`). Verben über `conjugate()` (`domain/conjugation`), also exakt die Formen der Tabelle. Bei reflexiven Verben wird außerhalb des Imperativs das vorangestellte Pronomen (`me`, `te`, `se`, `nos`, `os` plus Leerzeichen) entfernt. Imperativ, Participio und Gerundio bleiben, wie `conjugate()` sie liefert. Nomen: `plural` ohne Artikel (Artikel-Regel wie `stripArticle` in `dictionary.ts`). Adjektive: `adjectiveForms()`. Formen, die normalisiert der normalisierten Grundform (ohne Artikel) gleichen, kommen nicht in den Index.
   - `formLabel(slots: FormSlot[]): string` erzeugt die Bezeichnung aus §3.3a, einschließlich des Zusammenfassens („1./3. Sg. Imperfecto“, „ · “ zwischen Zeitformen, „Pl.“ bei gleichen Adjektiv-Pluralen). Die Zeitformnamen kommen aus derselben Quelle wie in `components/VerbTable.tsx` (`TENSE_LABEL`). Diese Tabelle wird dafür in die Domäne verschoben (z. B. `domain/conjugation/labels.ts`) und von beiden genutzt.
   - Die Suche gruppiert die Indexeinträge einer Vokabel nach Originalform. Eine „Form“ im Sinne von „+ N weitere Formen“ ist eine verschiedene Originalschreibung mit allen ihren Slots.
-- `domain/dictionary.ts`: `searchVocab` (bzw. eine Nachfolgefunktion) liefert statt `Vocab[]` Zeilen `{ vocab: Vocab; form?: { form: string; label: string; more: number; highlight: FormSlot[] } }`. Ohne `form` ist es ein normaler Treffer. Sie bekommt den Formenindex als Parameter. Ablauf: Filter wie bisher, dann je Vokabel die Grundstufe G (bisherige Logik) und die Formstufe F (nur wenn die normalisierte Eingabe ≥ 3 Zeichen hat und kein Leerzeichen enthält), Einordnung und Sortierung nach §3.3a. `highlight` enthält die Slots aller Formen, die auf Stufe F getroffen haben. Ohne Suchtext bleibt alles wie bisher.
+- `domain/dictionary.ts`: `searchVocab` (bzw. eine Nachfolgefunktion) liefert statt `Vocab[]` Zeilen `{ vocab: Vocab; form?: { form: string; label: string; more: number; highlight: FormSlot[] } }`. Ohne `form` ist es ein normaler Treffer. Sie bekommt den Formenindex als Parameter. Ablauf: Filter wie bisher, dann je Vokabel die Grundstufe G (bisherige Logik) und die Formstufe F (nur ohne Leerzeichen; Formstufe 0 ab 2 Zeichen, Formstufe 1 ab 3 Zeichen normalisierter Eingabe), Einordnung und Sortierung nach §3.3a. `highlight` enthält die Slots aller Formen, die auf Stufe F getroffen haben. Ohne Suchtext bleibt alles wie bisher.
 - Performance: Der Index wird **einmal je Vokabelbestand** gebaut (beim ersten Gebrauch im Verzeichnis, gemerkt z. B. per `useMemo` über der Vokabel-Map aus `useAppData`), nicht je Tastendruck. Rund 800 Vokabeln ergeben etwa 10 000 Einträge. Ein linearer Durchlauf je Eingabe genügt, ein Präfixbaum ist nicht nötig. Die Eingabe bleibt ohne spürbare Verzögerung (kein Debounce nötig, auf dem Handy zu prüfen).
 
 **Bildungsregeln der Adjektive** (`adjectiveForms`; die Betonung bleibt auf derselben Silbe, Akzente werden nach den spanischen Regeln gesetzt oder entfernt, dafür `domain/conjugation/accent.ts` nutzen bzw. erweitern):
@@ -535,7 +546,7 @@ Beim Umsetzen werden die erzeugten Formen aller Adjektive in `public/vocab/` dur
 - CSS in `styles/global.css`: Token für die Hervorhebung in Hell und Dunkel. `src/styles/global.test.ts` prüft deren Kontrast wie bei den übrigen Farben.
 
 **Tests:**
-- Vitest: alle Soll-Beispiele aus §3.3a (mit den echten Vokabeldaten oder mit Testvokabeln), die Regel F < G, Mindestlänge und Leerzeichen, Akzent- und Großschreibung, Sortierung (normale vor Formtreffern, Formstufe 0 vor 1, alphabetisch), Zusammenspiel mit Filtern, Bezeichnungen samt Zusammenfassen, „+ N weitere Formen“, reflexive Verben (ohne Pronomen, Imperativ mit Pronomen), vosotros-Formen. Für `adjectiveForms` je Regel mindestens ein Beispiel, die Komparative, Akzentfälle (*joven, cortés, alemán* per Testvokabel) und dass `adj` überschreibt.
+- Vitest: alle Soll-Beispiele aus §3.3a (mit den echten Vokabeldaten oder mit Testvokabeln), die Regel F < G, Mindestlängen (1 Zeichen: nichts; 2 Zeichen: nur Formstufe 0; ab 3: beide) und Leerzeichen, Akzent- und Großschreibung, Sortierung in den vier Gruppen aus §3.3a, Zusammenspiel mit Filtern, Bezeichnungen samt Zusammenfassen, „+ N weitere Formen“, reflexive Verben (ohne Pronomen, Imperativ mit Pronomen), vosotros-Formen. Für `adjectiveForms` je Regel mindestens ein Beispiel, die Komparative, Akzentfälle (*joven, cortés, alemán* per Testvokabel) und dass `adj` überschreibt.
 - Browser-Smoke-Test (`scripts/browser-smoke.ts`): Im Verzeichnis „podemos“ eingeben, die Zeile „podemos → poder“ mit „1. Pl. Presente“ erscheint. Antippen öffnet die Detailseite von *poder*, die Zelle *podemos* ist hervorgehoben und sichtbar. Zurück: Suchtext und Filter sind erhalten. Eine Adjektiv-Detailseite zeigt die Zeile „Formen“.
 
 **Nach der Umsetzung:** In §3.3, §3.3a und hier den Vermerk „noch nicht umgesetzt“ entfernen, §9 (neue Dateien) und die Testzeile in §8 ergänzen und den Punkt aus `docs/TASKS.md` streichen. Weicht die Umsetzung an einer Stelle von dieser Spezifikation ab, wird das mit dem Nutzer geklärt.
