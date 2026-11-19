@@ -6,10 +6,12 @@ import {
   POS_LABEL,
   clearDropdownFilters,
   hasDropdownFilter,
+  normalizeForSearch,
   topicOptions,
   searchVocab,
   type DictionaryFilters,
 } from "../../domain/dictionary";
+import { EMPTY_FORM_INDEX, cachedFormIndex } from "../../domain/forms";
 import { LEVEL_ORDER, type Level, type Pos } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
 import {
@@ -22,6 +24,10 @@ import {
 const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
   (a, b) => LEVEL_ORDER[a] - LEVEL_ORDER[b],
 );
+
+/** „+ 1 weitere Form“ / „+ 5 weitere Formen“ */
+const moreForms = (n: number) =>
+  `+ ${n} weitere ${n === 1 ? "Form" : "Formen"}`;
 
 export function Dictionary() {
   const { vocab, topics } = useAppData();
@@ -47,9 +53,16 @@ export function Dictionary() {
   // direkt nach der Auswahl; per Tastatur bleibt der Fokus, damit man weiter navigieren kann.
   const pickedWithPointer = useRef(false);
 
+  // Der Formenindex wird je Vokabelbestand einmal gebaut, und zwar erst, wenn eine Eingabe
+  // lang genug für Formtreffer ist (SPEC §14.3): nicht je Tastendruck, nicht beim Öffnen.
+  const wantsForms = normalizeForSearch(filters.query).length >= 2;
+  const formIndex = useMemo(
+    () => (wantsForms ? cachedFormIndex(vocab) : EMPTY_FORM_INDEX),
+    [vocab, wantsForms],
+  );
   const results = useMemo(
-    () => searchVocab(vocab.values(), filters),
-    [vocab, filters],
+    () => searchVocab(vocab.values(), filters, formIndex),
+    [vocab, filters, formIndex],
   );
 
   const update = (next: DictionaryFilters) => {
@@ -223,15 +236,41 @@ export function Dictionary() {
           </div>
         ) : (
           <ul className="link-list vocab-list">
-            {results.map((v) => (
+            {results.map(({ vocab: v, form }) => (
               <li key={v.id}>
-                <Link to={`/dictionary/${encodeURIComponent(v.id)}`}>
-                  <span className="es">{v.es}</span>
-                  <span className="de">
-                    <GermanText de={v.de} />
-                  </span>
-                  <span className="meta">{v.level}</span>
-                </Link>
+                {form ? (
+                  <Link
+                    to={`/dictionary/${encodeURIComponent(v.id)}`}
+                    state={{ highlight: form.highlight }}
+                    aria-label={`${form.form}, Form von ${v.es}, ${form.label}${
+                      form.more > 0 ? `, ${moreForms(form.more)}` : ""
+                    }`}
+                  >
+                    <span className="es">
+                      <span className="form-word">{form.form}</span>
+                      <span aria-hidden="true"> → </span>
+                      <span className="form-base">{v.es}</span>
+                    </span>
+                    <span className="de">
+                      <GermanText de={v.de} />
+                    </span>
+                    <span className="form-line">
+                      <span className="meta">{v.level}</span>
+                      <span className="form-label">
+                        {form.label}
+                        {form.more > 0 && ` ${moreForms(form.more)}`}
+                      </span>
+                    </span>
+                  </Link>
+                ) : (
+                  <Link to={`/dictionary/${encodeURIComponent(v.id)}`}>
+                    <span className="es">{v.es}</span>
+                    <span className="de">
+                      <GermanText de={v.de} />
+                    </span>
+                    <span className="meta">{v.level}</span>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

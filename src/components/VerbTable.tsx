@@ -6,6 +6,7 @@ import {
   type FormInfo,
   TENSE_LABEL,
 } from "../domain/conjugation";
+import { hasSlot, type FormSlot } from "../domain/forms";
 import type { Person, Tense, Vocab } from "../domain/types";
 import { FROM_APP_STATE } from "../features/legend/Legend";
 
@@ -26,20 +27,24 @@ const REGULARITY_LABEL: Record<Conjugation["regularity"], string> = {
   irregular: "unregelmäßig",
 };
 
-function Form({ info }: { info: FormInfo }) {
-  return (
-    <span className={info.irregular ? "form irr" : "form"}>{info.form}</span>
-  );
+function Form({ info, hit = false }: { info: FormInfo; hit?: boolean }) {
+  const cls = ["form", info.irregular && "irr", hit && "form-hit"]
+    .filter(Boolean)
+    .join(" ");
+  return <span className={cls}>{info.form}</span>;
 }
 
 /** Conjugation table of a verb: all persons per tense, irregular forms highlighted. */
 export function VerbTable({
   vocab,
   legendLink = true,
+  highlight,
 }: {
   vocab: Vocab;
   /** Link to the legend; hidden where leaving the page would be harmful. */
   legendLink?: boolean;
+  /** Forms marked as hits (background and bold), see SPEC §3.3a. Without: no marking. */
+  highlight?: readonly FormSlot[];
 }) {
   const result = useMemo(() => {
     try {
@@ -104,7 +109,10 @@ export function VerbTable({
                     )}
                   </th>
                   <td>
-                    <Form info={{ form, irregular }} />
+                    <Form
+                      info={{ form, irregular }}
+                      hit={hasSlot(highlight, { kind: "verb", tense, person })}
+                    />
                   </td>
                 </tr>
               ))}
@@ -120,13 +128,22 @@ export function VerbTable({
             <tr>
               <th scope="row">Participio</th>
               <td>
-                <Form info={result.participio} />
+                <Form
+                  info={result.participio}
+                  hit={hasSlot(highlight, {
+                    kind: "verb",
+                    tense: "participio",
+                  })}
+                />
               </td>
             </tr>
             <tr>
               <th scope="row">Gerundio</th>
               <td>
-                <Form info={result.gerundio} />
+                <Form
+                  info={result.gerundio}
+                  hit={hasSlot(highlight, { kind: "verb", tense: "gerundio" })}
+                />
               </td>
             </tr>
           </tbody>

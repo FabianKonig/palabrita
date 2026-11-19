@@ -120,3 +120,36 @@ describe("dictionary list tiles", () => {
     expect(genericBlock).toMatch(/align-items:\s*center/);
   });
 });
+
+describe("form search: highlighted forms", () => {
+  const light = /:root \{([^}]*)\}/.exec(css)?.[1] ?? "";
+  const rule =
+    /\.form-hit,\s*\.form\.irr\.form-hit \{([^}]*)\}/.exec(css)?.[1] ?? "";
+
+  it("marks a hit with background and bold, not by color alone", () => {
+    expect(rule).toMatch(/background:\s*var\(--hit-bg\)/);
+    expect(rule).toMatch(/font-weight:\s*700/);
+    expect(rule).toMatch(/color:\s*var\(--hit-text\)/);
+  });
+
+  it("is readable in the light and in both dark blocks (contrast >= 4.5)", () => {
+    for (const block of [light, ...darkBlocks()]) {
+      const bg = variable(block, "--hit-bg");
+      const text = variable(block, "--hit-text");
+      expect(bg).not.toBe("");
+      expect(contrast(text, bg)).toBeGreaterThanOrEqual(4.5);
+    }
+  });
+
+  it("stands out from the page background", () => {
+    for (const block of [light, ...darkBlocks()]) {
+      const bg = variable(block, "--hit-bg");
+      const surface = variable(block, "--surface");
+      expect(contrast(bg, surface)).toBeGreaterThanOrEqual(1.3);
+    }
+  });
+
+  it("wins over the magenta of irregular forms", () => {
+    expect(css).toMatch(/\.form\.irr\.form-hit/);
+  });
+});

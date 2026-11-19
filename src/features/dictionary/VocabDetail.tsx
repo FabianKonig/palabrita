@@ -1,14 +1,28 @@
 import { useLayoutEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { VerbDetail, WordHead } from "../../components/VerbDetail";
+import { adjectiveFormLines } from "../../domain/adjectiveForms";
 import { POS_LABEL } from "../../domain/dictionary";
+import { hasSlot, type FormSlot } from "../../domain/forms";
 import { LEVEL_ORDER } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
 
 const GENDER_LABEL = { m: "maskulin", f: "feminin", "m/f": "maskulin/feminin" };
 
+/** Forms to highlight, handed over by a form hit of the dictionary (router state, this visit only). */
+function highlightOf(state: unknown): FormSlot[] | undefined {
+  const h = (state as { highlight?: unknown } | null)?.highlight;
+  return Array.isArray(h) ? (h as FormSlot[]) : undefined;
+}
+
+/** A form of the detail page, marked as a hit (background and bold) if it was searched for. */
+function HitText({ hit, children }: { hit: boolean; children: string }) {
+  return hit ? <span className="form-hit">{children}</span> : <>{children}</>;
+}
+
 export function VocabDetail() {
   const { id = "" } = useParams();
+  const highlight = highlightOf(useLocation().state);
   const { vocab, topics, settings } = useAppData();
   const entry = vocab.get(id);
 
@@ -18,6 +32,13 @@ export function VocabDetail() {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+  // Form hit: scroll to the first highlighted form (after the reset to the top above).
+  useLayoutEffect(() => {
+    if (!highlight) return;
+    document
+      .querySelector(".form-hit")
+      ?.scrollIntoView({ block: "center", behavior: "instant" });
+  }, [id, highlight, entry]);
 
   if (!entry) {
     return (
@@ -53,19 +74,28 @@ export function VocabDetail() {
 
       {entry.plural && (
         <p>
-          <strong>Plural:</strong> {entry.plural}
+          <strong>Plural:</strong>{" "}
+          <HitText hit={hasSlot(highlight, { kind: "plural" })}>
+            {entry.plural}
+          </HitText>
         </p>
       )}
-      {entry.adj && (
+      {entry.pos === "adj" && adjectiveFormLines(entry).length > 0 && (
         <p>
           <strong>Formen:</strong>{" "}
-          {[
-            entry.adj.f && `feminin ${entry.adj.f}`,
-            entry.adj.pl && `Plural ${entry.adj.pl}`,
-            entry.adj.fpl && `feminin Plural ${entry.adj.fpl}`,
-          ]
-            .filter(Boolean)
-            .join(" · ")}
+          {adjectiveFormLines(entry).map((line, i) => (
+            <span key={line.label}>
+              {i > 0 && " · "}
+              {line.label}{" "}
+              <HitText
+                hit={line.keys.some((which) =>
+                  hasSlot(highlight, { kind: "adj", which }),
+                )}
+              >
+                {line.form}
+              </HitText>
+            </span>
+          ))}
         </p>
       )}
       {entry.note && <p className="notice">{entry.note}</p>}
@@ -84,7 +114,9 @@ export function VocabDetail() {
       </Link>
 
       {entry.pos === "verb" ? (
-        <VerbDetail vocab={entry}>{body}</VerbDetail>
+        <VerbDetail vocab={entry} highlight={highlight}>
+          {body}
+        </VerbDetail>
       ) : (
         <>
           <WordHead vocab={entry} />
