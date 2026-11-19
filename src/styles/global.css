@@ -1298,6 +1298,42 @@ fieldset.setting {
   border: 0;
 }
 
+/* Ergebnis der Sitzung: zwei große Kacheln nebeneinander */
+.result-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 8px 0 28px;
+}
+
+.result-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 12px 16px;
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.result-num {
+  font-family: var(--font-head);
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--turquoise-dark);
+}
+
+.result-tile.again .result-num {
+  color: var(--magenta);
+}
+
+.result-label {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
 /* Leiste der Zusammenfassung: gleiche Höhe wie die Leiste in der Sitzung, damit das Logo an derselben Stelle steht */
 .session-end-bar {
   min-height: 40px;

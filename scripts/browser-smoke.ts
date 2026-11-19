@@ -924,7 +924,7 @@ async function main() {
   check(
     "Beenden: Zusammenfassung, Neuladen behält den Fortschritt",
     summaryOk &&
-      /2 Karten geübt/.test(summary) &&
+      /2\s+Karten geübt/.test(summary) &&
       /Weiterlernen/.test(summary) &&
       cardsBefore >= 3 &&
       cardsAfter === cardsBefore,

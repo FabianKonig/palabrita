@@ -130,10 +130,19 @@ function StudySession({
           <span />
         </div>
         <h1>Sitzung beendet</h1>
-        <p>
-          {session.rated} {session.rated === 1 ? "Karte" : "Karten"} geübt,
-          davon {session.again}× „Nochmal“.
-        </p>
+        {/* Das Ergebnis ist das Wichtigste auf der Seite: zwei große Kacheln. */}
+        <div className="result-tiles">
+          <div className="result-tile">
+            <span className="result-num">{session.rated}</span>
+            <span className="result-label">
+              {session.rated === 1 ? "Karte geübt" : "Karten geübt"}
+            </span>
+          </div>
+          <div className="result-tile again">
+            <span className="result-num">{session.again}</span>
+            <span className="result-label">davon „Nochmal“</span>
+          </div>
+        </div>
         <div className="actions">
           <button
             type="button"
