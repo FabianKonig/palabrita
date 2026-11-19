@@ -34,6 +34,7 @@ Vor einem Commit mindestens `npm run lint`, `npm test` und `npm run build` ausf�
 
 ## Struktur
 
+- `src/features/legal/` Impressum und Datenschutz (Betreiberangaben in `operator.ts`; bei Änderung von Hosting oder externen Diensten Texte prüfen)
 - `src/` App-Code (`domain/` Fachlogik wie SRS/SM-2 und Konjugation, `features/`, `components/`, `hooks/`, `data/`, `styles/`)
 - `public/vocab/` Vokabeln als JSON je Thema; Schema: `scripts/vocab.schema.json`, Plan: `docs/vocab-plan.md`
 - `scripts/` Vokabel-Validierung (`validate-vocab.ts` mit `validateVocab.ts`, `vocabPlan.ts`, `vocab.schema.json`), Icon-Erzeugung (`make-icons.ts`), Browser-Smoke-Test (`browser-smoke.ts`)

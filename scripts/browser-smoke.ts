@@ -701,7 +701,7 @@ async function main() {
       const v = document.querySelector(".app-version");
       return !!v && /^Version: /.test(v.textContent)
         && !!(list.compareDocumentPosition(v) & Node.DOCUMENT_POSITION_FOLLOWING)
-        && [...list.querySelectorAll("a")].map((a) => a.textContent).join("|") === "Einstellungen|Legende";
+        && [...list.querySelectorAll("a")].map((a) => a.textContent).join("|") === "Einstellungen|Legende|Datenschutz|Impressum";
     })()`),
   );
   await send("Page.navigate", { url: `${BASE}#/settings` });

@@ -109,8 +109,11 @@ export function Add() {
         </button>
       </form>
       <p className="muted legend-hint">
-        Beim Nachschlagen wird nur dieses Wort an de.wiktionary.org gesendet,
-        falls es dort fehlt, an es.wiktionary.org. Du kannst es auch direkt{" "}
+        Beim Nachschlagen wird dieses Wort samt deiner IP-Adresse an
+        de.wiktionary.org gesendet, falls es dort fehlt, an es.wiktionary.org
+        (Wikimedia Foundation, USA; dort gilt möglicherweise kein gleichwertiger
+        Datenschutz). Mit Tippen auf „Nachschlagen“ willigst du darin ein. Du
+        kannst es auch direkt{" "}
         <button
           type="button"
           className="link-button"
@@ -123,7 +126,7 @@ export function Add() {
         >
           selbst eintragen
         </button>
-        .
+        . Mehr dazu in der <Link to="/privacy">Datenschutzerklärung</Link>.
       </p>
 
       {step.kind === "loading" && <p className="muted">Suche …</p>}
