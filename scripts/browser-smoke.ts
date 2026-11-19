@@ -1109,6 +1109,10 @@ async function main() {
     "Zusammenfassung",
   );
   const summary = await text();
+  // Vor dem Neuladen zählen: nur „Beenden“, kein „Weiterlernen“ (SPEC 14.1).
+  const summaryButtons = await evaluate<string[]>(
+    `[...document.querySelectorAll(".screen button")].map((b) => b.textContent.trim())`,
+  );
   const logoAfter = await evaluate<string>(logoPos);
   check(
     "Zusammenfassung: Logo steht an derselben Stelle wie in der Sitzung",
@@ -1124,10 +1128,10 @@ async function main() {
     "Beenden: Zusammenfassung, Neuladen behält den Fortschritt",
     summaryOk &&
       /2\s+Karten geübt/.test(summary) &&
-      /Weiterlernen/.test(summary) &&
+      JSON.stringify(summaryButtons) === JSON.stringify(["Beenden"]) &&
       cardsBefore >= 3 &&
       cardsAfter === cardsBefore,
-    `${cardsBefore} -> ${cardsAfter} Karten`,
+    `${cardsBefore} -> ${cardsAfter} Karten, Buttons: ${JSON.stringify(summaryButtons)}`,
   );
 
   // 8k. Endless session (SPEC 3.1, 12.1): 20 ratings in a row (the session has no end),

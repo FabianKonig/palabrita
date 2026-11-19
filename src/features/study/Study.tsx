@@ -59,8 +59,6 @@ function StudySession({
   const [revealed, setRevealed] = useState(false);
   const [finished, setFinished] = useState(false);
   const [conjugation, setConjugation] = useState(false);
-  // Bumped by "Weiterlernen": starts a fresh session with the same filters.
-  const [round, setRound] = useState(0);
   const spoken = useRef<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const busy = useRef(false);
@@ -107,7 +105,7 @@ function StudySession({
     return () => {
       cancelled = true;
     };
-  }, [maxLevel, vocab, filters, round]);
+  }, [maxLevel, vocab, filters]);
 
   if (error)
     return (
@@ -141,24 +139,7 @@ function StudySession({
           </div>
         </div>
         <div className="actions">
-          <button
-            type="button"
-            className="btn btn-block"
-            onClick={() => {
-              setSession(null);
-              setFinished(false);
-              setFlipped(false);
-              setRevealed(false);
-              setRound(round + 1);
-            }}
-          >
-            Weiterlernen
-          </button>
-          <button
-            type="button"
-            className="btn btn-block secondary"
-            onClick={onBack}
-          >
+          <button type="button" className="btn btn-block" onClick={onBack}>
             Beenden
           </button>
         </div>
