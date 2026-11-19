@@ -53,5 +53,6 @@ Vor einem Commit mindestens `npm run lint`, `npm test` und `npm run build` ausf�
 
 ## Stand
 
+- Es gibt noch keine Nutzer: Änderungen brauchen keine Abwärtskompatibilität und keine Migrationen (SPEC §2, Kompatibilität).
 - Der Code entspricht `docs/SPEC.md`, soweit dort nichts als „noch nicht umgesetzt“ steht (Liste: `docs/TASKS.md`). Weicht der Code von der Spezifikation ab, nicht stillschweigend eines von beiden ändern, sondern mit dem Nutzer klären.
 - Abnahme der Lernsitzung: `docs/ABNAHME.md`.
