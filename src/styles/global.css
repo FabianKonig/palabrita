@@ -875,11 +875,6 @@ table.forms th {
   color: var(--muted);
 }
 
-.vosotros {
-  display: block;
-  font-size: 0.7rem;
-}
-
 .form.irr {
   color: var(--magenta);
   font-weight: 700;

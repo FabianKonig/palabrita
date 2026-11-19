@@ -100,14 +100,7 @@ export function VerbTable({
             <tbody>
               {result.tenses[tense].map(({ person, form, irregular }) => (
                 <tr key={person}>
-                  <th scope="row">
-                    {PERSON_LABEL[person]}
-                    {person === "2p" && (
-                      <small className="vosotros">
-                        in Lateinamerika unüblich
-                      </small>
-                    )}
-                  </th>
+                  <th scope="row">{PERSON_LABEL[person]}</th>
                   <td>
                     <Form
                       info={{ form, irregular }}
