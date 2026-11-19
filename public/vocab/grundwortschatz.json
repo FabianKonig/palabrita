@@ -3452,7 +3452,7 @@
   },
   {
     "id": "v0798",
-    "de": ["Teil", "Seite"],
+    "de": ["Teil", "Stelle"],
     "es": "la parte",
     "pos": "noun",
     "level": "A2",
@@ -4508,7 +4508,7 @@
     "level": "B1",
     "topic": "grundwortschatz",
     "example": {
-      "es": "Nos vemos la siguiente semana.",
+      "es": "Nos vemos la semana siguiente.",
       "de": "Wir sehen uns nächste Woche."
     },
     "note": "Gleiche Form für m/f; Plural: siguientes.",

@@ -14,11 +14,12 @@ Stand: 18.11.2026 · Geprüft: alle **802 Einträge** in `public/vocab/*.json` (
 
 | Kategorie | Anzahl |
 | --- | --- |
-| Gesichert korrekt (inkl. 5 nur ergänzte Einträge) | 773 |
+| Gesichert korrekt (inkl. 5 nur ergänzte Einträge und 1 Grenzfall ohne Änderung) | 774 |
 | Falsch, **korrigiert** (Korrektur steht unten und ist bereits in den JSON-Dateien umgesetzt) | 24 |
-| Unsicher (nicht geändert, Entscheidung offen) | 5 |
+| Grenzfall, **nach Rückfrage geändert** | 4 |
+| Unsicher (offen) | 0 |
 
-Nach den Korrekturen sind damit 797 von 802 Einträgen nach meiner Prüfung vollständig korrekt; die 5 unsicheren sind keine klaren Fehler, sondern Grenzfälle.
+Damit sind nach meiner Prüfung alle 802 Einträge korrekt.
 
 ## Falsch – mit korrekter Lösung (alle umgesetzt)
 
@@ -78,15 +79,17 @@ Ursache bei reír/sonreír war der Generator (`src/domain/conjugation/conjugate.
 | v0382 | el sol | Heute scheint viel Sonne am Strand. | Heute ist es am Strand sehr sonnig. |
 | v0824 | el nivel | Mein Spanischniveau ist grundlegend. | Mein Spanisch ist noch auf Grundniveau. |
 
-## Unsicher (nicht geändert)
+## Grenzfälle (nach Rückfrage entschieden)
 
-| ID | Vokabel | Punkt | Einschätzung |
+Diese Einträge waren keine klaren Fehler. Entschieden am 19.11.2026:
+
+| ID | Vokabel | Punkt | Entscheidung |
 | --- | --- | --- | --- |
-| v0294 | la camisa | Bedeutung „Bluse“ | Wörterbücher führen *camisa (de mujer)* teils als Bluse; das Standardwort für Bluse ist aber *la blusa* (kommt in v0309 vor). Lernende könnten „Bluse“ → *camisa* abfragen. Empfehlung: „Bluse“ streichen, offen lassen bis du entscheidest. |
-| v0798 | la parte | Bedeutung „Seite“ | Nur in Wendungen (*de parte de* = seitens, *por otra parte* = andererseits). Als eigenständige Bedeutung fragwürdig; Empfehlung: durch „Stelle“ oder „Abschnitt“ ersetzen. |
-| v0868 | siguiente | „Nos vemos la siguiente semana.“ | Grammatisch richtig und in Mexiko verbreitet, idiomatischer wäre *la próxima semana* oder *la semana siguiente*. Kein Fehler, stilistisch schwächer. |
-| v0157 | el pozole | „Der rote Pozole“ | Das spanische Genus (m) stimmt. Das deutsche Genus von „Pozole“ ist nicht kodifiziert (kein Duden-Eintrag gefunden); „der“ ist plausibel (wie „der Eintopf“). |
-| v0399 | el huracán | „La temporada de huracanes empieza en junio.“ | Stimmt für Atlantik/Karibik (1. Juni). An Mexikos Pazifikküste beginnt die Saison am 15. Mai. Optional präzisieren: „… en el Caribe empieza en junio“. |
+| v0294 | la camisa | Bedeutung „Bluse“ (Standardwort ist *la blusa*, v0309) | **Geändert:** nur noch „Hemd“ |
+| v0798 | la parte | Bedeutung „Seite“ (nur in Wendungen wie *por otra parte*) | **Geändert:** „Teil, Stelle“ |
+| v0868 | siguiente | „Nos vemos la siguiente semana.“ (richtig, aber weniger idiomatisch) | **Geändert:** „Nos vemos la semana siguiente.“ |
+| v0399 | el huracán | „La temporada de huracanes empieza en junio.“ (an Mexikos Pazifikküste schon ab 15. Mai) | **Geändert:** „La temporada de huracanes en el Caribe empieza en junio.“ / „Die Hurrikansaison in der Karibik beginnt im Juni.“ |
+| v0157 | el pozole | „Der rote Pozole“ (deutsches Genus nicht kodifiziert) | **Unverändert:** spanisches Genus stimmt, „der“ ist plausibel; jetzt unter „Gesichert korrekt“ |
 
 ## Gesichert korrekt
 
@@ -193,7 +196,7 @@ Bemerkungen ohne Änderungsbedarf (geprüft, bewusst so gelassen):
 </details>
 
 <details>
-<summary><b>Essen & Trinken</b> (48)</summary>
+<summary><b>Essen & Trinken</b> (49)</summary>
 
 - v0007 **la comida** – Essen, Mahlzeit
 - v0008 **el taco** – Taco
@@ -229,6 +232,7 @@ Bemerkungen ohne Änderungsbedarf (geprüft, bewusst so gelassen):
 - v0154 **el aguacate** – Avocado
 - v0155 **el desayuno** – Frühstück
 - v0156 **el pepián** – Pepián
+- v0157 **el pozole** – Pozole
 - v0158 **el elote** – Maiskolben
 - v0159 **la masa** – Teig, Maisteig
 - v0160 **la receta** – Rezept
