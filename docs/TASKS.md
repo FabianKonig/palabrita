@@ -7,12 +7,24 @@ Diese Datei führt nur, was noch zu tun ist. Erledigtes steht in `docs/SPEC.md`,
 Die Spezifikation steht, ein Agent kann direkt umsetzen.
 
 - [ ] **Kartenauswahl und Lernmodell nach Anki** (spezifiziert 2026-11-19): SPEC §11, §12, §3.1, §10.2 und §14.1 („Für heute geschafft“). Umzusetzen:
-  - `domain/srs.ts`: Lernschritte 1 / 10 Min, Wiederlernphase mit einem Schritt von 10 Min (`lapses > 0`), Bonus für überfällige Karten, `MAX_INTERVAL`, Vorab-Wiederholung entfernen, `introduced` in `newCard`. `srs.test.ts` anpassen.
-  - `domain/types.ts`: `Card.introduced`.
-  - `domain/queue.ts`: `pickNext` nach §12.2 (Stufen 1 bis 4, Tageslimit 20, Mischung 4 zu 1, Gefährdung, Tagessperre, Zufallsgeber als Parameter, Rückgabe `done`), `MAX_LEARNING`, `sessionSeen` und Durchlauf entfernen. `queue.test.ts` neu schreiben, dabei die Fälle aus dem Gespräch abdecken: kein Wiedersehen derselben Reihenfolge, keine Schleife mit zwei Wörtern, ES→DE nie am selben Tag wie DE→ES.
-  - `features/study/Study.tsx`: `reviewsSinceNew`, `extraNew`, Seite „Für heute geschafft“.
-  - `scripts/browser-smoke.ts`: Prüfung „Nochmal nach 5 Min“ auf 1 bzw. 10 Min umstellen, „Für heute geschafft“ und „10 weitere neue Wörter“ prüfen.
-  - `docs/ABNAHME.md`: Kriterien 2 bis 5 und 8 beziehen sich auf das alte Modell und werden nach der Umsetzung neu geprüft und umgeschrieben.
+  - `domain/types.ts`: `Card.introduced`, `Settings.orderSeed`.
+  - `domain/srs.ts`: Lernschritte 1 / 10 Min (`LEARN_STEPS_MIN`, `RELEARN_STEP_MIN` statt `STEP_MINUTES`), Wiederlernphase mit einem Schritt von 10 Min (`lapses > 0`), Bonus für überfällige Karten, `MAX_INTERVAL`, Vorab-Wiederholung entfernen (`isEarly`, Sonderfall in `previewIntervals`), `introduced` in `newCard`. `srs.test.ts` anpassen.
+  - `domain/queue.ts`: `pickNext` nach §12.2 (Stufen 1 bis 4, `newLimit`, Mischung 4 zu 1, Gefährdung, Tagessperre, `position()`, Rückgabe `done`), `MAX_LEARNING`, `sessionSeen`, `newPass` und Durchlauf entfernen.
+  - `queue.test.ts` neu schreiben. Die Hilfsfunktionen dürfen Karten nicht über `newCard(…, NOW)` mit `introduced = NOW` bauen, sonst zählen sie zum heutigen Limit. Mindestens diese Fälle:
+    - Reihenfolge: fällige Lernkarte vor fälliger Wiederholung vor neuer Karte; vorgezogene Lernkarte (`due` in 15 Min) erst, wenn Stufe 1 und 2 leer sind; `due` in 25 Min → `done`.
+    - Mischung: 10 fällige Wiederholungen, neue Karten verfügbar, `reviewsSinceNew` 0 bis 3 → `review`, 4 → `new`.
+    - Limit: 20 heute eingeführte Karten → keine neue, `done` mit `moreNew = true`; `newLimit` 30 → neue Karte. Karten von gestern zählen nicht.
+    - Tagessperre: DE→ES heute bewertet → ES→DE (neu oder fällige Wiederholung) nicht gewählt, auch bei Sitzungsrichtung nur ES→DE; gestern bewertet → frei; Lernkarte ES→DE trotz heute bewertetem Partner gewählt.
+    - Position: zwei Seeds ergeben verschiedene Reihenfolgen, derselbe Seed immer dieselbe; die freigegebene ES→DE-Karte eines früheren Worts kommt vor DE→ES späterer Wörter; Niveaus gemischt.
+    - Gefährdung: 1-Tages-Karte 3 Tage überfällig vor 30-Tages-Karte 3 Tage überfällig.
+    - `lastShown`: wird übergangen, solange eine andere Karte aus Stufe 1 bis 3 da ist; einzige offene Lernkarte nach „Nochmal“ → erneut gezeigt, nicht `done`.
+    - Keine Schleife: Simulation mit nur 2 Vokabeln, Richtung beide, immer „Gewusst“, Uhr läuft je Bewertung 8 s → nach höchstens 4 Bewertungen `done`, kein Wechsel DE→ES/ES→DE desselben Worts am selben Tag.
+    - `null` nur bei leerer Auswahl; Auswahl mit Vokabeln, aber nichts mehr für heute → `done`.
+  - `data/` (Einstellungen): `orderSeed` beim ersten Anlegen würfeln (`DEFAULT_SETTINGS` kann ihn nicht enthalten); `cardRepo.test.ts` (Vergleich mit `DEFAULT_SETTINGS`) anpassen.
+  - `domain/stats.test.ts`: Card-Literal um `introduced` ergänzen (sonst bricht `npm run build`).
+  - `features/study/Study.tsx`: `seen`/`newPass` und die Prüfung `changed` (Vorab-Gewusst nicht speichern) entfernen; `reviewsSinceNew` nach `kind` der bewerteten Karte führen; `newLimit` mit Tag führen und um 04:00 zurücksetzen; `orderSeed` und `lastShown` übergeben; `done` von `null` unterscheiden (heute zeigt `!item` immer „Keine Karten“); Seite „Für heute geschafft“ mit „10 weitere neue Karten“.
+  - `scripts/browser-smoke.ts`: 8i („Nochmal nach 5 Min“, nutzt Stufe 4 und eine nicht fällige Wiederholungskarte) auf 1 bzw. 10 Min umstellen, Vorlage um `introduced` ergänzen; 8k („Endlose Sitzung … ohne Fertig für heute“) ersetzen durch eine Prüfung von „Für heute geschafft“ und „10 weitere neue Karten“; Logo-Prüfung (8e6) um „Für heute geschafft“ ergänzen.
+  - `docs/ABNAHME.md` nach der Umsetzung neu prüfen und umschreiben: Kriterien 1 („Std“ kommt nicht mehr vor), 2 bis 5 und 8, die Zahl der Prüfungen (Z. 5) und die manuelle Prüfung „Vorab-Wiederholung“ (Z. 22).
 
 ## Anforderungen ohne Detailspezifikation
 
@@ -33,5 +45,3 @@ Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), da
 - Annahmen, die ein Agent bei Unklarheit trifft, kommen als kurzer Eintrag in diesen Abschnitt.
 - Annahme (Formsuche, 2026-11-19): Eine Formzeile in der Verzeichnisliste zeigt unten in einer Zeile zuerst das Niveau-Kennzeichen und daneben die Bezeichnung („1. Pl. Presente + 1 weitere Form“). So steht das Kennzeichen wie bei normalen Zeilen als letzte Zeile links, und die Zeile hat genau drei Zeilen (SPEC §3.3a nennt das Kennzeichen bei Zeile 2).
 - Annahme (Formsuche): Der Formenindex wird erst gebaut, wenn der Suchtext mindestens 2 Zeichen hat (nicht beim Öffnen des Verzeichnisses). Gemessen mit 6-fach gedrosselter CPU: einmalig etwa 100 ms, jeder weitere Tastendruck liegt bei der Bildschirmfrequenz; auf einem echten Handy nicht geprüft.
-- Annahme (Kartenauswahl, 2026-11-19): „10 weitere neue Wörter“ gilt nur für die laufende Sitzung und wird nicht gespeichert. Wer am selben Tag eine neue Sitzung beginnt, sieht nach den fälligen Karten wieder „Für heute geschafft“ und tippt den Button erneut.
-- Annahme (Kartenauswahl): Bei gleicher Gefährdung zweier Wiederholungen entscheidet der Zufall, nicht das Fälligkeitsdatum.
