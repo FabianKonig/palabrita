@@ -39,7 +39,7 @@ export function Stats() {
 
   return (
     <div className="screen">
-      <PageTitle>Statistik</PageTitle>
+      <PageTitle brand>Statistik</PageTitle>
       <p className="muted">
         Gezählt werden Vokabeln bis Niveau {settings.maxLevel}.
       </p>

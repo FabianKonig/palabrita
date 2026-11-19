@@ -75,7 +75,7 @@ export function Dictionary() {
 
   return (
     <div className="screen">
-      <PageTitle>Verzeichnis</PageTitle>
+      <PageTitle brand>Verzeichnis</PageTitle>
 
       <section className="dict-section" aria-label="Wortliste">
         <input

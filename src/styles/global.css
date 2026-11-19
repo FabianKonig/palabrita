@@ -121,7 +121,13 @@ h1 {
   line-height: 1.15;
 }
 
-/* Seitenüberschrift mit Logo oben rechts */
+/* Überschrift der drei Tabs: Schriftzug wie im Logo (Farbe, Gewicht, Schatten), Größe unverändert */
+.page-title-brand {
+  color: var(--turquoise-dark);
+  font-weight: 800;
+  text-shadow: 0.025em 0.025em 0 var(--magenta);
+}
+
 /* Logo: Wimpel über dem Schriftzug, auf Seitenköpfen und in der Lernleiste gleich */
 .logo {
   display: flex;

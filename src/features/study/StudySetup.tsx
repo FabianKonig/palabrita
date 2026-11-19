@@ -47,7 +47,7 @@ export function StudySetup({
 
   return (
     <div className="screen">
-      <PageTitle>Lernen</PageTitle>
+      <PageTitle brand>Lernen</PageTitle>
       <div className="settings-form">
         <label className="setting">
           <span>Thema</span>
