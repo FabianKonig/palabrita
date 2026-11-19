@@ -30,7 +30,9 @@ export function Settings() {
   return (
     <div className="screen">
       <p>
-        <Link to="/more">← Mehr</Link>
+        <Link to="/more" className="back">
+          ← Mehr
+        </Link>
       </p>
       <h1>Einstellungen</h1>
       {error && (
