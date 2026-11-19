@@ -26,11 +26,12 @@ npm run preview                     # http://localhost:4173 (PWA/Offline nur hie
 npm test                            # vitest run
 npm run lint                        # eslint .
 npm run format                      # prettier --write .
+npm run format:check                # prettier --check . (wie in der CI)
 npm run validate:vocab              # Vokabeldateien prüfen
 npx tsx scripts/browser-smoke.ts    # Browser-Smoke-Test, braucht laufendes `npm run preview -- --port 4173` (Details im Kopf der Datei)
 ```
 
-Vor einem Commit mindestens `npm run lint`, `npm test` und `npm run build` ausführen; bei Änderungen an Vokabeln zusätzlich `npm run validate:vocab`.
+Vor einem Commit mindestens `npm run lint`, `npm run format:check`, `npm test` und `npm run build` ausführen; bei Änderungen an Vokabeln zusätzlich `npm run validate:vocab`.
 
 ## Struktur
 

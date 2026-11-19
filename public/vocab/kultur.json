@@ -1,9 +1,7 @@
 [
   {
     "id": "v0476",
-    "de": [
-      "feiern"
-    ],
+    "de": ["feiern"],
     "es": "celebrar",
     "pos": "verb",
     "level": "A1",
@@ -23,9 +21,7 @@
   },
   {
     "id": "v0477",
-    "de": [
-      "tanzen"
-    ],
+    "de": ["tanzen"],
     "es": "bailar",
     "pos": "verb",
     "level": "A1",
@@ -45,9 +41,7 @@
   },
   {
     "id": "v0478",
-    "de": [
-      "singen"
-    ],
+    "de": ["singen"],
     "es": "cantar",
     "pos": "verb",
     "level": "A1",
@@ -67,9 +61,7 @@
   },
   {
     "id": "v0479",
-    "de": [
-      "spielen"
-    ],
+    "de": ["spielen"],
     "es": "jugar",
     "pos": "verb",
     "level": "A1",
@@ -83,18 +75,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ue"
-      ],
+      "tags": ["ue"],
       "reflexive": false
     }
   },
   {
     "id": "v0480",
-    "de": [
-      "spielen (Instrument)",
-      "berühren"
-    ],
+    "de": ["spielen (Instrument)", "berühren"],
     "es": "tocar",
     "pos": "verb",
     "level": "A2",
@@ -114,9 +101,7 @@
   },
   {
     "id": "v0481",
-    "de": [
-      "malen"
-    ],
+    "de": ["malen"],
     "es": "pintar",
     "pos": "verb",
     "level": "A2",
@@ -136,9 +121,7 @@
   },
   {
     "id": "v0482",
-    "de": [
-      "gewinnen"
-    ],
+    "de": ["gewinnen"],
     "es": "ganar",
     "pos": "verb",
     "level": "A2",
@@ -158,9 +141,7 @@
   },
   {
     "id": "v0483",
-    "de": [
-      "beten"
-    ],
+    "de": ["beten"],
     "es": "rezar",
     "pos": "verb",
     "level": "B1",
@@ -180,10 +161,7 @@
   },
   {
     "id": "v0484",
-    "de": [
-      "Fest",
-      "Party"
-    ],
+    "de": ["Fest", "Party"],
     "es": "la fiesta",
     "pos": "noun",
     "level": "A1",
@@ -199,9 +177,7 @@
   },
   {
     "id": "v0485",
-    "de": [
-      "Musik"
-    ],
+    "de": ["Musik"],
     "es": "la música",
     "pos": "noun",
     "level": "A1",
@@ -217,9 +193,7 @@
   },
   {
     "id": "v0486",
-    "de": [
-      "Tanz"
-    ],
+    "de": ["Tanz"],
     "es": "el baile",
     "pos": "noun",
     "level": "A1",
@@ -235,9 +209,7 @@
   },
   {
     "id": "v0487",
-    "de": [
-      "Lied"
-    ],
+    "de": ["Lied"],
     "es": "la canción",
     "pos": "noun",
     "level": "A1",
@@ -253,9 +225,7 @@
   },
   {
     "id": "v0488",
-    "de": [
-      "Spiel (Wettkampf)"
-    ],
+    "de": ["Spiel (Wettkampf)"],
     "es": "el partido",
     "pos": "noun",
     "level": "A1",
@@ -271,10 +241,7 @@
   },
   {
     "id": "v0489",
-    "de": [
-      "Flagge",
-      "Fahne"
-    ],
+    "de": ["Flagge", "Fahne"],
     "es": "la bandera",
     "pos": "noun",
     "level": "A2",
@@ -290,10 +257,7 @@
   },
   {
     "id": "v0490",
-    "de": [
-      "Umzug",
-      "Parade"
-    ],
+    "de": ["Umzug", "Parade"],
     "es": "el desfile",
     "pos": "noun",
     "level": "A2",
@@ -309,9 +273,7 @@
   },
   {
     "id": "v0491",
-    "de": [
-      "Mariachi (Musiker und Musikgruppe)"
-    ],
+    "de": ["Mariachi (Musiker und Musikgruppe)"],
     "es": "el mariachi",
     "pos": "noun",
     "level": "A2",
@@ -327,9 +289,7 @@
   },
   {
     "id": "v0492",
-    "de": [
-      "Marimba"
-    ],
+    "de": ["Marimba"],
     "es": "la marimba",
     "pos": "noun",
     "level": "A2",
@@ -345,9 +305,7 @@
   },
   {
     "id": "v0493",
-    "de": [
-      "Piñata"
-    ],
+    "de": ["Piñata"],
     "es": "la piñata",
     "pos": "noun",
     "level": "A2",
@@ -363,9 +321,7 @@
   },
   {
     "id": "v0494",
-    "de": [
-      "Maske"
-    ],
+    "de": ["Maske"],
     "es": "la máscara",
     "pos": "noun",
     "level": "A2",
@@ -381,9 +337,7 @@
   },
   {
     "id": "v0495",
-    "de": [
-      "Kunsthandwerk"
-    ],
+    "de": ["Kunsthandwerk"],
     "es": "la artesanía",
     "pos": "noun",
     "level": "A2",
@@ -399,9 +353,7 @@
   },
   {
     "id": "v0496",
-    "de": [
-      "Huipil (traditionelle Bluse der Maya-Frauen)"
-    ],
+    "de": ["Huipil (traditionelle Bluse der Maya-Frauen)"],
     "es": "el huipil",
     "pos": "noun",
     "level": "B1",
@@ -417,10 +369,7 @@
   },
   {
     "id": "v0497",
-    "de": [
-      "Opfergabe",
-      "Altargabe"
-    ],
+    "de": ["Opfergabe", "Altargabe"],
     "es": "la ofrenda",
     "pos": "noun",
     "level": "B1",
@@ -436,9 +385,7 @@
   },
   {
     "id": "v0498",
-    "de": [
-      "Totenkopf"
-    ],
+    "de": ["Totenkopf"],
     "es": "la calavera",
     "pos": "noun",
     "level": "B1",
@@ -454,9 +401,7 @@
   },
   {
     "id": "v0499",
-    "de": [
-      "Posada (Weihnachtsfest vor Heiligabend)"
-    ],
+    "de": ["Posada (Weihnachtsfest vor Heiligabend)"],
     "es": "la posada",
     "pos": "noun",
     "level": "B1",
@@ -472,9 +417,7 @@
   },
   {
     "id": "v0500",
-    "de": [
-      "Prozession"
-    ],
+    "de": ["Prozession"],
     "es": "la procesión",
     "pos": "noun",
     "level": "B1",
@@ -490,9 +433,7 @@
   },
   {
     "id": "v0501",
-    "de": [
-      "Lucha libre (mexikanisches Wrestling)"
-    ],
+    "de": ["Lucha libre (mexikanisches Wrestling)"],
     "es": "la lucha libre",
     "pos": "noun",
     "level": "B1",
@@ -508,9 +449,7 @@
   },
   {
     "id": "v0502",
-    "de": [
-      "traditionell"
-    ],
+    "de": ["traditionell"],
     "es": "tradicional",
     "pos": "adj",
     "level": "A2",
@@ -526,10 +465,7 @@
   },
   {
     "id": "v0503",
-    "de": [
-      "beliebt",
-      "volkstümlich"
-    ],
+    "de": ["beliebt", "volkstümlich"],
     "es": "popular",
     "pos": "adj",
     "level": "A2",
@@ -545,9 +481,7 @@
   },
   {
     "id": "v0504",
-    "de": [
-      "bunt"
-    ],
+    "de": ["bunt"],
     "es": "colorido",
     "pos": "adj",
     "level": "A2",
@@ -563,9 +497,7 @@
   },
   {
     "id": "v0505",
-    "de": [
-      "religiös"
-    ],
+    "de": ["religiös"],
     "es": "religioso",
     "pos": "adj",
     "level": "A2",
@@ -581,10 +513,7 @@
   },
   {
     "id": "v0506",
-    "de": [
-      "handwerklich",
-      "kunsthandwerklich"
-    ],
+    "de": ["handwerklich", "kunsthandwerklich"],
     "es": "artesanal",
     "pos": "adj",
     "level": "A2",
@@ -600,9 +529,7 @@
   },
   {
     "id": "v0507",
-    "de": [
-      "katholisch"
-    ],
+    "de": ["katholisch"],
     "es": "católico",
     "pos": "adj",
     "level": "B1",
@@ -618,9 +545,7 @@
   },
   {
     "id": "v0508",
-    "de": [
-      "Es lebe Mexiko!"
-    ],
+    "de": ["Es lebe Mexiko!"],
     "es": "¡Viva México!",
     "pos": "phrase",
     "level": "A1",
@@ -636,9 +561,7 @@
   },
   {
     "id": "v0509",
-    "de": [
-      "Frohe Weihnachten!"
-    ],
+    "de": ["Frohe Weihnachten!"],
     "es": "¡Feliz Navidad!",
     "pos": "phrase",
     "level": "A1",
@@ -654,9 +577,7 @@
   },
   {
     "id": "v0510",
-    "de": [
-      "Frohes neues Jahr!"
-    ],
+    "de": ["Frohes neues Jahr!"],
     "es": "¡Feliz Año Nuevo!",
     "pos": "phrase",
     "level": "A1",
@@ -672,9 +593,7 @@
   },
   {
     "id": "v0511",
-    "de": [
-      "Was für schöne Musik!"
-    ],
+    "de": ["Was für schöne Musik!"],
     "es": "¡Qué bonita música!",
     "pos": "phrase",
     "level": "A1",
@@ -690,9 +609,7 @@
   },
   {
     "id": "v0512",
-    "de": [
-      "Gibt es heute ein Fest?"
-    ],
+    "de": ["Gibt es heute ein Fest?"],
     "es": "¿Hay una fiesta hoy?",
     "pos": "phrase",
     "level": "A1",
@@ -708,9 +625,7 @@
   },
   {
     "id": "v0513",
-    "de": [
-      "Der Día de Muertos ist am zweiten November."
-    ],
+    "de": ["Der Día de Muertos ist am zweiten November."],
     "es": "El Día de Muertos es el dos de noviembre.",
     "pos": "phrase",
     "level": "A1",
@@ -726,10 +641,7 @@
   },
   {
     "id": "v0514",
-    "de": [
-      "Wörtchen",
-      "kleines Wort"
-    ],
+    "de": ["Wörtchen", "kleines Wort"],
     "es": "la palabrita",
     "pos": "noun",
     "level": "A2",

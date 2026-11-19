@@ -1,10 +1,7 @@
 [
   {
     "id": "v0007",
-    "de": [
-      "Essen",
-      "Mahlzeit"
-    ],
+    "de": ["Essen", "Mahlzeit"],
     "es": "la comida",
     "pos": "noun",
     "level": "A1",
@@ -20,9 +17,7 @@
   },
   {
     "id": "v0008",
-    "de": [
-      "Taco"
-    ],
+    "de": ["Taco"],
     "es": "el taco",
     "pos": "noun",
     "level": "A1",
@@ -38,9 +33,7 @@
   },
   {
     "id": "v0009",
-    "de": [
-      "Tortilla"
-    ],
+    "de": ["Tortilla"],
     "es": "la tortilla",
     "pos": "noun",
     "level": "A1",
@@ -56,9 +49,7 @@
   },
   {
     "id": "v0010",
-    "de": [
-      "Bohne"
-    ],
+    "de": ["Bohne"],
     "es": "el frijol",
     "pos": "noun",
     "level": "A2",
@@ -74,9 +65,7 @@
   },
   {
     "id": "v0023",
-    "de": [
-      "essen"
-    ],
+    "de": ["essen"],
     "es": "comer",
     "pos": "verb",
     "level": "A1",
@@ -96,9 +85,7 @@
   },
   {
     "id": "v0126",
-    "de": [
-      "trinken"
-    ],
+    "de": ["trinken"],
     "es": "beber",
     "pos": "verb",
     "level": "A1",
@@ -118,10 +105,7 @@
   },
   {
     "id": "v0127",
-    "de": [
-      "bestellen",
-      "bitten um"
-    ],
+    "de": ["bestellen", "bitten um"],
     "es": "pedir",
     "pos": "verb",
     "level": "A1",
@@ -135,18 +119,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "i"
-      ],
+      "tags": ["i"],
       "reflexive": false
     }
   },
   {
     "id": "v0128",
-    "de": [
-      "trinken",
-      "nehmen"
-    ],
+    "de": ["trinken", "nehmen"],
     "es": "tomar",
     "pos": "verb",
     "level": "A1",
@@ -166,9 +145,7 @@
   },
   {
     "id": "v0129",
-    "de": [
-      "frühstücken"
-    ],
+    "de": ["frühstücken"],
     "es": "desayunar",
     "pos": "verb",
     "level": "A2",
@@ -188,9 +165,7 @@
   },
   {
     "id": "v0130",
-    "de": [
-      "zu Abend essen"
-    ],
+    "de": ["zu Abend essen"],
     "es": "cenar",
     "pos": "verb",
     "level": "A2",
@@ -210,10 +185,7 @@
   },
   {
     "id": "v0131",
-    "de": [
-      "zu Mittag essen",
-      "mittagessen"
-    ],
+    "de": ["zu Mittag essen", "mittagessen"],
     "es": "almorzar",
     "pos": "verb",
     "level": "A2",
@@ -227,17 +199,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ue"
-      ],
+      "tags": ["ue"],
       "reflexive": false
     }
   },
   {
     "id": "v0132",
-    "de": [
-      "kochen"
-    ],
+    "de": ["kochen"],
     "es": "cocinar",
     "pos": "verb",
     "level": "A2",
@@ -257,10 +225,7 @@
   },
   {
     "id": "v0133",
-    "de": [
-      "probieren",
-      "kosten"
-    ],
+    "de": ["probieren", "kosten"],
     "es": "probar",
     "pos": "verb",
     "level": "A2",
@@ -274,17 +239,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ue"
-      ],
+      "tags": ["ue"],
       "reflexive": false
     }
   },
   {
     "id": "v0134",
-    "de": [
-      "zubereiten"
-    ],
+    "de": ["zubereiten"],
     "es": "preparar",
     "pos": "verb",
     "level": "A2",
@@ -304,10 +265,7 @@
   },
   {
     "id": "v0135",
-    "de": [
-      "servieren",
-      "auftragen"
-    ],
+    "de": ["servieren", "auftragen"],
     "es": "servir",
     "pos": "verb",
     "level": "B1",
@@ -321,18 +279,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "i"
-      ],
+      "tags": ["i"],
       "reflexive": false
     }
   },
   {
     "id": "v0136",
-    "de": [
-      "kochen",
-      "sieden"
-    ],
+    "de": ["kochen", "sieden"],
     "es": "hervir",
     "pos": "verb",
     "level": "B1",
@@ -346,17 +299,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ie-i"
-      ],
+      "tags": ["ie-i"],
       "reflexive": false
     }
   },
   {
     "id": "v0138",
-    "de": [
-      "Milch"
-    ],
+    "de": ["Milch"],
     "es": "la leche",
     "pos": "noun",
     "level": "A1",
@@ -372,9 +321,7 @@
   },
   {
     "id": "v0139",
-    "de": [
-      "Kaffee"
-    ],
+    "de": ["Kaffee"],
     "es": "el café",
     "pos": "noun",
     "level": "A1",
@@ -390,9 +337,7 @@
   },
   {
     "id": "v0140",
-    "de": [
-      "Brot"
-    ],
+    "de": ["Brot"],
     "es": "el pan",
     "pos": "noun",
     "level": "A1",
@@ -408,9 +353,7 @@
   },
   {
     "id": "v0141",
-    "de": [
-      "Reis"
-    ],
+    "de": ["Reis"],
     "es": "el arroz",
     "pos": "noun",
     "level": "A1",
@@ -426,9 +369,7 @@
   },
   {
     "id": "v0142",
-    "de": [
-      "Fleisch"
-    ],
+    "de": ["Fleisch"],
     "es": "la carne",
     "pos": "noun",
     "level": "A1",
@@ -444,10 +385,7 @@
   },
   {
     "id": "v0143",
-    "de": [
-      "Hähnchen",
-      "Huhn"
-    ],
+    "de": ["Hähnchen", "Huhn"],
     "es": "el pollo",
     "pos": "noun",
     "level": "A1",
@@ -463,9 +401,7 @@
   },
   {
     "id": "v0144",
-    "de": [
-      "Saft"
-    ],
+    "de": ["Saft"],
     "es": "el jugo",
     "pos": "noun",
     "level": "A1",
@@ -481,9 +417,7 @@
   },
   {
     "id": "v0145",
-    "de": [
-      "Bier"
-    ],
+    "de": ["Bier"],
     "es": "la cerveza",
     "pos": "noun",
     "level": "A1",
@@ -499,9 +433,7 @@
   },
   {
     "id": "v0146",
-    "de": [
-      "Ei"
-    ],
+    "de": ["Ei"],
     "es": "el huevo",
     "pos": "noun",
     "level": "A1",
@@ -517,9 +449,7 @@
   },
   {
     "id": "v0147",
-    "de": [
-      "Käse"
-    ],
+    "de": ["Käse"],
     "es": "el queso",
     "pos": "noun",
     "level": "A1",
@@ -535,9 +465,7 @@
   },
   {
     "id": "v0148",
-    "de": [
-      "Tamal"
-    ],
+    "de": ["Tamal"],
     "es": "el tamal",
     "pos": "noun",
     "level": "A2",
@@ -553,9 +481,7 @@
   },
   {
     "id": "v0149",
-    "de": [
-      "Suppe"
-    ],
+    "de": ["Suppe"],
     "es": "la sopa",
     "pos": "noun",
     "level": "A2",
@@ -571,9 +497,7 @@
   },
   {
     "id": "v0150",
-    "de": [
-      "Salat"
-    ],
+    "de": ["Salat"],
     "es": "la ensalada",
     "pos": "noun",
     "level": "A2",
@@ -589,9 +513,7 @@
   },
   {
     "id": "v0151",
-    "de": [
-      "Rechnung"
-    ],
+    "de": ["Rechnung"],
     "es": "la cuenta",
     "pos": "noun",
     "level": "A2",
@@ -607,9 +529,7 @@
   },
   {
     "id": "v0152",
-    "de": [
-      "Trinkgeld"
-    ],
+    "de": ["Trinkgeld"],
     "es": "la propina",
     "pos": "noun",
     "level": "A2",
@@ -625,9 +545,7 @@
   },
   {
     "id": "v0153",
-    "de": [
-      "Kellner"
-    ],
+    "de": ["Kellner"],
     "es": "el mesero",
     "pos": "noun",
     "level": "A2",
@@ -643,9 +561,7 @@
   },
   {
     "id": "v0154",
-    "de": [
-      "Avocado"
-    ],
+    "de": ["Avocado"],
     "es": "el aguacate",
     "pos": "noun",
     "level": "A2",
@@ -661,9 +577,7 @@
   },
   {
     "id": "v0155",
-    "de": [
-      "Frühstück"
-    ],
+    "de": ["Frühstück"],
     "es": "el desayuno",
     "pos": "noun",
     "level": "A2",
@@ -679,9 +593,7 @@
   },
   {
     "id": "v0156",
-    "de": [
-      "Pepián"
-    ],
+    "de": ["Pepián"],
     "es": "el pepián",
     "pos": "noun",
     "level": "B1",
@@ -697,9 +609,7 @@
   },
   {
     "id": "v0157",
-    "de": [
-      "Pozole"
-    ],
+    "de": ["Pozole"],
     "es": "el pozole",
     "pos": "noun",
     "level": "B1",
@@ -715,9 +625,7 @@
   },
   {
     "id": "v0158",
-    "de": [
-      "Maiskolben"
-    ],
+    "de": ["Maiskolben"],
     "es": "el elote",
     "pos": "noun",
     "level": "B1",
@@ -733,10 +641,7 @@
   },
   {
     "id": "v0159",
-    "de": [
-      "Teig",
-      "Maisteig"
-    ],
+    "de": ["Teig", "Maisteig"],
     "es": "la masa",
     "pos": "noun",
     "level": "B1",
@@ -752,9 +657,7 @@
   },
   {
     "id": "v0160",
-    "de": [
-      "Rezept"
-    ],
+    "de": ["Rezept"],
     "es": "la receta",
     "pos": "noun",
     "level": "B1",
@@ -770,10 +673,7 @@
   },
   {
     "id": "v0161",
-    "de": [
-      "Imbiss",
-      "Snack"
-    ],
+    "de": ["Imbiss", "Snack"],
     "es": "el antojito",
     "pos": "noun",
     "level": "B1",
@@ -789,10 +689,7 @@
   },
   {
     "id": "v0162",
-    "de": [
-      "köstlich",
-      "lecker"
-    ],
+    "de": ["köstlich", "lecker"],
     "es": "delicioso",
     "pos": "adj",
     "level": "A1",
@@ -808,11 +705,7 @@
   },
   {
     "id": "v0163",
-    "de": [
-      "lecker",
-      "reich",
-      "gut"
-    ],
+    "de": ["lecker", "reich", "gut"],
     "es": "rico",
     "pos": "adj",
     "level": "A2",
@@ -828,9 +721,7 @@
   },
   {
     "id": "v0164",
-    "de": [
-      "scharf"
-    ],
+    "de": ["scharf"],
     "es": "picante",
     "pos": "adj",
     "level": "A2",
@@ -846,9 +737,7 @@
   },
   {
     "id": "v0165",
-    "de": [
-      "süß"
-    ],
+    "de": ["süß"],
     "es": "dulce",
     "pos": "adj",
     "level": "A2",
@@ -864,10 +753,7 @@
   },
   {
     "id": "v0166",
-    "de": [
-      "salzig",
-      "gesalzen"
-    ],
+    "de": ["salzig", "gesalzen"],
     "es": "salado",
     "pos": "adj",
     "level": "B1",
@@ -883,9 +769,7 @@
   },
   {
     "id": "v0167",
-    "de": [
-      "vegetarisch"
-    ],
+    "de": ["vegetarisch"],
     "es": "vegetariano",
     "pos": "adj",
     "level": "B1",
@@ -901,9 +785,7 @@
   },
   {
     "id": "v0168",
-    "de": [
-      "Guten Appetit!"
-    ],
+    "de": ["Guten Appetit!"],
     "es": "¡Buen provecho!",
     "pos": "phrase",
     "level": "A1",
@@ -919,9 +801,7 @@
   },
   {
     "id": "v0169",
-    "de": [
-      "Die Rechnung, bitte."
-    ],
+    "de": ["Die Rechnung, bitte."],
     "es": "La cuenta, por favor.",
     "pos": "phrase",
     "level": "A1",
@@ -937,9 +817,7 @@
   },
   {
     "id": "v0170",
-    "de": [
-      "Was empfehlen Sie mir?"
-    ],
+    "de": ["Was empfehlen Sie mir?"],
     "es": "¿Qué me recomienda?",
     "pos": "phrase",
     "level": "A2",
@@ -955,9 +833,7 @@
   },
   {
     "id": "v0171",
-    "de": [
-      "Ich habe Hunger."
-    ],
+    "de": ["Ich habe Hunger."],
     "es": "Tengo hambre.",
     "pos": "phrase",
     "level": "A2",

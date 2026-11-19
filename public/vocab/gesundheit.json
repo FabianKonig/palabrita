@@ -1,9 +1,7 @@
 [
   {
     "id": "v0015",
-    "de": [
-      "Apotheke"
-    ],
+    "de": ["Apotheke"],
     "es": "la farmacia",
     "pos": "noun",
     "level": "A1",
@@ -19,9 +17,7 @@
   },
   {
     "id": "v0016",
-    "de": [
-      "Arzt"
-    ],
+    "de": ["Arzt"],
     "es": "el médico",
     "pos": "noun",
     "level": "A2",
@@ -37,10 +33,7 @@
   },
   {
     "id": "v0326",
-    "de": [
-      "wehtun",
-      "schmerzen"
-    ],
+    "de": ["wehtun", "schmerzen"],
     "es": "doler",
     "pos": "verb",
     "level": "A1",
@@ -54,17 +47,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ue"
-      ],
+      "tags": ["ue"],
       "reflexive": false
     }
   },
   {
     "id": "v0327",
-    "de": [
-      "sich fühlen"
-    ],
+    "de": ["sich fühlen"],
     "es": "sentirse",
     "pos": "verb",
     "level": "A1",
@@ -78,17 +67,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ie-i"
-      ],
+      "tags": ["ie-i"],
       "reflexive": true
     }
   },
   {
     "id": "v0328",
-    "de": [
-      "brauchen"
-    ],
+    "de": ["brauchen"],
     "es": "necesitar",
     "pos": "verb",
     "level": "A1",
@@ -108,9 +93,7 @@
   },
   {
     "id": "v0329",
-    "de": [
-      "helfen"
-    ],
+    "de": ["helfen"],
     "es": "ayudar",
     "pos": "verb",
     "level": "A1",
@@ -130,9 +113,7 @@
   },
   {
     "id": "v0330",
-    "de": [
-      "husten"
-    ],
+    "de": ["husten"],
     "es": "toser",
     "pos": "verb",
     "level": "A2",
@@ -152,9 +133,7 @@
   },
   {
     "id": "v0331",
-    "de": [
-      "atmen"
-    ],
+    "de": ["atmen"],
     "es": "respirar",
     "pos": "verb",
     "level": "A2",
@@ -174,10 +153,7 @@
   },
   {
     "id": "v0332",
-    "de": [
-      "sich übergeben",
-      "erbrechen"
-    ],
+    "de": ["sich übergeben", "erbrechen"],
     "es": "vomitar",
     "pos": "verb",
     "level": "A2",
@@ -197,10 +173,7 @@
   },
   {
     "id": "v0333",
-    "de": [
-      "ohnmächtig werden",
-      "in Ohnmacht fallen"
-    ],
+    "de": ["ohnmächtig werden", "in Ohnmacht fallen"],
     "es": "desmayarse",
     "pos": "verb",
     "level": "B1",
@@ -220,9 +193,7 @@
   },
   {
     "id": "v0334",
-    "de": [
-      "Kopf"
-    ],
+    "de": ["Kopf"],
     "es": "la cabeza",
     "pos": "noun",
     "level": "A1",
@@ -238,9 +209,7 @@
   },
   {
     "id": "v0335",
-    "de": [
-      "Hand"
-    ],
+    "de": ["Hand"],
     "es": "la mano",
     "pos": "noun",
     "level": "A1",
@@ -256,9 +225,7 @@
   },
   {
     "id": "v0336",
-    "de": [
-      "Arm"
-    ],
+    "de": ["Arm"],
     "es": "el brazo",
     "pos": "noun",
     "level": "A1",
@@ -274,9 +241,7 @@
   },
   {
     "id": "v0337",
-    "de": [
-      "Bein"
-    ],
+    "de": ["Bein"],
     "es": "la pierna",
     "pos": "noun",
     "level": "A1",
@@ -292,10 +257,7 @@
   },
   {
     "id": "v0338",
-    "de": [
-      "Schmerz",
-      "Schmerzen"
-    ],
+    "de": ["Schmerz", "Schmerzen"],
     "es": "el dolor",
     "pos": "noun",
     "level": "A1",
@@ -311,9 +273,7 @@
   },
   {
     "id": "v0339",
-    "de": [
-      "Fieber"
-    ],
+    "de": ["Fieber"],
     "es": "la fiebre",
     "pos": "noun",
     "level": "A1",
@@ -329,10 +289,7 @@
   },
   {
     "id": "v0340",
-    "de": [
-      "Medizin",
-      "Medikament"
-    ],
+    "de": ["Medizin", "Medikament"],
     "es": "la medicina",
     "pos": "noun",
     "level": "A1",
@@ -348,9 +305,7 @@
   },
   {
     "id": "v0341",
-    "de": [
-      "Magen"
-    ],
+    "de": ["Magen"],
     "es": "el estómago",
     "pos": "noun",
     "level": "A2",
@@ -366,9 +321,7 @@
   },
   {
     "id": "v0342",
-    "de": [
-      "Hals"
-    ],
+    "de": ["Hals"],
     "es": "la garganta",
     "pos": "noun",
     "level": "A2",
@@ -384,9 +337,7 @@
   },
   {
     "id": "v0343",
-    "de": [
-      "Krankenhaus"
-    ],
+    "de": ["Krankenhaus"],
     "es": "el hospital",
     "pos": "noun",
     "level": "A2",
@@ -402,9 +353,7 @@
   },
   {
     "id": "v0344",
-    "de": [
-      "Krankenwagen"
-    ],
+    "de": ["Krankenwagen"],
     "es": "la ambulancia",
     "pos": "noun",
     "level": "A2",
@@ -420,9 +369,7 @@
   },
   {
     "id": "v0345",
-    "de": [
-      "Tablette"
-    ],
+    "de": ["Tablette"],
     "es": "la pastilla",
     "pos": "noun",
     "level": "A2",
@@ -438,9 +385,7 @@
   },
   {
     "id": "v0346",
-    "de": [
-      "Allergie"
-    ],
+    "de": ["Allergie"],
     "es": "la alergia",
     "pos": "noun",
     "level": "A2",
@@ -456,9 +401,7 @@
   },
   {
     "id": "v0347",
-    "de": [
-      "Husten"
-    ],
+    "de": ["Husten"],
     "es": "la tos",
     "pos": "noun",
     "level": "A2",
@@ -474,9 +417,7 @@
   },
   {
     "id": "v0348",
-    "de": [
-      "Erkältung"
-    ],
+    "de": ["Erkältung"],
     "es": "el resfriado",
     "pos": "noun",
     "level": "B1",
@@ -492,9 +433,7 @@
   },
   {
     "id": "v0349",
-    "de": [
-      "Wunde"
-    ],
+    "de": ["Wunde"],
     "es": "la herida",
     "pos": "noun",
     "level": "B1",
@@ -510,9 +449,7 @@
   },
   {
     "id": "v0350",
-    "de": [
-      "Notfall"
-    ],
+    "de": ["Notfall"],
     "es": "la emergencia",
     "pos": "noun",
     "level": "B1",
@@ -528,9 +465,7 @@
   },
   {
     "id": "v0351",
-    "de": [
-      "Versicherung"
-    ],
+    "de": ["Versicherung"],
     "es": "el seguro",
     "pos": "noun",
     "level": "B1",
@@ -546,9 +481,7 @@
   },
   {
     "id": "v0352",
-    "de": [
-      "krank"
-    ],
+    "de": ["krank"],
     "es": "enfermo",
     "pos": "adj",
     "level": "A1",
@@ -564,9 +497,7 @@
   },
   {
     "id": "v0353",
-    "de": [
-      "schwindelig"
-    ],
+    "de": ["schwindelig"],
     "es": "mareado",
     "pos": "adj",
     "level": "A2",
@@ -582,9 +513,7 @@
   },
   {
     "id": "v0354",
-    "de": [
-      "allergisch"
-    ],
+    "de": ["allergisch"],
     "es": "alérgico",
     "pos": "adj",
     "level": "A2",
@@ -600,9 +529,7 @@
   },
   {
     "id": "v0355",
-    "de": [
-      "gesund"
-    ],
+    "de": ["gesund"],
     "es": "sano",
     "pos": "adj",
     "level": "A2",
@@ -618,10 +545,7 @@
   },
   {
     "id": "v0356",
-    "de": [
-      "ernst",
-      "schwer"
-    ],
+    "de": ["ernst", "schwer"],
     "es": "grave",
     "pos": "adj",
     "level": "B1",
@@ -637,9 +561,7 @@
   },
   {
     "id": "v0357",
-    "de": [
-      "verletzt"
-    ],
+    "de": ["verletzt"],
     "es": "herido",
     "pos": "adj",
     "level": "B1",
@@ -655,9 +577,7 @@
   },
   {
     "id": "v0358",
-    "de": [
-      "Hilfe"
-    ],
+    "de": ["Hilfe"],
     "es": "¡Ayuda!",
     "pos": "phrase",
     "level": "A1",
@@ -673,9 +593,7 @@
   },
   {
     "id": "v0359",
-    "de": [
-      "Ich habe Kopfschmerzen"
-    ],
+    "de": ["Ich habe Kopfschmerzen"],
     "es": "Me duele la cabeza.",
     "pos": "phrase",
     "level": "A1",
@@ -691,9 +609,7 @@
   },
   {
     "id": "v0360",
-    "de": [
-      "Mir geht es schlecht"
-    ],
+    "de": ["Mir geht es schlecht"],
     "es": "Me siento mal.",
     "pos": "phrase",
     "level": "A1",
@@ -709,9 +625,7 @@
   },
   {
     "id": "v0361",
-    "de": [
-      "Wo tut es Ihnen weh"
-    ],
+    "de": ["Wo tut es Ihnen weh"],
     "es": "¿Dónde le duele?",
     "pos": "phrase",
     "level": "A2",
@@ -727,9 +641,7 @@
   },
   {
     "id": "v0362",
-    "de": [
-      "Rufen Sie einen Krankenwagen"
-    ],
+    "de": ["Rufen Sie einen Krankenwagen"],
     "es": "Llame a una ambulancia.",
     "pos": "phrase",
     "level": "A2",
@@ -745,9 +657,7 @@
   },
   {
     "id": "v0363",
-    "de": [
-      "Ich bin allergisch gegen Penicillin"
-    ],
+    "de": ["Ich bin allergisch gegen Penicillin"],
     "es": "Tengo alergia a la penicilina.",
     "pos": "phrase",
     "level": "B1",

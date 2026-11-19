@@ -1,9 +1,7 @@
 [
   {
     "id": "v0076",
-    "de": [
-      "warten"
-    ],
+    "de": ["warten"],
     "es": "esperar",
     "pos": "verb",
     "level": "A1",
@@ -23,10 +21,7 @@
   },
   {
     "id": "v0077",
-    "de": [
-      "anfangen",
-      "beginnen"
-    ],
+    "de": ["anfangen", "beginnen"],
     "es": "empezar",
     "pos": "verb",
     "level": "A1",
@@ -40,17 +35,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ie"
-      ],
+      "tags": ["ie"],
       "reflexive": false
     }
   },
   {
     "id": "v0078",
-    "de": [
-      "dauern"
-    ],
+    "de": ["dauern"],
     "es": "durar",
     "pos": "verb",
     "level": "A2",
@@ -70,10 +61,7 @@
   },
   {
     "id": "v0079",
-    "de": [
-      "brauchen (zeitlich)",
-      "sich verspäten"
-    ],
+    "de": ["brauchen (zeitlich)", "sich verspäten"],
     "es": "tardar",
     "pos": "verb",
     "level": "A2",
@@ -93,10 +81,7 @@
   },
   {
     "id": "v0080",
-    "de": [
-      "beenden",
-      "enden"
-    ],
+    "de": ["beenden", "enden"],
     "es": "terminar",
     "pos": "verb",
     "level": "A2",
@@ -116,9 +101,7 @@
   },
   {
     "id": "v0081",
-    "de": [
-      "aufwachen"
-    ],
+    "de": ["aufwachen"],
     "es": "despertarse",
     "pos": "verb",
     "level": "B1",
@@ -132,17 +115,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ie"
-      ],
+      "tags": ["ie"],
       "reflexive": true
     }
   },
   {
     "id": "v0082",
-    "de": [
-      "Tag"
-    ],
+    "de": ["Tag"],
     "es": "el día",
     "pos": "noun",
     "level": "A1",
@@ -158,9 +137,7 @@
   },
   {
     "id": "v0083",
-    "de": [
-      "Woche"
-    ],
+    "de": ["Woche"],
     "es": "la semana",
     "pos": "noun",
     "level": "A1",
@@ -176,9 +153,7 @@
   },
   {
     "id": "v0084",
-    "de": [
-      "Monat"
-    ],
+    "de": ["Monat"],
     "es": "el mes",
     "pos": "noun",
     "level": "A1",
@@ -194,9 +169,7 @@
   },
   {
     "id": "v0085",
-    "de": [
-      "Jahr"
-    ],
+    "de": ["Jahr"],
     "es": "el año",
     "pos": "noun",
     "level": "A1",
@@ -212,10 +185,7 @@
   },
   {
     "id": "v0086",
-    "de": [
-      "Stunde",
-      "Uhrzeit"
-    ],
+    "de": ["Stunde", "Uhrzeit"],
     "es": "la hora",
     "pos": "noun",
     "level": "A1",
@@ -231,10 +201,7 @@
   },
   {
     "id": "v0087",
-    "de": [
-      "Morgen",
-      "Vormittag"
-    ],
+    "de": ["Morgen", "Vormittag"],
     "es": "la mañana",
     "pos": "noun",
     "level": "A1",
@@ -250,9 +217,7 @@
   },
   {
     "id": "v0088",
-    "de": [
-      "Nachmittag"
-    ],
+    "de": ["Nachmittag"],
     "es": "la tarde",
     "pos": "noun",
     "level": "A1",
@@ -268,10 +233,7 @@
   },
   {
     "id": "v0089",
-    "de": [
-      "Nacht",
-      "Abend (spät)"
-    ],
+    "de": ["Nacht", "Abend (spät)"],
     "es": "la noche",
     "pos": "noun",
     "level": "A1",
@@ -287,9 +249,7 @@
   },
   {
     "id": "v0090",
-    "de": [
-      "Minute"
-    ],
+    "de": ["Minute"],
     "es": "el minuto",
     "pos": "noun",
     "level": "A2",
@@ -305,9 +265,7 @@
   },
   {
     "id": "v0091",
-    "de": [
-      "Wochenende"
-    ],
+    "de": ["Wochenende"],
     "es": "el fin de semana",
     "pos": "noun",
     "level": "A2",
@@ -323,10 +281,7 @@
   },
   {
     "id": "v0092",
-    "de": [
-      "Uhr",
-      "Armbanduhr"
-    ],
+    "de": ["Uhr", "Armbanduhr"],
     "es": "el reloj",
     "pos": "noun",
     "level": "A2",
@@ -342,9 +297,7 @@
   },
   {
     "id": "v0093",
-    "de": [
-      "Montag"
-    ],
+    "de": ["Montag"],
     "es": "el lunes",
     "pos": "noun",
     "level": "A2",
@@ -360,9 +313,7 @@
   },
   {
     "id": "v0094",
-    "de": [
-      "Samstag"
-    ],
+    "de": ["Samstag"],
     "es": "el sábado",
     "pos": "noun",
     "level": "A2",
@@ -378,9 +329,7 @@
   },
   {
     "id": "v0095",
-    "de": [
-      "Sonntag"
-    ],
+    "de": ["Sonntag"],
     "es": "el domingo",
     "pos": "noun",
     "level": "A2",
@@ -396,9 +345,7 @@
   },
   {
     "id": "v0096",
-    "de": [
-      "Mittag"
-    ],
+    "de": ["Mittag"],
     "es": "el mediodía",
     "pos": "noun",
     "level": "B1",
@@ -414,9 +361,7 @@
   },
   {
     "id": "v0097",
-    "de": [
-      "Geburtstag"
-    ],
+    "de": ["Geburtstag"],
     "es": "el cumpleaños",
     "pos": "noun",
     "level": "B1",
@@ -432,9 +377,7 @@
   },
   {
     "id": "v0098",
-    "de": [
-      "vier-und-fünfzig"
-    ],
+    "de": ["vier-und-fünfzig"],
     "es": "cincuenta y cuatro",
     "pos": "num",
     "level": "A1",
@@ -450,9 +393,7 @@
   },
   {
     "id": "v0099",
-    "de": [
-      "drei-hundert-sieben-und-zwanzig"
-    ],
+    "de": ["drei-hundert-sieben-und-zwanzig"],
     "es": "trescientos veintisiete",
     "pos": "num",
     "level": "A1",
@@ -468,9 +409,7 @@
   },
   {
     "id": "v0100",
-    "de": [
-      "zwei-tausend-vier-hundert-acht-und-achtzig"
-    ],
+    "de": ["zwei-tausend-vier-hundert-acht-und-achtzig"],
     "es": "dos mil cuatrocientos ochenta y ocho",
     "pos": "num",
     "level": "A1",
@@ -486,9 +425,7 @@
   },
   {
     "id": "v0101",
-    "de": [
-      "acht-hundert-ein-und-sechzig"
-    ],
+    "de": ["acht-hundert-ein-und-sechzig"],
     "es": "ochocientos sesenta y uno",
     "pos": "num",
     "level": "A1",
@@ -504,9 +441,7 @@
   },
   {
     "id": "v0102",
-    "de": [
-      "heute"
-    ],
+    "de": ["heute"],
     "es": "hoy",
     "pos": "adv",
     "level": "A1",
@@ -522,9 +457,7 @@
   },
   {
     "id": "v0103",
-    "de": [
-      "jetzt"
-    ],
+    "de": ["jetzt"],
     "es": "ahora",
     "pos": "adv",
     "level": "A1",
@@ -540,9 +473,7 @@
   },
   {
     "id": "v0104",
-    "de": [
-      "neun-und-achtzig"
-    ],
+    "de": ["neun-und-achtzig"],
     "es": "ochenta y nueve",
     "pos": "num",
     "level": "A2",
@@ -558,9 +489,7 @@
   },
   {
     "id": "v0105",
-    "de": [
-      "sieben-hundert-drei-und-fünfzig"
-    ],
+    "de": ["sieben-hundert-drei-und-fünfzig"],
     "es": "setecientos cincuenta y tres",
     "pos": "num",
     "level": "A2",
@@ -576,9 +505,7 @@
   },
   {
     "id": "v0106",
-    "de": [
-      "vier-tausend-fünf-hundert-zwölf"
-    ],
+    "de": ["vier-tausend-fünf-hundert-zwölf"],
     "es": "cuatro mil quinientos doce",
     "pos": "num",
     "level": "A2",
@@ -594,9 +521,7 @@
   },
   {
     "id": "v0107",
-    "de": [
-      "ein-hundert-sechs-und-achtzig"
-    ],
+    "de": ["ein-hundert-sechs-und-achtzig"],
     "es": "ciento ochenta y seis",
     "pos": "num",
     "level": "A2",
@@ -612,9 +537,7 @@
   },
   {
     "id": "v0108",
-    "de": [
-      "gestern"
-    ],
+    "de": ["gestern"],
     "es": "ayer",
     "pos": "adv",
     "level": "A2",
@@ -630,9 +553,7 @@
   },
   {
     "id": "v0109",
-    "de": [
-      "früh"
-    ],
+    "de": ["früh"],
     "es": "temprano",
     "pos": "adv",
     "level": "A2",
@@ -648,9 +569,7 @@
   },
   {
     "id": "v0110",
-    "de": [
-      "drei-und-zwanzig-tausend-ein-hundert-elf"
-    ],
+    "de": ["drei-und-zwanzig-tausend-ein-hundert-elf"],
     "es": "veintitrés mil ciento once",
     "pos": "num",
     "level": "B1",
@@ -666,9 +585,7 @@
   },
   {
     "id": "v0111",
-    "de": [
-      "erster"
-    ],
+    "de": ["erster"],
     "es": "primero",
     "pos": "num",
     "level": "B1",
@@ -684,9 +601,7 @@
   },
   {
     "id": "v0112",
-    "de": [
-      "immer"
-    ],
+    "de": ["immer"],
     "es": "siempre",
     "pos": "adv",
     "level": "B1",
@@ -702,10 +617,7 @@
   },
   {
     "id": "v0113",
-    "de": [
-      "später",
-      "danach"
-    ],
+    "de": ["später", "danach"],
     "es": "luego",
     "pos": "adv",
     "level": "B1",
@@ -721,9 +633,7 @@
   },
   {
     "id": "v0114",
-    "de": [
-      "Wie spät ist es?"
-    ],
+    "de": ["Wie spät ist es?"],
     "es": "¿Qué hora es?",
     "pos": "phrase",
     "level": "A1",
@@ -739,9 +649,7 @@
   },
   {
     "id": "v0115",
-    "de": [
-      "Welcher Tag ist heute?"
-    ],
+    "de": ["Welcher Tag ist heute?"],
     "es": "¿Qué día es hoy?",
     "pos": "phrase",
     "level": "A2",
@@ -757,9 +665,7 @@
   },
   {
     "id": "v0116",
-    "de": [
-      "Es ist drei Uhr."
-    ],
+    "de": ["Es ist drei Uhr."],
     "es": "Son las tres.",
     "pos": "phrase",
     "level": "A2",
@@ -775,9 +681,7 @@
   },
   {
     "id": "v0117",
-    "de": [
-      "Um wie viel Uhr öffnet es?"
-    ],
+    "de": ["Um wie viel Uhr öffnet es?"],
     "es": "¿A qué hora abre?",
     "pos": "phrase",
     "level": "B1",

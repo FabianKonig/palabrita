@@ -1,9 +1,7 @@
 [
   {
     "id": "v0019",
-    "de": [
-      "Pyramide"
-    ],
+    "de": ["Pyramide"],
     "es": "la pirámide",
     "pos": "noun",
     "level": "A2",
@@ -19,9 +17,7 @@
   },
   {
     "id": "v0020",
-    "de": [
-      "Mais"
-    ],
+    "de": ["Mais"],
     "es": "el maíz",
     "pos": "noun",
     "level": "A2",
@@ -37,9 +33,7 @@
   },
   {
     "id": "v0526",
-    "de": [
-      "Geschichte"
-    ],
+    "de": ["Geschichte"],
     "es": "la historia",
     "pos": "noun",
     "level": "A1",
@@ -55,9 +49,7 @@
   },
   {
     "id": "v0527",
-    "de": [
-      "Tempel"
-    ],
+    "de": ["Tempel"],
     "es": "el templo",
     "pos": "noun",
     "level": "A1",
@@ -73,9 +65,7 @@
   },
   {
     "id": "v0528",
-    "de": [
-      "Stein"
-    ],
+    "de": ["Stein"],
     "es": "la piedra",
     "pos": "noun",
     "level": "A1",
@@ -91,9 +81,7 @@
   },
   {
     "id": "v0529",
-    "de": [
-      "Gott"
-    ],
+    "de": ["Gott"],
     "es": "el dios",
     "pos": "noun",
     "level": "A1",
@@ -109,9 +97,7 @@
   },
   {
     "id": "v0530",
-    "de": [
-      "König"
-    ],
+    "de": ["König"],
     "es": "el rey",
     "pos": "noun",
     "level": "A1",
@@ -127,9 +113,7 @@
   },
   {
     "id": "v0531",
-    "de": [
-      "Buch"
-    ],
+    "de": ["Buch"],
     "es": "el libro",
     "pos": "noun",
     "level": "A1",
@@ -145,10 +129,7 @@
   },
   {
     "id": "v0532",
-    "de": [
-      "Sprache",
-      "Zunge"
-    ],
+    "de": ["Sprache", "Zunge"],
     "es": "la lengua",
     "pos": "noun",
     "level": "A1",
@@ -164,9 +145,7 @@
   },
   {
     "id": "v0533",
-    "de": [
-      "Kalender"
-    ],
+    "de": ["Kalender"],
     "es": "el calendario",
     "pos": "noun",
     "level": "A1",
@@ -182,9 +161,7 @@
   },
   {
     "id": "v0534",
-    "de": [
-      "Krieg"
-    ],
+    "de": ["Krieg"],
     "es": "la guerra",
     "pos": "noun",
     "level": "A1",
@@ -200,9 +177,7 @@
   },
   {
     "id": "v0535",
-    "de": [
-      "Ruinen"
-    ],
+    "de": ["Ruinen"],
     "es": "las ruinas",
     "pos": "noun",
     "level": "A2",
@@ -218,9 +193,7 @@
   },
   {
     "id": "v0536",
-    "de": [
-      "Priester"
-    ],
+    "de": ["Priester"],
     "es": "el sacerdote",
     "pos": "noun",
     "level": "A2",
@@ -236,9 +209,7 @@
   },
   {
     "id": "v0537",
-    "de": [
-      "Göttin"
-    ],
+    "de": ["Göttin"],
     "es": "la diosa",
     "pos": "noun",
     "level": "A2",
@@ -254,10 +225,7 @@
   },
   {
     "id": "v0538",
-    "de": [
-      "Hieroglyphe",
-      "Schriftzeichen"
-    ],
+    "de": ["Hieroglyphe", "Schriftzeichen"],
     "es": "el jeroglífico",
     "pos": "noun",
     "level": "A2",
@@ -273,9 +241,7 @@
   },
   {
     "id": "v0539",
-    "de": [
-      "Sprache"
-    ],
+    "de": ["Sprache"],
     "es": "el idioma",
     "pos": "noun",
     "level": "A2",
@@ -291,9 +257,7 @@
   },
   {
     "id": "v0540",
-    "de": [
-      "Eroberer"
-    ],
+    "de": ["Eroberer"],
     "es": "el conquistador",
     "pos": "noun",
     "level": "A2",
@@ -309,10 +273,7 @@
   },
   {
     "id": "v0541",
-    "de": [
-      "Opfer",
-      "Opfergabe"
-    ],
+    "de": ["Opfer", "Opfergabe"],
     "es": "el sacrificio",
     "pos": "noun",
     "level": "B1",
@@ -328,9 +289,7 @@
   },
   {
     "id": "v0542",
-    "de": [
-      "Eroberung"
-    ],
+    "de": ["Eroberung"],
     "es": "la conquista",
     "pos": "noun",
     "level": "B1",
@@ -346,10 +305,7 @@
   },
   {
     "id": "v0543",
-    "de": [
-      "Kodex",
-      "Handschrift"
-    ],
+    "de": ["Kodex", "Handschrift"],
     "es": "el códice",
     "pos": "noun",
     "level": "B1",
@@ -365,9 +321,7 @@
   },
   {
     "id": "v0544",
-    "de": [
-      "Reich"
-    ],
+    "de": ["Reich"],
     "es": "el imperio",
     "pos": "noun",
     "level": "B1",
@@ -383,9 +337,7 @@
   },
   {
     "id": "v0545",
-    "de": [
-      "Kolonie"
-    ],
+    "de": ["Kolonie"],
     "es": "la colonia",
     "pos": "noun",
     "level": "B1",
@@ -401,10 +353,7 @@
   },
   {
     "id": "v0546",
-    "de": [
-      "bauen",
-      "errichten"
-    ],
+    "de": ["bauen", "errichten"],
     "es": "construir",
     "pos": "verb",
     "level": "A2",
@@ -418,17 +367,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "y"
-      ],
+      "tags": ["y"],
       "reflexive": false
     }
   },
   {
     "id": "v0547",
-    "de": [
-      "erobern"
-    ],
+    "de": ["erobern"],
     "es": "conquistar",
     "pos": "verb",
     "level": "A2",
@@ -448,10 +393,7 @@
   },
   {
     "id": "v0548",
-    "de": [
-      "anbeten",
-      "verehren"
-    ],
+    "de": ["anbeten", "verehren"],
     "es": "adorar",
     "pos": "verb",
     "level": "A2",
@@ -471,10 +413,7 @@
   },
   {
     "id": "v0549",
-    "de": [
-      "regieren",
-      "herrschen"
-    ],
+    "de": ["regieren", "herrschen"],
     "es": "gobernar",
     "pos": "verb",
     "level": "B1",
@@ -488,17 +427,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ie"
-      ],
+      "tags": ["ie"],
       "reflexive": false
     }
   },
   {
     "id": "v0550",
-    "de": [
-      "entdecken"
-    ],
+    "de": ["entdecken"],
     "es": "descubrir",
     "pos": "verb",
     "level": "B1",
@@ -521,9 +456,7 @@
   },
   {
     "id": "v0551",
-    "de": [
-      "verschwinden"
-    ],
+    "de": ["verschwinden"],
     "es": "desaparecer",
     "pos": "verb",
     "level": "B1",
@@ -537,18 +470,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "zco"
-      ],
+      "tags": ["zco"],
       "reflexive": false
     }
   },
   {
     "id": "v0552",
-    "de": [
-      "alt",
-      "antik"
-    ],
+    "de": ["alt", "antik"],
     "es": "antiguo",
     "pos": "adj",
     "level": "A1",
@@ -564,10 +492,7 @@
   },
   {
     "id": "v0553",
-    "de": [
-      "vorher",
-      "früher"
-    ],
+    "de": ["vorher", "früher"],
     "es": "antes",
     "pos": "adv",
     "level": "A1",
@@ -583,10 +508,7 @@
   },
   {
     "id": "v0554",
-    "de": [
-      "zwischen",
-      "unter"
-    ],
+    "de": ["zwischen", "unter"],
     "es": "entre",
     "pos": "other",
     "level": "A1",
@@ -602,9 +524,7 @@
   },
   {
     "id": "v0555",
-    "de": [
-      "heilig"
-    ],
+    "de": ["heilig"],
     "es": "sagrado",
     "pos": "adj",
     "level": "A2",
@@ -620,9 +540,7 @@
   },
   {
     "id": "v0556",
-    "de": [
-      "während"
-    ],
+    "de": ["während"],
     "es": "durante",
     "pos": "other",
     "level": "A2",
@@ -638,10 +556,7 @@
   },
   {
     "id": "v0557",
-    "de": [
-      "Maya-",
-      "der Maya"
-    ],
+    "de": ["Maya-", "der Maya"],
     "es": "maya",
     "pos": "adj",
     "level": "A2",
@@ -657,9 +572,7 @@
   },
   {
     "id": "v0558",
-    "de": [
-      "Wann wurde diese Pyramide gebaut?"
-    ],
+    "de": ["Wann wurde diese Pyramide gebaut?"],
     "es": "¿Cuándo se construyó esta pirámide?",
     "pos": "phrase",
     "level": "A1",
@@ -675,9 +588,7 @@
   },
   {
     "id": "v0559",
-    "de": [
-      "Was für eine alte Stadt!"
-    ],
+    "de": ["Was für eine alte Stadt!"],
     "es": "¡Qué antigua es esta ciudad!",
     "pos": "phrase",
     "level": "A1",

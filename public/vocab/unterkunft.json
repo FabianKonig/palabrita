@@ -1,10 +1,7 @@
 [
   {
     "id": "v0011",
-    "de": [
-      "Zimmer",
-      "Raum"
-    ],
+    "de": ["Zimmer", "Raum"],
     "es": "la habitación",
     "pos": "noun",
     "level": "A1",
@@ -20,9 +17,7 @@
   },
   {
     "id": "v0012",
-    "de": [
-      "Hotel"
-    ],
+    "de": ["Hotel"],
     "es": "el hotel",
     "pos": "noun",
     "level": "A1",
@@ -38,10 +33,7 @@
   },
   {
     "id": "v0024",
-    "de": [
-      "wohnen",
-      "leben"
-    ],
+    "de": ["wohnen", "leben"],
     "es": "vivir",
     "pos": "verb",
     "level": "A1",
@@ -61,10 +53,7 @@
   },
   {
     "id": "v0226",
-    "de": [
-      "haben",
-      "besitzen"
-    ],
+    "de": ["haben", "besitzen"],
     "es": "tener",
     "pos": "verb",
     "level": "A1",
@@ -78,10 +67,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "go",
-        "ie"
-      ],
+      "tags": ["go", "ie"],
       "reflexive": false,
       "overrides": {
         "indefinido": {
@@ -103,10 +89,7 @@
   },
   {
     "id": "v0227",
-    "de": [
-      "bleiben",
-      "übernachten"
-    ],
+    "de": ["bleiben", "übernachten"],
     "es": "quedarse",
     "pos": "verb",
     "level": "A1",
@@ -126,9 +109,7 @@
   },
   {
     "id": "v0228",
-    "de": [
-      "vergessen"
-    ],
+    "de": ["vergessen"],
     "es": "olvidar",
     "pos": "verb",
     "level": "A1",
@@ -148,10 +129,7 @@
   },
   {
     "id": "v0229",
-    "de": [
-      "reservieren",
-      "buchen"
-    ],
+    "de": ["reservieren", "buchen"],
     "es": "reservar",
     "pos": "verb",
     "level": "A2",
@@ -171,9 +149,7 @@
   },
   {
     "id": "v0230",
-    "de": [
-      "funktionieren"
-    ],
+    "de": ["funktionieren"],
     "es": "funcionar",
     "pos": "verb",
     "level": "A2",
@@ -193,10 +169,7 @@
   },
   {
     "id": "v0231",
-    "de": [
-      "putzen",
-      "reinigen"
-    ],
+    "de": ["putzen", "reinigen"],
     "es": "limpiar",
     "pos": "verb",
     "level": "A2",
@@ -216,10 +189,7 @@
   },
   {
     "id": "v0232",
-    "de": [
-      "unterkommen",
-      "übernachten"
-    ],
+    "de": ["unterkommen", "übernachten"],
     "es": "alojarse",
     "pos": "verb",
     "level": "B1",
@@ -239,9 +209,7 @@
   },
   {
     "id": "v0233",
-    "de": [
-      "Schlüssel"
-    ],
+    "de": ["Schlüssel"],
     "es": "la llave",
     "pos": "noun",
     "level": "A1",
@@ -257,10 +225,7 @@
   },
   {
     "id": "v0234",
-    "de": [
-      "Bad",
-      "Badezimmer"
-    ],
+    "de": ["Bad", "Badezimmer"],
     "es": "el baño",
     "pos": "noun",
     "level": "A1",
@@ -276,9 +241,7 @@
   },
   {
     "id": "v0235",
-    "de": [
-      "Bett"
-    ],
+    "de": ["Bett"],
     "es": "la cama",
     "pos": "noun",
     "level": "A1",
@@ -294,9 +257,7 @@
   },
   {
     "id": "v0236",
-    "de": [
-      "Tür"
-    ],
+    "de": ["Tür"],
     "es": "la puerta",
     "pos": "noun",
     "level": "A1",
@@ -312,10 +273,7 @@
   },
   {
     "id": "v0237",
-    "de": [
-      "WLAN",
-      "Wi-Fi"
-    ],
+    "de": ["WLAN", "Wi-Fi"],
     "es": "el wifi",
     "pos": "noun",
     "level": "A1",
@@ -331,10 +289,7 @@
   },
   {
     "id": "v0238",
-    "de": [
-      "Reservierung",
-      "Buchung"
-    ],
+    "de": ["Reservierung", "Buchung"],
     "es": "la reservación",
     "pos": "noun",
     "level": "A2",
@@ -350,10 +305,7 @@
   },
   {
     "id": "v0239",
-    "de": [
-      "Hostal",
-      "einfache Pension"
-    ],
+    "de": ["Hostal", "einfache Pension"],
     "es": "el hostal",
     "pos": "noun",
     "level": "A2",
@@ -369,9 +321,7 @@
   },
   {
     "id": "v0240",
-    "de": [
-      "Passwort"
-    ],
+    "de": ["Passwort"],
     "es": "la contraseña",
     "pos": "noun",
     "level": "A2",
@@ -387,9 +337,7 @@
   },
   {
     "id": "v0241",
-    "de": [
-      "Rezeption"
-    ],
+    "de": ["Rezeption"],
     "es": "la recepción",
     "pos": "noun",
     "level": "A2",
@@ -405,9 +353,7 @@
   },
   {
     "id": "v0242",
-    "de": [
-      "Handtuch"
-    ],
+    "de": ["Handtuch"],
     "es": "la toalla",
     "pos": "noun",
     "level": "A2",
@@ -423,9 +369,7 @@
   },
   {
     "id": "v0243",
-    "de": [
-      "Dusche"
-    ],
+    "de": ["Dusche"],
     "es": "la ducha",
     "pos": "noun",
     "level": "A2",
@@ -441,9 +385,7 @@
   },
   {
     "id": "v0244",
-    "de": [
-      "Gepäck"
-    ],
+    "de": ["Gepäck"],
     "es": "el equipaje",
     "pos": "noun",
     "level": "A2",
@@ -459,10 +401,7 @@
   },
   {
     "id": "v0245",
-    "de": [
-      "Aufzug",
-      "Fahrstuhl"
-    ],
+    "de": ["Aufzug", "Fahrstuhl"],
     "es": "el ascensor",
     "pos": "noun",
     "level": "A2",
@@ -478,9 +417,7 @@
   },
   {
     "id": "v0246",
-    "de": [
-      "Klimaanlage"
-    ],
+    "de": ["Klimaanlage"],
     "es": "el aire acondicionado",
     "pos": "noun",
     "level": "A2",
@@ -496,10 +433,7 @@
   },
   {
     "id": "v0247",
-    "de": [
-      "Gast",
-      "Hotelgast"
-    ],
+    "de": ["Gast", "Hotelgast"],
     "es": "el huésped",
     "pos": "noun",
     "level": "B1",
@@ -515,9 +449,7 @@
   },
   {
     "id": "v0248",
-    "de": [
-      "Kopfkissen"
-    ],
+    "de": ["Kopfkissen"],
     "es": "la almohada",
     "pos": "noun",
     "level": "B1",
@@ -533,10 +465,7 @@
   },
   {
     "id": "v0249",
-    "de": [
-      "Bettlaken",
-      "Laken"
-    ],
+    "de": ["Bettlaken", "Laken"],
     "es": "la sábana",
     "pos": "noun",
     "level": "B1",
@@ -552,9 +481,7 @@
   },
   {
     "id": "v0250",
-    "de": [
-      "Ventilator"
-    ],
+    "de": ["Ventilator"],
     "es": "el ventilador",
     "pos": "noun",
     "level": "B1",
@@ -570,10 +497,7 @@
   },
   {
     "id": "v0251",
-    "de": [
-      "frei",
-      "verfügbar"
-    ],
+    "de": ["frei", "verfügbar"],
     "es": "libre",
     "pos": "adj",
     "level": "A1",
@@ -589,10 +513,7 @@
   },
   {
     "id": "v0252",
-    "de": [
-      "besetzt",
-      "belegt"
-    ],
+    "de": ["besetzt", "belegt"],
     "es": "ocupado",
     "pos": "adj",
     "level": "A2",
@@ -608,9 +529,7 @@
   },
   {
     "id": "v0253",
-    "de": [
-      "ruhig"
-    ],
+    "de": ["ruhig"],
     "es": "tranquilo",
     "pos": "adj",
     "level": "A2",
@@ -626,9 +545,7 @@
   },
   {
     "id": "v0254",
-    "de": [
-      "sauber"
-    ],
+    "de": ["sauber"],
     "es": "limpio",
     "pos": "adj",
     "level": "A2",
@@ -644,10 +561,7 @@
   },
   {
     "id": "v0255",
-    "de": [
-      "kaputt",
-      "defekt"
-    ],
+    "de": ["kaputt", "defekt"],
     "es": "descompuesto",
     "pos": "adj",
     "level": "B1",
@@ -663,10 +577,7 @@
   },
   {
     "id": "v0256",
-    "de": [
-      "inklusive",
-      "inbegriffen"
-    ],
+    "de": ["inklusive", "inbegriffen"],
     "es": "incluido",
     "pos": "adj",
     "level": "B1",
@@ -682,9 +593,7 @@
   },
   {
     "id": "v0257",
-    "de": [
-      "Haben Sie freie Zimmer?"
-    ],
+    "de": ["Haben Sie freie Zimmer?"],
     "es": "¿Tiene habitaciones libres?",
     "pos": "phrase",
     "level": "A1",
@@ -700,9 +609,7 @@
   },
   {
     "id": "v0258",
-    "de": [
-      "Den Schlüssel, bitte."
-    ],
+    "de": ["Den Schlüssel, bitte."],
     "es": "La llave, por favor.",
     "pos": "phrase",
     "level": "A1",
@@ -718,9 +625,7 @@
   },
   {
     "id": "v0259",
-    "de": [
-      "Gibt es WLAN im Hotel?"
-    ],
+    "de": ["Gibt es WLAN im Hotel?"],
     "es": "¿Hay wifi en el hotel?",
     "pos": "phrase",
     "level": "A1",
@@ -736,9 +641,7 @@
   },
   {
     "id": "v0260",
-    "de": [
-      "Ich möchte mich beschweren."
-    ],
+    "de": ["Ich möchte mich beschweren."],
     "es": "Quisiera presentar una queja.",
     "pos": "phrase",
     "level": "B1",
@@ -754,10 +657,7 @@
   },
   {
     "id": "v0261",
-    "de": [
-      "Föhn",
-      "Haartrockner"
-    ],
+    "de": ["Föhn", "Haartrockner"],
     "es": "el secador",
     "pos": "noun",
     "level": "A2",
@@ -773,10 +673,7 @@
   },
   {
     "id": "v0262",
-    "de": [
-      "Wäschetrockner",
-      "Trockner"
-    ],
+    "de": ["Wäschetrockner", "Trockner"],
     "es": "la secadora",
     "pos": "noun",
     "level": "A2",

@@ -1,9 +1,7 @@
 [
   {
     "id": "v0005",
-    "de": [
-      "Bus"
-    ],
+    "de": ["Bus"],
     "es": "el autobús",
     "pos": "noun",
     "level": "A1",
@@ -19,10 +17,7 @@
   },
   {
     "id": "v0006",
-    "de": [
-      "Auto",
-      "Wagen"
-    ],
+    "de": ["Auto", "Wagen"],
     "es": "el carro",
     "pos": "noun",
     "level": "A1",
@@ -38,9 +33,7 @@
   },
   {
     "id": "v0025",
-    "de": [
-      "reisen"
-    ],
+    "de": ["reisen"],
     "es": "viajar",
     "pos": "verb",
     "level": "A2",
@@ -60,9 +53,7 @@
   },
   {
     "id": "v0176",
-    "de": [
-      "ankommen"
-    ],
+    "de": ["ankommen"],
     "es": "llegar",
     "pos": "verb",
     "level": "A1",
@@ -82,11 +73,7 @@
   },
   {
     "id": "v0177",
-    "de": [
-      "abfahren",
-      "ausgehen",
-      "hinausgehen"
-    ],
+    "de": ["abfahren", "ausgehen", "hinausgehen"],
     "es": "salir",
     "pos": "verb",
     "level": "A1",
@@ -100,9 +87,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "go"
-      ],
+      "tags": ["go"],
       "reflexive": false,
       "overrides": {
         "futuro": {
@@ -116,10 +101,7 @@
   },
   {
     "id": "v0178",
-    "de": [
-      "einsteigen",
-      "hinaufsteigen"
-    ],
+    "de": ["einsteigen", "hinaufsteigen"],
     "es": "subir",
     "pos": "verb",
     "level": "A1",
@@ -139,10 +121,7 @@
   },
   {
     "id": "v0179",
-    "de": [
-      "aussteigen",
-      "hinuntergehen"
-    ],
+    "de": ["aussteigen", "hinuntergehen"],
     "es": "bajar",
     "pos": "verb",
     "level": "A2",
@@ -162,9 +141,7 @@
   },
   {
     "id": "v0180",
-    "de": [
-      "fliegen"
-    ],
+    "de": ["fliegen"],
     "es": "volar",
     "pos": "verb",
     "level": "A2",
@@ -178,18 +155,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ue"
-      ],
+      "tags": ["ue"],
       "reflexive": false
     }
   },
   {
     "id": "v0181",
-    "de": [
-      "zurückkehren",
-      "zurückfahren"
-    ],
+    "de": ["zurückkehren", "zurückfahren"],
     "es": "regresar",
     "pos": "verb",
     "level": "A2",
@@ -209,10 +181,7 @@
   },
   {
     "id": "v0182",
-    "de": [
-      "fahren",
-      "lenken"
-    ],
+    "de": ["fahren", "lenken"],
     "es": "manejar",
     "pos": "verb",
     "level": "A2",
@@ -232,9 +201,7 @@
   },
   {
     "id": "v0183",
-    "de": [
-      "landen"
-    ],
+    "de": ["landen"],
     "es": "aterrizar",
     "pos": "verb",
     "level": "B1",
@@ -254,10 +221,7 @@
   },
   {
     "id": "v0184",
-    "de": [
-      "starten",
-      "abheben"
-    ],
+    "de": ["starten", "abheben"],
     "es": "despegar",
     "pos": "verb",
     "level": "B1",
@@ -277,9 +241,7 @@
   },
   {
     "id": "v0185",
-    "de": [
-      "Taxi"
-    ],
+    "de": ["Taxi"],
     "es": "el taxi",
     "pos": "noun",
     "level": "A1",
@@ -295,9 +257,7 @@
   },
   {
     "id": "v0186",
-    "de": [
-      "Flugzeug"
-    ],
+    "de": ["Flugzeug"],
     "es": "el avión",
     "pos": "noun",
     "level": "A1",
@@ -313,9 +273,7 @@
   },
   {
     "id": "v0187",
-    "de": [
-      "Flughafen"
-    ],
+    "de": ["Flughafen"],
     "es": "el aeropuerto",
     "pos": "noun",
     "level": "A1",
@@ -331,9 +289,7 @@
   },
   {
     "id": "v0188",
-    "de": [
-      "Zug"
-    ],
+    "de": ["Zug"],
     "es": "el tren",
     "pos": "noun",
     "level": "A1",
@@ -349,10 +305,7 @@
   },
   {
     "id": "v0189",
-    "de": [
-      "Fahrkarte",
-      "Ticket"
-    ],
+    "de": ["Fahrkarte", "Ticket"],
     "es": "el boleto",
     "pos": "noun",
     "level": "A1",
@@ -368,10 +321,7 @@
   },
   {
     "id": "v0190",
-    "de": [
-      "Bahnhof",
-      "Station"
-    ],
+    "de": ["Bahnhof", "Station"],
     "es": "la estación",
     "pos": "noun",
     "level": "A1",
@@ -387,9 +337,7 @@
   },
   {
     "id": "v0191",
-    "de": [
-      "Koffer"
-    ],
+    "de": ["Koffer"],
     "es": "la maleta",
     "pos": "noun",
     "level": "A1",
@@ -405,9 +353,7 @@
   },
   {
     "id": "v0192",
-    "de": [
-      "Haltestelle"
-    ],
+    "de": ["Haltestelle"],
     "es": "la parada",
     "pos": "noun",
     "level": "A2",
@@ -423,9 +369,7 @@
   },
   {
     "id": "v0193",
-    "de": [
-      "Flug"
-    ],
+    "de": ["Flug"],
     "es": "el vuelo",
     "pos": "noun",
     "level": "A2",
@@ -441,9 +385,7 @@
   },
   {
     "id": "v0194",
-    "de": [
-      "Grenze"
-    ],
+    "de": ["Grenze"],
     "es": "la frontera",
     "pos": "noun",
     "level": "A2",
@@ -459,10 +401,7 @@
   },
   {
     "id": "v0195",
-    "de": [
-      "Fahrgast",
-      "Passagier"
-    ],
+    "de": ["Fahrgast", "Passagier"],
     "es": "el pasajero",
     "pos": "noun",
     "level": "A2",
@@ -478,10 +417,7 @@
   },
   {
     "id": "v0196",
-    "de": [
-      "Bus",
-      "Lastwagen"
-    ],
+    "de": ["Bus", "Lastwagen"],
     "es": "el camión",
     "pos": "noun",
     "level": "A2",
@@ -497,9 +433,7 @@
   },
   {
     "id": "v0197",
-    "de": [
-      "Fahrer"
-    ],
+    "de": ["Fahrer"],
     "es": "el chofer",
     "pos": "noun",
     "level": "A2",
@@ -515,10 +449,7 @@
   },
   {
     "id": "v0198",
-    "de": [
-      "Reise",
-      "Fahrt"
-    ],
+    "de": ["Reise", "Fahrt"],
     "es": "el viaje",
     "pos": "noun",
     "level": "A2",
@@ -534,10 +465,7 @@
   },
   {
     "id": "v0199",
-    "de": [
-      "Zoll",
-      "Zollbehörde"
-    ],
+    "de": ["Zoll", "Zollbehörde"],
     "es": "la aduana",
     "pos": "noun",
     "level": "B1",
@@ -553,9 +481,7 @@
   },
   {
     "id": "v0200",
-    "de": [
-      "Verspätung"
-    ],
+    "de": ["Verspätung"],
     "es": "el retraso",
     "pos": "noun",
     "level": "B1",
@@ -571,10 +497,7 @@
   },
   {
     "id": "v0201",
-    "de": [
-      "Kleinbus",
-      "Chicken Bus"
-    ],
+    "de": ["Kleinbus", "Chicken Bus"],
     "es": "la camioneta",
     "pos": "noun",
     "level": "B1",
@@ -590,10 +513,7 @@
   },
   {
     "id": "v0202",
-    "de": [
-      "Strecke",
-      "Fahrt"
-    ],
+    "de": ["Strecke", "Fahrt"],
     "es": "el trayecto",
     "pos": "noun",
     "level": "B1",
@@ -609,9 +529,7 @@
   },
   {
     "id": "v0203",
-    "de": [
-      "schnell"
-    ],
+    "de": ["schnell"],
     "es": "rápido",
     "pos": "adj",
     "level": "A1",
@@ -627,9 +545,7 @@
   },
   {
     "id": "v0204",
-    "de": [
-      "langsam"
-    ],
+    "de": ["langsam"],
     "es": "lento",
     "pos": "adj",
     "level": "A1",
@@ -645,9 +561,7 @@
   },
   {
     "id": "v0205",
-    "de": [
-      "direkt"
-    ],
+    "de": ["direkt"],
     "es": "directo",
     "pos": "adj",
     "level": "A2",
@@ -663,10 +577,7 @@
   },
   {
     "id": "v0206",
-    "de": [
-      "voll",
-      "besetzt"
-    ],
+    "de": ["voll", "besetzt"],
     "es": "lleno",
     "pos": "adj",
     "level": "A2",
@@ -682,9 +593,7 @@
   },
   {
     "id": "v0207",
-    "de": [
-      "hin und zurück"
-    ],
+    "de": ["hin und zurück"],
     "es": "de ida y vuelta",
     "pos": "other",
     "level": "A2",
@@ -700,9 +609,7 @@
   },
   {
     "id": "v0208",
-    "de": [
-      "verspätet"
-    ],
+    "de": ["verspätet"],
     "es": "retrasado",
     "pos": "adj",
     "level": "B1",
@@ -718,9 +625,7 @@
   },
   {
     "id": "v0209",
-    "de": [
-      "Wann fährt der Bus ab?"
-    ],
+    "de": ["Wann fährt der Bus ab?"],
     "es": "¿A qué hora sale el camión?",
     "pos": "phrase",
     "level": "A1",
@@ -736,9 +641,7 @@
   },
   {
     "id": "v0210",
-    "de": [
-      "Eine Fahrkarte nach Antigua, bitte."
-    ],
+    "de": ["Eine Fahrkarte nach Antigua, bitte."],
     "es": "Un boleto a Antigua, por favor.",
     "pos": "phrase",
     "level": "A1",
@@ -754,9 +657,7 @@
   },
   {
     "id": "v0211",
-    "de": [
-      "Wo ist die Haltestelle?"
-    ],
+    "de": ["Wo ist die Haltestelle?"],
     "es": "¿Dónde está la parada?",
     "pos": "phrase",
     "level": "A1",
@@ -772,9 +673,7 @@
   },
   {
     "id": "v0212",
-    "de": [
-      "Fährt dieser Bus ins Zentrum?"
-    ],
+    "de": ["Fährt dieser Bus ins Zentrum?"],
     "es": "¿Este camión va al centro?",
     "pos": "phrase",
     "level": "A2",
@@ -790,9 +689,7 @@
   },
   {
     "id": "v0213",
-    "de": [
-      "Bringen Sie mich bitte zum Flughafen."
-    ],
+    "de": ["Bringen Sie mich bitte zum Flughafen."],
     "es": "Lléveme al aeropuerto, por favor.",
     "pos": "phrase",
     "level": "A2",
@@ -808,9 +705,7 @@
   },
   {
     "id": "v0214",
-    "de": [
-      "Ich habe meinen Anschluss verpasst."
-    ],
+    "de": ["Ich habe meinen Anschluss verpasst."],
     "es": "Perdí mi conexión.",
     "pos": "phrase",
     "level": "B1",
