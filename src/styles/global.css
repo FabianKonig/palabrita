@@ -976,20 +976,65 @@ table.forms th {
   font-weight: 700;
 }
 
-/* Update banner */
+/* Update banner: schwebende Karte über der Tab-Leiste, in der Breite der Inhaltsspalte */
 .update-banner {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--tabbar-h) + 12px + env(safe-area-inset-bottom, 0px));
+  z-index: 20;
+  transform: translateX(-50%);
+  width: min(560px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 10px 12px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+
+.update-banner-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--turquoise-soft);
+  color: var(--turquoise);
+}
+
+.update-banner-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.update-banner > span:not(.update-banner-icon) {
+  flex: 1;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.update-banner .btn {
+  flex: none;
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+/* In einer Lernsitzung fehlt die Tab-Leiste, und unten liegen die Bewertungsbuttons: dort bleibt die Leiste oben stehen. */
+body:has(.session-bar) .update-banner {
   position: sticky;
   top: 0;
-  z-index: 20;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 16px;
-  padding: 8px 16px;
-  background: var(--yellow-soft);
-  color: var(--warn-text);
-  border-bottom: 1px solid var(--yellow);
+  bottom: auto;
+  left: auto;
+  transform: none;
+  width: auto;
+  border-radius: 0;
+  border-width: 0 0 1px;
+  box-shadow: none;
 }
 
 /* Settings */
