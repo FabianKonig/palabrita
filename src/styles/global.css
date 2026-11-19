@@ -73,24 +73,14 @@ body {
   flex-direction: column;
 }
 
-/* Logo oben rechts, rechts an der Inhaltsspalte. Die Oberkante ist so gesetzt, dass die Mitte
-   des Logos auf der Mitte der ersten Überschriftenzeile liegt (Pixelmessung, Logo ~44,7 px hoch).
-   Die Überschrift sitzt je nach Seite an anderer Stelle, daher je eine Position für die Varianten. */
+/* Logo oben rechts, rechts an der Inhaltsspalte, auf allen Seiten gleich. Die Oberkante ist so gesetzt,
+   dass auf Lernen, Verzeichnis und Statistik die Mitte des Logos auf der Mitte der Überschrift liegt
+   (Pixelmessung, Logo ~44,7 px hoch). Auf den übrigen Seiten bleibt es an dieser Stelle. */
 .corner-logo {
   position: absolute;
   top: calc(13.5px + env(safe-area-inset-top, 0px));
   right: max(16px, calc(50% - 264px));
   z-index: 1;
-}
-
-/* Seiten mit Zurück-Link oben: Überschrift steht 48 px tiefer */
-main:has(.screen > .back:first-child) .corner-logo {
-  top: calc(61.5px + env(safe-area-inset-top, 0px));
-}
-
-/* Vokabel-Detail (hat auch Zurück-Link oben): Überschrift steht im Kopf mit Lautsprecher-Knopf, etwas tiefer */
-main:has(.detail-head):has(.screen > .back:first-child) .corner-logo {
-  top: calc(67.4px + env(safe-area-inset-top, 0px));
 }
 
 /* Überschriften laufen nicht unter das Logo */
@@ -654,7 +644,7 @@ button.back {
 }
 
 /* Zurück-Link oben links (48 px hoch): der Abstand oben und unten gleicht sich aus,
-   die Überschrift bleibt an ihrer Stelle. Das Logo richtet sich an der Überschrift aus, nicht am Link. */
+   die Überschrift bleibt an ihrer Stelle. */
 .screen > .back:first-child {
   margin: calc((34.5px - 48px) / 2) 0 calc((48px - 34.5px) / 2);
 }
