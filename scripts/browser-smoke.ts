@@ -1433,8 +1433,8 @@ async function main() {
     `${moreCard}, Geübt ${moreCount}`,
   );
 
-  // 8e9. Genus-Badge auf der spanischen Seite (SPEC §14.1): Nomen zeigen es zwischen Singular
-  // und Plural. Richtung ES→DE, damit die spanische Seite vorn liegt.
+  // 8e9. Genus-Badge auf der spanischen Seite (SPEC §14.1): Nomen zeigen es unter Singular
+  // und Plural, also als letztes Element. Richtung ES→DE, damit die spanische Seite vorn liegt.
   await send("Page.navigate", { url: `${BASE}#/` });
   await idb(`store.clear()`);
   await startSession(async () => {
@@ -1457,11 +1457,11 @@ async function main() {
     };
   })()`);
   check(
-    "Nomen-Karte (ES→DE): Genus-Badge steht zwischen Singular und Plural",
+    "Nomen-Karte (ES→DE): Genus-Badge steht nach Singular und Plural, also zuletzt",
     ["maskulin", "feminin", "maskulin/feminin"].includes(genderCard.gender) &&
       genderCard.parts[0] === "word" &&
-      genderCard.parts[1] === "gender" &&
-      (genderCard.parts.length === 2 || genderCard.parts[2] === "plural"),
+      genderCard.parts.at(-1) === "gender" &&
+      (genderCard.parts.length === 2 || genderCard.parts[1] === "plural"),
     `${genderCard.word} / ${genderCard.gender} / ${genderCard.parts.join(",")}`,
   );
 
