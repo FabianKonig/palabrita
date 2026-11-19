@@ -255,6 +255,40 @@ async function main() {
   await startSession();
   check("Sitzung startet mit Karte", true);
 
+  // 3a. The auto-read switch sits at the bottom of the session screen, below the buttons.
+  // Measured against the screen edge, so the result does not depend on the window height.
+  const switchPos = await evaluate<{
+    top: number;
+    bottom: number;
+    actionsBottom: number;
+    screenBottom: number;
+  } | null>(
+    `(() => {
+      const sw = document.querySelector(".study-screen .switch");
+      const actions = document.querySelector(".study-screen .actions");
+      const screen = document.querySelector(".study-screen");
+      if (!sw || !actions || !screen) return null;
+      const s = sw.getBoundingClientRect();
+      return {
+        top: s.top,
+        bottom: s.bottom,
+        actionsBottom: actions.getBoundingClientRect().bottom,
+        screenBottom: screen.getBoundingClientRect().bottom,
+      };
+    })()`,
+  );
+  const gapToBottom = switchPos
+    ? switchPos.screenBottom - switchPos.bottom
+    : -1;
+  check(
+    "Lernen: Schalter „Automatisch vorlesen“ steht unten unter den Buttons",
+    !!switchPos &&
+      switchPos.top >= switchPos.actionsBottom &&
+      gapToBottom >= 0 &&
+      gapToBottom <= 40,
+    JSON.stringify(switchPos),
+  );
+
   // 4a. Flip twice: the front appears again, the rating buttons stay visible.
   const front = await frontWord();
   await evaluate(`document.querySelector(".flashcard").click()`);

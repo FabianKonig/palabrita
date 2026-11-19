@@ -221,7 +221,7 @@ function StudySession({
 
   return (
     <>
-      <div className="screen" inert={conjugation}>
+      <div className="screen study-screen" inert={conjugation}>
         <div className="session-bar">
           <p className="progress">Bewertet: {session.rated}</p>
           <button
@@ -267,16 +267,6 @@ function StudySession({
           )}
         </div>
 
-        <label className="switch">
-          <input
-            role="switch"
-            type="checkbox"
-            checked={autoSpeak}
-            onChange={(e) => setAutoSpeak(e.target.checked)}
-          />
-          <span>Automatisch vorlesen</span>
-        </label>
-
         <div className="actions">
           {!revealed ? (
             <button
@@ -314,6 +304,16 @@ function StudySession({
             </button>
           )}
         </div>
+
+        <label className="switch">
+          <input
+            role="switch"
+            type="checkbox"
+            checked={autoSpeak}
+            onChange={(e) => setAutoSpeak(e.target.checked)}
+          />
+          <span>Automatisch vorlesen</span>
+        </label>
       </div>
       {conjugation && (
         <VerbOverlay vocab={entry} onClose={() => setConjugation(false)} />

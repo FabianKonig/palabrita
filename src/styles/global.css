@@ -357,6 +357,17 @@ body:has(.session-bar) .screen {
   margin-top: 16px;
 }
 
+/* Lernsitzung: der Schalter „Automatisch vorlesen“ steht ganz unten am Bildschirm. */
+.study-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+.study-screen .switch {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
 .grades {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
