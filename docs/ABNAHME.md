@@ -2,7 +2,7 @@
 
 Prüft das Modell aus `docs/SPEC.md` §3.1, §11, §12, §14.1.
 
-**Prüfumgebung:** Linux (Cloud-Container), Node 24, `npm run build` + `vite preview` auf `http://localhost:4173`, Chromium (headless, DevTools-Protokoll, `scripts/browser-smoke.ts`, 70 Prüfungen; die beiden Wortsuche-Prüfungen brauchen Netz zu de.wiktionary.org und schlagen ohne Netz oder bei Rate-Limits (HTTP 429) fehl, im Cloud-Container ohne Zugang zu Wiktionary also 68 von 70 bestanden). Dazu `npm run lint`, `npm test` (Vitest), `npm run build`, `npm run validate:vocab`.
+**Prüfumgebung:** Linux (Cloud-Container), Node 24, `npm run build` + `vite preview` auf `http://localhost:4173`, Chromium (headless, DevTools-Protokoll, `scripts/browser-smoke.ts`, 60 Prüfungen). Dazu `npm run lint`, `npm test` (Vitest), `npm run build`, `npm run validate:vocab`.
 
 | # | Kriterium | Ergebnis | Nachweis |
 |---|---|---|---|

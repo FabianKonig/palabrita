@@ -45,7 +45,7 @@ Vor einem Commit mindestens `npm run lint`, `npm test` und `npm run build` ausf�
 
 - Sprache: Doku, UI-Texte und Commit-Nachrichten auf Deutsch. Bezeichner im Code auf Englisch, Kommentare Deutsch oder Englisch.
 - Verbformen werden aus `tags` und `overrides` generiert, nicht von Hand in die JSON schreiben.
-- Keine Tracker, kein Backend. Einzige externe Anfragen: die Wortsuche bei `de.wiktionary.org` bzw. `es.wiktionary.org`, nur auf Knopfdruck, nicht im Service-Worker-Cache (`docs/SPEC.md` §3.5).
+- Keine Tracker, kein Backend, keine externen Anfragen zur Laufzeit. Die App lädt nur ihre eigenen Dateien.
 - Prettier-Konfiguration (`.prettierrc`) und ESLint (`eslint.config.js`) einhalten.
 - Nicht committen: `dist/`, `node_modules/`.
 - Arbeitsweise: kleine Commits auf einem Feature-Branch, kein Push ohne Rückfrage (es sei denn, es ist anders vorgegeben). Offene Aufgaben stehen in `docs/TASKS.md`: Ist etwas erledigt, kommt das Ergebnis in `docs/SPEC.md` und der Punkt verschwindet aus `docs/TASKS.md`. Bei Unklarheit eine Annahme treffen und unter „Hinweise“ in `docs/TASKS.md` festhalten.

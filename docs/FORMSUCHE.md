@@ -63,9 +63,8 @@ Die Suche im Verzeichnis findet auch **gebeugte Formen** aller Vokabeln, die in 
 3. **Niveaufilter:** Gilt das eingestellte maximale Niveau (SPEC §3.1) auch für Formtreffer? Vorschlag: ja, wie beim Verzeichnis.
 4. **Vollständigkeit der Daten:** Für welche Adjektive und Nomen sind Formen hinterlegt (`adj`, `plural`)? Fehlende Formen müssen ergänzt oder erzeugt werden. Die Spezifikation legt fest, ob Nomen-/Adjektivformen aus Regeln erzeugt werden.
 5. **Kennzeichnung:** Welche Bezeichnung und welches Symbol zeigt den Formtreffer (Text „Form“, Icon, Farbe), und wie sieht das im Hell- und Dunkelmodus aus?
-6. **Keine Treffer:** Soll bei einer unbekannten Form der Button „Neues Wort hinzufügen“ mit dem Suchtext vorbelegt werden? Oder soll die Wiktionary-Suche bei unbekannten Formen die Grundform ermitteln (nur auf Knopfdruck, gemäß AGENTS.md)?
-7. **Reihenfolge und Begrenzung:** Wie viele Formtreffer werden angezeigt, und wie werden sie sortiert (Grundform zuerst, dann nach Wortart oder Niveau)?
-8. **Lernen aus der Suche:** Soll aus einem Formtreffer direkt die Karte gelernt bzw. zur Lernsitzung hinzugefügt werden können, oder reicht die Verlinkung zur Konjugation?
+6. **Reihenfolge und Begrenzung:** Wie viele Formtreffer werden angezeigt, und wie werden sie sortiert (Grundform zuerst, dann nach Wortart oder Niveau)?
+7. **Lernen aus der Suche:** Soll aus einem Formtreffer direkt die Karte gelernt bzw. zur Lernsitzung hinzugefügt werden können, oder reicht die Verlinkung zur Konjugation?
 
 ## 5. Technische Hinweise (vorläufig)
 

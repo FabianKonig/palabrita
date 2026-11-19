@@ -24,7 +24,6 @@ Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte
 | Speicherung | **Nur lokal im Browser**, kein Server, kein Login |
 | Design | Mexiko/Guatemala-Farbwelt, mobile-first |
 | Länderunterscheidung | **Keine** (ein gemeinsames Vokabelset) |
-| Eigene Vokabeln | Der Nutzer kann ein aufgeschnapptes Wort eingeben. Die App **sucht es online (Wiktionary)**, zeigt einen editierbaren Vorschlag und fügt es nach Bestätigung der Vokabelliste hinzu. Das ist die **einzige Ausnahme** vom Offline-Prinzip, siehe §3.5. |
 | Mehrere Übersetzungen | Eine Vokabel kann **1 bis 4 deutsche Wörter** haben (`de` ist eine Liste, §4.2). |
 | Kartenrichtung & SRS | **Getrennter SRS-Zustand je Richtung** (DE→ES und ES→DE sind je eigene Karten mit eigenem Intervall, Ease und Fälligkeit). Die Statistik zählt Karten je Richtung. |
 | Niveau-Konfiguration | Ein **maximales Niveau** (A1, A2, B1) wird persistent in den Einstellungen gespeichert, siehe §3.2. Höhere Niveaus werden beim Lernen und in der Statistik ausgeblendet (das Verzeichnis zeigt sie, §3.3), ihr Fortschritt bleibt erhalten. |
@@ -56,43 +55,16 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 - Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie (Streak). Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung, steht bei jedem Aufruf auf „Beide Richtungen“, wird nicht gespeichert) und den Button „Starten“. Das Niveau-Dropdown bietet „Alle Niveaus“ und die Niveaus bis zum Maximalniveau. Ist das Maximalniveau A1, gibt es nur dieses eine Niveau: Das Dropdown zeigt dann nur „A1“ (ohne „Alle Niveaus“), ist ausgewählt und deaktiviert (ausgegraut). Ohne Auswahl startet eine Sitzung über alle Themen.
 - Statistik: Verteilung der Karten nach Reifegrad (neu, lernend, gefestigt), je Kartenrichtung und nur für das eingestellte Niveau.
 - Durchsuchbares **Vokabelverzeichnis** (alphabetisch nach spanischem Stichwort ohne Artikel) mit Detailansicht inkl. aller Zusatzinfos.
-- **Verzeichnissuche (Spanisch und Deutsch):** Das Suchfeld findet jede Vokabel, deren `es` oder einer der `de`-Einträge den Begriff enthält, ohne Beachtung von Groß-/Kleinschreibung, Akzenten und Umlauten (*cafe* findet *café*). So sieht der Nutzer zu einem deutschen Wort, ob er das spanische schon hat. Filter, Suchtext und Scrollposition bleiben erhalten, solange der Nutzer im Bereich des Verzeichnisses bleibt (Detailseite, Hinzufügen, Legende), ein Wechsel auf einen anderen Tab setzt sie zurück. Festlegungen (Anforderung 2026-11-19):
-  - **Alle Wörter, unabhängig vom Maximalniveau:** Liste, Suche und Detailseite des Verzeichnisses zeigen **immer alle** Vokabeln (alle Niveaus, dazu die eigenen Wörter). Das Niveau-Dropdown des Verzeichnisses bietet immer A1, A2 und B1. Das Maximalniveau (§3.2) steuert nur Lernen und Kartenauswahl (§12) sowie die Statistik, nicht das Verzeichnis. Ein Wort über dem Maximalniveau sieht in der Liste aus wie jedes andere (das Niveau-Kennzeichen zeigt B1 usw.). Die Detailseite eines solchen Worts trägt unter den Kennzeichen den Hinweis „Liegt über deinem Niveau (B1), wird derzeit nicht gelernt.“
+- **Verzeichnissuche (Spanisch und Deutsch):** Das Suchfeld findet jede Vokabel, deren `es` oder einer der `de`-Einträge den Begriff enthält, ohne Beachtung von Groß-/Kleinschreibung, Akzenten und Umlauten (*cafe* findet *café*). So sieht der Nutzer zu einem deutschen Wort, ob er das spanische schon hat. Filter, Suchtext und Scrollposition bleiben erhalten, solange der Nutzer im Bereich des Verzeichnisses bleibt (Detailseite, Legende), ein Wechsel auf einen anderen Tab setzt sie zurück. Festlegungen (Anforderung 2026-11-19):
+  - **Alle Wörter, unabhängig vom Maximalniveau:** Liste, Suche und Detailseite des Verzeichnisses zeigen **immer alle** Vokabeln (alle Niveaus). Das Niveau-Dropdown des Verzeichnisses bietet immer A1, A2 und B1. Das Maximalniveau (§3.2) steuert nur Lernen und Kartenauswahl (§12) sowie die Statistik, nicht das Verzeichnis. Ein Wort über dem Maximalniveau sieht in der Liste aus wie jedes andere (das Niveau-Kennzeichen zeigt B1 usw.). Die Detailseite eines solchen Worts trägt unter den Kennzeichen den Hinweis „Liegt über deinem Niveau (B1), wird derzeit nicht gelernt.“
   - **Suchtext oder Filter, nie beides:** Gibt der Nutzer einen Suchtext ein, springen Thema, Niveau und Wortart auf „Alle …“ zurück. Wählt er einen Filter (anders als „Alle …“), wird der Suchtext geleert. Die Filter bleiben dabei immer bedienbar. Die Suchfunktion in `domain/` ignoriert Filter, solange ein Suchtext steht.
   - **Reihenfolge:** Ohne Suchtext alphabetisch nach spanischem Stichwort ohne Artikel. Mit Suchtext nach **Trefferqualität**: je Vokabel zählt der beste Treffer über `es` und alle `de`-Einträge (normalisiert wie oben; beim spanischen Stichwort zählt es mit und ohne führenden Artikel): Eintrag ist gleich dem Suchtext (Stufe 0), Eintrag beginnt damit (Stufe 1), Eintrag enthält ihn (Stufe 2). Gleiche Stufe: Treffer über `es` vor reinem `de`-Treffer, danach alphabetisch. So steht bei „Auto“ das Wort mit der Übersetzung „Auto“ vor „Autobahn“ und „Mietauto“.
   - **Keine Kennzeichnung des Treffers:** Es wird nicht markiert, ob ein Treffer über `es` oder über `de` kam. Jede Zeile zeigt ohnehin Spanisch und alle deutschen Übersetzungen (§14).
   - **Mehrere Treffer:** Alle werden gezeigt, es gibt keine Begrenzung. Gehört ein deutsches Wort zu mehreren spanischen Vokabeln, sind die DE→ES-Karten beim Lernen mehrdeutig. Das ist eine bekannte Einschränkung der Karten, nicht der Suche, und in v1 nicht behandelt.
-  - **Vorabprüfung beim Hinzufügen:** Die Wortsuche unter „Neues Wort hinzufügen“ prüft die Eingabe vorab gegen dieselben Daten: §3.5, Schritt 1.
 - **Formsuche** (gebeugte Formen finden): Anforderung in `docs/FORMSUCHE.md`, noch nicht spezifiziert.
 
 ### 3.4 PWA
-- Web-Manifest, Icons, Service Worker (App-Shell und Vokabeldaten gecacht), komplett offline nutzbar (Ausnahme: das Nachschlagen eigener Wörter braucht Netz, siehe 3.5).
-
-### 3.5 Eigene Vokabeln hinzufügen (Wortsuche)
-
-Der Nutzer gibt ein spanisches Wort ein, das er irgendwo aufgeschnappt hat. Es wird nachgeschlagen und der Vokabelliste hinzugefügt. Danach lässt es sich wie jede andere Vokabel lernen.
-
-**Ablauf (Screen `/add`):**
-1. Eingabefeld „Spanisches Wort“ und Button „Nachschlagen“. Aufrufbar nur über den Button „Neues Wort hinzufügen“ **am Ende der Trefferliste im Verzeichnis**, der **immer** sichtbar ist (auch bei Treffern, z. B. um dasselbe Wort mit anderer Wortart als weitere Karte anzulegen). Ein Text im Suchfeld des Verzeichnisses wird übernommen.
-   - **Vorabprüfung (offline):** Schon beim Tippen prüft die App die Eingabe gegen die lokale Datenbank (alle Vokabeln einschließlich eigener, unabhängig vom Maximalniveau) und zeigt unter dem Feld **„Schon vorhanden: …“** mit den Treffern. Gesucht wird wie in der Verzeichnissuche (§3.3: `es` und alle `de`-Einträge, **auch Teiltreffer**, ohne Beachtung von Groß-/Kleinschreibung, Akzenten und Umlauten), ohne Filter, **ab 2 Zeichen**. Es gibt eine Stufe, keine Unterscheidung zwischen ganzem und Teiltreffer. Die Treffer stehen nach Trefferqualität sortiert (§3.3), **höchstens 5**, bei mehr folgt „und N weitere“. Jeder Treffer ist ein Link zur Detailseite und zeigt das spanische Wort. Kam er nur über die deutsche Seite, steht der passende `de`-Eintrag in Klammern (z. B. *el coche (Auto)*). Ohne Treffer erscheint nichts.
-   - Das ist ein **Hinweis, keine Sperre**: „Nachschlagen“ bleibt aktiv und unverändert (auch bei Treffern kann der Nutzer online nachschlagen, z. B. für eine weitere Wortart). Die Prüfung sendet nichts ins Netz und ersetzt nicht die Dublettenprüfung im Formular (Schritt 5).
-   - Unter dem Feld steht der Datenschutzhinweis zum Nachschlagen (§14.2) und der Link „selbst eintragen“, der ohne Netzzugriff direkt das leere Formular öffnet.
-2. **Nachschlagen** in der deutschen Wiktionary (`de.wiktionary.org`, MediaWiki-API, ohne Schlüssel). Nur auf Knopfdruck, es wird ausschließlich das eingegebene Wort gesendet. Findet die deutsche Wiktionary das Wort nicht, fragt die App `es.wiktionary.org` ab (nur Wortart und Genus, die deutsche Bedeutung trägt der Nutzer ein, die App weist darauf hin). Ergebnis: Wortart, deutsche Bedeutungen (maximal die ersten 4), bei Nomen Genus und Plural, falls vorhanden, ein Beispielsatz, falls vorhanden.
-   - Gibt es mehrere Wortarten (z. B. *llama*: Nomen und Verbform), wählt der Nutzer eine.
-   - Ist die Eingabe eine **gebeugte Form** (z. B. *puedo*), bietet die App die **Grundform** an (*poder*).
-3. **Vorschau-Formular, vollständig editierbar:** spanisches Wort (mit Artikel bei Nomen), 1–4 deutsche Wörter (entfernen, ergänzen, ändern), Wortart, Genus/Plural, Hinweis, optionaler Beispielsatz. Bei **Verben** wählt der Nutzer die Tags (`ie`, `ue`, `go` …, siehe §5.1) und sieht die erzeugte Formentabelle als Kontrolle. Ohne Tags wird das Verb als regelmäßig behandelt. **Alle** eigenen Verben (mit und ohne Tags) tragen den Hinweis „Formen automatisch erzeugt, nicht geprüft“ (`verified: false`, §10.1).
-4. **„Zur Vokabelliste hinzufügen“** speichert die Vokabel. Kein Treffer, kein Netz oder Fehler der Suche: das Formular erscheint leer zum **manuellen Ausfüllen** („Nichts gefunden, bitte selbst eintragen“). Die App funktioniert ohne Netz weiter, nur das Nachschlagen entfällt.
-5. **Dublettenprüfung** (Algorithmus: §10.1a): Existiert das spanische Wort mit **derselben Wortart** schon, erscheint „Schon vorhanden“ mit Link zur Vokabel, doppeltes Anlegen wird verhindert. Gibt es nur ein gleiches Wort anderer Wortart oder eines, das sich nur im Akzent unterscheidet (*papa/papá*, *te/té*, *el poder/poder*), erscheint der Warnhinweis „Ähnliches Wort vorhanden“ mit Link, Anlegen bleibt möglich.
-
-**Eigenschaften eigener Vokabeln:**
-- Sie liegen **nur im Browser** (IndexedDB), nicht in den statischen Dateien, und sind im **Export/Import** enthalten.
-- ID: `u` plus zufälliger Teil (z. B. `u8k2m4qz`), damit zwischen Geräten keine Kollisionen entstehen. Felder `createdAt` (Anlegen) und `updatedAt` (letzte Änderung, wird bei jedem Speichern gesetzt).
-- Thema: **„Eigene Wörter“** (eigener Filter). Niveau: **keins** (`level: null`). Eigene Wörter werden deshalb **unabhängig vom eingestellten Maximalniveau immer angezeigt**.
-- In der Lernsitzung kommen neue eigene Wörter **vor** den neuen Standardvokabeln (nach `createdAt`), die Begrenzung gleichzeitiger Lernkarten (§12) gilt weiterhin.
-- Eigene Wörter lassen sich in der Detailansicht **bearbeiten und löschen** (Löschen entfernt auch ihre Karten, mit Rückfrage).
-- Der Beispielsatz ist bei eigenen Wörtern optional.
-
-**Datenschutz und Offline-Prinzip:** Nur beim Nachschlagen verlässt das eingegebene Wort das Gerät und geht an `de.wiktionary.org`, bei Misserfolg an `es.wiktionary.org`. Der Service Worker cached diese Anfragen nicht. Keine Tracker, keine weiteren Dienste. Wiktionary-Inhalte stehen unter CC BY-SA, Quelle und Lizenz nennen README und Impressum.
+- Web-Manifest, Icons, Service Worker (App-Shell und Vokabeldaten gecacht), komplett offline nutzbar.
 
 ## 4. Vokabeln: Umfang und Datenmodell
 
@@ -192,7 +164,7 @@ Pro Verb werden nur gespeichert: `tags`, `reflexive`, `overrides`. Alles andere 
 - `verb` ist bei `pos: "verb"` vorhanden, sonst nicht.
 - Ein Tag muss eine Wirkung haben (die erzeugten Formen ändern sich, `irr` ausgenommen). `irr` braucht `overrides`.
 - Alle Einträge: `id` im Format `v` plus vier Ziffern, eindeutig. IDs werden nie wiederverwendet, `topic` passt zur Datei, keine Leerzeichen am Rand, `gender`/`plural` nur bei Nomen, `adj` nur bei Adjektiven. Nomen brauchen Artikel und `gender`.
-- Dubletten über alle Themen (Normalisierung wie §10.1a): gleiche Form und gleiche Wortart sind ein Fehler, gleiche Form bei anderer Wortart oder nur im Akzent verschieden ist eine **Warnung** (*papa/papá*).
+- Dubletten über alle Themen (`domain/findDuplicate.ts`): verglichen wird klein geschrieben und ohne führenden Artikel (*el/la, el, la, los, las, un, una*), Akzente bleiben erhalten. Gleiche Form und gleiche Wortart sind ein Fehler. Gleiche Form bei anderer Wortart oder nur im Akzent verschieden ist eine **Warnung** (*papa/papá*, *te/té*).
 - Themen: Jedes Thema hat mindestens 10 Einträge. `index.json` führt jedes Thema des Schemas (Feld `topic`) mit der Datei `<key>.json`.
 - Das Konjugationsmodul wird zusätzlich gegen eine **Referenzliste bekannter Verben mit allen Formen** getestet (siehe unten).
 
@@ -214,7 +186,7 @@ Zusätzlich gilt für jedes Verb:
 - Oberfläche auf **Deutsch**.
 - **Barrierefreiheit:** ausreichender Kontrast, Tastaturbedienung, Labels für Screenreader.
 - **Datenhaltung:** IndexedDB, Versionierung des Datenschemas, damit spätere Vokabelupdates den Fortschritt nicht zerstören (Vokabel-IDs bleiben stabil).
-- Keine Tracker, keine externen Dienste, alles offline. **Einzige Ausnahme:** das Nachschlagen eigener Wörter (§3.5), nur auf Knopfdruck.
+- Keine Tracker, keine externen Dienste, alles offline.
 
 ---
 
@@ -229,7 +201,7 @@ Zusätzlich gilt für jedes Verb:
 | Styling | Plain CSS mit CSS-Variablen (`src/styles/`), kein UI-Framework. Hell/Dunkel via `prefers-color-scheme` und `data-theme` |
 | Speicher | IndexedDB über `idb` |
 | PWA | `vite-plugin-pwa`, `registerType: 'prompt'` |
-| Tests | Vitest (`npm test`) für reine Logik in `domain/` (SRS, Tageswechsel, Warteschlange, Konjugation, Wiktionary-Parser mit gespeicherten Antworten, Dublettenprüfung, Statistik, Verzeichnissuche, Sprachausgabe, Versionsstempel), für `data/` (Karten, Export/Import, Vokabeln, Begrüßungs-Flag) mit `fake-indexeddb` und für den Vokabel-Validator. Keine Komponenten-Tests. UI-Verhalten (Verzeichnis-Filter und Scrollposition in `features/dictionary/viewState`, Schalter, Dropdowns, Richtung im Lernen-Tab) deckt der Browser-Smoke-Test (`scripts/browser-smoke.ts`, braucht `npm run build` und `npm run preview`) ab. `src/styles/global.test.ts` schützt Dunkelmodus-Kontrast, Dropdown-Pfeil und Schalter, `features/legend/notations.test.ts` stellt sicher, dass die Legende jede erzeugte Notation erklärt. |
+| Tests | Vitest (`npm test`) für reine Logik in `domain/` (SRS, Tageswechsel, Warteschlange, Konjugation, Dublettenprüfung, Statistik, Verzeichnissuche, Sprachausgabe, Versionsstempel), für `data/` (Karten, Export/Import, Vokabeln, Begrüßungs-Flag) mit `fake-indexeddb` und für den Vokabel-Validator. Keine Komponenten-Tests. UI-Verhalten (Verzeichnis-Filter und Scrollposition in `features/dictionary/viewState`, Schalter, Dropdowns, Richtung im Lernen-Tab) deckt der Browser-Smoke-Test (`scripts/browser-smoke.ts`, braucht `npm run build` und `npm run preview`) ab. `src/styles/global.test.ts` schützt Dunkelmodus-Kontrast, Dropdown-Pfeil und Schalter, `features/legend/notations.test.ts` stellt sicher, dass die Legende jede erzeugte Notation erklärt. |
 | Dev-Tools | `tsx` (führt `scripts/*.ts` aus), `ajv` (JSON-Schema-Validierung der Vokabeln), `sharp` (PWA-Icons aus dem SVG) |
 | Lint | ESLint (`@eslint/js`, `typescript-eslint`, `eslint-plugin-react-hooks`, jeweils Empfehlungen), Prettier Defaults |
 | Node | 24.x |
@@ -262,20 +234,19 @@ src/
     day.ts                  # Tageswechsel 04:00
     queue.ts                # Auswahl der nächsten Karte
     dictionary.ts           # Verzeichnissuche, Filter, Wortart-Labels
+    findDuplicate.ts        # Dublettenprüfung (Vokabel-Validator)
     stats.ts                # Statistik
     speech.ts               # Stimmenwahl, Sprechtext
     versionStamp.ts         # Formatierung des Versionsstempels
     conjugation/            # Konjugationsmodul
-    lookup/                 # parseWiktionary, parseEsWiktionary, findDuplicate, fixtures/
   data/
-    vocabRepo.ts            # lädt/cached vocab JSON + eigene Vokabeln (userVocab)
-    lookup.ts               # fetch an de/es.wiktionary.org (einziger Netzzugriff der App)
-    db.ts                   # idb-Schema, Migrationen
+    vocabRepo.ts            # lädt/cached vocab JSON
+    db.ts                   # idb-Schema (settings, cards)
     settingsRepo.ts  cardRepo.ts
     exportImport.ts
     welcomeFlag.ts          # Begrüßung gesehen (localStorage)
   features/
-    study/  dictionary/  add/  stats/  settings/  legend/  legal/  more/
+    study/  dictionary/  stats/  settings/  legend/  legal/  more/
   components/               # Flashcard, Speaker, VerbTable, VerbDetail, VerbOverlay, WelcomeOverlay, Brand, TabBar, UpdateBanner, ...
   hooks/                    # useAppData (Vokabeln + Einstellungen als Kontext), useSpeech
   styles/                   # global.css
@@ -292,18 +263,14 @@ Schema wie §4.2. TypeScript-Typen in `domain/types.ts`:
 type Level = 'A1' | 'A2' | 'B1';
 type Pos = 'verb' | 'noun' | 'adj' | 'adv' | 'num' | 'phrase' | 'other';
 const LEVEL_ORDER: Record<Level, number> = { A1: 1, A2: 2, B1: 3 }; // immer hierüber vergleichen, nie per String
-// isVisible(v, maxLevel) = v.level === null || LEVEL_ORDER[v.level] <= LEVEL_ORDER[maxLevel]  (einzige Sichtbarkeitsregel, in domain/)
+// isVisible(v, maxLevel) = LEVEL_ORDER[v.level] <= LEVEL_ORDER[maxLevel]  (einzige Sichtbarkeitsregel, in domain/)
 interface Vocab {
-  id: string;            // "v0042" (statisch) oder "u8k2m4qz" (eigen), stabil, nie wiederverwenden
+  id: string;            // "v0042", stabil, nie wiederverwenden
   de: string[];          // 1–4 Einträge, [0] = Hauptübersetzung; es: Spanisch (Nomen mit Artikel)
   es: string; pos: Pos;
-  level: Level | null;   // null nur bei eigenen Wörtern: immer sichtbar, unabhängig von maxLevel
-  topic: string;         // einer der 13 Schlüssel (siehe unten), bei eigenen Wörtern 'eigene'
-  origin?: 'user';       // gesetzt bei eigenen Wörtern (IndexedDB), fehlt bei statischen
-  createdAt?: number;    // nur eigene Wörter (ms)
-  updatedAt?: number;    // nur eigene Wörter: letzte Änderung (ms), älteren Exporten fehlt es
-  verified?: false;      // nur eigene Verben: Formen ungeprüft (Hinweis in der UI)
-  example: { es: string; de: string } | null;  // null nur bei eigenen Wörtern erlaubt
+  level: Level;          // A1, A2 oder B1
+  topic: string;         // einer der 13 Schlüssel (siehe unten)
+  example: { es: string; de: string };  // Pflicht
   note?: string | null; gender?: 'm'|'f'|'m/f'|null; plural?: string | null;
   adj?: { f?: string; pl?: string; fpl?: string } | null;  // nur pos 'adj', nur abweichende Formen
   verb?: VerbData | null;   // Format: §5.1. PFLICHT bei pos 'verb' (mindestens { tags: [], reflexive: false }), sonst null/fehlt
@@ -324,21 +291,12 @@ Berechnete Werte (`notation`, `regularity`, `irregularity_types`, alle Formen mi
 ```json
 { "topics": [ { "key": "begruessung", "label": "Begrüßung & Höflichkeit", "file": "begruessung.json" }, ... ] }
 ```
-Feste Themen-Schlüssel (13): `begruessung`, `zahlen-zeit`, `essen`, `transport`, `unterkunft`, `einkaufen`, `gesundheit`, `natur`, `orte`, `kultur`, `maya`, `smalltalk`, `grundwortschatz`. `Vocab.topic` ist immer einer dieser Schlüssel, die Labels (deutsch) kommen aus `index.json` und werden für die Filter genutzt. Jede Themendatei ist ein JSON-Array von `Vocab`. Der Loader lädt alle Dateien einmal je Seitenaufruf, validiert minimal (id, de, es, level, ungültige Einträge werden mit Warnung übersprungen) und liefert eine `Map<id, Vocab>`. `vocabRepo` führt statische und eigene Vokabeln (Store `userVocab`) zu einer Map zusammen. Das Thema `eigene` steht nicht in `index.json`, sondern ist in der App fest mit dem Label „Eigene Wörter“ hinterlegt.
-
-### 10.1a Eigene Vokabeln und Wortsuche
-- **Speicher:** Store `userVocab` (siehe §10.2). ID `'u' + 8 Zeichen base36 aus crypto.getRandomValues`, bei Kollision neu würfeln.
-- **Modul `domain/lookup/`** (rein, ohne `fetch`): `parseWiktionary(wikitext, word) → LookupResult` mit `candidates: { pos, es, de: string[] (max. 4), gender?, plural?, example? }[]` und `inflectedOf?: string` (Grundform bei gebeugten Formen). Tests mit **echten, im Repo gespeicherten Antworten** (`src/domain/lookup/fixtures/*.json`, einmalig beim Entwickeln abgerufen) für mindestens: ein Nomen (*casa*), ein Verb (*poder*), eine gebeugte Form (*puedo*), ein Wort mit mehreren Wortarten (*llama*), ein unbekanntes Wort.
-- **Modul `data/lookup.ts`:** `fetch('https://de.wiktionary.org/w/api.php?action=parse&page=<wort>&prop=wikitext&format=json&redirects=1&origin=*')`, Timeout 8 s, Fehler/Offline → `{ status: 'unavailable' }`, unbekannt → `{ status: 'notfound' }`. Findet `de.wiktionary.org` nichts (Seite fehlt oder kein spanischer Abschnitt, z. B. *palabra*), folgt ein Fallback auf `es.wiktionary.org` mit `parseEsWiktionary` (Wortart und Genus aus den Überschrift-Templates, Grundform bei Formen wie *puedo*; keine deutschen Bedeutungen, `de: []`). Die Antwort trägt `source: 'de' | 'es'`, bei `es` zeigt die App einen Hinweis. Fehler/Offline bei de bricht ohne Fallback mit `unavailable` ab. Schlägt dagegen die Abfrage bei `es.wiktionary.org` fehl (Netzfehler, Timeout), meldet die App `notfound` („Nichts gefunden …“), nicht `unavailable`, und das Formular erscheint leer zum manuellen Ausfüllen. Die Parser sind tolerant: was nicht erkannt wird, bleibt leer und wird im Formular manuell ergänzt.
-- **Dublettenprüfung** `findDuplicate(vocab, es, pos)` → `{ exact?: Vocab, similar: Vocab[] }`. Normalisierung: Kleinschreibung, ohne führenden Artikel `el/la|el|la|los|las|un|una`, **Akzente bleiben erhalten**. `exact` = gleiche normalisierte Form **und gleiche Wortart** (blockiert das Anlegen, Link zur Vokabel). `similar` = gleiche Form bei anderer Wortart, oder gleiche Form nur nach Entfernen der Akzente (*papa/papá*, *te/té*). Die UI-Wirkung steht in §3.5, der Vokabel-Validator nutzt dieselbe Funktion (§5.1).
-- **Vorabprüfung** `findExisting(vocab, input, limit = 5)` (`domain/dictionary.ts`) → `{ items: { vocab: Vocab, viaDe?: string }[], total: number }`. Leer bei weniger als 2 Zeichen (normalisiert). Nutzt dieselbe Trefferlogik und Sortierung wie `searchVocab` (§3.3, ohne Filter, ohne Niveaubeschränkung). `viaDe` ist der erste passende `de`-Eintrag und nur gesetzt, wenn `es` nicht passt.
-- **Service Worker:** Anfragen an `de.wiktionary.org` und `es.wiktionary.org` werden nicht gecacht und nicht abgefangen (kein Workbox-Route dafür). Sollte später eine CSP gesetzt werden, braucht `connect-src` diese Hosts.
-- **Verben:** Tags wählt der Nutzer manuell, das Modul `conjugation` liefert die Vorschau. Kein automatisches Raten der Tags.
+Feste Themen-Schlüssel (13): `begruessung`, `zahlen-zeit`, `essen`, `transport`, `unterkunft`, `einkaufen`, `gesundheit`, `natur`, `orte`, `kultur`, `maya`, `smalltalk`, `grundwortschatz`. `Vocab.topic` ist immer einer dieser Schlüssel, die Labels (deutsch) kommen aus `index.json` und werden für die Filter genutzt. Jede Themendatei ist ein JSON-Array von `Vocab`. Der Loader lädt alle Dateien einmal je Seitenaufruf, validiert minimal (id, de, es, level, ungültige Einträge werden mit Warnung übersprungen) und liefert eine `Map<id, Vocab>`. `vocabRepo` lädt alle statischen Vokabeln in eine Map.
 
 ### 10.1b Export/Import (`data/exportImport.ts`)
-Exportdatei: `{ schemaVersion, exportedAt, settings, cards, userVocab }`.
-- **Ersetzen:** alle lokalen Daten (Einstellungen, Cards, userVocab) werden durch die Datei ersetzt, nach Rückfrage.
-- **Zusammenführen:** Einstellungen bleiben lokal unverändert. `cards`: pro Schlüssel `[vocabId, dir]` gewinnt der Stand mit dem größeren `lastReviewed` (bei Gleichstand der lokale; `null` verliert gegen einen Wert); nur in einer Seite vorhandene Karten bleiben. `userVocab`: per ID, bei Konflikt gewinnt der Eintrag mit der jüngeren Änderung (`updatedAt`, fehlt es, zählt `createdAt`), bei Gleichstand der lokale.
+Exportdatei: `{ schemaVersion, exportedAt, settings, cards }`.
+- **Ersetzen:** alle lokalen Daten (Einstellungen, Karten) werden durch die Datei ersetzt, nach Rückfrage.
+- **Zusammenführen:** Einstellungen bleiben lokal unverändert. `cards`: pro Schlüssel `[vocabId, dir]` gewinnt der Stand mit dem größeren `lastReviewed` (bei Gleichstand der lokale; `null` verliert gegen einen Wert); nur in einer Seite vorhandene Karten bleiben.
 - Import validiert `schemaVersion` und Struktur, lehnt unbekannte neuere Versionen mit Fehlermeldung ab und ändert bei Fehlern nichts (alles-oder-nichts in einer Transaktion).
 - Karten ohne `step` sind gültig (Wiederholungsphase). Ist `step` gesetzt, muss er `0` oder `1` sein, sonst wird die Datei abgelehnt.
 
@@ -348,13 +306,12 @@ Exportdatei: `{ schemaVersion, exportedAt, settings, cards, userVocab }`.
 |---|---|---|
 | `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, theme: 'system'\|'light'\|'dark' }` (Defaults: B1, system). Die Richtung ist keine Einstellung, sondern gilt nur für die Sitzung (§3.3). |
 | `cards` | `[vocabId, dir]` | `{ vocabId, dir: 'de-es'\|'es-de', due: number(ms), interval: number(Tage), ease: number, reps: number, lapses: number, lastReviewed: number\|null, state: 'new'\|'learning'\|'mature', step?: 0\|1 }`. `step`: siehe §11. |
-| `userVocab` | `id` | vollständiges `Vocab` mit `origin: 'user'`, `level: null`, `topic: 'eigene'`, `createdAt`, `updatedAt` |
 
 Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zwischen Geräten hilft nur Export/Import. Eine Karte wird nur gespeichert, wenn die Bewertung sie ändert (nicht bei „Gewusst“ in der Vorab-Wiederholung, §11).
 
 Eine Karte wird **erst beim ersten Lernen angelegt** (kein Vorab-Befüllen von 1000 Karten). „Neu“ = Vokabel ohne Card-Eintrag für diese Richtung.
 
-Alle drei Stores werden gleich beim Anlegen erzeugt, auch `userVocab` (zunächst leer). Es gibt keine Migrationen: Das Projekt hat noch keine Nutzer, das Schema ist die Version 1 (`data/db.ts`). Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht). Löscht der Nutzer ein **eigenes** Wort, werden auch seine Cards gelöscht (Rückfrage in der UI).
+Beide Stores werden beim Anlegen erzeugt. Es gibt keine Migrationen: Das Projekt hat noch keine Nutzer, das Schema ist die Version 1 (`data/db.ts`). Ein früher angelegter Store `userVocab` wird nicht mehr gelesen und nicht gelöscht. Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht).
 
 ## 11. Lernmodell (`domain/srs.ts`)
 
@@ -404,13 +361,13 @@ Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` vo
 
 Die Funktion **`pickNext(input)`** wählt die nächste Karte. Sie ist **rein** (kein Zugriff auf Datenbank oder Uhr, `now` kommt als Parameter) und wird nach **jeder** Bewertung neu aufgerufen. Eingabe: Einstellungen (`maxLevel`), Vokabeln, alle Cards, `now`, Sitzungsfilter (Thema, Niveau, Wortart, Richtung), `sessionSeen: Set<string>` (Kartenschlüssel `vocabId|dir`, siehe §12.2), `lastShown: string | null`. Rückgabe: `{ kind, item, newPass }` oder `null` (keine sichtbare Karte). `kind` nennt die Stufe (`learning`, `review`, `new`, `early-learning`, `pass`), bei `newPass` leert der Aufrufer `sessionSeen`.
 
-Sichtbarkeit und Filter: Sichtbar sind nur Vokabeln mit `isVisible(v, settings.maxLevel)` (eigene Wörter mit `level: null` immer), danach Filter (Thema, Niveau, Wortart). Eigene Wörter wählt man über das Thema „Eigene Wörter“ (`eigene`); ein gesetzter Niveau-Filter A1/A2/B1 schließt sie aus. Erlaubte Richtungen: bei der Sitzungsrichtung `both` (Standard) beide, sonst nur die gewählte. Karten ausgeblendeter Vokabeln oder Richtungen bleiben unverändert in der DB.
+Sichtbarkeit und Filter: Sichtbar sind nur Vokabeln mit `isVisible(v, settings.maxLevel)` danach Filter (Thema, Niveau, Wortart). Erlaubte Richtungen: bei der Sitzungsrichtung `both` (Standard) beide, sonst nur die gewählte. Karten ausgeblendeter Vokabeln oder Richtungen bleiben unverändert in der DB.
 
 Priorität, die erste passende Stufe gewinnt:
 
 1. **Lernkarten fällig:** Karten mit `step` gesetzt und `due <= now`, die am längsten überfällige zuerst.
 2. **Wiederholungen fällig:** Karten ohne `step`, `due < nextDayStart(now)` mit `nextDayStart = startOfDay(addDays(dayKey(now), 1))` (04:00 des Folgetags, **exklusiv**: eine Karte mit `due` = morgen 04:00 ist heute **nicht** fällig), sortiert nach `due`.
-3. **Neue Karte einführen**, wenn weniger als `MAX_LEARNING = 25` Karten gleichzeitig in der Lernphase sind (`step` gesetzt, sichtbar und im Filter). Das verhindert, dass 500 neue Wörter auf einmal „offen“ werden, und ersetzt das Tageslimit. Reihenfolge der neuen Karten: eigene Wörter zuerst nach `createdAt`, dann statische nach `id`, je Wort zuerst DE→ES.
+3. **Neue Karte einführen**, wenn weniger als `MAX_LEARNING = 25` Karten gleichzeitig in der Lernphase sind (`step` gesetzt, sichtbar und im Filter). Das verhindert, dass 500 neue Wörter auf einmal „offen“ werden, und ersetzt das Tageslimit. Reihenfolge der neuen Karten: nach `id` der Vokabel, je Wort zuerst DE→ES.
    - **Partnerkarte:** Die Karte der zweiten Richtung (ES→DE) einer Vokabel wird erst eingeführt, wenn die erste Richtung die Lernphase abgeschlossen hat (kein `step`, Card existiert), damit sie die Lösung nicht verrät. Gibt es nur gesperrte Partnerkarten, wird Stufe 3 übersprungen.
    - Die Sperre gilt nur, wenn die Partnerkarte (DE→ES) in der Sitzungsrichtung liegt **und noch nicht abgeschlossen ist** (keine Card oder Card mit `step`). Ist DE→ES ausgeschlossen (z. B. Richtung nur ES→DE), ist ES→DE nicht gesperrt. Eine existierende Card wird nie nachträglich gesperrt, die Sperre betrifft nur das **Einführen** neuer Karten.
 4. **Wartende Lernkarte vorzeitig zeigen** (`step` gesetzt, `due > now`, noch nicht fällig): Die Lernkarte mit dem frühesten `due` wird **sofort** gezeigt, statt auf den Ablauf der 5 bzw. 30 Minuten zu warten. Die Stufe steht **vor** Stufe 5. Grund: Stünde die Vorab-Wiederholung davor, würden wenige Wiederholungskarten alle Lernkarten blockieren, bis deren Wartezeit abgelaufen ist (Regressionstest „rapid 'good' …“ in `queue.test.ts`). Es gibt **keinen Wartezähler und keinen „Jetzt zeigen“-Button** (entschieden). Folge: Bei wenigen Karten wirken die Minutenpausen kaum, der Nutzer sieht dieselben Karten schnell wieder. Das ist gewollt. Fällige Lernkarten (Stufe 1) und fällige Wiederholungen (Stufe 2) haben weiterhin Vorrang.
@@ -443,7 +400,7 @@ Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Kar
 
 ## 14. Routing und Screens
 
-HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/dictionary`, `/dictionary/:id`, `/dictionary/:id/edit` (eigenes Wort bearbeiten), `/add` (eigenes Wort nachschlagen und hinzufügen, optional `?q=<wort>`), `/stats`, `/settings`, `/legend`, `/privacy`, `/imprint`, `/more`. Unbekannte Pfade leiten auf `/` um.
+HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/dictionary`, `/dictionary/:id`, `/stats`, `/settings`, `/legend`, `/privacy`, `/imprint`, `/more`. Unbekannte Pfade leiten auf `/` um.
 
 **Tab „Mehr“:** Markenkopf (Wortmarke, Slogan, Widmung, siehe §14.1 zum erneuten Öffnen der Begrüßung), darunter die Einträge Einstellungen, Legende, Datenschutz und Impressum, darunter die Version (§3.2). Die Seiten dieser Einträge haben den Zurück-Link „← Mehr“ (Klasse `back`). Ausnahme **Legende**: Wird sie aus der App geöffnet (ⓘ in der Verbtabelle, „Was bedeuten sie?“ im Wortformular), steht dort „← Zurück“ und führt zur vorherigen Seite (Router-Zustand `fromApp`), damit Filter und Verzeichnisbereich (§3.3) erhalten bleiben. Nur über „Mehr → Legende“ steht „← Mehr“.
 
@@ -472,7 +429,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Gilt nur für Vokabeln mit `pos === "verb"`. Bei allen anderen Wörtern gibt es den Button nicht.
 - Der Button **„Konjugation“** erscheint, sobald `revealed = true` ist (auf Vorder- und Rückseite). Vorher nicht, weil die Verbtabelle bei DE→ES die Lösung verrät.
 - Klick öffnet ein **Overlay** (Bottom-Sheet auf dem Handy, zentrierter Dialog ab Tablet-Breite) **über** der Sitzung. Die Sitzung (Karte, Seite) bleibt unverändert und geht nicht verloren.
-- Inhalt: Kopf mit Stichwort (`es`), deutschen Bedeutungen und 🔊, darunter die `VerbTable` samt Hinweis „Formen nicht geprüft“ bei eigenen Verben. Der Inhalt ist eine **gemeinsame Komponente** (`components/VerbDetail.tsx`), die `VocabDetail` und das Overlay (`components/VerbOverlay.tsx`) beide nutzen. Kein duplizierter Code.
+- Inhalt: Kopf mit Stichwort (`es`), deutschen Bedeutungen und 🔊, darunter die `VerbTable`. Der Inhalt ist eine **gemeinsame Komponente** (`components/VerbDetail.tsx`), die `VocabDetail` und das Overlay (`components/VerbOverlay.tsx`) beide nutzen. Kein duplizierter Code.
 - Schließen: Button „Schließen“, Escape, Klick auf den Hintergrund und die **Zurück-Taste des Geräts** (Overlay erzeugt einen History-Eintrag, Zurück schließt nur das Overlay und verlässt nicht die Sitzung). Fokus wandert beim Öffnen ins Overlay, bleibt dort gefangen und kehrt beim Schließen zum Button zurück. `role="dialog"`, `aria-modal`, beschriftet.
 - Solange das Overlay offen ist, sind Karte und Bewertungsbuttons darunter nicht bedienbar.
 - **Wegwischen nach unten (nur Handy-Breite, unter 700 px):** Das Bottom-Sheet folgt dem Finger, wenn man von beliebiger Stelle des Sheets nach unten zieht (`hooks/useSwipeToClose.ts`, Touch-Ereignisse). Die Geste greift nur, wenn der Inhalt ganz oben steht, sonst scrollt der Inhalt (`overscroll-behavior: contain` verhindert Pull-to-Refresh). Nach etwa 8 px Zug beginnt das Ziehen, mehrere Finger brechen ab. Beim Loslassen schließt das Sheet, wenn es mindestens 30 % seiner Höhe heruntergezogen wurde oder schnell genug (ab 0,5 px/ms und mindestens 24 px, Flick); sonst federt es zurück. Entscheidung in `components/swipeClose.ts` (Unit-Test). Das Schließen gleitet in 200 ms aus dem Bild, der Hintergrund blendet mit der Zugweite aus; bei `prefers-reduced-motion` geschieht beides ohne Animation. Geschlossen wird über denselben Weg wie der Schließen-Button (History-Eintrag, Zurück-Taste). Oben am Sheet steht eine dezente Griffleiste als Hinweis (nur Handy-Breite). Ab 700 px (zentrierter Dialog) gibt es Griffleiste und Geste nicht (Annahme). Schließen-Button, Escape, Hintergrund und Zurück-Taste bleiben erhalten.
@@ -488,9 +445,9 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 ### 14.2 Impressum und Datenschutz
 
 - Erreichbar über „Mehr“ (je ein Eintrag, eigene Seite unter `/imprint` und `/privacy`). Gleiche Gestaltung wie die Legende.
-- **Datenschutz:** beschreibt den tatsächlichen Stand. Kein Backend, kein Konto, kein Tracking, keine Analyse-Werkzeuge. Fortschritt und eigene Wörter liegen nur im Browser (IndexedDB) und verlassen das Gerät nicht, außer der Nutzer exportiert sie selbst. Einzige externe Anfragen: Wortsuche bei `de.wiktionary.org` (Fallback `es.wiktionary.org`), nur auf Knopfdruck (§3.5). Das Hosting (GitHub Pages) erzeugt beim Abruf technisch übliche Zugriffsdaten beim Anbieter; der Hinweis darauf gehört hinein.
+- **Datenschutz:** beschreibt den tatsächlichen Stand. Kein Backend, kein Konto, kein Tracking, keine Analyse-Werkzeuge. Fortschritt liegt nur im Browser (IndexedDB) und verlässt das Gerät nicht, außer der Nutzer exportiert ihn selbst. Es gibt keine externen Anfragen außer dem Abruf der App. Das Hosting (GitHub Pages) erzeugt beim Abruf technisch übliche Zugriffsdaten beim Anbieter; der Hinweis darauf gehört hinein.
 - **Impressum:** Angaben zum Betreiber (Name, Anschrift, Kontakt). Diese Angaben liefert der Nutzer, sie werden nicht erfunden. Der Nutzer hat entschieden (2026-11-19): Das Impressum ist in dieser Form ausreichend.
-- Umsetzung: `src/features/legal/` (`Imprint.tsx` unter `/imprint`, `Privacy.tsx` unter `/privacy`, Betreiberangaben zentral in `operator.ts`). Beide Seiten sind Teil der App und damit offline verfügbar. Die Datenschutzerklärung nennt Hosting (GitHub Pages), lokale Speicherung (§ 25 Abs. 2 Nr. 2 TDDDG, keine Einwilligung nötig), Wortsuche (Wiktionary, Einwilligung durch Knopfdruck, Art. 49 Abs. 1 lit. a DSGVO), Vorlesefunktion, E-Mail-Kontakt und Betroffenenrechte; Aufsichtsbehörde: HBDI. Das Impressum folgt § 5 DDG. Wiktionary-Lizenzhinweis (CC BY-SA) steht im Impressum. Neben dem Nachschlagen-Knopf (`Add.tsx`) stehen Hinweis auf IP-Adresse, USA und Einwilligung sowie der Link zur Datenschutzerklärung. Die Erklärung enthält eine Übersicht der Verarbeitungen und einen abgesetzten Widerspruchshinweis (Art. 21 Abs. 4 DSGVO). Ändern sich Hosting, Dienste oder Betreiberangaben, müssen beide Seiten angepasst werden.
+- Umsetzung: `src/features/legal/` (`Imprint.tsx` unter `/imprint`, `Privacy.tsx` unter `/privacy`, Betreiberangaben zentral in `operator.ts`). Beide Seiten sind Teil der App und damit offline verfügbar. Die Datenschutzerklärung nennt Hosting (GitHub Pages), lokale Speicherung (§ 25 Abs. 2 Nr. 2 TDDDG, keine Einwilligung nötig), Vorlesefunktion, E-Mail-Kontakt und Betroffenenrechte; Aufsichtsbehörde: HBDI. Das Impressum folgt § 5 DDG. Wiktionary-Lizenzhinweis (CC BY-SA) steht im Impressum. Die Erklärung enthält eine Übersicht der Verarbeitungen und einen abgesetzten Widerspruchshinweis (Art. 21 Abs. 4 DSGVO). Ändern sich Hosting, Dienste oder Betreiberangaben, müssen beide Seiten angepasst werden.
 
 ## 15. PWA
 

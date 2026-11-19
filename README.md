@@ -1,6 +1,6 @@
 # Palabrita
 
-Vokabel-Lern-App für Spanisch (lateinamerikanische Variante, Mexiko und Guatemala) mit Karteikarten, Wiederholungsplan (Spaced Repetition mit „Nochmal“ und „Gewusst“, endlose Sitzung), Aussprache, Verbtabellen und eigenen Wörtern. Läuft komplett im Browser, ist als PWA installierbar und funktioniert offline.
+Vokabel-Lern-App für Spanisch (lateinamerikanische Variante, Mexiko und Guatemala) mit Karteikarten, Wiederholungsplan (Spaced Repetition mit „Nochmal“ und „Gewusst“, endlose Sitzung), Aussprache und Verbtabellen. Läuft komplett im Browser, ist als PWA installierbar und funktioniert offline.
 
 Der Lernfortschritt liegt im Browser (IndexedDB), je Gerät getrennt. Zum Sichern oder Umziehen gibt es **Einstellungen → Daten sichern** (Export/Import als JSON-Datei).
 
@@ -46,9 +46,8 @@ Der Lernfortschritt (IndexedDB) ist an die Adresse (Origin) gebunden. Eine neue 
 ## Daten und Datenschutz
 
 - Alles läuft im Browser, es gibt kein Backend, keine Tracker und keine Konten.
-- **Einzige Ausnahme:** Beim Hinzufügen eines eigenen Wortes (**Verzeichnis → Suchfeld → Neues Wort hinzufügen → Nachschlagen**) wird auf Knopfdruck das eingegebene Wort an `de.wiktionary.org` gesendet, falls es dort fehlt, an `es.wiktionary.org` (liefert Wortart und Genus, die deutsche Bedeutung trägst du selbst ein). Nur das Nachschlagen braucht Netz, das manuelle Anlegen eines Wortes funktioniert auch offline. Der Service Worker speichert diese Anfragen nicht.
-- Quelle für die Wortsuche: [Wiktionary](https://de.wiktionary.org) und [spanische Wiktionary](https://es.wiktionary.org), Inhalte unter CC BY-SA.
-- Sichern: **Einstellungen → Daten sichern** exportiert Einstellungen, Karten und eigene Wörter. Beim Import gibt es „Zusammenführen“ (die Karte mit dem neueren Lernstand gewinnt) und „Ersetzen“.
+- Quelle der Vokabeln: [Wiktionary](https://de.wiktionary.org) und [spanische Wiktionary](https://es.wiktionary.org), Inhalte unter CC BY-SA.
+- Sichern: **Einstellungen → Daten sichern** exportiert Einstellungen und Karten. Beim Import gibt es „Zusammenführen“ (die Karte mit dem neueren Lernstand gewinnt) und „Ersetzen“.
 
 ## Projektaufbau
 
@@ -57,4 +56,4 @@ Siehe `docs/SPEC.md` (Anforderungen und Technik, eine Datei), `docs/TASKS.md` (o
 ## Lizenz und Quellen
 
 - **Code:** Alle Rechte vorbehalten. Der Quellcode steht ohne Lizenz im Repository. Er ist einsehbar, darf aber nicht kopiert, verändert oder weiterverbreitet werden (ausgenommen das Ansehen und Forken innerhalb von GitHub laut GitHub-Nutzungsbedingungen).
-- **Vokabeln und Testdaten:** Die Vokabellisten in `public/vocab/` und die gespeicherten Beispielantworten in `src/domain/lookup/fixtures/` stammen aus bzw. beruhen auf [Wiktionary](https://de.wiktionary.org) und [Wiktionary (spanisch)](https://es.wiktionary.org). Die Inhalte stehen unter [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de). Urheber sind die jeweiligen Wiktionary-Mitwirkenden (Versionsgeschichte der einzelnen Seiten). Die Inhalte wurden ausgewählt, gekürzt, ergänzt und umstrukturiert. Für diese Dateien gilt weiterhin CC BY-SA 4.0 (Weitergabe unter gleichen Bedingungen), die Code-Regelung oben gilt für sie nicht. Siehe auch `public/vocab/NOTICE.md`.
+- **Vokabeln und Testdaten:** Die Vokabellisten in `public/vocab/` stammen aus bzw. beruhen auf [Wiktionary](https://de.wiktionary.org) und [Wiktionary (spanisch)](https://es.wiktionary.org). Die Inhalte stehen unter [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de). Urheber sind die jeweiligen Wiktionary-Mitwirkenden (Versionsgeschichte der einzelnen Seiten). Die Inhalte wurden ausgewählt, gekürzt, ergänzt und umstrukturiert. Für diese Dateien gilt weiterhin CC BY-SA 4.0 (Weitergabe unter gleichen Bedingungen), die Code-Regelung oben gilt für sie nicht. Siehe auch `public/vocab/NOTICE.md`.
