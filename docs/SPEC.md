@@ -2,7 +2,7 @@
 
 Einzige Quelle der Wahrheit für Funktion und Technik der App. **Teil A** beschreibt, *was* die App tut (Anforderungen, Vokabel- und Verbformat). **Teil B** legt fest, *wie* sie gebaut ist (Stack, Datenmodell, Lernmodell, Deployment).
 
-Begleitdokumente: `docs/TASKS.md` (offene Aufgaben), `docs/vocab-plan.md` (Themenplan und Kontingente der Vokabeln), `docs/FORMSUCHE.md` (Anforderung Formsuche, noch nicht spezifiziert), `docs/ABNAHME.md` (Abnahmeprotokoll der Lernsitzung).
+Begleitdokumente: `docs/TASKS.md` (offene Aufgaben), `docs/VOKABELN.md` (Themen und Qualitätsregeln der Vokabeln), `docs/FORMSUCHE.md` (Anforderung Formsuche, noch nicht spezifiziert), `docs/ABNAHME.md` (Abnahmeprotokoll der Lernsitzung).
 
 ---
 
@@ -10,7 +10,7 @@ Begleitdokumente: `docs/TASKS.md` (offene Aufgaben), `docs/vocab-plan.md` (Theme
 
 ## 1. Ziel
 
-Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte in Mexiko und Guatemala. Sie enthält 803 Startvokabeln mit Zusatzinfos, insbesondere zur Konjugation der Verben.
+Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte in Mexiko und Guatemala. Sie enthält über 800 Startvokabeln mit Zusatzinfos, insbesondere zur Konjugation der Verben.
 
 ## 2. Entscheidungen aus der Anforderungsklärung
 
@@ -20,7 +20,7 @@ Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte
 | Nutzer / Level | **Ein Nutzer pro Browser, keine Profile** (entschieden). Niveaustufen A1 bis B1 sind einstellbar. |
 | Lernmodi v1 | **Karteikarten** und **Spaced Repetition** (zwei Bewertungsbuttons, endlose Sitzung, siehe §3.1) |
 | Inhalte | Reise-Alltag, Kultur & Orte, Audio-Aussprache |
-| Vokabeln | **803 Startvokabeln**, von Claude generiert, mit Zusatzinfos |
+| Vokabeln | **Über 800 Startvokabeln**, von Claude generiert, mit Zusatzinfos, ohne festen Gesamtumfang |
 | Speicherung | **Nur lokal im Browser**, kein Server, kein Login |
 | Design | Mexiko/Guatemala-Farbwelt, mobile-first |
 | Länderunterscheidung | **Keine** (ein gemeinsames Vokabelset) |
@@ -87,9 +87,8 @@ Der Nutzer gibt ein spanisches Wort ein, das er irgendwo aufgeschnappt hat. Es w
 
 ## 4. Vokabeln: Umfang und Datenmodell
 
-### 4.1 Umfang (803 Einträge)
-- 250 Verben, 283 Nomen, 166 Adjektive/Adverbien/Zahlwörter/sonstige Wörter (Präpositionen, Pronomen, Konjunktionen), 104 Redewendungen und Floskeln. Verbindlich ist der Plan in `docs/vocab-plan.md` (Kontingente je Thema und Niveau).
-- Die 25 Seed-Vokabeln (`v0001–v0025`) zählen zum Gesamtumfang und behalten ihre IDs.
+### 4.1 Umfang
+- Es gibt keinen festen Gesamtumfang und keine Kontingente je Thema, Wortart oder Niveau, die Liste darf wachsen. Jedes Thema hat mindestens 10 Einträge (der Validator prüft das). Themenschwerpunkte: `docs/VOKABELN.md`.
 - Themen: Begrüßung & Höflichkeit, Zahlen & Zeit, Essen & Trinken (inkl. mexikanische und guatemaltekische Gerichte), Transport & Bus, Unterkunft, Einkaufen & Geld, Gesundheit & Notfall, Wetter & Natur (Vulkane, Seen, Strand), Orte, Kultur & Feste, Maya-Welt, Smalltalk, Grundwortschatz (häufigste Wörter laut Frequenzlisten, viele Verben).
 - Niveaus: A1 bis B1.
 - Spanisch in der **lateinamerikanischen Variante**. Bei Abweichungen vom Spanien-Spanisch (z. B. *carro* statt *coche*, *camión* für Bus in Mexiko, *jugo* statt *zumo*) gilt die lateinamerikanische Form. Typische Mexikanismen oder Guatemaltekismen werden im Hinweisfeld genannt, aber nicht gefiltert.
@@ -183,9 +182,9 @@ Pro Verb werden nur gespeichert: `tags`, `reflexive`, `overrides`. Alles andere 
 - Bei Nomen muss der Artikel in `es` zu `gender` passen (*el* → `m`, *la* → `f`, *el/la* → `m/f`). Ausnahme: *el* vor betontem a- bei femininen Nomen (*el agua*). *los*/*las* sind frei.
 - `verb` ist bei `pos: "verb"` vorhanden, sonst nicht.
 - Ein Tag muss eine Wirkung haben (die erzeugten Formen ändern sich, `irr` ausgenommen). `irr` braucht `overrides`.
-- Alle Einträge: `id` im Format `v` plus vier Ziffern, eindeutig. IDs ab `v0026` liegen im reservierten Bereich ihres Themas (`docs/vocab-plan.md`), `topic` passt zur Datei, keine Leerzeichen am Rand, `gender`/`plural` nur bei Nomen, `adj` nur bei Adjektiven. Nomen brauchen Artikel und `gender`.
+- Alle Einträge: `id` im Format `v` plus vier Ziffern, eindeutig. IDs werden nie wiederverwendet, `topic` passt zur Datei, keine Leerzeichen am Rand, `gender`/`plural` nur bei Nomen, `adj` nur bei Adjektiven. Nomen brauchen Artikel und `gender`.
 - Dubletten über alle Themen (Normalisierung wie §10.1a): gleiche Form und gleiche Wortart sind ein Fehler, gleiche Form bei anderer Wortart oder nur im Akzent verschieden ist eine **Warnung** (*papa/papá*).
-- Plan: Abweichungen von den Kontingenten je Thema (`scripts/vocabPlan.ts`) sind Warnungen, mit `--final` müssen Summen je Thema und insgesamt stimmen.
+- Themen: Jedes Thema hat mindestens 10 Einträge. `index.json` führt jedes Thema des Schemas (Feld `topic`) mit der Datei `<key>.json`.
 - Das Konjugationsmodul wird zusätzlich gegen eine **Referenzliste bekannter Verben mit allen Formen** getestet (siehe unten).
 
 Zusätzlich gilt für jedes Verb:
@@ -233,7 +232,7 @@ Keine weiteren Runtime-Abhängigkeiten ohne Grund (State: React `useReducer`/Con
 ```
 package.json  vite.config.ts  tsconfig.json  index.html
 .github/workflows/pages.yml  README.md  AGENTS.md
-docs/                       # SPEC.md, TASKS.md, vocab-plan.md, FORMSUCHE.md, ABNAHME.md
+docs/                       # SPEC.md, TASKS.md, VOKABELN.md, FORMSUCHE.md, ABNAHME.md
 public/
   vocab/<thema>.json        # Vokabeln je Thema
   vocab/index.json          # Liste der Themen-Dateien
@@ -242,7 +241,6 @@ public/
 scripts/
   validate-vocab.ts         # Aufruf von `npm run validate:vocab`
   validateVocab.ts          # Schema/ID/Dubletten/Verbformen (+ Test)
-  vocabPlan.ts              # Kontingente je Thema (maßgeblich, siehe docs/vocab-plan.md)
   vocab.schema.json         # JSON-Schema der Vokabeldateien
   make-icons.ts             # PWA-Icons aus public/icons/logo.svg
   browser-smoke.ts          # End-to-End-Test im echten Browser

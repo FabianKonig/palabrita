@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
 import type { Vocab } from "../src/domain/types";
-import { checkVerb, validateIndex, validateVocab } from "./validateVocab";
-import { TOPICS, TOTAL_TARGET, topicTotal } from "./vocabPlan";
+import {
+  checkVerb,
+  MIN_PER_TOPIC,
+  validateIndex,
+  validateVocab,
+} from "./validateVocab";
 
 function entry(over: Partial<Vocab> & Record<string, unknown> = {}): Vocab {
   return {
@@ -32,32 +36,50 @@ function verb(over: Partial<Vocab> = {}): Vocab {
 }
 
 const run = (list: Vocab[], file = "begruessung.json") =>
-  validateVocab([{ file, data: list }]);
+  validateVocab([{ file, data: list }], { minPerTopic: 0 });
 
-describe("plan", () => {
-  it("has 13 topics with unique, non-overlapping ID ranges and 803 entries", () => {
-    expect(TOPICS).toHaveLength(13);
-    expect(TOTAL_TARGET).toBe(803);
-    for (let i = 1; i < TOPICS.length; i++)
-      expect(TOPICS[i].idStart).toBeGreaterThan(TOPICS[i - 1].idEnd);
-    expect(TOPICS[0].idStart).toBe(26);
-  });
+describe("index", () => {
+  const keys = [
+    "begruessung",
+    "zahlen-zeit",
+    "essen",
+    "transport",
+    "unterkunft",
+    "einkaufen",
+    "gesundheit",
+    "natur",
+    "orte",
+    "kultur",
+    "maya",
+    "smalltalk",
+    "grundwortschatz",
+  ];
+  const good = {
+    topics: keys.map((key) => ({ key, label: key, file: `${key}.json` })),
+  };
 
-  it("level quotas add up to the topic total", () => {
-    for (const t of TOPICS) {
-      const levels = t.levels.A1 + t.levels.A2 + t.levels.B1;
-      expect(levels, t.key).toBe(topicTotal(t));
-    }
-  });
-
-  it("index must list every planned topic with its file", () => {
-    const good = {
-      topics: TOPICS.map((t) => ({ key: t.key, label: t.label, file: t.file })),
-    };
+  it("accepts an index with every topic of the schema and matching file names", () => {
     expect(validateIndex(good)).toEqual([]);
+  });
+
+  it("rejects missing, duplicate, unknown topics and wrong file names", () => {
+    expect(validateIndex({ topics: good.topics.slice(1) })).toHaveLength(1);
     expect(
-      validateIndex({ topics: good.topics.slice(1) }).length,
-    ).toBeGreaterThan(0);
+      validateIndex({ topics: [...good.topics, good.topics[0]] }),
+    ).toHaveLength(1);
+    expect(
+      validateIndex({
+        topics: [
+          ...good.topics,
+          { key: "neu", label: "Neu", file: "neu.json" },
+        ],
+      }),
+    ).toHaveLength(1);
+    expect(
+      validateIndex({
+        topics: good.topics.map((t, i) => (i ? t : { ...t, file: "x.json" })),
+      }),
+    ).toHaveLength(1);
   });
 });
 
@@ -128,23 +150,24 @@ describe("validateVocab", () => {
     ).toMatch(/Nicht-Verb/);
   });
 
-  it("ID must be inside the reserved range unless it is a seed ID", () => {
-    expect(run([entry({ id: "v0900" })]).errors.join()).toMatch(/außerhalb/);
-    expect(run([entry({ id: "v0010" })]).errors).toEqual([]);
-  });
-
   it("entry must sit in the file of its topic", () => {
     expect(run([entry({ topic: "essen" })]).errors.join()).toMatch(
       /gehört nicht in/,
     );
   });
 
-  it("final mode requires the planned quantities", () => {
-    const r = validateVocab([{ file: "begruessung.json", data: [entry()] }], {
-      final: true,
-    });
-    expect(r.errors.join()).toMatch(/Plan 40/);
-    expect(r.errors.join()).toMatch(/Ziel 803/);
+  it("a topic needs a minimum number of entries", () => {
+    const few = validateVocab([{ file: "begruessung.json", data: [entry()] }]);
+    expect(few.errors.join()).toMatch(/nur 1 Einträge, mindestens 10/);
+    const enough = Array.from({ length: MIN_PER_TOPIC }, (_, i) =>
+      entry({
+        id: `v${String(i + 1).padStart(4, "0")}`,
+        es: `la x${"a".repeat(i + 1)}`,
+      }),
+    );
+    expect(
+      validateVocab([{ file: "begruessung.json", data: enough }]).errors,
+    ).toEqual([]);
   });
 });
 

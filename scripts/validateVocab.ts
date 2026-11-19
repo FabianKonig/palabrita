@@ -3,7 +3,6 @@ import { conjugate } from "../src/domain/conjugation";
 import { findDuplicate } from "../src/domain/lookup/findDuplicate";
 import type { Tense, VerbData, VerbTag, Vocab } from "../src/domain/types";
 import schema from "./vocab.schema.json";
-import { SEED_ID_MAX, TOPICS, TOTAL_TARGET, topicTotal } from "./vocabPlan";
 
 export interface VocabFile {
   /** File name, e.g. "essen.json". */
@@ -19,13 +18,17 @@ export interface ValidationReport {
   total: number;
 }
 
+/** A topic with fewer entries is not worth maintaining as its own topic. */
+export const MIN_PER_TOPIC = 10;
+
 export interface ValidateOptions {
-  /** Final check: topic totals must match the plan and the total must reach the target. */
-  final?: boolean;
+  /** Minimum number of entries per topic file. */
+  minPerTopic?: number;
 }
 
 const ajv = new Ajv({ allErrors: true, strict: false });
 const validateSchema = ajv.compile(schema);
+const schemaTopics: string[] = schema.definitions.vocab.properties.topic.enum;
 
 const ARTICLE_GENDER: Record<string, Vocab["gender"]> = {
   el: "m",
@@ -34,8 +37,6 @@ const ARTICLE_GENDER: Record<string, Vocab["gender"]> = {
   los: "m",
   las: "f",
 };
-
-const MISC = new Set(["adj", "adv", "num", "other"]);
 
 function infinitiveOf(es: string): { inf: string; kind: string; stem: string } {
   const inf = es.replace(/se$/, "");
@@ -148,15 +149,8 @@ export function checkVerb(v: Vocab): string[] {
 /** Semantic checks for one schema-valid entry. */
 function checkEntry(v: Vocab, file: string): string[] {
   const out: string[] = [];
-  const plan = TOPICS.find((t) => t.file === file);
-  if (plan && v.topic !== plan.key)
+  if (v.topic !== file.replace(/\.json$/, ""))
     out.push(`topic "${v.topic}" gehört nicht in ${file}`);
-
-  const num = Number(v.id.slice(1));
-  if (plan && num > SEED_ID_MAX && (num < plan.idStart || num > plan.idEnd))
-    out.push(
-      `ID außerhalb des reservierten Bereichs v${String(plan.idStart).padStart(4, "0")}–v${String(plan.idEnd).padStart(4, "0")}`,
-    );
 
   if (v.de.some((d) => d !== d.trim()))
     out.push("de-Eintrag mit Leerzeichen am Rand");
@@ -189,7 +183,7 @@ function checkEntry(v: Vocab, file: string): string[] {
 /** Validates all vocabulary files together (cross-file checks included). */
 export function validateVocab(
   files: VocabFile[],
-  options: ValidateOptions = {},
+  { minPerTopic = MIN_PER_TOPIC }: ValidateOptions = {},
 ): ValidationReport {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -243,47 +237,40 @@ export function validateVocab(
       );
   });
 
-  // Plan: quotas.
-  const total = all.length;
-  for (const t of TOPICS) {
-    const mine = all.filter((x) => x.v.topic === t.key).map((x) => x.v);
-    const n = mine.length;
-    const group = (g: string) =>
-      mine.filter((v) => (MISC.has(v.pos) ? "misc" : v.pos) === g).length;
-    const diffs: string[] = [];
-    for (const g of ["verb", "noun", "misc", "phrase"] as const) {
-      const have = group(g);
-      if (have !== t.quota[g]) diffs.push(`${g} ${have}/${t.quota[g]}`);
-    }
-    for (const l of ["A1", "A2", "B1"] as const) {
-      const have = mine.filter((v) => v.level === l).length;
-      if (have !== t.levels[l]) diffs.push(`${l} ${have}/${t.levels[l]}`);
-    }
-    if (options.final && n !== topicTotal(t))
-      errors.push(`${t.key}: ${n} Einträge, Plan ${topicTotal(t)}`);
-    if (diffs.length)
-      warnings.push(`${t.key}: Abweichung vom Plan (${diffs.join(", ")})`);
+  // Every topic needs a minimum number of entries.
+  for (const [topic, n] of Object.entries(counts)) {
+    if (n < minPerTopic)
+      errors.push(
+        `${topic}: nur ${n} Einträge, mindestens ${minPerTopic} je Thema`,
+      );
   }
-  if (options.final && total < TOTAL_TARGET)
-    errors.push(`Insgesamt ${total} Einträge, Ziel ${TOTAL_TARGET}`);
+  const total = all.length;
 
   return { errors, warnings, counts, total };
 }
 
-/** Index file: 12 topics, file names as planned. */
+/** Index file: every topic has a key, a label and the file `<key>.json`; the keys match the schema. */
 export function validateIndex(index: unknown): string[] {
   const out: string[] = [];
   const topics = (
     index as { topics?: { key: string; file: string; label: string }[] }
   )?.topics;
   if (!Array.isArray(topics)) return ["index.json: topics fehlt"];
-  for (const t of TOPICS) {
-    const e = topics.find((x) => x.key === t.key);
-    if (!e) out.push(`index.json: Thema ${t.key} fehlt`);
-    else if (e.file !== t.file)
-      out.push(`index.json: ${t.key} zeigt auf ${e.file}, erwartet ${t.file}`);
+  const seen = new Set<string>();
+  for (const t of topics) {
+    if (typeof t.key !== "string" || typeof t.label !== "string")
+      out.push("index.json: Thema ohne key oder label");
+    else if (seen.has(t.key)) out.push(`index.json: Thema ${t.key} doppelt`);
+    else seen.add(t.key);
+    if (t.file !== `${t.key}.json`)
+      out.push(
+        `index.json: ${t.key} zeigt auf ${t.file}, erwartet ${t.key}.json`,
+      );
   }
-  if (topics.length !== TOPICS.length)
-    out.push(`index.json: ${topics.length} Themen, erwartet ${TOPICS.length}`);
+  for (const key of schemaTopics)
+    if (!seen.has(key)) out.push(`index.json: Thema ${key} fehlt`);
+  for (const key of seen)
+    if (!schemaTopics.includes(key))
+      out.push(`index.json: Thema ${key} fehlt im Schema (topic-Liste)`);
   return out;
 }

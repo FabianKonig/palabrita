@@ -3,8 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateIndex, validateVocab, type VocabFile } from "./validateVocab";
 
-/** Usage: npm run validate:vocab [-- --final] */
-const final = process.argv.includes("--final");
+/** Usage: npm run validate:vocab */
 const dir = join(
   dirname(fileURLToPath(import.meta.url)),
   "..",
@@ -20,7 +19,7 @@ const files: VocabFile[] = index.topics.map(({ file }) => ({
   data: JSON.parse(readFileSync(join(dir, file), "utf8")),
 }));
 
-const report = validateVocab(files, { final });
+const report = validateVocab(files);
 const errors = [...validateIndex(index), ...report.errors];
 
 console.log(`Einträge: ${report.total}`);

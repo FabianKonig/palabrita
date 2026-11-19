@@ -4,7 +4,7 @@ Hinweise für KI-Agenten, die in diesem Repo arbeiten.
 
 ## Projekt
 
-**Palabrita**: Vokabel-Lern-App für Spanisch (Mexiko/Guatemala). Läuft komplett im Browser (PWA, offline-fähig), kein Backend. Fortschritt liegt in IndexedDB. Details: `README.md`, `docs/SPEC.md` (einzige Spezifikation: Teil A Anforderungen, Teil B Technik), `docs/TASKS.md` (offene Aufgaben). Weitere Dokumente: `docs/vocab-plan.md`, `docs/FORMSUCHE.md`, `docs/ABNAHME.md`.
+**Palabrita**: Vokabel-Lern-App für Spanisch (Mexiko/Guatemala). Läuft komplett im Browser (PWA, offline-fähig), kein Backend. Fortschritt liegt in IndexedDB. Details: `README.md`, `docs/SPEC.md` (einzige Spezifikation: Teil A Anforderungen, Teil B Technik), `docs/TASKS.md` (offene Aufgaben). Weitere Dokumente: `docs/VOKABELN.md`, `docs/FORMSUCHE.md`, `docs/ABNAHME.md`.
 
 Stack: React 19, TypeScript 6, Vite 8, vite-plugin-pwa, react-router-dom 7, idb, Vitest 5, ESLint, Prettier. Deployment als statische PWA auf GitHub Pages.
 
@@ -27,7 +27,6 @@ npm test                            # vitest run
 npm run lint                        # eslint .
 npm run format                      # prettier --write .
 npm run validate:vocab              # Vokabeldateien prüfen
-npm run validate:vocab -- --final   # zusätzlich: 803 Einträge laut Plan
 npx tsx scripts/browser-smoke.ts    # Browser-Smoke-Test, braucht laufendes `npm run preview -- --port 4173` (Details im Kopf der Datei)
 ```
 
@@ -37,9 +36,9 @@ Vor einem Commit mindestens `npm run lint`, `npm test` und `npm run build` ausf�
 
 - `src/` App-Code (`domain/` Fachlogik wie Lernmodell, Warteschlange und Konjugation, `features/`, `components/`, `hooks/`, `data/`, `styles/`). Verzeichnisbaum: `docs/SPEC.md` §9.
 - `src/features/legal/` Impressum und Datenschutz (Betreiberangaben in `operator.ts`; bei Änderung von Hosting oder externen Diensten Texte prüfen)
-- `public/vocab/` Vokabeln als JSON je Thema (`NOTICE.md`: Quellen- und Lizenzhinweis); Schema: `scripts/vocab.schema.json`, Plan: `docs/vocab-plan.md`
-- `scripts/` Vokabel-Validierung (`validate-vocab.ts` mit `validateVocab.ts`, `vocabPlan.ts`, `vocab.schema.json`), Icon-Erzeugung (`make-icons.ts`), Browser-Smoke-Test (`browser-smoke.ts`)
-- `docs/` `SPEC.md`, `TASKS.md`, `vocab-plan.md`, `FORMSUCHE.md`, `ABNAHME.md`
+- `public/vocab/` Vokabeln als JSON je Thema (`NOTICE.md`: Quellen- und Lizenzhinweis); Schema: `scripts/vocab.schema.json`, Themen und Regeln: `docs/VOKABELN.md`
+- `scripts/` Vokabel-Validierung (`validate-vocab.ts` mit `validateVocab.ts`, `vocab.schema.json`), Icon-Erzeugung (`make-icons.ts`), Browser-Smoke-Test (`browser-smoke.ts`)
+- `docs/` `SPEC.md`, `TASKS.md`, `VOKABELN.md`, `FORMSUCHE.md`, `ABNAHME.md`
 - `.github/workflows/pages.yml` Deployment auf GitHub Pages (Lint, Tests, Vokabelprüfung, Build, Veröffentlichung)
 
 ## Konventionen
