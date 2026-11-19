@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
-  changeFilter,
+  clearDropdownFilters,
   EMPTY_FILTERS,
+  hasDropdownFilter,
   matchesQuery,
   normalizeForSearch,
   searchVocab,
@@ -89,15 +90,31 @@ describe("searchVocab", () => {
     expect(ids(searchVocab(VOCAB, { ...f, pos: "verb" }))).toEqual(["3"]);
   });
 
-  it("ignores the filters while a search text is set", () => {
-    const r = searchVocab(VOCAB, {
-      ...EMPTY_FILTERS,
-      query: "können",
-      pos: "noun",
-      topic: "essen",
-      level: "B1",
-    });
-    expect(ids(r)).toEqual(["3"]);
+  it("searches inside the filtered list (search and filters combine)", () => {
+    // "a" matches "la casa" (2) and "el pasado" (4); level B1 leaves only "el pasado"
+    expect(
+      ids(searchVocab(VOCAB, { ...EMPTY_FILTERS, query: "a", level: "B1" })),
+    ).toEqual(["4"]);
+    expect(
+      ids(
+        searchVocab(VOCAB, {
+          ...EMPTY_FILTERS,
+          query: "a",
+          topic: "unterkunft",
+        }),
+      ),
+    ).toEqual(["2"]);
+    // "können" is a verb, so a noun filter leaves nothing
+    expect(
+      ids(
+        searchVocab(VOCAB, { ...EMPTY_FILTERS, query: "können", pos: "noun" }),
+      ),
+    ).toEqual([]);
+    expect(
+      ids(
+        searchVocab(VOCAB, { ...EMPTY_FILTERS, query: "können", pos: "verb" }),
+      ),
+    ).toEqual(["3"]);
   });
 
   it("finds words above any level via the German translation", () => {
@@ -184,15 +201,15 @@ describe("topicOptions", () => {
   });
 });
 
-describe("changeFilter", () => {
-  it("typing a search text resets all filters", () => {
+describe("dropdown helpers", () => {
+  it("clears only topic, level and pos and keeps the search text", () => {
     const f = {
-      ...EMPTY_FILTERS,
+      query: "casa",
       topic: "essen",
       level: "A2",
       pos: "verb",
     } as const;
-    expect(changeFilter(f, "query", "casa")).toEqual({
+    expect(clearDropdownFilters({ ...f })).toEqual({
       query: "casa",
       topic: "",
       level: "",
@@ -200,26 +217,9 @@ describe("changeFilter", () => {
     });
   });
 
-  it("choosing a filter clears the search text", () => {
-    const f = { ...EMPTY_FILTERS, query: "casa" };
-    expect(changeFilter(f, "level", "A1")).toMatchObject({
-      query: "",
-      level: "A1",
-    });
-    expect(changeFilter(f, "topic", "essen")).toMatchObject({
-      query: "",
-      topic: "essen",
-    });
-    expect(changeFilter(f, "pos", "noun")).toMatchObject({
-      query: "",
-      pos: "noun",
-    });
-  });
-
-  it("setting a filter back to all keeps the search text; blank text keeps the filters", () => {
-    const f = { ...EMPTY_FILTERS, query: "casa", level: "" as const };
-    expect(changeFilter(f, "pos", "")).toMatchObject({ query: "casa" });
-    const g = { ...EMPTY_FILTERS, topic: "essen" };
-    expect(changeFilter(g, "query", "  ")).toMatchObject({ topic: "essen" });
+  it("knows whether a dropdown filter is set (search text does not count)", () => {
+    expect(hasDropdownFilter(EMPTY_FILTERS)).toBe(false);
+    expect(hasDropdownFilter({ ...EMPTY_FILTERS, query: "casa" })).toBe(false);
+    expect(hasDropdownFilter({ ...EMPTY_FILTERS, pos: "noun" })).toBe(true);
   });
 });

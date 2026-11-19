@@ -4,7 +4,8 @@ import { GermanText } from "../../components/Flashcard";
 import { PageTitle } from "../../components/PageTitle";
 import {
   POS_LABEL,
-  changeFilter,
+  clearDropdownFilters,
+  hasDropdownFilter,
   topicOptions,
   searchVocab,
   type DictionaryFilters,
@@ -47,17 +48,30 @@ export function Dictionary() {
     [vocab, filters],
   );
 
+  const update = (next: DictionaryFilters) => {
+    setFilters(next);
+    saveFilters(next);
+  };
   const set = <K extends keyof DictionaryFilters>(
     key: K,
     value: DictionaryFilters[K],
-  ) =>
-    setFilters((f) => {
-      const next = changeFilter(f, key, value);
-      saveFilters(next);
-      return next;
-    });
+  ) => update({ ...filters, [key]: value });
 
   const topicChoices = topicOptions(topics);
+
+  // Statuszeile: nennt alle Kriterien, die gerade wirken (Filter und Suche).
+  const topicLabel = topicChoices.find(([key]) => key === filters.topic)?.[1];
+  const query = filters.query.trim();
+  const activeParts = [
+    topicLabel,
+    filters.level || undefined,
+    filters.pos ? POS_LABEL[filters.pos] : undefined,
+    query ? `Suche „${query}“` : undefined,
+  ].filter((part): part is string => Boolean(part));
+  const dropdownsActive = hasDropdownFilter(filters);
+  const activeCount = [filters.topic, filters.level, filters.pos].filter(
+    Boolean,
+  ).length;
 
   return (
     <div className="screen">
@@ -81,6 +95,27 @@ export function Dictionary() {
           }}
         />
 
+        {activeParts.length > 0 && (
+          <div className="dict-status">
+            <span>
+              Aktiv: <strong>{activeParts.join(" · ")}</strong>
+            </span>
+            {dropdownsActive && (
+              <button
+                type="button"
+                className="dict-status-clear"
+                onClick={() => update(clearDropdownFilters(filters))}
+              >
+                Filter löschen
+              </button>
+            )}
+          </div>
+        )}
+
+        <div className="dict-filter-caption muted">
+          <span>Filtern nach</span>
+          {activeCount > 0 && <span>{activeCount} aktiv</span>}
+        </div>
         <div className="filters">
           <select
             className="field"

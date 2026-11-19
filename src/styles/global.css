@@ -1327,6 +1327,49 @@ select.field,
   margin-top: 24px;
 }
 
+/* Statuszeile: alle aktiven Kriterien; „Filter löschen“ setzt nur die Dropdowns zurück */
+.dict-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--turquoise-soft);
+  color: var(--text);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.dict-status strong {
+  font-weight: 700;
+}
+
+.dict-status-clear {
+  flex: none;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dict-filter-caption {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 2px 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .dict-section .count {
   margin: 12px 0;
 }

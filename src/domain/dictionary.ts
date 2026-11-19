@@ -82,34 +82,33 @@ function compareMatches(
   );
 }
 
-function matchAll(vocab: Iterable<Vocab>, q: string) {
-  const out: { vocab: Vocab; match: Match }[] = [];
-  for (const v of vocab) {
-    const match = matchVocab(v, q);
-    if (match) out.push({ vocab: v, match });
-  }
-  return out.sort(compareMatches);
+/** Thema, Niveau und Wortart: jeder gesetzte Filter muss passen (UND). */
+function matchesFilters(v: Vocab, filters: DictionaryFilters): boolean {
+  if (filters.topic && v.topic !== filters.topic) return false;
+  if (filters.level && v.level !== filters.level) return false;
+  if (filters.pos && v.pos !== filters.pos) return false;
+  return true;
 }
 
 /**
- * All vocabulary (the dictionary ignores maxLevel). With a search text only the text counts
- * and the result is ranked by match quality; the filters are ignored (the UI resets them).
- * Without a search text: filtered and sorted by Spanish headword.
+ * All vocabulary (the dictionary ignores maxLevel). Search text and filters combine: the
+ * search runs inside the filtered list. Without a search text the result is sorted by
+ * Spanish headword, with one it is ranked by match quality.
  */
 export function searchVocab(
   vocab: Iterable<Vocab>,
   filters: DictionaryFilters,
 ): Vocab[] {
+  const candidates = [...vocab].filter((v) => matchesFilters(v, filters));
   const q = normalizeForSearch(filters.query);
-  if (q) return matchAll(vocab, q).map((m) => m.vocab);
-  const out: Vocab[] = [];
-  for (const v of vocab) {
-    if (filters.topic && v.topic !== filters.topic) continue;
-    if (filters.level && v.level !== filters.level) continue;
-    if (filters.pos && v.pos !== filters.pos) continue;
-    out.push(v);
-  }
-  return out.sort(compareHeadword);
+  if (!q) return candidates.sort(compareHeadword);
+  return candidates
+    .flatMap((vocab) => {
+      const match = matchVocab(vocab, q);
+      return match ? [{ vocab, match }] : [];
+    })
+    .sort(compareMatches)
+    .map((m) => m.vocab);
 }
 
 const ARTICLE = /^(el\/la|el|la|los|las|un|una)\s+/i;
@@ -133,20 +132,14 @@ export function topicOptions(
   return [...core, ...rest];
 }
 
-/**
- * Change one filter field. Search text and filters exclude each other: typing a search text
- * resets topic, level and pos to "all", choosing a filter (anything but "all") clears the text.
- */
-export function changeFilter<K extends keyof DictionaryFilters>(
+/** Setzt nur Thema, Niveau und Wortart zurück. Der Suchtext bleibt. */
+export function clearDropdownFilters(
   filters: DictionaryFilters,
-  key: K,
-  value: DictionaryFilters[K],
 ): DictionaryFilters {
-  const next = { ...filters, [key]: value };
-  if (key === "query") {
-    return normalizeForSearch(String(value))
-      ? { ...next, topic: "", level: "", pos: "" }
-      : next;
-  }
-  return value === "" ? next : { ...next, query: "" };
+  return { ...filters, topic: "", level: "", pos: "" };
+}
+
+/** Is any dropdown filter set? (The search text is not counted.) */
+export function hasDropdownFilter(filters: DictionaryFilters): boolean {
+  return filters.topic !== "" || filters.level !== "" || filters.pos !== "";
 }
