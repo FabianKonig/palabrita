@@ -10,6 +10,7 @@ function v(id: string, level: Vocab["level"]): Vocab {
     pos: "noun",
     level,
     topic: "t",
+    added: "2026-11-19",
     example: { es: "a", de: "b" },
   };
 }
@@ -24,6 +25,7 @@ function c(vocabId: string, dir: Card["dir"], state: Card["state"]): Card {
     reps: 1,
     lapses: 0,
     lastReviewed: 1,
+    introduced: 1,
     state,
   };
 }

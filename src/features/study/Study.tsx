@@ -1,11 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Logo } from "../../components/Brand";
 import { SpeakerIcon } from "../../components/icons";
 import { Flashcard } from "../../components/Flashcard";
 import { VerbOverlay } from "../../components/VerbOverlay";
 import { getAllCards, saveReview } from "../../data/cardRepo";
+import { dayKey } from "../../domain/day";
 import {
   cardKey,
+  countIntroducedToday,
+  MORE_NEW_STEP,
+  NEW_PER_DAY,
   pickNext,
   type NextPick,
   type QueueFilters,
@@ -26,13 +30,30 @@ const GRADE_BUTTONS: { grade: Grade; label: string }[] = [
   { grade: "good", label: "Gewusst" },
 ];
 
+/** Raised limit of new cards; only valid on the day it was set (SPEC §12.1). */
+interface NewLimit {
+  day: string;
+  value: number;
+}
+
 interface Session {
   cards: Card[];
-  seen: Set<string>;
   rated: number;
   /** Number of "again" ratings in this session. */
   again: number;
+  /** Review cards rated since the last new card (SPEC §12.2, stage 2). */
+  reviewsSinceNew: number;
+  newLimit: NewLimit | null;
+  /** Key of the card rated last. */
+  lastShown: string | null;
   pick: NextPick | null;
+}
+
+/** Limit that applies at `now`: a raised limit from an earlier day falls back to NEW_PER_DAY. */
+function limitAt(newLimit: NewLimit | null, now: number): number {
+  return newLimit && newLimit.day === dayKey(now)
+    ? newLimit.value
+    : NEW_PER_DAY;
 }
 
 /** Shows the filter setup first, then the session itself. */
@@ -40,6 +61,46 @@ export function Study() {
   const [filters, setFilters] = useState<QueueFilters | null>(null);
   if (!filters) return <StudySetup onStart={setFilters} />;
   return <StudySession filters={filters} onBack={() => setFilters(null)} />;
+}
+
+/** Summary, "Für heute geschafft" and "Keine Karten": logo centred at the top. */
+function EndScreen({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className="screen center">
+      {/* Gleiche Leiste wie in der Sitzung: das Logo steht an derselben Stelle. */}
+      <div className="session-bar session-end-bar">
+        <span />
+        <Logo />
+        <span />
+      </div>
+      <h1>{title}</h1>
+      {children}
+    </div>
+  );
+}
+
+function ResultTiles({ rated, again }: { rated: number; again: number }) {
+  return (
+    // Das Ergebnis ist das Wichtigste auf der Seite: zwei große Kacheln.
+    <div className="result-tiles">
+      <div className="result-tile">
+        <span className="result-num">{rated}</span>
+        <span className="result-label">
+          {rated === 1 ? "Karte geübt" : "Karten geübt"}
+        </span>
+      </div>
+      <div className="result-tile again">
+        <span className="result-num">{again}</span>
+        <span className="result-label">davon „Nochmal“</span>
+      </div>
+    </div>
+  );
 }
 
 function StudySession({
@@ -50,7 +111,7 @@ function StudySession({
   onBack: () => void;
 }) {
   const { vocab, settings } = useAppData();
-  const { maxLevel } = settings;
+  const { maxLevel, orderSeed, startedAt } = settings;
   const [session, setSession] = useState<Session | null>(null);
   // Automatisches Vorlesen ist nur für diese Sitzung manuell einschaltbar und startet immer aus.
   const [autoSpeak, setAutoSpeak] = useState(false);
@@ -64,7 +125,8 @@ function StudySession({
   const busy = useRef(false);
   const speech = useSpeech();
 
-  const item = session?.pick?.item;
+  const pick = session?.pick;
+  const item = pick && pick.kind !== "done" ? pick.item : undefined;
   const entry = item ? vocab.get(item.vocabId) : undefined;
   // The Spanish side is visible on the front of es-de cards and on the back of de-es cards.
   const spanishVisible = item ? item.dir === "es-de" || flipped : false;
@@ -87,17 +149,25 @@ function StudySession({
     getAllCards()
       .then((cards) => {
         if (cancelled) return;
-        const seen = new Set<string>();
         const pick = pickNext({
-          settings: { maxLevel },
+          settings: { maxLevel, orderSeed, startedAt },
           vocab: vocab.values(),
           cards,
           now: Date.now(),
           filters,
-          sessionSeen: seen,
           lastShown: null,
+          reviewsSinceNew: 0,
+          newLimit: NEW_PER_DAY,
         });
-        setSession({ cards, seen, rated: 0, again: 0, pick });
+        setSession({
+          cards,
+          rated: 0,
+          again: 0,
+          reviewsSinceNew: 0,
+          newLimit: null,
+          lastShown: null,
+          pick,
+        });
       })
       .catch((e: unknown) => {
         if (!cancelled) setError(e instanceof Error ? e.message : String(e));
@@ -105,7 +175,21 @@ function StudySession({
     return () => {
       cancelled = true;
     };
-  }, [maxLevel, vocab, filters]);
+  }, [maxLevel, orderSeed, startedAt, vocab, filters]);
+
+  /** pickNext with the state of this session. */
+  function next(s: Omit<Session, "pick">, now: number): NextPick | null {
+    return pickNext({
+      settings: { maxLevel, orderSeed, startedAt },
+      vocab: vocab.values(),
+      cards: s.cards,
+      now,
+      filters,
+      lastShown: s.lastShown,
+      reviewsSinceNew: s.reviewsSinceNew,
+      newLimit: limitAt(s.newLimit, now),
+    });
+  }
 
   if (error)
     return (
@@ -117,91 +201,99 @@ function StudySession({
 
   if (finished) {
     return (
-      <div className="screen center">
-        {/* Gleiche Leiste wie in der Sitzung: das Logo steht an derselben Stelle. */}
-        <div className="session-bar session-end-bar">
-          <span />
-          <Logo />
-          <span />
-        </div>
-        <h1>Sitzung beendet</h1>
-        {/* Das Ergebnis ist das Wichtigste auf der Seite: zwei große Kacheln. */}
-        <div className="result-tiles">
-          <div className="result-tile">
-            <span className="result-num">{session.rated}</span>
-            <span className="result-label">
-              {session.rated === 1 ? "Karte geübt" : "Karten geübt"}
-            </span>
-          </div>
-          <div className="result-tile again">
-            <span className="result-num">{session.again}</span>
-            <span className="result-label">davon „Nochmal“</span>
-          </div>
-        </div>
+      <EndScreen title="Sitzung beendet">
+        <ResultTiles rated={session.rated} again={session.again} />
         <div className="actions">
           <button type="button" className="btn btn-block" onClick={onBack}>
             Beenden
           </button>
         </div>
-      </div>
+      </EndScreen>
+    );
+  }
+
+  if (pick?.kind === "done") {
+    const moreNew = pick.moreNew;
+    const moreCards = () => {
+      const now = Date.now();
+      const current = limitAt(session.newLimit, now);
+      const raised: NewLimit = {
+        day: dayKey(now),
+        value:
+          Math.max(current, countIntroducedToday(session.cards, now)) +
+          MORE_NEW_STEP,
+      };
+      const base = { ...session, newLimit: raised };
+      setSession({ ...base, pick: next(base, now) });
+      setFlipped(false);
+      setRevealed(false);
+    };
+    return (
+      <EndScreen title="Für heute geschafft">
+        <ResultTiles rated={session.rated} again={session.again} />
+        <p className="muted">
+          {moreNew
+            ? "Für heute ist alles erledigt. Das Limit für neue Karten ist erreicht."
+            : "Für heute ist alles erledigt. Heute sind in dieser Auswahl keine weiteren neuen Karten verfügbar."}
+        </p>
+        <div className="actions">
+          {moreNew && (
+            <button type="button" className="btn btn-block" onClick={moreCards}>
+              10 weitere neue Karten
+            </button>
+          )}
+          <button
+            type="button"
+            className={moreNew ? "btn btn-block secondary" : "btn btn-block"}
+            onClick={onBack}
+          >
+            Beenden
+          </button>
+        </div>
+      </EndScreen>
     );
   }
 
   if (!item || !entry) {
     return (
-      <div className="screen center">
-        {/* Wie auf der Zusammenfassung: Logo oben mittig, nicht in der Ecke. */}
-        <div className="session-bar session-end-bar">
-          <span />
-          <Logo />
-          <span />
-        </div>
-        <h1>Keine Karten für diese Auswahl</h1>
+      <EndScreen title="Keine Karten für diese Auswahl">
         <p className="muted">Bitte Filter oder Niveau anpassen.</p>
         <button type="button" className="btn" onClick={onBack}>
           Zur Filterauswahl
         </button>
-      </div>
+      </EndScreen>
     );
   }
 
   async function onGrade(grade: Grade) {
-    if (busy.current || !session || !item) return;
+    if (busy.current || !session || !item || !pick || pick.kind === "done")
+      return;
     busy.current = true;
     try {
       // eslint-disable-next-line react-hooks/purity -- läuft im Event-Handler, nicht beim Rendern
       const now = Date.now();
       const base = item.card ?? newCard(item.vocabId, item.dir, now);
       const updated = review(base, grade, now);
-      // Early review with "good" leaves the card untouched: nothing to store.
-      const changed = updated !== base;
-      if (changed) await saveReview(updated);
+      await saveReview(updated);
 
       const key = cardKey(item.vocabId, item.dir);
-      const cards = changed
-        ? [
-            ...session.cards.filter((c) => cardKey(c.vocabId, c.dir) !== key),
-            updated,
-          ]
-        : session.cards;
-      const seen = session.pick?.newPass ? new Set<string>() : session.seen;
-      seen.add(key);
-      const pick = pickNext({
-        settings: { maxLevel },
-        vocab: vocab.values(),
-        cards,
-        now,
-        filters,
-        sessionSeen: seen,
-        lastShown: key,
-      });
-      setSession({
-        cards,
-        seen,
+      const rest = {
+        cards: [
+          ...session.cards.filter((c) => cardKey(c.vocabId, c.dir) !== key),
+          updated,
+        ],
         rated: session.rated + 1,
         again: session.again + (grade === "again" ? 1 : 0),
-        pick,
-      });
+        reviewsSinceNew:
+          pick.kind === "review"
+            ? session.reviewsSinceNew + 1
+            : pick.kind === "new"
+              ? 0
+              : session.reviewsSinceNew,
+        newLimit: session.newLimit,
+        lastShown: key,
+      };
+      setSession({ ...rest, pick: next(rest, now) });
       setFlipped(false);
       setRevealed(false);
     } catch (e) {

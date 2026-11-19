@@ -30,6 +30,8 @@ export interface Vocab {
   level: Level;
   /** One of the topic keys in public/vocab/index.json. */
   topic: string;
+  /** Date the entry joined the vocabulary ('YYYY-MM-DD'), never changed (SPEC §4.2). */
+  added: string;
   example: { es: string; de: string };
   note?: string | null;
   gender?: "m" | "f" | "m/f" | null;
@@ -51,9 +53,16 @@ export type Grade = "again" | "good";
 export interface Settings {
   maxLevel: Level;
   theme: "system" | "light" | "dark";
+  /** Random unsigned 32-bit integer for the order of new cards (SPEC §12.1). */
+  orderSeed: number;
+  /** First creation of the settings record in ms (SPEC §12.1, Neuzugang). */
+  startedAt: number;
 }
 
-export const DEFAULT_SETTINGS: Settings = {
+/** The two fields a user can change (SPEC §10.2). */
+export type SettingsPatch = Partial<Pick<Settings, "maxLevel" | "theme">>;
+
+export const DEFAULT_SETTINGS: Omit<Settings, "orderSeed" | "startedAt"> = {
   maxLevel: "B1",
   theme: "system",
 };
@@ -69,6 +78,8 @@ export interface Card {
   reps: number;
   lapses: number;
   lastReviewed: number | null;
+  /** First rating in ms, never changed afterwards; counts for the daily limit of new cards. */
+  introduced: number;
   state: CardStatus;
   /** Set while the card is in the learning phase (minute steps), absent in the review phase. */
   step?: 0 | 1;

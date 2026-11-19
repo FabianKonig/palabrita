@@ -10,6 +10,7 @@ function v(id: string, es: string, pos: Vocab["pos"]): Vocab {
     de: ["x"],
     level: "A1",
     topic: "t",
+    added: "2026-11-19",
     example: { es: "a", de: "b" },
   };
 }

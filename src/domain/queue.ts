@@ -1,4 +1,4 @@
-import { nextDayStart } from "./day";
+import { dayKey, diffDays, nextDayStart, startOfDay } from "./day";
 import type {
   Card,
   Direction,
@@ -10,8 +10,16 @@ import type {
 } from "./types";
 import { isVisible } from "./types";
 
-/** Maximum number of cards in the learning phase at the same time (replaces the daily limit). */
-export const MAX_LEARNING = 25;
+/** Daily limit of new cards, counted over all sessions (SPEC §12.1). */
+export const NEW_PER_DAY = 20;
+/** Reviews between two new cards while both are available (SPEC §12.2, stage 2). */
+export const REVIEWS_PER_NEW = 4;
+/** Learning cards due within this many minutes may be shown early (stage 3). */
+export const LEARN_AHEAD_MIN = 20;
+/** Button "10 weitere neue Karten" (SPEC §14.1). */
+export const MORE_NEW_STEP = 10;
+
+const MINUTE = 60_000;
 
 export interface QueueFilters {
   topic?: string;
@@ -28,34 +36,28 @@ export interface QueueItem {
   card: Card | null;
 }
 
-export interface QueueInput {
-  settings: Pick<Settings, "maxLevel">;
+/** The stage of SPEC §12.2 that chose the card. */
+export type PickKind = "learning" | "review" | "new" | "learn-ahead";
+
+export type NextPick =
+  { kind: PickKind; item: QueueItem } | { kind: "done"; moreNew: boolean };
+
+export interface PickInput {
+  settings: Pick<Settings, "maxLevel" | "orderSeed" | "startedAt">;
   vocab: Iterable<Vocab>;
   cards: Card[];
   now: number;
   filters?: QueueFilters;
-}
-
-export interface PickInput extends QueueInput {
-  /** Card keys (`vocabId|dir`) already shown or rated in this pass. */
-  sessionSeen: ReadonlySet<string>;
-  /** Key of the card rated last, avoided while another card is available. */
+  /** Key (`vocabId|dir`) of the card rated last, avoided while another card is available. */
   lastShown: string | null;
+  /** Review cards rated in this session since the last new card. */
+  reviewsSinceNew: number;
+  /** Daily limit of new cards that applies in this session. */
+  newLimit: number;
 }
 
-/**
- * Which rule of SPEC §12.1 chose the card:
- * learning (1), review (2), new (3), early-learning (4), pass (5, early review).
- */
-export type PickKind =
-  "learning" | "review" | "new" | "early-learning" | "pass";
-
-export interface NextPick {
-  kind: PickKind;
-  item: QueueItem;
-  /** True when a new pass starts: the caller clears sessionSeen. */
-  newPass: boolean;
-}
+/** Sort key for ties: position, then vocabId, then de-es before es-de. */
+export type OrderKey = { position: number; vocabId: string; dir: Direction };
 
 const ALL_DIRS: Direction[] = ["de-es", "es-de"];
 
@@ -70,14 +72,47 @@ function matchesFilters(v: Vocab, f: QueueFilters): boolean {
   return true;
 }
 
-/** New cards in the order of the vocabulary ids. */
-function compareNewOrder(a: Vocab, b: Vocab): number {
-  return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
-}
+const otherDir = (dir: Direction): Direction =>
+  dir === "de-es" ? "es-de" : "de-es";
 
 export function cardKey(vocabId: string, dir: Direction): string {
   return `${vocabId}|${dir}`;
 }
+
+/** Number of stored cards first rated today (from 04:00), over all filters and directions. */
+export function countIntroducedToday(cards: Card[], now: number): number {
+  const start = startOfDay(dayKey(now));
+  return cards.filter((c) => c.introduced >= start).length;
+}
+
+/**
+ * Fixed pseudo-random position of a vocabulary entry (SPEC §12.1): 32-bit FNV-1a over
+ * `${orderSeed}|${vocabId}`, then the MurmurHash3 finaliser fmix32, unsigned.
+ */
+export function position(vocabId: string, orderSeed: number): number {
+  const text = `${orderSeed}|${vocabId}`;
+  let h = 0x811c9dc5;
+  for (let i = 0; i < text.length; i++) {
+    h ^= text.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  h ^= h >>> 16;
+  h = Math.imul(h, 0x85ebca6b);
+  h ^= h >>> 13;
+  h = Math.imul(h, 0xc2b2ae35);
+  h ^= h >>> 16;
+  return h >>> 0;
+}
+
+/** Tie-break shared by all sorts in pickNext. */
+export function compareOrder(a: OrderKey, b: OrderKey): number {
+  if (a.position !== b.position) return a.position < b.position ? -1 : 1;
+  if (a.vocabId !== b.vocabId) return a.vocabId < b.vocabId ? -1 : 1;
+  if (a.dir !== b.dir) return a.dir === "de-es" ? -1 : 1;
+  return 0;
+}
+
+type CardPick = Extract<NextPick, { item: QueueItem }>;
 
 const toItem = (card: Card): QueueItem => ({
   vocabId: card.vocabId,
@@ -85,117 +120,147 @@ const toItem = (card: Card): QueueItem => ({
   card,
 });
 
-/** Visibility and filter logic for pickNext. */
-function scope(input: QueueInput) {
-  const filters = input.filters ?? {};
-  const dirs = allowedDirections(filters.direction ?? "both");
-  const visible = new Map<string, Vocab>();
-  for (const v of input.vocab) {
-    if (isVisible(v, input.settings.maxLevel) && matchesFilters(v, filters))
-      visible.set(v.id, v);
-  }
-  const cards = input.cards.filter(
-    (c) => visible.has(c.vocabId) && dirs.includes(c.dir),
-  );
-  return { visible, dirs, cards };
-}
-
-/** Never learned, visible cards in new order (partner lock not applied). */
-function newPairs(
-  visible: Map<string, Vocab>,
-  dirs: Direction[],
-  allCards: Card[],
-): { vocabId: string; dir: Direction }[] {
-  const existing = new Set(allCards.map((c) => cardKey(c.vocabId, c.dir)));
-  const pairs: { vocabId: string; dir: Direction }[] = [];
-  for (const v of [...visible.values()].sort(compareNewOrder)) {
-    for (const dir of dirs) {
-      if (!existing.has(cardKey(v.id, dir))) pairs.push({ vocabId: v.id, dir });
-    }
-  }
-  return pairs;
-}
-
 /**
- * Chooses the next card (SPEC §12.1). Pure: no clock, no database.
- * Returns null when there is no visible card at all.
+ * Chooses the next card (SPEC §12.2). Pure: no clock, no database, no randomness.
+ * Returns null when the selection contains no visible vocabulary at all.
  */
 export function pickNext(input: PickInput): NextPick | null {
-  const withoutLast = pick(input, input.lastShown);
-  if (withoutLast) return withoutLast;
-  // Nothing else available: show the last card again rather than an empty screen.
-  return input.lastShown ? pick(input, null) : null;
-}
+  const { settings, now, lastShown, reviewsSinceNew, newLimit } = input;
+  const filters = input.filters ?? {};
+  const dirs = allowedDirections(filters.direction ?? "both");
 
-function pick(input: PickInput, avoid: string | null): NextPick | null {
-  const { now, sessionSeen } = input;
-  const { visible, dirs, cards } = scope(input);
-  const ok = (c: Card) => cardKey(c.vocabId, c.dir) !== avoid;
-  const limit = nextDayStart(now);
-
-  // 1. Learning cards that are due, most overdue first.
-  const learningDue = cards
-    .filter((c) => c.step !== undefined && c.due <= now && ok(c))
-    .sort((a, b) => a.due - b.due);
-  if (learningDue[0])
-    return { kind: "learning", item: toItem(learningDue[0]), newPass: false };
-
-  // 2. Reviews due today.
-  const reviewDue = cards
-    .filter((c) => c.step === undefined && c.due < limit && ok(c))
-    .sort((a, b) => a.due - b.due);
-  if (reviewDue[0])
-    return { kind: "review", item: toItem(reviewDue[0]), newPass: false };
-
-  // 3. Introduce a new card while fewer than MAX_LEARNING cards are in the learning phase.
-  const learningCount = cards.filter((c) => c.step !== undefined).length;
-  if (learningCount < MAX_LEARNING) {
-    const byKey = new Map(
-      input.cards.map((c) => [cardKey(c.vocabId, c.dir), c]),
-    );
-    const next = newPairs(visible, dirs, input.cards).find(
-      ({ vocabId, dir }) => {
-        if (cardKey(vocabId, dir) === avoid) return false;
-        // Partner lock: es-de waits until de-es has left the learning phase,
-        // but only when de-es is part of the current direction selection.
-        if (dir === "es-de" && dirs.includes("de-es")) {
-          const partner = byKey.get(cardKey(vocabId, "de-es"));
-          if (!partner || partner.step !== undefined) return false;
-        }
-        return true;
-      },
-    );
-    if (next)
-      return {
-        kind: "new",
-        item: { vocabId: next.vocabId, dir: next.dir, card: null },
-        newPass: false,
-      };
+  const visible = new Map<string, Vocab>();
+  for (const v of input.vocab) {
+    if (isVisible(v, settings.maxLevel) && matchesFilters(v, filters))
+      visible.set(v.id, v);
   }
+  if (visible.size === 0) return null;
 
-  // 4. Waiting learning cards are shown right away, earliest due first. Before the
-  // early review (5), otherwise a couple of review cards would block all learning cards.
-  const waiting = cards
-    .filter((c) => c.step !== undefined && ok(c))
-    .sort((a, b) => a.due - b.due);
-  if (waiting[0])
-    return { kind: "early-learning", item: toItem(waiting[0]), newPass: false };
+  const todayStart = startOfDay(dayKey(now));
+  const tomorrowStart = nextDayStart(now);
+  const today = dayKey(now);
+  const startedKey = dayKey(settings.startedAt);
 
-  // 5. Early review of cards in the review phase, one pass per session.
-  const reviewCards = cards
-    .filter((c) => c.step === undefined && ok(c))
-    .sort((a, b) => a.due - b.due);
-  if (reviewCards.length > 0) {
-    const unseen = reviewCards.filter(
-      (c) => !sessionSeen.has(cardKey(c.vocabId, c.dir)),
+  const positions = new Map<string, number>();
+  const pos = (vocabId: string): number => {
+    let p = positions.get(vocabId);
+    if (p === undefined) {
+      p = position(vocabId, settings.orderSeed);
+      positions.set(vocabId, p);
+    }
+    return p;
+  };
+  const order = (vocabId: string, dir: Direction): OrderKey => ({
+    position: pos(vocabId),
+    vocabId,
+    dir,
+  });
+  const byOrder = (a: Card, b: Card) =>
+    compareOrder(order(a.vocabId, a.dir), order(b.vocabId, b.dir));
+
+  // All stored cards count as partners, independent of filter and session direction.
+  const byKey = new Map(input.cards.map((c) => [cardKey(c.vocabId, c.dir), c]));
+  const partnerOf = (vocabId: string, dir: Direction) =>
+    byKey.get(cardKey(vocabId, otherDir(dir)));
+
+  const reviewedToday = (c: Card) =>
+    c.lastReviewed !== null && c.lastReviewed >= todayStart;
+  const isDueReview = (c: Card) =>
+    c.step === undefined && c.due < tomorrowStart;
+  /** Daily lock: the partner card was rated today. */
+  const lockedToday = (vocabId: string, dir: Direction) => {
+    const partner = partnerOf(vocabId, dir);
+    return partner !== undefined && reviewedToday(partner);
+  };
+  /** New cards also wait for a due review or a learning partner in this session. */
+  const newLocked = (vocabId: string, dir: Direction) => {
+    if (lockedToday(vocabId, dir)) return true;
+    const partner = partnerOf(vocabId, dir);
+    return (
+      partner !== undefined &&
+      dirs.includes(partner.dir) &&
+      (partner.step !== undefined || isDueReview(partner))
     );
-    const pool = unseen.length > 0 ? unseen : reviewCards;
-    return {
-      kind: "pass",
-      item: toItem(pool[0]),
-      newPass: unseen.length === 0,
+  };
+
+  const sessionCards = input.cards.filter(
+    (c) => visible.has(c.vocabId) && dirs.includes(c.dir),
+  );
+
+  // New candidates (both locks applied), newcomers first, then by position.
+  const isNewcomer = (v: Vocab) => v.added > startedKey;
+  const newCandidates: { vocabId: string; dir: Direction; fresh: boolean }[] =
+    [];
+  for (const v of visible.values()) {
+    for (const dir of dirs) {
+      if (byKey.has(cardKey(v.id, dir)) || newLocked(v.id, dir)) continue;
+      newCandidates.push({ vocabId: v.id, dir, fresh: isNewcomer(v) });
+    }
+  }
+  newCandidates.sort(
+    (a, b) =>
+      Number(b.fresh) - Number(a.fresh) ||
+      compareOrder(order(a.vocabId, a.dir), order(b.vocabId, b.dir)),
+  );
+  const newAllowed = countIntroducedToday(input.cards, now) < newLimit;
+
+  const danger = (c: Card) =>
+    diffDays(dayKey(c.lastReviewed ?? c.due), today) / Math.max(1, c.interval);
+
+  const stages = (avoid: string | null): CardPick | null => {
+    const ok = (vocabId: string, dir: Direction) =>
+      cardKey(vocabId, dir) !== avoid;
+
+    // 1. Due learning cards, most overdue first.
+    const learningDue = sessionCards
+      .filter(
+        (c) => c.step !== undefined && c.due <= now && ok(c.vocabId, c.dir),
+      )
+      .sort((a, b) => a.due - b.due || byOrder(a, b));
+    if (learningDue[0])
+      return { kind: "learning", item: toItem(learningDue[0]) };
+
+    // 2. Due reviews mixed with new cards, 4 to 1.
+    const reviews = sessionCards
+      .filter(
+        (c) =>
+          isDueReview(c) &&
+          !lockedToday(c.vocabId, c.dir) &&
+          ok(c.vocabId, c.dir),
+      )
+      .sort((a, b) => danger(b) - danger(a) || byOrder(a, b));
+    const next = newAllowed
+      ? newCandidates.find((n) => ok(n.vocabId, n.dir))
+      : undefined;
+    const newPick: CardPick | undefined = next && {
+      kind: "new",
+      item: { vocabId: next.vocabId, dir: next.dir, card: null },
     };
-  }
+    const reviewPick: CardPick | undefined = reviews[0] && {
+      kind: "review",
+      item: toItem(reviews[0]),
+    };
+    if (newPick && reviewPick)
+      return reviewsSinceNew >= REVIEWS_PER_NEW ? newPick : reviewPick;
+    const single = reviewPick ?? newPick;
+    if (single) return single;
 
-  return null;
+    // 3. Learning cards due within LEARN_AHEAD_MIN, earliest first.
+    const ahead = sessionCards
+      .filter(
+        (c) =>
+          c.step !== undefined &&
+          c.due <= now + LEARN_AHEAD_MIN * MINUTE &&
+          ok(c.vocabId, c.dir),
+      )
+      .sort((a, b) => a.due - b.due || byOrder(a, b));
+    if (ahead[0]) return { kind: "learn-ahead", item: toItem(ahead[0]) };
+
+    return null;
+  };
+
+  // lastShown is only shown again when nothing else is left.
+  const picked = stages(lastShown) ?? (lastShown ? stages(null) : null);
+  if (picked) return picked;
+  return { kind: "done", moreNew: newCandidates.length > 0 };
 }

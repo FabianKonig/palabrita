@@ -62,7 +62,16 @@
     },
     "vocab": {
       "type": "object",
-      "required": ["id", "de", "es", "pos", "level", "topic", "example"],
+      "required": [
+        "id",
+        "de",
+        "es",
+        "pos",
+        "level",
+        "topic",
+        "added",
+        "example"
+      ],
       "additionalProperties": false,
       "properties": {
         "id": { "type": "string", "pattern": "^v\\d{4}$" },
@@ -95,6 +104,7 @@
             "grundwortschatz"
           ]
         },
+        "added": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
         "example": {
           "type": "object",
           "required": ["es", "de"],

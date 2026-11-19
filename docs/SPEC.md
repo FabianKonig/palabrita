@@ -438,7 +438,7 @@ Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` vo
 
 `introduced`: Zeitpunkt der ersten Bewertung (ms). `newCard(vocabId, dir, now)` setzt ihn, `review()` ändert ihn nie. Er zählt für das Tageslimit neuer Karten (§12).
 
-`previewIntervals(card, now)` liefert je Button entweder Minuten oder Tage. `formatInterval` hat eine Minuten-Variante („1 Min“, „10 Min“; ab 60 Min „1 Std“, das kommt bei den heutigen Lernschritten nicht vor und bleibt als Reserve). Bei Tagen: „1 T“ bis „29 T“, ab 30 Tagen Monate („2 Mon“, auf ganze Monate gerundet), ab 365 Tagen Jahre („1,2 J“, auf eine Nachkommastelle gerundet, mit **Dezimalkomma**; ist die Nachkommastelle 0, entfällt sie: „2 J“). Noch nicht umgesetzt: Der Code gibt heute einen Punkt aus („1.2 J“), siehe `docs/TASKS.md`.
+`previewIntervals(card, now)` liefert je Button entweder Minuten oder Tage. `formatInterval` hat eine Minuten-Variante („1 Min“, „10 Min“; ab 60 Min „1 Std“, das kommt bei den heutigen Lernschritten nicht vor und bleibt als Reserve). Bei Tagen: „1 T“ bis „29 T“, ab 30 Tagen Monate („2 Mon“, auf ganze Monate gerundet), ab 365 Tagen Jahre („1,2 J“, auf eine Nachkommastelle gerundet, mit **Dezimalkomma**; ist die Nachkommastelle 0, entfällt sie: „2 J“).
 
 **Jede Bewertung wird gespeichert** (`saveReview`).
 
@@ -479,7 +479,7 @@ Rückgabe:
 - `{ kind: 'done', moreNew: boolean }`, wenn für heute alles erledigt ist; `moreNew` ist wahr, wenn es ohne Tageslimit noch eine neue Karte gäbe (beide Sperrregeln aus §12.1 beachtet),
 - `null`, wenn die Auswahl keine einzige sichtbare Vokabel enthält (leeres Filterergebnis, Niveau zu niedrig). Das zeigt den Hinweis „Keine Karten für diese Auswahl“ (§14.1).
 
-Typen in `domain/queue.ts` (ersetzen die bisherigen; `early-learning`, `pass`, `newPass`, `sessionSeen` und `MAX_LEARNING` entfallen):
+Typen in `domain/queue.ts`:
 
 ```ts
 type PickKind = 'learning' | 'review' | 'new' | 'learn-ahead';

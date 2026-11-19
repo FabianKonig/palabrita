@@ -8,6 +8,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Hola, ¿cómo te llamas?",
       "de": "Hallo, wie heißt du?"
@@ -26,6 +27,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Hablas inglés?",
       "de": "Sprichst du Englisch?"
@@ -47,6 +49,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Soy de Alemania.",
       "de": "Ich komme aus Deutschland."
@@ -103,6 +106,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Cómo estás?",
       "de": "Wie geht es dir?"
@@ -145,6 +149,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Voy al trabajo en camión.",
       "de": "Ich fahre mit dem Bus zur Arbeit."
@@ -202,6 +207,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Quiero un café, por favor.",
       "de": "Ich möchte einen Kaffee, bitte."
@@ -239,6 +245,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Puedo pasar?",
       "de": "Darf ich hereinkommen?"
@@ -277,6 +284,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Qué haces los fines de semana?",
       "de": "Was machst du am Wochenende?"
@@ -318,6 +326,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Me llamo Ana.",
       "de": "Ich heiße Ana."
@@ -340,6 +349,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Me gusta la música.",
       "de": "Mir gefällt die Musik."
@@ -362,6 +372,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "No sé la respuesta.",
       "de": "Ich weiß die Antwort nicht."
@@ -405,6 +416,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Qué dices?",
       "de": "Was sagst du?"
@@ -446,6 +458,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Vienes a la fiesta?",
       "de": "Kommst du zur Party?"
@@ -486,6 +499,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "No veo bien sin lentes.",
       "de": "Ohne Brille sehe ich nicht gut."
@@ -532,6 +546,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Te doy mi número de teléfono.",
       "de": "Ich gebe dir meine Telefonnummer."
@@ -568,6 +583,7 @@
     "pos": "verb",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "No entiendo bien el chiste.",
       "de": "Den Witz verstehe ich nicht ganz."
@@ -592,6 +608,7 @@
     "pos": "verb",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Creo que tienes razón.",
       "de": "Ich glaube, du hast recht."
@@ -613,6 +630,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Mi familia vive en Guatemala.",
       "de": "Meine Familie lebt in Guatemala."
@@ -630,6 +648,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Mi amigo es de Monterrey.",
       "de": "Mein Freund kommt aus Monterrey."
@@ -647,6 +666,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Mi hermano estudia medicina.",
       "de": "Mein Bruder studiert Medizin."
@@ -664,6 +684,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Mi madre cocina muy rico.",
       "de": "Meine Mutter kocht sehr lecker."
@@ -682,6 +703,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Tengo un hijo de cinco años.",
       "de": "Ich habe einen fünfjährigen Sohn."
@@ -700,6 +722,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Mi pasatiempo favorito es leer.",
       "de": "Mein liebstes Hobby ist Lesen."
@@ -717,6 +740,7 @@
     "pos": "noun",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Quiero saber tu opinión.",
       "de": "Ich möchte deine Meinung wissen."
@@ -735,6 +759,7 @@
     "pos": "noun",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Es difícil hablar de los sentimientos.",
       "de": "Es ist schwer, über Gefühle zu sprechen."
@@ -752,6 +777,7 @@
     "pos": "other",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Yo soy profesor.",
       "de": "Ich bin Lehrer."
@@ -769,6 +795,7 @@
     "pos": "other",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Usted es de aquí?",
       "de": "Sind Sie von hier?"
@@ -786,6 +813,7 @@
     "pos": "other",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Me gusta el café, pero sin azúcar.",
       "de": "Ich mag Kaffee, aber ohne Zucker."
@@ -803,6 +831,7 @@
     "pos": "other",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Estudio español porque me gusta.",
       "de": "Ich lerne Spanisch, weil es mir gefällt."
@@ -820,6 +849,7 @@
     "pos": "adv",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Yo también hablo inglés.",
       "de": "Ich spreche auch Englisch."
@@ -838,6 +868,7 @@
     "pos": "adj",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Estoy muy contento con mi trabajo.",
       "de": "Ich bin mit meiner Arbeit sehr zufrieden."
@@ -855,6 +886,7 @@
     "pos": "adj",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Hoy estoy muy cansado.",
       "de": "Heute bin ich sehr müde."
@@ -873,6 +905,7 @@
     "pos": "adv",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Yo tampoco entiendo.",
       "de": "Ich verstehe es auch nicht."
@@ -891,6 +924,7 @@
     "pos": "other",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Voy a salir aunque llueva.",
       "de": "Ich gehe aus, auch wenn es regnet."
@@ -909,6 +943,7 @@
     "pos": "other",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Mientras cocino, escucho música.",
       "de": "Während ich koche, höre ich Musik."
@@ -926,6 +961,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Soy de Alemania, de Hamburgo.",
       "de": "Ich komme aus Deutschland, aus Hamburg."
@@ -943,6 +979,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Perdón, no entiendo.",
       "de": "Entschuldigung, ich verstehe nicht."
@@ -960,6 +997,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Mucho gusto, ¿de dónde es usted?",
       "de": "Freut mich, woher kommen Sie?"
@@ -977,6 +1015,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "No oí bien. ¿Me puede repetir?",
       "de": "Ich habe es nicht gut gehört. Können Sie das wiederholen?"
@@ -994,6 +1033,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Más despacio, por favor, estoy aprendiendo.",
       "de": "Bitte langsamer, ich lerne noch."
@@ -1011,6 +1051,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Cómo se dice “Danke” en español?",
       "de": "Wie sagt man „Danke“ auf Spanisch?"
@@ -1028,6 +1069,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Qué significa “chamba”?",
       "de": "Was bedeutet „chamba“?"
@@ -1046,6 +1088,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Me encanta cocinar con mi mamá.",
       "de": "Ich liebe es, mit meiner Mama zu kochen."
@@ -1064,6 +1107,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Tengo dos hermanos y una hermana.",
       "de": "Ich habe zwei Brüder und eine Schwester."
@@ -1081,6 +1125,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Disculpe, ¿a qué se dedica?",
       "de": "Entschuldigung, was machen Sie beruflich?"
@@ -1098,6 +1143,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Estoy de acuerdo con tu idea.",
       "de": "Ich bin mit deiner Idee einverstanden."
@@ -1115,6 +1161,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Lo siento, no estoy de acuerdo.",
       "de": "Tut mir leid, ich bin nicht einverstanden."
@@ -1132,6 +1179,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "En mi opinión, es una buena idea.",
       "de": "Meiner Meinung nach ist es eine gute Idee."
@@ -1149,6 +1197,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "¡Qué pena que no puedas venir!",
       "de": "Wie schade, dass du nicht kommen kannst!"
@@ -1166,6 +1215,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "—¿Te gusta viajar? —Depende del lugar.",
       "de": "„Reist du gern?“ „Kommt auf den Ort an.“"
@@ -1184,6 +1234,7 @@
     "pos": "verb",
     "level": "B1",
     "topic": "smalltalk",
+    "added": "2026-11-19",
     "example": {
       "es": "Mi perro yergue las orejas cuando oye la puerta.",
       "de": "Mein Hund stellt die Ohren auf, wenn er die Tür hört."
