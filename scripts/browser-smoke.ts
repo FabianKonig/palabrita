@@ -1441,7 +1441,11 @@ async function main() {
     await setInput(`select:has(option[value="noun"])`, "noun");
     await setInput(`select:has(option[value="es-de"])`, "es-de");
   });
-  const genderCard = await evaluate<{ parts: string[]; gender: string; word: string }>(`(() => {
+  const genderCard = await evaluate<{
+    parts: string[];
+    gender: string;
+    word: string;
+  }>(`(() => {
     const card = document.querySelector(".flashcard");
     const parts = [...card.querySelectorAll(":scope > span")]
       .map(s => s.className)

@@ -1,9 +1,7 @@
 [
   {
     "id": "v0013",
-    "de": [
-      "Markt"
-    ],
+    "de": ["Markt"],
     "es": "el mercado",
     "pos": "noun",
     "level": "A1",
@@ -19,9 +17,7 @@
   },
   {
     "id": "v0014",
-    "de": [
-      "Was kostet das?"
-    ],
+    "de": ["Was kostet das?"],
     "es": "¿Cuánto cuesta?",
     "pos": "phrase",
     "level": "A1",
@@ -37,9 +33,7 @@
   },
   {
     "id": "v0276",
-    "de": [
-      "kaufen"
-    ],
+    "de": ["kaufen"],
     "es": "comprar",
     "pos": "verb",
     "level": "A1",
@@ -59,9 +53,7 @@
   },
   {
     "id": "v0277",
-    "de": [
-      "verkaufen"
-    ],
+    "de": ["verkaufen"],
     "es": "vender",
     "pos": "verb",
     "level": "A1",
@@ -81,9 +73,7 @@
   },
   {
     "id": "v0278",
-    "de": [
-      "bezahlen"
-    ],
+    "de": ["bezahlen"],
     "es": "pagar",
     "pos": "verb",
     "level": "A1",
@@ -103,9 +93,7 @@
   },
   {
     "id": "v0279",
-    "de": [
-      "kosten"
-    ],
+    "de": ["kosten"],
     "es": "costar",
     "pos": "verb",
     "level": "A2",
@@ -119,18 +107,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ue"
-      ],
+      "tags": ["ue"],
       "reflexive": false
     }
   },
   {
     "id": "v0280",
-    "de": [
-      "feilschen",
-      "handeln"
-    ],
+    "de": ["feilschen", "handeln"],
     "es": "regatear",
     "pos": "verb",
     "level": "A2",
@@ -150,10 +133,7 @@
   },
   {
     "id": "v0281",
-    "de": [
-      "wechseln",
-      "tauschen"
-    ],
+    "de": ["wechseln", "tauschen"],
     "es": "cambiar",
     "pos": "verb",
     "level": "A2",
@@ -173,9 +153,7 @@
   },
   {
     "id": "v0282",
-    "de": [
-      "ausgeben"
-    ],
+    "de": ["ausgeben"],
     "es": "gastar",
     "pos": "verb",
     "level": "A2",
@@ -195,9 +173,7 @@
   },
   {
     "id": "v0283",
-    "de": [
-      "sparen"
-    ],
+    "de": ["sparen"],
     "es": "ahorrar",
     "pos": "verb",
     "level": "B1",
@@ -217,9 +193,7 @@
   },
   {
     "id": "v0284",
-    "de": [
-      "zeigen"
-    ],
+    "de": ["zeigen"],
     "es": "mostrar",
     "pos": "verb",
     "level": "B1",
@@ -233,17 +207,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ue"
-      ],
+      "tags": ["ue"],
       "reflexive": false
     }
   },
   {
     "id": "v0285",
-    "de": [
-      "anbieten"
-    ],
+    "de": ["anbieten"],
     "es": "ofrecer",
     "pos": "verb",
     "level": "B1",
@@ -257,17 +227,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "zco"
-      ],
+      "tags": ["zco"],
       "reflexive": false
     }
   },
   {
     "id": "v0286",
-    "de": [
-      "Geld"
-    ],
+    "de": ["Geld"],
     "es": "el dinero",
     "pos": "noun",
     "level": "A1",
@@ -283,9 +249,7 @@
   },
   {
     "id": "v0287",
-    "de": [
-      "Preis"
-    ],
+    "de": ["Preis"],
     "es": "el precio",
     "pos": "noun",
     "level": "A1",
@@ -301,10 +265,7 @@
   },
   {
     "id": "v0288",
-    "de": [
-      "Geschäft",
-      "Laden"
-    ],
+    "de": ["Geschäft", "Laden"],
     "es": "la tienda",
     "pos": "noun",
     "level": "A1",
@@ -320,9 +281,7 @@
   },
   {
     "id": "v0289",
-    "de": [
-      "Peso"
-    ],
+    "de": ["Peso"],
     "es": "el peso",
     "pos": "noun",
     "level": "A1",
@@ -338,9 +297,7 @@
   },
   {
     "id": "v0290",
-    "de": [
-      "Münze"
-    ],
+    "de": ["Münze"],
     "es": "la moneda",
     "pos": "noun",
     "level": "A1",
@@ -356,10 +313,7 @@
   },
   {
     "id": "v0291",
-    "de": [
-      "Karte",
-      "Kreditkarte"
-    ],
+    "de": ["Karte", "Kreditkarte"],
     "es": "la tarjeta",
     "pos": "noun",
     "level": "A1",
@@ -375,9 +329,7 @@
   },
   {
     "id": "v0292",
-    "de": [
-      "Bargeld"
-    ],
+    "de": ["Bargeld"],
     "es": "el efectivo",
     "pos": "noun",
     "level": "A1",
@@ -393,9 +345,7 @@
   },
   {
     "id": "v0293",
-    "de": [
-      "Kleidung"
-    ],
+    "de": ["Kleidung"],
     "es": "la ropa",
     "pos": "noun",
     "level": "A1",
@@ -411,9 +361,7 @@
   },
   {
     "id": "v0294",
-    "de": [
-      "Hemd"
-    ],
+    "de": ["Hemd"],
     "es": "la camisa",
     "pos": "noun",
     "level": "A2",
@@ -429,9 +377,7 @@
   },
   {
     "id": "v0295",
-    "de": [
-      "Hose"
-    ],
+    "de": ["Hose"],
     "es": "el pantalón",
     "pos": "noun",
     "level": "A2",
@@ -447,9 +393,7 @@
   },
   {
     "id": "v0296",
-    "de": [
-      "Schuh"
-    ],
+    "de": ["Schuh"],
     "es": "el zapato",
     "pos": "noun",
     "level": "A2",
@@ -465,9 +409,7 @@
   },
   {
     "id": "v0297",
-    "de": [
-      "Kleid"
-    ],
+    "de": ["Kleid"],
     "es": "el vestido",
     "pos": "noun",
     "level": "A2",
@@ -483,9 +425,7 @@
   },
   {
     "id": "v0298",
-    "de": [
-      "Größe (Kleidung)"
-    ],
+    "de": ["Größe (Kleidung)"],
     "es": "la talla",
     "pos": "noun",
     "level": "A2",
@@ -501,10 +441,7 @@
   },
   {
     "id": "v0299",
-    "de": [
-      "Rabatt",
-      "Preisnachlass"
-    ],
+    "de": ["Rabatt", "Preisnachlass"],
     "es": "el descuento",
     "pos": "noun",
     "level": "A2",
@@ -520,10 +457,7 @@
   },
   {
     "id": "v0300",
-    "de": [
-      "Quittung",
-      "Kassenbon"
-    ],
+    "de": ["Quittung", "Kassenbon"],
     "es": "el recibo",
     "pos": "noun",
     "level": "A2",
@@ -539,9 +473,7 @@
   },
   {
     "id": "v0301",
-    "de": [
-      "Wechselgeld"
-    ],
+    "de": ["Wechselgeld"],
     "es": "el cambio",
     "pos": "noun",
     "level": "A2",
@@ -557,9 +489,7 @@
   },
   {
     "id": "v0302",
-    "de": [
-      "Schnäppchen"
-    ],
+    "de": ["Schnäppchen"],
     "es": "la ganga",
     "pos": "noun",
     "level": "B1",
@@ -575,10 +505,7 @@
   },
   {
     "id": "v0303",
-    "de": [
-      "billig",
-      "günstig"
-    ],
+    "de": ["billig", "günstig"],
     "es": "barato",
     "pos": "adj",
     "level": "A1",
@@ -594,9 +521,7 @@
   },
   {
     "id": "v0304",
-    "de": [
-      "teuer"
-    ],
+    "de": ["teuer"],
     "es": "caro",
     "pos": "adj",
     "level": "A1",
@@ -612,9 +537,7 @@
   },
   {
     "id": "v0305",
-    "de": [
-      "rot"
-    ],
+    "de": ["rot"],
     "es": "rojo",
     "pos": "adj",
     "level": "A1",
@@ -630,9 +553,7 @@
   },
   {
     "id": "v0306",
-    "de": [
-      "blau"
-    ],
+    "de": ["blau"],
     "es": "azul",
     "pos": "adj",
     "level": "A1",
@@ -648,9 +569,7 @@
   },
   {
     "id": "v0307",
-    "de": [
-      "grün"
-    ],
+    "de": ["grün"],
     "es": "verde",
     "pos": "adj",
     "level": "A2",
@@ -666,9 +585,7 @@
   },
   {
     "id": "v0308",
-    "de": [
-      "schwarz"
-    ],
+    "de": ["schwarz"],
     "es": "negro",
     "pos": "adj",
     "level": "A2",
@@ -684,9 +601,7 @@
   },
   {
     "id": "v0309",
-    "de": [
-      "gelb"
-    ],
+    "de": ["gelb"],
     "es": "amarillo",
     "pos": "adj",
     "level": "A2",
@@ -702,10 +617,7 @@
   },
   {
     "id": "v0310",
-    "de": [
-      "gratis",
-      "kostenlos"
-    ],
+    "de": ["gratis", "kostenlos"],
     "es": "gratis",
     "pos": "adj",
     "level": "B1",
@@ -721,9 +633,7 @@
   },
   {
     "id": "v0311",
-    "de": [
-      "Nehmen Sie Karte?"
-    ],
+    "de": ["Nehmen Sie Karte?"],
     "es": "¿Aceptan tarjeta?",
     "pos": "phrase",
     "level": "A2",
@@ -739,9 +649,7 @@
   },
   {
     "id": "v0312",
-    "de": [
-      "Geben Sie mir einen Rabatt?"
-    ],
+    "de": ["Geben Sie mir einen Rabatt?"],
     "es": "¿Me hace un descuento?",
     "pos": "phrase",
     "level": "A2",
@@ -757,9 +665,7 @@
   },
   {
     "id": "v0313",
-    "de": [
-      "Ich nehme es."
-    ],
+    "de": ["Ich nehme es."],
     "es": "Me lo llevo.",
     "pos": "phrase",
     "level": "B1",
@@ -775,9 +681,7 @@
   },
   {
     "id": "v0314",
-    "de": [
-      "Ich schaue nur."
-    ],
+    "de": ["Ich schaue nur."],
     "es": "Solo estoy mirando.",
     "pos": "phrase",
     "level": "B1",
@@ -793,9 +697,7 @@
   },
   {
     "id": "v0315",
-    "de": [
-      "Haben Sie Wechselgeld für hundert Pesos?"
-    ],
+    "de": ["Haben Sie Wechselgeld für hundert Pesos?"],
     "es": "¿Tiene cambio de cien pesos?",
     "pos": "phrase",
     "level": "B1",

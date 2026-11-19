@@ -1,9 +1,7 @@
 [
   {
     "id": "v0017",
-    "de": [
-      "Vulkan"
-    ],
+    "de": ["Vulkan"],
     "es": "el volcán",
     "pos": "noun",
     "level": "A2",
@@ -19,9 +17,7 @@
   },
   {
     "id": "v0018",
-    "de": [
-      "Strand"
-    ],
+    "de": ["Strand"],
     "es": "la playa",
     "pos": "noun",
     "level": "A1",
@@ -37,9 +33,7 @@
   },
   {
     "id": "v0376",
-    "de": [
-      "regnen"
-    ],
+    "de": ["regnen"],
     "es": "llover",
     "pos": "verb",
     "level": "A1",
@@ -51,17 +45,13 @@
     },
     "note": null,
     "verb": {
-      "tags": [
-        "ue"
-      ],
+      "tags": ["ue"],
       "reflexive": false
     }
   },
   {
     "id": "v0377",
-    "de": [
-      "schneien"
-    ],
+    "de": ["schneien"],
     "es": "nevar",
     "pos": "verb",
     "level": "A2",
@@ -73,18 +63,13 @@
     },
     "note": null,
     "verb": {
-      "tags": [
-        "ie"
-      ],
+      "tags": ["ie"],
       "reflexive": false
     }
   },
   {
     "id": "v0378",
-    "de": [
-      "scheinen",
-      "glänzen"
-    ],
+    "de": ["scheinen", "glänzen"],
     "es": "brillar",
     "pos": "verb",
     "level": "A2",
@@ -102,10 +87,7 @@
   },
   {
     "id": "v0379",
-    "de": [
-      "klettern",
-      "besteigen"
-    ],
+    "de": ["klettern", "besteigen"],
     "es": "escalar",
     "pos": "verb",
     "level": "A2",
@@ -123,9 +105,7 @@
   },
   {
     "id": "v0380",
-    "de": [
-      "wachsen"
-    ],
+    "de": ["wachsen"],
     "es": "crecer",
     "pos": "verb",
     "level": "B1",
@@ -137,18 +117,13 @@
     },
     "note": null,
     "verb": {
-      "tags": [
-        "zco"
-      ],
+      "tags": ["zco"],
       "reflexive": false
     }
   },
   {
     "id": "v0381",
-    "de": [
-      "Tag werden",
-      "dämmern"
-    ],
+    "de": ["Tag werden", "dämmern"],
     "es": "amanecer",
     "pos": "verb",
     "level": "B1",
@@ -160,17 +135,13 @@
     },
     "note": null,
     "verb": {
-      "tags": [
-        "zco"
-      ],
+      "tags": ["zco"],
       "reflexive": false
     }
   },
   {
     "id": "v0382",
-    "de": [
-      "Sonne"
-    ],
+    "de": ["Sonne"],
     "es": "el sol",
     "pos": "noun",
     "level": "A1",
@@ -186,9 +157,7 @@
   },
   {
     "id": "v0383",
-    "de": [
-      "Mond"
-    ],
+    "de": ["Mond"],
     "es": "la luna",
     "pos": "noun",
     "level": "A1",
@@ -204,9 +173,7 @@
   },
   {
     "id": "v0384",
-    "de": [
-      "Meer"
-    ],
+    "de": ["Meer"],
     "es": "el mar",
     "pos": "noun",
     "level": "A1",
@@ -222,9 +189,7 @@
   },
   {
     "id": "v0385",
-    "de": [
-      "Fluss"
-    ],
+    "de": ["Fluss"],
     "es": "el río",
     "pos": "noun",
     "level": "A1",
@@ -240,9 +205,7 @@
   },
   {
     "id": "v0386",
-    "de": [
-      "Baum"
-    ],
+    "de": ["Baum"],
     "es": "el árbol",
     "pos": "noun",
     "level": "A1",
@@ -258,9 +221,7 @@
   },
   {
     "id": "v0387",
-    "de": [
-      "Regen"
-    ],
+    "de": ["Regen"],
     "es": "la lluvia",
     "pos": "noun",
     "level": "A1",
@@ -276,9 +237,7 @@
   },
   {
     "id": "v0388",
-    "de": [
-      "Blume"
-    ],
+    "de": ["Blume"],
     "es": "la flor",
     "pos": "noun",
     "level": "A1",
@@ -294,9 +253,7 @@
   },
   {
     "id": "v0389",
-    "de": [
-      "Wind"
-    ],
+    "de": ["Wind"],
     "es": "el viento",
     "pos": "noun",
     "level": "A1",
@@ -312,9 +269,7 @@
   },
   {
     "id": "v0390",
-    "de": [
-      "Himmel"
-    ],
+    "de": ["Himmel"],
     "es": "el cielo",
     "pos": "noun",
     "level": "A1",
@@ -330,9 +285,7 @@
   },
   {
     "id": "v0391",
-    "de": [
-      "See"
-    ],
+    "de": ["See"],
     "es": "el lago",
     "pos": "noun",
     "level": "A2",
@@ -348,10 +301,7 @@
   },
   {
     "id": "v0392",
-    "de": [
-      "Berg",
-      "Gebirge"
-    ],
+    "de": ["Berg", "Gebirge"],
     "es": "la montaña",
     "pos": "noun",
     "level": "A2",
@@ -367,10 +317,7 @@
   },
   {
     "id": "v0393",
-    "de": [
-      "Dschungel",
-      "Urwald"
-    ],
+    "de": ["Dschungel", "Urwald"],
     "es": "la selva",
     "pos": "noun",
     "level": "A2",
@@ -386,9 +333,7 @@
   },
   {
     "id": "v0394",
-    "de": [
-      "Schildkröte"
-    ],
+    "de": ["Schildkröte"],
     "es": "la tortuga",
     "pos": "noun",
     "level": "A2",
@@ -404,9 +349,7 @@
   },
   {
     "id": "v0395",
-    "de": [
-      "Jaguar"
-    ],
+    "de": ["Jaguar"],
     "es": "el jaguar",
     "pos": "noun",
     "level": "A2",
@@ -422,9 +365,7 @@
   },
   {
     "id": "v0396",
-    "de": [
-      "Quetzal"
-    ],
+    "de": ["Quetzal"],
     "es": "el quetzal",
     "pos": "noun",
     "level": "A2",
@@ -440,9 +381,7 @@
   },
   {
     "id": "v0397",
-    "de": [
-      "Wolke"
-    ],
+    "de": ["Wolke"],
     "es": "la nube",
     "pos": "noun",
     "level": "A2",
@@ -458,9 +397,7 @@
   },
   {
     "id": "v0398",
-    "de": [
-      "Insel"
-    ],
+    "de": ["Insel"],
     "es": "la isla",
     "pos": "noun",
     "level": "A2",
@@ -476,9 +413,7 @@
   },
   {
     "id": "v0399",
-    "de": [
-      "Hurrikan"
-    ],
+    "de": ["Hurrikan"],
     "es": "el huracán",
     "pos": "noun",
     "level": "B1",
@@ -494,9 +429,7 @@
   },
   {
     "id": "v0400",
-    "de": [
-      "Erdbeben"
-    ],
+    "de": ["Erdbeben"],
     "es": "el terremoto",
     "pos": "noun",
     "level": "B1",
@@ -512,10 +445,7 @@
   },
   {
     "id": "v0401",
-    "de": [
-      "heiß",
-      "warm"
-    ],
+    "de": ["heiß", "warm"],
     "es": "caliente",
     "pos": "adj",
     "level": "A1",
@@ -529,9 +459,7 @@
   },
   {
     "id": "v0402",
-    "de": [
-      "kalt"
-    ],
+    "de": ["kalt"],
     "es": "frío",
     "pos": "adj",
     "level": "A1",
@@ -545,10 +473,7 @@
   },
   {
     "id": "v0403",
-    "de": [
-      "hoch",
-      "groß (Person)"
-    ],
+    "de": ["hoch", "groß (Person)"],
     "es": "alto",
     "pos": "adj",
     "level": "A1",
@@ -562,10 +487,7 @@
   },
   {
     "id": "v0404",
-    "de": [
-      "feucht",
-      "schwül"
-    ],
+    "de": ["feucht", "schwül"],
     "es": "húmedo",
     "pos": "adj",
     "level": "A2",
@@ -579,9 +501,7 @@
   },
   {
     "id": "v0405",
-    "de": [
-      "bewölkt"
-    ],
+    "de": ["bewölkt"],
     "es": "nublado",
     "pos": "adj",
     "level": "A2",
@@ -595,9 +515,7 @@
   },
   {
     "id": "v0406",
-    "de": [
-      "sonnig"
-    ],
+    "de": ["sonnig"],
     "es": "soleado",
     "pos": "adj",
     "level": "A2",
@@ -611,9 +529,7 @@
   },
   {
     "id": "v0407",
-    "de": [
-      "trocken"
-    ],
+    "de": ["trocken"],
     "es": "seco",
     "pos": "adj",
     "level": "B1",
@@ -627,9 +543,7 @@
   },
   {
     "id": "v0408",
-    "de": [
-      "tropisch"
-    ],
+    "de": ["tropisch"],
     "es": "tropical",
     "pos": "adj",
     "level": "B1",
@@ -643,9 +557,7 @@
   },
   {
     "id": "v0409",
-    "de": [
-      "wild"
-    ],
+    "de": ["wild"],
     "es": "salvaje",
     "pos": "adj",
     "level": "B1",
@@ -659,10 +571,7 @@
   },
   {
     "id": "v0410",
-    "de": [
-      "mild",
-      "gemäßigt"
-    ],
+    "de": ["mild", "gemäßigt"],
     "es": "templado",
     "pos": "adj",
     "level": "B1",
@@ -676,9 +585,7 @@
   },
   {
     "id": "v0411",
-    "de": [
-      "Es ist heiß."
-    ],
+    "de": ["Es ist heiß."],
     "es": "Hace calor.",
     "pos": "phrase",
     "level": "A1",
@@ -692,9 +599,7 @@
   },
   {
     "id": "v0412",
-    "de": [
-      "Wie ist das Wetter?"
-    ],
+    "de": ["Wie ist das Wetter?"],
     "es": "¿Qué tiempo hace?",
     "pos": "phrase",
     "level": "A1",
@@ -708,9 +613,7 @@
   },
   {
     "id": "v0425",
-    "de": [
-      "Stern"
-    ],
+    "de": ["Stern"],
     "es": "la estrella",
     "pos": "noun",
     "level": "A2",

@@ -1,9 +1,7 @@
 [
   {
     "id": "v0021",
-    "de": [
-      "Wie heißt du?"
-    ],
+    "de": ["Wie heißt du?"],
     "es": "¿Cómo te llamas?",
     "pos": "phrase",
     "level": "A1",
@@ -19,10 +17,7 @@
   },
   {
     "id": "v0022",
-    "de": [
-      "sprechen",
-      "reden"
-    ],
+    "de": ["sprechen", "reden"],
     "es": "hablar",
     "pos": "verb",
     "level": "A1",
@@ -42,9 +37,7 @@
   },
   {
     "id": "v0576",
-    "de": [
-      "sein"
-    ],
+    "de": ["sein"],
     "es": "ser",
     "pos": "verb",
     "level": "A1",
@@ -58,9 +51,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "irr"
-      ],
+      "tags": ["irr"],
       "reflexive": false,
       "overrides": {
         "presente": {
@@ -98,10 +89,7 @@
   },
   {
     "id": "v0577",
-    "de": [
-      "sein",
-      "sich befinden"
-    ],
+    "de": ["sein", "sich befinden"],
     "es": "estar",
     "pos": "verb",
     "level": "A1",
@@ -115,9 +103,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "oy"
-      ],
+      "tags": ["oy"],
       "reflexive": false,
       "overrides": {
         "presente": {
@@ -141,10 +127,7 @@
   },
   {
     "id": "v0578",
-    "de": [
-      "gehen",
-      "fahren"
-    ],
+    "de": ["gehen", "fahren"],
     "es": "ir",
     "pos": "verb",
     "level": "A1",
@@ -158,9 +141,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "irr"
-      ],
+      "tags": ["irr"],
       "reflexive": false,
       "overrides": {
         "presente": {
@@ -199,10 +180,7 @@
   },
   {
     "id": "v0579",
-    "de": [
-      "wollen",
-      "mögen"
-    ],
+    "de": ["wollen", "mögen"],
     "es": "querer",
     "pos": "verb",
     "level": "A1",
@@ -216,9 +194,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ie"
-      ],
+      "tags": ["ie"],
       "reflexive": false,
       "overrides": {
         "indefinido": {
@@ -237,10 +213,7 @@
   },
   {
     "id": "v0580",
-    "de": [
-      "können",
-      "dürfen"
-    ],
+    "de": ["können", "dürfen"],
     "es": "poder",
     "pos": "verb",
     "level": "A1",
@@ -254,9 +227,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ue"
-      ],
+      "tags": ["ue"],
       "reflexive": false,
       "overrides": {
         "indefinido": {
@@ -276,10 +247,7 @@
   },
   {
     "id": "v0581",
-    "de": [
-      "machen",
-      "tun"
-    ],
+    "de": ["machen", "tun"],
     "es": "hacer",
     "pos": "verb",
     "level": "A1",
@@ -293,9 +261,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "go"
-      ],
+      "tags": ["go"],
       "reflexive": false,
       "overrides": {
         "indefinido": {
@@ -318,10 +284,7 @@
   },
   {
     "id": "v0582",
-    "de": [
-      "heißen",
-      "sich nennen"
-    ],
+    "de": ["heißen", "sich nennen"],
     "es": "llamarse",
     "pos": "verb",
     "level": "A1",
@@ -341,10 +304,7 @@
   },
   {
     "id": "v0583",
-    "de": [
-      "gefallen",
-      "mögen"
-    ],
+    "de": ["gefallen", "mögen"],
     "es": "gustar",
     "pos": "verb",
     "level": "A1",
@@ -364,10 +324,7 @@
   },
   {
     "id": "v0584",
-    "de": [
-      "wissen",
-      "können"
-    ],
+    "de": ["wissen", "können"],
     "es": "saber",
     "pos": "verb",
     "level": "A2",
@@ -408,10 +365,7 @@
   },
   {
     "id": "v0585",
-    "de": [
-      "sagen",
-      "sprechen"
-    ],
+    "de": ["sagen", "sprechen"],
     "es": "decir",
     "pos": "verb",
     "level": "A2",
@@ -425,10 +379,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "go",
-        "i"
-      ],
+      "tags": ["go", "i"],
       "reflexive": false,
       "overrides": {
         "indefinido": {
@@ -451,9 +402,7 @@
   },
   {
     "id": "v0586",
-    "de": [
-      "kommen"
-    ],
+    "de": ["kommen"],
     "es": "venir",
     "pos": "verb",
     "level": "A2",
@@ -467,10 +416,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "go",
-        "ie-i"
-      ],
+      "tags": ["go", "ie-i"],
       "reflexive": false,
       "overrides": {
         "indefinido": {
@@ -491,10 +437,7 @@
   },
   {
     "id": "v0587",
-    "de": [
-      "sehen",
-      "ansehen"
-    ],
+    "de": ["sehen", "ansehen"],
     "es": "ver",
     "pos": "verb",
     "level": "A2",
@@ -538,10 +481,7 @@
   },
   {
     "id": "v0588",
-    "de": [
-      "geben",
-      "schenken"
-    ],
+    "de": ["geben", "schenken"],
     "es": "dar",
     "pos": "verb",
     "level": "A2",
@@ -555,9 +495,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "oy"
-      ],
+      "tags": ["oy"],
       "reflexive": false,
       "overrides": {
         "presente": {
@@ -576,9 +514,7 @@
   },
   {
     "id": "v0589",
-    "de": [
-      "verstehen"
-    ],
+    "de": ["verstehen"],
     "es": "entender",
     "pos": "verb",
     "level": "B1",
@@ -592,18 +528,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ie"
-      ],
+      "tags": ["ie"],
       "reflexive": false
     }
   },
   {
     "id": "v0590",
-    "de": [
-      "glauben",
-      "denken"
-    ],
+    "de": ["glauben", "denken"],
     "es": "creer",
     "pos": "verb",
     "level": "B1",
@@ -623,9 +554,7 @@
   },
   {
     "id": "v0591",
-    "de": [
-      "Familie"
-    ],
+    "de": ["Familie"],
     "es": "la familia",
     "pos": "noun",
     "level": "A1",
@@ -641,9 +570,7 @@
   },
   {
     "id": "v0592",
-    "de": [
-      "Freund"
-    ],
+    "de": ["Freund"],
     "es": "el amigo",
     "pos": "noun",
     "level": "A1",
@@ -659,9 +586,7 @@
   },
   {
     "id": "v0593",
-    "de": [
-      "Bruder"
-    ],
+    "de": ["Bruder"],
     "es": "el hermano",
     "pos": "noun",
     "level": "A1",
@@ -677,9 +602,7 @@
   },
   {
     "id": "v0594",
-    "de": [
-      "Mutter"
-    ],
+    "de": ["Mutter"],
     "es": "la madre",
     "pos": "noun",
     "level": "A2",
@@ -695,10 +618,7 @@
   },
   {
     "id": "v0595",
-    "de": [
-      "Sohn",
-      "Kind"
-    ],
+    "de": ["Sohn", "Kind"],
     "es": "el hijo",
     "pos": "noun",
     "level": "A2",
@@ -714,10 +634,7 @@
   },
   {
     "id": "v0596",
-    "de": [
-      "Hobby",
-      "Freizeitbeschäftigung"
-    ],
+    "de": ["Hobby", "Freizeitbeschäftigung"],
     "es": "el pasatiempo",
     "pos": "noun",
     "level": "A2",
@@ -733,9 +650,7 @@
   },
   {
     "id": "v0597",
-    "de": [
-      "Meinung"
-    ],
+    "de": ["Meinung"],
     "es": "la opinión",
     "pos": "noun",
     "level": "B1",
@@ -751,10 +666,7 @@
   },
   {
     "id": "v0598",
-    "de": [
-      "Gefühl",
-      "Empfindung"
-    ],
+    "de": ["Gefühl", "Empfindung"],
     "es": "el sentimiento",
     "pos": "noun",
     "level": "B1",
@@ -770,9 +682,7 @@
   },
   {
     "id": "v0599",
-    "de": [
-      "ich"
-    ],
+    "de": ["ich"],
     "es": "yo",
     "pos": "other",
     "level": "A1",
@@ -788,9 +698,7 @@
   },
   {
     "id": "v0600",
-    "de": [
-      "Sie (höflich)"
-    ],
+    "de": ["Sie (höflich)"],
     "es": "usted",
     "pos": "other",
     "level": "A1",
@@ -806,9 +714,7 @@
   },
   {
     "id": "v0601",
-    "de": [
-      "aber"
-    ],
+    "de": ["aber"],
     "es": "pero",
     "pos": "other",
     "level": "A1",
@@ -824,9 +730,7 @@
   },
   {
     "id": "v0602",
-    "de": [
-      "weil"
-    ],
+    "de": ["weil"],
     "es": "porque",
     "pos": "other",
     "level": "A1",
@@ -842,9 +746,7 @@
   },
   {
     "id": "v0603",
-    "de": [
-      "auch"
-    ],
+    "de": ["auch"],
     "es": "también",
     "pos": "adv",
     "level": "A1",
@@ -860,10 +762,7 @@
   },
   {
     "id": "v0604",
-    "de": [
-      "zufrieden",
-      "froh"
-    ],
+    "de": ["zufrieden", "froh"],
     "es": "contento",
     "pos": "adj",
     "level": "A2",
@@ -879,9 +778,7 @@
   },
   {
     "id": "v0605",
-    "de": [
-      "müde"
-    ],
+    "de": ["müde"],
     "es": "cansado",
     "pos": "adj",
     "level": "A2",
@@ -897,10 +794,7 @@
   },
   {
     "id": "v0606",
-    "de": [
-      "auch nicht",
-      "ebenfalls nicht"
-    ],
+    "de": ["auch nicht", "ebenfalls nicht"],
     "es": "tampoco",
     "pos": "adv",
     "level": "A2",
@@ -916,10 +810,7 @@
   },
   {
     "id": "v0607",
-    "de": [
-      "obwohl",
-      "auch wenn"
-    ],
+    "de": ["obwohl", "auch wenn"],
     "es": "aunque",
     "pos": "other",
     "level": "B1",
@@ -935,10 +826,7 @@
   },
   {
     "id": "v0608",
-    "de": [
-      "während",
-      "solange"
-    ],
+    "de": ["während", "solange"],
     "es": "mientras",
     "pos": "other",
     "level": "B1",
@@ -954,9 +842,7 @@
   },
   {
     "id": "v0609",
-    "de": [
-      "Ich komme aus Deutschland."
-    ],
+    "de": ["Ich komme aus Deutschland."],
     "es": "Soy de Alemania.",
     "pos": "phrase",
     "level": "A1",
@@ -972,9 +858,7 @@
   },
   {
     "id": "v0610",
-    "de": [
-      "Ich verstehe nicht."
-    ],
+    "de": ["Ich verstehe nicht."],
     "es": "No entiendo.",
     "pos": "phrase",
     "level": "A1",
@@ -990,9 +874,7 @@
   },
   {
     "id": "v0611",
-    "de": [
-      "Woher kommen Sie?"
-    ],
+    "de": ["Woher kommen Sie?"],
     "es": "¿De dónde es usted?",
     "pos": "phrase",
     "level": "A2",
@@ -1008,9 +890,7 @@
   },
   {
     "id": "v0612",
-    "de": [
-      "Können Sie das wiederholen?"
-    ],
+    "de": ["Können Sie das wiederholen?"],
     "es": "¿Me puede repetir?",
     "pos": "phrase",
     "level": "A2",
@@ -1026,9 +906,7 @@
   },
   {
     "id": "v0613",
-    "de": [
-      "Bitte langsamer."
-    ],
+    "de": ["Bitte langsamer."],
     "es": "Más despacio, por favor.",
     "pos": "phrase",
     "level": "A2",
@@ -1044,9 +922,7 @@
   },
   {
     "id": "v0614",
-    "de": [
-      "Wie sagt man … auf Spanisch?"
-    ],
+    "de": ["Wie sagt man … auf Spanisch?"],
     "es": "¿Cómo se dice … en español?",
     "pos": "phrase",
     "level": "A2",
@@ -1062,9 +938,7 @@
   },
   {
     "id": "v0615",
-    "de": [
-      "Was bedeutet …?"
-    ],
+    "de": ["Was bedeutet …?"],
     "es": "¿Qué significa…?",
     "pos": "phrase",
     "level": "A2",
@@ -1080,10 +954,7 @@
   },
   {
     "id": "v0616",
-    "de": [
-      "Ich liebe es zu kochen.",
-      "Kochen gefällt mir sehr."
-    ],
+    "de": ["Ich liebe es zu kochen.", "Kochen gefällt mir sehr."],
     "es": "Me encanta cocinar.",
     "pos": "phrase",
     "level": "A2",
@@ -1099,10 +970,7 @@
   },
   {
     "id": "v0617",
-    "de": [
-      "Ich habe zwei Geschwister.",
-      "Ich habe zwei Brüder."
-    ],
+    "de": ["Ich habe zwei Geschwister.", "Ich habe zwei Brüder."],
     "es": "Tengo dos hermanos.",
     "pos": "phrase",
     "level": "A2",
@@ -1118,9 +986,7 @@
   },
   {
     "id": "v0618",
-    "de": [
-      "Was machen Sie beruflich?"
-    ],
+    "de": ["Was machen Sie beruflich?"],
     "es": "¿A qué se dedica?",
     "pos": "phrase",
     "level": "A2",
@@ -1136,9 +1002,7 @@
   },
   {
     "id": "v0619",
-    "de": [
-      "Ich bin einverstanden."
-    ],
+    "de": ["Ich bin einverstanden."],
     "es": "Estoy de acuerdo.",
     "pos": "phrase",
     "level": "A2",
@@ -1154,9 +1018,7 @@
   },
   {
     "id": "v0620",
-    "de": [
-      "Ich bin nicht einverstanden."
-    ],
+    "de": ["Ich bin nicht einverstanden."],
     "es": "No estoy de acuerdo.",
     "pos": "phrase",
     "level": "B1",
@@ -1172,9 +1034,7 @@
   },
   {
     "id": "v0621",
-    "de": [
-      "Meiner Meinung nach …"
-    ],
+    "de": ["Meiner Meinung nach …"],
     "es": "En mi opinión…",
     "pos": "phrase",
     "level": "B1",
@@ -1190,9 +1050,7 @@
   },
   {
     "id": "v0622",
-    "de": [
-      "Wie schade!"
-    ],
+    "de": ["Wie schade!"],
     "es": "¡Qué pena!",
     "pos": "phrase",
     "level": "B1",
@@ -1208,9 +1066,7 @@
   },
   {
     "id": "v0623",
-    "de": [
-      "Das kommt darauf an."
-    ],
+    "de": ["Das kommt darauf an."],
     "es": "Depende.",
     "pos": "phrase",
     "level": "B1",
@@ -1226,10 +1082,7 @@
   },
   {
     "id": "v0926",
-    "de": [
-      "aufrichten",
-      "erheben"
-    ],
+    "de": ["aufrichten", "erheben"],
     "es": "erguir",
     "pos": "verb",
     "level": "B1",
@@ -1243,9 +1096,7 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "i"
-      ],
+      "tags": ["i"],
       "reflexive": false,
       "overrides": {
         "presente": {

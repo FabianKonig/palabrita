@@ -1,10 +1,7 @@
 [
   {
     "id": "v0426",
-    "de": [
-      "abbiegen",
-      "biegen"
-    ],
+    "de": ["abbiegen", "biegen"],
     "es": "doblar",
     "pos": "verb",
     "level": "A2",
@@ -24,10 +21,7 @@
   },
   {
     "id": "v0427",
-    "de": [
-      "überqueren",
-      "kreuzen"
-    ],
+    "de": ["überqueren", "kreuzen"],
     "es": "cruzar",
     "pos": "verb",
     "level": "A2",
@@ -47,10 +41,7 @@
   },
   {
     "id": "v0428",
-    "de": [
-      "liegen",
-      "sich befinden"
-    ],
+    "de": ["liegen", "sich befinden"],
     "es": "quedar",
     "pos": "verb",
     "level": "A2",
@@ -70,11 +61,7 @@
   },
   {
     "id": "v0429",
-    "de": [
-      "folgen",
-      "weitergehen",
-      "weiterfahren"
-    ],
+    "de": ["folgen", "weitergehen", "weiterfahren"],
     "es": "seguir",
     "pos": "verb",
     "level": "A2",
@@ -88,18 +75,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "i"
-      ],
+      "tags": ["i"],
       "reflexive": false
     }
   },
   {
     "id": "v0430",
-    "de": [
-      "sich verlaufen",
-      "sich verirren"
-    ],
+    "de": ["sich verlaufen", "sich verirren"],
     "es": "perderse",
     "pos": "verb",
     "level": "B1",
@@ -113,19 +95,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "ie"
-      ],
+      "tags": ["ie"],
       "reflexive": true
     }
   },
   {
     "id": "v0431",
-    "de": [
-      "durchqueren",
-      "abfahren",
-      "bereisen"
-    ],
+    "de": ["durchqueren", "abfahren", "bereisen"],
     "es": "recorrer",
     "pos": "verb",
     "level": "B1",
@@ -145,9 +121,7 @@
   },
   {
     "id": "v0432",
-    "de": [
-      "Stadt"
-    ],
+    "de": ["Stadt"],
     "es": "la ciudad",
     "pos": "noun",
     "level": "A1",
@@ -163,9 +137,7 @@
   },
   {
     "id": "v0433",
-    "de": [
-      "Straße"
-    ],
+    "de": ["Straße"],
     "es": "la calle",
     "pos": "noun",
     "level": "A1",
@@ -181,9 +153,7 @@
   },
   {
     "id": "v0434",
-    "de": [
-      "Platz"
-    ],
+    "de": ["Platz"],
     "es": "la plaza",
     "pos": "noun",
     "level": "A1",
@@ -199,9 +169,7 @@
   },
   {
     "id": "v0435",
-    "de": [
-      "Bank"
-    ],
+    "de": ["Bank"],
     "es": "el banco",
     "pos": "noun",
     "level": "A1",
@@ -217,9 +185,7 @@
   },
   {
     "id": "v0436",
-    "de": [
-      "Park"
-    ],
+    "de": ["Park"],
     "es": "el parque",
     "pos": "noun",
     "level": "A1",
@@ -235,10 +201,7 @@
   },
   {
     "id": "v0437",
-    "de": [
-      "Zentrum",
-      "Innenstadt"
-    ],
+    "de": ["Zentrum", "Innenstadt"],
     "es": "el centro",
     "pos": "noun",
     "level": "A1",
@@ -254,9 +217,7 @@
   },
   {
     "id": "v0438",
-    "de": [
-      "Kirche"
-    ],
+    "de": ["Kirche"],
     "es": "la iglesia",
     "pos": "noun",
     "level": "A1",
@@ -272,10 +233,7 @@
   },
   {
     "id": "v0439",
-    "de": [
-      "Adresse",
-      "Richtung"
-    ],
+    "de": ["Adresse", "Richtung"],
     "es": "la dirección",
     "pos": "noun",
     "level": "A1",
@@ -291,10 +249,7 @@
   },
   {
     "id": "v0440",
-    "de": [
-      "Karte",
-      "Stadtplan"
-    ],
+    "de": ["Karte", "Stadtplan"],
     "es": "el mapa",
     "pos": "noun",
     "level": "A1",
@@ -310,10 +265,7 @@
   },
   {
     "id": "v0441",
-    "de": [
-      "Ecke",
-      "Straßenecke"
-    ],
+    "de": ["Ecke", "Straßenecke"],
     "es": "la esquina",
     "pos": "noun",
     "level": "A2",
@@ -329,10 +281,7 @@
   },
   {
     "id": "v0442",
-    "de": [
-      "Häuserblock",
-      "Straßenblock"
-    ],
+    "de": ["Häuserblock", "Straßenblock"],
     "es": "la cuadra",
     "pos": "noun",
     "level": "A2",
@@ -348,10 +297,7 @@
   },
   {
     "id": "v0443",
-    "de": [
-      "Stadtviertel",
-      "Viertel"
-    ],
+    "de": ["Stadtviertel", "Viertel"],
     "es": "el barrio",
     "pos": "noun",
     "level": "A2",
@@ -367,10 +313,7 @@
   },
   {
     "id": "v0444",
-    "de": [
-      "Dorf",
-      "Kleinstadt"
-    ],
+    "de": ["Dorf", "Kleinstadt"],
     "es": "el pueblo",
     "pos": "noun",
     "level": "A2",
@@ -386,10 +329,7 @@
   },
   {
     "id": "v0445",
-    "de": [
-      "Allee",
-      "Hauptstraße"
-    ],
+    "de": ["Allee", "Hauptstraße"],
     "es": "la avenida",
     "pos": "noun",
     "level": "A2",
@@ -405,9 +345,7 @@
   },
   {
     "id": "v0446",
-    "de": [
-      "Brücke"
-    ],
+    "de": ["Brücke"],
     "es": "el puente",
     "pos": "noun",
     "level": "A2",
@@ -423,10 +361,7 @@
   },
   {
     "id": "v0447",
-    "de": [
-      "Post",
-      "Postamt"
-    ],
+    "de": ["Post", "Postamt"],
     "es": "el correo",
     "pos": "noun",
     "level": "A2",
@@ -442,9 +377,7 @@
   },
   {
     "id": "v0448",
-    "de": [
-      "Gebäude"
-    ],
+    "de": ["Gebäude"],
     "es": "el edificio",
     "pos": "noun",
     "level": "A2",
@@ -460,9 +393,7 @@
   },
   {
     "id": "v0449",
-    "de": [
-      "Bibliothek"
-    ],
+    "de": ["Bibliothek"],
     "es": "la biblioteca",
     "pos": "noun",
     "level": "A2",
@@ -478,9 +409,7 @@
   },
   {
     "id": "v0450",
-    "de": [
-      "Botschaft"
-    ],
+    "de": ["Botschaft"],
     "es": "la embajada",
     "pos": "noun",
     "level": "B1",
@@ -496,10 +425,7 @@
   },
   {
     "id": "v0451",
-    "de": [
-      "Kathedrale",
-      "Dom"
-    ],
+    "de": ["Kathedrale", "Dom"],
     "es": "la catedral",
     "pos": "noun",
     "level": "B1",
@@ -515,10 +441,7 @@
   },
   {
     "id": "v0452",
-    "de": [
-      "Bürgersteig",
-      "Gehweg"
-    ],
+    "de": ["Bürgersteig", "Gehweg"],
     "es": "la banqueta",
     "pos": "noun",
     "level": "B1",
@@ -534,10 +457,7 @@
   },
   {
     "id": "v0453",
-    "de": [
-      "Entfernung",
-      "Distanz"
-    ],
+    "de": ["Entfernung", "Distanz"],
     "es": "la distancia",
     "pos": "noun",
     "level": "B1",
@@ -553,10 +473,7 @@
   },
   {
     "id": "v0454",
-    "de": [
-      "nah",
-      "in der Nähe"
-    ],
+    "de": ["nah", "in der Nähe"],
     "es": "cerca",
     "pos": "adv",
     "level": "A1",
@@ -572,10 +489,7 @@
   },
   {
     "id": "v0455",
-    "de": [
-      "weit",
-      "weit weg"
-    ],
+    "de": ["weit", "weit weg"],
     "es": "lejos",
     "pos": "adv",
     "level": "A1",
@@ -591,9 +505,7 @@
   },
   {
     "id": "v0456",
-    "de": [
-      "geradeaus"
-    ],
+    "de": ["geradeaus"],
     "es": "derecho",
     "pos": "adv",
     "level": "A1",
@@ -609,10 +521,7 @@
   },
   {
     "id": "v0457",
-    "de": [
-      "dort",
-      "dorthin"
-    ],
+    "de": ["dort", "dorthin"],
     "es": "allá",
     "pos": "adv",
     "level": "A1",
@@ -628,9 +537,7 @@
   },
   {
     "id": "v0458",
-    "de": [
-      "gegenüber"
-    ],
+    "de": ["gegenüber"],
     "es": "enfrente",
     "pos": "adv",
     "level": "A2",
@@ -646,10 +553,7 @@
   },
   {
     "id": "v0459",
-    "de": [
-      "daneben",
-      "nebenan"
-    ],
+    "de": ["daneben", "nebenan"],
     "es": "al lado",
     "pos": "other",
     "level": "A2",
@@ -665,10 +569,7 @@
   },
   {
     "id": "v0460",
-    "de": [
-      "hinten",
-      "dahinter"
-    ],
+    "de": ["hinten", "dahinter"],
     "es": "detrás",
     "pos": "adv",
     "level": "A2",
@@ -684,10 +585,7 @@
   },
   {
     "id": "v0461",
-    "de": [
-      "in Richtung",
-      "nach … hin"
-    ],
+    "de": ["in Richtung", "nach … hin"],
     "es": "hacia",
     "pos": "other",
     "level": "A2",
@@ -703,10 +601,7 @@
   },
   {
     "id": "v0462",
-    "de": [
-      "zentral gelegen",
-      "zentral"
-    ],
+    "de": ["zentral gelegen", "zentral"],
     "es": "céntrico",
     "pos": "adj",
     "level": "B1",
@@ -722,9 +617,7 @@
   },
   {
     "id": "v0463",
-    "de": [
-      "für Fußgänger"
-    ],
+    "de": ["für Fußgänger"],
     "es": "peatonal",
     "pos": "adj",
     "level": "B1",
@@ -740,10 +633,7 @@
   },
   {
     "id": "v0464",
-    "de": [
-      "rechts",
-      "nach rechts"
-    ],
+    "de": ["rechts", "nach rechts"],
     "es": "a la derecha",
     "pos": "phrase",
     "level": "A1",
@@ -759,10 +649,7 @@
   },
   {
     "id": "v0465",
-    "de": [
-      "links",
-      "nach links"
-    ],
+    "de": ["links", "nach links"],
     "es": "a la izquierda",
     "pos": "phrase",
     "level": "A1",
@@ -778,10 +665,7 @@
   },
   {
     "id": "v0466",
-    "de": [
-      "Wo liegt …?",
-      "Wo befindet sich …?"
-    ],
+    "de": ["Wo liegt …?", "Wo befindet sich …?"],
     "es": "¿Dónde queda…?",
     "pos": "phrase",
     "level": "A1",
@@ -797,9 +681,7 @@
   },
   {
     "id": "v0467",
-    "de": [
-      "Wie komme ich zu …?"
-    ],
+    "de": ["Wie komme ich zu …?"],
     "es": "¿Cómo llego a…?",
     "pos": "phrase",
     "level": "A1",
@@ -815,9 +697,7 @@
   },
   {
     "id": "v0927",
-    "de": [
-      "Tourist"
-    ],
+    "de": ["Tourist"],
     "es": "el/la turista",
     "pos": "noun",
     "level": "A1",

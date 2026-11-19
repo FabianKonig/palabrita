@@ -1,9 +1,7 @@
 [
   {
     "id": "v0001",
-    "de": [
-      "Hallo"
-    ],
+    "de": ["Hallo"],
     "es": "hola",
     "pos": "phrase",
     "level": "A1",
@@ -19,9 +17,7 @@
   },
   {
     "id": "v0002",
-    "de": [
-      "Guten Morgen"
-    ],
+    "de": ["Guten Morgen"],
     "es": "buenos días",
     "pos": "phrase",
     "level": "A1",
@@ -37,9 +33,7 @@
   },
   {
     "id": "v0003",
-    "de": [
-      "Danke"
-    ],
+    "de": ["Danke"],
     "es": "gracias",
     "pos": "phrase",
     "level": "A1",
@@ -55,9 +49,7 @@
   },
   {
     "id": "v0004",
-    "de": [
-      "Bitte"
-    ],
+    "de": ["Bitte"],
     "es": "por favor",
     "pos": "phrase",
     "level": "A1",
@@ -73,10 +65,7 @@
   },
   {
     "id": "v0026",
-    "de": [
-      "grüßen",
-      "begrüßen"
-    ],
+    "de": ["grüßen", "begrüßen"],
     "es": "saludar",
     "pos": "verb",
     "level": "A1",
@@ -96,9 +85,7 @@
   },
   {
     "id": "v0027",
-    "de": [
-      "der Gruß"
-    ],
+    "de": ["der Gruß"],
     "es": "el saludo",
     "pos": "noun",
     "level": "A1",
@@ -114,10 +101,7 @@
   },
   {
     "id": "v0028",
-    "de": [
-      "der Herr",
-      "Herr"
-    ],
+    "de": ["der Herr", "Herr"],
     "es": "el señor",
     "pos": "noun",
     "level": "A1",
@@ -133,10 +117,7 @@
   },
   {
     "id": "v0029",
-    "de": [
-      "die Frau",
-      "Frau (Anrede)"
-    ],
+    "de": ["die Frau", "Frau (Anrede)"],
     "es": "la señora",
     "pos": "noun",
     "level": "A1",
@@ -152,9 +133,7 @@
   },
   {
     "id": "v0030",
-    "de": [
-      "willkommen"
-    ],
+    "de": ["willkommen"],
     "es": "bienvenido",
     "pos": "adj",
     "level": "A1",
@@ -170,10 +149,7 @@
   },
   {
     "id": "v0031",
-    "de": [
-      "erfreut",
-      "sehr angenehm"
-    ],
+    "de": ["erfreut", "sehr angenehm"],
     "es": "encantado",
     "pos": "adj",
     "level": "A1",
@@ -189,10 +165,7 @@
   },
   {
     "id": "v0032",
-    "de": [
-      "Entschuldigung",
-      "Verzeihung"
-    ],
+    "de": ["Entschuldigung", "Verzeihung"],
     "es": "perdón",
     "pos": "other",
     "level": "A1",
@@ -208,10 +181,7 @@
   },
   {
     "id": "v0033",
-    "de": [
-      "Guten Tag",
-      "Guten Nachmittag"
-    ],
+    "de": ["Guten Tag", "Guten Nachmittag"],
     "es": "buenas tardes",
     "pos": "phrase",
     "level": "A1",
@@ -227,10 +197,7 @@
   },
   {
     "id": "v0034",
-    "de": [
-      "Guten Abend",
-      "Gute Nacht"
-    ],
+    "de": ["Guten Abend", "Gute Nacht"],
     "es": "buenas noches",
     "pos": "phrase",
     "level": "A1",
@@ -246,10 +213,7 @@
   },
   {
     "id": "v0035",
-    "de": [
-      "Auf Wiedersehen",
-      "Tschüss"
-    ],
+    "de": ["Auf Wiedersehen", "Tschüss"],
     "es": "adiós",
     "pos": "phrase",
     "level": "A1",
@@ -265,10 +229,7 @@
   },
   {
     "id": "v0036",
-    "de": [
-      "bis später",
-      "bis bald"
-    ],
+    "de": ["bis später", "bis bald"],
     "es": "hasta luego",
     "pos": "phrase",
     "level": "A1",
@@ -284,10 +245,7 @@
   },
   {
     "id": "v0037",
-    "de": [
-      "Bitte (Antwort auf Danke)",
-      "gern geschehen"
-    ],
+    "de": ["Bitte (Antwort auf Danke)", "gern geschehen"],
     "es": "de nada",
     "pos": "phrase",
     "level": "A1",
@@ -303,9 +261,7 @@
   },
   {
     "id": "v0038",
-    "de": [
-      "sich vorstellen"
-    ],
+    "de": ["sich vorstellen"],
     "es": "presentarse",
     "pos": "verb",
     "level": "A2",
@@ -325,9 +281,7 @@
   },
   {
     "id": "v0039",
-    "de": [
-      "sich verabschieden"
-    ],
+    "de": ["sich verabschieden"],
     "es": "despedirse",
     "pos": "verb",
     "level": "A2",
@@ -341,18 +295,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "i"
-      ],
+      "tags": ["i"],
       "reflexive": true
     }
   },
   {
     "id": "v0040",
-    "de": [
-      "der Gefallen",
-      "die Gefälligkeit"
-    ],
+    "de": ["der Gefallen", "die Gefälligkeit"],
     "es": "el favor",
     "pos": "noun",
     "level": "A2",
@@ -368,10 +317,7 @@
   },
   {
     "id": "v0041",
-    "de": [
-      "der Abschied",
-      "die Verabschiedung"
-    ],
+    "de": ["der Abschied", "die Verabschiedung"],
     "es": "la despedida",
     "pos": "noun",
     "level": "A2",
@@ -387,10 +333,7 @@
   },
   {
     "id": "v0042",
-    "de": [
-      "freundlich",
-      "nett"
-    ],
+    "de": ["freundlich", "nett"],
     "es": "amable",
     "pos": "adj",
     "level": "A2",
@@ -406,10 +349,7 @@
   },
   {
     "id": "v0043",
-    "de": [
-      "gleichfalls",
-      "ebenso"
-    ],
+    "de": ["gleichfalls", "ebenso"],
     "es": "igualmente",
     "pos": "adv",
     "level": "A2",
@@ -425,10 +365,7 @@
   },
   {
     "id": "v0044",
-    "de": [
-      "Mit Ihrer Erlaubnis",
-      "Entschuldigung, darf ich vorbei"
-    ],
+    "de": ["Mit Ihrer Erlaubnis", "Entschuldigung, darf ich vorbei"],
     "es": "con permiso",
     "pos": "phrase",
     "level": "A2",
@@ -444,10 +381,7 @@
   },
   {
     "id": "v0045",
-    "de": [
-      "Entschuldigen Sie",
-      "Verzeihen Sie"
-    ],
+    "de": ["Entschuldigen Sie", "Verzeihen Sie"],
     "es": "disculpe",
     "pos": "phrase",
     "level": "A2",
@@ -463,9 +397,7 @@
   },
   {
     "id": "v0046",
-    "de": [
-      "es tut mir leid"
-    ],
+    "de": ["es tut mir leid"],
     "es": "lo siento",
     "pos": "phrase",
     "level": "A2",
@@ -481,10 +413,7 @@
   },
   {
     "id": "v0047",
-    "de": [
-      "freut mich",
-      "angenehm"
-    ],
+    "de": ["freut mich", "angenehm"],
     "es": "mucho gusto",
     "pos": "phrase",
     "level": "A2",
@@ -500,9 +429,7 @@
   },
   {
     "id": "v0048",
-    "de": [
-      "Wie heißen Sie?"
-    ],
+    "de": ["Wie heißen Sie?"],
     "es": "¿Cómo se llama usted?",
     "pos": "phrase",
     "level": "A2",
@@ -518,9 +445,7 @@
   },
   {
     "id": "v0049",
-    "de": [
-      "ich heiße…"
-    ],
+    "de": ["ich heiße…"],
     "es": "me llamo…",
     "pos": "phrase",
     "level": "A2",
@@ -536,9 +461,7 @@
   },
   {
     "id": "v0050",
-    "de": [
-      "Wie geht es Ihnen?"
-    ],
+    "de": ["Wie geht es Ihnen?"],
     "es": "¿Cómo está usted?",
     "pos": "phrase",
     "level": "A2",
@@ -554,9 +477,7 @@
   },
   {
     "id": "v0051",
-    "de": [
-      "bis morgen"
-    ],
+    "de": ["bis morgen"],
     "es": "hasta mañana",
     "pos": "phrase",
     "level": "A2",
@@ -572,10 +493,7 @@
   },
   {
     "id": "v0052",
-    "de": [
-      "wir sehen uns",
-      "bis dann"
-    ],
+    "de": ["wir sehen uns", "bis dann"],
     "es": "nos vemos",
     "pos": "phrase",
     "level": "A2",
@@ -591,10 +509,7 @@
   },
   {
     "id": "v0053",
-    "de": [
-      "Wie geht’s?",
-      "Was gibt’s?"
-    ],
+    "de": ["Wie geht’s?", "Was gibt’s?"],
     "es": "¿Qué tal?",
     "pos": "phrase",
     "level": "A2",
@@ -610,10 +525,7 @@
   },
   {
     "id": "v0054",
-    "de": [
-      "danken",
-      "sich bedanken bei"
-    ],
+    "de": ["danken", "sich bedanken bei"],
     "es": "agradecer",
     "pos": "verb",
     "level": "B1",
@@ -627,18 +539,13 @@
     "gender": null,
     "plural": null,
     "verb": {
-      "tags": [
-        "zco"
-      ],
+      "tags": ["zco"],
       "reflexive": false
     }
   },
   {
     "id": "v0055",
-    "de": [
-      "die Erlaubnis",
-      "die Genehmigung"
-    ],
+    "de": ["die Erlaubnis", "die Genehmigung"],
     "es": "el permiso",
     "pos": "noun",
     "level": "B1",
@@ -654,9 +561,7 @@
   },
   {
     "id": "v0056",
-    "de": [
-      "höflich"
-    ],
+    "de": ["höflich"],
     "es": "cortés",
     "pos": "adj",
     "level": "B1",
@@ -675,10 +580,7 @@
   },
   {
     "id": "v0057",
-    "de": [
-      "alles Gute",
-      "machen Sie es gut"
-    ],
+    "de": ["alles Gute", "machen Sie es gut"],
     "es": "que le vaya bien",
     "pos": "phrase",
     "level": "B1",
@@ -694,10 +596,7 @@
   },
   {
     "id": "v0058",
-    "de": [
-      "machen Sie sich keine Sorgen",
-      "kein Problem"
-    ],
+    "de": ["machen Sie sich keine Sorgen", "kein Problem"],
     "es": "no se preocupe",
     "pos": "phrase",
     "level": "B1",
@@ -713,9 +612,7 @@
   },
   {
     "id": "v0059",
-    "de": [
-      "zu Ihren Diensten"
-    ],
+    "de": ["zu Ihren Diensten"],
     "es": "a sus órdenes",
     "pos": "phrase",
     "level": "B1",
@@ -731,10 +628,7 @@
   },
   {
     "id": "v0060",
-    "de": [
-      "Wie bitte?",
-      "Ja, bitte?"
-    ],
+    "de": ["Wie bitte?", "Ja, bitte?"],
     "es": "¿Mande?",
     "pos": "phrase",
     "level": "B1",
@@ -750,9 +644,7 @@
   },
   {
     "id": "v0061",
-    "de": [
-      "ich danke Ihnen sehr"
-    ],
+    "de": ["ich danke Ihnen sehr"],
     "es": "le agradezco mucho",
     "pos": "phrase",
     "level": "B1",
