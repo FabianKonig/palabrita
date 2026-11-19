@@ -265,6 +265,17 @@ async function main() {
     "Suche über deutsche Übersetzung findet frijol",
     /el frijol/.test(await text()),
   );
+  // 3b. Reihenfolge nach Trefferqualität: ganze deutsche Einträge „Auto“ vor „el autobús“.
+  await setInput('input[type="search"]', "Auto");
+  await sleep(300);
+  const autoHits = await evaluate<string[]>(
+    `[...document.querySelectorAll(".vocab-list .es")].slice(0, 3).map((e) => e.textContent)`,
+  );
+  check(
+    "Suche „Auto“: ganze Treffer (carro, coche) vor Teiltreffer (autobús)",
+    autoHits.join("|") === "el carro|el coche|el autobús",
+    autoHits.join("|"),
+  );
 
   // 4. Study session: setup, flip twice, grade 3 cards.
   await startSession();
@@ -459,9 +470,48 @@ async function main() {
     `document.body.innerText.match(/(\\d+) Einträge/)?.[1] ?? ""`,
   );
   check(
-    `Niveau A1 blendet höhere Niveaus aus (weniger als ${TOTAL_VOCAB})`,
-    Number(a1) > 0 && Number(a1) < TOTAL_VOCAB,
+    `Niveau A1: Verzeichnis zeigt trotzdem alle Wörter (mindestens ${TOTAL_VOCAB})`,
+    Number(a1) >= TOTAL_VOCAB,
     `${a1} Einträge`,
+  );
+  check(
+    "Niveau A1: Niveau-Dropdown im Verzeichnis bietet weiter A1, A2, B1",
+    (await evaluate<string>(
+      `[...document.querySelector('select[aria-label="Niveau"]').options].map((o) => o.value).join(",")`,
+    )) === ",A1,A2,B1",
+  );
+  // Detailseite eines Worts über dem Niveau: öffnet mit Hinweis.
+  await setInput('input[type="search"]', "agradecer");
+  await sleep(300);
+  await evaluate(`document.querySelector(".vocab-list a").click()`);
+  await waitFor(`location.hash.startsWith("#/dictionary/")`, "Detailseite B1");
+  await sleep(300);
+  check(
+    "Niveau A1: Detailseite eines B1-Worts öffnet mit Hinweis „Liegt über deinem Niveau“",
+    /agradecer/.test(await text()) &&
+      /Liegt über deinem Niveau \(A1\), wird derzeit nicht gelernt/.test(
+        await text(),
+      ),
+  );
+  // Lernen-Seite: bei A1 nur noch „A1“, ausgewählt und deaktiviert.
+  await send("Page.navigate", { url: BASE });
+  await waitFor(
+    `document.querySelector(".settings-form select")`,
+    "Lernen-Seite",
+  );
+  const lvl = await evaluate<string>(`(() => {
+    const sel = [...document.querySelectorAll(".settings-form select")]
+      .find((s) => s.closest("label")?.textContent.startsWith("Niveau"));
+    return JSON.stringify({
+      options: [...sel.options].map((o) => o.value).join(","),
+      value: sel.value,
+      disabled: sel.disabled,
+    });
+  })()`);
+  check(
+    "Niveau A1: Lernen-Seite zeigt nur „A1“, ausgewählt und deaktiviert",
+    lvl === '{"options":"A1","value":"A1","disabled":true}',
+    lvl,
   );
   await send("Page.navigate", { url: `${BASE}#/settings` });
   await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
@@ -544,9 +594,23 @@ async function main() {
         && s.backgroundImage.startsWith("url(");
     })()`),
   );
+  // Suchtext und Filter schließen sich aus: Filter wählen leert den Suchtext, Tippen setzt Filter zurück.
+  await setInput('input[type="search"]', "a");
   await setInput('select[aria-label="Niveau"]', "A1");
+  await sleep(300);
+  const filterWins = await evaluate<boolean>(
+    `document.querySelector('input[type="search"]').value === ""`,
+  );
   await setInput('input[type="search"]', "a");
   await sleep(300);
+  const searchWins = await evaluate<boolean>(
+    `document.querySelector('select[aria-label="Niveau"]').value === ""`,
+  );
+  check(
+    "Verzeichnis: Filter wählen leert den Suchtext, Suchtext setzt Filter zurück",
+    filterWins && searchWins,
+    `${filterWins} / ${searchWins}`,
+  );
   await evaluate("window.scrollTo(0, 1500)");
   await sleep(300);
   const clicked = await evaluate<string>(`(() => {
@@ -572,7 +636,7 @@ async function main() {
   };
   check(
     "Verzeichnis: Suche und Filter bleiben nach Detailansicht und Zurück",
-    backState.q === "a" && backState.level === "A1",
+    backState.q === "a" && backState.level === "",
     backJson,
   );
   check(
@@ -616,7 +680,7 @@ async function main() {
     }
     const ok = rounds.every((r) => {
       const s = JSON.parse(r) as { q: string; level: string; y: number };
-      return Math.abs(s.y - 1500) < 5 && s.q === "a" && s.level === "A1";
+      return Math.abs(s.y - 1500) < 5 && s.q === "a" && s.level === "";
     });
     check(
       `Verzeichnis: ${label} aus der Detailansicht startet an gleicher Stelle wie Zurück`,
@@ -787,6 +851,47 @@ async function main() {
     await evaluate<boolean>(
       `document.querySelector('input[aria-label="Spanisches Wort"]').value === "gato"`,
     ),
+  );
+  // Vorabprüfung (SPEC §3.5): „Schon vorhanden“ mit Link, ohne Netz, Nachschlagen bleibt aktiv.
+  await setInput('input[aria-label="Spanisches Wort"]', "casa");
+  await waitFor(`document.querySelector(".existing")`, "Vorabprüfung");
+  await sleep(300);
+  const hint = await evaluate<string>(`JSON.stringify({
+    text: document.querySelector(".existing")?.innerText ?? "",
+    href: document.querySelector(".existing a")?.getAttribute("href") ?? "",
+    h: Math.round(document.querySelector(".existing a")?.getBoundingClientRect().height ?? 0),
+    btn: !document.querySelector('.add-search button[type="submit"]').disabled,
+  })`);
+  const hintObj = JSON.parse(hint) as {
+    text: string;
+    href: string;
+    h: number;
+    btn: boolean;
+  };
+  check(
+    "Hinzufügen: Vorabprüfung zeigt „Schon vorhanden“ mit Link, Nachschlagen bleibt aktiv",
+    /Schon vorhanden/.test(hintObj.text) &&
+      /la casa/.test(hintObj.text) &&
+      hintObj.href.startsWith("#/dictionary/") &&
+      hintObj.h >= 48 &&
+      hintObj.btn,
+    hint,
+  );
+  await setInput('input[aria-label="Spanisches Wort"]', "Bohne");
+  await sleep(300);
+  const bohne = await evaluate<string>(
+    `document.querySelector(".existing")?.innerText ?? ""`,
+  );
+  check(
+    "Hinzufügen: deutsche Eingabe „Bohne“ zeigt „el frijol (Bohne)“",
+    /el frijol \(Bohne\)/.test(bohne),
+    bohne.replace(/\s+/g, " "),
+  );
+  await setInput('input[aria-label="Spanisches Wort"]', "xqzv");
+  await sleep(300);
+  check(
+    "Hinzufügen: ohne Treffer keine Vorabprüfung",
+    !(await evaluate<boolean>(`!!document.querySelector(".existing")`)),
   );
   // Suchtext wieder leeren, sonst zählt der Offline-Test nur die Treffer.
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
