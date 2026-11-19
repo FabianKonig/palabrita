@@ -48,6 +48,7 @@ Vor einem Commit mindestens `npm run lint`, `npm test` und `npm run build` ausf�
 - Keine Tracker, kein Backend. Einzige externe Anfragen: Wortsuche bei `de.wiktionary.org`, falls dort nichts gefunden wird, Fallback auf `es.wiktionary.org` (nur Wortart/Genus, keine deutsche Bedeutung). Nur auf Knopfdruck, nicht im Service-Worker-Cache.
 - Prettier-Konfiguration (`.prettierrc`) und ESLint (`eslint.config.js`) einhalten.
 - Nicht committen: `dist/`, `node_modules/`.
+- Neue Seiten: unter der Layout-Route in `src/App.tsx` anlegen, Inhalt in `.screen`, Überschrift als direktes `h1`-Kind von `.screen`. Das Logo oben rechts (`.corner-logo`) kommt dann automatisch an dieselbe Stelle; nur `/more` lässt es weg. Die Prüfung „Logo oben rechts“ in `scripts/browser-smoke.ts` (Abschnitt 8e6) listet die Seiten auf: neue Seiten dort ergänzen.
 
 ## Stand
 

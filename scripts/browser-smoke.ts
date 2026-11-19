@@ -691,6 +691,41 @@ async function main() {
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
 
+  // 8e6. Logo oben rechts steht auf jeder Seite an derselben Stelle, außer „Mehr“.
+  // Gemessen relativ zur Inhaltsspalte (.screen), damit Scrollleisten keine Rolle spielen.
+  // Neue Seiten hier ergänzen.
+  const cornerRoutes = [
+    "",
+    "dictionary",
+    "stats",
+    "settings",
+    "legend",
+    "imprint",
+    "privacy",
+    "add",
+  ];
+  const cornerPositions: string[] = [];
+  for (const route of cornerRoutes) {
+    await send("Page.navigate", { url: `${BASE}#/${route}` });
+    await waitFor(
+      `!!document.querySelector(".corner-logo") && !!document.querySelector(".screen h1")`,
+      `Logo auf #/${route}`,
+    );
+    await sleep(200);
+    cornerPositions.push(
+      await evaluate<string>(`(() => {
+        const s = document.querySelector(".screen").getBoundingClientRect();
+        const r = document.querySelector(".corner-logo").getBoundingClientRect();
+        return Math.round(r.top - s.top) + "," + Math.round(s.right - r.right);
+      })()`),
+    );
+  }
+  check(
+    "Logo oben rechts steht auf allen Seiten an derselben Stelle",
+    cornerPositions.every((p) => p === cornerPositions[0]),
+    cornerPositions.join(" | "),
+  );
+
   // 8e4. Version steht unter „Mehr“ (nach Einstellungen und Legende), nicht mehr unter Einstellungen.
   await send("Page.navigate", { url: `${BASE}#/more` });
   await waitFor(`document.querySelector(".link-list")`, "Mehr");
