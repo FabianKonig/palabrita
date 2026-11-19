@@ -8,6 +8,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { TabBar } from "./components/TabBar";
+import { Logo } from "./components/Brand";
 import { UpdateBanner } from "./components/UpdateBanner";
 import {
   WelcomeOverlay,
@@ -49,6 +50,8 @@ function Layout() {
       <div className="app" inert={showWelcome || welcomeReplay}>
         <UpdateBanner />
         <main>
+          {/* Logo oben rechts auf allen Seiten außer „Mehr“ (dort steht der große Markenkopf). */}
+          {pathname !== "/more" && <Logo className="corner-logo" />}
           <Outlet context={outletContext} />
         </main>
         <TabBar />
@@ -62,7 +65,7 @@ function Layout() {
         />
       )}
       {!showWelcome && welcomeReplay && (
-        <WelcomeOverlay onDismiss={closeWelcomeReplay} />
+        <WelcomeOverlay closeOnBackdrop onDismiss={closeWelcomeReplay} />
       )}
     </>
   );

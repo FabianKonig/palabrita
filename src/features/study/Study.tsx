@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Mark } from "../../components/Brand";
+import { Logo } from "../../components/Brand";
 import { SpeakerIcon } from "../../components/icons";
 import { Flashcard } from "../../components/Flashcard";
 import { VerbOverlay } from "../../components/VerbOverlay";
@@ -120,11 +120,26 @@ function StudySession({
   if (finished) {
     return (
       <div className="screen center">
+        {/* Gleiche Leiste wie in der Sitzung: das Logo steht an derselben Stelle. */}
+        <div className="session-bar session-end-bar">
+          <span />
+          <Logo />
+          <span />
+        </div>
         <h1>Sitzung beendet</h1>
-        <p>
-          {session.rated} {session.rated === 1 ? "Karte" : "Karten"} geübt,
-          davon {session.again}× „Nochmal“.
-        </p>
+        {/* Das Ergebnis ist das Wichtigste auf der Seite: zwei große Kacheln. */}
+        <div className="result-tiles">
+          <div className="result-tile">
+            <span className="result-num">{session.rated}</span>
+            <span className="result-label">
+              {session.rated === 1 ? "Karte geübt" : "Karten geübt"}
+            </span>
+          </div>
+          <div className="result-tile again">
+            <span className="result-num">{session.again}</span>
+            <span className="result-label">davon „Nochmal“</span>
+          </div>
+        </div>
         <div className="actions">
           <button
             type="button"
@@ -144,7 +159,7 @@ function StudySession({
             className="btn btn-block secondary"
             onClick={onBack}
           >
-            Neue Auswahl
+            Beenden
           </button>
         </div>
       </div>
@@ -221,7 +236,7 @@ function StudySession({
       <div className="screen" inert={conjugation}>
         <div className="session-bar">
           <p className="progress">Geübt: {session.rated}</p>
-          <Mark />
+          <Logo />
           <button
             type="button"
             className="btn secondary"

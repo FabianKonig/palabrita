@@ -685,5 +685,23 @@
     "note": "Gefeiert wird am 1. und 2. November; der 2. ist der Gedenktag für die Verstorbenen.",
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v0514",
+    "de": [
+      "Wörtchen",
+      "kleines Wort"
+    ],
+    "es": "la palabrita",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "example": {
+      "es": "Quiero aprender cada palabrita en español.",
+      "de": "Ich möchte jedes Wörtchen auf Spanisch lernen."
+    },
+    "note": "Verkleinerungsform von palabra. Diminutive auf -ito/-ita sind im mexikanischen und guatemaltekischen Spanisch sehr häufig.",
+    "gender": "f",
+    "plural": "las palabritas"
   }
 ]

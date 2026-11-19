@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { Credit, TAGLINE_ES, Wordmark } from "./Brand";
 
 /** Vorderseite Spanisch, Rückseite Deutsch. Der Schriftzug „Palabrita“ steht in der Mitte. */
@@ -26,7 +26,14 @@ export interface WelcomeOutletContext {
  * wird die Karte über den Markenkopf erneut geöffnet, passiert dabei nichts weiter.
  * Der Aufrufer sperrt die Seite dahinter.
  */
-export function WelcomeOverlay({ onDismiss }: { onDismiss: () => void }) {
+export function WelcomeOverlay({
+  onDismiss,
+  closeOnBackdrop = false,
+}: {
+  onDismiss: () => void;
+  /** Nur beim erneuten Öffnen: ein Klick auf die Fläche neben der Karte schließt sofort. */
+  closeOnBackdrop?: boolean;
+}) {
   const [flipped, setFlipped] = useState(false);
   const [closing, setClosing] = useState(false);
 
@@ -37,12 +44,21 @@ export function WelcomeOverlay({ onDismiss }: { onDismiss: () => void }) {
     return () => window.clearTimeout(timer);
   }, [closing, onDismiss]);
 
+  function close() {
+    setClosing(true);
+  }
+
   function onTap() {
     if (!flipped) {
       setFlipped(true);
     } else {
-      setClosing(true);
+      close();
     }
+  }
+
+  // Erststart: die Fläche tut nichts, es muss die Karte angetippt werden.
+  function onBackdropClick(e: MouseEvent<HTMLDivElement>) {
+    if (closeOnBackdrop && e.target === e.currentTarget) close();
   }
 
   return (
@@ -51,6 +67,7 @@ export function WelcomeOverlay({ onDismiss }: { onDismiss: () => void }) {
       role="dialog"
       aria-modal="true"
       aria-label="Begrüßung"
+      onClick={onBackdropClick}
     >
       <button
         type="button"

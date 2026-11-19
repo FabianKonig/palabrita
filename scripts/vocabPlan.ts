@@ -51,7 +51,7 @@ export const TOPICS: TopicPlan[] = [
   plan(6, "gesundheit", "Gesundheit & Notfall", [8, 20, 6, 6], [16, 16, 8]),
   plan(7, "natur", "Natur & Wetter", [6, 22, 10, 2], [16, 16, 8]),
   plan(8, "orte", "Orte & Wegbeschreibung", [6, 22, 10, 4], [17, 17, 8]),
-  plan(9, "kultur", "Kultur & Feste", [8, 18, 6, 6], [15, 15, 8]),
+  plan(9, "kultur", "Kultur & Feste", [8, 19, 6, 6], [15, 16, 8]),
   plan(10, "maya", "Maya & Geschichte", [6, 22, 6, 2], [14, 14, 8]),
   plan(11, "smalltalk", "Smalltalk & Alltag", [16, 8, 10, 16], [20, 20, 10]),
   plan(

@@ -23,7 +23,7 @@ Weitere Befehle:
 npm test                      # Unit-Tests (SRS, Konjugation, Export/Import, ...)
 npm run lint                  # ESLint
 npm run validate:vocab        # Vokabeldateien prüfen (Schema, IDs, Dubletten, Verbformen)
-npm run validate:vocab -- --final   # zusätzlich: 802 Einträge laut Plan
+npm run validate:vocab -- --final   # zusätzlich: 803 Einträge laut Plan
 ```
 
 ## Deployment (GitHub Pages)

@@ -27,7 +27,7 @@ npm test                            # vitest run
 npm run lint                        # eslint .
 npm run format                      # prettier --write .
 npm run validate:vocab              # Vokabeldateien prüfen
-npm run validate:vocab -- --final   # zusätzlich: 802 Einträge laut Plan
+npm run validate:vocab -- --final   # zusätzlich: 803 Einträge laut Plan
 npx tsx scripts/browser-smoke.ts    # Browser-Smoke-Test, braucht laufendes `npm run preview -- --port 4173` (Details im Kopf der Datei)
 ```
 
@@ -50,6 +50,7 @@ Vor einem Commit mindestens `npm run lint`, `npm test` und `npm run build` ausf�
 - Prettier-Konfiguration (`.prettierrc`) und ESLint (`eslint.config.js`) einhalten.
 - Nicht committen: `dist/`, `node_modules/`.
 - Arbeitsweise: kleine Commits auf einem Feature-Branch, kein Push ohne Rückfrage (es sei denn, es ist anders vorgegeben). Offene Aufgaben stehen in `docs/TASKS.md`: Ist etwas erledigt, kommt das Ergebnis in `docs/SPEC.md` und der Punkt verschwindet aus `docs/TASKS.md`. Bei Unklarheit eine Annahme treffen und unter „Hinweise“ in `docs/TASKS.md` festhalten.
+- Neue Seiten: unter der Layout-Route in `src/App.tsx` anlegen, Inhalt in `.screen`, Überschrift als direktes `h1`-Kind von `.screen`. Das Logo oben rechts (`.corner-logo`) kommt dann automatisch an dieselbe Stelle; nur `/more` lässt es weg. Die Prüfung „Logo oben rechts“ in `scripts/browser-smoke.ts` (Abschnitt 8e6) listet die Seiten auf: neue Seiten dort ergänzen.
 
 ## Stand
 

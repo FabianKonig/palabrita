@@ -10,7 +10,7 @@ Begleitdokumente: `docs/TASKS.md` (offene Aufgaben), `docs/vocab-plan.md` (Theme
 
 ## 1. Ziel
 
-Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte in Mexiko und Guatemala. Sie enthält 802 Startvokabeln mit Zusatzinfos, insbesondere zur Konjugation der Verben.
+Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte in Mexiko und Guatemala. Sie enthält 803 Startvokabeln mit Zusatzinfos, insbesondere zur Konjugation der Verben.
 
 ## 2. Entscheidungen aus der Anforderungsklärung
 
@@ -20,7 +20,7 @@ Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte
 | Nutzer / Level | **Ein Nutzer pro Browser, keine Profile** (entschieden). Niveaustufen A1 bis B1 sind einstellbar. |
 | Lernmodi v1 | **Karteikarten** und **Spaced Repetition** (zwei Bewertungsbuttons, endlose Sitzung, siehe §3.1) |
 | Inhalte | Reise-Alltag, Kultur & Orte, Audio-Aussprache |
-| Vokabeln | **802 Startvokabeln**, von Claude generiert, mit Zusatzinfos |
+| Vokabeln | **803 Startvokabeln**, von Claude generiert, mit Zusatzinfos |
 | Speicherung | **Nur lokal im Browser**, kein Server, kein Login |
 | Design | Mexiko/Guatemala-Farbwelt, mobile-first |
 | Länderunterscheidung | **Keine** (ein gemeinsames Vokabelset) |
@@ -87,8 +87,8 @@ Der Nutzer gibt ein spanisches Wort ein, das er irgendwo aufgeschnappt hat. Es w
 
 ## 4. Vokabeln: Umfang und Datenmodell
 
-### 4.1 Umfang (802 Einträge)
-- 250 Verben, 282 Nomen, 166 Adjektive/Adverbien/Zahlwörter/sonstige Wörter (Präpositionen, Pronomen, Konjunktionen), 104 Redewendungen und Floskeln. Verbindlich ist der Plan in `docs/vocab-plan.md` (Kontingente je Thema und Niveau).
+### 4.1 Umfang (803 Einträge)
+- 250 Verben, 283 Nomen, 166 Adjektive/Adverbien/Zahlwörter/sonstige Wörter (Präpositionen, Pronomen, Konjunktionen), 104 Redewendungen und Floskeln. Verbindlich ist der Plan in `docs/vocab-plan.md` (Kontingente je Thema und Niveau).
 - Die 25 Seed-Vokabeln (`v0001–v0025`) zählen zum Gesamtumfang und behalten ihre IDs.
 - Themen: Begrüßung & Höflichkeit, Zahlen & Zeit, Essen & Trinken (inkl. mexikanische und guatemaltekische Gerichte), Transport & Bus, Unterkunft, Einkaufen & Geld, Gesundheit & Notfall, Wetter & Natur (Vulkane, Seen, Strand), Orte, Kultur & Feste, Maya-Welt, Smalltalk, Grundwortschatz (häufigste Wörter laut Frequenzlisten, viele Verben).
 - Niveaus: A1 bis B1.
@@ -436,19 +436,21 @@ Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Kar
 
 HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/dictionary`, `/dictionary/:id`, `/dictionary/:id/edit` (eigenes Wort bearbeiten), `/add` (eigenes Wort nachschlagen und hinzufügen, optional `?q=<wort>`), `/stats`, `/settings`, `/legend`, `/privacy`, `/imprint`, `/more`. Unbekannte Pfade leiten auf `/` um.
 
-**Tab „Mehr“:** Markenkopf (Wortmarke, Slogan, Widmung, siehe §14.1 zum erneuten Öffnen der Begrüßung), darunter die Einträge Einstellungen, Legende, Datenschutz und Impressum, darunter die Version (§3.2). Die Seiten dieser Einträge haben den Zurück-Link „← Mehr“ (Klasse `back`). Seitenköpfe tragen oben rechts das kleine Markenzeichen (drei Wimpel).
+**Tab „Mehr“:** Markenkopf (Wortmarke, Slogan, Widmung, siehe §14.1 zum erneuten Öffnen der Begrüßung), darunter die Einträge Einstellungen, Legende, Datenschutz und Impressum, darunter die Version (§3.2). Die Seiten dieser Einträge haben den Zurück-Link „← Mehr“ (Klasse `back`).
 
 **Darstellung mehrerer Übersetzungen:** Überall, wo die deutsche Seite erscheint (Karte, Verzeichnis, Detailansicht), werden alle `de`-Einträge mit „ · “ getrennt angezeigt, das erste hervorgehoben. Die Verzeichnissuche: §3.3. Die Einstellungen werden beim ersten Start mit Defaults angelegt.
 
 Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). Touch-Ziele ≥ 48 px.
 
+**Logo:** Auf allen Seiten außer „Mehr“ steht oben rechts an derselben Stelle das Logo: drei Wimpel über dem Schriftzug „Palabrita“ (`components/Brand.tsx`, Komponente `Logo`, eingesetzt in `App.tsx` als `.corner-logo`). Neue Seiten bekommen es automatisch, wenn sie unter der Layout-Route liegen. Überschriften lassen rechts Platz dafür. Der Zurück-Link „← Mehr“ oben links steht in derselben Zeile, seine Mitte liegt auf der Mitte des Logos. In der Lernsitzung steht das Logo mittig in der Leiste, zwischen Zähler und „Beenden“; die Leiste hat gleich breite Spalten, damit das Logo exakt mittig bleibt. Der Markenkopf im Tab „Mehr“ nutzt die große Wortmarke.
+
 ### 14.1 Lernsitzung (`features/study/Study.tsx`)
 
 **Begrüßung beim Erststart** (`components/WelcomeOverlay.tsx`, Flag in `data/welcomeFlag.ts`):
 - Beim ersten Öffnen liegt über der Lernseite (`/`) eine schwebende Lernkarte. Vorderseite Spanisch („¡Bienvenido a“ über der Wortmarke „Palabrita“), Rückseite Deutsch („Willkommen zu“ über derselben Wortmarke). Die Wortmarke ist dieselbe Komponente wie der Markenkopf im Tab „Mehr“ (`components/Brand.tsx`). Der Rest der App ist solange `inert`.
-- Erstes Tippen dreht die Karte um, zweites Tippen schließt das Overlay. Enter oder Leertaste wirken wie Tippen.
+- Erstes Tippen dreht die Karte um, zweites Tippen schließt das Overlay. Enter oder Leertaste wirken wie Tippen. Beim Erststart reagiert die Fläche neben der Karte nicht: es muss die Karte angetippt werden.
 - Gemerkt wird das Schließen pro Gerät in `localStorage` (`palabrita.welcomeSeen`), nicht in IndexedDB. Export und Import sind davon nicht betroffen. Ist der Speicher nicht nutzbar, erscheint der Hinweis nicht.
-- Erneut öffnen: Ein Tippen auf den Schriftzug „Palabrita“ im Markenkopf des Tabs „Mehr“ zeigt dieselbe Karte, wieder Spanisch vorne. Umdrehen und Schließen funktionieren gleich, danach bleibt man auf „Mehr“. Das speichert nichts, und der Erststart-Zustand ändert sich dadurch nicht. Die Karte liegt in `Layout` (`App.tsx`) über der App, die Unterseite bekommt `openWelcome` über den Router-Kontext.
+- Erneut öffnen: Ein Tippen auf den ganzen Markenblock im Tab „Mehr“ (Wimpel, Schriftzug, Slogan und Widmung) zeigt dieselbe Karte, wieder Spanisch vorne. Umdrehen und Schließen funktionieren gleich, danach bleibt man auf „Mehr“. Ein Klick auf die Fläche neben der Karte schließt sie beim erneuten Öffnen sofort. Das speichert nichts, und der Erststart-Zustand ändert sich dadurch nicht. Die Karte liegt in `Layout` (`App.tsx`) über der App, die Unterseite bekommt `openWelcome` über den Router-Kontext.
 
 **Karte umdrehen** (`components/Flashcard.tsx`):
 - Klick/Tippen auf die Karte **wechselt** zwischen Vorder- und Rückseite, beliebig oft (`onToggle` in `Flashcard`).
@@ -470,8 +472,8 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Oben immer sichtbar: Button **„Beenden“**, ohne Rückfrage. Er führt zur Zusammenfassung. Auch Wegnavigieren oder Schließen der App ist ohne Datenverlust möglich, weil jede Bewertung sofort gespeichert wird.
 - Bewertungsbuttons „Nochmal“ und „Gewusst“ mit Vorschau des Wiedersehens (`previewIntervals`).
 - Wer später wieder lernt, bekommt zuerst, was fällig ist (auch Minuten-Karten, die inzwischen überfällig sind), dann neue Wörter, dann Wiederholung des Restes (§12).
-- Es gibt keinen Fortschrittsbalken (die Sitzung hat kein Ende). Oben steht links „Geübt: N“ (Zähler dieser Sitzung), in der Mitte das Markenzeichen (drei Wimpel), rechts „Beenden“.
-- **Zusammenfassung** („Sitzung beendet“): Anzahl geübter Karten, davon „Nochmal“ (eine Lerndauer gibt es nicht, entschieden), sowie die Buttons „Weiterlernen“ (frische Sitzung mit denselben Filtern) und „Neue Auswahl“ (zurück zur Filterauswahl, Filter zurückgesetzt).
+- Es gibt keinen Fortschrittsbalken (die Sitzung hat kein Ende). Oben steht links „Geübt: N“ (Zähler dieser Sitzung), in der Mitte das Logo (Wimpel über dem Schriftzug), rechts „Beenden“.
+- **Zusammenfassung** („Sitzung beendet“): Oben mittig das Logo an exakt derselben Stelle wie in der Sitzungsleiste, darunter der Titel und zwei große Kacheln: links die Anzahl geübter Karten, rechts die Anzahl „Nochmal“ (eine Lerndauer gibt es nicht, entschieden), sowie die Buttons „Weiterlernen“ (frische Sitzung mit denselben Filtern) und „Beenden“ (zurück zur Filterauswahl, Filter zurückgesetzt).
 
 ### 14.2 Impressum und Datenschutz
 

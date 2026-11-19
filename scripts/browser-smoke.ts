@@ -691,7 +691,43 @@ async function main() {
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
 
+  // 8e6. Logo oben rechts steht auf jeder Seite an derselben Stelle, außer „Mehr“.
+  // Gemessen relativ zur Inhaltsspalte (.screen), damit Scrollleisten keine Rolle spielen.
+  // Neue Seiten hier ergänzen.
+  const cornerRoutes = [
+    "",
+    "dictionary",
+    "stats",
+    "settings",
+    "legend",
+    "imprint",
+    "privacy",
+    "add",
+  ];
+  const cornerPositions: string[] = [];
+  for (const route of cornerRoutes) {
+    await send("Page.navigate", { url: `${BASE}#/${route}` });
+    await waitFor(
+      `!!document.querySelector(".corner-logo") && !!document.querySelector(".screen h1")`,
+      `Logo auf #/${route}`,
+    );
+    await sleep(200);
+    cornerPositions.push(
+      await evaluate<string>(`(() => {
+        const s = document.querySelector(".screen").getBoundingClientRect();
+        const r = document.querySelector(".corner-logo").getBoundingClientRect();
+        return Math.round(r.top - s.top) + "," + Math.round(s.right - r.right);
+      })()`),
+    );
+  }
+  check(
+    "Logo oben rechts steht auf allen Seiten an derselben Stelle",
+    cornerPositions.every((p) => p === cornerPositions[0]),
+    cornerPositions.join(" | "),
+  );
+
   // 8e4. Version steht unter „Mehr“ (nach den Einträgen), nicht mehr unter Einstellungen.
+
   await send("Page.navigate", { url: `${BASE}#/more` });
   await waitFor(`document.querySelector(".link-list")`, "Mehr");
   check(
@@ -862,12 +898,25 @@ async function main() {
   const cardsBefore = Number(
     await idb(`store.count().onsuccess = (e) => { out = e.target.result; };`),
   );
+  // Abstand des Logos zur Mitte der Inhaltsspalte und zur Oberkante: gleich in Sitzung und Zusammenfassung.
+  const logoPos = `(() => {
+    const s = document.querySelector(".screen").getBoundingClientRect();
+    const r = document.querySelector(".session-bar .logo").getBoundingClientRect();
+    return Math.round(r.left + r.width / 2 - (s.left + s.width / 2)) + "," + Math.round(r.top - s.top);
+  })()`;
+  const logoBefore = await evaluate<string>(logoPos);
   await clickText("Beenden", "button");
   const summaryOk = await waitFor(
     `/Sitzung beendet/.test(document.body.innerText)`,
     "Zusammenfassung",
   );
   const summary = await text();
+  const logoAfter = await evaluate<string>(logoPos);
+  check(
+    "Zusammenfassung: Logo steht an derselben Stelle wie in der Sitzung",
+    logoAfter === logoBefore,
+    `Sitzung ${logoBefore} | Zusammenfassung ${logoAfter}`,
+  );
   await evaluate("location.reload()");
   await sleep(1000);
   const cardsAfter = Number(
@@ -876,7 +925,7 @@ async function main() {
   check(
     "Beenden: Zusammenfassung, Neuladen behält den Fortschritt",
     summaryOk &&
-      /2 Karten geübt/.test(summary) &&
+      /2\s+Karten geübt/.test(summary) &&
       /Weiterlernen/.test(summary) &&
       cardsBefore >= 3 &&
       cardsAfter === cardsBefore,
