@@ -1433,6 +1433,34 @@ async function main() {
     `${moreCard}, Geübt ${moreCount}`,
   );
 
+  // 8e9. Genus-Badge auf der spanischen Seite (SPEC §14.1): Nomen zeigen es zwischen Singular
+  // und Plural. Richtung ES→DE, damit die spanische Seite vorn liegt.
+  await send("Page.navigate", { url: `${BASE}#/` });
+  await idb(`store.clear()`);
+  await startSession(async () => {
+    await setInput(`select:has(option[value="noun"])`, "noun");
+    await setInput(`select:has(option[value="es-de"])`, "es-de");
+  });
+  const genderCard = await evaluate<{ parts: string[]; gender: string; word: string }>(`(() => {
+    const card = document.querySelector(".flashcard");
+    const parts = [...card.querySelectorAll(":scope > span")]
+      .map(s => s.className)
+      .filter(c => c !== "dir" && c !== "hint");
+    return {
+      parts,
+      gender: card.querySelector(".gender")?.textContent ?? "",
+      word: card.querySelector(".word")?.textContent ?? "",
+    };
+  })()`);
+  check(
+    "Nomen-Karte (ES→DE): Genus-Badge steht zwischen Singular und Plural",
+    ["maskulin", "feminin", "maskulin/feminin"].includes(genderCard.gender) &&
+      genderCard.parts[0] === "word" &&
+      genderCard.parts[1] === "gender" &&
+      (genderCard.parts.length === 2 || genderCard.parts[2] === "plural"),
+    `${genderCard.word} / ${genderCard.gender} / ${genderCard.parts.join(",")}`,
+  );
+
   // 9. Service worker active, then offline reload still works.
   const swReady = await waitFor(
     `navigator.serviceWorker.getRegistration().then(r => !!(r && r.active))`,

@@ -812,5 +812,23 @@
     "note": null,
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v0927",
+    "de": [
+      "Tourist"
+    ],
+    "es": "el/la turista",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "added": "2026-11-19",
+    "example": {
+      "es": "El turista compra un boleto para el museo.",
+      "de": "Der Tourist kauft eine Eintrittskarte für das Museum."
+    },
+    "note": null,
+    "gender": "m/f",
+    "plural": "los turistas"
   }
 ]
