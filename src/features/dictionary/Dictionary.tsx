@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { GermanText } from "../../components/Flashcard";
 import { PageTitle } from "../../components/PageTitle";
@@ -42,6 +42,10 @@ export function Dictionary() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const [filters, setFilters] = useState<DictionaryFilters>(getSavedFilters);
+  const searchRef = useRef<HTMLInputElement>(null);
+  // Ob die letzte Auswahl im Dropdown mit der Maus kam. Nur dann verschwindet der Fokusrahmen
+  // direkt nach der Auswahl; per Tastatur bleibt der Fokus, damit man weiter navigieren kann.
+  const pickedWithPointer = useRef(false);
 
   const results = useMemo(
     () => searchVocab(vocab.values(), filters),
@@ -59,45 +63,138 @@ export function Dictionary() {
 
   const topicChoices = topicOptions(topics);
 
-  // Statuszeile: nennt alle Kriterien, die gerade wirken (Filter und Suche).
+  // Statuszeile: je ein Chip für jedes Kriterium, das gerade wirkt (Filter und Suche).
   const topicLabel = topicChoices.find(([key]) => key === filters.topic)?.[1];
   const query = filters.query.trim();
-  const activeParts = [
+  const activeChips = [
     topicLabel,
     filters.level || undefined,
     filters.pos ? POS_LABEL[filters.pos] : undefined,
-    query ? `Suchwort „${query}“` : undefined,
-  ].filter((part): part is string => Boolean(part));
+    query ? `„${query}“` : undefined,
+  ].filter((chip): chip is string => Boolean(chip));
   const dropdownsActive = hasDropdownFilter(filters);
   const activeCount = [filters.topic, filters.level, filters.pos].filter(
     Boolean,
   ).length;
+
+  // Gemeinsame Handler für die drei Dropdowns: Mausauswahl erkennen, Fokus nach Auswahl lösen.
+  const dropdownInput = {
+    onPointerDown: () => {
+      pickedWithPointer.current = true;
+    },
+    onKeyDown: () => {
+      pickedWithPointer.current = false;
+    },
+  };
+  const afterPick = (el: HTMLSelectElement) => {
+    if (pickedWithPointer.current) el.blur();
+  };
 
   return (
     <div className="screen">
       <PageTitle brand>Verzeichnis</PageTitle>
 
       <section className="dict-section" aria-label="Wortliste">
-        <input
-          type="search"
-          className="field"
-          placeholder="Suchen (Spanisch oder Deutsch)"
-          aria-label="Suchen"
-          value={filters.query}
-          onChange={(e) => set("query", e.target.value)}
-          enterKeyHint="search"
-          onKeyDown={(e) => {
-            // Such-Taste der mobilen Tastatur: Tastatur schließen
-            if (e.key === "Enter") {
-              e.preventDefault();
-              e.currentTarget.blur();
-            }
-          }}
-        />
+        <div className="search-field">
+          <input
+            ref={searchRef}
+            type="search"
+            className="field"
+            placeholder="Suchen (Spanisch oder Deutsch)"
+            aria-label="Suchen"
+            value={filters.query}
+            onChange={(e) => set("query", e.target.value)}
+            enterKeyHint="search"
+            onKeyDown={(e) => {
+              // Such-Taste der mobilen Tastatur: Tastatur schließen
+              if (e.key === "Enter") {
+                e.preventDefault();
+                e.currentTarget.blur();
+              }
+            }}
+          />
+          {filters.query !== "" && (
+            <button
+              type="button"
+              className="search-clear"
+              aria-label="Suchtext löschen"
+              onClick={() => {
+                set("query", "");
+                searchRef.current?.focus();
+              }}
+            >
+              ×
+            </button>
+          )}
+        </div>
 
-        {activeParts.length > 0 && (
+        <div className="dict-filter-caption muted">
+          <span>Filtern nach</span>
+          {activeCount > 0 && <span>{activeCount} aktiv</span>}
+        </div>
+        <div className="filters">
+          <select
+            className="field"
+            aria-label="Thema"
+            value={filters.topic}
+            {...dropdownInput}
+            onChange={(e) => {
+              set("topic", e.target.value);
+              afterPick(e.currentTarget);
+            }}
+          >
+            <option value="">Alle Themen</option>
+            {topicChoices.map(([key, label]) => (
+              <option key={key} value={key}>
+                {label}
+              </option>
+            ))}
+          </select>
+          <select
+            className="field"
+            aria-label="Niveau"
+            value={filters.level}
+            {...dropdownInput}
+            onChange={(e) => {
+              set("level", e.target.value as Level | "");
+              afterPick(e.currentTarget);
+            }}
+          >
+            <option value="">Alle Niveaus</option>
+            {LEVELS.map((l) => (
+              <option key={l} value={l}>
+                {l}
+              </option>
+            ))}
+          </select>
+          <select
+            className="field"
+            aria-label="Wortart"
+            value={filters.pos}
+            {...dropdownInput}
+            onChange={(e) => {
+              set("pos", e.target.value as Pos | "");
+              afterPick(e.currentTarget);
+            }}
+          >
+            <option value="">Alle Wortarten</option>
+            {(Object.keys(POS_LABEL) as Pos[]).map((p) => (
+              <option key={p} value={p}>
+                {POS_LABEL[p]}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {activeChips.length > 0 && (
           <div className="dict-status">
-            <span>Aktiv: {activeParts.join(" · ")}</span>
+            <ul className="dict-chips" aria-label="Aktive Kriterien">
+              {activeChips.map((chip, i) => (
+                <li key={`${i}-${chip}`} className="dict-chip">
+                  {chip}
+                </li>
+              ))}
+            </ul>
             <button
               type="button"
               className="dict-status-clear"
@@ -115,52 +212,6 @@ export function Dictionary() {
             </button>
           </div>
         )}
-
-        <div className="dict-filter-caption muted">
-          <span>Filtern nach</span>
-          {activeCount > 0 && <span>{activeCount} aktiv</span>}
-        </div>
-        <div className="filters">
-          <select
-            className="field"
-            aria-label="Thema"
-            value={filters.topic}
-            onChange={(e) => set("topic", e.target.value)}
-          >
-            <option value="">Alle Themen</option>
-            {topicChoices.map(([key, label]) => (
-              <option key={key} value={key}>
-                {label}
-              </option>
-            ))}
-          </select>
-          <select
-            className="field"
-            aria-label="Niveau"
-            value={filters.level}
-            onChange={(e) => set("level", e.target.value as Level | "")}
-          >
-            <option value="">Alle Niveaus</option>
-            {LEVELS.map((l) => (
-              <option key={l} value={l}>
-                {l}
-              </option>
-            ))}
-          </select>
-          <select
-            className="field"
-            aria-label="Wortart"
-            value={filters.pos}
-            onChange={(e) => set("pos", e.target.value as Pos | "")}
-          >
-            <option value="">Alle Wortarten</option>
-            {(Object.keys(POS_LABEL) as Pos[]).map((p) => (
-              <option key={p} value={p}>
-                {POS_LABEL[p]}
-              </option>
-            ))}
-          </select>
-        </div>
 
         <p className="muted count" aria-live="polite">
           {results.length} {results.length === 1 ? "Eintrag" : "Einträge"}

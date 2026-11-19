@@ -573,8 +573,51 @@ body:has(.session-bar) .screen {
   font: inherit;
 }
 
+/* Fokus in Suchfeld und Dropdowns: grün wie das übrige Layout, nicht die globale Magenta-Linie */
 .field:focus-visible {
+  outline: 2px solid var(--turquoise);
   outline-offset: 0;
+}
+
+/* Suchfeld mit X zum Leeren am rechten Rand */
+.search-field {
+  position: relative;
+}
+
+.search-field .field {
+  padding-right: 48px;
+}
+
+/* Das eingebaute Browser-X ausblenden, damit nur das eigene X erscheint */
+input[type="search"].field::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+.search-clear {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--muted);
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.search-clear:focus-visible {
+  outline: 2px solid var(--turquoise);
+  outline-offset: 2px;
 }
 
 .filters {
@@ -1350,8 +1393,30 @@ select.field,
   line-height: 1.4;
 }
 
-.dict-status strong {
-  font-weight: 700;
+/* Aktive Kriterien als kleine, umrandete Chips */
+.dict-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dict-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 2px 12px;
+  border: 1px solid var(--turquoise);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .dict-status-clear {

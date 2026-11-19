@@ -581,7 +581,7 @@ async function main() {
     combined.q === "a" &&
       combined.level === "A1" &&
       combined.status.includes("A1") &&
-      combined.status.includes("Suchwort „a“") &&
+      combined.status.includes("„a“") &&
       !(await evaluate<boolean>(
         `!!document.querySelector(".dict-status strong")`,
       )),
@@ -604,7 +604,7 @@ async function main() {
     cleared.q === "a" &&
       cleared.level === "" &&
       !cleared.status.includes("A1") &&
-      cleared.status.includes("Suchwort „a“"),
+      cleared.status.includes("„a“"),
     clearedJson,
   );
   // Nur noch Suchtext: „Filter löschen“ ist weiter da und leert das Suchfeld.
@@ -625,6 +625,22 @@ async function main() {
     "Verzeichnis: bei reinem Suchtext leert „Filter löschen“ das Suchfeld",
     searchOnlyBefore && searchOnly.q === "" && searchOnly.status === "",
     searchOnlyJson,
+  );
+  // Das X am Suchfeld leert den Suchtext nur, sobald einer da ist.
+  await setInput('input[type="search"]', "a");
+  await sleep(300);
+  const xShown = await evaluate<boolean>(
+    `!!document.querySelector(".search-clear")`,
+  );
+  await evaluate(`document.querySelector(".search-clear").click()`);
+  await sleep(300);
+  const xCleared = await evaluate<boolean>(
+    `document.querySelector('input[type="search"]').value === "" && !document.querySelector(".search-clear")`,
+  );
+  check(
+    "Verzeichnis: X im Suchfeld erscheint bei Suchtext und leert ihn",
+    xShown && xCleared,
+    `${xShown} / ${xCleared}`,
   );
   await setInput('input[type="search"]', "a");
   await sleep(300);
