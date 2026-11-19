@@ -534,13 +534,16 @@ async function main() {
   // and are reset when switching tabs.
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   await waitFor(`/Einträge/.test(document.body.innerText)`, "Verzeichnis");
-  const sections = await evaluate<string[]>(
-    `[...document.querySelectorAll(".dict-section h2")].map((h) => h.textContent)`,
+  const sections = await evaluate<number>(
+    `document.querySelectorAll(".dict-section").length`,
+  );
+  const headings = await evaluate<number>(
+    `document.querySelectorAll(".dict-section h2").length`,
   );
   check(
-    "Verzeichnis: nur ein Abschnitt „Wörter“ (Suche oben)",
-    sections.join("|") === "Wörter",
-    sections.join("|"),
+    "Verzeichnis: ein Abschnitt ohne Überschrift (Suche steht oben)",
+    sections === 1 && headings === 0,
+    `Abschnitte: ${sections}, Überschriften: ${headings}`,
   );
   const dictTopics = await evaluate<string[]>(
     `[...document.querySelector('select[aria-label="Thema"]').options].map((o) => o.textContent)`,
