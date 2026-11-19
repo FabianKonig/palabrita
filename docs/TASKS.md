@@ -2,12 +2,17 @@
 
 Diese Datei führt nur, was noch zu tun ist. Erledigtes steht in `docs/SPEC.md`, der Verlauf in der Git-Historie. Wird ein Punkt erledigt, kommt das Ergebnis in die Spezifikation und der Punkt hier raus.
 
+## Spezifiziert, Umsetzung offen
+
+Die Spezifikation steht, ein Agent kann direkt umsetzen.
+
+- [ ] **Formsuche umsetzen**: spezifiziert in SPEC §3.3a (Verhalten) und §14.3 (Umsetzung, Tests, Doku danach).
+
 ## Anforderungen ohne Detailspezifikation
 
 Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), dann umsetzen.
 
 - [ ] **Überarbeitung der Kartenauswahl** (`pickNext`): SPEC §12.1a.
-- [ ] **Formsuche** (gebeugte Formen im Verzeichnis finden): `docs/FORMSUCHE.md`, Einordnung in SPEC §3.3.
 - [ ] **Erklärvideo der App** (KI-erzeugt, zeigt alle Funktionen): Anforderung aufgenommen (2026-11-19), Spezifikation fehlt noch (Umfang, Länge, Format, Sprache, Erzeugungsweg, Ablage). Erst mit dem Nutzer klären, dann spezifizieren. Die App selbst bleibt davon unberührt.
 
 ## Hinweise

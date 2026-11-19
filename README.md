@@ -50,7 +50,7 @@ Der Lernfortschritt (IndexedDB) ist an die Adresse (Origin) gebunden. Eine neue 
 
 ## Projektaufbau
 
-Siehe `docs/SPEC.md` (Anforderungen und Technik, eine Datei), `docs/TASKS.md` (offene Aufgaben), `docs/VOKABELN.md` (Themen und Qualitätsregeln der Vokabeln), `docs/FORMSUCHE.md` (Anforderung Formsuche) und `docs/ABNAHME.md` (Abnahmeprotokoll). Hinweise für KI-Agenten: `AGENTS.md`. Vokabeln liegen als JSON je Thema in `public/vocab/`, Verbformen werden aus `tags` und `overrides` generiert (`src/domain/conjugation`).
+Siehe `docs/SPEC.md` (Anforderungen und Technik, eine Datei), `docs/TASKS.md` (offene Aufgaben), `docs/VOKABELN.md` (Themen und Qualitätsregeln der Vokabeln) und `docs/ABNAHME.md` (Abnahmeprotokoll). Hinweise für KI-Agenten: `AGENTS.md`. Vokabeln liegen als JSON je Thema in `public/vocab/`, Verbformen werden aus `tags` und `overrides` generiert (`src/domain/conjugation`).
 
 ## Lizenz und Quellen
 

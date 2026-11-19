@@ -4,7 +4,7 @@ Hinweise für KI-Agenten, die in diesem Repo arbeiten.
 
 ## Projekt
 
-**Palabrita**: Vokabel-Lern-App für Spanisch (Mexiko/Guatemala). Läuft komplett im Browser (PWA, offline-fähig), kein Backend. Fortschritt liegt in IndexedDB. Details: `README.md`, `docs/SPEC.md` (einzige Spezifikation: Teil A Anforderungen, Teil B Technik), `docs/TASKS.md` (offene Aufgaben). Weitere Dokumente: `docs/VOKABELN.md`, `docs/FORMSUCHE.md`, `docs/ABNAHME.md`.
+**Palabrita**: Vokabel-Lern-App für Spanisch (Mexiko/Guatemala). Läuft komplett im Browser (PWA, offline-fähig), kein Backend. Fortschritt liegt in IndexedDB. Details: `README.md`, `docs/SPEC.md` (einzige Spezifikation: Teil A Anforderungen, Teil B Technik), `docs/TASKS.md` (offene Aufgaben). Weitere Dokumente: `docs/VOKABELN.md`, `docs/ABNAHME.md`.
 
 Stack: React 19, TypeScript 6, Vite 8, vite-plugin-pwa, react-router-dom 7, idb, Vitest 5, ESLint, Prettier. Deployment als statische PWA auf GitHub Pages.
 
@@ -38,7 +38,7 @@ Vor einem Commit mindestens `npm run lint`, `npm test` und `npm run build` ausf�
 - `src/features/legal/` Impressum und Datenschutz (Betreiberangaben in `operator.ts`; bei Änderung von Hosting oder externen Diensten Texte prüfen)
 - `public/vocab/` Vokabeln als JSON je Thema (`NOTICE.md`: Quellen- und Lizenzhinweis); Schema: `scripts/vocab.schema.json`, Themen und Regeln: `docs/VOKABELN.md`
 - `scripts/` Vokabel-Validierung (`validate-vocab.ts` mit `validateVocab.ts`, `vocab.schema.json`), Icon-Erzeugung (`make-icons.ts`), Browser-Smoke-Test (`browser-smoke.ts`)
-- `docs/` `SPEC.md`, `TASKS.md`, `VOKABELN.md`, `FORMSUCHE.md`, `ABNAHME.md`
+- `docs/` `SPEC.md`, `TASKS.md`, `VOKABELN.md`, `ABNAHME.md`
 - `.github/workflows/pages.yml` Deployment auf GitHub Pages (Lint, Tests, Vokabelprüfung, Build, Veröffentlichung)
 
 ## Konventionen

@@ -2,7 +2,7 @@
 
 Einzige Quelle der Wahrheit für Funktion und Technik der App. **Teil A** beschreibt, *was* die App tut (Anforderungen, Vokabel- und Verbformat). **Teil B** legt fest, *wie* sie gebaut ist (Stack, Datenmodell, Lernmodell, Deployment).
 
-Begleitdokumente: `docs/TASKS.md` (offene Aufgaben), `docs/VOKABELN.md` (Themen und Qualitätsregeln der Vokabeln), `docs/FORMSUCHE.md` (Anforderung Formsuche, noch nicht spezifiziert), `docs/ABNAHME.md` (Abnahmeprotokoll der Lernsitzung).
+Begleitdokumente: `docs/TASKS.md` (offene Aufgaben), `docs/VOKABELN.md` (Themen und Qualitätsregeln der Vokabeln), `docs/ABNAHME.md` (Abnahmeprotokoll der Lernsitzung).
 
 ---
 
@@ -62,7 +62,69 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
   - **Reihenfolge:** Ohne Suchtext alphabetisch nach spanischem Stichwort ohne Artikel. Mit Suchtext nach **Trefferqualität**: je Vokabel zählt der beste Treffer über `es` und alle `de`-Einträge (normalisiert wie oben; beim spanischen Stichwort zählt es mit und ohne führenden Artikel): Eintrag ist gleich dem Suchtext (Stufe 0), Eintrag beginnt damit (Stufe 1), Eintrag enthält ihn (Stufe 2). Gleiche Stufe: Treffer über `es` vor reinem `de`-Treffer, danach alphabetisch. So steht bei „Auto“ das Wort mit der Übersetzung „Auto“ vor „Autobahn“ und „Mietauto“.
   - **Keine Kennzeichnung des Treffers:** Es wird nicht markiert, ob ein Treffer über `es` oder über `de` kam. Jede Zeile zeigt ohnehin Spanisch und alle deutschen Übersetzungen (§14).
   - **Mehrere Treffer:** Alle werden gezeigt, es gibt keine Begrenzung. Gehört ein deutsches Wort zu mehreren spanischen Vokabeln, sind die DE→ES-Karten beim Lernen mehrdeutig. Das ist eine bekannte Einschränkung der Karten, nicht der Suche, und in v1 nicht behandelt.
-- **Formsuche** (gebeugte Formen finden): Anforderung in `docs/FORMSUCHE.md`, noch nicht spezifiziert.
+- **Formsuche** (gebeugte Formen finden): §3.3a, noch nicht umgesetzt.
+
+### 3.3a Formsuche im Verzeichnis (festgelegt 2026-11-19, noch nicht umgesetzt)
+
+**Anlass:** Auf der Reise stößt der Nutzer auf gebeugte Formen (*podemos*, *fue*, *canciones*, *buenas*), deren Grundform er kennt oder lernen will. Die Verzeichnissuche (§3.3) findet deshalb zusätzlich gebeugte Formen und führt zur Grundform. Technische Umsetzung: §14.3.
+
+**Welche Formen gesucht werden:**
+- **Verben:** alle Formen, die die Konjugationstabelle zeigt (§5, `domain/conjugation`): Presente, Pretérito indefinido, Imperfecto, Futuro (je 6 Personen, **einschließlich vosotros**), Imperativo (5 Personen), Participio, Gerundio. Die Formen werden zur Laufzeit aus derselben Erzeugung wie die Tabelle gewonnen, nie gespeichert.
+- **Reflexive Verben** werden **ohne vorangestelltes Pronomen** gesucht: *levanto* findet *levantarse*, die Eingabe *me levanto* ist kein Formtreffer (sie enthält ein Leerzeichen, siehe unten). Imperativformen mit **angehängtem** Pronomen, wie die Tabelle sie zeigt (*levántate*, *siéntese*, *presentémonos*), werden gefunden.
+- **Nomen:** die Pluralform aus `plural`, ohne Artikel (*canciones* → *la canción*). Nomen ohne hinterlegten Plural (*el dinero*, *la ropa*) haben keine Formen. Nomen-Plurale werden nicht erzeugt.
+- **Adjektive:** feminin Singular, maskulin Plural und feminin Plural. Sie werden **nach Regeln erzeugt** (§4.2, §14.3), `adj` in der JSON überschreibt nur Abweichungen. Formen, die der Grundform gleichen (*amable* f. Sg. = *amable*), sind keine eigenen Formen.
+- Andere Wortarten haben keine Formen. Gesucht wird nur über die spanische Seite.
+
+**Wann eine Form trifft:** Eingabe und Form werden normalisiert wie in der Verzeichnissuche (Groß-/Kleinschreibung, Akzente und Umlaute egal: *cancion* findet *canciones*, *podia* findet *podía*). Formtreffer gibt es nur, wenn die normalisierte Eingabe **mindestens 3 Zeichen** lang ist und **kein Leerzeichen** enthält. Dann trifft eine Form, wenn sie
+- der Eingabe **gleicht** (Formstufe 0) oder
+- mit der Eingabe **beginnt** (Formstufe 1).
+
+„Enthält“ gilt für Formen nicht. Die bisherige Suche über Grundform und Deutsch (§3.3, Stufen 0 bis 2) bleibt unverändert.
+
+**Eine Zeile je Wort:** Jede Vokabel erscheint höchstens einmal in der Trefferliste. Passt sie sowohl über Grundform/Deutsch (beste Stufe G) als auch über Formen (beste Formstufe F), ist sie ein **Formtreffer nur, wenn F < G** gilt (die Form passt genauer). Sonst ist sie ein normaler Treffer und sieht aus wie bisher. Beispiele: *come* → *comer* ist Formtreffer (Form gleich, Grundform nur Anfang); *pod* → *poder* ist normaler Treffer (beides Anfang); *poder* → normaler Treffer ohne Formhinweis.
+
+**Reihenfolge:** Zuerst alle normalen Treffer in der Reihenfolge aus §3.3, danach alle Formtreffer. Unter den Formtreffern zuerst Formstufe 0, dann Formstufe 1, bei Gleichstand alphabetisch nach spanischem Stichwort ohne Artikel (wie §3.3). Beispiel *fue*: *fuerte* (normaler Treffer, die Grundform beginnt mit „fue“) steht vor *ser* und *ir* (Formtreffer). Es gibt keine Begrenzung der Trefferzahl (wie §3.3).
+
+**Filter und Niveau:** Thema, Niveau und Wortart wirken wie bei der normalen Suche (UND, §3.3) und beziehen sich auf die Vokabel. Wie das ganze Verzeichnis zeigt die Formsuche **alle Niveaus**, unabhängig vom Maximalniveau. Die Statuszeile und die Trefferzahl („N Wörter“ o. Ä.) zählen Formtreffer wie andere Zeilen mit.
+
+**Darstellung eines Formtreffers** (kein Chip, kein Icon, Kennzeichen ist der Pfeil):
+- Zeile 1: die gefundene Form **fett**, so geschrieben, wie sie in der Tabelle steht (mit Akzenten, nicht die Eingabe), dann „→“ und die Grundform `es` (mit Artikel bei Nomen). Beispiel: **podemos** → poder; **canciones** → la canción.
+- Zeile 2: die deutschen Übersetzungen wie in jeder Zeile (§14), Niveau-Kennzeichen wie bisher.
+- Zeile 3, klein und grau: die Bezeichnung der Form. Passen weitere, andere Formen desselben Wortes, folgt „+ N weitere Formen“ (N = Anzahl weiterer verschiedener Formen, die auf derselben Formstufe treffen). Die gezeigte Form ist die erste passende Form auf der besten Formstufe in Tabellenreihenfolge (Presente, Indefinido, Imperfecto, Futuro, Imperativo, Participio, Gerundio; je Zeitform 1. Sg. bis 3. Pl.; bei Adjektiven f. Sg., m. Pl., f. Pl.).
+- Die Zeile bleibt ein Touch-Ziel ≥ 48 px, bricht auf schmalen Bildschirmen um (kein horizontales Scrollen) und ist in Hell und Dunkel lesbar. Für Screenreader lautet die Zeile sinngemäß „podemos, Form von poder, 1. Pl. Presente“.
+
+**Bezeichnungen (grammatisch kurz):**
+- Verben: Person und Zeitform, Zeitformen mit denselben Namen wie in der Tabelle. Personen: 1. Sg. (yo), 2. Sg. (tú), 3. Sg. (él/ella/usted), 1. Pl. (nosotros), 2. Pl. (vosotros), 3. Pl. (ustedes/ellos). Beispiele: „1. Pl. Presente“, „3. Sg. Pretérito indefinido“, „2. Sg. Imperativo“, „3. Sg. Imperativo“ (usted), „Participio“, „Gerundio“.
+- Gleiche Form an mehreren Stellen: Personen derselben Zeitform werden zusammengefasst („1./3. Sg. Imperfecto“ bei *podía*), verschiedene Zeitformen mit „ · “ getrennt („1. Pl. Presente · 1. Pl. Imperativo“ bei *vamos*). Das zählt als **eine** Form.
+- Nomen: „Plural“.
+- Adjektive: „f. Sg.“, „m. Pl.“, „f. Pl.“. Sind m. Pl. und f. Pl. gleich (*amables*), heißt es „Pl.“.
+
+**Antippen:** öffnet die Detailseite der Grundform (`/dictionary/:id`, Zurück-Verhalten und erhaltene Filter wie §3.3). Dort werden **alle Formen hervorgehoben, die auf der besten Formstufe getroffen haben** (bei *vamos* beide Zellen, bei *pod* alle Formen von *poder* mit diesem Anfang). Die Seite scrollt so, dass die erste hervorgehobene Stelle sichtbar ist. Hervorhebung: Hintergrund in Akzentfarbe **und** Fettdruck (nicht nur Farbe), Kontrast in Hell und Dunkel ausreichend. Bei Nomen wird die Pluralzeile, bei Adjektiven die betreffende Form in der Zeile „Formen“ hervorgehoben. Ein normaler Treffer öffnet die Detailseite ohne Hervorhebung. Die Hervorhebung gilt nur für diesen Aufruf (Router-Zustand), ein direkter Aufruf der URL zeigt keine.
+
+**Detailseite der Adjektive:** Die Zeile „Formen“ zeigt künftig **immer** die erzeugten Formen (bisher nur, wenn `adj` gesetzt war), im bisherigen Wortlaut „feminin … · Plural … · feminin Plural …“. Formen, die der Grundform gleichen, entfallen; sind m. und f. Plural gleich, steht nur „Plural …“. Bei unveränderlichen Adjektiven (*gratis*) entfällt die Zeile.
+
+**Nicht Teil der Formsuche:** Pronomen vor oder in der Form (*me levanto*, *dámelo*), verneinte Imperative, zusammengesetzte Zeiten, Subjuntivo (außer dort, wo er im Imperativ steckt), Lernen aus der Suche (kein „Jetzt lernen“, das Wort wird über die normale Sitzung gelernt), Formsuche in der Lernsitzung.
+
+**Soll-Beispiele** (Abnahme und Tests):
+
+| Eingabe | Treffer | Art | Bezeichnung |
+|---|---|---|---|
+| `podemos` | poder | Form | 1. Pl. Presente |
+| `vamos` | ir | Form | 1. Pl. Presente · 1. Pl. Imperativo |
+| `fue` | ser, ir (je eine Zeile) | Form | 3. Sg. Pretérito indefinido |
+| `fue` | fuerte | normal, steht vor ser/ir | – |
+| `podia` | poder | Form | 1./3. Sg. Imperfecto |
+| `come` | comer | Form | 3. Sg. Presente · 2. Sg. Imperativo |
+| `pod` | poder | normal (keine Formzeile) | – |
+| `levanto` | levantarse | Form | 1. Sg. Presente |
+| `levantate` | levantarse | Form | 2. Sg. Imperativo |
+| `me levanto` | – (kein Formtreffer) | – | – |
+| `canciones` | la canción | Form | Plural |
+| `buenas` | bueno | Form | f. Pl. |
+| `amables` | amable | Form | Pl. |
+| `po` | – (zu kurz für Formen) | – | – |
+
+Beispiele mit Wörtern, die es (noch) nicht in den Daten gibt, prüfen die Tests mit eigenen Testvokabeln.
 
 ### 3.4 PWA
 - Web-Manifest, Icons, Service Worker (App-Shell und Vokabeldaten gecacht), komplett offline nutzbar.
@@ -106,7 +168,7 @@ Das Verb-Objekt enthält **nur** `tags`, `reflexive` und `overrides`. Der Infini
 Regeln:
 - `de` ist eine **Liste mit 1 bis 4 nichtleeren, voneinander verschiedenen Einträgen**. Das erste ist die Hauptübersetzung. Mehrere Einträge nur, wenn das Spanische wirklich mehrere gebräuchliche deutsche Entsprechungen hat (z. B. *carro*: `["Auto", "Wagen"]`), nicht für beliebige Synonyme. Der deutsche Beispielsatz `example.de` bleibt ein einzelner Text.
 - Nomen: `gender` (`m`/`f`/`m/f`) und `plural`. Das Spanische erscheint mit Artikel (*el autobús*). Unregelmäßige Plurale werden gekennzeichnet.
-- Adjektive: `es` steht in der maskulinen Singularform. Optional `adj: { "f": "...", "pl": "...", "fpl": "..." }` für Formen, die nicht der Standardbildung folgen (Standard: -o → -a/-os/-as, sonst +s/+es). Das Feld ist nur bei `pos: "adj"` erlaubt.
+- Adjektive: `es` steht in der maskulinen Singularform. Feminin- und Pluralformen werden nach Regeln erzeugt (§14.3, Standard: -o → -a/-os/-as, sonst +s/+es). Optional `adj: { "f": "...", "pl": "...", "fpl": "..." }` nur für Formen, die von diesen Regeln abweichen. Das Feld ist nur bei `pos: "adj"` erlaubt.
 - Wortarten (`pos`): `verb`, `noun`, `adj`, `adv`, `num` (Zahlwörter), `phrase`, `other` (Präposition, Pronomen, Konjunktion u. ä.).
 - Das Feld `topic` ist einer der 13 Themen-Schlüssel aus `public/vocab/index.json` (siehe §10.1).
 - `verb` ist bei **jedem** Verb Pflicht (mindestens `{ "tags": [], "reflexive": false }` für ein regelmäßiges Verb) und bei allen anderen Wortarten leer.
@@ -214,7 +276,7 @@ Keine weiteren Runtime-Abhängigkeiten ohne Grund (State: React `useReducer`/Con
 ```
 package.json  vite.config.ts  tsconfig.json  index.html
 .github/workflows/pages.yml  README.md  AGENTS.md
-docs/                       # SPEC.md, TASKS.md, VOKABELN.md, FORMSUCHE.md, ABNAHME.md
+docs/                       # SPEC.md, TASKS.md, VOKABELN.md, ABNAHME.md
 public/
   vocab/<thema>.json        # Vokabeln je Thema
   vocab/index.json          # Liste der Themen-Dateien
@@ -441,6 +503,42 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - **Datenschutz:** beschreibt den tatsächlichen Stand. Kein Backend, kein Konto, kein Tracking, keine Analyse-Werkzeuge. Fortschritt liegt nur im Browser (IndexedDB) und verlässt das Gerät nicht. Es gibt keine externen Anfragen außer dem Abruf der App. Das Hosting (GitHub Pages) erzeugt beim Abruf technisch übliche Zugriffsdaten beim Anbieter; der Hinweis darauf gehört hinein.
 - **Impressum:** Angaben zum Betreiber (Name, Anschrift, Kontakt). Diese Angaben liefert der Nutzer, sie werden nicht erfunden. Der Nutzer hat entschieden (2026-11-19): Das Impressum ist in dieser Form ausreichend.
 - Umsetzung: `src/features/legal/` (`Imprint.tsx` unter `/imprint`, `Privacy.tsx` unter `/privacy`, Betreiberangaben zentral in `operator.ts`). Beide Seiten sind Teil der App und damit offline verfügbar. Die Datenschutzerklärung nennt Hosting (GitHub Pages), lokale Speicherung (§ 25 Abs. 2 Nr. 2 TDDDG, keine Einwilligung nötig), Vorlesefunktion, E-Mail-Kontakt und Betroffenenrechte; Aufsichtsbehörde: HBDI. Das Impressum folgt § 5 DDG. Wiktionary-Lizenzhinweis (CC BY-SA) steht im Impressum. Die Erklärung enthält eine Übersicht der Verarbeitungen und einen abgesetzten Widerspruchshinweis (Art. 21 Abs. 4 DSGVO). Ändern sich Hosting, Dienste oder Betreiberangaben, müssen beide Seiten angepasst werden.
+
+### 14.3 Formsuche: Umsetzung (festgelegt 2026-11-19, noch nicht umgesetzt)
+
+Verhalten: §3.3a. Hier steht, wie es gebaut wird. Es gibt keine neue Seite und keine neue Route.
+
+**Domäne (rein, ohne React/DOM, mit Vitest getestet):**
+- `domain/adjectiveForms.ts`: `adjectiveForms(v: Vocab): { f: string; pl: string; fpl: string }` erzeugt die Formen eines Adjektivs aus `es` nach den Regeln unten. Jedes in `v.adj` gesetzte Feld ersetzt die erzeugte Form. Die Detailseite (§3.3a) und der Formenindex nutzen beide nur diese Funktion.
+- `domain/forms.ts`: Formenindex und Formsuche.
+  - `FormSlot` beschreibt, wo eine Form steht: `{ kind: 'verb'; tense: Tense; person: Person }`, `{ kind: 'verb'; tense: 'participio' | 'gerundio' }`, `{ kind: 'plural' }`, `{ kind: 'adj'; which: 'f' | 'pl' | 'fpl' }`.
+  - `buildFormIndex(vocab: Iterable<Vocab>): FormIndex` erzeugt je Vokabel alle Formen mit Slot, Originalschreibung und normalisierter Schreibung (`normalizeForSearch` aus `domain/dictionary.ts`). Verben über `conjugate()` (`domain/conjugation`), also exakt die Formen der Tabelle. Bei reflexiven Verben wird außerhalb des Imperativs das vorangestellte Pronomen (`me`, `te`, `se`, `nos`, `os` plus Leerzeichen) entfernt. Imperativ, Participio und Gerundio bleiben, wie `conjugate()` sie liefert. Nomen: `plural` ohne Artikel (Artikel-Regel wie `stripArticle` in `dictionary.ts`). Adjektive: `adjectiveForms()`. Formen, die normalisiert der normalisierten Grundform (ohne Artikel) gleichen, kommen nicht in den Index.
+  - `formLabel(slots: FormSlot[]): string` erzeugt die Bezeichnung aus §3.3a, einschließlich des Zusammenfassens („1./3. Sg. Imperfecto“, „ · “ zwischen Zeitformen, „Pl.“ bei gleichen Adjektiv-Pluralen). Die Zeitformnamen kommen aus derselben Quelle wie in `components/VerbTable.tsx` (`TENSE_LABEL`). Diese Tabelle wird dafür in die Domäne verschoben (z. B. `domain/conjugation/labels.ts`) und von beiden genutzt.
+  - Die Suche gruppiert die Indexeinträge einer Vokabel nach Originalform. Eine „Form“ im Sinne von „+ N weitere Formen“ ist eine verschiedene Originalschreibung mit allen ihren Slots.
+- `domain/dictionary.ts`: `searchVocab` (bzw. eine Nachfolgefunktion) liefert statt `Vocab[]` Zeilen `{ vocab: Vocab; form?: { form: string; label: string; more: number; highlight: FormSlot[] } }`. Ohne `form` ist es ein normaler Treffer. Sie bekommt den Formenindex als Parameter. Ablauf: Filter wie bisher, dann je Vokabel die Grundstufe G (bisherige Logik) und die Formstufe F (nur wenn die normalisierte Eingabe ≥ 3 Zeichen hat und kein Leerzeichen enthält), Einordnung und Sortierung nach §3.3a. `highlight` enthält die Slots aller Formen, die auf Stufe F getroffen haben. Ohne Suchtext bleibt alles wie bisher.
+- Performance: Der Index wird **einmal je Vokabelbestand** gebaut (beim ersten Gebrauch im Verzeichnis, gemerkt z. B. per `useMemo` über der Vokabel-Map aus `useAppData`), nicht je Tastendruck. Rund 800 Vokabeln ergeben etwa 10 000 Einträge. Ein linearer Durchlauf je Eingabe genügt, ein Präfixbaum ist nicht nötig. Die Eingabe bleibt ohne spürbare Verzögerung (kein Debounce nötig, auf dem Handy zu prüfen).
+
+**Bildungsregeln der Adjektive** (`adjectiveForms`; die Betonung bleibt auf derselben Silbe, Akzente werden nach den spanischen Regeln gesetzt oder entfernt, dafür `domain/conjugation/accent.ts` nutzen bzw. erweitern):
+1. Endet auf **-o**: f. -a, m. Pl. -os, f. Pl. -as (*rojo* → *roja, rojos, rojas*).
+2. Endet auf **-e** oder **-a** (auch -ista): f. gleich, Pl. +s (*amable* → *amables*, *maya* → *mayas*).
+3. Endet auf **unbetontes -s oder -x**: unveränderlich (*gratis*).
+4. Endet auf **-z**: f. gleich, Pl. -ces (*feliz* → *felices*).
+5. Endet auf einen anderen **Konsonanten**: Pl. +es mit Akzentanpassung (*azul* → *azules*, *cortés* → *corteses*, *joven* → *jóvenes*, *fácil* → *fáciles*). Feminin gleich der Grundform, **außer** bei -ón, -án, -ín und -or: dort f. +a, f. Pl. +as, mit Akzentanpassung (*trabajador* → *trabajadora*, *llorón* → *llorona*). Davon ausgenommen und geschlechtsunveränderlich sind die Komparative auf -or: *mejor, peor, mayor, menor, anterior, posterior, superior, inferior, exterior, interior*.
+6. Nationalitäten auf -és (*inglés* → *inglesa*) und andere Ausnahmen werden nicht per Regel erzeugt, sondern über `adj` überschrieben.
+
+Beim Umsetzen werden die erzeugten Formen aller Adjektive in `public/vocab/` durchgesehen. Falsche Formen werden über `adj` korrigiert, die Regeln werden nicht für Einzelfälle verbogen. `npm run validate:vocab` meldet zusätzlich eine **Warnung**, wenn ein `adj`-Feld dieselbe Form enthält, die die Regel ohnehin erzeugt (überflüssiger Eintrag).
+
+**Oberfläche:**
+- `features/dictionary/Dictionary.tsx`: rendert Formzeilen nach §3.3a (drei Zeilen, Pfeil „→“, Bezeichnung und „+ N weitere Formen“ klein und grau). Die Zeile ist wie jede Zeile ein Link. Formtreffer übergeben beim Navigieren den Router-Zustand `{ highlight: FormSlot[] }`, zusätzlich zu dem Zustand, den das Verzeichnis für Zurück und Filter schon nutzt (`viewState`). `aria-label` der Zeile wie in §3.3a.
+- `features/dictionary/VocabDetail.tsx`: liest `highlight` aus dem Router-Zustand und gibt es an `VerbDetail`/`VerbTable` (neue optionale Prop) bzw. an die Plural- und Formenzeile weiter. Hervorgehobene Formen bekommen eine eigene Klasse (z. B. `form-hit`, Hintergrund aus einem Farb-Token, Fettdruck). Nach dem ersten Rendern scrollt die Seite die erste hervorgehobene Stelle in den sichtbaren Bereich (`scrollIntoView({ block: 'center' })`). Die Zeile „Formen“ der Adjektive nutzt `adjectiveForms()` (§3.3a).
+- `components/VerbOverlay.tsx` (Lernsitzung) bekommt keine Hervorhebung.
+- CSS in `styles/global.css`: Token für die Hervorhebung in Hell und Dunkel. `src/styles/global.test.ts` prüft deren Kontrast wie bei den übrigen Farben.
+
+**Tests:**
+- Vitest: alle Soll-Beispiele aus §3.3a (mit den echten Vokabeldaten oder mit Testvokabeln), die Regel F < G, Mindestlänge und Leerzeichen, Akzent- und Großschreibung, Sortierung (normale vor Formtreffern, Formstufe 0 vor 1, alphabetisch), Zusammenspiel mit Filtern, Bezeichnungen samt Zusammenfassen, „+ N weitere Formen“, reflexive Verben (ohne Pronomen, Imperativ mit Pronomen), vosotros-Formen. Für `adjectiveForms` je Regel mindestens ein Beispiel, die Komparative, Akzentfälle (*joven, cortés, alemán* per Testvokabel) und dass `adj` überschreibt.
+- Browser-Smoke-Test (`scripts/browser-smoke.ts`): Im Verzeichnis „podemos“ eingeben, die Zeile „podemos → poder“ mit „1. Pl. Presente“ erscheint. Antippen öffnet die Detailseite von *poder*, die Zelle *podemos* ist hervorgehoben und sichtbar. Zurück: Suchtext und Filter sind erhalten. Eine Adjektiv-Detailseite zeigt die Zeile „Formen“.
+
+**Nach der Umsetzung:** In §3.3, §3.3a und hier den Vermerk „noch nicht umgesetzt“ entfernen, §9 (neue Dateien) und die Testzeile in §8 ergänzen und den Punkt aus `docs/TASKS.md` streichen. Weicht die Umsetzung an einer Stelle von dieser Spezifikation ab, wird das mit dem Nutzer geklärt.
 
 ## 15. PWA
 
