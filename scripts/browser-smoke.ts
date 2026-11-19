@@ -897,12 +897,25 @@ async function main() {
   const cardsBefore = Number(
     await idb(`store.count().onsuccess = (e) => { out = e.target.result; };`),
   );
+  // Abstand des Logos zur Mitte der Inhaltsspalte und zur Oberkante: gleich in Sitzung und Zusammenfassung.
+  const logoPos = `(() => {
+    const s = document.querySelector(".screen").getBoundingClientRect();
+    const r = document.querySelector(".session-bar .logo").getBoundingClientRect();
+    return Math.round(r.left + r.width / 2 - (s.left + s.width / 2)) + "," + Math.round(r.top - s.top);
+  })()`;
+  const logoBefore = await evaluate<string>(logoPos);
   await clickText("Beenden", "button");
   const summaryOk = await waitFor(
     `/Sitzung beendet/.test(document.body.innerText)`,
     "Zusammenfassung",
   );
   const summary = await text();
+  const logoAfter = await evaluate<string>(logoPos);
+  check(
+    "Zusammenfassung: Logo steht an derselben Stelle wie in der Sitzung",
+    logoAfter === logoBefore,
+    `Sitzung ${logoBefore} | Zusammenfassung ${logoAfter}`,
+  );
   await evaluate("location.reload()");
   await sleep(1000);
   const cardsAfter = Number(

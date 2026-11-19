@@ -1255,25 +1255,46 @@ fieldset.setting {
   text-shadow: 0.06em 0.06em 0 var(--magenta);
 }
 
-/* Name im Markenkopf als Knopf (öffnet die Begrüßungskarte erneut), sieht aus wie der Schriftzug */
-.wordmark-button {
-  display: inline;
+/* Ganzer Markenblock im Tab „Mehr“ als Knopf: öffnet die Begrüßungskarte erneut */
+.brand-open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
   margin: 0;
   padding: 0;
   border: 0;
-  border-radius: 0.1em;
+  border-radius: 20px;
   background: none;
   color: inherit;
   font: inherit;
-  letter-spacing: inherit;
-  text-shadow: inherit;
+  text-align: center;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 
-.wordmark-button:focus-visible {
+.brand-open:focus-visible {
   outline: 3px solid var(--magenta);
-  outline-offset: 4px;
+  outline-offset: 6px;
+}
+
+/* Nur für Bildschirmleser: sichtbar nicht vorhanden */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Leiste der Zusammenfassung: gleiche Höhe wie die Leiste in der Sitzung, damit das Logo an derselben Stelle steht */
+.session-end-bar {
+  min-height: 40px;
 }
 
 .wordmark-greca {

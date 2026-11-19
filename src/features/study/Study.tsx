@@ -123,6 +123,12 @@ function StudySession({
   if (finished) {
     return (
       <div className="screen center">
+        {/* Gleiche Leiste wie in der Sitzung: das Logo steht an derselben Stelle. */}
+        <div className="session-bar session-end-bar">
+          <span />
+          <Logo />
+          <span />
+        </div>
         <h1>Sitzung beendet</h1>
         <p>
           {session.rated} {session.rated === 1 ? "Karte" : "Karten"} geübt,
@@ -147,7 +153,7 @@ function StudySession({
             className="btn btn-block secondary"
             onClick={onBack}
           >
-            Neue Auswahl
+            Beenden
           </button>
         </div>
       </div>

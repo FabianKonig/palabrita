@@ -455,7 +455,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Beim ersten Öffnen liegt über der Lernseite (`/`) eine schwebende Lernkarte. Vorderseite Spanisch („¡Bienvenido a“ über der Wortmarke „Palabrita“), Rückseite Deutsch („Willkommen zu“ über derselben Wortmarke). Die Wortmarke ist dieselbe Komponente wie der Markenkopf im Tab „Mehr“ (`components/Brand.tsx`). Der Rest der App ist solange `inert`.
 - Erstes Tippen dreht die Karte um, zweites Tippen schließt das Overlay. Enter oder Leertaste wirken wie Tippen.
 - Gemerkt wird das Schließen pro Gerät in `localStorage` (`palabrita.welcomeSeen`), nicht in IndexedDB. Export und Import sind davon nicht betroffen. Ist der Speicher nicht nutzbar, erscheint der Hinweis nicht.
-- Erneut öffnen: Ein Tippen auf den Schriftzug „Palabrita“ im Markenkopf des Tabs „Mehr“ zeigt dieselbe Karte, wieder Spanisch vorne. Umdrehen und Schließen funktionieren gleich, danach bleibt man auf „Mehr“. Das speichert nichts, und der Erststart-Zustand ändert sich dadurch nicht. Die Karte liegt in `Layout` (`App.tsx`) über der App, die Unterseite bekommt `openWelcome` über den Router-Kontext.
+- Erneut öffnen: Ein Tippen auf den ganzen Markenblock im Tab „Mehr“ (Wimpel, Schriftzug, Slogan und Widmung) zeigt dieselbe Karte, wieder Spanisch vorne. Umdrehen und Schließen funktionieren gleich, danach bleibt man auf „Mehr“. Das speichert nichts, und der Erststart-Zustand ändert sich dadurch nicht. Die Karte liegt in `Layout` (`App.tsx`) über der App, die Unterseite bekommt `openWelcome` über den Router-Kontext.
 
 **Karte umdrehen** (`components/Flashcard.tsx`):
 - Klick/Tippen auf die Karte **wechselt** zwischen Vorder- und Rückseite, beliebig oft. `onFlip` wird zu `onToggle`.
@@ -478,7 +478,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Bewertungsbuttons „Nochmal“ und „Gewusst“ mit Vorschau des Wiedersehens (`previewIntervals`).
 - Wer später wieder lernt, bekommt zuerst, was fällig ist (auch Minuten-Karten, die inzwischen überfällig sind), dann neue Wörter, dann Wiederholung des Restes (§12).
 - Der Fortschrittsbalken „3 / 12“ entfällt (es gibt kein Ende). Stattdessen oben eine Zeile „Geübt: N“ (Zähler dieser Sitzung), in der Mitte das Logo (Wimpel über dem Schriftzug), rechts „Beenden“.
-- **Zusammenfassung** („Sitzung beendet“): Anzahl geübter Karten, davon „Nochmal“ (eine Lerndauer gibt es nicht, entschieden), sowie die Buttons „Weiterlernen“ (frische Sitzung mit denselben Filtern) und „Neue Auswahl“ (zurück zur Filterauswahl, Filter zurückgesetzt). Die Texte „Fertig für heute“ und „Heute ist nichts fällig“ entfallen.
+- **Zusammenfassung** („Sitzung beendet“): Oben mittig das Logo an exakt derselben Stelle wie in der Sitzungsleiste, darunter der Titel und die Anzahl geübter Karten, davon „Nochmal“ (eine Lerndauer gibt es nicht, entschieden), sowie die Buttons „Weiterlernen“ (frische Sitzung mit denselben Filtern) und „Beenden“ (zurück zur Filterauswahl, Filter zurückgesetzt). Die Texte „Fertig für heute“ und „Heute ist nichts fällig“ entfallen.
 
 ## 15. PWA
 

@@ -62,37 +62,15 @@ function Greca() {
 /**
  * Wortmarke „Palabrita“: Wimpel, Name, Greca. Alle Maße sind in `em` festgelegt,
  * damit sie überall gleich aussieht (Markenkopf und Begrüßungskarte).
- * `asHeading` macht den Namen zur Hauptüberschrift; dann ist die Hülle ein `div`.
- * `onClick` macht den Namen zu einem Knopf (nur im Markenkopf genutzt).
+ * Nur Anzeige, kein Knopf; der Knopf ist der ganze Markenkopf.
  */
-export function Wordmark({
-  asHeading = false,
-  onClick,
-}: {
-  asHeading?: boolean;
-  onClick?: () => void;
-}) {
-  const Wrap = asHeading ? "div" : "span";
-  const Name = asHeading ? "h1" : "span";
+export function Wordmark() {
   return (
-    <Wrap className="wordmark">
+    <span className="wordmark">
       <Bunting />
-      <Name className="wordmark-name">
-        {onClick ? (
-          <button
-            type="button"
-            className="wordmark-button"
-            onClick={onClick}
-            aria-haspopup="dialog"
-          >
-            Palabrita
-          </button>
-        ) : (
-          "Palabrita"
-        )}
-      </Name>
+      <span className="wordmark-name">Palabrita</span>
       <Greca />
-    </Wrap>
+    </span>
   );
 }
 
@@ -153,18 +131,23 @@ export function Logo({ className }: { className?: string } = {}) {
 
 /**
  * Markenkopf im Tab „Mehr“: Wortmarke, Slogan und Widmung.
- * `onWordmarkClick` öffnet die Begrüßungskarte erneut.
+ * Der ganze Block ist ein Knopf: ein Tippen öffnet die Begrüßungskarte erneut.
  */
-export function Brand({
-  onWordmarkClick,
-}: {
-  onWordmarkClick?: () => void;
-} = {}) {
+export function Brand({ onWordmarkClick }: { onWordmarkClick: () => void }) {
   return (
     <header className="brand">
-      <Wordmark asHeading onClick={onWordmarkClick} />
-      <p className="brand-tagline">{TAGLINE_ES}</p>
-      <Credit lead="Con" tail="de Fabian König" />
+      <h1 className="sr-only">Mehr</h1>
+      <button
+        type="button"
+        className="brand-open"
+        onClick={onWordmarkClick}
+        aria-haspopup="dialog"
+        aria-label="Begrüßung erneut öffnen"
+      >
+        <Wordmark />
+        <span className="brand-tagline">{TAGLINE_ES}</span>
+        <Credit lead="Con" tail="de Fabian König" />
+      </button>
     </header>
   );
 }
