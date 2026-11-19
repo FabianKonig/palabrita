@@ -10,6 +10,19 @@ export function UpdateBanner() {
   if (!needRefresh) return null;
   return (
     <div className="update-banner" role="status">
+      <span className="update-banner-icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M21 12a9 9 0 1 1-3-6.7" />
+          <path d="M21 4v5h-5" />
+        </svg>
+      </span>
       <span>Neue Version verfügbar.</span>
       <button
         type="button"
