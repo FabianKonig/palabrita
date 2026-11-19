@@ -1,4 +1,5 @@
 import { respell, isStressedOnLastSyllable } from "./conjugation/accent";
+import { normalizeForSearch } from "./text";
 import type { Vocab } from "./types";
 
 export interface AdjectiveForms {
@@ -58,4 +59,38 @@ export function adjectiveForms(v: Pick<Vocab, "es" | "adj">): AdjectiveForms {
     pl: v.adj?.pl ?? pluralOf(v.es),
     fpl: v.adj?.fpl ?? pluralOf(f),
   };
+}
+
+/** One entry of the line "Formen" on the detail page of an adjective. */
+export interface AdjectiveFormLine {
+  /** "feminin", "Plural" or "feminin Plural". */
+  label: string;
+  form: string;
+  /** The forms this entry stands for ("Plural" stands for pl and fpl if both are equal). */
+  keys: AdjectiveFormKey[];
+}
+
+/**
+ * The forms shown on the detail page, in the order feminine, plural, feminine plural. Forms
+ * equal to the headword drop out; if m. and f. plural are equal only "Plural" is left. An
+ * invariable adjective (gratis) has no lines.
+ */
+export function adjectiveFormLines(
+  v: Pick<Vocab, "es" | "adj">,
+): AdjectiveFormLine[] {
+  const forms = adjectiveForms(v);
+  const base = normalizeForSearch(v.es);
+  const lines: AdjectiveFormLine[] = [];
+  if (normalizeForSearch(forms.f) !== base)
+    lines.push({ label: "feminin", form: forms.f, keys: ["f"] });
+  if (forms.pl === forms.fpl) {
+    if (normalizeForSearch(forms.pl) !== base)
+      lines.push({ label: "Plural", form: forms.pl, keys: ["pl", "fpl"] });
+  } else {
+    if (normalizeForSearch(forms.pl) !== base)
+      lines.push({ label: "Plural", form: forms.pl, keys: ["pl"] });
+    if (normalizeForSearch(forms.fpl) !== base)
+      lines.push({ label: "feminin Plural", form: forms.fpl, keys: ["fpl"] });
+  }
+  return lines;
 }

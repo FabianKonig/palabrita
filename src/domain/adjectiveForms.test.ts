@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { adjectiveForms, pluralOf } from "./adjectiveForms";
+import { adjectiveFormLines, adjectiveForms, pluralOf } from "./adjectiveForms";
 import type { Vocab } from "./types";
 
 const adj = (es: string, extra?: Vocab["adj"]) =>
@@ -113,5 +113,32 @@ describe("adjectiveForms: overrides from adj", () => {
 
   it("without adj it works as before", () => {
     expect(adj("rojo", null)).toEqual(adj("rojo"));
+  });
+});
+
+describe("adjectiveFormLines (Zeile „Formen“ der Detailseite)", () => {
+  const lines = (es: string, extra?: Vocab["adj"]) =>
+    adjectiveFormLines({ es, adj: extra }).map((l) => `${l.label} ${l.form}`);
+
+  it("zeigt alle erzeugten Formen, auch ohne adj", () => {
+    expect(lines("rojo")).toEqual([
+      "feminin roja",
+      "Plural rojos",
+      "feminin Plural rojas",
+    ]);
+  });
+
+  it("lässt Formen weg, die der Grundform gleichen", () => {
+    expect(lines("azul")).toEqual(["Plural azules"]);
+    expect(lines("amable")).toEqual(["Plural amables"]);
+  });
+
+  it("unveränderliche Adjektive haben keine Zeile", () => {
+    expect(lines("gratis")).toEqual([]);
+  });
+
+  it("fasst m. und f. Plural zusammen, wenn sie gleich sind", () => {
+    expect(adjectiveFormLines({ es: "azul" })[0].keys).toEqual(["pl", "fpl"]);
+    expect(adjectiveFormLines({ es: "rojo" })[1].keys).toEqual(["pl"]);
   });
 });
