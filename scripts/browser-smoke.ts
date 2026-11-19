@@ -581,7 +581,7 @@ async function main() {
     combined.q === "a" &&
       combined.level === "A1" &&
       combined.status.includes("A1") &&
-      combined.status.includes("Suchwort „a“") &&
+      combined.status.includes("„a“") &&
       !(await evaluate<boolean>(
         `!!document.querySelector(".dict-status strong")`,
       )),
@@ -604,7 +604,7 @@ async function main() {
     cleared.q === "a" &&
       cleared.level === "" &&
       !cleared.status.includes("A1") &&
-      cleared.status.includes("Suchwort „a“"),
+      cleared.status.includes("„a“"),
     clearedJson,
   );
   // Nur noch Suchtext: „Filter löschen“ ist weiter da und leert das Suchfeld.

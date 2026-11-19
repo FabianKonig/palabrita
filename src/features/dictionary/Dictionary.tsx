@@ -63,15 +63,15 @@ export function Dictionary() {
 
   const topicChoices = topicOptions(topics);
 
-  // Statuszeile: nennt alle Kriterien, die gerade wirken (Filter und Suche).
+  // Statuszeile: je ein Chip für jedes Kriterium, das gerade wirkt (Filter und Suche).
   const topicLabel = topicChoices.find(([key]) => key === filters.topic)?.[1];
   const query = filters.query.trim();
-  const activeParts = [
+  const activeChips = [
     topicLabel,
     filters.level || undefined,
     filters.pos ? POS_LABEL[filters.pos] : undefined,
-    query ? `Suchwort „${query}“` : undefined,
-  ].filter((part): part is string => Boolean(part));
+    query ? `„${query}“` : undefined,
+  ].filter((chip): chip is string => Boolean(chip));
   const dropdownsActive = hasDropdownFilter(filters);
   const activeCount = [filters.topic, filters.level, filters.pos].filter(
     Boolean,
@@ -186,9 +186,15 @@ export function Dictionary() {
           </select>
         </div>
 
-        {activeParts.length > 0 && (
+        {activeChips.length > 0 && (
           <div className="dict-status">
-            <span>Aktiv: {activeParts.join(" · ")}</span>
+            <ul className="dict-chips" aria-label="Aktive Kriterien">
+              {activeChips.map((chip, i) => (
+                <li key={`${i}-${chip}`} className="dict-chip">
+                  {chip}
+                </li>
+              ))}
+            </ul>
             <button
               type="button"
               className="dict-status-clear"

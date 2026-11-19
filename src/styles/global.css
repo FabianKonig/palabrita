@@ -1391,8 +1391,30 @@ select.field,
   line-height: 1.4;
 }
 
-.dict-status strong {
-  font-weight: 700;
+/* Aktive Kriterien als kleine, umrandete Chips */
+.dict-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dict-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 2px 12px;
+  border: 1px solid var(--turquoise);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .dict-status-clear {
