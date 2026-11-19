@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 /** Spanisch auf der Vorderseite, Deutsch auf der Rückseite. */
 const FRONT = "¡Bienvenido a Palabrita!";
 const BACK = "Willkommen zu Palabrita!";
+/** Kleine Zeile unter dem Haupttext, Spanisch vorne, Deutsch hinten. */
+const FRONT_SUB = "Tu app de vocabulario de español";
+const BACK_SUB = "Deine Spanisch-Vokabel-App";
 /** Dauer des Ausblendens, bevor das Overlay verschwindet. */
 const CLOSE_MS = 250;
 
@@ -47,11 +50,13 @@ export function WelcomeOverlay({ onDismiss }: { onDismiss: () => void }) {
           <span className="welcome-face" aria-hidden={flipped}>
             <span className="welcome-tag">Spanisch</span>
             <span className="welcome-text front">{FRONT}</span>
+            <span className="welcome-sub">{FRONT_SUB}</span>
             <span className="welcome-hint">Tippen zum Umdrehen</span>
           </span>
           <span className="welcome-face back" aria-hidden={!flipped}>
             <span className="welcome-tag">Deutsch</span>
             <span className="welcome-text">{BACK}</span>
+            <span className="welcome-sub">{BACK_SUB}</span>
             <span className="welcome-hint">Tippen zum Schließen</span>
           </span>
         </span>

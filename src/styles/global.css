@@ -1092,6 +1092,13 @@ fieldset.setting {
   color: var(--turquoise-dark);
 }
 
+.welcome-sub {
+  margin-top: -4px;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
 .welcome-hint {
   position: absolute;
   bottom: 16px;
