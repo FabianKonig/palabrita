@@ -70,16 +70,16 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 
 **Welche Formen gesucht werden:**
 - **Verben:** alle Formen, die die Konjugationstabelle zeigt (§5, `domain/conjugation`): Presente, Pretérito indefinido, Imperfecto, Futuro (je 6 Personen, **einschließlich vosotros**), Imperativo (5 Personen), Participio, Gerundio. Die Formen werden zur Laufzeit aus derselben Erzeugung wie die Tabelle gewonnen, nie gespeichert.
-- **Reflexive Verben** werden **ohne vorangestelltes Pronomen** gesucht: *levanto* findet *levantarse*, die Eingabe *me levanto* ist kein Formtreffer (sie enthält ein Leerzeichen, siehe unten). Imperativformen mit **angehängtem** Pronomen, wie die Tabelle sie zeigt (*levántate*, *siéntese*, *presentémonos*), werden gefunden.
+- **Reflexive Verben** werden **ohne vorangestelltes Pronomen** gesucht: *levanto* findet *levantarse*. Die Eingabe *me levanto* ist kein Formtreffer, weil keine Form im Index das Pronomen enthält. Imperativformen mit **angehängtem** Pronomen, wie die Tabelle sie zeigt (*levántate*, *siéntese*, *presentémonos*), werden gefunden. Gibt es ein Verb mit und ohne *-se* als eigene Vokabeln (*ir* und *irse*), erscheinen bei gleicher Form **beide**, je mit eigener Zeile (*vamos*, *va*, *fue* → *ir* und *irse*). Das ist gewollt.
 - **Nomen:** die Pluralform aus `plural`, ohne Artikel (*canciones* → *la canción*). Nomen ohne hinterlegten Plural (*el dinero*, *la ropa*) haben keine Formen. Nomen-Plurale werden nicht erzeugt.
 - **Adjektive:** feminin Singular, maskulin Plural und feminin Plural. Sie werden **nach Regeln erzeugt** (§4.2, §14.3), `adj` in der JSON überschreibt nur Abweichungen. Formen, die der Grundform gleichen (*amable* f. Sg. = *amable*), sind keine eigenen Formen.
 - Andere Wortarten haben keine Formen. Gesucht wird nur über die spanische Seite.
 
-**Wann eine Form trifft:** Eingabe und Form werden normalisiert wie in der Verzeichnissuche (Groß-/Kleinschreibung, Akzente und Umlaute egal: *cancion* findet *canciones*, *podia* findet *podía*). Formtreffer gibt es nur, wenn die normalisierte Eingabe **kein Leerzeichen** enthält. Dann trifft eine Form, wenn sie
+**Wann eine Form trifft:** Eingabe und Form werden normalisiert wie in der Verzeichnissuche (Groß-/Kleinschreibung, Akzente und Umlaute egal: *cancion* findet *canciones*, *podia* findet *podía*). Eine Form trifft, wenn sie
 - der Eingabe **gleicht** (Formstufe 0), ab **2 Zeichen** Eingabe, damit kurze Formen wie *va*, *ve* und *es* gefunden werden, oder
 - mit der Eingabe **beginnt** (Formstufe 1), erst ab **3 Zeichen** Eingabe.
 
-„Enthält“ gilt für Formen nicht. Bei 1 Zeichen gibt es keine Formtreffer. Die bisherige Suche über Grundform und Deutsch (§3.3, Stufen 0 bis 2) bleibt unverändert.
+„Enthält“ gilt für Formen nicht. Bei 1 Zeichen gibt es keine Formtreffer. Leerzeichen in der Eingabe sind gewöhnliche Zeichen: Nomen-Plurale aus mehreren Wörtern werden auch mit Leerzeichen gefunden (*fines de* und *fines de semana* → *el fin de semana*). Die bisherige Suche über Grundform und Deutsch (§3.3, Stufen 0 bis 2) bleibt unverändert.
 
 **Eine Zeile je Wort:** Jede Vokabel erscheint höchstens einmal in der Trefferliste. Passt sie sowohl über Grundform/Deutsch (beste Stufe G) als auch über Formen (beste Formstufe F), ist sie ein **Formtreffer nur, wenn F < G** gilt (die Form passt genauer). Sonst ist sie ein normaler Treffer und sieht aus wie bisher. Beispiele: *come* → *comer* ist Formtreffer (Form gleich, Grundform nur Anfang); *pod* → *poder* ist normaler Treffer (beides Anfang); *poder* → normaler Treffer ohne Formhinweis.
 
@@ -96,16 +96,17 @@ Innerhalb der Gruppen 1 und 3 gilt die Reihenfolge aus §3.3, innerhalb der Grup
 **Darstellung eines Formtreffers** (kein Chip, kein Icon, Kennzeichen ist der Pfeil):
 - Zeile 1: die gefundene Form **fett**, so geschrieben, wie sie in der Tabelle steht (mit Akzenten, nicht die Eingabe), dann „→“ und die Grundform `es` (mit Artikel bei Nomen). Beispiel: **podemos** → poder; **canciones** → la canción.
 - Zeile 2: die deutschen Übersetzungen wie in jeder Zeile (§14), Niveau-Kennzeichen wie bisher.
-- Zeile 3, klein und grau: die Bezeichnung der Form. Passen weitere, andere Formen desselben Wortes, folgt „+ N weitere Formen“ (N = Anzahl weiterer verschiedener Formen, die auf derselben Formstufe treffen). Die gezeigte Form ist die erste passende Form auf der besten Formstufe in Tabellenreihenfolge (Presente, Indefinido, Imperfecto, Futuro, Imperativo, Participio, Gerundio; je Zeitform 1. Sg. bis 3. Pl.; bei Adjektiven f. Sg., m. Pl., f. Pl.).
+- Zeile 3, klein und grau: die Bezeichnung der Form. Passen weitere, andere Formen desselben Wortes, folgt „+ 1 weitere Form“ bzw. „+ N weitere Formen“ (N = Anzahl weiterer verschiedener Schreibungen, die auf derselben Formstufe treffen; Akzentvarianten wie *levanto*/*levantó* sind verschiedene Formen).
+- **Welche Form gezeigt wird:** unter den Formen auf der besten Formstufe zuerst die, deren Schreibung **mit Akzenten** (nur Groß-/Kleinschreibung egal) zur Eingabe passt, also ihr gleicht bzw. mit ihr beginnt. Unter mehreren solchen bzw. wenn keine so passt, gilt die Tabellenreihenfolge (Presente, Indefinido, Imperfecto, Futuro, Imperativo, Participio, Gerundio; je Zeitform 1. Sg. bis 3. Pl.; bei Adjektiven f. Sg., m. Pl., f. Pl.). Beispiele: *compre* zeigt **compre** (3. Sg. Imperativo) + 1 weitere Form, *compré* zeigt **compré** (1. Sg. Pretérito indefinido) + 1 weitere Form. Das ist wichtig, weil es in den Daten rund 245 solcher Akzentpaare gibt (*saludo*/*saludó*, *pago*/*pagó* …).
 - Die Zeile bleibt ein Touch-Ziel ≥ 48 px, bricht auf schmalen Bildschirmen um (kein horizontales Scrollen) und ist in Hell und Dunkel lesbar. Für Screenreader lautet die Zeile sinngemäß „podemos, Form von poder, 1. Pl. Presente“.
 
 **Bezeichnungen (grammatisch kurz):**
 - Verben: Person und Zeitform, Zeitformen mit denselben Namen wie in der Tabelle. Personen: 1. Sg. (yo), 2. Sg. (tú), 3. Sg. (él/ella/usted), 1. Pl. (nosotros), 2. Pl. (vosotros), 3. Pl. (ustedes/ellos). Beispiele: „1. Pl. Presente“, „3. Sg. Pretérito indefinido“, „2. Sg. Imperativo“, „3. Sg. Imperativo“ (usted), „Participio“, „Gerundio“.
-- Gleiche Form an mehreren Stellen: Personen derselben Zeitform werden zusammengefasst („1./3. Sg. Imperfecto“ bei *podía*), verschiedene Zeitformen mit „ · “ getrennt („1. Pl. Presente · 1. Pl. Imperativo“ bei *vamos*). Das zählt als **eine** Form.
+- Gleiche Schreibung an mehreren Stellen zählt als **eine** Form mit zusammengefasster Bezeichnung. Innerhalb einer Zeitform werden die Personen in Tabellenreihenfolge mit „/“ verbunden. Personen gleicher Zahl teilen sich die Zahlangabe („1./3. Sg. Imperfecto“ bei *podía*, „1./2. Pl. …“), bei verschiedener Zahl steht jede Angabe vollständig („3. Sg./2. Pl. …“). Verschiedene Zeitformen werden in Tabellenreihenfolge mit „ · “ getrennt („1. Pl. Presente · 1. Pl. Imperativo“ bei *vamos*).
 - Nomen: „Plural“.
 - Adjektive: „f. Sg.“, „m. Pl.“, „f. Pl.“. Sind m. Pl. und f. Pl. gleich (*amables*), heißt es „Pl.“.
 
-**Antippen:** öffnet die Detailseite der Grundform (`/dictionary/:id`, Zurück-Verhalten und erhaltene Filter wie §3.3). Dort werden **alle Formen hervorgehoben, die auf der besten Formstufe getroffen haben** (bei *vamos* beide Zellen, bei *pod* alle Formen von *poder* mit diesem Anfang). Die Seite scrollt so, dass die erste hervorgehobene Stelle sichtbar ist. Hervorhebung: Hintergrund in Akzentfarbe **und** Fettdruck (nicht nur Farbe), Kontrast in Hell und Dunkel ausreichend. Bei Nomen wird die Pluralzeile, bei Adjektiven die betreffende Form in der Zeile „Formen“ hervorgehoben. Ein normaler Treffer öffnet die Detailseite ohne Hervorhebung. Die Hervorhebung gilt nur für diesen Aufruf (Router-Zustand), ein direkter Aufruf der URL zeigt keine.
+**Antippen:** öffnet die Detailseite der Grundform (`/dictionary/:id`, Zurück-Verhalten und erhaltene Filter wie §3.3). Dort werden **alle Formen hervorgehoben, die auf der besten Formstufe getroffen haben** (bei *vamos* beide Zellen; bei *pued* alle Formen von *poder* mit diesem Anfang: *puedo, puedes, puede, pueden, pueda, puedan*; bei *levanto* sowohl *levanto* als auch *levantó*). Die Seite scrollt so, dass die erste hervorgehobene Stelle sichtbar ist. Hervorhebung: Hintergrund in Akzentfarbe **und** Fettdruck (nicht nur Farbe), Kontrast in Hell und Dunkel ausreichend. Bei Nomen wird die Pluralzeile, bei Adjektiven die betreffende Form in der Zeile „Formen“ hervorgehoben. Ein normaler Treffer öffnet die Detailseite ohne Hervorhebung. Die Hervorhebung gilt nur für diesen Aufruf (Router-Zustand), ein direkter Aufruf der URL zeigt keine.
 
 **Detailseite der Adjektive:** Die Zeile „Formen“ zeigt künftig **immer** die erzeugten Formen (bisher nur, wenn `adj` gesetzt war), im bisherigen Wortlaut „feminin … · Plural … · feminin Plural …“. Formen, die der Grundform gleichen, entfallen; sind m. und f. Plural gleich, steht nur „Plural …“. Bei unveränderlichen Adjektiven (*gratis*) entfällt die Zeile.
 
@@ -117,19 +118,24 @@ Innerhalb der Gruppen 1 und 3 gilt die Reihenfolge aus §3.3, innerhalb der Grup
 |---|---|---|---|
 | `podemos` | poder | Form | 1. Pl. Presente |
 | `vamos` | ir | Form | 1. Pl. Presente · 1. Pl. Imperativo |
-| `fue` | ser, ir (je eine Zeile) | Form | 3. Sg. Pretérito indefinido |
-| `fue` | fuerte | normal, steht nach ser/ir | – |
+| `vamos` | irse | Form | 1. Pl. Presente |
+| `fue` | ser, ir, irse (je eine Zeile) | Form | 3. Sg. Pretérito indefinido |
+| `fue` | fuerte | normal, steht nach ser/ir/irse | – |
 | `va` | ir, irse (je eine Zeile) | Form | 3. Sg. Presente |
 | `ve` | ir | Form | 2. Sg. Imperativo |
 | `ve` | ver | Form, steht vor convertir, vender … | 3. Sg. Presente · 2. Sg. Imperativo |
 | `es` | ser | Form, steht als erste Zeile | 3. Sg. Presente |
 | `podia` | poder | Form | 1./3. Sg. Imperfecto |
 | `come` | comer | Form | 3. Sg. Presente · 2. Sg. Imperativo |
-| `pod` | poder | normal (keine Formzeile) | – |
-| `levanto` | levantarse | Form | 1. Sg. Presente |
+| `pod` | poder | normal (keine Formzeile, F = G) | – |
+| `pued` | poder | Form: **puedo** | 1. Sg. Presente + 5 weitere Formen |
+| `levanto` | levantarse | Form: **levanto** | 1. Sg. Presente + 1 weitere Form |
+| `levantó` | levantarse | Form: **levantó** | 3. Sg. Pretérito indefinido + 1 weitere Form |
 | `levantate` | levantarse | Form | 2. Sg. Imperativo |
 | `me levanto` | – (kein Formtreffer) | – | – |
+| `compre` | comprar | Form: **compre** | 3. Sg. Imperativo + 1 weitere Form |
 | `canciones` | la canción | Form | Plural |
+| `fines de` | el fin de semana | Form | Plural |
 | `buenas` | bueno | Form | f. Pl. |
 | `amables` | amable | Form | Pl. |
 | `pu` | – (2 Zeichen: nur genaue Formen, keine Form heißt „pu“) | – | – |
@@ -526,16 +532,17 @@ Verhalten: §3.3a. Hier steht, wie es gebaut wird. Es gibt keine neue Seite und 
   - `buildFormIndex(vocab: Iterable<Vocab>): FormIndex` erzeugt je Vokabel alle Formen mit Slot, Originalschreibung und normalisierter Schreibung (`normalizeForSearch` aus `domain/dictionary.ts`). Verben über `conjugate()` (`domain/conjugation`), also exakt die Formen der Tabelle. Bei reflexiven Verben wird außerhalb des Imperativs das vorangestellte Pronomen (`me`, `te`, `se`, `nos`, `os` plus Leerzeichen) entfernt. Imperativ, Participio und Gerundio bleiben, wie `conjugate()` sie liefert. Nomen: `plural` ohne Artikel (Artikel-Regel wie `stripArticle` in `dictionary.ts`). Adjektive: `adjectiveForms()`. Formen, die normalisiert der normalisierten Grundform (ohne Artikel) gleichen, kommen nicht in den Index.
   - `formLabel(slots: FormSlot[]): string` erzeugt die Bezeichnung aus §3.3a, einschließlich des Zusammenfassens („1./3. Sg. Imperfecto“, „ · “ zwischen Zeitformen, „Pl.“ bei gleichen Adjektiv-Pluralen). Die Zeitformnamen kommen aus derselben Quelle wie in `components/VerbTable.tsx` (`TENSE_LABEL`). Diese Tabelle wird dafür in die Domäne verschoben (z. B. `domain/conjugation/labels.ts`) und von beiden genutzt.
   - Die Suche gruppiert die Indexeinträge einer Vokabel nach Originalform. Eine „Form“ im Sinne von „+ N weitere Formen“ ist eine verschiedene Originalschreibung mit allen ihren Slots.
-- `domain/dictionary.ts`: `searchVocab` (bzw. eine Nachfolgefunktion) liefert statt `Vocab[]` Zeilen `{ vocab: Vocab; form?: { form: string; label: string; more: number; highlight: FormSlot[] } }`. Ohne `form` ist es ein normaler Treffer. Sie bekommt den Formenindex als Parameter. Ablauf: Filter wie bisher, dann je Vokabel die Grundstufe G (bisherige Logik) und die Formstufe F (nur ohne Leerzeichen; Formstufe 0 ab 2 Zeichen, Formstufe 1 ab 3 Zeichen normalisierter Eingabe), Einordnung und Sortierung nach §3.3a. `highlight` enthält die Slots aller Formen, die auf Stufe F getroffen haben. Ohne Suchtext bleibt alles wie bisher.
-- Performance: Der Index wird **einmal je Vokabelbestand** gebaut (beim ersten Gebrauch im Verzeichnis, gemerkt z. B. per `useMemo` über der Vokabel-Map aus `useAppData`), nicht je Tastendruck. Rund 800 Vokabeln ergeben etwa 10 000 Einträge. Ein linearer Durchlauf je Eingabe genügt, ein Präfixbaum ist nicht nötig. Die Eingabe bleibt ohne spürbare Verzögerung (kein Debounce nötig, auf dem Handy zu prüfen).
+- `domain/dictionary.ts`: `searchVocab` (bzw. eine Nachfolgefunktion) liefert statt `Vocab[]` Zeilen `{ vocab: Vocab; form?: { form: string; label: string; more: number; highlight: FormSlot[] } }`. Ohne `form` ist es ein normaler Treffer. Sie bekommt den Formenindex als Parameter. Ablauf: Filter wie bisher, dann je Vokabel die Grundstufe G (bisherige Logik) und die Formstufe F (Formstufe 0 ab 2 Zeichen, Formstufe 1 ab 3 Zeichen normalisierter Eingabe; Leerzeichen zählen als Zeichen), Einordnung und Sortierung nach §3.3a. `highlight` enthält die Slots aller Formen, die auf Stufe F getroffen haben. Für die Auswahl der gezeigten Form (§3.3a) wird zusätzlich die Eingabe nur kleingeschrieben, aber mit Akzenten, mit der kleingeschriebenen Originalform verglichen. Ohne Suchtext bleibt alles wie bisher.
+- Performance: Der Index wird **einmal je Vokabelbestand** gebaut (beim ersten Gebrauch im Verzeichnis, gemerkt z. B. per `useMemo` über der Vokabel-Map aus `useAppData`), nicht je Tastendruck. Rund 800 Vokabeln ergeben etwa 8 400 Einträge. Ein linearer Durchlauf je Eingabe genügt, ein Präfixbaum ist nicht nötig. Die Eingabe bleibt ohne spürbare Verzögerung (kein Debounce nötig, auf dem Handy zu prüfen).
 
 **Bildungsregeln der Adjektive** (`adjectiveForms`; die Betonung bleibt auf derselben Silbe, Akzente werden nach den spanischen Regeln gesetzt oder entfernt, dafür `domain/conjugation/accent.ts` nutzen bzw. erweitern):
 1. Endet auf **-o**: f. -a, m. Pl. -os, f. Pl. -as (*rojo* → *roja, rojos, rojas*).
-2. Endet auf **-e** oder **-a** (auch -ista): f. gleich, Pl. +s (*amable* → *amables*, *maya* → *mayas*).
-3. Endet auf **unbetontes -s oder -x**: unveränderlich (*gratis*).
-4. Endet auf **-z**: f. gleich, Pl. -ces (*feliz* → *felices*).
-5. Endet auf einen anderen **Konsonanten**: Pl. +es mit Akzentanpassung (*azul* → *azules*, *cortés* → *corteses*, *joven* → *jóvenes*, *fácil* → *fáciles*). Feminin gleich der Grundform, **außer** bei -ón, -án, -ín und -or: dort f. +a, f. Pl. +as, mit Akzentanpassung (*trabajador* → *trabajadora*, *llorón* → *llorona*). Davon ausgenommen und geschlechtsunveränderlich sind die Komparative auf -or: *mejor, peor, mayor, menor, anterior, posterior, superior, inferior, exterior, interior*.
-6. Nationalitäten auf -és (*inglés* → *inglesa*) und andere Ausnahmen werden nicht per Regel erzeugt, sondern über `adj` überschrieben.
+2. Endet auf **unbetontes -e oder -a**: f. gleich, Pl. +s (*amable* → *amables*, *maya* → *mayas*, *turista* → *turistas*).
+3. Endet auf **betontes -í oder -ú**: f. gleich, Pl. +es (*iraní* → *iraníes*, *hindú* → *hindúes*). Auf andere betonte Vokale (-á, -é, -ó): f. gleich, Pl. +s.
+4. Endet auf **unbetontes -s oder -x**: unveränderlich (*gratis*).
+5. Endet auf **-z**: f. gleich, Pl. -ces (*feliz* → *felices*).
+6. Endet auf einen anderen **Konsonanten**: Pl. +es mit Akzentanpassung (*azul* → *azules*, *cortés* → *corteses*, *joven* → *jóvenes*, *fácil* → *fáciles*). Feminin gleich der Grundform (*cortés*, *azul*, *fácil*), **außer** bei -ón, -án, -ín und -or: dort f. +a, f. Pl. +as, mit Akzentanpassung (*trabajador* → *trabajadora*, *llorón* → *llorona*, *alemán* → *alemana, alemanes, alemanas*). Davon ausgenommen und geschlechtsunveränderlich sind die Komparative auf -or: *mejor, peor, mayor, menor, anterior, posterior, superior, inferior, exterior, interior*.
+7. **Nationalitäten auf -és und -ol** (*inglés* → *inglesa*, *español* → *española*) bilden das Feminin anders als Regel 6 (die für *cortés* richtig ist). Ihre Feminin-Formen stehen in `adj` (`f` und `fpl`). Ebenso alle anderen Ausnahmen: Sie werden über `adj` überschrieben, nicht per Regel erzeugt.
 
 Beim Umsetzen werden die erzeugten Formen aller Adjektive in `public/vocab/` durchgesehen. Falsche Formen werden über `adj` korrigiert, die Regeln werden nicht für Einzelfälle verbogen. `npm run validate:vocab` meldet zusätzlich eine **Warnung**, wenn ein `adj`-Feld dieselbe Form enthält, die die Regel ohnehin erzeugt (überflüssiger Eintrag).
 
@@ -546,7 +553,7 @@ Beim Umsetzen werden die erzeugten Formen aller Adjektive in `public/vocab/` dur
 - CSS in `styles/global.css`: Token für die Hervorhebung in Hell und Dunkel. `src/styles/global.test.ts` prüft deren Kontrast wie bei den übrigen Farben.
 
 **Tests:**
-- Vitest: alle Soll-Beispiele aus §3.3a (mit den echten Vokabeldaten oder mit Testvokabeln), die Regel F < G, Mindestlängen (1 Zeichen: nichts; 2 Zeichen: nur Formstufe 0; ab 3: beide) und Leerzeichen, Akzent- und Großschreibung, Sortierung in den vier Gruppen aus §3.3a, Zusammenspiel mit Filtern, Bezeichnungen samt Zusammenfassen, „+ N weitere Formen“, reflexive Verben (ohne Pronomen, Imperativ mit Pronomen), vosotros-Formen. Für `adjectiveForms` je Regel mindestens ein Beispiel, die Komparative, Akzentfälle (*joven, cortés, alemán* per Testvokabel) und dass `adj` überschreibt.
+- Vitest: alle Soll-Beispiele aus §3.3a (mit den echten Vokabeldaten oder mit Testvokabeln), die Regel F < G, Mindestlängen (1 Zeichen: nichts; 2 Zeichen: nur Formstufe 0; ab 3: beide), Nomen-Plurale mit Leerzeichen, Akzent- und Großschreibung, Auswahl der gezeigten Form bei Akzentpaaren (*compre*/*compré*, *levanto*/*levantó*), Sortierung in den vier Gruppen aus §3.3a, Zusammenspiel mit Filtern, Bezeichnungen samt Zusammenfassen (auch gemischte Zahl, per Testvokabel), „+ 1 weitere Form“ / „+ N weitere Formen“, reflexive Verben (ohne Pronomen, Imperativ mit Pronomen, *ir* und *irse* nebeneinander), vosotros-Formen. Für `adjectiveForms` je Regel mindestens ein Beispiel, die Komparative, Akzentfälle (*joven, cortés, alemán, iraní* per Testvokabel) und dass `adj` überschreibt (*español* per Testvokabel).
 - Browser-Smoke-Test (`scripts/browser-smoke.ts`): Im Verzeichnis „podemos“ eingeben, die Zeile „podemos → poder“ mit „1. Pl. Presente“ erscheint. Antippen öffnet die Detailseite von *poder*, die Zelle *podemos* ist hervorgehoben und sichtbar. Zurück: Suchtext und Filter sind erhalten. Eine Adjektiv-Detailseite zeigt die Zeile „Formen“.
 
 **Nach der Umsetzung:** In §3.3, §3.3a und hier den Vermerk „noch nicht umgesetzt“ entfernen, §9 (neue Dateien) und die Testzeile in §8 ergänzen und den Punkt aus `docs/TASKS.md` streichen. Weicht die Umsetzung an einer Stelle von dieser Spezifikation ab, wird das mit dem Nutzer geklärt.
