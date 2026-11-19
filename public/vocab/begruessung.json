@@ -8,6 +8,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "¡Hola! ¿Cómo estás?",
       "de": "Hallo! Wie geht es dir?"
@@ -25,6 +26,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Buenos días, señora.",
       "de": "Guten Morgen, gnädige Frau."
@@ -42,6 +44,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Muchas gracias por su ayuda.",
       "de": "Vielen Dank für Ihre Hilfe."
@@ -59,6 +62,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Un café, por favor.",
       "de": "Einen Kaffee, bitte."
@@ -77,6 +81,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Siempre saludo a mis vecinos.",
       "de": "Ich grüße immer meine Nachbarn."
@@ -98,6 +103,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Un saludo a tu familia.",
       "de": "Einen Gruß an deine Familie."
@@ -116,6 +122,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "El señor López ya llegó.",
       "de": "Herr López ist schon angekommen."
@@ -134,6 +141,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "La señora es de Guatemala.",
       "de": "Die Dame ist aus Guatemala."
@@ -151,6 +159,7 @@
     "pos": "adj",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Bienvenidos a México.",
       "de": "Willkommen in Mexiko."
@@ -169,6 +178,7 @@
     "pos": "adj",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Encantada de conocerla.",
       "de": "Sehr erfreut, Sie kennenzulernen."
@@ -187,6 +197,7 @@
     "pos": "other",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Perdón, ¿está libre este asiento?",
       "de": "Entschuldigung, ist dieser Platz frei?"
@@ -205,6 +216,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Buenas tardes, ¿cómo le va?",
       "de": "Guten Tag, wie geht es Ihnen?"
@@ -223,6 +235,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Buenas noches, hasta mañana.",
       "de": "Gute Nacht, bis morgen."
@@ -241,6 +254,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Adiós, ¡que te vaya bien!",
       "de": "Tschüss, mach es gut!"
@@ -259,6 +273,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Hasta luego, nos vemos en la tarde.",
       "de": "Bis später, wir sehen uns am Nachmittag."
@@ -277,6 +292,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "—Gracias. —De nada.",
       "de": "„Danke.“ „Bitte.“"
@@ -294,6 +310,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Me presento: soy Laura.",
       "de": "Ich stelle mich vor: Ich bin Laura."
@@ -315,6 +332,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Nos despedimos en la estación.",
       "de": "Wir verabschieden uns am Bahnhof."
@@ -339,6 +357,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Me hace un favor?",
       "de": "Tun Sie mir einen Gefallen?"
@@ -357,6 +376,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "La despedida fue muy emotiva.",
       "de": "Der Abschied war sehr emotional."
@@ -375,6 +395,7 @@
     "pos": "adj",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Usted es muy amable.",
       "de": "Sie sind sehr freundlich."
@@ -393,6 +414,7 @@
     "pos": "adv",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "—Mucho gusto. —Igualmente.",
       "de": "„Freut mich.“ „Gleichfalls.“"
@@ -411,6 +433,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Con permiso, necesito pasar.",
       "de": "Entschuldigung, ich muss vorbei."
@@ -429,6 +452,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Disculpe, ¿me puede ayudar?",
       "de": "Entschuldigen Sie, können Sie mir helfen?"
@@ -446,6 +470,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Lo siento mucho, llegué tarde.",
       "de": "Es tut mir sehr leid, ich bin zu spät gekommen."
@@ -464,6 +489,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Mucho gusto, me llamo Pablo.",
       "de": "Freut mich, ich heiße Pablo."
@@ -481,6 +507,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Cómo se llama usted, por favor?",
       "de": "Wie heißen Sie, bitte?"
@@ -498,6 +525,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Me llamo Sofía y soy alemana.",
       "de": "Ich heiße Sofía und bin Deutsche."
@@ -515,6 +543,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Buenos días, ¿cómo está usted?",
       "de": "Guten Morgen, wie geht es Ihnen?"
@@ -532,6 +561,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Hasta mañana, que descanse.",
       "de": "Bis morgen, schlafen Sie gut."
@@ -550,6 +580,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Nos vemos el viernes.",
       "de": "Wir sehen uns am Freitag."
@@ -568,6 +599,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "¡Hola, Juan! ¿Qué tal?",
       "de": "Hallo, Juan! Wie geht’s?"
@@ -586,6 +618,7 @@
     "pos": "verb",
     "level": "B1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Le agradezco su amabilidad.",
       "de": "Ich danke Ihnen für Ihre Freundlichkeit."
@@ -610,6 +643,7 @@
     "pos": "noun",
     "level": "B1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Me da permiso de entrar?",
       "de": "Erlauben Sie mir einzutreten?"
@@ -627,6 +661,7 @@
     "pos": "adj",
     "level": "B1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "El mesero fue muy cortés.",
       "de": "Der Kellner war sehr höflich."
@@ -648,6 +683,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Gracias por todo, que le vaya bien.",
       "de": "Danke für alles, alles Gute für Sie."
@@ -666,6 +702,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "No se preocupe, no pasa nada.",
       "de": "Machen Sie sich keine Sorgen, das macht nichts."
@@ -683,6 +720,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Buenas tardes, a sus órdenes.",
       "de": "Guten Tag, womit kann ich dienen?"
@@ -701,6 +739,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "—¡Juan! —¿Mande?",
       "de": "„Juan!“ „Ja, bitte?“"
@@ -718,6 +757,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "begruessung",
+    "added": "2026-11-19",
     "example": {
       "es": "Le agradezco mucho su atención.",
       "de": "Ich danke Ihnen sehr für Ihre Aufmerksamkeit."

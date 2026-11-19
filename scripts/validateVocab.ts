@@ -176,6 +176,19 @@ export function checkAdjective(v: Vocab): string[] {
   return out;
 }
 
+/** 'YYYY-MM-DD' that names an existing day (no 2026-02-30, no month 13). */
+export function isCalendarDate(text: string): boolean {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);
+  if (!m) return false;
+  const [y, mo, d] = [Number(m[1]), Number(m[2]), Number(m[3])];
+  const date = new Date(Date.UTC(y, mo - 1, d));
+  return (
+    date.getUTCFullYear() === y &&
+    date.getUTCMonth() === mo - 1 &&
+    date.getUTCDate() === d
+  );
+}
+
 /** Semantic checks for one schema-valid entry. */
 function checkEntry(v: Vocab, file: string): string[] {
   const out: string[] = [];
@@ -185,6 +198,8 @@ function checkEntry(v: Vocab, file: string): string[] {
   if (v.de.some((d) => d !== d.trim()))
     out.push("de-Eintrag mit Leerzeichen am Rand");
   if (v.es !== v.es.trim()) out.push("es mit Leerzeichen am Rand");
+  if (!isCalendarDate(v.added))
+    out.push(`added "${v.added}" ist kein gültiges Kalenderdatum`);
 
   if (v.pos === "verb" && !v.verb) out.push("Verb ohne verb-Objekt");
   if (v.pos !== "verb" && v.verb) out.push("verb-Objekt bei Nicht-Verb");

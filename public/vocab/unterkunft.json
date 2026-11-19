@@ -9,6 +9,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Necesito una habitación doble.",
       "de": "Ich brauche ein Doppelzimmer."
@@ -26,6 +27,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "El hotel está cerca de la plaza.",
       "de": "Das Hotel liegt nahe am Platz."
@@ -44,6 +46,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Vivo en Ciudad de México.",
       "de": "Ich wohne in Mexiko-Stadt."
@@ -66,6 +69,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Tengo una reservación para dos noches.",
       "de": "Ich habe eine Reservierung für zwei Nächte."
@@ -107,6 +111,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Me quedo tres noches en el hotel.",
       "de": "Ich bleibe drei Nächte im Hotel."
@@ -128,6 +133,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Olvidé la llave en la habitación.",
       "de": "Ich habe den Schlüssel im Zimmer vergessen."
@@ -150,6 +156,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Quiero reservar una habitación para el viernes.",
       "de": "Ich möchte ein Zimmer für Freitag reservieren."
@@ -171,6 +178,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "El aire acondicionado no funciona.",
       "de": "Die Klimaanlage funktioniert nicht."
@@ -193,6 +201,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Pueden limpiar la habitación, por favor?",
       "de": "Können Sie bitte das Zimmer reinigen?"
@@ -215,6 +224,7 @@
     "pos": "verb",
     "level": "B1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Nos alojamos en un hostal del centro.",
       "de": "Wir übernachten in einem Hostal im Zentrum."
@@ -236,6 +246,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "La llave está en la recepción.",
       "de": "Der Schlüssel ist an der Rezeption."
@@ -254,6 +265,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "El baño está limpio.",
       "de": "Das Bad ist sauber."
@@ -271,6 +283,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "La habitación tiene dos camas.",
       "de": "Das Zimmer hat zwei Betten."
@@ -288,6 +301,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "La puerta no cierra bien.",
       "de": "Die Tür schließt nicht richtig."
@@ -306,6 +320,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "¿El wifi es gratis?",
       "de": "Ist das WLAN kostenlos?"
@@ -324,6 +339,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Tengo una reservación a nombre de Müller.",
       "de": "Ich habe eine Reservierung auf den Namen Müller."
@@ -342,6 +358,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Buscamos un hostal barato.",
       "de": "Wir suchen ein günstiges Hostal."
@@ -359,6 +376,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Cuál es la contraseña del wifi?",
       "de": "Wie lautet das WLAN-Passwort?"
@@ -376,6 +394,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Pregunte en la recepción.",
       "de": "Fragen Sie an der Rezeption."
@@ -393,6 +412,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Necesitamos más toallas.",
       "de": "Wir brauchen mehr Handtücher."
@@ -410,6 +430,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "La ducha no tiene agua caliente.",
       "de": "In der Dusche gibt es kein warmes Wasser."
@@ -427,6 +448,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Puedo dejar mi equipaje aquí?",
       "de": "Kann ich mein Gepäck hier lassen?"
@@ -445,6 +467,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "El ascensor está descompuesto.",
       "de": "Der Aufzug ist kaputt."
@@ -462,6 +485,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "El aire acondicionado hace mucho ruido.",
       "de": "Die Klimaanlage ist sehr laut."
@@ -480,6 +504,7 @@
     "pos": "noun",
     "level": "B1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Los huéspedes desayunan de siete a diez.",
       "de": "Die Gäste frühstücken von sieben bis zehn."
@@ -497,6 +522,7 @@
     "pos": "noun",
     "level": "B1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Quisiera otra almohada, por favor.",
       "de": "Ich hätte gern noch ein Kopfkissen."
@@ -515,6 +541,7 @@
     "pos": "noun",
     "level": "B1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Las sábanas están sucias.",
       "de": "Die Laken sind schmutzig."
@@ -532,6 +559,7 @@
     "pos": "noun",
     "level": "B1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Hace calor; ¿hay un ventilador?",
       "de": "Es ist heiß; gibt es einen Ventilator?"
@@ -550,6 +578,7 @@
     "pos": "adj",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Hay una habitación libre?",
       "de": "Gibt es ein freies Zimmer?"
@@ -568,6 +597,7 @@
     "pos": "adj",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Esa habitación está ocupada.",
       "de": "Dieses Zimmer ist belegt."
@@ -585,6 +615,7 @@
     "pos": "adj",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Buscamos un hotel tranquilo.",
       "de": "Wir suchen ein ruhiges Hotel."
@@ -602,6 +633,7 @@
     "pos": "adj",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "La habitación está limpia.",
       "de": "Das Zimmer ist sauber."
@@ -620,6 +652,7 @@
     "pos": "adj",
     "level": "B1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "La regadera está descompuesta.",
       "de": "Die Dusche ist kaputt."
@@ -638,6 +671,7 @@
     "pos": "adj",
     "level": "B1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "¿El desayuno está incluido?",
       "de": "Ist das Frühstück inbegriffen?"
@@ -655,6 +689,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Tiene habitaciones libres para esta noche?",
       "de": "Haben Sie heute Nacht freie Zimmer?"
@@ -672,6 +707,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "Buenas tardes, la llave del 205, por favor.",
       "de": "Guten Tag, den Schlüssel für 205, bitte."
@@ -689,6 +725,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Hay wifi en el hotel?",
       "de": "Gibt es WLAN im Hotel?"
@@ -706,6 +743,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "No hay agua caliente; quisiera presentar una queja.",
       "de": "Es gibt kein warmes Wasser; ich möchte mich beschweren."
@@ -724,6 +762,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "El secador no funciona.",
       "de": "Der Föhn funktioniert nicht."
@@ -742,6 +781,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "unterkunft",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Hay secadora para la ropa?",
       "de": "Gibt es einen Wäschetrockner für die Wäsche?"

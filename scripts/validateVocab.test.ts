@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { Vocab } from "../src/domain/types";
 import {
   checkVerb,
+  isCalendarDate,
   MIN_PER_TOPIC,
   validateIndex,
   validateVocab,
@@ -15,6 +16,7 @@ function entry(over: Partial<Vocab> & Record<string, unknown> = {}): Vocab {
     pos: "noun",
     level: "A1",
     topic: "begruessung",
+    added: "2026-11-19",
     example: { es: "Mi casa es tu casa.", de: "Mein Haus ist dein Haus." },
     gender: "f",
     plural: "casas",
@@ -98,6 +100,24 @@ describe("validateVocab", () => {
     ];
     const r = run(bad as Vocab[]);
     expect(r.errors.length).toBeGreaterThanOrEqual(5);
+  });
+
+  it("added is required, has the format YYYY-MM-DD and is a real calendar date", () => {
+    const { added: _added, ...without } = entry();
+    void _added;
+    expect(run([without as Vocab]).errors.join()).toMatch(/added/);
+    expect(run([entry({ added: "19.11.2026" })]).errors.join()).toMatch(
+      /added/,
+    );
+    expect(run([entry({ added: "2026-02-30" })]).errors.join()).toMatch(
+      /kein gültiges Kalenderdatum/,
+    );
+    expect(run([entry({ added: "2026-13-01" })]).errors).toHaveLength(1);
+    expect(run([entry({ added: "2028-02-29" })]).errors).toEqual([]);
+    expect(isCalendarDate("2026-11-19")).toBe(true);
+    expect(isCalendarDate("2027-02-29")).toBe(false);
+    expect(isCalendarDate("2026-04-31")).toBe(false);
+    expect(isCalendarDate("2026-1-19")).toBe(false);
   });
 
   it("duplicate IDs and duplicate words across files", () => {

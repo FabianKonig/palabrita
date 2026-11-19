@@ -8,6 +8,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Espero el camión en la esquina.",
       "de": "Ich warte an der Ecke auf den Bus."
@@ -30,6 +31,7 @@
     "pos": "verb",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "La clase empieza a las nueve.",
       "de": "Der Unterricht beginnt um neun Uhr."
@@ -53,6 +55,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "El viaje dura tres horas.",
       "de": "Die Fahrt dauert drei Stunden."
@@ -75,6 +78,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Tardamos diez minutos en llegar.",
       "de": "Wir brauchen zehn Minuten bis zur Ankunft."
@@ -97,6 +101,7 @@
     "pos": "verb",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "La fiesta termina a medianoche.",
       "de": "Die Feier endet um Mitternacht."
@@ -118,6 +123,7 @@
     "pos": "verb",
     "level": "B1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Me despierto a las seis todos los días.",
       "de": "Ich wache jeden Tag um sechs auf."
@@ -141,6 +147,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Hoy es un día bonito.",
       "de": "Heute ist ein schöner Tag."
@@ -158,6 +165,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Estoy aquí una semana.",
       "de": "Ich bin eine Woche hier."
@@ -175,6 +183,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Viajamos el próximo mes.",
       "de": "Wir reisen nächsten Monat."
@@ -192,6 +201,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Vivo aquí desde hace un año.",
       "de": "Ich wohne seit einem Jahr hier."
@@ -210,6 +220,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "¿A qué hora sale el camión?",
       "de": "Um wie viel Uhr fährt der Bus?"
@@ -228,6 +239,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Por la mañana desayunamos en el hotel.",
       "de": "Morgens frühstücken wir im Hotel."
@@ -245,6 +257,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Por la tarde visitamos el mercado.",
       "de": "Am Nachmittag besuchen wir den Markt."
@@ -263,6 +276,7 @@
     "pos": "noun",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Esta noche vamos al cine.",
       "de": "Heute Abend gehen wir ins Kino."
@@ -280,6 +294,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Espere un minuto, por favor.",
       "de": "Warten Sie bitte eine Minute."
@@ -297,6 +312,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "El fin de semana vamos al lago.",
       "de": "Am Wochenende fahren wir zum See."
@@ -315,6 +331,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Mi reloj está atrasado.",
       "de": "Meine Uhr geht nach."
@@ -332,6 +349,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "El lunes empiezo mi curso de español.",
       "de": "Am Montag beginne ich meinen Spanischkurs."
@@ -349,6 +367,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "El sábado hay mercado en el pueblo.",
       "de": "Am Samstag ist im Dorf Markt."
@@ -366,6 +385,7 @@
     "pos": "noun",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "El domingo descansamos.",
       "de": "Am Sonntag ruhen wir uns aus."
@@ -383,6 +403,7 @@
     "pos": "noun",
     "level": "B1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Al mediodía hace mucho calor.",
       "de": "Mittags ist es sehr heiß."
@@ -400,6 +421,7 @@
     "pos": "noun",
     "level": "B1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Mañana es mi cumpleaños.",
       "de": "Morgen ist mein Geburtstag."
@@ -417,6 +439,7 @@
     "pos": "num",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Tengo cincuenta y cuatro años.",
       "de": "Ich bin vier-und-fünfzig Jahre alt."
@@ -434,6 +457,7 @@
     "pos": "num",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Son trescientos veintisiete pesos.",
       "de": "Das sind drei-hundert-sieben-und-zwanzig Pesos."
@@ -451,6 +475,7 @@
     "pos": "num",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "La ciudad está a dos mil cuatrocientos ochenta y ocho metros de altura.",
       "de": "Die Stadt liegt zwei-tausend-vier-hundert-acht-und-achtzig Meter hoch."
@@ -468,6 +493,7 @@
     "pos": "num",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Es el número ochocientos sesenta y uno.",
       "de": "Das ist Nummer acht-hundert-ein-und-sechzig."
@@ -485,6 +511,7 @@
     "pos": "adv",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Hoy hace mucho sol.",
       "de": "Heute ist es sehr sonnig."
@@ -502,6 +529,7 @@
     "pos": "adv",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Ahora no puedo hablar.",
       "de": "Jetzt kann ich nicht sprechen."
@@ -519,6 +547,7 @@
     "pos": "num",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "El libro tiene ochenta y nueve páginas.",
       "de": "Das Buch hat neun-und-achtzig Seiten."
@@ -536,6 +565,7 @@
     "pos": "num",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "El estadio tiene setecientos cincuenta y tres asientos.",
       "de": "Das Stadion hat sieben-hundert-drei-und-fünfzig Sitze."
@@ -553,6 +583,7 @@
     "pos": "num",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Vivo a cuatro mil quinientos doce kilómetros de aquí.",
       "de": "Ich wohne vier-tausend-fünf-hundert-zwölf Kilometer von hier entfernt."
@@ -570,6 +601,7 @@
     "pos": "num",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Hay ciento ochenta y seis personas en la fila.",
       "de": "In der Schlange stehen ein-hundert-sechs-und-achtzig Personen."
@@ -587,6 +619,7 @@
     "pos": "adv",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Ayer llegamos a Antigua.",
       "de": "Gestern sind wir in Antigua angekommen."
@@ -604,6 +637,7 @@
     "pos": "adv",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Mañana salimos temprano.",
       "de": "Morgen fahren wir früh los."
@@ -621,6 +655,7 @@
     "pos": "num",
     "level": "B1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "La casa cuesta veintitrés mil ciento once dólares.",
       "de": "Das Haus kostet drei-und-zwanzig-tausend-ein-hundert-elf Dollar."
@@ -638,6 +673,7 @@
     "pos": "num",
     "level": "B1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Es mi primera vez en Guatemala.",
       "de": "Es ist mein erstes Mal in Guatemala."
@@ -655,6 +691,7 @@
     "pos": "adv",
     "level": "B1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Siempre desayuno a las siete.",
       "de": "Ich frühstücke immer um sieben."
@@ -673,6 +710,7 @@
     "pos": "adv",
     "level": "B1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Primero comemos y luego caminamos.",
       "de": "Zuerst essen wir und danach gehen wir spazieren."
@@ -690,6 +728,7 @@
     "pos": "phrase",
     "level": "A1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Perdón, ¿qué hora es?",
       "de": "Entschuldigung, wie spät ist es?"
@@ -707,6 +746,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "¿Qué día es hoy? ¿Jueves?",
       "de": "Welcher Tag ist heute? Donnerstag?"
@@ -724,6 +764,7 @@
     "pos": "phrase",
     "level": "A2",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "Son las tres y media.",
       "de": "Es ist halb vier."
@@ -741,6 +782,7 @@
     "pos": "phrase",
     "level": "B1",
     "topic": "zahlen-zeit",
+    "added": "2026-11-19",
     "example": {
       "es": "¿A qué hora abre el museo?",
       "de": "Um wie viel Uhr öffnet das Museum?"
