@@ -7,7 +7,6 @@ import {
   applyImport,
   buildExport,
   mergeCards,
-  mergeDaily,
   mergeUserVocab,
   parseExport,
   SCHEMA_VERSION,
@@ -54,11 +53,6 @@ async function seed() {
   const db = await getDb();
   await db.put("settings", { ...DEFAULT_SETTINGS, maxLevel: "A2" }, "main");
   await db.put("cards", card("v1", 100, 6));
-  await db.put("daily", {
-    dayKey: "2026-01-15",
-    newIntroduced: 2,
-    reviewed: 5,
-  });
   await db.put("userVocab", word("u1", 10));
 }
 
@@ -110,22 +104,6 @@ describe("merge rules", () => {
     expect(merged[0].interval).toBe(1);
   });
 
-  it("daily: maximum per counter and day", () => {
-    const merged = mergeDaily(
-      [{ dayKey: "d1", newIntroduced: 5, reviewed: 1 }],
-      [
-        { dayKey: "d1", newIntroduced: 2, reviewed: 7 },
-        { dayKey: "d2", newIntroduced: 1, reviewed: 1 },
-      ],
-    );
-    expect(merged.find((d) => d.dayKey === "d1")).toEqual({
-      dayKey: "d1",
-      newIntroduced: 5,
-      reviewed: 7,
-    });
-    expect(merged).toHaveLength(2);
-  });
-
   it("userVocab: larger createdAt wins, tie keeps local", () => {
     const merged = mergeUserVocab(
       [word("a", 10, "local"), word("b", 10, "local")],
@@ -153,7 +131,6 @@ describe("parseExport validation", () => {
     exportedAt: "x",
     settings: DEFAULT_SETTINGS,
     cards: [],
-    daily: [],
     userVocab: [],
   });
 
@@ -161,20 +138,13 @@ describe("parseExport validation", () => {
     expect(() => parseExport(JSON.stringify(valid()))).not.toThrow();
   });
 
-  it("imports an old file with newPerDay, direction and cards without step", async () => {
-    const old = {
-      ...valid(),
-      settings: { ...DEFAULT_SETTINGS, newPerDay: 25, direction: "es-de" },
-      cards: [card("v1", 100, 6)],
-    };
-    const file = parseExport(JSON.stringify(old));
-    expect(file.settings).not.toHaveProperty("newPerDay");
-    expect(file.settings).not.toHaveProperty("direction");
+  it("accepts cards without step (review phase)", async () => {
+    const file = parseExport(
+      JSON.stringify({ ...valid(), cards: [card("v1", 100, 6)] }),
+    );
     expect(file.cards[0].step).toBeUndefined();
     await applyImport(file, "replace");
-    const db = await getDb();
-    expect(await db.getAll("cards")).toHaveLength(1);
-    expect(await db.get("settings", "main")).not.toHaveProperty("newPerDay");
+    expect(await (await getDb()).getAll("cards")).toHaveLength(1);
   });
 
   it("rejects broken JSON, newer versions and bad structure", () => {

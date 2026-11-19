@@ -64,8 +64,6 @@ export const TOPICS: TopicPlan[] = [
   ),
 ];
 
-export const TOPIC_KEYS = TOPICS.map((t) => t.key);
-
 export function topicTotal(t: TopicPlan): number {
   return t.quota.verb + t.quota.noun + t.quota.misc + t.quota.phrase;
 }

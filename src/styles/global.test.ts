@@ -111,7 +111,7 @@ describe("dictionary list tiles", () => {
   });
 
   it("overrides the generic link-list alignment (same specificity, later in the file)", () => {
-    const generic = css.indexOf(".link-list > li > a,");
+    const generic = css.indexOf(".link-list > li > a {");
     const tile = css.indexOf(".vocab-list > li > a {");
     expect(generic).toBeGreaterThan(-1);
     expect(tile).toBeGreaterThan(generic);

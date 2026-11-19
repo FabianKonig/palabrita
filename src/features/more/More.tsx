@@ -3,18 +3,11 @@ import { Brand } from "../../components/Brand";
 import type { WelcomeOutletContext } from "../../components/WelcomeOverlay";
 import { APP_VERSION } from "../../version";
 
-interface Entry {
-  to: string;
-  label: string;
-  /** false = comes with a later task, shown disabled. */
-  enabled: boolean;
-}
-
-const ENTRIES: Entry[] = [
-  { to: "/settings", label: "Einstellungen", enabled: true },
-  { to: "/legend", label: "Legende", enabled: true },
-  { to: "/privacy", label: "Datenschutz", enabled: true },
-  { to: "/imprint", label: "Impressum", enabled: true },
+const ENTRIES = [
+  { to: "/settings", label: "Einstellungen" },
+  { to: "/legend", label: "Legende" },
+  { to: "/privacy", label: "Datenschutz" },
+  { to: "/imprint", label: "Impressum" },
 ];
 
 export function More() {
@@ -25,11 +18,7 @@ export function More() {
       <ul className="link-list">
         {ENTRIES.map((e) => (
           <li key={e.to}>
-            {e.enabled ? (
-              <Link to={e.to}>{e.label}</Link>
-            ) : (
-              <span aria-disabled="true">{e.label} (kommt bald)</span>
-            )}
+            <Link to={e.to}>{e.label}</Link>
           </li>
         ))}
       </ul>

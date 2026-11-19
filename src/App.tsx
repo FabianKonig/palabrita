@@ -75,8 +75,6 @@ export function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Study />} />
-            {/* Old link of the former separate Lernen tab. */}
-            <Route path="study" element={<Navigate to="/" replace />} />
             <Route path="dictionary" element={<Dictionary />} />
             <Route path="dictionary/:id" element={<VocabDetail />} />
             <Route path="legend" element={<Legend />} />

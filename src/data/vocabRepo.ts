@@ -2,7 +2,6 @@ import type { Topic, Vocab } from "../domain/types";
 import { getDb } from "./db";
 
 interface VocabIndex {
-  version: number;
   topics: Topic[];
 }
 
@@ -37,10 +36,8 @@ function isValidVocab(v: unknown): v is Vocab {
 
 async function load() {
   const index = await fetchJson<VocabIndex>("vocab/index.json");
-  // Several topics may point to the same file, so load each file once.
-  const files = [...new Set(index.topics.map((t) => t.file))];
   const lists = await Promise.all(
-    files.map((f) => fetchJson<unknown[]>(`vocab/${f}`)),
+    index.topics.map((t) => fetchJson<unknown[]>(`vocab/${t.file}`)),
   );
 
   const vocab = new Map<string, Vocab>();

@@ -1,40 +1,25 @@
 import { openDB, type DBSchema, type IDBPDatabase } from "idb";
-import type { Card, Daily, Settings, Vocab } from "../domain/types";
+import type { Card, Settings, Vocab } from "../domain/types";
 
 export const DB_NAME = "palabrita";
-export const DB_VERSION = 2;
+export const DB_VERSION = 1;
 
 export interface PalabritaDB extends DBSchema {
   settings: { key: string; value: Settings };
-  cards: {
-    key: [string, string];
-    value: Card;
-    indexes: { "by-due": number };
-  };
-  daily: { key: string; value: Daily };
+  cards: { key: [string, string]; value: Card };
   userVocab: { key: string; value: Vocab };
 }
 
 let dbPromise: Promise<IDBPDatabase<PalabritaDB>> | null = null;
 
-/** Four stores. Version 1 also created an unused `meta` store, version 2 drops it. */
+/** Three stores: settings, cards, userVocab (empty until the first own word). */
 export function getDb(): Promise<IDBPDatabase<PalabritaDB>> {
   if (!dbPromise) {
     dbPromise = openDB<PalabritaDB>(DB_NAME, DB_VERSION, {
-      upgrade(db, oldVersion) {
-        if (oldVersion < 1) {
-          db.createObjectStore("settings");
-          const cards = db.createObjectStore("cards", {
-            keyPath: ["vocabId", "dir"],
-          });
-          cards.createIndex("by-due", "due");
-          db.createObjectStore("daily", { keyPath: "dayKey" });
-          db.createObjectStore("userVocab", { keyPath: "id" });
-        }
-        if (oldVersion === 1) {
-          // The store was never written to; the schema version lives in the export file.
-          (db as unknown as IDBDatabase).deleteObjectStore("meta");
-        }
+      upgrade(db) {
+        db.createObjectStore("settings");
+        db.createObjectStore("cards", { keyPath: ["vocabId", "dir"] });
+        db.createObjectStore("userVocab", { keyPath: "id" });
       },
     });
   }

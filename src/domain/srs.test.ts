@@ -131,13 +131,6 @@ describe("review phase", () => {
     expect(g.ease).toBe(MAX_EASE);
   });
 
-  it("caps an old ease of 3.4 at 3.0, the interval still uses 3.4", () => {
-    const r = review(reviewCard({ ease: 3.4, interval: 10 }), "good", NOW);
-    expect(r.interval).toBe(34);
-    expect(r.ease).toBe(3.0);
-    expect(review(reviewCard({ ease: 3.4 }), "again", NOW).ease).toBe(3.0);
-  });
-
   it("rounds the ease to 2 decimals", () => {
     let c = reviewCard({ ease: 2.35 });
     c = review(c, "good", NOW);

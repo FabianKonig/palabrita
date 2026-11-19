@@ -1,15 +1,17 @@
 import "fake-indexeddb/auto";
 import { IDBFactory } from "fake-indexeddb";
 import { beforeEach, describe, expect, it } from "vitest";
-import { dayKey } from "../domain/day";
 import { newCard, review } from "../domain/srs";
 import { DEFAULT_SETTINGS } from "../domain/types";
-import { getAllCards, getCard, saveReview } from "./cardRepo";
-import { closeDb } from "./db";
+import { getAllCards, saveReview } from "./cardRepo";
+import { closeDb, getDb } from "./db";
 import { getSettings, saveSettings } from "./settingsRepo";
-import { getDaily } from "./statsRepo";
 
 const NOW = new Date(2026, 0, 15, 10, 0).getTime();
+
+async function getCard(vocabId: string, dir: "de-es" | "es-de") {
+  return (await getDb()).get("cards", [vocabId, dir]);
+}
 
 beforeEach(async () => {
   await closeDb();
@@ -19,7 +21,7 @@ beforeEach(async () => {
 describe("cardRepo", () => {
   it('keeps progress across a "reload" (closed and reopened connection)', async () => {
     const reviewed = review(newCard("v0001", "de-es", NOW), "good", NOW);
-    await saveReview(reviewed, true, dayKey(NOW));
+    await saveReview(reviewed);
 
     await closeDb(); // simulates page reload: new connection, same database
 
@@ -28,21 +30,10 @@ describe("cardRepo", () => {
     expect(await getAllCards()).toHaveLength(1);
   });
 
-  it("counts reviewed and newIntroduced per day", async () => {
-    const c = review(newCard("v1", "de-es", NOW), "good", NOW);
-    await saveReview(c, true, "2026-01-15");
-    await saveReview(review(c, "good", NOW), false, "2026-01-15");
-    expect(await getDaily("2026-01-15")).toEqual({
-      dayKey: "2026-01-15",
-      newIntroduced: 1,
-      reviewed: 2,
-    });
-  });
-
   it("overwrites the same card instead of duplicating it", async () => {
     const c = review(newCard("v1", "de-es", NOW), "good", NOW);
-    await saveReview(c, true, "2026-01-15");
-    await saveReview(review(c, "good", NOW), false, "2026-01-15");
+    await saveReview(c);
+    await saveReview(review(c, "good", NOW));
     expect(await getAllCards()).toHaveLength(1);
   });
 });
@@ -65,11 +56,7 @@ describe("settingsRepo", () => {
   });
 
   it("deletes no cards when settings change", async () => {
-    await saveReview(
-      review(newCard("v1", "de-es", NOW), "good", NOW),
-      true,
-      dayKey(NOW),
-    );
+    await saveReview(review(newCard("v1", "de-es", NOW), "good", NOW));
     await saveSettings({ ...DEFAULT_SETTINGS, maxLevel: "A1" });
     await saveSettings(DEFAULT_SETTINGS);
     expect(await getCard("v1", "de-es")).toBeDefined();

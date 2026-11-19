@@ -1,4 +1,4 @@
-import type { Card, Daily, Settings, Vocab } from "../domain/types";
+import type { Card, Settings, Vocab } from "../domain/types";
 import { DEFAULT_SETTINGS } from "../domain/types";
 import { getDb } from "./db";
 
@@ -9,7 +9,6 @@ export interface ExportFile {
   exportedAt: string;
   settings: Settings;
   cards: Card[];
-  daily: Daily[];
   userVocab: Vocab[];
 }
 
@@ -50,16 +49,6 @@ function validCard(c: unknown): c is Card {
   );
 }
 
-function validDaily(d: unknown): d is Daily {
-  return (
-    isObj(d) &&
-    typeof d.dayKey === "string" &&
-    /^\d{4}-\d{2}-\d{2}$/.test(d.dayKey) &&
-    isNum(d.newIntroduced) &&
-    isNum(d.reviewed)
-  );
-}
-
 function validUserVocab(v: unknown): v is Vocab {
   return (
     isObj(v) &&
@@ -92,9 +81,7 @@ export function parseExport(text: string): ExportFile {
     throw new Error("Die Einstellungen in der Datei sind ungültig.");
   if (!Array.isArray(raw.cards) || !raw.cards.every(validCard))
     throw new Error("Die Karten in der Datei sind ungültig.");
-  if (!Array.isArray(raw.daily) || !raw.daily.every(validDaily))
-    throw new Error("Die Tagesdaten in der Datei sind ungültig.");
-  const userVocab = raw.userVocab ?? [];
+  const userVocab = raw.userVocab;
   if (!Array.isArray(userVocab) || !userVocab.every(validUserVocab))
     throw new Error("Die eigenen Wörter in der Datei sind ungültig.");
   return {
@@ -105,7 +92,6 @@ export function parseExport(text: string): ExportFile {
       theme: raw.settings.theme,
     },
     cards: raw.cards,
-    daily: raw.daily,
     userVocab,
   };
 }
@@ -124,7 +110,6 @@ export async function buildExport(now = Date.now()): Promise<ExportFile> {
     exportedAt: new Date(now).toISOString(),
     settings,
     cards: await db.getAll("cards"),
-    daily: await db.getAll("daily"),
     userVocab: await db.getAll("userVocab"),
   };
 }
@@ -139,25 +124,6 @@ export function mergeCards(local: Card[], incoming: Card[]): Card[] {
     if (!mine) map.set(cardKey(c), c);
     else if ((c.lastReviewed ?? -Infinity) > (mine.lastReviewed ?? -Infinity))
       map.set(cardKey(c), c);
-  }
-  return [...map.values()];
-}
-
-/** Per dayKey the maximum of both counters. */
-export function mergeDaily(local: Daily[], incoming: Daily[]): Daily[] {
-  const map = new Map(local.map((d) => [d.dayKey, d]));
-  for (const d of incoming) {
-    const mine = map.get(d.dayKey);
-    map.set(
-      d.dayKey,
-      mine
-        ? {
-            dayKey: d.dayKey,
-            newIntroduced: Math.max(mine.newIntroduced, d.newIntroduced),
-            reviewed: Math.max(mine.reviewed, d.reviewed),
-          }
-        : d,
-    );
   }
   return [...map.values()];
 }
@@ -178,31 +144,23 @@ export async function applyImport(
   mode: ImportMode,
 ): Promise<void> {
   const db = await getDb();
-  const tx = db.transaction(
-    ["settings", "cards", "daily", "userVocab"],
-    "readwrite",
-  );
+  const tx = db.transaction(["settings", "cards", "userVocab"], "readwrite");
   const cards = tx.objectStore("cards");
-  const daily = tx.objectStore("daily");
   const userVocab = tx.objectStore("userVocab");
 
   let nextCards: Card[];
-  let nextDaily: Daily[];
   let nextVocab: Vocab[];
   if (mode === "replace") {
     nextCards = file.cards;
-    nextDaily = file.daily;
     nextVocab = file.userVocab;
     await tx.objectStore("settings").put(file.settings, "main");
-    await Promise.all([cards.clear(), daily.clear(), userVocab.clear()]);
+    await Promise.all([cards.clear(), userVocab.clear()]);
   } else {
     nextCards = mergeCards(await cards.getAll(), file.cards);
-    nextDaily = mergeDaily(await daily.getAll(), file.daily);
     nextVocab = mergeUserVocab(await userVocab.getAll(), file.userVocab);
   }
   await Promise.all([
     ...nextCards.map((c) => cards.put(c)),
-    ...nextDaily.map((d) => daily.put(d)),
     ...nextVocab.map((v) => userVocab.put(v)),
   ]);
   await tx.done;

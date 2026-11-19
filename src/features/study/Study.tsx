@@ -4,7 +4,6 @@ import { SpeakerIcon } from "../../components/icons";
 import { Flashcard } from "../../components/Flashcard";
 import { VerbOverlay } from "../../components/VerbOverlay";
 import { getAllCards, saveReview } from "../../data/cardRepo";
-import { dayKey } from "../../domain/day";
 import {
   cardKey,
   pickNext,
@@ -30,7 +29,6 @@ const GRADE_BUTTONS: { grade: Grade; label: string }[] = [
 interface Session {
   cards: Card[];
   seen: Set<string>;
-  last: string | null;
   rated: number;
   /** Number of "again" ratings in this session. */
   again: number;
@@ -101,7 +99,7 @@ function StudySession({
           sessionSeen: seen,
           lastShown: null,
         });
-        setSession({ cards, seen, last: null, rated: 0, again: 0, pick });
+        setSession({ cards, seen, rated: 0, again: 0, pick });
       })
       .catch((e: unknown) => {
         if (!cancelled) setError(e instanceof Error ? e.message : String(e));
@@ -175,7 +173,7 @@ function StudySession({
       const updated = review(base, grade, now);
       // Early review with "good" leaves the card untouched: nothing to store.
       const changed = updated !== base;
-      if (changed) await saveReview(updated, item.card === null, dayKey(now));
+      if (changed) await saveReview(updated);
 
       const key = cardKey(item.vocabId, item.dir);
       const cards = changed
@@ -198,7 +196,6 @@ function StudySession({
       setSession({
         cards,
         seen,
-        last: key,
         rated: session.rated + 1,
         again: session.again + (grade === "again" ? 1 : 0),
         pick,

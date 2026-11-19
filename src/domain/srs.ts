@@ -11,8 +11,6 @@ export const EASE_GAIN = 0.05;
 export const GRADUATE_DAYS = 1;
 export const MATURE_INTERVAL = 21;
 
-export const GRADES: Grade[] = ["again", "good"];
-
 export function newCard(vocabId: string, dir: Direction, now: number): Card {
   return {
     vocabId,

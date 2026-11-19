@@ -15,9 +15,10 @@ const dir = join(
 const index = JSON.parse(readFileSync(join(dir, "index.json"), "utf8")) as {
   topics: { file: string }[];
 };
-const files: VocabFile[] = [...new Set(index.topics.map((t) => t.file))].map(
-  (file) => ({ file, data: JSON.parse(readFileSync(join(dir, file), "utf8")) }),
-);
+const files: VocabFile[] = index.topics.map(({ file }) => ({
+  file,
+  data: JSON.parse(readFileSync(join(dir, file), "utf8")),
+}));
 
 const report = validateVocab(files, { final });
 const errors = [...validateIndex(index), ...report.errors];

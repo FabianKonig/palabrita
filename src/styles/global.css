@@ -263,10 +263,6 @@ body:has(.session-bar) .screen {
   font-weight: 600;
 }
 
-.tab[aria-disabled="true"] {
-  opacity: 0.4;
-}
-
 /* Flashcard */
 .flashcard {
   display: flex;
@@ -471,8 +467,7 @@ body:has(.session-bar) .screen {
   list-style: none;
 }
 
-.link-list > li > a,
-.link-list > li > span {
+.link-list > li > a {
   display: flex;
   align-items: center;
   min-height: 56px;
@@ -482,10 +477,6 @@ body:has(.session-bar) .screen {
   box-shadow: var(--shadow);
   color: var(--text);
   text-decoration: none;
-}
-
-.link-list > li > span[aria-disabled="true"] {
-  opacity: 0.5;
 }
 
 .center {

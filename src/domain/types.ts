@@ -77,12 +77,6 @@ export interface Card {
   step?: 0 | 1;
 }
 
-export interface Daily {
-  dayKey: string;
-  newIntroduced: number;
-  reviewed: number;
-}
-
 export interface Topic {
   key: string;
   label: string;

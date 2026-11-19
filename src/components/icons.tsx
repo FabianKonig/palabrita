@@ -19,11 +19,6 @@ function Icon({ children }: { children: ReactNode }) {
   );
 }
 
-export const HomeIcon = () => (
-  <Icon>
-    <path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z" />
-  </Icon>
-);
 export const CardsIcon = () => (
   <Icon>
     <rect x="4" y="5" width="16" height="14" rx="3" />

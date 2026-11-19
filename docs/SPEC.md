@@ -50,7 +50,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 ### 3.2 Einstellungen und Datensicherung
 - Es gibt **keine Profile und kein Login**: Fortschritt und Einstellungen gelten für den Browser auf diesem Gerät.
 - Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden angezeigt, persistent gespeichert, jederzeit änderbar) und Theme (System/Hell/Dunkel). Die Version steht nicht hier, sondern unter „Mehr“ unterhalb der Einträge: Zeitstempel des HEAD-Commits zum Bauzeitpunkt (bei Deployment also des Merges auf `main`), beim Build aus Git in `vite.config.ts` eingesetzt, Format `TT.MM.JJJJ, HH:MM UTC`, immer in UTC.
-- Fortschritt exportieren und importieren (JSON-Datei), damit nichts verloren geht, wenn Browserdaten gelöscht werden. Import wahlweise **ersetzen** oder **zusammenführen**. Beim Zusammenführen gewinnt je Karte der Stand mit der neueren letzten Bewertung, die lokalen Einstellungen bleiben unverändert (Details: §10.1b). Ältere Exportdateien bleiben importierbar (§10.1b).
+- Fortschritt exportieren und importieren (JSON-Datei), damit nichts verloren geht, wenn Browserdaten gelöscht werden. Import wahlweise **ersetzen** oder **zusammenführen**. Beim Zusammenführen gewinnt je Karte der Stand mit der neueren letzten Bewertung, die lokalen Einstellungen bleiben unverändert (Details: §10.1b).
 
 ### 3.3 Übersicht und Statistik
 - Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie (Streak). Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung, steht bei jedem Aufruf auf „Beide Richtungen“, wird nicht gespeichert) und den Button „Starten“. Ohne Auswahl startet eine Sitzung über alle Themen.
@@ -236,7 +236,7 @@ package.json  vite.config.ts  tsconfig.json  index.html
 docs/                       # SPEC.md, TASKS.md, vocab-plan.md, FORMSUCHE.md, ABNAHME.md
 public/
   vocab/<thema>.json        # Vokabeln je Thema
-  vocab/index.json          # Liste der Themen-Dateien + Version
+  vocab/index.json          # Liste der Themen-Dateien
   vocab/NOTICE.md           # Quellen- und Lizenzhinweis (Wiktionary, CC BY-SA)
   icons/                    # Logo-SVG und PWA-Icons
 scripts/
@@ -314,7 +314,7 @@ Berechnete Werte (`notation`, `regularity`, `irregularity_types`, alle Formen mi
 
 `public/vocab/index.json`:
 ```json
-{ "version": 1, "topics": [ { "key": "begruessung", "label": "Begrüßung & Höflichkeit", "file": "begruessung.json" }, ... ] }
+{ "topics": [ { "key": "begruessung", "label": "Begrüßung & Höflichkeit", "file": "begruessung.json" }, ... ] }
 ```
 Feste Themen-Schlüssel (13): `begruessung`, `zahlen-zeit`, `essen`, `transport`, `unterkunft`, `einkaufen`, `gesundheit`, `natur`, `orte`, `kultur`, `maya`, `smalltalk`, `grundwortschatz`. `Vocab.topic` ist immer einer dieser Schlüssel, die Labels (deutsch) kommen aus `index.json` und werden für die Filter genutzt. Jede Themendatei ist ein JSON-Array von `Vocab`. Der Loader lädt alle Dateien einmal je Seitenaufruf, validiert minimal (id, de, es, level, ungültige Einträge werden mit Warnung übersprungen) und liefert eine `Map<id, Vocab>`. `vocabRepo` führt statische und eigene Vokabeln (Store `userVocab`) zu einer Map zusammen. Das Thema `eigene` steht nicht in `index.json`, sondern ist in der App fest mit dem Label „Eigene Wörter“ hinterlegt.
 
@@ -327,34 +327,29 @@ Feste Themen-Schlüssel (13): `begruessung`, `zahlen-zeit`, `essen`, `transport`
 - **Verben:** Tags wählt der Nutzer manuell, das Modul `conjugation` liefert die Vorschau. Kein automatisches Raten der Tags.
 
 ### 10.1b Export/Import (`data/exportImport.ts`)
-Exportdatei: `{ schemaVersion, exportedAt, settings, cards, daily, userVocab }`.
-- **Ersetzen:** alle lokalen Daten (Einstellungen, Cards, Daily, userVocab) werden durch die Datei ersetzt, nach Rückfrage.
-- **Zusammenführen:** Einstellungen bleiben lokal unverändert. `cards`: pro Schlüssel `[vocabId, dir]` gewinnt der Stand mit dem größeren `lastReviewed` (bei Gleichstand der lokale; `null` verliert gegen einen Wert); nur in einer Seite vorhandene Karten bleiben. `daily`: je `dayKey` das Maximum von `newIntroduced` und `reviewed`. `userVocab`: per ID, bei Konflikt gewinnt der Eintrag mit dem größeren `createdAt`, bei Gleichstand der lokale.
+Exportdatei: `{ schemaVersion, exportedAt, settings, cards, userVocab }`.
+- **Ersetzen:** alle lokalen Daten (Einstellungen, Cards, userVocab) werden durch die Datei ersetzt, nach Rückfrage.
+- **Zusammenführen:** Einstellungen bleiben lokal unverändert. `cards`: pro Schlüssel `[vocabId, dir]` gewinnt der Stand mit dem größeren `lastReviewed` (bei Gleichstand der lokale; `null` verliert gegen einen Wert); nur in einer Seite vorhandene Karten bleiben. `userVocab`: per ID, bei Konflikt gewinnt der Eintrag mit dem größeren `createdAt`, bei Gleichstand der lokale.
 - Import validiert `schemaVersion` und Struktur, lehnt unbekannte neuere Versionen mit Fehlermeldung ab und ändert bei Fehlern nichts (alles-oder-nichts in einer Transaktion).
-- Die Felder `settings.newPerDay` und `settings.direction` in älteren Dateien werden **ignoriert** und nicht mehr verlangt. Karten ohne `step` sind gültig.
+- Karten ohne `step` sind gültig (Wiederholungsphase).
 
-### 10.2 IndexedDB (`palabrita`, Version 2)
+### 10.2 IndexedDB (`palabrita`, Version 1)
 
 | Store | Key | Wert |
 |---|---|---|
-| `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, theme: 'system'\|'light'\|'dark' }` (Defaults: B1, system). Die Richtung ist keine Einstellung, sondern gilt nur für die Sitzung (§3.3). Vorhandene Datensätze mit früheren Feldern (`newPerDay`, `autoSpeak`, `direction`) verursachen keinen Fehler, die App liest nur die bekannten Felder, der Import ignoriert die übrigen. |
+| `settings` | `'main'` (ein Datensatz) | `{ maxLevel: Level, theme: 'system'\|'light'\|'dark' }` (Defaults: B1, system). Die Richtung ist keine Einstellung, sondern gilt nur für die Sitzung (§3.3). |
 | `cards` | `[vocabId, dir]` | `{ vocabId, dir: 'de-es'\|'es-de', due: number(ms), interval: number(Tage), ease: number, reps: number, lapses: number, lastReviewed: number\|null, state: 'new'\|'learning'\|'mature', step?: 0\|1 }`. `step`: siehe §11. |
-| `daily` | `dayKey` | `{ dayKey: 'YYYY-MM-DD', newIntroduced: number, reviewed: number }` |
 | `userVocab` | `id` | vollständiges `Vocab` mit `origin: 'user'`, `level: null`, `topic: 'eigene'`, `createdAt` |
 
-Index auf `cards`: `by-due` = `due`.
-
-Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. `daily.newIntroduced` zählt neu eingeführte **Karten** (nicht Vokabeln) bei der ersten Bewertung. `daily.reviewed` zählt **jede gespeicherte Bewertung**, auch Wiederholungen derselben Karte am selben Tag. Ein „Gewusst“ bei der Vorab-Wiederholung (§11) ändert nichts an der Karte, wird **nicht gespeichert** und zählt **nicht**. Zwischen Geräten hilft nur Export/Import.
+Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zwischen Geräten hilft nur Export/Import. Eine Karte wird nur gespeichert, wenn die Bewertung sie ändert (nicht bei „Gewusst“ in der Vorab-Wiederholung, §11).
 
 Eine Karte wird **erst beim ersten Lernen angelegt** (kein Vorab-Befüllen von 1000 Karten). „Neu“ = Vokabel ohne Card-Eintrag für diese Richtung.
 
-**Alle vier Stores werden gleich beim Anlegen erzeugt**, auch `userVocab` (zunächst leer), damit für eigene Wörter keine Migration nötig ist. Das Feld `step` braucht **keine Migration**: Karten ohne `step` gelten als Wiederholungsphase. Version 1 legte zusätzlich einen nie genutzten Store `meta` an, Version 2 löscht ihn beim Upgrade (die `schemaVersion` steht nur in der Exportdatei).
-
-Migrationen laufen über `upgrade(db, oldVersion)` in `data/db.ts`. Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht). Löscht der Nutzer ein **eigenes** Wort, werden auch seine Cards gelöscht (Rückfrage in der UI).
+Alle drei Stores werden gleich beim Anlegen erzeugt, auch `userVocab` (zunächst leer). Es gibt keine Migrationen: Das Projekt hat noch keine Nutzer, das Schema ist die Version 1 (`data/db.ts`). Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht). Löscht der Nutzer ein **eigenes** Wort, werden auch seine Cards gelöscht (Rückfrage in der UI).
 
 ## 11. Lernmodell (`domain/srs.ts`)
 
-**Tageswechsel (`domain/day.ts`):** `dayKey(now)` = lokales Datum von `now − 4 h`. `startOfDay(dayKey)` liefert 04:00 lokal. `addDays` rechnet in **Kalendertagen** auf dem `dayKey`, nicht mit `+ 24 h`, damit Zeitumstellungen nichts verschieben. Die Tageszähler zählen bis 04:00 zum Vortag.
+**Tageswechsel (`domain/day.ts`):** `dayKey(now)` = lokales Datum von `now − 4 h`. `startOfDay(dayKey)` liefert 04:00 lokal. `addDays` rechnet in **Kalendertagen** auf dem `dayKey`, nicht mit `+ 24 h`, damit Zeitumstellungen nichts verschieben.
 
 Reine Funktion `review(card, grade, now): Card`. `Grade` ist `"again" | "good"` (Beschriftung: „Nochmal“, „Gewusst“).
 
@@ -383,10 +378,10 @@ Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` vo
 
 **Vorab-Wiederholung** (Karte in der Wiederholungsphase, aber **noch nicht fällig**, siehe §12.2). Der Zeitplan darf durch Üben nicht aufgebläht werden:
 - **Nochmal:** wie Rückfall oben (bewusst hart: `lapses += 1`, `reps = 0`, Ease −0,2, Intervall 1 T). Wer beim freiwilligen Durchlauf ein Wort nicht mehr weiß, hat es wirklich vergessen, auch wenn es eine Karte mit z. B. 56 Tagen Intervall war. Der Plan wird dadurch verkürzt, aber nie verlängert.
-- **Gewusst:** Karte bleibt **vollständig unverändert**, auch `lastReviewed` (entschieden). Es wird nichts gespeichert, `daily.reviewed` zählt nicht, So kann reines Üben beim Zusammenführen (§10.1b) keinen echten, neueren Lernstand eines anderen Geräts verdrängen. In der Sitzung zählt es trotzdem zu „Geübt: N“ und die Karte kommt in `sessionSeen`.
+- **Gewusst:** Karte bleibt **vollständig unverändert**, auch `lastReviewed` (entschieden). Es wird nichts gespeichert. So kann reines Üben beim Zusammenführen (§10.1b) keinen echten, neueren Lernstand eines anderen Geräts verdrängen. In der Sitzung zählt es trotzdem zu „Geübt: N“ und die Karte kommt in `sessionSeen`.
 - `review()` bekommt dafür keinen Zusatzparameter: „nicht fällig“ wird in der Funktion aus `card.due >= nextDayStart(now)` erkannt.
 
-**Ease-Rundung:** Die Ease wird nach jeder Änderung auf 2 Dezimalstellen gerundet (gegen Gleitkomma-Rauschen wie 2,3499999) und danach auf `MIN_EASE`/`MAX_EASE` begrenzt. Karten mit Ease über 3,0 (aus älteren Ständen) werden bei der nächsten Bewertung auf 3,0 gekappt. Das Intervall dieser einen Bewertung nutzt noch die ungekappte Ease.
+**Ease-Rundung:** Die Ease wird nach jeder Änderung auf 2 Dezimalstellen gerundet (gegen Gleitkomma-Rauschen wie 2,3499999) und danach auf `MIN_EASE`/`MAX_EASE` begrenzt.
 
 `state`: `learning` solange `step` gesetzt ist oder `interval < 21`, sonst `mature`. (`new` nur für noch nicht gespeicherte Karten.)
 
@@ -398,7 +393,7 @@ Randfälle der 04:00-Regel (kein Fehler): Ein Abschluss um 02:00 hat `dayKey` vo
 
 ### 12.1 `pickNext`
 
-Eine Funktion **`pickNext(input): Pick`** ersetzt `buildQueue`. Sie ist **rein** (kein Zugriff auf Datenbank oder Uhr, `now` kommt als Parameter) und wird nach **jeder** Bewertung neu aufgerufen. Eingabe: Einstellungen (`maxLevel`), Vokabeln, alle Cards, `now`, Sitzungsfilter (Thema, Niveau, Wortart, Richtung), `sessionSeen: Set<string>` (Kartenschlüssel `vocabId|dir`, siehe §12.2), `lastShown: string | null`. Rückgabe: `{ kind, item, newPass }` oder `null` (keine sichtbare Karte). `kind` nennt die Stufe (`learning`, `review`, `new`, `early-learning`, `pass`), bei `newPass` leert der Aufrufer `sessionSeen`.
+Die Funktion **`pickNext(input)`** wählt die nächste Karte. Sie ist **rein** (kein Zugriff auf Datenbank oder Uhr, `now` kommt als Parameter) und wird nach **jeder** Bewertung neu aufgerufen. Eingabe: Einstellungen (`maxLevel`), Vokabeln, alle Cards, `now`, Sitzungsfilter (Thema, Niveau, Wortart, Richtung), `sessionSeen: Set<string>` (Kartenschlüssel `vocabId|dir`, siehe §12.2), `lastShown: string | null`. Rückgabe: `{ kind, item, newPass }` oder `null` (keine sichtbare Karte). `kind` nennt die Stufe (`learning`, `review`, `new`, `early-learning`, `pass`), bei `newPass` leert der Aufrufer `sessionSeen`.
 
 Sichtbarkeit und Filter: Sichtbar sind nur Vokabeln mit `isVisible(v, settings.maxLevel)` (eigene Wörter mit `level: null` immer), danach Filter (Thema, Niveau, Wortart). Eigene Wörter wählt man über das Thema „Eigene Wörter“ (`eigene`); ein gesetzter Niveau-Filter A1/A2/B1 schließt sie aus. Erlaubte Richtungen: bei der Sitzungsrichtung `both` (Standard) beide, sonst nur die gewählte. Karten ausgeblendeter Vokabeln oder Richtungen bleiben unverändert in der DB.
 
@@ -415,7 +410,7 @@ Priorität, die erste passende Stufe gewinnt:
 
 Die Karte, die gerade bewertet wurde (`lastShown`), wird nie sofort wieder gewählt, wenn eine andere Karte zur Verfügung steht. Das gilt auch bei „Nochmal“ mit nur einer Restkarte: Dann greift Stufe 4 mit der frühesten **anderen** wartenden Lernkarte. Gibt es gar keine andere Karte, wird dieselbe Karte erneut gezeigt (der Sitzungsbildschirm bleibt nie leer).
 
-`daily.newIntroduced` wird erhöht, wenn eine neue Karte **zum ersten Mal bewertet** (und damit angelegt) wird, nicht beim Anzeigen.
+Eine neue Karte wird erst **beim ersten Bewerten** angelegt (§10.2), nicht beim Anzeigen.
 
 ### 12.1a Überarbeitung der Kartenauswahl (Anforderung 2026-11-19, noch nicht umgesetzt, Detailspezifikation folgt)
 
@@ -439,7 +434,7 @@ Sind Stufe 1–4 leer (nichts fällig, keine wartende Lernkarte, keine neuen Kar
 
 ## 14. Routing und Screens
 
-HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/study` leitet auf `/` um, `/dictionary`, `/dictionary/:id`, `/dictionary/:id/edit` (eigenes Wort bearbeiten), `/add` (eigenes Wort nachschlagen und hinzufügen, optional `?q=<wort>`), `/stats`, `/settings`, `/legend`, `/privacy`, `/imprint`, `/more`. Unbekannte Pfade leiten auf `/` um.
+HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/dictionary`, `/dictionary/:id`, `/dictionary/:id/edit` (eigenes Wort bearbeiten), `/add` (eigenes Wort nachschlagen und hinzufügen, optional `?q=<wort>`), `/stats`, `/settings`, `/legend`, `/privacy`, `/imprint`, `/more`. Unbekannte Pfade leiten auf `/` um.
 
 **Tab „Mehr“:** Markenkopf (Wortmarke, Slogan, Widmung, siehe §14.1 zum erneuten Öffnen der Begrüßung), darunter die Einträge Einstellungen, Legende, Datenschutz und Impressum, darunter die Version (§3.2). Die Seiten dieser Einträge haben den Zurück-Link „← Mehr“ (Klasse `back`). Seitenköpfe tragen oben rechts das kleine Markenzeichen (drei Wimpel).
 
@@ -456,7 +451,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Erneut öffnen: Ein Tippen auf den Schriftzug „Palabrita“ im Markenkopf des Tabs „Mehr“ zeigt dieselbe Karte, wieder Spanisch vorne. Umdrehen und Schließen funktionieren gleich, danach bleibt man auf „Mehr“. Das speichert nichts, und der Erststart-Zustand ändert sich dadurch nicht. Die Karte liegt in `Layout` (`App.tsx`) über der App, die Unterseite bekommt `openWelcome` über den Router-Kontext.
 
 **Karte umdrehen** (`components/Flashcard.tsx`):
-- Klick/Tippen auf die Karte **wechselt** zwischen Vorder- und Rückseite, beliebig oft. `onFlip` wird zu `onToggle`.
+- Klick/Tippen auf die Karte **wechselt** zwischen Vorder- und Rückseite, beliebig oft (`onToggle` in `Flashcard`).
 - Beim Wechsel zu einer neuen Karte startet sie immer auf der Vorderseite.
 - Sobald die Karte **einmal aufgedeckt** wurde (`revealed = true`), bleiben die Bewertungsbuttons sichtbar, auch wenn der Nutzer wieder auf die Vorderseite zurückdreht. Vor dem ersten Aufdecken steht statt der Buttons der Button „Umdrehen“ (er dreht ebenfalls um und setzt `revealed`).
 - Der Hinweis „Tippen zum Umdrehen“ steht auf **beiden** Seiten. `aria-label` je Seite („Karte umdrehen“), zusätzlich `aria-pressed` bzw. gleichwertig; Tastatur (Enter/Leertaste) funktioniert, weil die Karte ein `button` bleibt.
@@ -466,7 +461,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Gilt nur für Vokabeln mit `pos === "verb"`. Bei allen anderen Wörtern gibt es den Button nicht.
 - Der Button **„Konjugation“** erscheint, sobald `revealed = true` ist (auf Vorder- und Rückseite). Vorher nicht, weil die Verbtabelle bei DE→ES die Lösung verrät.
 - Klick öffnet ein **Overlay** (Bottom-Sheet auf dem Handy, zentrierter Dialog ab Tablet-Breite) **über** der Sitzung. Die Sitzung (Karte, Seite) bleibt unverändert und geht nicht verloren.
-- Inhalt: Kopf mit Stichwort (`es`), deutschen Bedeutungen und 🔊, darunter die bestehende `VerbTable` samt Hinweis „Formen nicht geprüft“ bei eigenen Verben. Der Inhalt wird aus `features/dictionary/VocabDetail.tsx` in eine **gemeinsame Komponente** (`components/VerbDetail.tsx`) herausgezogen, die `VocabDetail` und das Overlay (`components/VerbOverlay.tsx`) beide nutzen. Kein duplizierter Code.
+- Inhalt: Kopf mit Stichwort (`es`), deutschen Bedeutungen und 🔊, darunter die `VerbTable` samt Hinweis „Formen nicht geprüft“ bei eigenen Verben. Der Inhalt ist eine **gemeinsame Komponente** (`components/VerbDetail.tsx`), die `VocabDetail` und das Overlay (`components/VerbOverlay.tsx`) beide nutzen. Kein duplizierter Code.
 - Schließen: Button „Schließen“, Escape, Klick auf den Hintergrund und die **Zurück-Taste des Geräts** (Overlay erzeugt einen History-Eintrag, Zurück schließt nur das Overlay und verlässt nicht die Sitzung). Fokus wandert beim Öffnen ins Overlay, bleibt dort gefangen und kehrt beim Schließen zum Button zurück. `role="dialog"`, `aria-modal`, beschriftet.
 - Solange das Overlay offen ist, sind Karte und Bewertungsbuttons darunter nicht bedienbar.
 - **Wegwischen nach unten (Anforderung 2026-11-19, noch nicht umgesetzt, Detailspezifikation folgt):** Auf dem Handy lässt sich das Bottom-Sheet mit einer Wischgeste nach unten schließen, ohne ganz nach unten scrollen zu müssen. Das Sheet folgt dem Finger, schließt bei Überschreiten einer Schwelle und springt sonst zurück. Der Schließen-Button und alle anderen Schließwege bleiben erhalten. Offen: Wo die Geste beginnt (Griffleiste oben, Kopfbereich oder das ganze Sheet), wie es mit scrollbarem Inhalt zusammenspielt und ob es auf Tablets (zentrierter Dialog) entfällt.
