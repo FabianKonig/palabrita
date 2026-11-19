@@ -626,6 +626,22 @@ async function main() {
     searchOnlyBefore && searchOnly.q === "" && searchOnly.status === "",
     searchOnlyJson,
   );
+  // Das X am Suchfeld leert den Suchtext nur, sobald einer da ist.
+  await setInput('input[type="search"]', "a");
+  await sleep(300);
+  const xShown = await evaluate<boolean>(
+    `!!document.querySelector(".search-clear")`,
+  );
+  await evaluate(`document.querySelector(".search-clear").click()`);
+  await sleep(300);
+  const xCleared = await evaluate<boolean>(
+    `document.querySelector('input[type="search"]').value === "" && !document.querySelector(".search-clear")`,
+  );
+  check(
+    "Verzeichnis: X im Suchfeld erscheint bei Suchtext und leert ihn",
+    xShown && xCleared,
+    `${xShown} / ${xCleared}`,
+  );
   await setInput('input[type="search"]', "a");
   await sleep(300);
   await evaluate("window.scrollTo(0, 1500)");
