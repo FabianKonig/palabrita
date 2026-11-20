@@ -49,6 +49,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 
 ### 3.2 Einstellungen
 - Es gibt **keine Profile und kein Login**: Fortschritt und Einstellungen gelten für den Browser auf diesem Gerät.
+- **Lernfortschritt zurücksetzen** (Anforderung 2026-11-20): Unter „Mehr“ gibt es den Eintrag „Lernfortschritt zurücksetzen“. Damit startet der Nutzer von vorne: Alle Karten werden gelöscht, also alles, was zum Lernstand gehört (welche Karten schon gelernt sind, Lernphase und Reifegrad, wie oft eine Karte bewertet wurde und wie oft „Nochmal“, Intervall, Ease, Fälligkeit, letzte Bewertung, Zeitpunkt der Einführung und damit das Tageslimit neuer Karten). Nach dem Zurücksetzen ist jede Vokabel wieder „neu“, die Statistik steht auf null. **Es bleiben** Höchstes Niveau und Darstellung (Einstellungen, keine Lernfortschritte) sowie der Hinweis „Begrüßung gesehen“ (§14.1). **Neu gewürfelt** werden die Reihenfolge der neuen Karten (`orderSeed`) und der Startzeitpunkt (`startedAt`), damit der Nutzer wirklich wie bei einem ersten Start beginnt (§12.1, Neuzugang). Wegen der Endgültigkeit gibt es eine Rückfrage (§14). Umsetzung: §10.3.
 - Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden gelernt und in der Statistik gezählt, das Verzeichnis zeigt dagegen alle Wörter, §3.3; persistent gespeichert, jederzeit änderbar) und Theme (System/Hell/Dunkel). Die Version steht nicht hier, sondern unter „Mehr“ unterhalb der Einträge: Zeitstempel des HEAD-Commits zum Bauzeitpunkt (bei Deployment also des Merges auf `main`), beim Build aus Git in `vite.config.ts` eingesetzt, Format `TT.MM.JJJJ, HH:MM UTC`, immer in UTC.
 
 ### 3.3 Übersicht und Statistik
@@ -330,6 +331,7 @@ src/
     vocabRepo.ts            # lädt/cached vocab JSON
     db.ts                   # idb-Schema (settings, cards)
     settingsRepo.ts  cardRepo.ts
+    progressRepo.ts         # Lernfortschritt zurücksetzen (§10.3)
     welcomeFlag.ts          # Begrüßung gesehen (localStorage)
   features/
     study/  dictionary/  stats/  settings/  legend/  legal/  more/
@@ -392,6 +394,16 @@ Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zw
 Eine Karte wird **erst beim ersten Lernen angelegt** (kein Vorab-Befüllen von 1000 Karten). „Neu“ = Vokabel ohne Card-Eintrag für diese Richtung.
 
 Beide Stores werden beim Anlegen erzeugt. Es gibt keine Migrationen: Das Projekt hat noch keine Nutzer (§2, Kompatibilität), das Schema ist die Version 1 (`data/db.ts`). Auch fehlende Felder in Datensätzen einer früheren Entwicklungsversion (`orderSeed`, `startedAt`, `Card.introduced`) werden nicht ergänzt; `getSettings` gibt einen vorhandenen Datensatz unverändert zurück. Wer eine frühere Version genutzt hat, installiert die App neu (Website-Daten löschen). Ein früher angelegter Store `userVocab` wird nicht mehr gelesen und nicht gelöscht. Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht).
+
+### 10.3 Lernfortschritt zurücksetzen (`data/progressRepo.ts`)
+
+`resetProgress(): Promise<Settings>` setzt den Lernfortschritt zurück (§3.2) und gibt den neuen Einstellungs-Datensatz zurück. Alles geschieht in **einer** `readwrite`-Transaktion über `cards` und `settings`, es bleibt also nie ein halber Zustand zurück (Karten gelöscht, Einstellungen alt, oder umgekehrt):
+
+- `cards`: `clear()`, alle Datensätze beider Richtungen.
+- `settings`: Der Datensatz `main` wird ersetzt durch `{ ...createSettings(), maxLevel, theme }`: `maxLevel` und `theme` aus dem bisherigen Datensatz (ohne bisherigen Datensatz die Defaults), `orderSeed` und `startedAt` neu wie beim ersten Anlegen (§10.2, `createSettings` in `settingsRepo.ts`).
+- Der React-Zustand (`resetProgress` in `hooks/useAppData.tsx`) wird aus dem Rückgabewert gesetzt, nicht aus dem alten Zustand. Karten halten die Oberflächen nicht im Speicher: Die Lernsitzung lädt sie beim Start, die Statistik beim Öffnen; beide sind beim Zurücksetzen (Tab „Mehr“) nicht offen.
+- `localStorage` (`palabrita.welcomeSeen`) und der Service Worker bleiben unberührt, ebenso die Vokabeldateien.
+- Tests: `data/progressRepo.test.ts`.
 
 ## 11. Lernmodell (`domain/srs.ts`)
 
@@ -534,7 +546,7 @@ Eine neue Karte wird erst **beim ersten Bewerten** angelegt (§10.2), nicht beim
 
 HashRouter. Routen: `/` Lernen (Auswahl und Sitzung), `/dictionary`, `/dictionary/:id`, `/stats`, `/settings`, `/legend`, `/privacy`, `/imprint`, `/more`. Unbekannte Pfade leiten auf `/` um.
 
-**Tab „Mehr“:** Markenkopf (Wortmarke, Slogan, Widmung, siehe §14.1 zum erneuten Öffnen der Begrüßung), darunter die Einträge Einstellungen, Legende, Datenschutz und Impressum, darunter die Version (§3.2). Die Seiten dieser Einträge haben den Zurück-Link „← Mehr“ (Klasse `back`). Ausnahme **Legende**: Wird sie aus der App geöffnet (ⓘ in der Verbtabelle), steht dort „← Zurück“ und führt zur vorherigen Seite (Router-Zustand `fromApp`), damit Filter und Verzeichnisbereich (§3.3) erhalten bleiben. Nur über „Mehr → Legende“ steht „← Mehr“.
+**Tab „Mehr“:** Markenkopf (Wortmarke, Slogan, Widmung, siehe §14.1 zum erneuten Öffnen der Begrüßung), darunter die Einträge Einstellungen, Legende, Datenschutz und Impressum, darunter der Eintrag „Lernfortschritt zurücksetzen“ (kein Link auf eine neue Seite, sondern ein Button in roter Schrift, §3.2), darunter die Version (§3.2). **Zurücksetzen:** Ein Tipp auf den Eintrag blendet ihn aus und zeigt an derselben Stelle eine Rückfrage („Lernfortschritt zurücksetzen?“, Erklärung, was gelöscht wird und dass es sich nicht rückgängig machen lässt, Hinweis, dass Niveau und Darstellung bleiben) mit den Buttons „Endgültig zurücksetzen“ (rot) und „Abbrechen“. Die Rückfrage scrollt in den sichtbaren Bereich. „Abbrechen“ schließt sie, ohne etwas zu ändern. Nach „Endgültig zurücksetzen“ (beide Buttons währenddessen gesperrt) steht stattdessen die Meldung „Der Lernfortschritt wurde zurückgesetzt. Du startest wieder bei null.“ (`role="status"`), der Eintrag ist wieder bedienbar. Schlägt das Speichern fehl, bleibt die Rückfrage mit der Fehlermeldung stehen (`role="alert"`). Die Seiten dieser Einträge haben den Zurück-Link „← Mehr“ (Klasse `back`). Ausnahme **Legende**: Wird sie aus der App geöffnet (ⓘ in der Verbtabelle), steht dort „← Zurück“ und führt zur vorherigen Seite (Router-Zustand `fromApp`), damit Filter und Verzeichnisbereich (§3.3) erhalten bleiben. Nur über „Mehr → Legende“ steht „← Mehr“.
 
 **Darstellung mehrerer Übersetzungen:** Überall, wo die deutsche Seite erscheint (Karte, Verzeichnis, Detailansicht), werden alle `de`-Einträge mit „ · “ getrennt angezeigt, das erste hervorgehoben. Die Verzeichnissuche: §3.3. Die Einstellungen werden beim ersten Start mit Defaults angelegt.
 
@@ -581,6 +593,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Erreichbar über „Mehr“ (je ein Eintrag, eigene Seite unter `/imprint` und `/privacy`). Gleiche Gestaltung wie die Legende.
 - **Datenschutz:** beschreibt den tatsächlichen Stand. Kein Backend, kein Konto, kein Tracking, keine Analyse-Werkzeuge. Fortschritt liegt nur im Browser (IndexedDB) und verlässt das Gerät nicht. Es gibt keine externen Anfragen außer dem Abruf der App. Das Hosting (GitHub Pages) erzeugt beim Abruf technisch übliche Zugriffsdaten beim Anbieter; der Hinweis darauf gehört hinein.
 - **Impressum:** Angaben zum Betreiber (Name, Anschrift, Kontakt). Diese Angaben liefert der Nutzer, sie werden nicht erfunden. Der Nutzer hat entschieden (2026-11-19): Das Impressum ist in dieser Form ausreichend.
+- Der Abschnitt „Löschung“ in der Datenschutzerklärung nennt zusätzlich „Mehr → Lernfortschritt zurücksetzen“ (§3.2).
 - Umsetzung: `src/features/legal/` (`Imprint.tsx` unter `/imprint`, `Privacy.tsx` unter `/privacy`, Betreiberangaben zentral in `operator.ts`). Beide Seiten sind Teil der App und damit offline verfügbar. Die Datenschutzerklärung nennt Hosting (GitHub Pages), lokale Speicherung (§ 25 Abs. 2 Nr. 2 TDDDG, keine Einwilligung nötig), Vorlesefunktion, E-Mail-Kontakt und Betroffenenrechte; Aufsichtsbehörde: HBDI. Das Impressum folgt § 5 DDG. Wiktionary-Lizenzhinweis (CC BY-SA) steht im Impressum. Die Erklärung enthält eine Übersicht der Verarbeitungen und einen abgesetzten Widerspruchshinweis (Art. 21 Abs. 4 DSGVO). Ändern sich Hosting, Dienste oder Betreiberangaben, müssen beide Seiten angepasst werden.
 
 ### 14.3 Formsuche: Umsetzung (festgelegt und umgesetzt 2026-11-19)

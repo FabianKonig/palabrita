@@ -8,7 +8,7 @@ import { getDb } from "./db";
 const KEY = "main";
 
 /** Defaults plus a fresh random seed and the time of the first start (SPEC §10.2). */
-function createSettings(): Settings {
+export function createSettings(): Settings {
   return {
     ...DEFAULT_SETTINGS,
     orderSeed: crypto.getRandomValues(new Uint32Array(1))[0],

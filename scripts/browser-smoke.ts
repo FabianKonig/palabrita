@@ -894,6 +894,121 @@ async function main() {
     !(await evaluate<boolean>(`!!document.querySelector(".app-version")`)),
   );
 
+  // 8e7b. Lernfortschritt zurücksetzen (SPEC §10.3, §14): Eintrag unter „Mehr“, Rückfrage,
+  // Abbrechen ändert nichts, Bestätigen löscht alle Karten und würfelt Reihenfolge und
+  // Startzeitpunkt neu; Niveau und Darstellung bleiben.
+  const readSettings = () =>
+    evaluate<{
+      maxLevel: string;
+      theme: string;
+      orderSeed: number;
+      startedAt: number;
+    }>(
+      `new Promise((resolve, reject) => {
+        const open = indexedDB.open("palabrita");
+        open.onerror = () => reject(open.error);
+        open.onsuccess = () => {
+          const db = open.result;
+          const req = db.transaction("settings").objectStore("settings").get("main");
+          req.onsuccess = () => { db.close(); resolve(req.result); };
+          req.onerror = () => reject(req.error);
+        };
+      })`,
+    );
+  const cardCount = async () =>
+    (await idb(
+      `store.count().onsuccess = (e) => { out = e.target.result; };`,
+    )) as number;
+  await send("Page.navigate", { url: `${BASE}#/settings` });
+  await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
+  await setInput(`.setting select:has(option[value="A2"])`, "A2");
+  await setInput(`.setting select:has(option[value="dark"])`, "dark");
+  await sleep(300);
+  await idb(`store.clear();
+    for (const [id, dir] of [["v0001", "de-es"], ["v0001", "es-de"], ["v0002", "de-es"]]) store.put({
+      vocabId: id, dir, due: Date.now() + 5 * 86400000, interval: 5, ease: 2.5, reps: 4, lapses: 1,
+      lastReviewed: Date.now() - 86400000, introduced: Date.now() - 9 * 86400000, state: "mature",
+    });`);
+  const settingsBefore = await readSettings();
+  await send("Page.navigate", { url: `${BASE}#/more` });
+  await waitFor(
+    `document.querySelector(".reset-progress .link-button")`,
+    "Zurücksetzen-Eintrag",
+  );
+  check(
+    "Mehr: Eintrag „Lernfortschritt zurücksetzen“ steht unter den Links, vor der Version, ohne Rückfrage",
+    await evaluate<boolean>(`(() => {
+      const b = document.querySelector(".reset-progress .link-button");
+      const list = document.querySelector(".link-list");
+      const v = document.querySelector(".app-version");
+      return b.textContent.trim() === "Lernfortschritt zurücksetzen"
+        && !!(list.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING)
+        && !!(b.compareDocumentPosition(v) & Node.DOCUMENT_POSITION_FOLLOWING)
+        && !document.querySelector(".reset-confirm");
+    })()`),
+  );
+  await clickText("Lernfortschritt zurücksetzen", ".reset-progress button");
+  await waitFor(`document.querySelector(".reset-confirm")`, "Rückfrage");
+  check(
+    "Zurücksetzen: Rückfrage mit „Endgültig zurücksetzen“ und „Abbrechen“, Eintrag verschwindet",
+    await evaluate<boolean>(`(() => {
+      const labels = [...document.querySelectorAll(".reset-confirm button")].map((b) => b.textContent.trim());
+      return labels.join("|") === "Endgültig zurücksetzen|Abbrechen"
+        && !document.querySelector(".reset-progress .link-button");
+    })()`),
+  );
+  check(
+    "Zurücksetzen: allein das Öffnen der Rückfrage löscht nichts",
+    (await cardCount()) === 3,
+  );
+  await clickText("Abbrechen", ".reset-confirm button");
+  await waitFor(
+    `document.querySelector(".reset-progress .link-button")`,
+    "Eintrag wieder da",
+  );
+  check(
+    "Zurücksetzen: Abbrechen schließt die Rückfrage und löscht nichts",
+    !(await evaluate<boolean>(`!!document.querySelector(".reset-confirm")`)) &&
+      (await cardCount()) === 3,
+  );
+  await clickText("Lernfortschritt zurücksetzen", ".reset-progress button");
+  await waitFor(`document.querySelector(".reset-confirm")`, "Rückfrage");
+  await clickText("Endgültig zurücksetzen", ".reset-confirm button");
+  await waitFor(
+    `document.querySelector(".reset-progress [role=status]")`,
+    "Bestätigung",
+  );
+  const settingsAfter = await readSettings();
+  check(
+    "Zurücksetzen: alle Karten gelöscht, Bestätigung sichtbar, Eintrag wieder bedienbar",
+    (await cardCount()) === 0 &&
+      (await evaluate<boolean>(`/zurückgesetzt/.test(document.querySelector(".reset-progress [role=status]").textContent)
+        && !document.querySelector(".reset-confirm")
+        && !!document.querySelector(".reset-progress .link-button")`)),
+  );
+  check(
+    "Zurücksetzen: Niveau und Darstellung bleiben, Reihenfolge und Startzeitpunkt sind neu",
+    settingsAfter.maxLevel === "A2" &&
+      settingsAfter.theme === "dark" &&
+      settingsAfter.orderSeed !== settingsBefore.orderSeed &&
+      settingsAfter.startedAt > settingsBefore.startedAt,
+    `${JSON.stringify(settingsBefore)} -> ${JSON.stringify(settingsAfter)}`,
+  );
+  await send("Page.navigate", { url: `${BASE}#/stats` });
+  await waitFor(`document.querySelector(".stat-block")`, "Statistik");
+  check(
+    "Statistik nach dem Zurücksetzen: nichts lernend, nichts gefestigt",
+    await evaluate<boolean>(
+      `[...document.querySelectorAll(".stat-bar")].every((b) => /, 0 lernend, 0 gefestigt$/.test(b.getAttribute("aria-label")))`,
+    ),
+  );
+  // Zustand für die folgenden Abschnitte wiederherstellen (Niveau B1, Darstellung wie das Gerät).
+  await send("Page.navigate", { url: `${BASE}#/settings` });
+  await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
+  await setInput(`.setting select:has(option[value="B1"])`, "B1");
+  await setInput(`.setting select:has(option[value="system"])`, "system");
+  await sleep(300);
+
   // 8e8. Formsuche (SPEC §3.3a, §14.3): gebeugte Formen finden die Grundform, die Detailseite
   // hebt die gefundene Form hervor. Läuft in Handy-Breite, damit Umbruch und Touch-Ziele zählen.
   await send("Emulation.setDeviceMetricsOverride", {

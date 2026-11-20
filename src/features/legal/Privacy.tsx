@@ -110,9 +110,10 @@ export function Privacy() {
         auf Art. 6 Abs. 1 S. 1 lit. f DSGVO.
       </p>
       <p>
-        <strong>Löschung:</strong> Du kannst die Daten jederzeit über die
-        Website-Daten deines Browsers löschen bzw. die installierte App
-        entfernen.
+        <strong>Löschung:</strong> Deinen Lernfortschritt kannst du jederzeit in
+        der App unter „Mehr“ mit „Lernfortschritt zurücksetzen“ löschen. Alle
+        Daten löschst du über die Website-Daten deines Browsers bzw. indem du
+        die installierte App entfernst.
       </p>
 
       <h2>6. Vorlesefunktion</h2>
