@@ -1837,6 +1837,77 @@ async function main() {
     `${cardsBefore} -> ${cardsAfter} Karten, Buttons: ${JSON.stringify(summaryButtons)}`,
   );
 
+  // 8j2. Zurück-Taste des Geräts wirkt wie „Beenden“ (SPEC 14.1, Zurück-Taste).
+  const onSetup = `[...document.querySelectorAll("button")].some(b => b.textContent.trim() === "Starten")`;
+  const onSummary = `/Sitzung beendet/.test(document.body.innerText)`;
+  const guardOn = `!!(history.state && history.state.palabritaSessionGuard)`;
+  // Neuladen mitten in der Sitzung (siehe oben) lässt einen Wächter-Eintrag zurück: er wird übersprungen.
+  const staleGone = await waitFor(
+    `${onSetup} && !(${guardOn})`,
+    "Filterauswahl ohne Wächter nach Neuladen",
+  );
+  // Start, dann Zurück: Zusammenfassung; nochmal Zurück: Filterauswahl; weiter Zurück verlässt die Seite nicht mehr.
+  await startSession();
+  const lenSession = await evaluate<number>("history.length");
+  await evaluate("history.back()");
+  const backToSummary = await waitFor(onSummary, "Zurück: Zusammenfassung");
+  const guardOnSummary = await evaluate<boolean>(guardOn);
+  await evaluate("history.back()");
+  const backToSetup = await waitFor(onSetup, "Zurück: Filterauswahl");
+  const guardOnSetup = await evaluate<boolean>(guardOn);
+  const hashSetup = await evaluate<string>("location.hash");
+  check(
+    "Zurück-Taste: Sitzung → Zusammenfassung → Filterauswahl, Seite bleibt",
+    staleGone &&
+      backToSummary &&
+      guardOnSummary &&
+      backToSetup &&
+      !guardOnSetup &&
+      /^(#\/?)?$/.test(hashSetup),
+    JSON.stringify({
+      staleGone,
+      backToSummary,
+      guardOnSummary,
+      backToSetup,
+      guardOnSetup,
+      hashSetup,
+    }),
+  );
+  // Der Button „Beenden“ auf der Zusammenfassung nimmt den Wächter weg, die History wächst nicht.
+  await startSession();
+  await clickText("Beenden", "button");
+  await waitFor(onSummary, "Zusammenfassung per Button");
+  await clickText("Beenden", "button");
+  const buttonToSetup = await waitFor(
+    `${onSetup} && !(${guardOn})`,
+    "Beenden-Button: Filterauswahl ohne Wächter",
+  );
+  const lenAfter = await evaluate<number>("history.length");
+  check(
+    "Beenden-Button auf der Zusammenfassung räumt den History-Eintrag auf",
+    buttonToSetup && lenAfter <= lenSession + 1,
+    `history.length Sitzung ${lenSession}, nach Beenden ${lenAfter}`,
+  );
+  // Verb-Overlay: Zurück schließt nur das Overlay, nicht die Sitzung.
+  await startSession(async () => {
+    await choose("Wortart", "Verben");
+  });
+  await clickText("Umdrehen", "button");
+  await clickText("Konjugation", "button");
+  await waitFor(`document.querySelector('[role="dialog"] .verb')`, "Overlay");
+  await evaluate("history.back()");
+  const overlayClosed = await waitFor(
+    `!document.querySelector('[role="dialog"]') && document.querySelector(".flashcard")`,
+    "Zurück schließt nur das Overlay",
+  );
+  const notSummary = !(await evaluate<boolean>(onSummary));
+  check(
+    "Zurück-Taste bei offenem Overlay schließt nur das Overlay",
+    overlayClosed && notSummary,
+    `overlayClosed ${overlayClosed}, Sitzung läuft ${notSummary}`,
+  );
+  await send("Page.navigate", { url: `${BASE}#/` });
+
   // 8k. "Für heute geschafft" and "10 weitere neue Karten" (SPEC 3.1, 12.2, 14.1).
   // Start: 19 cards introduced and rated today (not due, ids without vocabulary, they only
   // count for the daily limit). The 20th new card reaches the limit; it comes back at once
