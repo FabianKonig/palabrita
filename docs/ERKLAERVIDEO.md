@@ -8,18 +8,18 @@ Stand: 2026-11-20. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS
 
 **Entschieden (alles vom Nutzer, 2026-11-20):**
 
-- Länge höchstens 70 s, Ziel 65 s, Hochformat 9:16 (1080 × 1920). Ablauf und Zeiten: Abschnitt „Ablauf“.
+- Länge höchstens 70 s, Ziel 67 s, Hochformat 9:16 (1080 × 1920). Ablauf und Zeiten: Abschnitt „Ablauf“.
 - Sprechertext steht fest (Abschnitt „Sprechertext am Stück“), frech und munter im Werbe-Ton.
 - **Eine einzige Stimme** spricht alles, auch die spanischen Wörter. Favorit: **Stimme „2a“** aus Qwen3-TTS (VoiceDesign), die für das ganze Video **geklont** wird. Notfalls zwei Stimmen (Deutsch, Spanisch), siehe „Entscheidungen“, Punkt 2.
 - Musik: **„Vibrant Momentum“ von LolaMoore** (Freesound, CC BY 4.0, Namensnennung nötig).
 - **Vier Einblendungen** mit freigegebener Gestaltung (Abschnitt „Einblendungen: Gestaltung“).
 - Python ist für die Videoerzeugung erlaubt (Ausnahme in `AGENTS.md`).
 - **Stimme 2a ist geklont und vom Nutzer freigegeben** (Hörprobe 2026-11-20): Klonmodus **„nur Stimmcharakter“** (`x_vector_only_mode=True`), weil die spanischen Wörter dort besser klingen; Tempo **1,25-fach** (ffmpeg `atempo=1.25`) passt. Die spanischen Wörter stören nicht, die Ausweichlösung mit zwei Stimmen ist damit nicht nötig.
-- **Wartestand:** Der Nutzer ändert den Lernen-Tab der App noch. Die Aufnahme (Szenen 1 bis 5 zeigen die Lernseite) beginnt erst, wenn er „main mergen“ sagt; dann die neue Lernseite ansehen und die Klickpfade der Szenen 1 bis 5 anpassen.
+- **Wartestand:** Die Lernen-Seite ist auf Kacheln und Auswahlfenster umgebaut (Stand siehe Abschnitt „Lernen-Seite: Stand für die Aufnahme“). Der Nutzer ändert Oberfläche und Aussehen **noch einmal** und sagt Bescheid. Mit der Aufnahme erst nach seiner Bestätigung beginnen.
 
 **Als Nächstes zu tun (in dieser Reihenfolge):**
 
-1. **Warten, bis der Nutzer „main mergen“ sagt** (der Lernen-Tab ändert sich). Dann `main` in den Arbeitsbranch mergen, die neue Lernseite ansehen und die Klickpfade der Szenen 1 bis 5 im Drehbuch anpassen. Die Szenen 6 bis 9 sind davon nicht betroffen.
+1. **Warten, bis der Nutzer die Lernen-Seite für fertig erklärt.** Bei der nächsten Änderung `main` mergen, den Abschnitt „Lernen-Seite: Stand für die Aufnahme“ und die Klickpfade der Szenen 1 und 2 prüfen und anpassen. Die Szenen 3 bis 9 sind von der Umgestaltung nicht betroffen (geprüft am 2026-11-20: Lernsitzung, Konjugation, Verzeichnis und „Mehr“ unverändert).
 2. Alle neun Szenen mit der geklonten Stimme 2a im Modus „nur Stimmcharakter“ erzeugen (bisher nur Szene 1, 3 und 6 gehört und freigegeben), mit `atempo=1.25` beschleunigen. Sprechertext ändert sich nicht. Das lässt sich schon vor dem Merge machen, nur wenn der Nutzer es wünscht.
 3. Danach das Video erzeugen (Aufnahme, Ton, Musik mit Ducking, Einblendungen, Abspann) und dem Nutzer zur Ansicht geben.
 4. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken.
@@ -48,7 +48,7 @@ Die erste Version wurde nach einer früheren Fassung dieses Drehbuchs automatisc
 4. **Erzeugungsweg:** **Python ist für die Videoerzeugung erlaubt** (Ausnahme zu `AGENTS.md`, dort vermerkt), aber nur dafür: nicht in `src/`, `public/`, Build oder CI. Python-Umgebung (`.venv/` oder `.video-work/`, beide in `.gitignore`) und Modelle werden nicht eingecheckt. Aufnahme (Playwright) und Orchestrierung bleiben, wo sinnvoll, in TypeScript.
 5. **Musik:** lizenzfreie Fertigmusik, modern und energiegeladen, mit Aufbau. Gewählt: „Vibrant Momentum“ (Details unten). Die Lizenz wird vor der Verwendung auf der Originalseite geprüft; die Namensnennung kommt auf die Video-Seite in der App. Titel, Quelle und Lizenz werden in einer Hinweisdatei festgehalten (wie `public/vocab/NOTICE.md` für die Vokabeln; Ort bei der Einbindung festlegen).
 6. **Sprechertext:** neu geschrieben, im munteren Werbe-Ton, vom Nutzer freigegeben (Abschnitt „Sprechertext am Stück“). Änderungen nur nach Rücksprache.
-7. **Länge:** Der Nutzer erlaubt bis zu **70 s** (vorher 60 s). Ziel 65 s; der Agent darf innerhalb von 70 s entscheiden, wenn der Schnitt es verlangt.
+7. **Länge:** Der Nutzer erlaubt bis zu **70 s** (vorher 60 s). Ziel 67 s (Szene 2 ist mit dem neuen Auswahlfenster zwei Sekunden länger geworden); der Agent darf innerhalb von 70 s entscheiden, wenn der Schnitt es verlangt.
 8. **Einblendungen:** vier Stück, Gestaltung freigegeben (Abschnitt „Einblendungen: Gestaltung“).
 9. **Git:** Nichts aus der Erzeugung ohne Rücksprache einchecken oder pushen (siehe oben).
 
@@ -56,7 +56,7 @@ Die erste Version wurde nach einer früheren Fassung dieses Drehbuchs automatisc
 
 | Punkt | Festlegung |
 |---|---|
-| Länge | **höchstens 70 s, Ziel 65 s** (Nutzer, 2026-11-20; vorher 60 s). Szene 7 ist kürzbar (spart rund 4 s). |
+| Länge | **höchstens 70 s, Ziel 67 s** (Nutzer, 2026-11-20; vorher 60 s). Szene 7 ist kürzbar (spart rund 4 s). |
 | Sprache | Deutsch, Sprecher duzt (wie die App) |
 | Ton | **frech, munter, jugendlich**, Klang eines modernen Erklär- und Werbevideos mit Schwung und Spaß beim Zuhören. Kurze Sätze und ein bisschen Witz. |
 | Bild | echte Aufnahme der App, automatisch durchgeklickt. **Hochformat 9:16** (1080 × 1920), damit man es auf dem Handy ansehen kann, ohne den Bildschirm zu drehen. |
@@ -66,21 +66,43 @@ Die erste Version wurde nach einer früheren Fassung dieses Drehbuchs automatisc
 | Texteinblendungen | **Höchstens Stichworte, nur wo nötig**: vier Stück (Szene 2, Szene 6 zweimal, Szene 8). Die zweite in Szene 6 übersetzt die Pointe: „Ja, wir können das!“, erscheint genau beim gesprochenen „Podemos“. Spanische Stellen sonst nicht übersetzen (nicht „Una cerveza, por favor“, nicht „¡Vámonos!“). Keine Untertitel. Gestaltung: „Einblendungen: Gestaltung“. |
 | Abspann | Wortmarke und Slogan, **keine Adresse**. |
 
+## Lernen-Seite: Stand für die Aufnahme
+
+Stand: `main` bei Commit `ddeb6c1` (PR #29, 2026-11-20). Die Produktspezifikation der Seite steht in `docs/SPEC.md` §14.4 (Kacheln und Auswahlfenster) und §3.3; hier steht nur, was die Aufnahme braucht. **Der Nutzer erwartet noch eine Änderung an Oberfläche und Aussehen der Lernen-Seite und sagt Bescheid.** Dann diesen Abschnitt, den Klickpfad der Szenen 1 und 2 und die Einblendung der Szene 2 prüfen und die Koordinaten neu messen (Playwright, Handy-Ansicht 412 × 915, `boundingBox()`). Mit der Aufnahme erst beginnen, wenn der Nutzer die Lernen-Seite für fertig erklärt.
+
+**Aussehen im Standardzustand** (Überschrift „Lernen“, Logo oben rechts): Vier Kacheln in zwei Spalten und zwei Zeilen, jede mit farbigem Balken oben, Beschriftung in Versalien, Stiftsymbol und Wert: **Thema** (Türkis, „Alle Themen“), **Niveau** (Gelb, „Alle Niveaus“), **Wortart** (Magenta, „Alle Wortarten“), **Richtung** (Grau, „Beide Richtungen“, Untertext „mal so, mal so“). Darunter der Startblock: eine Zusammenfassung („Alle Themen · Alle Niveaus · Alle Wortarten · Beide Richtungen“, das Thema fett) und der große Button „Starten“. **Die untere Hälfte der Seite bis zur Tab-Leiste ist leer**; dort haben die Einblendungen Platz.
+
+**Maße im Standardzustand** (CSS-Pixel bei 412 × 915, gemessen):
+
+| Element | Bereich |
+|---|---|
+| Überschrift „Lernen“ | x 16–396, y 20–52 |
+| Kachel Thema | x 16–200, y 68–192 |
+| Kachel Niveau | x 212–396, y 68–192 |
+| Kachel Wortart | x 16–200, y 204–328 |
+| Kachel Richtung | x 212–396, y 204–328 |
+| Startblock (Zusammenfassung und Button) | y ca. 344–478 |
+| Button „Starten“ | x 30–382, y 408–464 |
+| leere Fläche | y ca. 490–840 |
+| Tab-Leiste | y 847–915 |
+
+**Auswahlfenster „Thema“** (nach Tipp auf die Kachel): Es **erscheint ohne Öffnungsanimation** (SPEC §14.4) und füllt x 0–412, y 201–915 (der Hintergrund dahinter wird abgedunkelt). Es enthält die Überschrift „Thema“ und 14 Optionen als Auswahlliste (Alle Themen, Grundwortschatz, Begrüßung & Höflichkeit, Zahlen & Zeit, Essen & Trinken, **Unterwegs & Transport**, Unterkunft, …). „Unterwegs & Transport“ liegt ohne Scrollen bei x 16–396, y 556–608. Die Auswahl schließt das Fenster sofort; die Kachel zeigt dann „Unterwegs & Transport“ (in zwei Zeilen), die Zusammenfassung lautet „Unterwegs & Transport · Alle Niveaus · Alle Wortarten · Beide Richtungen“. Weil die Seite keine Übergänge hat, kann der Schnitt einen kurzen Übergang (Zoom oder Wisch) setzen, wenn es besser aussieht (Annahme).
+
 ## Ablauf
 
-Die Bildpfade der Szenen 1 bis 5 (Lernseite) können sich ändern, weil der Nutzer den Lernen-Tab noch umbaut; nach dem Merge von `main` prüfen. Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der gesprochenen Sätze. Die Zeiten sind für 65 s ausgelegt (Szene 6 bekommt viel Raum, weil Bild und Sprechertext dort am dichtesten sind). Klicks sind sichtbar (Tipp-Punkt, der kurz aufleuchtet).
+Die Lernen-Seite (Szene 1 und 2) kann sich noch einmal ändern (siehe „Lernen-Seite: Stand für die Aufnahme“). Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der gesprochenen Sätze. Die Zeiten sind für 67 s ausgelegt (Szene 6 bekommt viel Raum, weil Bild und Sprechertext dort am dichtesten sind). Klicks sind sichtbar (Tipp-Punkt, der kurz aufleuchtet).
 
 | # | Zeit | Bild (Klickpfad) | Einblendung | Sprechertext |
 |---|---|---|---|---|
 | 1 | 0:00–0:06 | Begrüßungskarte schwebt über der Lernseite: „¡Bienvenido a Palabrita“. Tipp, Karte dreht sich: „Willkommen zu Palabrita“. Tipp, Karte verschwindet. Musik setzt mit dem ersten Bild ein. | – | „Una cerveza, por favor“ – und dann? Peinliches Schweigen? Muss nicht sein. Das ist Palabrita! |
-| 2 | 0:06–0:11 | Lernseite. Thema öffnen, „Unterwegs & Transport“ wählen, „Starten“ tippen. | „800+ Wörter. Mexiko & Guatemala“ (ca. 4 s, darf den Starten-Button überlagern) | Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel! |
-| 3 | 0:11–0:20 | Karte „Bus · Lastwagen“. „Umdrehen“: *el camión* / *los camiones*, Badge „maskulin“, Beispielsatz, Hinweis „In Mexiko bedeutet „camión“ auch Stadtbus …“. Tipp auf 🔊, man hört *el camión* (vom Sprecher gesprochen). Kurzer Zoom auf den Hinweis. | – | Umdrehen, anhören, merken. Beispiel: „camión“. Lastwagen? Nein, in Mexiko heißt „camión“ nicht nur Lastwagen, sondern auch Bus. Palabrita sagt dir das, bevor du einsteigst. |
-| 4 | 0:20–0:28 | Buttons „Nochmal“ (1 Min) und „Gewusst“ (10 Min) kurz hervorgehoben. Tipp auf „Gewusst“. Zwei weitere Karten im Zeitraffer (umdrehen, bewerten). | – | Gewusst oder nochmal? Ehrlich sein! Palabrita merkt sich, wann du ein Wort vergessen würdest, und fragt genau davor nochmal. |
-| 5 | 0:28–0:33 | Karte „können · dürfen“, umdrehen: *poder* mit grauer Zeile *(ue)*. Tipp auf „Konjugation“, die Formentabelle fährt von unten herein, kurz scrollen. | – | Konjugation? Gibt’s gratis dazu. Auch für die fiesen, unregelmäßigen Verben. |
-| 6 | 0:33–0:51 | **Höhepunkt.** Tab „Verzeichnis“. Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | „Findet auch gebeugte Formen“ mit dem Etikett „podemos → poder ✓“ darunter (ca. 3 s, wenn der Sprecher „gebeugte Formen“ sagt); beim gesprochenen „Podemos!“ am Ende „Ja, wir können das!“ (ca. 1,5 s, genau im Moment des Worts, darf die Treffer-Karte überdecken) | Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen von Verben und zeigt dir den zugehörigen Infinitiv. Und „podemos“ führt direkt zu poder. Können wir das? Podemos! |
-| 7 | 0:51–0:55 | Tab „Statistik“: Balken neu, lernend, gefestigt je Richtung (vorbereiteter Lernstand, siehe Erzeugung). | – | Die Statistik zeigt, was schon sitzt. Perfektes Angeber-Material. [kürzbar] |
-| 8 | 0:55–1:01 | Tab „Mehr“ mit Markenkopf, dann ein Handy-Symbol mit Flugmodus-Zeichen über der weiter laufenden App. | „Offline“, „Ohne Konto“, „Ohne Tracking“ (drei Chips nacheinander) | Läuft im Browser, auch offline. Kein Konto, kein Tracking. Nur du und die Wörter. |
-| 9 | 1:01–1:05 | Große Wortmarke (Wimpel, „Palabrita“, Greca) auf ruhigem Hintergrund, darunter Slogan „Tu app de vocabulario de español“, keine Adresse. Musik klingt aus. | – | Palabrita. Probier’s aus. ¡Vámonos! |
+| 2 | 0:06–0:13 | Lernseite im Standardzustand (4 Kacheln, Startblock, untere Hälfte leer). Kachel „Thema“ antippen, das Auswahlfenster erscheint (ohne Animation), „Unterwegs & Transport“ antippen, das Fenster schließt, Kachel und Zusammenfassung zeigen das Thema, „Starten“ tippen. | „800+ Wörter. Mexiko & Guatemala“ (ca. 3 s, gleich zu Beginn der Szene, solange die ruhige Seite zu sehen ist; danach erst die Kachel antippen) | Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel! |
+| 3 | 0:13–0:22 | Karte „Bus · Lastwagen“. „Umdrehen“: *el camión* / *los camiones*, Badge „maskulin“, Beispielsatz, Hinweis „In Mexiko bedeutet „camión“ auch Stadtbus …“. Tipp auf 🔊, man hört *el camión* (vom Sprecher gesprochen). Kurzer Zoom auf den Hinweis. | – | Umdrehen, anhören, merken. Beispiel: „camión“. Lastwagen? Nein, in Mexiko heißt „camión“ nicht nur Lastwagen, sondern auch Bus. Palabrita sagt dir das, bevor du einsteigst. |
+| 4 | 0:22–0:30 | Buttons „Nochmal“ (1 Min) und „Gewusst“ (10 Min) kurz hervorgehoben. Tipp auf „Gewusst“. Zwei weitere Karten im Zeitraffer (umdrehen, bewerten). | – | Gewusst oder nochmal? Ehrlich sein! Palabrita merkt sich, wann du ein Wort vergessen würdest, und fragt genau davor nochmal. |
+| 5 | 0:30–0:35 | Karte „können · dürfen“, umdrehen: *poder* mit grauer Zeile *(ue)*. Tipp auf „Konjugation“, die Formentabelle fährt von unten herein, kurz scrollen. | – | Konjugation? Gibt’s gratis dazu. Auch für die fiesen, unregelmäßigen Verben. |
+| 6 | 0:35–0:53 | **Höhepunkt.** Tab „Verzeichnis“. Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | „Findet auch gebeugte Formen“ mit dem Etikett „podemos → poder ✓“ darunter (ca. 3 s, wenn der Sprecher „gebeugte Formen“ sagt); beim gesprochenen „Podemos!“ am Ende „Ja, wir können das!“ (ca. 1,5 s, genau im Moment des Worts, darf die Treffer-Karte überdecken) | Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen von Verben und zeigt dir den zugehörigen Infinitiv. Und „podemos“ führt direkt zu poder. Können wir das? Podemos! |
+| 7 | 0:53–0:57 | Tab „Statistik“: Balken neu, lernend, gefestigt je Richtung (vorbereiteter Lernstand, siehe Erzeugung). | – | Die Statistik zeigt, was schon sitzt. Perfektes Angeber-Material. [kürzbar] |
+| 8 | 0:57–1:03 | Tab „Mehr“ mit Markenkopf, dann ein Handy-Symbol mit Flugmodus-Zeichen über der weiter laufenden App. | „Offline“, „Ohne Konto“, „Ohne Tracking“ (drei Chips nacheinander) | Läuft im Browser, auch offline. Kein Konto, kein Tracking. Nur du und die Wörter. |
+| 9 | 1:03–1:07 | Große Wortmarke (Wimpel, „Palabrita“, Greca) auf ruhigem Hintergrund, darunter Slogan „Tu app de vocabulario de español“, keine Adresse. Musik klingt aus. | – | Palabrita. Probier’s aus. ¡Vámonos! |
 
 ## Sprechertext am Stück
 
@@ -115,14 +137,14 @@ Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mi
 - Schrift: **Inter Display**, Gewicht 900 (in der Erzeugungsumgebung installiert; sonst „Inter“, dann `system-ui`), enge Laufweite (-0.02 em), Zeilenhöhe 1.02.
 - Farben aus dem Markenbild der App: Türkis `#0f766e`, Magenta `#be185d`, Gelb `#f5b800`, dazu ein warmes Hellgelb `#ffe27a` für Betonungen. Text weiß, Betonung gelb. Keine Großbuchstaben-Schlagzeilen, kein Rot, keine Pfeile, kein Dauerblinken.
 - Leichte Schräglage (-1 bis -3°), große Rundungen, weiche Schatten. Das ist der „minimale Hauch Clickbait“.
-- **Position:** Einblendungen liegen im unteren Drittel über der Tab-Leiste (etwa 120 bis 210 px Abstand von unten, Rand 18 px). Sie dürfen verdecken, was schon erklärt ist oder gerade nicht wichtig ist: in Szene 2 den Starten-Button, bei „Ja, wir können das!“ die Treffer-Karte (der Bildschirm wurde vorher erklärt, die Einblendung erscheint nur im Moment des Worts „Podemos“). Dort, wo die App gezeigt werden soll, bleibt sie sichtbar: bei „Findet auch gebeugte Formen“ die Treffer-Karte, in Szene 8 die Menüeinträge.
-- Animation (Annahme, vom Nutzer nicht festgelegt): kurzes Hereinspringen mit leichtem Überschwingen (rund 0,25 s), ausblenden in rund 0,2 s. Verweildauer: Szene 2 etwa 4 s, Szene 6 „Findet auch gebeugte Formen“ etwa 3 s, „Ja, wir können das!“ etwa 1,5 s (der Nutzer hielt 2 s für „einen Tacken zu lang“; kürzer genügt, solange man den Text lesen kann), Szene 8 drei Chips nacheinander (je etwa 0,3 s versetzt) insgesamt rund 4 s.
+- **Position:** Einblendungen liegen im unteren Drittel über der Tab-Leiste (etwa 120 bis 210 px Abstand von unten, Rand 18 px). Sie dürfen verdecken, was schon erklärt ist oder gerade nicht wichtig ist: bei „Ja, wir können das!“ die Treffer-Karte (der Bildschirm wurde vorher erklärt, die Einblendung erscheint nur im Moment des Worts „Podemos“). Dort, wo die App gezeigt werden soll, bleibt sie sichtbar: bei „Findet auch gebeugte Formen“ die Treffer-Karte, in Szene 8 die Menüeinträge.
+- Animation (Annahme, vom Nutzer nicht festgelegt): kurzes Hereinspringen mit leichtem Überschwingen (rund 0,25 s), ausblenden in rund 0,2 s. Verweildauer: Szene 2 etwa 3 s (zu Beginn der Szene, bevor das Auswahlfenster geöffnet wird), Szene 6 „Findet auch gebeugte Formen“ etwa 3 s, „Ja, wir können das!“ etwa 1,5 s (der Nutzer hielt 2 s für „einen Tacken zu lang“; kürzer genügt, solange man den Text lesen kann), Szene 8 drei Chips nacheinander (je etwa 0,3 s versetzt) insgesamt rund 4 s.
 
 **Die vier Einblendungen**
 
 | # | Szene | Text | Aufbau |
 |---|---|---|---|
-| 1 | 2 | „800+ Wörter. Mexiko & Guatemala“ | große Zahl „800+“ (104 px) mit weiß-gelbem Verlauf und türkisem Versatzschatten, darunter „Wörter.“ (weiß) und „Mexiko & Guatemala“ auf einem gelben Rechteck (schwarzer Text, leicht gekippt); darf den Starten-Button überlagern |
+| 1 | 2 | „800+ Wörter. Mexiko & Guatemala“ | große Zahl „800+“ (104 px) mit weiß-gelbem Verlauf und türkisem Versatzschatten, darunter „Wörter.“ (weiß) und „Mexiko & Guatemala“ auf einem gelben Rechteck (schwarzer Text, leicht gekippt); liegt in der leeren unteren Hälfte der Lernen-Seite (y ca. 490–840); erscheint zu Beginn der Szene, bevor die Kachel „Thema“ angetippt wird, damit sie nicht mit dem Auswahlfenster kollidiert |
 | 2 | 6 | „Findet auch gebeugte Formen“ + „podemos → poder ✓“ | türkiser Kasten mit weißem Innenrand, „gebeugte Formen“ in Hellgelb, leicht gekippt; darunter ein kleines weißes Etikett mit magentafarbener Schrift „podemos → poder ✓“ (zeigt das Ergebnis der Suche) |
 | 3 | 6, bei „Podemos!“ | „„Ja, wir können das!““ | magentafarbener Kasten (Verlauf nach `#e11d74`), „können“ in Hellgelb, kleiner Funken (✨) an der Ecke, stärker gekippt (-3°); größer (68 px) und darf den Bildschirm überragen |
 | 4 | 8 | „Offline“, „Ohne Konto“, „Ohne Tracking“ | drei weiße Chips untereinander mit türkisem Kreis-Symbol (✈, ✓, ✓), leicht versetzt und gekippt |
@@ -203,7 +225,7 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 
 ## Offen
 
-- Neuer Lernen-Tab: Der Nutzer gibt Bescheid, wenn `main` gemerged werden soll. Erst danach aufnehmen (siehe „Übergabe“).
+- Lernen-Seite: Der Nutzer ändert Oberfläche und Aussehen noch einmal und gibt Bescheid. Erst danach aufnehmen (siehe „Übergabe“).
 - Alle neun Szenen im Modus „nur Stimmcharakter“ erzeugen (siehe „Übergabe“, Punkt 2).
 - Ort der Hinweisdatei für Musik und Namensnennung (bei der Einbindung des Videos in die App).
 - Video-Einbindung in die App (neue Seite im Tab „Mehr“): Anforderungen in `docs/TASKS.md`.
