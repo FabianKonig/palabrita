@@ -155,6 +155,7 @@ export function StudySetup({
           options={sheet[open].options}
           selected={sheet[open].selected}
           onSelect={(v) => {
+            // Wert setzen und Fenster sofort schließen; den History-Eintrag räumt `ChoiceSheet` danach selbst ab.
             sheet[open].set(v);
             setOpen(null);
           }}

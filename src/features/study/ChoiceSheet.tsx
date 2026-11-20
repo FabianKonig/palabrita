@@ -101,6 +101,10 @@ export function ChoiceSheet({
               tabIndex={i === active ? 0 : -1}
               className="study-option"
               onClick={() => {
+                // Zwei Schritte, die Reihenfolge ist gewollt: `onSelect` setzt den Wert und hängt das Fenster
+                // aus (der Elternteil ruft `setOpen(null)`). `requestClose` nimmt danach nur noch den History-
+                // Eintrag mit `history.back()` weg. Das dadurch ausgelöste `popstate` trifft keinen Listener
+                // mehr, weil der Hook beim Aushängen aufräumt; ein zweites Schließen findet nicht statt.
                 onSelect(o.value);
                 requestClose();
               }}
