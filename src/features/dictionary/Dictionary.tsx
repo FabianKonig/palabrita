@@ -1,21 +1,27 @@
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { GermanText } from "../../components/Flashcard";
 import { PageTitle } from "../../components/PageTitle";
 import {
-  POS_LABEL,
+  POS_LABEL_PLURAL,
   clearCriterion,
   clearDropdownFilters,
   hasDropdownFilter,
   normalizeForSearch,
-  topicOptions,
   searchVocab,
   type DictionaryCriterion,
   type DictionaryFilters,
 } from "../../domain/dictionary";
 import { EMPTY_FORM_INDEX, cachedFormIndex } from "../../domain/forms";
-import { LEVEL_ORDER, type Level, type Pos } from "../../domain/types";
+import type { Level, Pos } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
+import { ChoiceSheet } from "../study/ChoiceSheet";
+import {
+  levelOptions,
+  posChoices,
+  topicChoices,
+  type ChoiceOption,
+} from "../study/studyChoices";
 import {
   getSavedFilters,
   getSavedScroll,
@@ -23,9 +29,8 @@ import {
   saveScroll,
 } from "./viewState";
 
-const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
-  (a, b) => LEVEL_ORDER[a] - LEVEL_ORDER[b],
-);
+/** Die drei Filter, die je ein Auswahlfenster öffnen (SPEC §3.3). */
+type FilterField = "topic" | "level" | "pos";
 
 /** „+ 1 weitere Form“ / „+ 5 weitere Formen“ */
 const moreForms = (n: number) =>
@@ -51,9 +56,18 @@ export function Dictionary() {
   }, []);
   const [filters, setFilters] = useState<DictionaryFilters>(getSavedFilters);
   const searchRef = useRef<HTMLInputElement>(null);
-  // Ob die letzte Auswahl im Dropdown mit der Maus kam. Nur dann verschwindet der Fokusrahmen
-  // direkt nach der Auswahl; per Tastatur bleibt der Fokus, damit man weiter navigieren kann.
-  const pickedWithPointer = useRef(false);
+  // Welches Auswahlfenster offen ist. Nach dem Schließen (auch nach einer Auswahl) bekommt der Filterknopf
+  // den Fokus zurück, der das Fenster geöffnet hat (Safari fokussiert Buttons beim Tippen nicht).
+  const [open, setOpen] = useState<FilterField | null>(null);
+  const buttonRefs = useRef<
+    Partial<Record<FilterField, HTMLButtonElement | null>>
+  >({});
+  const prevOpen = useRef<FilterField | null>(null);
+  useEffect(() => {
+    if (prevOpen.current && !open)
+      buttonRefs.current[prevOpen.current]?.focus();
+    prevOpen.current = open;
+  }, [open]);
 
   // Der Formenindex wird je Vokabelbestand einmal gebaut, und zwar erst, wenn eine Eingabe
   // lang genug für Formtreffer ist (SPEC §14.3): nicht je Tastendruck, nicht beim Öffnen.
@@ -76,35 +90,61 @@ export function Dictionary() {
     value: DictionaryFilters[K],
   ) => update({ ...filters, [key]: value });
 
-  const topicChoices = topicOptions(topics);
-
+  // Die Optionen stammen aus den Hilfsfunktionen der Lernen-Seite. Im Verzeichnis stehen immer alle
+  // Niveaus zur Wahl, unabhängig vom Maximalniveau (SPEC §3.3): `levelOptions()` ohne Argument.
+  const topicOpts = topicChoices(topics);
+  const sheets: Record<
+    FilterField,
+    {
+      title: string;
+      options: ChoiceOption[];
+      selected: string;
+      set: (v: string) => void;
+    }
+  > = {
+    topic: {
+      title: "Thema",
+      options: topicOpts,
+      selected: filters.topic,
+      set: (v) => set("topic", v),
+    },
+    level: {
+      title: "Niveau",
+      options: levelOptions(),
+      selected: filters.level,
+      set: (v) => set("level", v as Level | ""),
+    },
+    pos: {
+      title: "Wortart",
+      options: posChoices(),
+      selected: filters.pos,
+      set: (v) => set("pos", v as Pos | ""),
+    },
+  };
   // Statuszeile: je ein Chip für jedes Kriterium, das gerade wirkt (Filter und Suche).
   // Ein Tipp auf einen Chip entfernt genau dieses Kriterium.
-  const topicLabel = topicChoices.find(([key]) => key === filters.topic)?.[1];
+  // Nur bei gesetztem Thema: „Alle Themen“ (Wert "") ist kein Kriterium und bekommt keinen Chip.
+  const topicLabel = filters.topic
+    ? topicOpts.find((o) => o.value === filters.topic)?.label
+    : undefined;
+  const posLabel = filters.pos ? POS_LABEL_PLURAL[filters.pos] : undefined;
   const query = filters.query.trim();
   const activeChips: { criterion: DictionaryCriterion; label: string }[] = [];
   if (topicLabel) activeChips.push({ criterion: "topic", label: topicLabel });
   if (filters.level)
     activeChips.push({ criterion: "level", label: filters.level });
-  if (filters.pos)
-    activeChips.push({ criterion: "pos", label: POS_LABEL[filters.pos] });
+  if (posLabel) activeChips.push({ criterion: "pos", label: posLabel });
   if (query) activeChips.push({ criterion: "query", label: `„${query}“` });
   const dropdownsActive = hasDropdownFilter(filters);
   const activeCount = [filters.topic, filters.level, filters.pos].filter(
     Boolean,
   ).length;
 
-  // Gemeinsame Handler für die drei Dropdowns: Mausauswahl erkennen, Fokus nach Auswahl lösen.
-  const dropdownInput = {
-    onPointerDown: () => {
-      pickedWithPointer.current = true;
-    },
-    onKeyDown: () => {
-      pickedWithPointer.current = false;
-    },
-  };
-  const afterPick = (el: HTMLSelectElement) => {
-    if (pickedWithPointer.current) el.blur();
+  // Anzeigetext der Filterknöpfe: der gewählte Wert oder „Alle …“.
+  const buttonValue: Record<FilterField, string> = {
+    topic: topicLabel ?? "Alle Themen",
+    level: filters.level || "Alle Niveaus",
+    pos: posLabel ?? "Alle Wortarten",
   };
 
   return (
@@ -150,57 +190,21 @@ export function Dictionary() {
           {activeCount > 0 && <span>{activeCount} aktiv</span>}
         </div>
         <div className="filters">
-          <select
-            className="field"
-            aria-label="Thema"
-            value={filters.topic}
-            {...dropdownInput}
-            onChange={(e) => {
-              set("topic", e.target.value);
-              afterPick(e.currentTarget);
-            }}
-          >
-            <option value="">Alle Themen</option>
-            {topicChoices.map(([key, label]) => (
-              <option key={key} value={key}>
-                {label}
-              </option>
-            ))}
-          </select>
-          <select
-            className="field"
-            aria-label="Niveau"
-            value={filters.level}
-            {...dropdownInput}
-            onChange={(e) => {
-              set("level", e.target.value as Level | "");
-              afterPick(e.currentTarget);
-            }}
-          >
-            <option value="">Alle Niveaus</option>
-            {LEVELS.map((l) => (
-              <option key={l} value={l}>
-                {l}
-              </option>
-            ))}
-          </select>
-          <select
-            className="field"
-            aria-label="Wortart"
-            value={filters.pos}
-            {...dropdownInput}
-            onChange={(e) => {
-              set("pos", e.target.value as Pos | "");
-              afterPick(e.currentTarget);
-            }}
-          >
-            <option value="">Alle Wortarten</option>
-            {(Object.keys(POS_LABEL) as Pos[]).map((p) => (
-              <option key={p} value={p}>
-                {POS_LABEL[p]}
-              </option>
-            ))}
-          </select>
+          {(Object.keys(sheets) as FilterField[]).map((field) => (
+            <button
+              key={field}
+              ref={(el) => {
+                buttonRefs.current[field] = el;
+              }}
+              type="button"
+              className="field field-btn"
+              aria-haspopup="dialog"
+              aria-label={`${sheets[field].title}: ${buttonValue[field]}, ändern`}
+              onClick={() => setOpen(field)}
+            >
+              {buttonValue[field]}
+            </button>
+          ))}
         </div>
 
         {activeChips.length > 0 && (
@@ -290,6 +294,19 @@ export function Dictionary() {
           </ul>
         )}
       </section>
+      {open && (
+        <ChoiceSheet
+          title={sheets[open].title}
+          options={sheets[open].options}
+          selected={sheets[open].selected}
+          onSelect={(v) => {
+            // Wert setzen und Fenster sofort schließen; den History-Eintrag räumt `ChoiceSheet` danach selbst ab.
+            sheets[open].set(v);
+            setOpen(null);
+          }}
+          onClose={() => setOpen(null)}
+        />
+      )}
     </div>
   );
 }

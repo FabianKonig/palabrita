@@ -73,9 +73,9 @@ describe("dark theme: reduced contrast (not black on white-ish)", () => {
 });
 
 describe("form controls", () => {
-  it("dropdowns have their own arrow with an inset from the right edge", () => {
+  it("dropdowns and filter buttons have their own arrow with an inset from the right edge", () => {
     const rule =
-      /select\.field,\s*\.setting select \{([^}]*)\}/.exec(css)?.[1] ?? "";
+      /\.setting select,\s*\.field-btn \{([^}]*)\}/.exec(css)?.[1] ?? "";
     expect(rule).toMatch(/appearance:\s*none/);
     expect(rule).toMatch(/background-image:\s*url\(/);
     expect(rule).toMatch(/background-position:\s*right (1[2-9]|2\d)px center/);

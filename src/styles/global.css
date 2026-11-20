@@ -1566,9 +1566,9 @@ body:has(.session-bar) .update-banner {
   font-weight: 500;
   color: var(--muted);
 }
-/* Dropdowns: own arrow with proper inset */
-select.field,
-.setting select {
+/* Dropdowns (Einstellungen) und Filterknöpfe des Verzeichnisses: own arrow with proper inset */
+.setting select,
+.field-btn {
   appearance: none;
   -webkit-appearance: none;
   padding-right: 44px;
@@ -1578,6 +1578,14 @@ select.field,
   background-size: 12px 8px;
   text-overflow: ellipsis;
   cursor: pointer;
+}
+
+/* Filterknopf im Verzeichnis: sieht aus wie ein Dropdown, öffnet aber das Auswahlfenster der Lernen-Seite */
+.field-btn {
+  display: block;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* Dictionary sections */

@@ -217,6 +217,20 @@ async function choose(field: string, label: string) {
   await chooseOption(label);
 }
 
+/** Ausdruck für den Filterknopf des Verzeichnisses mit dieser Beschriftung („Thema“, „Niveau“, „Wortart“). */
+const filterExpr = (field: string) =>
+  `document.querySelector('.field-btn[aria-label^="${field}:"]')`;
+
+/** Angezeigter Wert des Filterknopfs („Alle Niveaus“, „A1“, „Verben“ …). */
+const filterText = (field: string) => `${filterExpr(field)}.textContent`;
+
+/** Wählt im Verzeichnis im Fenster des Filters `field` die Option `label`. */
+async function chooseFilter(field: string, label: string) {
+  await evaluate(`${filterExpr(field)}.click()`);
+  await waitFor(`document.querySelector(".study-sheet")`, `Fenster ${field}`);
+  await chooseOption(label);
+}
+
 async function keyDown(key: string, code: number) {
   for (const type of ["keyDown", "keyUp"])
     await send("Input.dispatchKeyEvent", {
@@ -509,12 +523,13 @@ async function main() {
     Number(a1) >= TOTAL_VOCAB,
     `${a1} Einträge`,
   );
+  await evaluate(`${filterExpr("Niveau")}.click()`);
+  await waitFor(`document.querySelector(".study-sheet")`, "Fenster Niveau");
   check(
-    "Niveau A1: Niveau-Dropdown im Verzeichnis bietet weiter A1, A2, B1",
-    (await evaluate<string>(
-      `[...document.querySelector('select[aria-label="Niveau"]').options].map((o) => o.value).join(",")`,
-    )) === ",A1,A2,B1",
+    "Niveau A1: Niveau-Auswahl im Verzeichnis bietet weiter Alle Niveaus, A1, A2, B1",
+    (await optionLabels()).join(",") === "Alle Niveaus,A1,A2,B1",
   );
+  await escapeKey();
   // Detailseite eines Worts über dem Niveau: öffnet mit Hinweis.
   await setInput('input[type="search"]', "agradecer");
   await sleep(300);
@@ -741,8 +756,23 @@ async function main() {
     sections === 1 && headings === 0,
     `Abschnitte: ${sections}, Überschriften: ${headings}`,
   );
-  const dictTopics = await evaluate<string[]>(
-    `[...document.querySelector('select[aria-label="Thema"]').options].map((o) => o.textContent)`,
+  check(
+    "Verzeichnis: Thema, Niveau und Wortart sind Knöpfe, keine Browser-Dropdowns",
+    await evaluate<boolean>(`(() => {
+      const btns = document.querySelectorAll(".filters .field-btn");
+      return btns.length === 3 && !document.querySelector(".screen select")
+        && [...btns].every((b) => b.getAttribute("aria-haspopup") === "dialog");
+    })()`),
+  );
+  await evaluate(`${filterExpr("Thema")}.click()`);
+  await waitFor(`document.querySelector(".study-sheet")`, "Fenster Thema");
+  const dictTopics = await optionLabels();
+  await escapeKey();
+  check(
+    "Verzeichnis: Escape schließt das Fenster, der Fokus kehrt zum Filterknopf zurück",
+    await evaluate<boolean>(
+      `document.activeElement === ${filterExpr("Thema")}`,
+    ),
   );
   check(
     "Verzeichnis: Grundwortschatz steht direkt nach „Alle Themen“",
@@ -750,9 +780,9 @@ async function main() {
     dictTopics.slice(0, 3).join(" | "),
   );
   check(
-    "Dropdowns haben eigenen Pfeil mit Abstand (appearance none, padding)",
+    "Filterknöpfe haben eigenen Pfeil mit Abstand (appearance none, padding)",
     await evaluate<boolean>(`(() => {
-      const s = getComputedStyle(document.querySelector("select.field"));
+      const s = getComputedStyle(document.querySelector(".field-btn"));
       return s.appearance === "none" && parseFloat(s.paddingRight) >= 40
         && s.backgroundImage.startsWith("url(");
     })()`),
@@ -760,11 +790,11 @@ async function main() {
   // Suchtext und Filter wirken zusammen: Die Suche läuft innerhalb der gefilterten Liste.
   // Die Statuszeile nennt alle aktiven Kriterien, „Filter löschen“ setzt nur die Dropdowns zurück.
   await setInput('input[type="search"]', "a");
-  await setInput('select[aria-label="Niveau"]', "A1");
+  await chooseFilter("Niveau", "A1");
   await sleep(300);
   const combinedJson = await evaluate<string>(`JSON.stringify({
     q: document.querySelector('input[type="search"]').value,
-    level: document.querySelector('select[aria-label="Niveau"]').value,
+    level: ${filterText("Niveau")},
     status: document.querySelector(".dict-status")?.textContent ?? "",
   })`);
   const combined = JSON.parse(combinedJson) as {
@@ -793,7 +823,7 @@ async function main() {
   await sleep(300);
   const chipJson = await evaluate<string>(`JSON.stringify({
     q: document.querySelector('input[type="search"]').value,
-    level: document.querySelector('select[aria-label="Niveau"]').value,
+    level: ${filterText("Niveau")},
     status: document.querySelector(".dict-status")?.textContent ?? "",
     chips: document.querySelectorAll(".dict-chip").length,
   })`);
@@ -807,20 +837,20 @@ async function main() {
     "Verzeichnis: Tipp auf einen Chip entfernt nur dieses Kriterium",
     chipClicked &&
       chip.q === "a" &&
-      chip.level === "" &&
+      chip.level === "Alle Niveaus" &&
       !chip.status.includes("A1") &&
       chip.status.includes("„a“") &&
       chip.chips === 1,
     chipJson,
   );
   // Für die folgenden Prüfungen das Niveau wieder setzen.
-  await setInput('select[aria-label="Niveau"]', "A1");
+  await chooseFilter("Niveau", "A1");
   await sleep(300);
   await clickText("Filter löschen", ".dict-status button");
   await sleep(300);
   const clearedJson = await evaluate<string>(`JSON.stringify({
     q: document.querySelector('input[type="search"]').value,
-    level: document.querySelector('select[aria-label="Niveau"]').value,
+    level: ${filterText("Niveau")},
     status: document.querySelector(".dict-status")?.textContent ?? "",
   })`);
   const cleared = JSON.parse(clearedJson) as {
@@ -831,7 +861,7 @@ async function main() {
   check(
     "Verzeichnis: „Filter löschen“ setzt nur die Dropdowns zurück, der Suchtext bleibt",
     cleared.q === "a" &&
-      cleared.level === "" &&
+      cleared.level === "Alle Niveaus" &&
       !cleared.status.includes("A1") &&
       cleared.status.includes("„a“"),
     clearedJson,
@@ -888,7 +918,7 @@ async function main() {
   await sleep(400);
   const backJson = await evaluate<string>(`JSON.stringify({
     q: document.querySelector('input[type="search"]').value,
-    level: document.querySelector('select[aria-label="Niveau"]').value,
+    level: ${filterText("Niveau")},
     y: Math.round(window.scrollY),
   })`);
   const backState = JSON.parse(backJson) as {
@@ -898,7 +928,7 @@ async function main() {
   };
   check(
     "Verzeichnis: Suche und Filter bleiben nach Detailansicht und Zurück",
-    backState.q === "a" && backState.level === "",
+    backState.q === "a" && backState.level === "Alle Niveaus",
     backJson,
   );
   check(
@@ -935,14 +965,16 @@ async function main() {
       rounds.push(
         await evaluate<string>(`JSON.stringify({
           q: document.querySelector('input[type="search"]').value,
-          level: document.querySelector('select[aria-label="Niveau"]').value,
+          level: ${filterText("Niveau")},
           y: Math.round(window.scrollY),
         })`),
       );
     }
     const ok = rounds.every((r) => {
       const s = JSON.parse(r) as { q: string; level: string; y: number };
-      return Math.abs(s.y - 1500) < 5 && s.q === "a" && s.level === "";
+      return (
+        Math.abs(s.y - 1500) < 5 && s.q === "a" && s.level === "Alle Niveaus"
+      );
     });
     check(
       `Verzeichnis: ${label} aus der Detailansicht startet an gleicher Stelle wie Zurück`,
@@ -958,12 +990,12 @@ async function main() {
   await sleep(300);
   const reset = await evaluate<string>(`JSON.stringify({
     q: document.querySelector('input[type="search"]').value,
-    level: document.querySelector('select[aria-label="Niveau"]').value,
+    level: ${filterText("Niveau")},
     y: Math.round(window.scrollY),
   })`);
   check(
     "Verzeichnis: Tabwechsel setzt Suche, Filter und Scrollposition zurück",
-    reset === '{"q":"","level":"","y":0}',
+    reset === '{"q":"","level":"Alle Niveaus","y":0}',
     reset,
   );
   check(
@@ -1005,8 +1037,15 @@ async function main() {
   // 8e5. A detail page opened from the bottom of a long list starts at the top.
   // (Regression: the window kept the list's scroll position, so a long verb opened at its end.)
   await setInput('input[type="search"]', "");
-  await setInput('select[aria-label="Wortart"]', "verb");
+  await chooseFilter("Wortart", "Verben");
   await sleep(300);
+  check(
+    "Verzeichnis: Wortart steht im Plural (Knopf, Fenster-Auswahl und Chip)",
+    (await evaluate<string>(filterText("Wortart"))) === "Verben" &&
+      (await evaluate<boolean>(
+        `!!document.querySelector('.dict-chip[aria-label="Verben entfernen"]')`,
+      )),
+  );
   await evaluate("window.scrollTo(0, document.documentElement.scrollHeight)");
   await sleep(300);
   const listY = Math.round(await evaluate<number>("window.scrollY"));
@@ -1030,7 +1069,6 @@ async function main() {
     listY > 0 && detail.scrollable > 200 && detail.y === 0,
     `Liste y=${listY}, Detail y=${detail.y}, scrollbar ${detail.scrollable}px`,
   );
-  await setInput('select[aria-label="Wortart"]', "");
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis");
 
@@ -1226,7 +1264,7 @@ async function main() {
     `document.querySelector(".vocab-list")`,
     "Verzeichnis (Formsuche)",
   );
-  await setInput('select[aria-label="Wortart"]', "verb");
+  await chooseFilter("Wortart", "Verben");
   await setInput('input[type="search"]', "podemos");
   await waitFor(
     `document.querySelector(".vocab-list .form-word")`,
@@ -1310,12 +1348,12 @@ async function main() {
   await sleep(300);
   const backForm = await evaluate<string>(`JSON.stringify({
     q: document.querySelector('input[type="search"]').value,
-    pos: document.querySelector('select[aria-label="Wortart"]').value,
+    pos: ${filterText("Wortart")},
     word: document.querySelector(".vocab-list .form-word")?.textContent,
   })`);
   check(
     "Formsuche: Zurück behält Suchtext und Filter",
-    backForm === '{"q":"podemos","pos":"verb","word":"podemos"}',
+    backForm === '{"q":"podemos","pos":"Verben","word":"podemos"}',
     backForm,
   );
 
@@ -1341,7 +1379,7 @@ async function main() {
   // „vamos“: zwei Zeilen (ir, irse); bei ir sind beide Zellen hervorgehoben.
   await send("Page.navigate", { url: `${BASE}#/dictionary` });
   await waitFor(`document.querySelector(".vocab-list")`, "Verzeichnis (vamos)");
-  await setInput('select[aria-label="Wortart"]', "");
+  await chooseFilter("Wortart", "Alle Wortarten");
   await setInput('input[type="search"]', "vamos");
   await waitFor(`document.querySelector(".vocab-list .form-word")`, "vamos");
   const vamos = await evaluate<string>(`JSON.stringify(

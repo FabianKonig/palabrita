@@ -33,6 +33,16 @@ describe("levelOptions", () => {
     expect(levelOptions("A1")).toEqual([{ value: "A1", label: "A1" }]);
   });
 
+  it("bietet ohne Maximalniveau immer alle Niveaus (Verzeichnis)", () => {
+    expect(levelOptions()).toEqual(levelOptions("B1"));
+    expect(levelOptions().map((o) => o.label)).toEqual([
+      "Alle Niveaus",
+      "A1",
+      "A2",
+      "B1",
+    ]);
+  });
+
   it("nutzt für Alle Niveaus den leeren Wert", () => {
     expect(levelOptions("B1")[0].value).toBe("");
   });
