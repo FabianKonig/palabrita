@@ -68,25 +68,29 @@ Die erste Version wurde nach einer früheren Fassung dieses Drehbuchs automatisc
 
 ## Lernen-Seite: Stand für die Aufnahme
 
-Stand: `main` bei Commit `ddeb6c1` (PR #29, 2026-11-20). Die Produktspezifikation der Seite steht in `docs/SPEC.md` §14.4 (Kacheln und Auswahlfenster) und §3.3; hier steht nur, was die Aufnahme braucht. **Der Nutzer erwartet noch eine Änderung an Oberfläche und Aussehen der Lernen-Seite und sagt Bescheid.** Dann diesen Abschnitt, den Klickpfad der Szenen 1 und 2 und die Einblendung der Szene 2 prüfen und die Koordinaten neu messen (Playwright, Handy-Ansicht 412 × 915, `boundingBox()`). Mit der Aufnahme erst beginnen, wenn der Nutzer die Lernen-Seite für fertig erklärt.
+Stand: `main` bei Commit `f3c34e5` (PR #29 bis #34, 2026-11-20). Die Produktspezifikation der Seite steht in `docs/SPEC.md` §14.4 (Kacheln und Auswahlfenster) und §3.3, die des Verzeichnisses in §14.5; hier steht nur, was die Aufnahme braucht. **Der Nutzer erwartet noch eine Änderung an Oberfläche und Aussehen der Lernen-Seite und sagt Bescheid.** Dann diesen Abschnitt, den Klickpfad der Szenen 1 und 2 und die Einblendung der Szene 2 prüfen und die Koordinaten neu messen (Playwright, Handy-Ansicht 412 × 915, `boundingBox()`). Mit der Aufnahme erst beginnen, wenn der Nutzer die Lernen-Seite für fertig erklärt.
 
-**Aussehen im Standardzustand** (Überschrift „Lernen“, Logo oben rechts): Vier Kacheln in zwei Spalten und zwei Zeilen, jede mit farbigem Balken oben, Beschriftung in Versalien, Stiftsymbol und Wert: **Thema** (Türkis, „Alle Themen“), **Niveau** (Gelb, „Alle Niveaus“), **Wortart** (Magenta, „Alle Wortarten“), **Richtung** (Grau, „Beide Richtungen“, Untertext „mal so, mal so“). Darunter der Startblock: eine Zusammenfassung („Alle Themen · Alle Niveaus · Alle Wortarten · Beide Richtungen“, das Thema fett) und der große Button „Starten“. **Die untere Hälfte der Seite bis zur Tab-Leiste ist leer**; dort haben die Einblendungen Platz.
+**Aussehen im Standardzustand** (Überschrift „Lernen“, Logo oben rechts, darunter der Satz „Wähle aus, was du heute lernen möchtest.“ in Grau): Vier Kacheln in zwei Spalten und zwei Zeilen, jede mit farbigem Balken oben, Beschriftung in Versalien, Stiftsymbol und Wert: **Thema** (Türkis, „Alle Themen“), **Niveau** (Gelb, „Alle Niveaus“), **Wortart** (Magenta, „Alle Wortarten“), **Richtung** (Grau, „Beide Richtungen“, Untertext „mal so, mal so“). Darunter der Startblock: eine Zusammenfassung („Alle Themen · Alle Niveaus · Alle Wortarten · Beide Richtungen“, alle Teile in derselben grauen, nicht fetten Schrift; umbrochen wird nur zwischen den Kriterien, der Punkt „·“ bleibt am Zeilenende, hier also zwei Zeilen) und der große Button „Starten“. **Die untere Hälfte der Seite bis zur Tab-Leiste ist leer**; dort haben die Einblendungen Platz.
 
 **Maße im Standardzustand** (CSS-Pixel bei 412 × 915, gemessen):
 
 | Element | Bereich |
 |---|---|
 | Überschrift „Lernen“ | x 16–396, y 20–52 |
-| Kachel Thema | x 16–200, y 68–192 |
-| Kachel Niveau | x 212–396, y 68–192 |
-| Kachel Wortart | x 16–200, y 204–328 |
-| Kachel Richtung | x 212–396, y 204–328 |
-| Startblock (Zusammenfassung und Button) | y ca. 344–478 |
-| Button „Starten“ | x 30–382, y 408–464 |
-| leere Fläche | y ca. 490–840 |
+| Satz unter der Überschrift | x 16–396, y 72–94 |
+| Kachel Thema | x 16–200, y 114–238 |
+| Kachel Niveau | x 212–396, y 114–238 |
+| Kachel Wortart | x 16–200, y 250–374 |
+| Kachel Richtung | x 212–396, y 250–374 |
+| Startblock (Zusammenfassung und Button) | y ca. 390–523 |
+| Zusammenfassung (zwei Zeilen) | y 404–443 |
+| Button „Starten“ | x 30–382, y 453–509 |
+| leere Fläche | y ca. 535–840 |
 | Tab-Leiste | y 847–915 |
 
-**Auswahlfenster „Thema“** (nach Tipp auf die Kachel): Es **erscheint ohne Öffnungsanimation** (SPEC §14.4) und füllt x 0–412, y 201–915 (der Hintergrund dahinter wird abgedunkelt). Es enthält die Überschrift „Thema“ und 14 Optionen als Auswahlliste (Alle Themen, Grundwortschatz, Begrüßung & Höflichkeit, Zahlen & Zeit, Essen & Trinken, **Unterwegs & Transport**, Unterkunft, …). „Unterwegs & Transport“ liegt ohne Scrollen bei x 16–396, y 556–608. Die Auswahl schließt das Fenster sofort; die Kachel zeigt dann „Unterwegs & Transport“ (in zwei Zeilen), die Zusammenfassung lautet „Unterwegs & Transport · Alle Niveaus · Alle Wortarten · Beide Richtungen“. Weil die Seite keine Übergänge hat, kann der Schnitt einen kurzen Übergang (Zoom oder Wisch) setzen, wenn es besser aussieht (Annahme).
+**Auswahlfenster „Thema“** (nach Tipp auf die Kachel): Es **erscheint ohne Öffnungsanimation** (SPEC §14.4) und füllt x 0–412, y 201–915 (der Hintergrund dahinter wird abgedunkelt). Es enthält die Überschrift „Thema“ und 14 Optionen als Auswahlliste (Alle Themen, Grundwortschatz, Begrüßung & Höflichkeit, Zahlen & Zeit, Essen & Trinken, **Unterwegs & Transport**, Unterkunft, …). „Unterwegs & Transport“ liegt ohne Scrollen bei x 16–396, y 556–608. Die Auswahl schließt das Fenster sofort; die Kachel zeigt dann „Unterwegs & Transport“ (in zwei Zeilen), die Zusammenfassung lautet „Unterwegs & Transport · Alle Niveaus · Alle Wortarten · Beide Richtungen“ (nicht fett). Weil die Seite keine Übergänge hat, kann der Schnitt einen kurzen Übergang (Zoom oder Wisch) setzen, wenn es besser aussieht (Annahme).
+
+**Verzeichnis (Szene 6):** Seit PR #33 sind die drei Filter keine Browser-Dropdowns mehr, sondern Knöpfe, die dasselbe Auswahlfenster öffnen (SPEC §14.5). Sie sehen aus wie die früheren Dropdowns; die Seite mit dem Suchtext „podemos“ ist pixelgleich zum früheren Stand (Bildvergleich 2026-11-20). In Szene 6 wird kein Filter benutzt, die Szene bleibt unverändert. Treffer-Karte „podemos → poder“ bei x 16–396, y 430–521.
 
 ## Ablauf
 
@@ -144,7 +148,7 @@ Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mi
 
 | # | Szene | Text | Aufbau |
 |---|---|---|---|
-| 1 | 2 | „800+ Wörter. Mexiko & Guatemala“ | große Zahl „800+“ (104 px) mit weiß-gelbem Verlauf und türkisem Versatzschatten, darunter „Wörter.“ (weiß) und „Mexiko & Guatemala“ auf einem gelben Rechteck (schwarzer Text, leicht gekippt); liegt in der leeren unteren Hälfte der Lernen-Seite (y ca. 490–840); erscheint zu Beginn der Szene, bevor die Kachel „Thema“ angetippt wird, damit sie nicht mit dem Auswahlfenster kollidiert |
+| 1 | 2 | „800+ Wörter. Mexiko & Guatemala“ | große Zahl „800+“ (104 px) mit weiß-gelbem Verlauf und türkisem Versatzschatten, darunter „Wörter.“ (weiß) und „Mexiko & Guatemala“ auf einem gelben Rechteck (schwarzer Text, leicht gekippt); liegt in der leeren unteren Hälfte der Lernen-Seite (y ca. 535–840, Position 125 px von unten; sie ist etwa 240 px hoch und berührt dann den Startblock nicht, eine leichte Überlagerung wäre erlaubt); erscheint zu Beginn der Szene, bevor die Kachel „Thema“ angetippt wird, damit sie nicht mit dem Auswahlfenster kollidiert |
 | 2 | 6 | „Findet auch gebeugte Formen“ + „podemos → poder ✓“ | türkiser Kasten mit weißem Innenrand, „gebeugte Formen“ in Hellgelb, leicht gekippt; darunter ein kleines weißes Etikett mit magentafarbener Schrift „podemos → poder ✓“ (zeigt das Ergebnis der Suche) |
 | 3 | 6, bei „Podemos!“ | „„Ja, wir können das!““ | magentafarbener Kasten (Verlauf nach `#e11d74`), „können“ in Hellgelb, kleiner Funken (✨) an der Ecke, stärker gekippt (-3°); größer (68 px) und darf den Bildschirm überragen |
 | 4 | 8 | „Offline“, „Ohne Konto“, „Ohne Tracking“ | drei weiße Chips untereinander mit türkisem Kreis-Symbol (✈, ✓, ✓), leicht versetzt und gekippt |
@@ -156,7 +160,7 @@ Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mi
 .ov{position:absolute;left:18px;right:18px;color:#fff;font-weight:900;
     font-family:"Inter Display","Inter",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.02}
 /* 1: Zahl (Szene 2) */
-.o1{bottom:150px;transform:rotate(-2deg)}
+.o1{bottom:125px;transform:rotate(-2deg)}
 .o1 .big{font-size:104px;background:linear-gradient(95deg,#fff 10%,#ffe27a 90%);-webkit-background-clip:text;color:transparent;
          filter:drop-shadow(0 6px 0 rgba(15,118,110,.9)) drop-shadow(0 14px 22px rgba(0,0,0,.35));display:block}
 .o1 .sm{font-size:40px;margin-top:2px;text-shadow:0 3px 16px rgba(0,0,0,.45);display:block}
