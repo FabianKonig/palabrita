@@ -21,7 +21,7 @@ Stimmen und Musik werden nicht blind getauscht, sondern über Hörproben ausgew�
 3. **Lokal oder Cloud:** offen. Entscheidung fällt nach den Hörproben (lokal und Cloud werden beide probiert). Randbedingung: **möglichst nichts, was ein Konto braucht.** Bevorzugt Angebote ohne Anmeldung; keine Zahlungsdaten. Braucht ein Kandidat doch ein Konto oder einen Schlüssel, vorher mit dem Nutzer klären (Schlüssel nie im Chat, nur über die gesicherte Abfrage der Umgebung). Lizenz bzw. Nutzungsbedingungen müssen die Veröffentlichung des Videos erlauben; nicht ausdrücklich erlaubte Wege (z. B. inoffizielle Zugänge zu Diensten) scheiden aus.
 4. **Erzeugungsweg:** **Python ist für die Videoerzeugung erlaubt** (Ausnahme zu AGENTS.md, dort vermerkt). Python bleibt auf die Erzeugung des Videos beschränkt: nicht in `src/`, nicht in `public/`, keine Änderung an `package.json`, CI oder Build. Eine Python-Umgebung (z. B. `venv`) und heruntergeladene Modelle werden nicht eingecheckt. Annahme: Wo es sinnvoll ist, bleiben Aufnahme (Playwright) und Orchestrierung in TypeScript; Python kommt nur dort hinzu, wo es die Stimme oder Musik besser macht.
 5. **Musik:** **lizenzfreie Fertigmusik**, modern und energiegeladen wie in einem aktuellen Erklär- und Werbevideo, mit Aufbau (Einstieg, Schwung, Schlusspunkt). Vor der Verwendung wird für jeden Titel die Lizenz geprüft (muss die Veröffentlichung in einer öffentlichen Web-App erlauben, mit oder ohne Namensnennung; falls Namensnennung nötig ist, kommt sie auf die Video-Seite). Titel, Quelle und Lizenz werden festgehalten (in einer Hinweisdatei, wie `public/vocab/NOTICE.md` für die Vokabeln; Ort ist bei der Einbindung des Videos festzulegen). Stil und konkrete Titel sind offen: Der Nutzer wählt aus Hörproben.
-6. **Sprechertext:** wird **neu geschrieben**, im munteren Werbe-Ton, gleicher Ablauf und gleiche Inhalte (Szenen und Einblendungen bleiben). Der Entwurf geht dem Nutzer zur Freigabe vor, bevor etwas erzeugt wird. Der bisherige Text unten gilt dann als überholt.
+6. **Sprechertext:** wird **neu geschrieben**, im munteren Werbe-Ton, gleicher Ablauf und gleiche Inhalte (Szenen und Einblendungen bleiben). Der Entwurf geht dem Nutzer zur Freigabe vor, bevor etwas erzeugt wird. Ein Entwurf steht unten in „Sprechertext am Stück“ und in der Ablauftabelle.
 
 ### Ablauf der nächsten Iteration
 
@@ -49,35 +49,35 @@ Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der ges
 
 | # | Zeit | Bild (Klickpfad) | Einblendung | Sprechertext |
 |---|---|---|---|---|
-| 1 | 0:00–0:05 | Begrüßungskarte schwebt über der Lernseite: „¡Bienvenido a Palabrita“. Tipp, Karte dreht sich: „Willkommen zu Palabrita“. Tipp, Karte verschwindet. Musik setzt mit dem ersten Bild ein. | – | Mehr Spanisch als „Una cerveza, por favor“? Dann: Palabrita. |
-| 2 | 0:05–0:10 | Lernseite. Thema öffnen, „Unterwegs & Transport“ wählen, „Starten“ tippen. | Über 800 Wörter | Über achthundert Wörter für Mexiko und Guatemala, vom Markt bis zum Maya-Tempel. |
-| 3 | 0:10–0:19 | Karte „Bus · Lastwagen“. „Umdrehen“: *el camión* / *los camiones*, Badge „maskulin“, Beispielsatz, Hinweis „In Mexiko bedeutet „camión“ auch Stadtbus …“. Tipp auf 🔊, man hört *el camión* (spanische Stimme). Kurzer Zoom auf den Hinweis. | – | Umdrehen, anhören, dazulernen: In Mexiko ist der camión auch der Bus. Wer auf einen Lastwagen wartet, macht also alles richtig. |
-| 4 | 0:19–0:26 | Buttons „Nochmal“ (1 Min) und „Gewusst“ (10 Min) kurz hervorgehoben. Tipp auf „Gewusst“. Zwei weitere Karten im Zeitraffer (umdrehen, bewerten). | – | Gewusst oder nochmal? Palabrita holt jedes Wort zurück, kurz bevor du es vergisst. |
-| 5 | 0:26–0:31 | Karte „können · dürfen“, umdrehen: *poder* mit grauer Zeile *(ue)*. Tipp auf „Konjugation“, die Formentabelle fährt von unten herein, kurz scrollen. | – | Die Konjugation gibt’s gleich dazu. Auch für die unregelmäßigen Verben. Gerade für die. |
-| 6 | 0:31–0:45 | **Höhepunkt.** Tab „Verzeichnis“. Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | Findet auch gebeugte Formen | Unser Lieblingsteil: Irgendwo „fue“ gelesen? Eintippen. Palabrita findet auch gebeugte Formen. Ser oder ir? Beides. Spanisch eben. Und „podemos“ führt direkt zu poder, die Form schon markiert. |
-| 7 | 0:45–0:49 | Tab „Statistik“: Balken neu, lernend, gefestigt je Richtung (vorbereiteter Lernstand, siehe Erzeugung). | – | Die Statistik zeigt, was schon sitzt. [kürzbar] |
-| 8 | 0:49–0:55 | Tab „Mehr“ mit Markenkopf, dann ein Handy-Symbol mit Flugmodus-Zeichen über der weiter laufenden App. | Offline · ohne Konto · ohne Tracking | Läuft im Browser, auch offline. Kein Konto, kein Tracking. |
+| 1 | 0:00–0:05 | Begrüßungskarte schwebt über der Lernseite: „¡Bienvenido a Palabrita“. Tipp, Karte dreht sich: „Willkommen zu Palabrita“. Tipp, Karte verschwindet. Musik setzt mit dem ersten Bild ein. | – | Mehr Spanisch als „Una cerveza, por favor“? Na klar! Das ist Palabrita. |
+| 2 | 0:05–0:10 | Lernseite. Thema öffnen, „Unterwegs & Transport“ wählen, „Starten“ tippen. | Über 800 Wörter | Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel! |
+| 3 | 0:10–0:19 | Karte „Bus · Lastwagen“. „Umdrehen“: *el camión* / *los camiones*, Badge „maskulin“, Beispielsatz, Hinweis „In Mexiko bedeutet „camión“ auch Stadtbus …“. Tipp auf 🔊, man hört *el camión* (spanische Stimme). Kurzer Zoom auf den Hinweis. | – | Umdrehen, anhören, merken! Und: In Mexiko ist der camión auch der Bus. Wer auf einen Laster wartet, fährt also trotzdem Bus. |
+| 4 | 0:19–0:26 | Buttons „Nochmal“ (1 Min) und „Gewusst“ (10 Min) kurz hervorgehoben. Tipp auf „Gewusst“. Zwei weitere Karten im Zeitraffer (umdrehen, bewerten). | – | Gewusst oder nochmal? Du tippst, Palabrita merkt’s sich und holt jedes Wort zurück, kurz bevor du es vergisst. |
+| 5 | 0:26–0:31 | Karte „können · dürfen“, umdrehen: *poder* mit grauer Zeile *(ue)*. Tipp auf „Konjugation“, die Formentabelle fährt von unten herein, kurz scrollen. | – | Die Konjugation gibt’s gleich dazu. Auch für die fiesen, unregelmäßigen Verben. Gerade für die! |
+| 6 | 0:31–0:45 | **Höhepunkt.** Tab „Verzeichnis“. Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | Findet auch gebeugte Formen | Jetzt kommt unser Lieblingsteil! Irgendwo „fue“ gelesen? Einfach eintippen. Palabrita findet auch gebeugte Formen! Ser oder ir? Beides. Spanisch eben. Und „podemos“ springt direkt zu poder, die Form schon markiert. |
+| 7 | 0:45–0:49 | Tab „Statistik“: Balken neu, lernend, gefestigt je Richtung (vorbereiteter Lernstand, siehe Erzeugung). | – | Die Statistik zeigt dir, was schon sitzt. [kürzbar] |
+| 8 | 0:49–0:55 | Tab „Mehr“ mit Markenkopf, dann ein Handy-Symbol mit Flugmodus-Zeichen über der weiter laufenden App. | Offline · ohne Konto · ohne Tracking | Läuft im Browser, auch offline. Kein Konto, kein Tracking, kein Stress! |
 | 9 | 0:55–0:58 | Große Wortmarke (Wimpel, „Palabrita“, Greca) auf ruhigem Hintergrund, darunter Slogan „Tu app de vocabulario de español“, keine Adresse. Musik klingt mit einem Schlussakkord aus. | – | Palabrita. Probier’s aus. ¡Vámonos! |
 
 ## Sprechertext am Stück
 
-Für die Sprachausgabe; Pausen zwischen den Szenen ergeben sich aus dem Schnitt. Etwa 113 Wörter. In der ersten Version lief das bei ruhigem Tempo (rund 2,3 Wörter je Sekunde) auf gut 50 s und war zu langsam; ein zügigerer Sprecher schafft den Text schneller, die gewonnene Zeit kann Musik und Bild bekommen. Der Text selbst ist ebenfalls zu prüfen, ob er zum neuen Ton passt. Wird es nach der Sprachausgabe zu lang, zuerst Szene 7 [kürzbar] streichen.
+**Entwurf, wartet auf Freigabe durch den Nutzer** (neu geschrieben am 2026-11-20 im munteren Werbe-Ton; Ablauf, Szenen und Inhalte wie zuvor). Für die Sprachausgabe; Pausen zwischen den Szenen ergeben sich aus dem Schnitt. Etwa 129 Wörter. Bei einem zügigen Sprecher (rund 3 Wörter je Sekunde) sind das rund 43 s reine Sprechzeit; der Rest sind Musikpausen und Schnitt. Wird es nach der Sprachausgabe zu lang, zuerst Szene 7 [kürzbar] streichen.
 
-> Mehr Spanisch als „Una cerveza, por favor“? Dann: Palabrita.
+> Mehr Spanisch als „Una cerveza, por favor“? Na klar! Das ist Palabrita.
 >
-> Über achthundert Wörter für Mexiko und Guatemala, vom Markt bis zum Maya-Tempel.
+> Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel!
 >
-> Umdrehen, anhören, dazulernen: In Mexiko ist der camión auch der Bus. Wer auf einen Lastwagen wartet, macht also alles richtig.
+> Umdrehen, anhören, merken! Und: In Mexiko ist der camión auch der Bus. Wer auf einen Laster wartet, fährt also trotzdem Bus.
 >
-> Gewusst oder nochmal? Palabrita holt jedes Wort zurück, kurz bevor du es vergisst.
+> Gewusst oder nochmal? Du tippst, Palabrita merkt’s sich und holt jedes Wort zurück, kurz bevor du es vergisst.
 >
-> Die Konjugation gibt’s gleich dazu. Auch für die unregelmäßigen Verben. Gerade für die.
+> Die Konjugation gibt’s gleich dazu. Auch für die fiesen, unregelmäßigen Verben. Gerade für die!
 >
-> Unser Lieblingsteil: Irgendwo „fue“ gelesen? Eintippen. Palabrita findet auch gebeugte Formen. Ser oder ir? Beides. Spanisch eben. Und „podemos“ führt direkt zu poder, die Form schon markiert.
+> Jetzt kommt unser Lieblingsteil! Irgendwo „fue“ gelesen? Einfach eintippen. Palabrita findet auch gebeugte Formen! Ser oder ir? Beides. Spanisch eben. Und „podemos“ springt direkt zu poder, die Form schon markiert.
 >
-> Die Statistik zeigt, was schon sitzt. [kürzbar]
+> Die Statistik zeigt dir, was schon sitzt. [kürzbar]
 >
-> Läuft im Browser, auch offline. Kein Konto, kein Tracking.
+> Läuft im Browser, auch offline. Kein Konto, kein Tracking, kein Stress!
 >
 > Palabrita. Probier’s aus. ¡Vámonos!
 
