@@ -2,3 +2,21 @@
 node_modules/
 dist/
 .npmrc
+
+# Erklärvideo (docs/ERKLAERVIDEO.md): Audiodateien, Modelle und Arbeitsordner nie einchecken.
+# Stimmproben, Musik und Zwischenstände bleiben außerhalb der Git-Historie.
+# Die fertige Videodatei wird nur nach ausdrücklicher Bestätigung des Nutzers eingecheckt (docs/TASKS.md).
+*.wav
+*.mp3
+*.ogg
+*.flac
+*.m4a
+*.aac
+*.opus
+*.onnx
+*.safetensors
+*.ckpt
+*.pth
+.video-work/
+.venv/
+__pycache__/
