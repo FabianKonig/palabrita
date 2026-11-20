@@ -283,13 +283,17 @@ async function main() {
 
   // 4a. Flip twice: the front appears again, the rating buttons stay visible.
   const front = await frontWord();
-  await evaluate(`document.querySelector(".flashcard").click()`);
+  await evaluate(
+    `document.querySelector(".flashcard .flashcard-toggle").click()`,
+  );
   await waitFor(`document.querySelector(".flashcard.flipped")`, "Rückseite");
   const back = await frontWord();
   const hintBack = await evaluate<boolean>(
     `/Tippen zum Umdrehen/.test(document.querySelector(".flashcard .flashcard-face[aria-hidden=false]").innerText)`,
   );
-  await evaluate(`document.querySelector(".flashcard").click()`);
+  await evaluate(
+    `document.querySelector(".flashcard .flashcard-toggle").click()`,
+  );
   await waitFor(`!document.querySelector(".flashcard.flipped")`, "Vorderseite");
   const frontAgain = await frontWord();
   check(
@@ -1619,6 +1623,89 @@ async function main() {
       genderCard.parts.at(-1) === "gender" &&
       (genderCard.parts.length === 2 || genderCard.parts[1] === "plural"),
     `${genderCard.word} / ${genderCard.gender} / ${genderCard.parts.join(",")}`,
+  );
+
+  // 8e9b. Lautsprecher auf der Karte (SPEC §13, §14.1): Er steht auf der spanischen Seite und
+  // dreht sich mit ihr, ist kein Kind des Umdreh-Buttons und dreht die Karte nicht um.
+  const speakerState = () =>
+    evaluate<{
+      onFront: boolean;
+      onBack: boolean;
+      nested: boolean;
+      flipped: boolean;
+      frontInert: boolean;
+      backInert: boolean;
+      outside: number;
+    }>(`(() => {
+      const front = document.querySelector(".flashcard-face:not(.back)");
+      const back = document.querySelector(".flashcard-face.back");
+      return {
+        onFront: !!front.querySelector(".speak"),
+        onBack: !!back.querySelector(".speak"),
+        nested: !!document.querySelector(".flashcard-toggle .speak, button button"),
+        flipped: !!document.querySelector(".flashcard.flipped"),
+        frontInert: front.inert,
+        backInert: back.inert,
+        outside: document.querySelectorAll(".card-wrap > .speak").length,
+      };
+    })()`);
+  const esDe = await speakerState();
+  await evaluate(
+    `document.querySelector(".flashcard-face:not(.back) .speak").click()`,
+  );
+  const esDeAfterSpeak = await speakerState();
+  await evaluate(
+    `document.querySelector(".flashcard .flashcard-toggle").click()`,
+  );
+  const esDeFlipped = await speakerState();
+  check(
+    "ES→DE: Lautsprecher steht auf der Vorderseite (spanisch), nicht daneben, ohne Button im Button",
+    esDe.onFront &&
+      !esDe.onBack &&
+      !esDe.nested &&
+      esDe.outside === 0 &&
+      !esDe.frontInert &&
+      esDe.backInert,
+    JSON.stringify(esDe),
+  );
+  check(
+    "ES→DE: Tipp auf den Lautsprecher dreht die Karte nicht um; nach dem Umdrehen ist die Vorderseite samt Lautsprecher gesperrt (inert)",
+    !esDeAfterSpeak.flipped &&
+      esDeFlipped.flipped &&
+      esDeFlipped.frontInert &&
+      !esDeFlipped.backInert,
+    JSON.stringify([esDeAfterSpeak, esDeFlipped]),
+  );
+  await send("Page.navigate", { url: `${BASE}#/` });
+  await startSession(async () => {
+    await setInput(`select:has(option[value="de-es"])`, "de-es");
+  });
+  const deEs = await speakerState();
+  await evaluate(
+    `document.querySelector(".flashcard .flashcard-toggle").click()`,
+  );
+  const deEsFlipped = await speakerState();
+  await evaluate(
+    `document.querySelector(".flashcard-face.back .speak").click()`,
+  );
+  const deEsAfterSpeak = await speakerState();
+  check(
+    "DE→ES: Lautsprecher steht auf der Rückseite (spanisch) und erscheint erst mit dem Umdrehen",
+    !deEs.onFront &&
+      deEs.onBack &&
+      !deEs.nested &&
+      deEs.outside === 0 &&
+      deEs.backInert &&
+      !deEs.flipped &&
+      deEsFlipped.flipped &&
+      !deEsFlipped.backInert &&
+      deEsFlipped.frontInert,
+    JSON.stringify([deEs, deEsFlipped]),
+  );
+  check(
+    "DE→ES: Tipp auf den Lautsprecher lässt die Karte auf der Rückseite",
+    deEsAfterSpeak.flipped,
+    JSON.stringify(deEsAfterSpeak),
   );
 
   // 9. Service worker active, then offline reload still works.

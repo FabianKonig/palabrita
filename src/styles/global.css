@@ -316,28 +316,38 @@ body:has(.session-bar) .screen {
 
 /* Flashcard: dreht sich wie die Begrüßungskarte, nur schneller */
 .flashcard {
-  display: block;
+  display: grid;
   width: 100%;
+  border-radius: 28px;
+  color: inherit;
+  text-align: center;
+  perspective: 1200px;
+}
+
+/* Fläche zum Umdrehen: liegt hinter den Kartenseiten (die lassen Klicks durch), so passt
+   der Lautsprecher-Button als eigener Button auf die Karte. */
+.flashcard-toggle {
+  grid-area: 1 / 1;
+  align-self: stretch;
   padding: 0;
   border: 0;
   border-radius: 28px;
   background: none;
-  color: inherit;
   font: inherit;
-  text-align: center;
   cursor: pointer;
-  perspective: 1200px;
   -webkit-tap-highlight-color: transparent;
 }
 
-.flashcard:focus-visible {
+.flashcard-toggle:focus-visible {
   outline: 3px solid var(--magenta);
   outline-offset: 4px;
 }
 
 /* Beide Seiten liegen in derselben Grid-Zelle: die Karte ist so hoch wie die höhere Seite. */
 .flashcard-inner {
+  grid-area: 1 / 1;
   display: grid;
+  pointer-events: none;
   transform-style: preserve-3d;
   transition: transform 350ms cubic-bezier(0.4, 0.2, 0.2, 1);
 }
@@ -619,6 +629,10 @@ body:has(.session-bar) .screen {
 /* Audio */
 .card-wrap {
   position: relative;
+}
+
+.flashcard-face .speak {
+  pointer-events: auto;
 }
 
 .speak {

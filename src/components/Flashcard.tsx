@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
 import { conjugate } from "../domain/conjugation";
 import { GENDER_LABEL } from "../domain/gender";
 import type { Direction, Vocab } from "../domain/types";
@@ -21,10 +21,18 @@ interface Props {
   dir: Direction;
   flipped: boolean;
   onToggle: () => void;
+  /** Sits on the Spanish side of the card (e.g. the speaker button) and turns with it. */
+  spanishAction?: ReactNode;
 }
 
 /** Front: German (de-es) or Spanish (es-de). Tap turns the card around (3D flip), as often as wanted. */
-export function Flashcard({ vocab, dir, flipped, onToggle }: Props) {
+export function Flashcard({
+  vocab,
+  dir,
+  flipped,
+  onToggle,
+  spanishAction,
+}: Props) {
   const dirLabel =
     dir === "de-es" ? "Deutsch → Spanisch" : "Spanisch → Deutsch";
   const german = <GermanText de={vocab.de} />;
@@ -79,31 +87,37 @@ export function Flashcard({ vocab, dir, flipped, onToggle }: Props) {
     },
   ];
 
-  // Both faces are always rendered (stacked in one grid cell), so the card can turn
-  // around like the welcome card. The hidden face is aria-hidden.
+  // Both faces are always rendered (stacked in one grid cell), so the card can turn around
+  // like the welcome card. The hidden face is aria-hidden and inert (no focus, no clicks).
+  // The toggle is a button *behind* the faces: the faces let clicks through, only the
+  // spanishAction (a button itself, so it must not sit inside the toggle) catches its own.
+  const spanishOnBack = dir === "de-es";
   return (
-    <button
-      type="button"
-      className={`flashcard${flipped ? " flipped" : ""}`}
-      onClick={onToggle}
-      aria-pressed={flipped}
-      aria-label={
-        flipped ? "Rückseite, Karte umdrehen" : "Vorderseite, Karte umdrehen"
-      }
-    >
-      <span className="flashcard-inner">
+    <div className={`flashcard${flipped ? " flipped" : ""}`}>
+      <button
+        type="button"
+        className="flashcard-toggle"
+        onClick={onToggle}
+        aria-pressed={flipped}
+        aria-label={
+          flipped ? "Rückseite, Karte umdrehen" : "Vorderseite, Karte umdrehen"
+        }
+      />
+      <div className="flashcard-inner">
         {sides.map(({ key, content, back }) => (
-          <span
+          <div
             key={key}
             className={`flashcard-face${back ? " back" : ""}`}
             aria-hidden={back !== flipped}
+            inert={back !== flipped}
           >
             <span className="dir">{dirLabel}</span>
             {content}
+            {back === spanishOnBack && spanishAction}
             <span className="hint">Tippen zum Umdrehen</span>
-          </span>
+          </div>
         ))}
-      </span>
-    </button>
+      </div>
+    </div>
   );
 }
