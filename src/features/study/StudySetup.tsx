@@ -93,6 +93,7 @@ export function StudySetup({
   return (
     <div className="screen">
       <PageTitle brand>Lernen</PageTitle>
+      <p className="study-lead">Wähle aus, was du heute lernen möchtest.</p>
       <div className="study-grid">
         <ChoiceTile
           ref={(el) => {

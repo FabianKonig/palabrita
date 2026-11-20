@@ -1751,12 +1751,20 @@ select.field,
 }
 
 /* Lernen-Seite: Kacheln, Startblock, Auswahlfenster (SPEC §14.4) */
+/* Kurzer Satz unter der Überschrift: oben (zur Überschrift) und unten (zum Raster) je 20 px.
+   Die Außenabstände fallen mit dem h1-Abstand (16 px) zusammen, es zählt der größere. */
+.study-lead {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
 .study-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  /* 32 px statt der 16 px des h1-Abstands: die Außenabstände fallen zusammen, es zählt der größere */
-  margin-top: 32px;
+  margin-top: 20px;
 }
 
 .study-tile {

@@ -577,6 +577,23 @@ async function main() {
       ]),
     tiles,
   );
+  const leadGaps = await evaluate<string>(`(() => {
+    const lead = document.querySelector(".screen > .study-lead");
+    const h1 = document.querySelector(".screen > h1");
+    const grid = document.querySelector(".study-grid");
+    if (!lead || !h1 || !grid) return "fehlt";
+    const l = lead.getBoundingClientRect();
+    return [
+      lead.textContent,
+      Math.round(l.top - h1.getBoundingClientRect().bottom),
+      Math.round(grid.getBoundingClientRect().top - l.bottom),
+    ].join("|");
+  })()`);
+  check(
+    "Lernen: Satz unter der Überschrift, 20 px Abstand oben und unten",
+    leadGaps === "Wähle aus, was du heute lernen möchtest.|20|20",
+    leadGaps,
+  );
   check(
     "Lernen: keine Dropdowns mehr auf der Seite",
     !(await evaluate<boolean>(`!!document.querySelector(".screen select")`)),
