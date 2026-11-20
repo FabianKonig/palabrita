@@ -1,6 +1,27 @@
 # Palabrita: Drehbuch Erklärvideo
 
-Stand: 2026-11-19, vom Nutzer abgestimmt (Format, Sprecher, Musik, Einblendungen, Abspann, Ton). Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS.md`. Ist das Video fertig und eingebunden, kommen die Festlegungen in `docs/SPEC.md`.
+Stand: 2026-11-20. Vom Nutzer abgestimmt sind Format, Länge, Bild, Einblendungen, Abspann und Ablauf. **Sprecher, spanische Stimme, Musik und Sprechtempo sind nach der ersten Version verworfen und neu zu spezifizieren** (siehe „Erkenntnisse aus der ersten Version“). Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS.md`. Ist das Video fertig und eingebunden, kommen die Festlegungen in `docs/SPEC.md`.
+
+## Erkenntnisse aus der ersten Version
+
+Die erste Version wurde nach diesem Drehbuch automatisch erzeugt (Aufnahme, Sprecher, Musik, Schnitt). Der Nutzer ist mit mehreren Entscheidungen im Nachhinein nicht zufrieden; Stimmen und Musik sind die genannten Punkte. Urteil des Nutzers (2026-11-20):
+
+- **Deutsche Stimme (Piper „Thorsten“): verworfen.** Extrem langweilig, zäh und mühsam anzuhören, einschläfernd und zu langsam. Nicht jugendlich, nicht peppig, keine Werbung, die Spaß macht. Die Stimme „Thorsten“ wird nicht mehr verwendet, auch nicht als Rückfall.
+- **Spanische Stimme (männlich, mexikanisch gedacht, in Szene 3 und für spanische Wörter im Sprechertext): verworfen.** Klang überhaupt nicht gut. Die dort gewählte Stimme wird nicht wiederverwendet.
+- **Möglicher Einfluss des Erzeugungswegs:** Die erste Version entstand ohne Python, mit Node (AGENTS.md: kein Python im Projekt). Ob die schlechte Qualität an den Stimmen selbst, an Piper allgemein oder an diesem Weg lag, ist ungeklärt. Der Nutzer vermutet, dass Thorsten allgemein nicht gut ist; Python hätte es vielleicht verbessert, das ist aber nur eine Vermutung.
+- **Musik (per Skript erzeugte Marimba-Melodie): verworfen.** Zu langweilig. Das Video soll wie ein **modernes Erklär- und Werbevideo** wirken, Musik eingeschlossen. Modern ist hier das Ziel, nicht der Folklore-Ansatz der ersten Version.
+- **Ton und Tempo insgesamt:** Gewünscht ist ein munteres, jugendliches Sprechen mit Schwung. Die Festlegung „ruhiges Tempo“ und „trocken, kein Werbegeschrei“ der ersten Version war zu zurückhaltend und ist überholt (siehe Tabelle unten).
+
+### Für die nächste Iteration vorab klären
+
+Bevor das Video neu erzeugt wird, müssen Stimmen und Musik **mit dem Nutzer genauer besprochen und hier spezifiziert** werden. Nicht einfach eine andere Stimme ausprobieren und das Ergebnis liefern. Zu entscheiden sind:
+
+1. **Deutscher Sprecher:** Charakter (jung, energiegeladen, sympathisch; männlich oder weiblich), Sprechtempo, Betonung. Welche Stimme bzw. welcher Dienst, und ob lokal (kostenlos, ohne Cloud) weiterhin Pflicht ist oder ein besserer, ggf. kostenpflichtiger oder cloudbasierter Dienst erlaubt ist. Vermutlich lassen sich ohne die Pflicht „lokal“ natürlichere Stimmen finden; das ist beim Recherchieren zu prüfen.
+2. **Spanische Stimme:** für *el camión* (Szene 3) und die spanischen Wörter im Sprechertext. Dialekt (Mexiko bevorzugt), natürlich klingend, passend zur deutschen Stimme.
+3. **Erzeugungsweg:** Bleibt es bei „kein Python“ (AGENTS.md)? Falls die Stimmqualität daran hängt, ist das eine Entscheidung des Nutzers; AGENTS.md wird nicht stillschweigend geändert.
+4. **Musik:** Stil eines modernen Werbe- und Erklärvideos (Genre, Tempo, Energie, Dynamik mit Aufbau und Schlusspunkt). Woher: selbst erzeugt (reicht der Anspruch?) oder lizenzfreie Fertigmusik (Lizenz vorher prüfen, muss die Veröffentlichung erlauben).
+5. **Sprechertext:** Passt der Text zum neuen Ton? Der bisherige Text ist trocken und mit Understatement geschrieben; für einen peppigen Sprecher ggf. überarbeiten.
+6. **Probehören vor dem Gesamtschnitt:** Stimmen und Musik zuerst als kurze Hörproben (je ein bis zwei Sätze, ein Musikausschnitt) dem Nutzer vorlegen und erst nach Freigabe das ganze Video erzeugen.
 
 ## Eckdaten
 
@@ -8,10 +29,10 @@ Stand: 2026-11-19, vom Nutzer abgestimmt (Format, Sprecher, Musik, Einblendungen
 |---|---|
 | Länge | höchstens 60 s, Ziel 58 s |
 | Sprache | Deutsch, Sprecher duzt (wie die App) |
-| Ton | locker, trocken, ein bisschen Witz, kein Werbegeschrei. Kurze Sätze, Understatement statt Superlative. Keine „Jetzt sofort!“-Rufe, keine Ausrufezeichen im Sprechertext außer beim spanischen Schlusswort. |
+| Ton | **überholt, neu festzulegen.** Erste Version: locker, trocken, Understatement, kein Werbegeschrei. Das wirkte zu zurückhaltend. Ziel jetzt: Klang eines modernen Erklär- und Werbevideos, jugendlich, munter, mit Schwung, Spaß beim Zuhören. Genaue Ausprägung (Wortwahl, Ausrufe, Witz) klärt die nächste Iteration. Kurze Sätze und ein bisschen Witz bleiben. |
 | Bild | echte Aufnahme der App, automatisch durchgeklickt. **Hochformat 9:16** (1080 × 1920), damit man es auf dem Handy ansehen kann, ohne den Bildschirm zu drehen. |
-| Sprecher | **männliche, kostenlose Stimme, lokal erzeugt** (Piper, siehe Erzeugung). Kein Cloud-Dienst. |
-| Musik | **per Skript erzeugte Marimba-Melodie** (Marimba: Nationalinstrument Guatemalas) mit leichter Percussion, durchgehend, leicht und warm, etwa 100 bis 110 BPM. Unter dem Sprecher leiser (Ducking), in den Sprechpausen etwas lauter. Begründung: eigenes Werk, also kostenlos und ohne Lizenzfragen, vollständig automatisch und reproduzierbar; „freie“ Musikportale haben oft eigene Lizenzen mit Einschränkungen, CC0-Titel müssten einzeln auf ihre Herkunft geprüft werden. |
+| Sprecher | **offen, neu zu spezifizieren.** Verworfen: Piper „Thorsten“ (zäh, einschläfernd, nicht jugendlich) und die männliche spanische Stimme der ersten Version. Anforderung an die neue Stimme: jugendlich, peppig, in zügigem Tempo, wie ein Sprecher in einer Werbung, die Spaß macht. Stimme, Dienst und Erzeugungsweg: siehe „Für die nächste Iteration vorab klären“. |
+| Musik | **offen, neu zu spezifizieren.** Verworfen: die per Skript erzeugte Marimba-Melodie (zu langweilig). Anforderung: moderne Musik wie in einem aktuellen Erklär- und Werbevideo, mit Energie und Aufbau. Weiter gelten: durchgehend, unter dem Sprecher leiser (Ducking), in den Sprechpausen etwas lauter, Schlusspunkt am Ende. Herkunft und Lizenz (selbst erzeugt oder Fertigmusik) sind zu klären. |
 | Höhepunkt | **Formsuche** (gebeugte Formen finden, SPEC §3.3a): längste Szene, zwei Beispiele, als einzige Szene angekündigt. |
 | Texteinblendungen | **höchstens Stichworte, nur wo nötig**: drei Stück (Szenen 2, 6 und 8), weil das Bild der App den Rest auch ohne Ton erklärt. Keine Untertitel. |
 | Abspann | Wortmarke und Slogan, **keine Adresse**. |
@@ -34,7 +55,7 @@ Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der ges
 
 ## Sprechertext am Stück
 
-Für die Sprachausgabe; Pausen zwischen den Szenen ergeben sich aus dem Schnitt. Etwa 113 Wörter, bei ruhigem Tempo (rund 2,3 Wörter je Sekunde) gut 50 s; der Rest sind Musikpausen. Wird es nach der Sprachausgabe zu lang, zuerst Szene 7 [kürzbar] streichen.
+Für die Sprachausgabe; Pausen zwischen den Szenen ergeben sich aus dem Schnitt. Etwa 113 Wörter. In der ersten Version lief das bei ruhigem Tempo (rund 2,3 Wörter je Sekunde) auf gut 50 s und war zu langsam; ein zügigerer Sprecher schafft den Text schneller, die gewonnene Zeit kann Musik und Bild bekommen. Der Text selbst ist ebenfalls zu prüfen, ob er zum neuen Ton passt. Wird es nach der Sprachausgabe zu lang, zuerst Szene 7 [kürzbar] streichen.
 
 > Mehr Spanisch als „Una cerveza, por favor“? Dann: Palabrita.
 >
@@ -60,8 +81,8 @@ Die spanischen Wörter (*Una cerveza, por favor*, *camión*, *fue*, *ser*, *ir*,
 
 - **Aufnahme:** Playwright mit der vorinstallierten Chromium-Version gegen `npm run preview`, Handy-Ansicht (z. B. 412 × 915 CSS-Pixel, Skalierung so, dass 1080 × 1920 entsteht), Videoaufnahme oder Einzelbilder je Szene. Tipp-Punkte und Zooms werden per eingeblendetem Overlay bzw. im Schnitt erzeugt, nicht in der App.
 - **Vorbereiteter Lernstand:** Damit in Szene 3 bis 5 genau *el camión* und *poder* erscheinen und die Statistik (Szene 7) nicht leer ist, wird IndexedDB vor der Aufnahme mit einem passenden Zustand befüllt. Die App selbst wird dafür nicht geändert.
-- **Aussprache in Szene 3:** Die Browser-Sprachausgabe klingt in einer automatisierten Aufnahme nicht mit. Das *el camión* wird deshalb mit einer spanischen Stimme (möglichst mexikanisch) getrennt erzeugt und an der Stelle des Tipps eingemischt.
-- **Sprecher:** Piper (freie, lokal laufende Sprachsynthese), männliche deutsche Stimme, z. B. „Thorsten“. Ohne Python (AGENTS.md): Piper als fertiges Programm oder über das npm-Paket `sherpa-onnx-node`, das Piper-Modelle lädt. Die Lizenz des Stimmmodells wird vor der Verwendung geprüft (muss die Veröffentlichung erlauben). Spanische Wörter: zuerst als eigene Schnipsel mit einer männlichen spanischen Piper-Stimme (möglichst `es_MX`) probieren; klingt der Stimmwechsel holprig, stattdessen die deutsche Stimme mit aussprachenaher Schreibung (z. B. „Kamión“). Gewählt wird, was natürlicher klingt.
-- **Musik:** TypeScript-Skript (`npx tsx`), das die Marimba-Melodie als WAV erzeugt (Töne aus wenigen, schnell abklingenden Teiltönen, dazu leichte Percussion). Länge passend zum Schnitt, Schlussakkord am Ende.
+- **Aussprache in Szene 3:** Die Browser-Sprachausgabe klingt in einer automatisierten Aufnahme nicht mit. Das *el camión* wird deshalb getrennt mit einer spanischen Stimme erzeugt und an der Stelle des Tipps eingemischt. Welche Stimme, ist offen (die der ersten Version ist verworfen; Mexiko-Dialekt bleibt Wunsch).
+- **Sprecher (offen):** Die Festlegung der ersten Version (Piper, deutsche Stimme „Thorsten“, spanische Wörter als Schnipsel mit einer spanischen Piper-Stimme, Rückfall auf aussprachenahe Schreibung) ist **gestrichen**. Neu zu spezifizieren: Stimmen, Dienst, Erzeugungsweg, Umgang mit den spanischen Wörtern im deutschen Text (Stimmwechsel oder eine mehrsprachige Stimme). Die Lizenz des gewählten Stimmmodells bzw. Dienstes wird vor der Verwendung geprüft (muss die Veröffentlichung des Videos erlauben). Siehe „Für die nächste Iteration vorab klären“.
+- **Musik (offen):** Die Festlegung der ersten Version (TypeScript-Skript mit Marimba-Melodie) ist **gestrichen**. Neu zu spezifizieren: Stil, Herkunft und Erzeugungsweg. Länge passend zum Schnitt, Schlusspunkt am Ende.
 - **Schnitt:** `ffmpeg` (in der Cloud-Umgebung vorhanden) setzt Aufnahme, Sprecher, Musik (mit Ducking) und die drei Stichworte zusammen. Ausgabe MP4 (H.264/AAC), 1080 × 1920, Ziel unter 40 MB.
 - **Ablage:** Das fertige Video wird nicht eingecheckt, sondern nur außerhalb des Repos abgelegt und dem Nutzer zur Ansicht gegeben (Regel in `docs/TASKS.md`).
