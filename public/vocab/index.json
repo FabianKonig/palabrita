@@ -62,7 +62,7 @@
     },
     {
       "key": "grundwortschatz",
-      "label": "Grundwortschatz (häufigste Wörter)",
+      "label": "Grundwortschatz",
       "file": "grundwortschatz.json"
     }
   ]

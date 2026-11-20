@@ -1,24 +1,21 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PageTitle } from "../../components/PageTitle";
-import { POS_LABEL_PLURAL, topicOptions } from "../../domain/dictionary";
+import { POS_LABEL_PLURAL } from "../../domain/dictionary";
 import type { QueueFilters } from "../../domain/queue";
-import {
-  LEVEL_ORDER,
-  type DirectionSetting,
-  type Level,
-  type Pos,
-} from "../../domain/types";
+import type { DirectionSetting, Level, Pos } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
-
-const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
-  (a, b) => LEVEL_ORDER[a] - LEVEL_ORDER[b],
-);
-
-const DIRECTION_LABEL: Record<DirectionSetting, string> = {
-  "de-es": "Deutsch → Spanisch",
-  "es-de": "Spanisch → Deutsch",
-  both: "Beide Richtungen",
-};
+import { ChoiceSheet } from "./ChoiceSheet";
+import { ChoiceTile } from "./ChoiceTile";
+import {
+  buildFilters,
+  directionChoices,
+  directionTile,
+  levelOptions,
+  posChoices,
+  summary,
+  topicChoices,
+  type ChoiceField,
+} from "./studyChoices";
 
 /** Filters and direction before the session starts. Nothing is remembered. */
 export function StudySetup({
@@ -29,85 +26,142 @@ export function StudySetup({
   const { topics, settings } = useAppData();
   const [topic, setTopic] = useState("");
   const [level, setLevel] = useState<Level | "">("");
-  // Bei Maximalniveau A1 gibt es nur ein Niveau: nichts zu wählen (SPEC §3.3).
-  const onlyA1 = settings.maxLevel === "A1";
   const [pos, setPos] = useState<Pos | "">("");
   const [direction, setDirection] = useState<DirectionSetting>("both");
+  const [open, setOpen] = useState<ChoiceField | null>(null);
+  // Nach dem Schließen (auch nach einer Auswahl) bekommt die Kachel den Fokus zurück, die das Fenster geöffnet hat.
+  const tileRefs = useRef<
+    Partial<Record<ChoiceField, HTMLButtonElement | null>>
+  >({});
+  const prevOpen = useRef<ChoiceField | null>(null);
+  useEffect(() => {
+    if (prevOpen.current && !open) tileRefs.current[prevOpen.current]?.focus();
+    prevOpen.current = open;
+  }, [open]);
 
-  const topicChoices = topicOptions(topics);
+  const onlyA1 = settings.maxLevel === "A1";
+  const topicOpts = topicChoices(topics);
+  const levelOpts = levelOptions(settings.maxLevel);
+  const posOpts = posChoices();
+  const dir = directionTile(direction);
+  const topicLabel =
+    topicOpts.find((o) => o.value === topic)?.label ?? "Alle Themen";
+  const posLabel = pos ? POS_LABEL_PLURAL[pos] : "Alle Wortarten";
+  const sum = summary({
+    topicLabel,
+    level,
+    maxLevel: settings.maxLevel,
+    posLabel,
+    direction,
+  });
 
-  function start() {
-    const filters: QueueFilters = {};
-    if (topic) filters.topic = topic;
-    if (level) filters.level = level;
-    if (pos) filters.pos = pos;
-    filters.direction = direction;
-    onStart(filters);
-  }
+  const sheet: Record<
+    ChoiceField,
+    {
+      title: string;
+      options: typeof topicOpts;
+      selected: string;
+      set: (v: string) => void;
+    }
+  > = {
+    topic: {
+      title: "Thema",
+      options: topicOpts,
+      selected: topic,
+      set: setTopic,
+    },
+    level: {
+      title: "Niveau",
+      options: levelOpts,
+      selected: level,
+      set: (v) => setLevel(v as Level | ""),
+    },
+    pos: {
+      title: "Wortart",
+      options: posOpts,
+      selected: pos,
+      set: (v) => setPos(v as Pos | ""),
+    },
+    direction: {
+      title: "Richtung",
+      options: directionChoices(),
+      selected: direction,
+      set: (v) => setDirection(v as DirectionSetting),
+    },
+  };
 
   return (
     <div className="screen">
       <PageTitle brand>Lernen</PageTitle>
-      <div className="settings-form">
-        <label className="setting">
-          <span>Thema</span>
-          <select value={topic} onChange={(e) => setTopic(e.target.value)}>
-            <option value="">Alle Themen</option>
-            {topicChoices.map(([key, label]) => (
-              <option key={key} value={key}>
-                {label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="setting">
-          <span>Niveau</span>
-          <select
-            value={onlyA1 ? "A1" : level}
-            disabled={onlyA1}
-            onChange={(e) => setLevel(e.target.value as Level | "")}
-          >
-            {!onlyA1 && <option value="">Alle Niveaus</option>}
-            {LEVELS.filter(
-              (l) => LEVEL_ORDER[l] <= LEVEL_ORDER[settings.maxLevel],
-            ).map((l) => (
-              <option key={l} value={l}>
-                {l}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="setting">
-          <span>Wortart</span>
-          <select
-            value={pos}
-            onChange={(e) => setPos(e.target.value as Pos | "")}
-          >
-            <option value="">Alle Wortarten</option>
-            {(Object.keys(POS_LABEL_PLURAL) as Pos[]).map((p) => (
-              <option key={p} value={p}>
-                {POS_LABEL_PLURAL[p]}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="setting">
-          <span>Richtung</span>
-          <select
-            value={direction}
-            onChange={(e) => setDirection(e.target.value as DirectionSetting)}
-          >
-            {(Object.keys(DIRECTION_LABEL) as DirectionSetting[]).map((d) => (
-              <option key={d} value={d}>
-                {DIRECTION_LABEL[d]}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button type="button" className="btn btn-block" onClick={start}>
+      <div className="study-grid">
+        <ChoiceTile
+          ref={(el) => {
+            tileRefs.current.topic = el;
+          }}
+          label="Thema"
+          value={topicLabel}
+          tone="turquoise"
+          onOpen={() => setOpen("topic")}
+        />
+        <ChoiceTile
+          ref={(el) => {
+            tileRefs.current.level = el;
+          }}
+          label="Niveau"
+          value={onlyA1 ? "A1" : level || "Alle Niveaus"}
+          tone="yellow"
+          disabled={onlyA1}
+          onOpen={() => setOpen("level")}
+        />
+        <ChoiceTile
+          ref={(el) => {
+            tileRefs.current.pos = el;
+          }}
+          label="Wortart"
+          value={posLabel}
+          tone="magenta"
+          onOpen={() => setOpen("pos")}
+        />
+        <ChoiceTile
+          ref={(el) => {
+            tileRefs.current.direction = el;
+          }}
+          label="Richtung"
+          value={dir.value}
+          fullValue={dir.full}
+          sub={dir.sub}
+          tone="neutral"
+          onOpen={() => setOpen("direction")}
+        />
+      </div>
+      <div className="study-start">
+        <p className="study-summary">
+          <strong>{sum.topic}</strong>
+          {sum.rest}
+        </p>
+        <button
+          type="button"
+          className="btn btn-block study-start-btn"
+          onClick={() =>
+            onStart(buildFilters({ topic, level, pos, direction }))
+          }
+        >
           Starten
         </button>
       </div>
+      {open && (
+        <ChoiceSheet
+          title={sheet[open].title}
+          options={sheet[open].options}
+          selected={sheet[open].selected}
+          onSelect={(v) => {
+            // Wert setzen und Fenster sofort schließen; den History-Eintrag räumt `ChoiceSheet` danach selbst ab.
+            sheet[open].set(v);
+            setOpen(null);
+          }}
+          onClose={() => setOpen(null)}
+        />
+      )}
     </div>
   );
 }

@@ -1,5 +1,9 @@
 import { useEffect, type RefObject } from "react";
-import { backdropFactor, shouldCloseOnRelease } from "../components/swipeClose";
+import {
+  backdropFactor,
+  isScrolledToTop,
+  shouldCloseOnRelease,
+} from "../components/swipeClose";
 
 const PHONE_QUERY = "(max-width: 699.98px)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
@@ -13,6 +17,7 @@ const VELOCITY_WINDOW = 100;
 /**
  * Bottom-sheet gesture on phones: dragging down from anywhere on the sheet moves it with the finger.
  * It only takes over when the sheet content is scrolled to the top, otherwise the content scrolls.
+ * `scroller` (optional): element that scrolls instead of the sheet itself, e.g. an option list; its `scrollTop` counts then.
  * Past a threshold (distance or flick) `onClose` is called after a short slide-out, else the sheet snaps back.
  * Not active from tablet width (centered dialog) and not for multi-touch.
  */
@@ -20,6 +25,7 @@ export function useSwipeToClose(
   sheet: RefObject<HTMLElement | null>,
   backdrop: RefObject<HTMLElement | null>,
   onClose: () => void,
+  scroller?: RefObject<HTMLElement | null>,
 ) {
   useEffect(() => {
     const el = sheet.current;
@@ -77,7 +83,7 @@ export function useSwipeToClose(
       tracking = true;
       dragging = false;
       startY = e.touches[0].clientY;
-      atTop = (el?.scrollTop ?? 0) <= 0;
+      atTop = isScrolledToTop(el?.scrollTop ?? 0, scroller?.current?.scrollTop);
       dy = 0;
       samples = [];
     }
@@ -147,5 +153,5 @@ export function useSwipeToClose(
       el.removeEventListener("touchend", onEnd);
       el.removeEventListener("touchcancel", cancel);
     };
-  }, [sheet, backdrop, onClose]);
+  }, [sheet, backdrop, onClose, scroller]);
 }
