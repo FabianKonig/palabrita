@@ -566,6 +566,11 @@ body:has(.session-bar) .screen {
   margin-top: 8px;
 }
 
+/* Bestätigung nach dem Zurücksetzen: Abstand zum Button, sonst klebt sie an ihm */
+.reset-progress > .notice {
+  margin: 12px 0 0;
+}
+
 .link-button {
   display: flex;
   align-items: center;
