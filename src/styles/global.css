@@ -48,6 +48,12 @@ body,
   height: 100%;
 }
 
+/* Kein farbiges Antipp-Rechteck (Chrome Android: blau, Safari iOS: grau); wird vererbt.
+   Firefox zeigt es nie, so verhalten sich alle Browser gleich. */
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -183,8 +189,10 @@ h1 {
   transform: scale(0.98);
 }
 
-.btn:hover {
-  background: var(--btn-bg-hover);
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--btn-bg-hover);
+  }
 }
 
 .btn:disabled {
@@ -202,9 +210,11 @@ h1 {
   box-shadow: inset 0 0 0 2px currentColor;
 }
 
-.btn.secondary:hover {
-  background: transparent;
-  opacity: 0.8;
+@media (hover: hover) {
+  .btn.secondary:hover {
+    background: transparent;
+    opacity: 0.8;
+  }
 }
 
 /* Oben in der Sitzung: Zähler links, Logo in der Mitte, „Beenden“ rechts */
@@ -335,7 +345,6 @@ body:has(.session-bar) .screen {
   background: none;
   font: inherit;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .flashcard-toggle:focus-visible {
@@ -541,9 +550,11 @@ body:has(.session-bar) .screen {
   color: var(--btn-bg);
 }
 
-.home-hero .btn:hover {
-  background: var(--on-btn);
-  opacity: 0.92;
+@media (hover: hover) {
+  .home-hero .btn:hover {
+    background: var(--on-btn);
+    opacity: 0.92;
+  }
 }
 
 .home-hero :focus-visible {
@@ -612,9 +623,11 @@ body:has(.session-bar) .screen {
   box-shadow: inset 0 0 0 2px var(--bad);
 }
 
-.btn.btn-danger:hover {
-  background: var(--bad-soft);
-  opacity: 0.85;
+@media (hover: hover) {
+  .btn.btn-danger:hover {
+    background: var(--bad-soft);
+    opacity: 0.85;
+  }
 }
 
 .center {
@@ -691,7 +704,9 @@ body:has(.session-bar) .screen {
 }
 
 /* Fokus in Suchfeld und Dropdowns: grün wie das übrige Layout, nicht die globale Magenta-Linie */
-.field:focus-visible {
+.field:focus-visible,
+.setting select:focus-visible,
+.setting input:focus-visible {
   outline: 2px solid var(--turquoise);
   outline-offset: 0;
 }
@@ -1243,7 +1258,6 @@ body:has(.session-bar) .update-banner {
   text-align: center;
   cursor: pointer;
   perspective: 1200px;
-  -webkit-tap-highlight-color: transparent;
   animation: welcome-fly-in 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -1465,7 +1479,6 @@ body:has(.session-bar) .update-banner {
   font: inherit;
   text-align: center;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .brand-open:focus-visible {
