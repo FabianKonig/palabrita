@@ -4,11 +4,13 @@ import { GermanText } from "../../components/Flashcard";
 import { PageTitle } from "../../components/PageTitle";
 import {
   POS_LABEL,
+  clearCriterion,
   clearDropdownFilters,
   hasDropdownFilter,
   normalizeForSearch,
   topicOptions,
   searchVocab,
+  type DictionaryCriterion,
   type DictionaryFilters,
 } from "../../domain/dictionary";
 import { EMPTY_FORM_INDEX, cachedFormIndex } from "../../domain/forms";
@@ -77,14 +79,16 @@ export function Dictionary() {
   const topicChoices = topicOptions(topics);
 
   // Statuszeile: je ein Chip für jedes Kriterium, das gerade wirkt (Filter und Suche).
+  // Ein Tipp auf einen Chip entfernt genau dieses Kriterium.
   const topicLabel = topicChoices.find(([key]) => key === filters.topic)?.[1];
   const query = filters.query.trim();
-  const activeChips = [
-    topicLabel,
-    filters.level || undefined,
-    filters.pos ? POS_LABEL[filters.pos] : undefined,
-    query ? `„${query}“` : undefined,
-  ].filter((chip): chip is string => Boolean(chip));
+  const activeChips: { criterion: DictionaryCriterion; label: string }[] = [];
+  if (topicLabel) activeChips.push({ criterion: "topic", label: topicLabel });
+  if (filters.level)
+    activeChips.push({ criterion: "level", label: filters.level });
+  if (filters.pos)
+    activeChips.push({ criterion: "pos", label: POS_LABEL[filters.pos] });
+  if (query) activeChips.push({ criterion: "query", label: `„${query}“` });
   const dropdownsActive = hasDropdownFilter(filters);
   const activeCount = [filters.topic, filters.level, filters.pos].filter(
     Boolean,
@@ -202,9 +206,19 @@ export function Dictionary() {
         {activeChips.length > 0 && (
           <div className="dict-status">
             <ul className="dict-chips" aria-label="Aktive Kriterien">
-              {activeChips.map((chip, i) => (
-                <li key={`${i}-${chip}`} className="dict-chip">
-                  {chip}
+              {activeChips.map(({ criterion, label }) => (
+                <li key={criterion}>
+                  <button
+                    type="button"
+                    className="dict-chip"
+                    aria-label={`${label} entfernen`}
+                    onClick={() => update(clearCriterion(filters, criterion))}
+                  >
+                    {label}
+                    <span className="dict-chip-x" aria-hidden="true">
+                      ×
+                    </span>
+                  </button>
                 </li>
               ))}
             </ul>

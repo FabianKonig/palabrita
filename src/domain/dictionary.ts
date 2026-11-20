@@ -216,6 +216,17 @@ export function clearDropdownFilters(
   return { ...filters, topic: "", level: "", pos: "" };
 }
 
+/** Ein Kriterium der Statuszeile: Thema, Niveau, Wortart oder der Suchtext. */
+export type DictionaryCriterion = "topic" | "level" | "pos" | "query";
+
+/** Entfernt genau ein Kriterium (Chip in der Statuszeile). Die übrigen bleiben. */
+export function clearCriterion(
+  filters: DictionaryFilters,
+  criterion: DictionaryCriterion,
+): DictionaryFilters {
+  return { ...filters, [criterion]: "" };
+}
+
 /** Is any dropdown filter set? (The search text is not counted.) */
 export function hasDropdownFilter(filters: DictionaryFilters): boolean {
   return filters.topic !== "" || filters.level !== "" || filters.pos !== "";
