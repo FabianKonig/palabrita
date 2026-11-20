@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { resetProgress } from "../data/progressRepo";
 import { getSettings, saveSettings } from "../data/settingsRepo";
 import { loadVocab } from "../data/vocabRepo";
 import type { Settings, SettingsPatch, Topic, Vocab } from "../domain/types";
@@ -17,6 +18,8 @@ interface AppData {
   settings: Settings;
   /** Persists the change and then shows the stored record. */
   updateSettings: (patch: SettingsPatch) => Promise<void>;
+  /** Deletes all progress (SPEC §10.3) and shows the new settings record. */
+  resetProgress: () => Promise<void>;
 }
 
 type State =
@@ -67,6 +70,11 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     setState((s) => (s.status === "ready" ? { ...s, settings: saved } : s));
   }, []);
 
+  const resetAll = useCallback(async () => {
+    const saved = await resetProgress();
+    setState((s) => (s.status === "ready" ? { ...s, settings: saved } : s));
+  }, []);
+
   const data = useMemo<AppData | null>(
     () =>
       state.status === "ready"
@@ -75,9 +83,10 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
             topics: state.topics,
             settings: state.settings,
             updateSettings,
+            resetProgress: resetAll,
           }
         : null,
-    [state, updateSettings],
+    [state, updateSettings, resetAll],
   );
 
   if (state.status === "loading")
