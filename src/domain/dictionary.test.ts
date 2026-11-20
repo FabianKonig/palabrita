@@ -184,7 +184,7 @@ describe("topicOptions", () => {
   const topics = [
     { key: "begruessung", label: "Begrüßung" },
     { key: "essen", label: "Essen" },
-    { key: "grundwortschatz", label: "Grundwortschatz (häufigste Wörter)" },
+    { key: "grundwortschatz", label: "Grundwortschatz" },
   ];
 
   it("puts Grundwortschatz first, then the other topics in order", () => {
@@ -198,7 +198,7 @@ describe("topicOptions", () => {
   it("keeps the labels", () => {
     expect(topicOptions(topics)[0]).toEqual([
       "grundwortschatz",
-      "Grundwortschatz (häufigste Wörter)",
+      "Grundwortschatz",
     ]);
   });
 

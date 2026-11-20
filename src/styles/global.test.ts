@@ -153,3 +153,31 @@ describe("form search: highlighted forms", () => {
     expect(css).toMatch(/\.form\.irr\.form-hit/);
   });
 });
+
+describe("Lernen-Seite: Kacheln und Auswahlfenster", () => {
+  const rule = (selector: string) =>
+    new RegExp(
+      `(?:^|\\n)${selector.replace(/[.[\]]/g, "\\$&")} \\{([^}]*)\\}`,
+    ).exec(css)?.[1] ?? "";
+
+  it("Kacheln sind mindestens 124 px hoch", () => {
+    expect(/min-height:\s*124px/.test(rule(".study-tile"))).toBe(true);
+  });
+
+  it("Optionen sind mindestens 52 px hoch", () => {
+    expect(/min-height:\s*52px/.test(rule(".study-option"))).toBe(true);
+  });
+
+  it("das Auswahlfenster bleibt auch ab 700 px unten und ohne Griff", () => {
+    expect(css).toMatch(
+      /@media \(min-width: 700px\) \{\s*\.overlay-backdrop\.study-backdrop \{\s*align-items: flex-end;/,
+    );
+    expect(css).toMatch(/\.study-grip \{\s*display: none;/);
+  });
+
+  it("lange Werte werden getrennt und auf zwei Zeilen begrenzt", () => {
+    const value = rule(".study-tile-value");
+    expect(value).toMatch(/hyphens:\s*auto/);
+    expect(value).toMatch(/-webkit-line-clamp:\s*2/);
+  });
+});

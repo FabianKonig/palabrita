@@ -1749,3 +1749,246 @@ select.field,
 .legal a {
   color: var(--turquoise-dark);
 }
+
+/* Lernen-Seite: Kacheln, Startblock, Auswahlfenster (SPEC §14.4) */
+.study-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.study-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 124px;
+  padding: 14px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.study-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--tone);
+}
+
+.study-tile-turquoise {
+  --tone: var(--turquoise);
+  --tone-soft: var(--turquoise-soft);
+}
+.study-tile-yellow {
+  --tone: var(--yellow);
+  --tone-soft: var(--yellow-soft);
+}
+.study-tile-magenta {
+  --tone: var(--magenta);
+  --tone-soft: var(--magenta-soft);
+}
+.study-tile-neutral {
+  --tone: var(--muted);
+  --tone-soft: var(--surface-2);
+}
+
+.study-tile:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.study-tile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 26px;
+}
+
+.study-tile-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.study-tile-pen {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--tone-soft);
+  color: var(--text);
+}
+
+.study-tile-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.study-tile-value {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  font-family: var(--font-head);
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.study-tile-sub {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.study-start {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.study-summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.study-summary strong {
+  color: var(--text);
+}
+
+.study-start-btn {
+  min-height: 56px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.study-backdrop {
+  align-items: flex-end;
+}
+
+/* Ab Tablet-Breite bleibt das Auswahlfenster unten (das Verb-Overlay zentriert dort), ohne Griff */
+@media (min-width: 700px) {
+  .overlay-backdrop.study-backdrop {
+    align-items: flex-end;
+  }
+
+  .study-grip {
+    display: none;
+  }
+}
+
+.study-sheet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 560px;
+  max-height: 78vh;
+  max-height: 78dvh;
+  padding: 10px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  border-radius: 28px 28px 0 0;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 -10px 30px rgb(0 0 0 / 0.18);
+  overscroll-behavior: contain;
+}
+
+.study-grip {
+  flex: none;
+  width: 40px;
+  height: 5px;
+  margin: 0 auto 10px;
+  border-radius: 3px;
+  background: var(--muted);
+  opacity: 0.45;
+}
+
+.study-sheet h2 {
+  margin: 0 0 12px;
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.study-options {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 6px;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.study-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.study-radio {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.study-option[aria-checked="true"] {
+  border-color: var(--turquoise);
+  background: var(--turquoise-soft);
+}
+
+.study-option[aria-checked="true"] .study-radio {
+  border: 6px solid var(--turquoise);
+}
+
+@media (hover: hover) {
+  .study-option:hover {
+    background: var(--surface-2);
+  }
+
+  .study-option[aria-checked="true"]:hover {
+    background: var(--turquoise-soft);
+  }
+}
+
+.study-option:focus-visible {
+  outline: 3px solid var(--turquoise);
+  outline-offset: 2px;
+}
