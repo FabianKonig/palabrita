@@ -34,6 +34,17 @@ export const POS_LABEL: Record<Pos, string> = {
   other: "Sonstiges",
 };
 
+/** Plural-Labels für die Wortart-Auswahl beim Lernen („Verben“, „Zahlen“ …). */
+export const POS_LABEL_PLURAL: Record<Pos, string> = {
+  verb: "Verben",
+  noun: "Nomen",
+  adj: "Adjektive",
+  adv: "Adverbien",
+  num: "Zahlen",
+  phrase: "Redewendungen",
+  other: "Sonstiges",
+};
+
 /** Match quality: the entry equals the query (0), starts with it (1) or contains it (2). */
 type Rank = 0 | 1 | 2;
 

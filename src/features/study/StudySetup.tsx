@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PageTitle } from "../../components/PageTitle";
-import { POS_LABEL, topicOptions } from "../../domain/dictionary";
+import { POS_LABEL_PLURAL, topicOptions } from "../../domain/dictionary";
 import type { QueueFilters } from "../../domain/queue";
 import {
   LEVEL_ORDER,
@@ -84,9 +84,9 @@ export function StudySetup({
             onChange={(e) => setPos(e.target.value as Pos | "")}
           >
             <option value="">Alle Wortarten</option>
-            {(Object.keys(POS_LABEL) as Pos[]).map((p) => (
+            {(Object.keys(POS_LABEL_PLURAL) as Pos[]).map((p) => (
               <option key={p} value={p}>
-                {POS_LABEL[p]}
+                {POS_LABEL_PLURAL[p]}
               </option>
             ))}
           </select>
