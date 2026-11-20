@@ -14,12 +14,15 @@ Stand: 2026-11-20. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS
 - Musik: **„Vibrant Momentum“ von LolaMoore** (Freesound, CC BY 4.0, Namensnennung nötig).
 - **Vier Einblendungen** mit freigegebener Gestaltung (Abschnitt „Einblendungen: Gestaltung“).
 - Python ist für die Videoerzeugung erlaubt (Ausnahme in `AGENTS.md`).
+- **Stimme 2a ist geklont und vom Nutzer freigegeben** (Hörprobe 2026-11-20): Klonmodus **„nur Stimmcharakter“** (`x_vector_only_mode=True`), weil die spanischen Wörter dort besser klingen; Tempo **1,25-fach** (ffmpeg `atempo=1.25`) passt. Die spanischen Wörter stören nicht, die Ausweichlösung mit zwei Stimmen ist damit nicht nötig.
+- **Wartestand:** Der Nutzer ändert den Lernen-Tab der App noch. Die Aufnahme (Szenen 1 bis 5 zeigen die Lernseite) beginnt erst, wenn er „main mergen“ sagt; dann die neue Lernseite ansehen und die Klickpfade der Szenen 1 bis 5 anpassen.
 
 **Als Nächstes zu tun (in dieser Reihenfolge):**
 
-1. Stimme 2a klonen (Qwen3-TTS Base) und mit dem aktuellen Sprechertext alle neun Szenen erzeugen. Hörprobe an den Nutzer schicken (nur als Datei, nicht ins Repo), besonders Szene 1, 3 und 6 wegen der spanischen Wörter und des Wortwitzes „Podemos!“. Der Nutzer entscheidet, ob die Klonstimme passt.
-2. Danach das Video erzeugen (Aufnahme, Ton, Musik mit Ducking, Einblendungen, Abspann) und dem Nutzer zur Ansicht geben.
-3. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken.
+1. **Warten, bis der Nutzer „main mergen“ sagt** (der Lernen-Tab ändert sich). Dann `main` in den Arbeitsbranch mergen, die neue Lernseite ansehen und die Klickpfade der Szenen 1 bis 5 im Drehbuch anpassen. Die Szenen 6 bis 9 sind davon nicht betroffen.
+2. Alle neun Szenen mit der geklonten Stimme 2a im Modus „nur Stimmcharakter“ erzeugen (bisher nur Szene 1, 3 und 6 gehört und freigegeben), mit `atempo=1.25` beschleunigen. Sprechertext ändert sich nicht. Das lässt sich schon vor dem Merge machen, nur wenn der Nutzer es wünscht.
+3. Danach das Video erzeugen (Aufnahme, Ton, Musik mit Ducking, Einblendungen, Abspann) und dem Nutzer zur Ansicht geben.
+4. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken.
 
 **Regeln, die immer gelten:**
 
@@ -57,7 +60,7 @@ Die erste Version wurde nach einer früheren Fassung dieses Drehbuchs automatisc
 | Sprache | Deutsch, Sprecher duzt (wie die App) |
 | Ton | **frech, munter, jugendlich**, Klang eines modernen Erklär- und Werbevideos mit Schwung und Spaß beim Zuhören. Kurze Sätze und ein bisschen Witz. |
 | Bild | echte Aufnahme der App, automatisch durchgeklickt. **Hochformat 9:16** (1080 × 1920), damit man es auf dem Handy ansehen kann, ohne den Bildschirm zu drehen. |
-| Sprecher | **Eine junge, energiegeladene Männerstimme für den ganzen Text**, auch für die spanischen Wörter. Favorit: Stimme „2a“ (Qwen3-TTS), geklont. Ausweichlösung zwei Stimmen: „Entscheidungen“, Punkt 2. Verworfen: Piper „Thorsten“ und die spanische Stimme der ersten Version. |
+| Sprecher | **Eine junge, energiegeladene Männerstimme für den ganzen Text**, auch für die spanischen Wörter. Stimme „2a“ (Qwen3-TTS), geklont im Modus „nur Stimmcharakter“, Tempo 1,25-fach; vom Nutzer freigegeben (2026-11-20). Ausweichlösung zwei Stimmen (nicht nötig): „Entscheidungen“, Punkt 2. Verworfen: Piper „Thorsten“ und die spanische Stimme der ersten Version. |
 | Musik | **„Vibrant Momentum“ von LolaMoore** (Freesound, CC BY 4.0, rund 2 min), modern und energiegeladen. Durchgehend, unter dem Sprecher leiser (Ducking), in den Sprechpausen etwas lauter, am Ende ausgeblendet oder mit Schlusspunkt. Verworfen: die per Skript erzeugte Marimba-Melodie. |
 | Höhepunkt | **Formsuche** (gebeugte Formen finden, SPEC §3.3a): längste Szene, zwei Beispiele, als einzige Szene angekündigt. |
 | Texteinblendungen | **Höchstens Stichworte, nur wo nötig**: vier Stück (Szene 2, Szene 6 zweimal, Szene 8). Die zweite in Szene 6 übersetzt die Pointe: „Ja, wir können das!“, erscheint genau beim gesprochenen „Podemos“. Spanische Stellen sonst nicht übersetzen (nicht „Una cerveza, por favor“, nicht „¡Vámonos!“). Keine Untertitel. Gestaltung: „Einblendungen: Gestaltung“. |
@@ -65,7 +68,7 @@ Die erste Version wurde nach einer früheren Fassung dieses Drehbuchs automatisc
 
 ## Ablauf
 
-Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der gesprochenen Sätze. Die Zeiten sind für 65 s ausgelegt (Szene 6 bekommt viel Raum, weil Bild und Sprechertext dort am dichtesten sind). Klicks sind sichtbar (Tipp-Punkt, der kurz aufleuchtet).
+Die Bildpfade der Szenen 1 bis 5 (Lernseite) können sich ändern, weil der Nutzer den Lernen-Tab noch umbaut; nach dem Merge von `main` prüfen. Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der gesprochenen Sätze. Die Zeiten sind für 65 s ausgelegt (Szene 6 bekommt viel Raum, weil Bild und Sprechertext dort am dichtesten sind). Klicks sind sichtbar (Tipp-Punkt, der kurz aufleuchtet).
 
 | # | Zeit | Bild (Klickpfad) | Einblendung | Sprechertext |
 |---|---|---|---|---|
@@ -180,6 +183,7 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 - **Installation (in einer Umgebung außerhalb von Git):** `python3 -m venv .venv`, dann `.venv/bin/pip install --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio qwen-tts soundfile`. Beim Start erscheinen harmlose Warnungen („flash-attn is not installed“, „sox not found“).
 - **Laden und Erzeugen auf der CPU:** `Qwen3TTSModel.from_pretrained(name, device_map="cpu", dtype=torch.float32)`, `torch.set_num_threads(4)`. Rechenzeit rund 4 bis 7 Sekunden je Sekunde Sprache. API: `generate_voice_design(text, instruct, language="German")`; zum Klonen `create_voice_clone_prompt(ref_audio=..., ref_text=..., x_vector_only_mode=False)` und `generate_voice_clone(text, language="German", voice_clone_prompt=prompt)`. `x_vector_only_mode=True` übernimmt nur den Stimmcharakter (ohne Referenztext) und ist die Rückfalloption, falls der volle Modus (ICL) schlecht klingt.
 - **VoiceDesign würfelt bei jedem Aufruf eine neue Stimme**, auch bei gleicher Beschreibung. Deshalb wird eine gewählte Stimme geklont (oder der Zufall mit einem festen Seed fixiert).
+- **Klon-Ergebnis (2026-11-20):** Beide Klonmodi erzeugten alle Szenen. Im Modus „volle Referenz“ (ICL, `x_vector_only_mode=False`) lagen die neun Szenen bei 68,6 s Sprache (rund 2,2 Wörter je Sekunde) und die spanischen Stellen waren schlechter. Der Modus „nur Stimmcharakter“ (`x_vector_only_mode=True`) klang laut Nutzer bei den spanischen Wörtern besser und wurde gewählt. Beschleunigt wird mit ffmpeg `atempo=1.25` (Tonhöhe bleibt); damit sind die neun Szenen rund 55 s lang. Der Nutzer fand Stimme und Tempo passend. Eine Klonung aller neun Szenen dauerte auf der CPU rund 5 Minuten (jede Szene rund 4,5 s Rechenzeit je Sekunde Sprache).
 - **Stimme 2a:** entstand mit der englischen Beschreibung („A young adult man in his mid twenties with a clear, slightly deeper voice. Very upbeat, fast-paced and playful, like a charismatic host of a modern app commercial or a popular YouTube explainer. Smiling, cheeky and energetic, never sleepy or monotone. Natural Mexican Spanish pronunciation for the Spanish words.“) und dem Text von Szene 1 als Referenz: „„Una cerveza, por favor“ – und dann? Peinliches Schweigen? Muss nicht sein. Das ist Palabrita!“ Der Nutzer hörte darin „Una cerveza, por favor“ „ganz gut“. Eine automatische Rückübersetzung (Whisper) verstand den Satzanfang schlechter; das Gehör des Nutzers zählt.
 - **Referenzclip nicht im Repo.** Der Clip `stimme_2a_Szene1.wav` liegt nur in der Sitzung bzw. beim Nutzer (siehe „Übergabe“).
 - **Prüfhilfen, kein Ersatz fürs Anhören:** Grundtonhöhe (`librosa.pyin`) und Rückübersetzung mit Whisper (`openai/whisper-small`, Sprache „de“), um grobe Fehler zu finden (ausgelassene oder deutsch ausgesprochene spanische Wörter).
@@ -199,7 +203,7 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 
 ## Offen
 
-- Klonstimme 2a: Hörprobe mit dem aktuellen Text, Entscheidung des Nutzers (siehe „Übergabe“). Bei Misserfolg Ausweichlösung zwei Stimmen.
-- Tempo der geklonten Stimme (Ziel rund 3 Wörter je Sekunde; die Proben lagen mit 1,4 bis 2,5 Wörtern je Sekunde darunter, beim Zusammenbau lässt sich leicht beschleunigen).
+- Neuer Lernen-Tab: Der Nutzer gibt Bescheid, wenn `main` gemerged werden soll. Erst danach aufnehmen (siehe „Übergabe“).
+- Alle neun Szenen im Modus „nur Stimmcharakter“ erzeugen (siehe „Übergabe“, Punkt 2).
 - Ort der Hinweisdatei für Musik und Namensnennung (bei der Einbindung des Videos in die App).
 - Video-Einbindung in die App (neue Seite im Tab „Mehr“): Anforderungen in `docs/TASKS.md`.
