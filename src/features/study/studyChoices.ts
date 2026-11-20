@@ -32,7 +32,13 @@ const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
   (a, b) => LEVEL_ORDER[a] - LEVEL_ORDER[b],
 );
 
-export function levelOptions(maxLevel: Level): ChoiceOption[] {
+/**
+ * Niveau-Optionen bis einschließlich `maxLevel`. Ohne Argument alle Niveaus: so nutzt sie das Verzeichnis,
+ * das unabhängig vom Maximalniveau immer alle Niveaus anbietet (SPEC §3.3).
+ */
+export function levelOptions(
+  maxLevel: Level = LEVELS[LEVELS.length - 1],
+): ChoiceOption[] {
   const levels = LEVELS.filter((l) => LEVEL_ORDER[l] <= LEVEL_ORDER[maxLevel]);
   if (maxLevel === "A1") return levels.map((l) => ({ value: l, label: l }));
   return [
