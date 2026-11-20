@@ -13,7 +13,7 @@ Stack: React 19, TypeScript 6, Vite 8, vite-plugin-pwa, react-router-dom 7, idb,
 - Entwickelt wird teils unter Windows 11 (PowerShell, Git Bash), teils in Linux-Umgebungen (z. B. Claude Code in der Cloud). Keine Annahmen über OS oder Shell treffen; Pfade und Befehle plattformneutral halten.
 - **Node.js 24** (README verlangt Node 24; Vite 8 läuft mindestens mit Node 22.12)
 - **npm** ist der einzige Paketmanager, `package-lock.json` ist maßgeblich
-- **Python wird in diesem Projekt nicht genutzt.** Keine Python-Skripte, kein `python -c`, kein pip. Skripte stattdessen in TypeScript schreiben und mit `tsx` ausführen (`npx tsx scripts/<datei>.ts`) oder als Node-Einzeiler.
+- **Python wird in diesem Projekt nicht genutzt.** Keine Python-Skripte, kein `python -c`, kein pip. Skripte stattdessen in TypeScript schreiben und mit `tsx` ausführen (`npx tsx scripts/<datei>.ts`) oder als Node-Einzeiler. **Einzige Ausnahme (Nutzer, 2026-11-20): die Erzeugung des Erklärvideos** (Sprachausgabe, Ton, Schnitt, `docs/ERKLAERVIDEO.md`). Dort ist Python erlaubt, aber nur für diese Erzeugung: nicht in `src/`, `public/`, Build oder CI, und Python-Umgebung sowie Modelle werden nicht eingecheckt.
 - Pakete kommen von der öffentlichen npm-Registry. Eine lokale `.npmrc` wird nicht committet (steht in `.gitignore`).
 
 ## Befehle
