@@ -32,7 +32,8 @@ Die App liegt als statische Dateien (`dist/`) auf GitHub Pages (HTTPS inklusive,
 Einmalige Einrichtung:
 1. Repo auf GitHub: *Settings → Pages → Build and deployment → Source: GitHub Actions*.
 2. Unter *Actions → Pages → Run workflow* den Workflow starten.
-3. Die URL steht im Deploy-Job (erwartet: `https://fabiankonig.github.io/palabrita/`).
+3. Eigene Domain: Beim DNS-Anbieter einen `CNAME`-Eintrag `palabrita` → `fabiankonig.github.io` anlegen (ohne abschließenden Punkt eintragen, falls der Anbieter das verlangt). Danach unter *Settings → Pages → Custom domain* `palabrita.fabiankonig.de` eintragen und *Enforce HTTPS* aktivieren, sobald GitHub das Zertifikat ausgestellt hat. Die Datei `public/CNAME` hält die Domain bei jedem Deploy fest.
+4. Die URL steht im Deploy-Job (erwartet: `https://palabrita.fabiankonig.de/`). Die alte Adresse `https://fabiankonig.github.io/palabrita/` leitet dorthin weiter.
 
 Aktualisieren: Jeder Push auf `main` startet den Workflow und veröffentlicht die neue Version (nur bei grünem Lint, Tests und Vokabelprüfung). Zusätzlich lässt er sich unter *Actions → Pages → Run workflow* manuell starten.
 
