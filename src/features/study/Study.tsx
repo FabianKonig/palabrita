@@ -23,6 +23,10 @@ import {
 import type { Card, Grade } from "../../domain/types";
 import { useAppData } from "../../hooks/useAppData";
 import { useSpeech } from "../../hooks/useSpeech";
+import {
+  useDropStaleGuard,
+  useSessionBackGuard,
+} from "../../hooks/useSessionBackGuard";
 import { StudySetup } from "./StudySetup";
 
 const GRADE_BUTTONS: { grade: Grade; label: string }[] = [
@@ -59,6 +63,7 @@ function limitAt(newLimit: NewLimit | null, now: number): number {
 /** Shows the filter setup first, then the session itself. */
 export function Study() {
   const [filters, setFilters] = useState<QueueFilters | null>(null);
+  useDropStaleGuard();
   if (!filters) return <StudySetup onStart={setFilters} />;
   return <StudySession filters={filters} onBack={() => setFilters(null)} />;
 }
@@ -136,6 +141,19 @@ function StudySession({
   // Distinguishes showing the same card twice in a row.
   const instance = session ? `${session.rated}|${shownKey}` : null;
 
+  // Zurück-Taste des Geräts = Button „Beenden“: in der Sitzung führt sie zur Zusammenfassung, auf jeder
+  // Abschlussseite (Zusammenfassung, „Für heute geschafft“, „Keine Karten“) zurück zur Filterauswahl.
+  const inSession =
+    session !== null && !error && !finished && pick?.kind !== "done" && !!entry;
+  const { requestBack } = useSessionBackGuard(() => {
+    if (inSession) {
+      setFinished(true);
+      return true;
+    }
+    onBack();
+    return false;
+  });
+
   // Auto-speak once per card: when the Spanish side becomes visible for the first time.
   useEffect(() => {
     if (!autoSpeak || !available || !spanish || !spanishVisible) return;
@@ -204,7 +222,7 @@ function StudySession({
       <EndScreen title="Sitzung beendet">
         <ResultTiles rated={session.rated} again={session.again} />
         <div className="actions">
-          <button type="button" className="btn btn-block" onClick={onBack}>
+          <button type="button" className="btn btn-block" onClick={requestBack}>
             Beenden
           </button>
         </div>
@@ -245,7 +263,7 @@ function StudySession({
           <button
             type="button"
             className={moreNew ? "btn btn-block secondary" : "btn btn-block"}
-            onClick={onBack}
+            onClick={requestBack}
           >
             Beenden
           </button>
@@ -258,7 +276,7 @@ function StudySession({
     return (
       <EndScreen title="Keine Karten für diese Auswahl">
         <p className="muted">Bitte Filter oder Niveau anpassen.</p>
-        <button type="button" className="btn" onClick={onBack}>
+        <button type="button" className="btn" onClick={requestBack}>
           Zur Filterauswahl
         </button>
       </EndScreen>
