@@ -680,7 +680,7 @@ Lernen                         [Logo oben rechts]
 
 Die Skizze ist schematisch: Sie kürzt die Werte mit „…“ ab. Maßgeblich ist der Umbruch auf bis zu zwei Zeilen (siehe „Lange Werte“).
 
-Der Kopf enthält nur den Titel und das Logo, keine Erklärzeile. Der Startblock folgt im Abstand von 16 px direkt auf das Kachelraster, der Rest der Seite bleibt leer (nichts wird aufgefüllt oder nach unten gezogen). Die Seite nutzt wie die anderen Tabs die Spalte mit `max-width: 560px`; Logo und Überschriftenabstand (`.screen:not(.center) > h1`) bleiben.
+Der Kopf enthält nur den Titel und das Logo, keine Erklärzeile. Das Kachelraster beginnt 32 px unter der Überschrift (`margin-top: 32px` auf `.study-grid`; der Überschriftenabstand von 16 px fällt mit diesem Außenabstand zusammen, es zählt der größere Wert; festgelegt 2026-11-20). Der Startblock folgt im Abstand von 16 px direkt auf das Kachelraster, der Rest der Seite bleibt leer (nichts wird aufgefüllt oder nach unten gezogen). Die Seite nutzt wie die anderen Tabs die Spalte mit `max-width: 560px`; Logo und Überschriftenabstand (`.screen:not(.center) > h1`) bleiben.
 
 **Kachelraster:**
 - Zwei Spalten gleicher Breite, Abstand 12 px, zwei Zeilen.

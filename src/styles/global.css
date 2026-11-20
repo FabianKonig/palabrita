@@ -1755,6 +1755,8 @@ select.field,
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  /* 32 px statt der 16 px des h1-Abstands: die Außenabstände fallen zusammen, es zählt der größere */
+  margin-top: 32px;
 }
 
 .study-tile {
