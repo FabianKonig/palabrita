@@ -1878,8 +1878,9 @@ select.field,
   font-size: 0.85rem;
 }
 
-.study-summary strong {
-  color: var(--text);
+/* Jedes Kriterium bleibt als Ganzes in einer Zeile; umbrochen wird nur zwischen den Kriterien */
+.study-summary-part {
+  white-space: nowrap;
 }
 
 .study-start-btn {
