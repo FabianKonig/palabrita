@@ -85,17 +85,20 @@ export function summary(parts: {
   maxLevel: Level;
   posLabel: string;
   direction: DirectionSetting;
-}): { topic: string; rest: string } {
+}): string[] {
   const level =
     parts.maxLevel === "A1"
       ? "Niveau A1"
       : parts.level
         ? `Niveau ${parts.level}`
         : "Alle Niveaus";
-  return {
-    topic: parts.topicLabel,
-    rest: ` · ${level} · ${parts.posLabel} · ${DIRECTION_LABEL[parts.direction]}`,
-  };
+  // Jedes Kriterium ist ein Eintrag: Die Anzeige bricht nur zwischen den Einträgen um, nie mitten in einem.
+  return [
+    parts.topicLabel,
+    level,
+    parts.posLabel,
+    DIRECTION_LABEL[parts.direction],
+  ];
 }
 
 export function buildFilters(s: {
