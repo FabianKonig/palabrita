@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  clearCriterion,
   clearDropdownFilters,
   EMPTY_FILTERS,
   hasDropdownFilter,
@@ -222,6 +223,22 @@ describe("dropdown helpers", () => {
       level: "",
       pos: "",
     });
+  });
+
+  it("removes exactly one criterion and keeps the others", () => {
+    const all: DictionaryFilters = {
+      query: "casa",
+      topic: "comida",
+      level: "A1",
+      pos: "noun",
+    };
+    expect(clearCriterion(all, "level")).toEqual({ ...all, level: "" });
+    expect(clearCriterion(all, "topic")).toEqual({ ...all, topic: "" });
+    expect(clearCriterion(all, "pos")).toEqual({ ...all, pos: "" });
+    expect(clearCriterion(all, "query")).toEqual({ ...all, query: "" });
+    expect(
+      clearCriterion({ ...EMPTY_FILTERS, query: "casa" }, "query"),
+    ).toEqual(EMPTY_FILTERS);
   });
 
   it("knows whether a dropdown filter is set (search text does not count)", () => {

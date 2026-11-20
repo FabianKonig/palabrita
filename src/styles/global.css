@@ -1499,7 +1499,7 @@ select.field,
   line-height: 1.4;
 }
 
-/* Aktive Kriterien als kleine, umrandete Chips */
+/* Aktive Kriterien als kleine, umrandete Chips; ein Tipp entfernt das Kriterium */
 .dict-chips {
   display: flex;
   flex-wrap: wrap;
@@ -1514,15 +1514,32 @@ select.field,
 .dict-chip {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   min-height: 28px;
-  padding: 2px 12px;
+  padding: 2px 10px 2px 12px;
   border: 1px solid var(--turquoise);
   border-radius: 999px;
   background: var(--surface);
   color: var(--text);
+  font: inherit;
   font-size: 0.8125rem;
   font-weight: 600;
+  text-align: left;
   overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.dict-chip:focus-visible {
+  outline: 2px solid var(--turquoise);
+  outline-offset: 2px;
+}
+
+.dict-chip-x {
+  flex: none;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--muted);
 }
 
 .dict-status-clear {

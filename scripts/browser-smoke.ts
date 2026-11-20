@@ -587,6 +587,39 @@ async function main() {
       )),
     combinedJson,
   );
+  // Ein Tipp auf einen Chip entfernt nur dieses Kriterium: hier das Niveau, der Suchtext bleibt.
+  const chipClicked = await evaluate<boolean>(`(() => {
+    const chip = document.querySelector('.dict-chip[aria-label="A1 entfernen"]');
+    if (!chip) return false;
+    chip.click();
+    return true;
+  })()`);
+  await sleep(300);
+  const chipJson = await evaluate<string>(`JSON.stringify({
+    q: document.querySelector('input[type="search"]').value,
+    level: document.querySelector('select[aria-label="Niveau"]').value,
+    status: document.querySelector(".dict-status")?.textContent ?? "",
+    chips: document.querySelectorAll(".dict-chip").length,
+  })`);
+  const chip = JSON.parse(chipJson) as {
+    q: string;
+    level: string;
+    status: string;
+    chips: number;
+  };
+  check(
+    "Verzeichnis: Tipp auf einen Chip entfernt nur dieses Kriterium",
+    chipClicked &&
+      chip.q === "a" &&
+      chip.level === "" &&
+      !chip.status.includes("A1") &&
+      chip.status.includes("„a“") &&
+      chip.chips === 1,
+    chipJson,
+  );
+  // Für die folgenden Prüfungen das Niveau wieder setzen.
+  await setInput('select[aria-label="Niveau"]', "A1");
+  await sleep(300);
   await clickText("Filter löschen", ".dict-status button");
   await sleep(300);
   const clearedJson = await evaluate<string>(`JSON.stringify({
