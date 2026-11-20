@@ -345,23 +345,24 @@ function StudySession({
               setFlipped(!flipped);
               setRevealed(true);
             }}
+            // Der Lautsprecher steht auf der spanischen Seite und dreht sich mit ihr.
+            spanishAction={
+              <button
+                type="button"
+                className="speak"
+                onClick={() => speak(entry.es)}
+                disabled={!speech.available}
+                aria-label="Aussprache anhören"
+                title={
+                  speech.available
+                    ? "Aussprache anhören"
+                    : "Keine spanische Stimme"
+                }
+              >
+                <SpeakerIcon />
+              </button>
+            }
           />
-          {spanishVisible && (
-            <button
-              type="button"
-              className="speak"
-              onClick={() => speak(entry.es)}
-              disabled={!speech.available}
-              aria-label="Aussprache anhören"
-              title={
-                speech.available
-                  ? "Aussprache anhören"
-                  : "Keine spanische Stimme"
-              }
-            >
-              <SpeakerIcon />
-            </button>
-          )}
         </div>
 
         <label className="switch">
