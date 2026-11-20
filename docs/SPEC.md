@@ -53,7 +53,7 @@ Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Fil
 - Einstellungen: **maximales Niveau** (A1/A2/B1, nur dieses und niedrigere Niveaus werden gelernt und in der Statistik gezählt, das Verzeichnis zeigt dagegen alle Wörter, §3.3; persistent gespeichert, jederzeit änderbar) und Theme (System/Hell/Dunkel). Die Version steht nicht hier, sondern unter „Mehr“ unterhalb der Einträge: Zeitstempel des HEAD-Commits zum Bauzeitpunkt (bei Deployment also des Merges auf `main`), beim Build aus Git in `vite.config.ts` eingesetzt, Format `TT.MM.JJJJ, HH:MM UTC`, immer in UTC.
 
 ### 3.3 Übersicht und Statistik
-- Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie (Streak). Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung, steht bei jedem Aufruf auf „Beide Richtungen“, wird nicht gespeichert) und den Button „Starten“. Das Niveau-Dropdown bietet „Alle Niveaus“ und die Niveaus bis zum Maximalniveau. Ist das Maximalniveau A1, gibt es nur dieses eine Niveau: Das Dropdown zeigt dann nur „A1“ (ohne „Alle Niveaus“), ist ausgewählt und deaktiviert (ausgegraut). Ohne Auswahl startet eine Sitzung über alle Themen.
+- Die Lernen-Seite ist die Startseite (Tab „Lernen“, Route `/`). Sie zeigt keine Zähler und keine Serie (Streak). Sie bietet Thema, Niveau, Wortart und Richtung (nur für die Sitzung, steht bei jedem Aufruf auf „Beide Richtungen“, wird nicht gespeichert) und den Button „Starten“. **Noch nicht umgesetzt (festgelegt 2026-11-20, Aufgabe in `docs/TASKS.md`):** Die vier Auswahlen sind keine Dropdowns mehr, sondern vier Kacheln, die je ein Auswahlfenster von unten öffnen (Einfachauswahl, Wortarten im Plural, Aufbau und Verhalten: §14.4). Die Niveau-Auswahl bietet „Alle Niveaus“ und die Niveaus bis zum Maximalniveau. Ist das Maximalniveau A1, gibt es nur dieses eine Niveau: Die Kachel zeigt dann „A1“ (ohne „Alle Niveaus“) und ist deaktiviert (ausgegraut, nicht antippbar). Ohne Auswahl startet eine Sitzung über alle Themen.
 - Statistik: Verteilung der Karten nach Reifegrad (neu, lernend, gefestigt), je Kartenrichtung und nur für das eingestellte Niveau.
 - Durchsuchbares **Vokabelverzeichnis** (alphabetisch nach spanischem Stichwort ohne Artikel) mit Detailansicht inkl. aller Zusatzinfos.
 - **Verzeichnissuche (Spanisch und Deutsch):** Das Suchfeld findet jede Vokabel, deren `es` oder einer der `de`-Einträge den Begriff enthält, ohne Beachtung von Groß-/Kleinschreibung, Akzenten und Umlauten (*cafe* findet *café*). So sieht der Nutzer zu einem deutschen Wort, ob er das spanische schon hat. Filter, Suchtext und Scrollposition bleiben erhalten, solange der Nutzer im Bereich des Verzeichnisses bleibt (Detailseite, Legende), ein Wechsel auf einen anderen Tab setzt sie zurück. Festlegungen (Anforderung 2026-11-19):
@@ -269,7 +269,7 @@ Zusätzlich gilt für jedes Verb:
 - **Design:** Mexiko/Guatemala-Farbwelt (kräftige Farben wie Türkis, Magenta, Gelb, Rot, dazu Muster aus Textil- bzw. Maya-Motiven als dezentes Element). Lesbarkeit und Kontrast haben Vorrang.
 - Oberfläche auf **Deutsch**.
 - **Barrierefreiheit:** ausreichender Kontrast, Tastaturbedienung, Labels für Screenreader.
-- **Touch-Verhalten:** Kein farbiges Antipp-Rechteck (Chrome Android, Safari iOS: `-webkit-tap-highlight-color: transparent` auf `html`), Hover-Stile nur bei echtem Hover (`@media (hover: hover)`). Fokus in Suchfeld und Dropdowns (Verzeichnis, Lernen, Einstellungen) türkis, sonstiger Tastaturfokus magenta.
+- **Touch-Verhalten:** Kein farbiges Antipp-Rechteck (Chrome Android, Safari iOS: `-webkit-tap-highlight-color: transparent` auf `html`), Hover-Stile nur bei echtem Hover (`@media (hover: hover)`). Fokus in Suchfeld und Dropdowns (Verzeichnis, Einstellungen) türkis, ebenso bei den Auswahloptionen im Auswahlfenster der Lernen-Seite (§14.4, noch nicht umgesetzt; bis dahin gilt es für die Dropdowns der Lernen-Seite). Sonstiger Tastaturfokus magenta, auch bei den Kacheln und dem Button „Starten“ der Lernen-Seite.
 - **Datenhaltung:** IndexedDB, Versionierung des Datenschemas, damit spätere Vokabelupdates den Fortschritt nicht zerstören (Vokabel-IDs bleiben stabil).
 - Keine Tracker, keine externen Dienste, alles offline.
 
@@ -637,6 +637,134 @@ Beim Umsetzen werden die erzeugten Formen aller Adjektive in `public/vocab/` dur
 - Vitest: alle Soll-Beispiele aus §3.3a (mit den echten Vokabeldaten oder mit Testvokabeln), die Regel F < G, Mindestlängen (1 Zeichen: nichts; 2 Zeichen: nur Formstufe 0; ab 3: beide), Nomen-Plurale mit Leerzeichen, Akzent- und Großschreibung, Auswahl der gezeigten Form bei Akzentpaaren (*compre*/*compré*, *levanto*/*levantó*), Sortierung in den vier Gruppen aus §3.3a, Zusammenspiel mit Filtern, Bezeichnungen samt Zusammenfassen (auch gemischte Zahl, per Testvokabel), „+ 1 weitere Form“ / „+ N weitere Formen“, reflexive Verben (ohne Pronomen, Imperativ mit Pronomen, *ir* und *irse* nebeneinander), vosotros-Formen. Für `adjectiveForms` je Regel mindestens ein Beispiel, die Komparative, Akzentfälle (*joven, cortés, alemán, iraní* per Testvokabel) dass `adj` überschreibt (*español* per Testvokabel) und die Ableitung von f. Pl. aus `adj.f` (*inglés* nur mit `f` ergibt *inglesas*; ein gesetztes `fpl` hat Vorrang). Für den Vokabel-Validator: beide Warnungen zu `adj` (fehlende Femininform bei -és/-ol, überflüssiger Eintrag samt Ausnahme für bestätigtes `adj.f`).
 - Browser-Smoke-Test (`scripts/browser-smoke.ts`): Im Verzeichnis „podemos“ eingeben, die Zeile „podemos → poder“ mit „1. Pl. Presente“ erscheint. Antippen öffnet die Detailseite von *poder*, die Zelle *podemos* ist hervorgehoben und sichtbar. Zurück: Suchtext und Filter sind erhalten. Eine Adjektiv-Detailseite zeigt die Zeile „Formen“.
 
+
+### 14.4 Lernen-Seite: Kacheln und Auswahlfenster (festgelegt 2026-11-20, noch nicht umgesetzt)
+
+Ersetzt die vier Dropdowns von `features/study/StudySetup.tsx` (Route `/`) durch vier Kacheln mit Auswahlfenster. Aufgabe: `docs/TASKS.md`. Verhalten kurz: §3.3. Der Entwurf („Entwurf B“, Standardzustand und Auswahlfenster) liegt nicht im Repo; bei Abweichungen gilt dieser Abschnitt.
+
+**Ziel:** Die Seite wird ruhiger und lesbarer. Alle vier Auswahlen sind ohne Wischen erreichbar, der Standardzustand passt auf 390 × 844 px (Tab-Leiste eingerechnet) ohne Scrollen. Die Funktionen bleiben: Thema, Niveau, Wortart, Richtung, Starten. Es gilt **Einfachauswahl** (ein Wert je Feld). Mehrfachauswahl ist nicht Teil dieser Umsetzung.
+
+**Unverändert (gilt weiter):**
+- Keine Zähler und keine Serie auf der Seite (§3.3).
+- Filter nur für die Sitzung, nichts wird gespeichert (kein `localStorage`, keine Datenbank, keine Änderung an `QueueFilters`). Bei jedem Aufruf stehen Thema, Niveau und Wortart auf „alle“ und die Richtung auf `both`. Ein Tabwechsel setzt alles zurück (§14.1, Navigation).
+- Startlogik: `topic`, `level` und `pos` nur bei gesetztem Wert, `direction` immer, dann `onStart(filters)`.
+- Seitenstruktur nach AGENTS.md: Inhalt in `.screen`, Überschrift als direktes `h1`-Kind (`PageTitle brand`, „Lernen“). Das Logo oben rechts kommt aus dem Layout, nicht selbst einbauen.
+- Keine Änderungen an `domain/queue.ts`, `data/`, `domain/srs.ts`, `domain/dictionary.ts` und an der Sitzung in `Study.tsx`.
+- Die Klassen `.setting`, `.settings-form`, `.seg`, `select.field` bleiben (Einstellungen und Verzeichnis nutzen sie).
+
+**Optionen je Feld** (Reihenfolge wie bisher):
+- **Thema:** „Alle Themen“ (Wert `""`), dann `topicOptions(topics)` (Grundwortschatz zuerst).
+- **Niveau:** „Alle Niveaus“ (`""`) plus die Niveaus bis einschließlich `settings.maxLevel` in der Reihenfolge von `LEVEL_ORDER` (A1, A2, B1). Bei Maximalniveau A2 also „Alle Niveaus“, A1, A2.
+- **Wortart:** „Alle Wortarten“ (`""`), dann die Plural-Labels aus `POS_LABEL_PLURAL` in dessen Reihenfolge (Verben, Nomen, Adjektive, Adverbien, Zahlen, Redewendungen, Sonstiges). `POS_LABEL` (Einzahl) bleibt für Verzeichnis und Detailseite.
+- **Richtung:** `de-es` „Deutsch → Spanisch“, `es-de` „Spanisch → Deutsch“, `both` „Beide Richtungen“ (wie `DIRECTION_LABEL`).
+
+#### Aufbau der Seite
+
+Drei Teile: Kopf, Kachelraster, Startblock. Die Tab-Leiste bleibt unverändert.
+
+```
+Lernen                         [Logo oben rechts]
+┌──────────────┬──────────────┐
+│ THEMA    (✎) │ NIVEAU   (✎) │
+│ Alle Themen  │ Alle Niveaus │
+├──────────────┼──────────────┤
+│ WORTART  (✎) │ RICHTUNG (✎) │
+│ Alle Wortart…│ Beide Richt… │
+│              │ mal so, mal… │
+└──────────────┴──────────────┘
+
+[ Zusammenfassung ]
+[      Starten      ]
+───────── Tab-Leiste ─────────
+```
+
+Der Kopf enthält nur den Titel und das Logo, keine Erklärzeile. Der Startblock folgt im Abstand von 16 px direkt auf das Kachelraster, der Rest der Seite bleibt leer (nichts wird aufgefüllt oder nach unten gezogen). Die Seite nutzt wie die anderen Tabs die Spalte mit `max-width: 560px`; Logo und Überschriftenabstand (`.screen:not(.center) > h1`) bleiben.
+
+**Kachelraster:**
+- Zwei Spalten gleicher Breite, Abstand 12 px, zwei Zeilen.
+- Jede Kachel ist ein `<button type="button">` mit `aria-haspopup="dialog"` und dem Namen „<Feld>: <voller Wert>, ändern“, z. B. „Thema: Alle Themen, ändern“, „Richtung: Beide Richtungen, ändern“.
+- Mindesthöhe 124 px, Innenabstand 14 px, Radius `--radius`, Schatten `--shadow`. **Maße und Radien kommen aus den Tokens** (`--radius` = 22 px, `--radius-sm` = 16 px), nicht aus festen Pixelwerten.
+- Oben ein 6 px hoher Farbbalken in der Akzentfarbe (absolut, volle Breite).
+- Inhalt in einer Spalte, Abstand 8 px, Verteilung „space-between“:
+  - Zeile oben: Beschriftung in Versalien (0,72 rem, Gewicht 700, Buchstabenabstand 0,08 em, `--muted`) links, rechts ein Stiftsymbol (Inline-SVG, 13 px) in einem Kreis von 26 px in der Tönung der Kachel.
+  - Unten: Wert in `--font-head`, 1,12 rem, Gewicht 800; darunter optional eine Zeile in 0,8 rem und `--muted`.
+- **Lange Werte:** Der Wert bricht auf bis zu zwei Zeilen um, danach folgt „…“ (`line-clamp`). Der Untertext ist einzeilig mit „…“. Die Kachel wächst über 124 px hinaus, wenn der Inhalt es braucht (`min-height`); die Zeile des Rasters wächst dann für beide Kacheln. Der volle Wert steht immer im Namen der Kachel.
+
+| Kachel | Beschriftung | Akzentfarbe (Balken) | Tönung (Kreis) |
+|---|---|---|---|
+| Thema | THEMA | `--turquoise` | `--turquoise-soft` |
+| Niveau | NIVEAU | `--yellow` | `--yellow-soft` |
+| Wortart | WORTART | `--magenta` | `--magenta-soft` |
+| Richtung | RICHTUNG | `--muted` | `--surface-2` |
+
+| Feld | Wert (Standard) | Wert (gesetzt) | Untertext |
+|---|---|---|---|
+| Thema | Alle Themen | Name des Themas, z. B. „Zahlen & Zeit“ | keiner |
+| Niveau | Alle Niveaus | „A1“, „A2“, „B1“ | keiner |
+| Wortart | Alle Wortarten | Plural-Label, z. B. „Verben“ | keiner |
+| Richtung | Beide Richtungen | „DE → ES“ bzw. „ES → DE“ | „Vorderseite Deutsch“ bzw. „Vorderseite Spanisch“; bei „Beide“: „mal so, mal so“ |
+
+**Maximalniveau A1:** Die Niveau-Kachel ist deaktiviert (`disabled`), zeigt „A1“, hat keinen Untertext und **kein Stiftsymbol**. Ihr Name lautet „Niveau: A1“ (ohne „ändern“), sie hat kein `aria-haspopup`. Darstellung wie andere deaktivierte Bedienelemente (Deckkraft 0,55, Cursor `not-allowed`). Das Auswahlfenster lässt sich nicht öffnen. Intern bleibt `level` leer (Filter wie heute: bei A1 gibt es ohnehin nur A1).
+
+**Startblock:**
+- Weiße Karte, Radius `--radius`, Schatten `--shadow`, Innenabstand 14 px, 10 px zwischen Zusammenfassung und Button. Im Dokumentfluss (kein `position: fixed`).
+- **Zusammenfassung** in 0,85 rem, `--muted`, Format `<Thema> · <Niveau> · <Wortart> · <Richtung>`. Der Themenname ist fett in `--text` (auch bei „Alle Themen“). Der Niveau-Teil heißt „Alle Niveaus“ oder „Niveau A2“, bei Maximalniveau A1 „Niveau A1“ (passt zur Kachel). Die Richtung steht ausgeschrieben („Deutsch → Spanisch“). Beispiele: „Alle Themen · Alle Niveaus · Alle Wortarten · Beide Richtungen“; „Zahlen & Zeit · Niveau A2 · Verben · Deutsch → Spanisch“. Kein `aria-live`.
+- **Button „Starten“** (`.btn.btn-block`; weichen die Maße von `.btn` ab, per Zusatzklasse): Höhe mindestens 56 px, volle Breite, Radius 999 px, Hintergrund `--btn-bg`, Schrift `--on-btn`, 1,05 rem, Gewicht 700. Immer sichtbar (siehe Größen).
+
+**Größen:** Richtwerte: Kopfzeile etwa 40 px, Kacheln je 124 px, Zeilenabstand 12 px, Abstand zum Startblock 16 px, Startblock etwa 130 px. Auf 390 × 844 px braucht der Inhalt damit rund 480 px von etwa 730 nutzbaren (Polster unten für die Tab-Leiste steckt schon in `.screen`), es bleibt Leerraum unter dem Startblock (so entschieden). Auf kleinen Bildschirmen (z. B. 360 × 640 px) darf die Seite scrollen; der Startknopf ist am Ende erreichbar.
+
+#### Auswahlfenster
+
+Jede Kachel öffnet ein Auswahlfenster von unten, eines je Feld. Es wird nur bei „offen“ eingehängt (der Wisch-Hook braucht das Element beim Einhängen).
+
+- **Hintergrund:** wie das Verb-Overlay (`.overlay-backdrop`, `z-index` 50, `rgb(0 0 0 / 0.5)`), damit der Hook beim Ziehen die Farbe nicht umschaltet. Am Bildschirmrand unten ausgerichtet, **auch ab 700 px** (die Regel des Verb-Overlays, die ab 700 px zentriert, wird dafür mit einer eigenen Modifier-Klasse überschrieben). Tippen auf den Hintergrund schließt ohne Änderung. Die Tab-Leiste liegt darunter.
+- **Fenster** (`.study-sheet`): volle Breite, höchstens 560 px, zentriert; Höhe höchstens 78 % der Bildschirmhöhe (`dvh`, mit `vh` als Rückfall); obere Ecken 28 px Radius; Hintergrund `--surface`; Schatten nach oben (`0 -10px 30px rgb(0 0 0 / 0.18)`, als Literal in `global.css` wie beim Verb-Overlay); Innenabstand oben 10 px, seitlich und unten 16 px (unten plus Safe-Area). `overscroll-behavior: contain`.
+- **Griff:** wie `.overlay-grip` (40 × 5 px, abgerundet, zentriert), 10 px Abstand darunter. Ab 700 px ausgeblendet (dort wischt nichts).
+- **Überschrift:** Name des Feldes („Thema“, „Niveau“, „Wortart“, „Richtung“), 1,2 rem, Gewicht 800, `--font-head`.
+- **Optionsliste:** `role="radiogroup"` (beschriftet über die Überschrift), vertikal, Abstand 6 px, `overflow-y: auto` und `overscroll-behavior: contain`, wenn sie nicht passt. Beim Öffnen wird die gewählte Option in den sichtbaren Bereich gescrollt (`scrollIntoView({ block: "nearest" })`).
+- **Option:** `role="radio"` mit `aria-checked`, Mindesthöhe 52 px, Innenabstand seitlich 14 px, Abstand zum Kreis 12 px, Rahmen 1,5 px `--border`, Radius `--radius-sm`, Hintergrund `--surface`, Schrift 1 rem, Gewicht 600.
+  - Kreis links: 20 px, Rahmen 2 px `--border`, Hintergrund `--surface`.
+  - Gewählte Option: Rahmen `--turquoise`, Hintergrund `--turquoise-soft`, Kreis mit 6 px Rahmen in `--turquoise`.
+  - Fokus: 3 px türkis (`--turquoise`), Abstand 2 px (nicht magenta, §7). Hover nur unter `@media (hover: hover)`.
+- **Auswahl:** Ein Tipp (oder Leertaste/Enter) setzt den Wert und schließt das Fenster sofort. Es gibt keinen Bestätigungsknopf und keinen Schließen-Knopf (entschieden).
+- **Schließen ohne Änderung:** Tippen auf den Hintergrund, Escape (`stopPropagation`), Wischen nach unten (nur Handy) und die Zurück-Taste des Geräts.
+- **Zurück-Taste:** Wie beim Verb-Overlay (§14.1) legt das Öffnen einen History-Eintrag an; „Zurück“ (`popstate`) schließt nur das Fenster, Schließen per Auswahl, Escape, Hintergrund oder Wischen nimmt den Eintrag mit `history.back()` wieder weg. Die Logik (History-Eintrag, Escape, Fokusfalle, Fokus zurückgeben) soll nicht doppelt geschrieben werden: Entweder zieht die Umsetzung sie aus `VerbOverlay.tsx` in einen gemeinsamen Hook, den beide nutzen (Verhalten des Verb-Overlays bleibt unverändert), oder sie übernimmt sie sonst ohne Kopie. Keine Öffnungsanimation und keine Scroll-Sperre der Seite (wie beim Verb-Overlay); `prefers-reduced-motion` greift ohnehin global.
+- **Wischen nach unten (Pflicht auf dem Handy, unter 700 px):** über `hooks/useSwipeToClose.ts` wie im Verb-Overlay (Schwellen und Verhalten: §14.1). **Hook-Erweiterung:** Der Hook prüft heute `scrollTop` des Sheets selbst. Hier scrollt aber nur die Optionsliste. Deshalb bekommt er einen **optionalen vierten Parameter** `scroller?: RefObject<HTMLElement | null>`: Ist er gesetzt, zählt dessen `scrollTop` für „ganz oben“, sonst wie bisher das des Sheets. Das Verb-Overlay ändert sich nicht. Steht die Liste ganz oben, zieht der Wisch das Fenster; ist sie nach unten gescrollt, scrollt sie normal weiter. Der `onClose` an den Hook muss stabil sein (`useCallback`).
+
+**Tastatur und Barrierefreiheit:**
+- Das Fenster ist ein Dialog: `role="dialog"`, `aria-modal="true"`, `aria-labelledby` auf die Überschrift.
+- Beim Öffnen erhält die gewählte Option den Fokus, sonst die erste. Roving-Tabindex: nur diese Option ist per Tab erreichbar. Tab und Umschalt+Tab bleiben im Fenster (Fokusfalle, praktisch auf der Liste).
+- Pfeil auf/ab (und links/rechts) bewegen **nur den Fokus** zwischen den Optionen (am Ende springt er an den Anfang bzw. umgekehrt); Pos1/Ende springen zur ersten bzw. letzten Option. Leertaste oder Enter wählen aus. (Das weicht von nativen Radio-Buttons ab, bei denen der Pfeil auswählt, weil hier die Auswahl das Fenster schließt.)
+- Beim Schließen, auch nach einer Auswahl, kehrt der Fokus zur Kachel zurück, die das Fenster geöffnet hat.
+- Kacheln und „Starten“ haben den normalen magentafarbenen Tastaturfokus.
+
+#### Umsetzung im Code
+
+- `features/study/StudySetup.tsx`: komplett neu aufgebaut. Zustand lokal (`useState`): `topic` (`""` = alle), `level` (`""` oder `Level`), `pos` (`""` oder `Pos`), `direction` (`DirectionSetting`, Standard `"both"`) und welches Fenster offen ist (`"topic" | "level" | "pos" | "direction" | null`). Das Fenster merkt sich nichts außerhalb der Komponente. Props (`onStart`) bleiben.
+- Neue Dateien in `features/study/`: `ChoiceTile.tsx` (Kachel) und `ChoiceSheet.tsx` (Auswahlfenster, Props etwa: Titel, Optionen `{ value, label }`, gewählter Wert, `onSelect`, `onClose`). Eine einzige Datei ist auch in Ordnung, wenn sie übersichtlich bleibt.
+- Reine Hilfsfunktionen ohne React (in `features/study/studyChoices.ts` o. Ä.), mit Vitest getestet: Niveau-Optionen aus `maxLevel`, Kachelwerte und Untertexte, Zusammenfassung, Aufbau des `QueueFilters`-Objekts (`topic`/`level`/`pos` nur bei gesetztem Wert, `direction` immer).
+- `styles/global.css`: neue Klassen mit Präfix `study-` (`.study-grid`, `.study-tile`, `.study-start`, `.study-sheet`, `.study-option` usw.), nur Farb-Tokens, keine Hex-Werte. Die Literale `rgb(0 0 0 / …)` für Hintergrund und Schatten sind wie beim Verb-Overlay erlaubt. Dunkelmodus über die vorhandenen Tokens (`global.test.ts` prüft deren Kontrast).
+- `hooks/useSwipeToClose.ts`: optionaler Parameter `scroller` (siehe oben).
+- `src/styles/global.test.ts`: Die Regel zum Dropdown-Pfeil (`select.field, .setting select`) bleibt gültig (Einstellungen und Verzeichnis nutzen sie). Optional: Test, dass `.study-tile` mindestens 124 px und `.study-option` mindestens 52 px hoch sind.
+
+**Tests:**
+- Vitest: die reinen Hilfsfunktionen (alle Maximalniveaus A1/A2/B1, Kachelwerte und Untertexte je Richtung, Zusammenfassung inkl. Maximalniveau A1, Filterobjekt in allen Kombinationen). Gegebenenfalls ein Test für die Wisch-Logik mit `scroller`, soweit rein testbar (`components/swipeClose.test.ts`).
+- Browser-Smoke-Test (`scripts/browser-smoke.ts`): Der Abschnitt zur Lernen-Seite (Zeilen um 472 bis 535, `.setting select` und `.settings-form select`) wird umgebaut, außerdem die Stellen, die auf der Lernen-Seite ein Dropdown erwarten. Neue Prüfungen: Kacheln öffnen das Fenster; Auswahl schließt es, setzt die Kachel und die Zusammenfassung; Richtung „ES → DE“ zeigt „Vorderseite Spanisch“; bei Maximalniveau A1 ist die Niveau-Kachel deaktiviert, zeigt „A1“ und lässt sich nicht öffnen; bei A2 nur „Alle Niveaus“, A1, A2; Grundwortschatz steht direkt nach „Alle Themen“; Escape schließt das Fenster, der Fokus kehrt zur Kachel zurück; nach Neuladen steht die Richtung wieder auf „Beide“; „Starten“ übergibt die Filter und startet die Sitzung. Die Prüfung „Logo oben rechts“ (8e6) listet `""` schon.
+- Wischgeste, Zurück-Taste und Breiten ab 700 px lassen sich im Smoke-Test nur schwer prüfen: mit Playwright und Touch-Emulation (Chromium ist in der Cloud-Umgebung vorhanden) oder manuell.
+
+**Manuelle Prüfung:**
+1. Standardzustand bei 390 × 844 px: kein Scrollen, Logo oben rechts, Titel „Lernen“ im Wortmarkenstil.
+2. Jede Kachel öffnet ihr Fenster, Auswahl schließt es, Kachel und Zusammenfassung zeigen den neuen Wert.
+3. Maximalniveau A1: Niveau-Kachel deaktiviert, „A1“, Zusammenfassung „Niveau A1“. A2: Fenster mit „Alle Niveaus“, A1, A2.
+4. Escape, Hintergrund und Zurück-Taste schließen; Tab, Pfeiltasten, Leertaste und Enter funktionieren; der Fokus kehrt zur Kachel zurück.
+5. Wischen nach unten schließt das Fenster; bei gescrollter Themenliste scrollt der Wisch die Liste, ab dem Anfang der Liste zieht er das Fenster. Der Hintergrund springt dabei nicht in der Farbe.
+6. Ab 700 px: Fenster unten, kein Griff, kein Wischen.
+7. Dunkelmodus (Systemeinstellung und `data-theme="dark"`): Text und Kacheln gut lesbar.
+8. Starten übergibt dieselben Filter wie vorher; Tabwechsel und zurück setzt alle Filter auf die Standardwerte.
+
+**Nicht Teil dieser Umsetzung:** Mehrfachauswahl; eine Vorschau-Karte oder andere Illustration; Änderungen an Verzeichnis, Statistik, Einstellungen und „Mehr“; Erinnerung der letzten Auswahl über Sitzungen hinweg (widerspricht §3.3).
+
+**Festlegungen (2026-11-20, aus der Prüfung der ersten Vorlage):** Tokens statt der in der Vorlage genannten 20/14 px; Hintergrund wie das Verb-Overlay statt `rgb(18 32 30 / 0.4)`; `useSwipeToClose` bekommt den optionalen `scroller`; Zurück-Taste schließt das Fenster; Fenster bleibt ab 700 px unten, ohne Griff; Zusammenfassung „Niveau A1“ bei Maximalniveau A1; deaktivierte Niveau-Kachel ohne „ändern“, `aria-haspopup` und Stift; kein Schließen-Knopf; Pfeiltasten bewegen nur den Fokus; keine Animation und keine Scroll-Sperre; gewählte Option wird sichtbar gescrollt; lange Werte brechen auf zwei Zeilen um.
 
 ## 15. PWA
 
