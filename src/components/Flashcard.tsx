@@ -23,7 +23,7 @@ interface Props {
   onToggle: () => void;
 }
 
-/** Front: German (de-es) or Spanish (es-de). Tap toggles between front and back, as often as wanted. */
+/** Front: German (de-es) or Spanish (es-de). Tap turns the card around (3D flip), as often as wanted. */
 export function Flashcard({ vocab, dir, flipped, onToggle }: Props) {
   const dirLabel =
     dir === "de-es" ? "Deutsch → Spanisch" : "Spanisch → Deutsch";
@@ -54,6 +54,33 @@ export function Flashcard({ vocab, dir, flipped, onToggle }: Props) {
     </>
   );
 
+  const sides = [
+    {
+      key: "front",
+      content:
+        dir === "de-es" ? <span className="word">{german}</span> : spanish,
+      back: false,
+    },
+    {
+      key: "back",
+      content: (
+        <>
+          {dir === "de-es" ? spanish : <span className="word">{german}</span>}
+          {vocab.example && (
+            <>
+              <span className="example">{vocab.example.es}</span>
+              <span className="example-de">{vocab.example.de}</span>
+            </>
+          )}
+          {vocab.note && <span className="badge">{vocab.note}</span>}
+        </>
+      ),
+      back: true,
+    },
+  ];
+
+  // Both faces are always rendered (stacked in one grid cell), so the card can turn
+  // around like the welcome card. The hidden face is aria-hidden.
   return (
     <button
       type="button"
@@ -64,25 +91,19 @@ export function Flashcard({ vocab, dir, flipped, onToggle }: Props) {
         flipped ? "Rückseite, Karte umdrehen" : "Vorderseite, Karte umdrehen"
       }
     >
-      <span className="dir">{dirLabel}</span>
-      {!flipped ? (
-        <>
-          {dir === "de-es" ? <span className="word">{german}</span> : spanish}
-          <span className="hint">Tippen zum Umdrehen</span>
-        </>
-      ) : (
-        <>
-          {dir === "de-es" ? spanish : <span className="word">{german}</span>}
-          {vocab.example && (
-            <>
-              <span className="example">{vocab.example.es}</span>
-              <span className="example-de">{vocab.example.de}</span>
-            </>
-          )}
-          {vocab.note && <span className="badge">{vocab.note}</span>}
-          <span className="hint">Tippen zum Umdrehen</span>
-        </>
-      )}
+      <span className="flashcard-inner">
+        {sides.map(({ key, content, back }) => (
+          <span
+            key={key}
+            className={`flashcard-face${back ? " back" : ""}`}
+            aria-hidden={back !== flipped}
+          >
+            <span className="dir">{dirLabel}</span>
+            {content}
+            <span className="hint">Tippen zum Umdrehen</span>
+          </span>
+        ))}
+      </span>
     </button>
   );
 }

@@ -336,6 +336,8 @@ function StudySession({
 
         <div className="card-wrap">
           <Flashcard
+            // Neue Karte = neues Element: sie startet ohne Rückdrehen auf der Vorderseite.
+            key={`${shownKey}:${session.rated}`}
             vocab={entry}
             dir={item.dir}
             flipped={flipped}

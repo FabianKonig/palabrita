@@ -170,7 +170,7 @@ async function rate(label: "Nochmal" | "Gewusst") {
 
 const frontWord = () =>
   evaluate<string>(
-    `document.querySelector(".flashcard .word")?.textContent ?? ""`,
+    `document.querySelector(".flashcard .flashcard-face[aria-hidden=false] .word")?.textContent ?? ""`,
   );
 
 async function startSession(setup?: () => Promise<void>) {
@@ -287,7 +287,7 @@ async function main() {
   await waitFor(`document.querySelector(".flashcard.flipped")`, "Rückseite");
   const back = await frontWord();
   const hintBack = await evaluate<boolean>(
-    `/Tippen zum Umdrehen/.test(document.querySelector(".flashcard").innerText)`,
+    `/Tippen zum Umdrehen/.test(document.querySelector(".flashcard .flashcard-face[aria-hidden=false]").innerText)`,
   );
   await evaluate(`document.querySelector(".flashcard").click()`);
   await waitFor(`!document.querySelector(".flashcard.flipped")`, "Vorderseite");
@@ -1479,7 +1479,7 @@ async function main() {
     gender: string;
     word: string;
   }>(`(() => {
-    const card = document.querySelector(".flashcard");
+    const card = document.querySelector(".flashcard .flashcard-face[aria-hidden=false]");
     const parts = [...card.querySelectorAll(":scope > span")]
       .map(s => s.className)
       .filter(c => c !== "dir" && c !== "hint");
