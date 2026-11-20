@@ -269,6 +269,7 @@ Zusätzlich gilt für jedes Verb:
 - **Design:** Mexiko/Guatemala-Farbwelt (kräftige Farben wie Türkis, Magenta, Gelb, Rot, dazu Muster aus Textil- bzw. Maya-Motiven als dezentes Element). Lesbarkeit und Kontrast haben Vorrang.
 - Oberfläche auf **Deutsch**.
 - **Barrierefreiheit:** ausreichender Kontrast, Tastaturbedienung, Labels für Screenreader.
+- **Touch-Verhalten:** Kein farbiges Antipp-Rechteck (Chrome Android, Safari iOS: `-webkit-tap-highlight-color: transparent` auf `html`), Hover-Stile nur bei echtem Hover (`@media (hover: hover)`). Fokus in Suchfeld und Dropdowns (Verzeichnis, Lernen, Einstellungen) türkis, sonstiger Tastaturfokus magenta.
 - **Datenhaltung:** IndexedDB, Versionierung des Datenschemas, damit spätere Vokabelupdates den Fortschritt nicht zerstören (Vokabel-IDs bleiben stabil).
 - Keine Tracker, keine externen Dienste, alles offline.
 
