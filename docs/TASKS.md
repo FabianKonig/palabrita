@@ -6,7 +6,7 @@ Diese Datei führt nur, was noch zu tun ist. Erledigtes steht in `docs/SPEC.md`,
 
 Die Spezifikation steht, ein Agent kann direkt umsetzen.
 
-Derzeit nichts.
+- [ ] **Lernen-Seite mit Kacheln und Auswahlfenster** (festgelegt 2026-11-20): Die vier Dropdowns von `features/study/StudySetup.tsx` werden durch vier Kacheln mit Auswahlfenster ersetzt. Spezifikation: `docs/SPEC.md` §14.4 (Verhalten in §3.3). Bei der Umsetzung SPEC §3.3, §7 und §14.4 auf „umgesetzt“ stellen („noch nicht umgesetzt“ streichen; in §7 auch den Halbsatz „bis dahin gilt es für die Dropdowns der Lernen-Seite“) und diesen Punkt entfernen. Nicht vergessen: `scripts/browser-smoke.ts` anpassen, `useSwipeToClose` um den optionalen Scroll-Parameter erweitern, die Dialog-Logik aus `VerbOverlay.tsx` in einen gemeinsamen Hook ziehen (SPEC §14.4, Zurück-Taste), Tests für die reinen Hilfsfunktionen schreiben.
 
 ## Anforderungen ohne Detailspezifikation
 
