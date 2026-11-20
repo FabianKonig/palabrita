@@ -978,6 +978,14 @@ async function main() {
     `document.querySelector(".reset-progress [role=status]")`,
     "Bestätigung",
   );
+  check(
+    "Zurücksetzen: die Bestätigung hat Abstand (mindestens 8 px) zum Eintrag darüber",
+    await evaluate<boolean>(`(() => {
+      const b = document.querySelector(".reset-progress .link-button").getBoundingClientRect();
+      const n = document.querySelector(".reset-progress [role=status]").getBoundingClientRect();
+      return n.top - b.bottom >= 8;
+    })()`),
+  );
   const settingsAfter = await readSettings();
   check(
     "Zurücksetzen: alle Karten gelöscht, Bestätigung sichtbar, Eintrag wieder bedienbar",
