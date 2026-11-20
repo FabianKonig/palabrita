@@ -24,3 +24,15 @@ export function backdropFactor(dy: number, height: number): number {
   if (height <= 0) return 1;
   return 1 - Math.min(Math.max(dy / height, 0), 1);
 }
+
+/**
+ * True, wenn der scrollbare Inhalt ganz oben steht und ein Wisch nach unten das Fenster ziehen darf.
+ * `scrollerTop` ist der `scrollTop` des eigenen Scrollers (z. B. der Optionsliste), falls es einen gibt;
+ * sonst zählt der `scrollTop` des Fensters selbst.
+ */
+export function isScrolledToTop(
+  sheetTop: number,
+  scrollerTop?: number,
+): boolean {
+  return (scrollerTop ?? sheetTop) <= 0;
+}

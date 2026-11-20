@@ -173,6 +173,65 @@ const frontWord = () =>
     `document.querySelector(".flashcard .flashcard-face[aria-hidden=false] .word")?.textContent ?? ""`,
   );
 
+/** Ausdruck, der die Kachel der Lernen-Seite mit dieser Beschriftung liefert. */
+const tileExpr = (field: string) =>
+  `[...document.querySelectorAll(".study-tile")].find((t) => t.querySelector(".study-tile-label")?.textContent === ${JSON.stringify(field)})`;
+
+const tileValue = (field: string) =>
+  evaluate<string>(
+    `${tileExpr(field)}.querySelector(".study-tile-value").textContent`,
+  );
+
+const summaryText = () =>
+  evaluate<string>(
+    `document.querySelector(".study-summary")?.textContent ?? ""`,
+  );
+
+const optionLabels = () =>
+  evaluate<string[]>(
+    `[...document.querySelectorAll(".study-option")].map((o) => o.textContent.trim())`,
+  );
+
+/** Öffnet das Auswahlfenster einer Kachel und wartet, bis es da ist. */
+async function openTile(field: string) {
+  await evaluate(`${tileExpr(field)}.click()`);
+  await waitFor(`document.querySelector(".study-sheet")`, `Fenster ${field}`);
+}
+
+/** Tippt eine Option im offenen Auswahlfenster an und wartet, bis es schließt. */
+async function chooseOption(label: string) {
+  await evaluate(`(() => {
+    const o = [...document.querySelectorAll(".study-option")]
+      .find((e) => e.textContent.trim() === ${JSON.stringify(label)});
+    o.click();
+  })()`);
+  await waitFor(
+    `!document.querySelector(".study-sheet")`,
+    "Fenster geschlossen",
+  );
+}
+
+/** Wählt auf der Lernen-Seite im Fenster von Kachel \`field\` die Option \`label\`. */
+async function choose(field: string, label: string) {
+  await openTile(field);
+  await chooseOption(label);
+}
+
+async function keyDown(key: string, code: number) {
+  for (const type of ["keyDown", "keyUp"])
+    await send("Input.dispatchKeyEvent", {
+      type,
+      key,
+      code: key,
+      windowsVirtualKeyCode: code,
+    });
+}
+
+async function escapeKey() {
+  await keyDown("Escape", 27);
+  await waitFor(`!document.querySelector(".study-sheet")`, "Escape schließt");
+}
+
 async function startSession(setup?: () => Promise<void>) {
   await send("Page.navigate", { url: BASE });
   await waitFor(
@@ -469,70 +528,186 @@ async function main() {
         await text(),
       ),
   );
-  // Lernen-Seite: bei A1 nur noch „A1“, ausgewählt und deaktiviert.
+  // Lernen-Seite: bei A1 ist die Niveau-Kachel deaktiviert und zeigt „A1“ (SPEC §14.4).
   await send("Page.navigate", { url: BASE });
-  await waitFor(
-    `document.querySelector(".settings-form select")`,
-    "Lernen-Seite",
-  );
+  await waitFor(`document.querySelector(".study-tile")`, "Lernen-Seite");
   const lvl = await evaluate<string>(`(() => {
-    const sel = [...document.querySelectorAll(".settings-form select")]
-      .find((s) => s.closest("label")?.textContent.startsWith("Niveau"));
+    const t = ${tileExpr("Niveau")};
     return JSON.stringify({
-      options: [...sel.options].map((o) => o.value).join(","),
-      value: sel.value,
-      disabled: sel.disabled,
+      value: t.querySelector(".study-tile-value").textContent,
+      disabled: t.disabled,
+      popup: t.getAttribute("aria-haspopup"),
+      pen: !!t.querySelector(".study-tile-pen"),
+      name: t.getAttribute("aria-label"),
     });
   })()`);
   check(
-    "Niveau A1: Lernen-Seite zeigt nur „A1“, ausgewählt und deaktiviert",
-    lvl === '{"options":"A1","value":"A1","disabled":true}',
+    "Niveau A1: Niveau-Kachel zeigt „A1“, ist deaktiviert, ohne Stift, Popup und „ändern“",
+    lvl ===
+      '{"value":"A1","disabled":true,"popup":null,"pen":false,"name":"Niveau: A1"}',
     lvl,
+  );
+  await evaluate(`${tileExpr("Niveau")}.click()`);
+  await sleep(200);
+  check(
+    "Niveau A1: Niveau-Kachel lässt sich nicht öffnen, Zusammenfassung nennt „Niveau A1“",
+    !(await evaluate<boolean>(`!!document.querySelector(".study-sheet")`)) &&
+      /Niveau A1/.test(await summaryText()),
+    await summaryText(),
   );
   await send("Page.navigate", { url: `${BASE}#/settings` });
   await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
-  await setInput(`select:has(option[value="A1"])`, "B1");
+  await setInput(`select:has(option[value="A1"])`, "A2");
   await sleep(400);
 
-  // 8e2. Lernen tab: the direction is chosen here and applies to the session only.
+  // 8e2. Lernen tab: Kacheln und Auswahlfenster (SPEC §14.4). Die Auswahl gilt nur für die Sitzung.
   await send("Page.navigate", { url: BASE });
-  await waitFor(
-    `document.querySelector('select:has(option[value="es-de"])')`,
-    "Richtung im Lernen-Tab",
+  await waitFor(`document.querySelector(".study-tile")`, "Lernen-Tab");
+  const tiles = await evaluate<string>(`JSON.stringify(
+    [...document.querySelectorAll(".study-tile")].map((t) => t.getAttribute("aria-label")),
+  )`);
+  check(
+    "Lernen: vier Kacheln mit Namen „<Feld>: <Wert>, ändern“, Standard alle und Beide Richtungen",
+    tiles ===
+      JSON.stringify([
+        "Thema: Alle Themen, ändern",
+        "Niveau: Alle Niveaus, ändern",
+        "Wortart: Alle Wortarten, ändern",
+        "Richtung: Beide Richtungen, ändern",
+      ]),
+    tiles,
   );
   check(
-    "Lernen: Richtung wählbar (3 Optionen)",
-    (await evaluate<number>(
-      `document.querySelector('select:has(option[value="es-de"])').options.length`,
-    )) === 3,
+    "Lernen: keine Dropdowns mehr auf der Seite",
+    !(await evaluate<boolean>(`!!document.querySelector(".screen select")`)),
   );
-  await setInput(`select:has(option[value="es-de"])`, "es-de");
-  await sleep(400);
+  // Niveau bei Maximalniveau A2: nur Alle Niveaus, A1, A2.
+  await openTile("Niveau");
+  check(
+    "Lernen: Niveau-Fenster bei Maximalniveau A2 bietet Alle Niveaus, A1, A2",
+    (await optionLabels()).join("|") === "Alle Niveaus|A1|A2",
+    (await optionLabels()).join("|"),
+  );
+  await escapeKey();
+  // Richtung: Fenster, Fokus auf der gewählten Option, Auswahl schließt und setzt Kachel und Zusammenfassung.
+  await openTile("Richtung");
+  const dlg = await evaluate<string>(`(() => {
+    const d = document.querySelector('[role="dialog"]');
+    return JSON.stringify({
+      modal: d?.getAttribute("aria-modal"),
+      labelled: !!document.getElementById(d?.getAttribute("aria-labelledby") ?? ""),
+      group: !!d?.querySelector('[role="radiogroup"]'),
+      focus: document.activeElement?.textContent?.trim(),
+      checked: d?.querySelector('[aria-checked="true"]')?.textContent?.trim(),
+    });
+  })()`);
+  check(
+    "Lernen: Richtung-Fenster ist ein beschrifteter Dialog, Fokus auf der gewählten Option",
+    dlg ===
+      '{"modal":"true","labelled":true,"group":true,"focus":"Beide Richtungen","checked":"Beide Richtungen"}',
+    dlg,
+  );
+  await chooseOption("Spanisch → Deutsch");
+  const dirTile = await evaluate<string>(`JSON.stringify({
+    value: ${tileExpr("Richtung")}.querySelector(".study-tile-value").textContent,
+    sub: ${tileExpr("Richtung")}.querySelector(".study-tile-sub").textContent,
+    name: ${tileExpr("Richtung")}.getAttribute("aria-label"),
+  })`);
+  check(
+    "Lernen: Richtung „ES → DE“ zeigt „Vorderseite Spanisch“, Fenster zu, Zusammenfassung nachgezogen",
+    dirTile ===
+      '{"value":"ES → DE","sub":"Vorderseite Spanisch","name":"Richtung: Spanisch → Deutsch, ändern"}' &&
+      /Spanisch → Deutsch/.test(await summaryText()),
+    dirTile,
+  );
+  check(
+    "Lernen: Fokus kehrt nach der Auswahl zur Kachel zurück",
+    await waitFor(
+      `document.activeElement === ${tileExpr("Richtung")}`,
+      "Fokus auf Kachel",
+    ),
+  );
   await evaluate("location.reload()");
-  await waitFor(
-    `document.querySelector('select:has(option[value="es-de"])')`,
-    "Lernen nach Reload",
-  );
-  await sleep(400);
+  await waitFor(`document.querySelector(".study-tile")`, "Lernen nach Reload");
+  await sleep(300);
   check(
     "Lernen: Richtung ist nur für die Sitzung (nach Neuladen wieder Beide)",
-    (await evaluate<string>(
-      `document.querySelector('select:has(option[value="es-de"])').value`,
-    )) === "both",
+    (await tileValue("Richtung")) === "Beide Richtungen",
   );
-  await setInput(`select:has(option[value="es-de"])`, "both");
-  await sleep(400);
-  const topicsOrder = await evaluate<string[]>(
-    `[...document.querySelectorAll(".settings-form select")[0].options].map((o) => o.textContent)`,
-  );
+  // Thema: Grundwortschatz direkt nach „Alle Themen“; Escape schließt, Fokus zurück.
+  await openTile("Thema");
+  const topicsOrder = await optionLabels();
   check(
     "Lernen: Grundwortschatz steht direkt nach „Alle Themen“",
-    topicsOrder[0] === "Alle Themen" && /^Grundwortschatz/.test(topicsOrder[1]),
+    topicsOrder[0] === "Alle Themen" && topicsOrder[1] === "Grundwortschatz",
     topicsOrder.slice(0, 3).join(" | "),
   );
-  await send("Page.navigate", { url: `${BASE}#/` });
-  await waitFor(`document.querySelector(".settings-form")`, "Lernen");
-  await setInput(`.settings-form select:has(option[value="es-de"])`, "both");
+  // Tastatur: Pfeil bewegt nur den Fokus, Tab bleibt im Fenster.
+  const focusText = () =>
+    evaluate<string>(`document.activeElement?.textContent?.trim() ?? ""`);
+  await keyDown("ArrowDown", 40);
+  const afterArrow = await focusText();
+  const stillOpen = await evaluate<boolean>(
+    `!!document.querySelector(".study-sheet") && ${tileExpr("Thema")}.querySelector(".study-tile-value").textContent === "Alle Themen"`,
+  );
+  await keyDown("Tab", 9);
+  await sleep(100);
+  const afterTab = await evaluate<boolean>(
+    `!!document.activeElement?.closest(".study-sheet")`,
+  );
+  check(
+    "Lernen: Pfeil ab bewegt nur den Fokus, ändert nichts, Tab bleibt im Fenster",
+    afterArrow === topicsOrder[1] && stillOpen && afterTab,
+    JSON.stringify({ afterArrow, stillOpen, afterTab }),
+  );
+  await escapeKey();
+  check(
+    "Lernen: Escape schließt das Fenster ohne Änderung, Fokus kehrt zur Kachel zurück",
+    (await tileValue("Thema")) === "Alle Themen" &&
+      (await waitFor(
+        `document.activeElement === ${tileExpr("Thema")}`,
+        "Fokus auf Thema-Kachel",
+      )),
+  );
+  // Hintergrund und Zurück-Taste schließen, ohne die Seite zu verlassen.
+  await openTile("Thema");
+  await evaluate(
+    `document.querySelector(".study-backdrop").dispatchEvent(new MouseEvent("mousedown", { bubbles: true }))`,
+  );
+  const backdropClosed = await waitFor(
+    `!document.querySelector(".study-sheet")`,
+    "Hintergrund schließt",
+  );
+  await openTile("Thema");
+  await evaluate("history.back()");
+  const backClosed = await waitFor(
+    `!document.querySelector(".study-sheet")`,
+    "Zurück schließt",
+  );
+  check(
+    "Lernen: Hintergrund und Zurück-Taste schließen nur das Fenster",
+    backdropClosed &&
+      backClosed &&
+      /^(#\/?)?$/.test(await evaluate<string>("location.hash")) &&
+      !!(await evaluate<boolean>(`!!document.querySelector(".study-tile")`)),
+  );
+  // Starten übergibt die Filter: Wortart Verben, Richtung ES → DE.
+  await openTile("Wortart");
+  await chooseOption("Verben");
+  await openTile("Richtung");
+  await chooseOption("Spanisch → Deutsch");
+  await clickText("Starten", "button");
+  check(
+    "Lernen: „Starten“ startet die Sitzung mit den gewählten Filtern (nur Verben)",
+    await waitFor(`document.querySelector(".flashcard")`, "Sitzung"),
+  );
+  await evaluate("location.reload()");
+  await waitFor(`document.querySelector(".study-tile")`, "Lernen nach Start");
+  // Maximalniveau zurück auf B1.
+  await send("Page.navigate", { url: `${BASE}#/settings` });
+  await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
+  await setInput(`select:has(option[value="A2"])`, "B1");
+  await sleep(400);
 
   // 8e3. Dictionary: sections, topic order, filters and scroll survive a detail visit
   // and are reset when switching tabs.
@@ -1258,7 +1433,7 @@ async function main() {
   // 8h. Verb overlay (check 2): "Konjugation" only after revealing, Escape closes,
   // the session stays on the same card.
   await startSession(async () => {
-    await setInput(`select:has(option[value="verb"])`, "verb");
+    await choose("Wortart", "Verben");
   });
   const verbCard = await frontWord();
   const conjBefore = await evaluate<boolean>(
@@ -1447,6 +1622,84 @@ async function main() {
   );
   await clickText("Schließen", "button");
   await dialogGone();
+  // 8h4. Auswahlfenster der Lernen-Seite (SPEC §14.4): Wischen mit eigenem Scroller, ab 700 px unten ohne Griff.
+  await send("Emulation.setDeviceMetricsOverride", {
+    width: 390,
+    height: 500,
+    deviceScaleFactor: 1,
+    mobile: true,
+  });
+  await send("Page.navigate", { url: BASE });
+  await evaluate("location.reload()");
+  await waitFor(
+    `document.querySelector(".study-tile")`,
+    "Lernen für Wischtest",
+  );
+  const studySheetTop = () =>
+    evaluate<number>(
+      `document.querySelector(".study-sheet").getBoundingClientRect().top`,
+    );
+  const studySheetIdle = () =>
+    evaluate<boolean>(
+      `!!document.querySelector(".study-sheet") && getComputedStyle(document.querySelector(".study-sheet")).transform === "none"`,
+    );
+  await openTile("Thema");
+  const studyScrollable = await evaluate<boolean>(
+    `(() => { const l = document.querySelector(".study-options"); return l.scrollHeight > l.clientHeight; })()`,
+  );
+  const studyGrip = await evaluate<boolean>(
+    `getComputedStyle(document.querySelector(".study-grip")).display !== "none"`,
+  );
+  // Liste gescrollt: der Wisch scrollt die Liste, das Fenster bleibt.
+  await evaluate(`document.querySelector(".study-options").scrollTop = 150`);
+  const scrolledSheetTop = await studySheetTop();
+  await swipe(scrolledSheetTop + 200, scrolledSheetTop + 300);
+  await sleep(400);
+  const studyStayed = await studySheetIdle();
+  // Liste ganz oben: der Wisch zieht das Fenster und schließt es.
+  await evaluate(`document.querySelector(".study-options").scrollTop = 0`);
+  const topSheetTop = await studySheetTop();
+  await swipe(topSheetTop + 60, topSheetTop + 330);
+  const studySwiped = await waitFor(
+    `!document.querySelector(".study-sheet")`,
+    "Auswahlfenster per Wischen geschlossen",
+  );
+  check(
+    "Lernen: Wischen schließt das Auswahlfenster nur, wenn die Liste ganz oben steht; Seite bleibt",
+    studyScrollable &&
+      studyGrip &&
+      studyStayed &&
+      studySwiped &&
+      (await tileValue("Thema")) === "Alle Themen" &&
+      /^(#\/?)?$/.test(await evaluate<string>("location.hash")),
+    JSON.stringify({ studyScrollable, studyGrip, studyStayed, studySwiped }),
+  );
+  await send("Emulation.setDeviceMetricsOverride", {
+    width: 800,
+    height: 800,
+    deviceScaleFactor: 1,
+    mobile: true,
+  });
+  await openTile("Thema");
+  const wideSheet = await evaluate<string>(`(() => {
+    const r = document.querySelector(".study-sheet").getBoundingClientRect();
+    return JSON.stringify({
+      grip: getComputedStyle(document.querySelector(".study-grip")).display,
+      atBottom: Math.round(r.bottom) === innerHeight,
+      width: Math.round(r.width),
+    });
+  })()`);
+  const wideSheetTop = await studySheetTop();
+  await swipe(wideSheetTop + 40, wideSheetTop + 300);
+  await sleep(400);
+  check(
+    "Lernen: ab 700 px sitzt das Auswahlfenster unten (höchstens 560 px breit), ohne Griff und ohne Wischgeste",
+    wideSheet === '{"grip":"none","atBottom":true,"width":560}' &&
+      (await studySheetIdle()),
+    wideSheet,
+  );
+  await escapeKey();
+
   await send("Emulation.setTouchEmulationEnabled", { enabled: false });
   await send("Emulation.clearDeviceMetricsOverride");
 
@@ -1598,8 +1851,8 @@ async function main() {
   await send("Page.navigate", { url: `${BASE}#/` });
   await idb(`store.clear()`);
   await startSession(async () => {
-    await setInput(`select:has(option[value="noun"])`, "noun");
-    await setInput(`select:has(option[value="es-de"])`, "es-de");
+    await choose("Wortart", "Nomen");
+    await choose("Richtung", "Spanisch → Deutsch");
   });
   const genderCard = await evaluate<{
     parts: string[];
@@ -1678,7 +1931,7 @@ async function main() {
   );
   await send("Page.navigate", { url: `${BASE}#/` });
   await startSession(async () => {
-    await setInput(`select:has(option[value="de-es"])`, "de-es");
+    await choose("Richtung", "Deutsch → Spanisch");
   });
   const deEs = await speakerState();
   await evaluate(

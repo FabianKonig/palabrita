@@ -1,3 +1,5 @@
+import type { Ref } from "react";
+
 export type TileTone = "turquoise" | "yellow" | "magenta" | "neutral";
 
 /** Kachel der Lernen-Seite: Beschriftung, Wert, optional Untertext. Öffnet ein Auswahlfenster. */
@@ -9,6 +11,7 @@ export function ChoiceTile({
   tone,
   disabled = false,
   onOpen,
+  ref,
 }: {
   label: string;
   value: string;
@@ -17,9 +20,11 @@ export function ChoiceTile({
   tone: TileTone;
   disabled?: boolean;
   onOpen: () => void;
+  ref?: Ref<HTMLButtonElement>;
 }) {
   return (
     <button
+      ref={ref}
       type="button"
       className={`study-tile study-tile-${tone}`}
       disabled={disabled}

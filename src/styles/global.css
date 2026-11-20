@@ -1890,6 +1890,17 @@ select.field,
   align-items: flex-end;
 }
 
+/* Ab Tablet-Breite bleibt das Auswahlfenster unten (das Verb-Overlay zentriert dort), ohne Griff */
+@media (min-width: 700px) {
+  .overlay-backdrop.study-backdrop {
+    align-items: flex-end;
+  }
+
+  .study-grip {
+    display: none;
+  }
+}
+
 .study-sheet {
   display: flex;
   flex-direction: column;
@@ -1965,6 +1976,16 @@ select.field,
 
 .study-option[aria-checked="true"] .study-radio {
   border: 6px solid var(--turquoise);
+}
+
+@media (hover: hover) {
+  .study-option:hover {
+    background: var(--surface-2);
+  }
+
+  .study-option[aria-checked="true"]:hover {
+    background: var(--turquoise-soft);
+  }
 }
 
 .study-option:focus-visible {

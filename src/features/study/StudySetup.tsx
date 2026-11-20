@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PageTitle } from "../../components/PageTitle";
 import { POS_LABEL_PLURAL } from "../../domain/dictionary";
 import type { QueueFilters } from "../../domain/queue";
@@ -29,6 +29,15 @@ export function StudySetup({
   const [pos, setPos] = useState<Pos | "">("");
   const [direction, setDirection] = useState<DirectionSetting>("both");
   const [open, setOpen] = useState<ChoiceField | null>(null);
+  // Nach dem Schließen (auch nach einer Auswahl) bekommt die Kachel den Fokus zurück, die das Fenster geöffnet hat.
+  const tileRefs = useRef<
+    Partial<Record<ChoiceField, HTMLButtonElement | null>>
+  >({});
+  const prevOpen = useRef<ChoiceField | null>(null);
+  useEffect(() => {
+    if (prevOpen.current && !open) tileRefs.current[prevOpen.current]?.focus();
+    prevOpen.current = open;
+  }, [open]);
 
   const onlyA1 = settings.maxLevel === "A1";
   const topicOpts = topicChoices(topics);
@@ -86,12 +95,18 @@ export function StudySetup({
       <PageTitle brand>Lernen</PageTitle>
       <div className="study-grid">
         <ChoiceTile
+          ref={(el) => {
+            tileRefs.current.topic = el;
+          }}
           label="Thema"
           value={topicLabel}
           tone="turquoise"
           onOpen={() => setOpen("topic")}
         />
         <ChoiceTile
+          ref={(el) => {
+            tileRefs.current.level = el;
+          }}
           label="Niveau"
           value={onlyA1 ? "A1" : level || "Alle Niveaus"}
           tone="yellow"
@@ -99,12 +114,18 @@ export function StudySetup({
           onOpen={() => setOpen("level")}
         />
         <ChoiceTile
+          ref={(el) => {
+            tileRefs.current.pos = el;
+          }}
           label="Wortart"
           value={posLabel}
           tone="magenta"
           onOpen={() => setOpen("pos")}
         />
         <ChoiceTile
+          ref={(el) => {
+            tileRefs.current.direction = el;
+          }}
           label="Richtung"
           value={dir.value}
           fullValue={dir.full}
