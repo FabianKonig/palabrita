@@ -555,7 +555,7 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Beim Wechsel zu einer neuen Karte startet sie immer auf der Vorderseite.
 - Sobald die Karte **einmal aufgedeckt** wurde (`revealed = true`), bleiben die Bewertungsbuttons sichtbar, auch wenn der Nutzer wieder auf die Vorderseite zurückdreht. Vor dem ersten Aufdecken steht statt der Buttons der Button „Umdrehen“ (er dreht ebenfalls um und setzt `revealed`).
 - Der Hinweis „Tippen zum Umdrehen“ steht auf **beiden** Seiten. `aria-label` je Seite („Karte umdrehen“), zusätzlich `aria-pressed` bzw. gleichwertig; Tastatur (Enter/Leertaste) funktioniert, weil die Karte ein `button` bleibt.
-- Die Flip-Optik (Klasse `flipped`) darf bleiben oder animiert werden. Pflicht ist nur das Verhalten. `prefers-reduced-motion` respektieren, falls animiert wird.
+- Die Karte dreht sich beim Umdrehen als 3D-Drehung um die senkrechte Achse (`rotateY`, Klasse `flipped`), wie die Begrüßungskarte, nur schneller (350 ms statt 700 ms, gleiche Easing-Kurve). Beide Seiten liegen dafür gleichzeitig im DOM (eine Grid-Zelle, Karte so hoch wie die höhere Seite); die verdeckte Seite ist `aria-hidden`. Bei einer neuen Karte wird `Flashcard` neu eingehängt (`key` in `Study.tsx`), damit sie ohne Rückdrehen auf der Vorderseite startet und die Antwort nicht aufblitzt. `prefers-reduced-motion`: kein Drehen, die Seite wechselt sofort (globale Regel).
 
 **Konjugation öffnen:**
 - Gilt nur für Vokabeln mit `pos === "verb"`. Bei allen anderen Wörtern gibt es den Button nicht.
