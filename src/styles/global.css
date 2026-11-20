@@ -1566,9 +1566,9 @@ body:has(.session-bar) .update-banner {
   font-weight: 500;
   color: var(--muted);
 }
-/* Dropdowns: own arrow with proper inset */
-select.field,
-.setting select {
+/* Dropdowns (Einstellungen) und Filterknöpfe des Verzeichnisses: own arrow with proper inset */
+.setting select,
+.field-btn {
   appearance: none;
   -webkit-appearance: none;
   padding-right: 44px;
@@ -1578,6 +1578,14 @@ select.field,
   background-size: 12px 8px;
   text-overflow: ellipsis;
   cursor: pointer;
+}
+
+/* Filterknopf im Verzeichnis: sieht aus wie ein Dropdown, öffnet aber das Auswahlfenster der Lernen-Seite */
+.field-btn {
+  display: block;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* Dictionary sections */
@@ -1751,10 +1759,20 @@ select.field,
 }
 
 /* Lernen-Seite: Kacheln, Startblock, Auswahlfenster (SPEC §14.4) */
+/* Kurzer Satz unter der Überschrift: oben (zur Überschrift) und unten (zum Raster) je 20 px.
+   Die Außenabstände fallen mit dem h1-Abstand (16 px) zusammen, es zählt der größere. */
+.study-lead {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
 .study-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  margin-top: 20px;
 }
 
 .study-tile {
@@ -1876,8 +1894,9 @@ select.field,
   font-size: 0.85rem;
 }
 
-.study-summary strong {
-  color: var(--text);
+/* Jedes Kriterium bleibt als Ganzes in einer Zeile; umbrochen wird nur zwischen den Kriterien */
+.study-summary-part {
+  white-space: nowrap;
 }
 
 .study-start-btn {

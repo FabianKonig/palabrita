@@ -33,6 +33,16 @@ describe("levelOptions", () => {
     expect(levelOptions("A1")).toEqual([{ value: "A1", label: "A1" }]);
   });
 
+  it("bietet ohne Maximalniveau immer alle Niveaus (Verzeichnis)", () => {
+    expect(levelOptions()).toEqual(levelOptions("B1"));
+    expect(levelOptions().map((o) => o.label)).toEqual([
+      "Alle Niveaus",
+      "A1",
+      "A2",
+      "B1",
+    ]);
+  });
+
   it("nutzt für Alle Niveaus den leeren Wert", () => {
     expect(levelOptions("B1")[0].value).toBe("");
   });
@@ -108,10 +118,12 @@ describe("summary", () => {
   };
 
   it("fasst die Standardwerte zusammen", () => {
-    const s = summary(base);
-    expect(s.topic + s.rest).toBe(
-      "Alle Themen · Alle Niveaus · Alle Wortarten · Beide Richtungen",
-    );
+    expect(summary(base)).toEqual([
+      "Alle Themen",
+      "Alle Niveaus",
+      "Alle Wortarten",
+      "Beide Richtungen",
+    ]);
   });
 
   it("schreibt Niveau und Richtung aus", () => {
@@ -122,22 +134,21 @@ describe("summary", () => {
       posLabel: "Verben",
       direction: "de-es",
     });
-    expect(s.topic).toBe("Zahlen & Zeit");
-    expect(s.topic + s.rest).toBe(
-      "Zahlen & Zeit · Niveau A2 · Verben · Deutsch → Spanisch",
-    );
+    expect(s).toEqual([
+      "Zahlen & Zeit",
+      "Niveau A2",
+      "Verben",
+      "Deutsch → Spanisch",
+    ]);
   });
 
   it("zeigt bei Maximalniveau A1 immer Niveau A1", () => {
-    const s = summary({ ...base, maxLevel: "A1" });
-    expect(s.rest).toContain("· Niveau A1 ·");
+    expect(summary({ ...base, maxLevel: "A1" })[1]).toBe("Niveau A1");
   });
 
   it("nutzt für die Richtung DIRECTION_LABEL", () => {
     for (const d of Object.keys(DIRECTION_LABEL) as DirectionSetting[]) {
-      expect(summary({ ...base, direction: d }).rest).toContain(
-        DIRECTION_LABEL[d],
-      );
+      expect(summary({ ...base, direction: d })[3]).toBe(DIRECTION_LABEL[d]);
     }
   });
 });

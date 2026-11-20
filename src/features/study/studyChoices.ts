@@ -32,7 +32,13 @@ const LEVELS = (Object.keys(LEVEL_ORDER) as Level[]).sort(
   (a, b) => LEVEL_ORDER[a] - LEVEL_ORDER[b],
 );
 
-export function levelOptions(maxLevel: Level): ChoiceOption[] {
+/**
+ * Niveau-Optionen bis einschließlich `maxLevel`. Ohne Argument alle Niveaus: so nutzt sie das Verzeichnis,
+ * das unabhängig vom Maximalniveau immer alle Niveaus anbietet (SPEC §3.3).
+ */
+export function levelOptions(
+  maxLevel: Level = LEVELS[LEVELS.length - 1],
+): ChoiceOption[] {
   const levels = LEVELS.filter((l) => LEVEL_ORDER[l] <= LEVEL_ORDER[maxLevel]);
   if (maxLevel === "A1") return levels.map((l) => ({ value: l, label: l }));
   return [
@@ -85,17 +91,20 @@ export function summary(parts: {
   maxLevel: Level;
   posLabel: string;
   direction: DirectionSetting;
-}): { topic: string; rest: string } {
+}): string[] {
   const level =
     parts.maxLevel === "A1"
       ? "Niveau A1"
       : parts.level
         ? `Niveau ${parts.level}`
         : "Alle Niveaus";
-  return {
-    topic: parts.topicLabel,
-    rest: ` · ${level} · ${parts.posLabel} · ${DIRECTION_LABEL[parts.direction]}`,
-  };
+  // Jedes Kriterium ist ein Eintrag: Die Anzeige bricht nur zwischen den Einträgen um, nie mitten in einem.
+  return [
+    parts.topicLabel,
+    level,
+    parts.posLabel,
+    DIRECTION_LABEL[parts.direction],
+  ];
 }
 
 export function buildFilters(s: {

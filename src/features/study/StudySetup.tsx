@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { PageTitle } from "../../components/PageTitle";
 import { POS_LABEL_PLURAL } from "../../domain/dictionary";
 import type { QueueFilters } from "../../domain/queue";
@@ -47,7 +47,7 @@ export function StudySetup({
   const topicLabel =
     topicOpts.find((o) => o.value === topic)?.label ?? "Alle Themen";
   const posLabel = pos ? POS_LABEL_PLURAL[pos] : "Alle Wortarten";
-  const sum = summary({
+  const summaryParts = summary({
     topicLabel,
     level,
     maxLevel: settings.maxLevel,
@@ -93,6 +93,7 @@ export function StudySetup({
   return (
     <div className="screen">
       <PageTitle brand>Lernen</PageTitle>
+      <p className="study-lead">Wähle aus, was du heute lernen möchtest.</p>
       <div className="study-grid">
         <ChoiceTile
           ref={(el) => {
@@ -136,8 +137,15 @@ export function StudySetup({
       </div>
       <div className="study-start">
         <p className="study-summary">
-          <strong>{sum.topic}</strong>
-          {sum.rest}
+          {summaryParts.map((part, i) => (
+            // Der Punkt gehört zum vorangehenden Kriterium, damit er nie am Anfang einer Zeile steht.
+            <Fragment key={i}>
+              {i > 0 && " "}
+              <span className="study-summary-part">
+                {i < summaryParts.length - 1 ? `${part} ·` : part}
+              </span>
+            </Fragment>
+          ))}
         </p>
         <button
           type="button"
