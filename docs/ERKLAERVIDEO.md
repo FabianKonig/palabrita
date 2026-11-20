@@ -70,11 +70,11 @@ Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der ges
 | # | Zeit | Bild (Klickpfad) | Einblendung | Sprechertext |
 |---|---|---|---|---|
 | 1 | 0:00–0:06 | Begrüßungskarte schwebt über der Lernseite: „¡Bienvenido a Palabrita“. Tipp, Karte dreht sich: „Willkommen zu Palabrita“. Tipp, Karte verschwindet. Musik setzt mit dem ersten Bild ein. | – | „Una cerveza, por favor“ – und dann? Peinliches Schweigen? Muss nicht sein. Das ist Palabrita! |
-| 2 | 0:06–0:11 | Lernseite. Thema öffnen, „Unterwegs & Transport“ wählen, „Starten“ tippen. | Über 800 Wörter | Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel! |
+| 2 | 0:06–0:11 | Lernseite. Thema öffnen, „Unterwegs & Transport“ wählen, „Starten“ tippen. | „800+ Wörter. Mexiko & Guatemala“ (ca. 4 s, darf den Starten-Button überlagern) | Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel! |
 | 3 | 0:11–0:20 | Karte „Bus · Lastwagen“. „Umdrehen“: *el camión* / *los camiones*, Badge „maskulin“, Beispielsatz, Hinweis „In Mexiko bedeutet „camión“ auch Stadtbus …“. Tipp auf 🔊, man hört *el camión* (vom Sprecher gesprochen). Kurzer Zoom auf den Hinweis. | – | Umdrehen, anhören, merken. Beispiel: „camión“. Lastwagen? Nein, in Mexiko heißt „camión“ nicht nur Lastwagen, sondern auch Bus. Palabrita sagt dir das, bevor du einsteigst. |
 | 4 | 0:20–0:28 | Buttons „Nochmal“ (1 Min) und „Gewusst“ (10 Min) kurz hervorgehoben. Tipp auf „Gewusst“. Zwei weitere Karten im Zeitraffer (umdrehen, bewerten). | – | Gewusst oder nochmal? Ehrlich sein! Palabrita merkt sich, wann du ein Wort vergessen würdest, und fragt genau davor nochmal. |
 | 5 | 0:28–0:33 | Karte „können · dürfen“, umdrehen: *poder* mit grauer Zeile *(ue)*. Tipp auf „Konjugation“, die Formentabelle fährt von unten herein, kurz scrollen. | – | Konjugation? Gibt’s gratis dazu. Auch für die fiesen, unregelmäßigen Verben. |
-| 6 | 0:33–0:51 | **Höhepunkt.** Tab „Verzeichnis“. Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | „Findet auch gebeugte Formen“ (ca. 3 s, wenn der Sprecher „gebeugte Formen“ sagt); beim gesprochenen „Podemos!“ am Ende „Ja, wir können das!“ (ca. 2 s, genau im Moment des Worts) | Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen von Verben und zeigt dir den zugehörigen Infinitiv. Und „podemos“ führt direkt zu poder. Können wir das? Podemos! |
+| 6 | 0:33–0:51 | **Höhepunkt.** Tab „Verzeichnis“. Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | „Findet auch gebeugte Formen“ mit dem Etikett „podemos → poder ✓“ darunter (ca. 3 s, wenn der Sprecher „gebeugte Formen“ sagt); beim gesprochenen „Podemos!“ am Ende „Ja, wir können das!“ (ca. 1,5 s, genau im Moment des Worts, darf die Treffer-Karte überdecken) | Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen von Verben und zeigt dir den zugehörigen Infinitiv. Und „podemos“ führt direkt zu poder. Können wir das? Podemos! |
 | 7 | 0:51–0:55 | Tab „Statistik“: Balken neu, lernend, gefestigt je Richtung (vorbereiteter Lernstand, siehe Erzeugung). | – | Die Statistik zeigt, was schon sitzt. Perfektes Angeber-Material. [kürzbar] |
 | 8 | 0:55–1:01 | Tab „Mehr“ mit Markenkopf, dann ein Handy-Symbol mit Flugmodus-Zeichen über der weiter laufenden App. | „Offline“, „Ohne Konto“, „Ohne Tracking“ (drei Chips nacheinander) | Läuft im Browser, auch offline. Kein Konto, kein Tracking. Nur du und die Wörter. |
 | 9 | 1:01–1:05 | Große Wortmarke (Wimpel, „Palabrita“, Greca) auf ruhigem Hintergrund, darunter Slogan „Tu app de vocabulario de español“, keine Adresse. Musik klingt aus. | – | Palabrita. Probier’s aus. ¡Vámonos! |
@@ -105,23 +105,23 @@ Die spanischen Wörter (*Una cerveza, por favor*, *camión*, *fue*, *ser*, *ir*,
 
 ## Einblendungen: Gestaltung
 
-Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mir sehr gut, kann so bleiben“). Vorgabe des Nutzers: coole, moderne Einblendungen wie in aktueller Werbung, **mitreißend, aber nicht nach Clickbait**; höchstens ein minimaler Hauch davon. Der Entwurf zeigt vier Einblendungen auf echten App-Bildern (Handy-Ansicht 412 × 915 CSS-Pixel, Skalierung 2; für das Video mal 2,62, damit 1080 × 1920 entsteht). Das Entwurfsbild selbst ist eine Binärdatei und liegt nicht im Repo; die folgenden Angaben und das CSS reichen zum Nachbauen.
+Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mir sehr gut, kann so bleiben“), danach in drei Punkten korrigiert (der Nutzer zog Elemente der ersten Entwurfsfassung vor): in Szene 2 steht „800+ Wörter. Mexiko & Guatemala“ mit gelbem Rechteck, in Szene 6 gehört das Etikett „podemos → poder ✓“ unter „Findet auch gebeugte Formen“, und „Ja, wir können das!“ darf größer sein und den Bildschirm überdecken. Vorgabe des Nutzers: coole, moderne Einblendungen wie in aktueller Werbung, **mitreißend, aber nicht nach Clickbait**; höchstens ein minimaler Hauch davon. Der Entwurf zeigt vier Einblendungen auf echten App-Bildern (Handy-Ansicht 412 × 915 CSS-Pixel, Skalierung 2; für das Video mal 2,62, damit 1080 × 1920 entsteht). Das Entwurfsbild selbst ist eine Binärdatei und liegt nicht im Repo; die folgenden Angaben und das CSS reichen zum Nachbauen.
 
 **Gestaltungsprinzipien**
 
 - Schrift: **Inter Display**, Gewicht 900 (in der Erzeugungsumgebung installiert; sonst „Inter“, dann `system-ui`), enge Laufweite (-0.02 em), Zeilenhöhe 1.02.
-- Farben aus dem Markenbild der App: Türkis `#0f766e`, Magenta `#be185d`, Gelb `#f5b800`, dazu ein warmes Hellgelb `#ffe27a` für Betonungen. Text weiß, Betonung gelb. Keine Großbuchstaben-Schlagzeilen (außer dem kleinen „ÜBER“), kein Rot, keine Pfeile, kein Dauerblinken.
+- Farben aus dem Markenbild der App: Türkis `#0f766e`, Magenta `#be185d`, Gelb `#f5b800`, dazu ein warmes Hellgelb `#ffe27a` für Betonungen. Text weiß, Betonung gelb. Keine Großbuchstaben-Schlagzeilen, kein Rot, keine Pfeile, kein Dauerblinken.
 - Leichte Schräglage (-1 bis -3°), große Rundungen, weiche Schatten. Das ist der „minimale Hauch Clickbait“.
-- **Position: die App muss sichtbar bleiben.** Einblendungen liegen im unteren Drittel über der Tab-Leiste (etwa 120 bis 150 px Abstand von unten, Rand 18 px) und dürfen nicht verdecken, was gerade gezeigt wird: in Szene 6 die Treffer-Karte „podemos → poder“, in Szene 8 die Menüeinträge.
-- Animation (Annahme, vom Nutzer nicht festgelegt): kurzes Hereinspringen mit leichtem Überschwingen (rund 0,25 s), ausblenden in rund 0,2 s. Verweildauer: Szene 2 etwa 3 s, Szene 6 „Findet auch gebeugte Formen“ etwa 3 s, „Ja, wir können das!“ etwa 2 s, Szene 8 drei Chips nacheinander (je etwa 0,3 s versetzt) insgesamt rund 4 s.
+- **Position:** Einblendungen liegen im unteren Drittel über der Tab-Leiste (etwa 120 bis 210 px Abstand von unten, Rand 18 px). Sie dürfen verdecken, was schon erklärt ist oder gerade nicht wichtig ist: in Szene 2 den Starten-Button, bei „Ja, wir können das!“ die Treffer-Karte (der Bildschirm wurde vorher erklärt, die Einblendung erscheint nur im Moment des Worts „Podemos“). Dort, wo die App gezeigt werden soll, bleibt sie sichtbar: bei „Findet auch gebeugte Formen“ die Treffer-Karte, in Szene 8 die Menüeinträge.
+- Animation (Annahme, vom Nutzer nicht festgelegt): kurzes Hereinspringen mit leichtem Überschwingen (rund 0,25 s), ausblenden in rund 0,2 s. Verweildauer: Szene 2 etwa 4 s, Szene 6 „Findet auch gebeugte Formen“ etwa 3 s, „Ja, wir können das!“ etwa 1,5 s (der Nutzer hielt 2 s für „einen Tacken zu lang“; kürzer genügt, solange man den Text lesen kann), Szene 8 drei Chips nacheinander (je etwa 0,3 s versetzt) insgesamt rund 4 s.
 
 **Die vier Einblendungen**
 
 | # | Szene | Text | Aufbau |
 |---|---|---|---|
-| 1 | 2 | „ÜBER 800 Wörter“ | kleines „ÜBER“ mit Laufweite, große Zahl „800“ (104 px) mit weiß-gelbem Verlauf und türkisem Versatzschatten, „Wörter“ auf gelbem Marker (schwarzer Text) |
-| 2 | 6 | „Findet auch gebeugte Formen“ | türkiser Kasten mit weißem Innenrand, „gebeugte Formen“ in Hellgelb, leicht gekippt |
-| 3 | 6, bei „Podemos!“ | „„Ja, wir können das!““ | magentafarbener Kasten (Verlauf nach `#e11d74`), „können“ in Hellgelb, kleiner Funken (✨) an der Ecke, stärker gekippt (-3°) |
+| 1 | 2 | „800+ Wörter. Mexiko & Guatemala“ | große Zahl „800+“ (104 px) mit weiß-gelbem Verlauf und türkisem Versatzschatten, darunter „Wörter.“ (weiß) und „Mexiko & Guatemala“ auf einem gelben Rechteck (schwarzer Text, leicht gekippt); darf den Starten-Button überlagern |
+| 2 | 6 | „Findet auch gebeugte Formen“ + „podemos → poder ✓“ | türkiser Kasten mit weißem Innenrand, „gebeugte Formen“ in Hellgelb, leicht gekippt; darunter ein kleines weißes Etikett mit magentafarbener Schrift „podemos → poder ✓“ (zeigt das Ergebnis der Suche) |
+| 3 | 6, bei „Podemos!“ | „„Ja, wir können das!““ | magentafarbener Kasten (Verlauf nach `#e11d74`), „können“ in Hellgelb, kleiner Funken (✨) an der Ecke, stärker gekippt (-3°); größer (68 px) und darf den Bildschirm überragen |
 | 4 | 8 | „Offline“, „Ohne Konto“, „Ohne Tracking“ | drei weiße Chips untereinander mit türkisem Kreis-Symbol (✈, ✓, ✓), leicht versetzt und gekippt |
 
 **CSS des Entwurfs** (Maße in CSS-Pixel bei 412 px Breite; `.ov` ist der absolut positionierte Einblendungs-Container im Bild, `.frame` das 412 × 915 große Bild):
@@ -131,22 +131,23 @@ Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mi
 .ov{position:absolute;left:18px;right:18px;color:#fff;font-weight:900;
     font-family:"Inter Display","Inter",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.02}
 /* 1: Zahl (Szene 2) */
-.o1{bottom:130px;transform:rotate(-2deg)}
-.o1 .pre{font-size:34px;letter-spacing:.14em;margin-left:6px;text-shadow:0 3px 14px rgba(0,0,0,.45);display:block}
+.o1{bottom:150px;transform:rotate(-2deg)}
 .o1 .big{font-size:104px;background:linear-gradient(95deg,#fff 10%,#ffe27a 90%);-webkit-background-clip:text;color:transparent;
          filter:drop-shadow(0 6px 0 rgba(15,118,110,.9)) drop-shadow(0 14px 22px rgba(0,0,0,.35));display:block}
-.o1 .sm{font-size:56px;margin-top:2px;text-shadow:0 3px 16px rgba(0,0,0,.45);display:block}
+.o1 .sm{font-size:40px;margin-top:2px;text-shadow:0 3px 16px rgba(0,0,0,.45);display:block}
 .o1 .sm b{background:var(--yl);color:#12201e;padding:0 10px;border-radius:10px;display:inline-block;transform:rotate(1.5deg);margin-left:6px}
-/* Verlauf unter der Zahl, damit sie lesbar bleibt (nur Szene 2) */
+/* Verlauf unter der Einblendung, damit sie lesbar bleibt (Szene 2 und „Ja, wir können das!“) */
 .dim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,18,0) 40%,rgba(8,20,18,.55) 100%)}
 /* 2: Kasten (Szene 6, Formen) */
 .o2{bottom:150px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
 .pill{background:linear-gradient(100deg,var(--tq),#0b5f59);padding:16px 22px 18px;border-radius:22px;font-size:40px;
       box-shadow:0 12px 30px rgba(0,0,0,.35),0 0 0 3px rgba(255,255,255,.9) inset;transform:rotate(-1.5deg)}
 .pill em{font-style:normal;color:#ffe27a}
+.tag{font-size:20px;font-weight:800;background:#fff;color:var(--mg);padding:6px 12px;border-radius:999px;letter-spacing:0;
+     box-shadow:0 6px 16px rgba(0,0,0,.25);transform:rotate(2deg);margin-left:14px}
 /* 3: Aufschrei (Szene 6, Podemos) */
-.o3{bottom:120px;text-align:center;transform:rotate(-3deg)}
-.o3 .q{display:inline-block;font-size:60px;color:#fff;background:linear-gradient(100deg,var(--mg),#e11d74);padding:14px 26px 18px;
+.o3{bottom:210px;text-align:center;transform:rotate(-3deg)}
+.o3 .q{display:inline-block;font-size:68px;color:#fff;background:linear-gradient(100deg,var(--mg),#e11d74);padding:14px 26px 18px;
        border-radius:26px;box-shadow:0 14px 34px rgba(0,0,0,.4);line-height:1.04;position:relative}
 .o3 .q i{font-style:normal;color:#ffe27a}
 .o3 .spark{position:absolute;right:-12px;top:-26px;font-size:46px;transform:rotate(14deg)}
@@ -158,7 +159,7 @@ Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mi
 .chip:nth-child(2){transform:rotate(1deg);margin-left:20px}.chip:nth-child(3){margin-left:6px}
 ```
 
-Die HTML-Struktur dazu: `.o1` enthält `<span class="pre">ÜBER</span><span class="big">800</span><span class="sm"><b>Wörter</b></span>`; `.o2` enthält `<div class="pill">Findet auch <em>gebeugte Formen</em></div>`; `.o3` enthält `<div class="q"><span class="spark">✨</span>„Ja, wir <i>können</i> das!“</div>`; `.o4` enthält drei `.chip` mit `<span class="ic">…</span>Text`. Szene 2 hat zusätzlich den Verlauf `.dim` unter der Einblendung, Szene 6 (Podemos) bewusst nicht, damit die Treffer-Karte hell bleibt.
+Die HTML-Struktur dazu: `.o1` enthält `<span class="big">800+</span><span class="sm">Wörter. <b>Mexiko &amp; Guatemala</b></span>`; `.o2` enthält `<div class="pill">Findet auch <em>gebeugte Formen</em></div><div class="tag">podemos → poder ✓</div>`; `.o3` enthält `<div class="q"><span class="spark">✨</span>„Ja, wir <i>können</i> das!“</div>`; `.o4` enthält drei `.chip` mit `<span class="ic">…</span>Text`. Szene 2 und „Ja, wir können das!“ haben zusätzlich den Verlauf `.dim` unter der Einblendung, „Findet auch gebeugte Formen“ bewusst nicht, damit die Treffer-Karte hell bleibt.
 
 ## Automatische Erzeugung
 
