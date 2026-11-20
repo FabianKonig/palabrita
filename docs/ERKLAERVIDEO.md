@@ -1,79 +1,99 @@
 # Palabrita: Drehbuch Erklärvideo
 
-Stand: 2026-11-20. Vom Nutzer abgestimmt sind Format, Länge, Bild, Einblendungen, Abspann, Ablauf und Sprechertext. **Sprecher, spanische Stimme, Musik und Sprechtempo sind nach der ersten Version verworfen**; die Richtung der neuen Fassung steht unter „Festlegungen für die nächste Iteration“, Stimmen und Musik werden per Hörprobe ausgewählt. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS.md`. Ist das Video fertig und eingebunden, kommen die Festlegungen in `docs/SPEC.md`.
+Stand: 2026-11-20. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS.md`. Ist das Video fertig und eingebunden, kommen die Festlegungen in `docs/SPEC.md`. Diese Datei ist die einzige Quelle für das Video: Entscheidungen, Text, Ablauf, Gestaltung und technische Hinweise.
+
+## Übergabe an einen neuen Agenten (Kurzfassung)
+
+**Wo wir stehen.** Eine erste Version des Videos wurde schon erzeugt und vom Nutzer verworfen (Stimmen und Musik, siehe „Erkenntnisse“). Für die zweite Version sind Text, Länge, Ablauf, Einblendungen, Musikfavorit und Stimmfavorit festgelegt. **Das Video selbst ist noch nicht neu erzeugt.**
+
+**Entschieden (alles vom Nutzer, 2026-11-20):**
+
+- Länge höchstens 70 s, Ziel 65 s, Hochformat 9:16 (1080 × 1920). Ablauf und Zeiten: Abschnitt „Ablauf“.
+- Sprechertext steht fest (Abschnitt „Sprechertext am Stück“), frech und munter im Werbe-Ton.
+- **Eine einzige Stimme** spricht alles, auch die spanischen Wörter. Favorit: **Stimme „2a“** aus Qwen3-TTS (VoiceDesign), die für das ganze Video **geklont** wird. Notfalls zwei Stimmen (Deutsch, Spanisch), siehe „Entscheidungen“, Punkt 2.
+- Musik: **„Vibrant Momentum“ von LolaMoore** (Freesound, CC BY 4.0, Namensnennung nötig).
+- **Vier Einblendungen** mit freigegebener Gestaltung (Abschnitt „Einblendungen: Gestaltung“).
+- Python ist für die Videoerzeugung erlaubt (Ausnahme in `AGENTS.md`).
+
+**Als Nächstes zu tun (in dieser Reihenfolge):**
+
+1. Stimme 2a klonen (Qwen3-TTS Base) und mit dem aktuellen Sprechertext alle neun Szenen erzeugen. Hörprobe an den Nutzer schicken (nur als Datei, nicht ins Repo), besonders Szene 1, 3 und 6 wegen der spanischen Wörter und des Wortwitzes „Podemos!“. Der Nutzer entscheidet, ob die Klonstimme passt.
+2. Danach das Video erzeugen (Aufnahme, Ton, Musik mit Ducking, Einblendungen, Abspann) und dem Nutzer zur Ansicht geben.
+3. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken.
+
+**Regeln, die immer gelten:**
+
+- **Nichts von dem, was bei der Erzeugung anfällt, wird ohne Rücksprache gepusht:** keine Videodatei, keine Audiodateien (Stimmproben, Musik), keine Modelle, keine Python-Umgebung, keine Zwischenstände. Grund: Große Dateien bleiben für immer in der Git-Historie. Details und `.gitignore`: `docs/TASKS.md`. Hörproben und Videos werden dem Nutzer direkt als Datei gezeigt.
+- Offene Entscheidungen oder Unklarheiten: mit dem Nutzer klären, nicht raten.
+- Der **Referenzclip der Stimme 2a** liegt nicht im Repo und lässt sich nicht neu erzeugen (VoiceDesign würfelt bei jedem Aufruf eine neue Stimme). Hat der neue Agent ihn nicht, den Nutzer um die Datei `stimme_2a_Szene1.wav` bitten (24 kHz, mono, rund 7 s). Gibt es sie nicht mehr, neue Kandidaten erzeugen und den Nutzer wählen lassen (technische Hinweise unten).
 
 ## Erkenntnisse aus der ersten Version
 
-Die erste Version wurde nach diesem Drehbuch automatisch erzeugt (Aufnahme, Sprecher, Musik, Schnitt). Der Nutzer ist mit mehreren Entscheidungen im Nachhinein nicht zufrieden; Stimmen und Musik sind die genannten Punkte. Urteil des Nutzers (2026-11-20):
+Die erste Version wurde nach einer früheren Fassung dieses Drehbuchs automatisch erzeugt (Aufnahme, Sprecher, Musik, Schnitt). Der Nutzer ist mit mehreren Entscheidungen im Nachhinein nicht zufrieden (2026-11-20):
 
-- **Deutsche Stimme (Piper „Thorsten“): verworfen.** Extrem langweilig, zäh und mühsam anzuhören, einschläfernd und zu langsam. Nicht jugendlich, nicht peppig, keine Werbung, die Spaß macht. Die Stimme „Thorsten“ wird nicht mehr verwendet, auch nicht als Rückfall.
-- **Spanische Stimme (männlich, mexikanisch gedacht, in Szene 3 und für spanische Wörter im Sprechertext): verworfen.** Klang überhaupt nicht gut. Die dort gewählte Stimme wird nicht wiederverwendet.
-- **Möglicher Einfluss des Erzeugungswegs:** Die erste Version entstand ohne Python, mit Node (AGENTS.md: kein Python im Projekt). Ob die schlechte Qualität an den Stimmen selbst, an Piper allgemein oder an diesem Weg lag, ist ungeklärt. Der Nutzer vermutet, dass Thorsten allgemein nicht gut ist; Python hätte es vielleicht verbessert, das ist aber nur eine Vermutung.
-- **Musik (per Skript erzeugte Marimba-Melodie): verworfen.** Zu langweilig. Das Video soll wie ein **modernes Erklär- und Werbevideo** wirken, Musik eingeschlossen. Modern ist hier das Ziel, nicht der Folklore-Ansatz der ersten Version.
-- **Ton und Tempo insgesamt:** Gewünscht ist ein munteres, jugendliches Sprechen mit Schwung. Die Festlegung „ruhiges Tempo“ und „trocken, kein Werbegeschrei“ der ersten Version war zu zurückhaltend und ist überholt (siehe Tabelle unten).
+- **Deutsche Stimme (Piper „Thorsten“): verworfen.** Extrem langweilig, zäh und mühsam anzuhören, einschläfernd und zu langsam. Nicht jugendlich, nicht peppig, keine Werbung, die Spaß macht. „Thorsten“ wird nicht mehr verwendet, auch nicht als Rückfall.
+- **Spanische Stimme (männlich, mexikanisch gedacht): verworfen.** Klang überhaupt nicht gut.
+- **Möglicher Einfluss des Erzeugungswegs:** Die erste Version entstand ohne Python, mit Node. Ob die schlechte Qualität an den Stimmen, an Piper oder an diesem Weg lag, ist ungeklärt.
+- **Musik (per Skript erzeugte Marimba-Melodie): verworfen.** Zu langweilig. Das Video soll wie ein **modernes Erklär- und Werbevideo** wirken, Musik eingeschlossen.
+- **Ton und Tempo:** Der ruhige, trockene Ton der ersten Version war zu zurückhaltend. Gewünscht ist munteres, jugendliches Sprechen mit Schwung.
 
-## Festlegungen für die nächste Iteration (2026-11-20, mit dem Nutzer)
+## Entscheidungen für die zweite Version (2026-11-20, mit dem Nutzer)
 
-Stimmen und Musik werden nicht blind getauscht, sondern über Hörproben ausgewählt (Ablauf unten). Entschieden ist:
-
-1. **Sprecher:** junge Männerstimme, energiegeladen, sympathisch, zügiges Tempo (Werbe-Ton). **Eine einzige Stimme spricht den gesamten Text**, auch die spanischen Wörter (Entscheidung des Nutzers, 2026-11-20: so ist das Video leichter zu verstehen). Welche Stimme, entscheidet der Nutzer nach Hörproben.
-2. **Spanische Wörter und Sätze:** kein zweiter Sprecher, kein Stimmwechsel. Die Stimme aus Punkt 1 muss deshalb **Deutsch und Spanisch beherrschen** und die spanischen Stellen (*Una cerveza, por favor*, *camión*, *fue*, *ser*, *ir*, *podemos*, *poder*, *¡Vámonos!*) richtig, möglichst mexikanisch aussprechen, auch mitten im deutschen Satz. Das ist ein hartes Auswahlkriterium der Hörproben. **Ausweichlösung (Nutzer, 2026-11-20):** Passt die Auswahl nicht, weil keine mehrsprachige Stimme überzeugend beides kann oder es zu wenige Kandidaten gibt, ist der Nutzer bereit, auf **zwei Stimmen** auszuweichen: eine für Deutsch, eine für Spanisch. Die spanische Stimme spricht dann *Una cerveza, por favor*, *camión*, *fue*, *ser*, *ir*, *podemos*, *poder* und *¡Vámonos!*; Geschlecht und Dialekt sind offen (Mexiko bevorzugt), Klangfarbe und Energie sollen zum deutschen Sprecher passen. Die Ein-Stimmen-Lösung bleibt die erste Wahl: Zuerst wird nach einer guten mehrsprachigen Stimme gesucht, erst wenn die Hörproben das nicht hergeben, werden Hörproben mit zwei Stimmen vorgelegt. Auch dann wählt der Nutzer.
-3. **Lokal oder Cloud:** offen. Entscheidung fällt nach den Hörproben (lokal und Cloud werden beide probiert). Randbedingung: **möglichst nichts, was ein Konto braucht.** Bevorzugt Angebote ohne Anmeldung; keine Zahlungsdaten. Braucht ein Kandidat doch ein Konto oder einen Schlüssel, vorher mit dem Nutzer klären (Schlüssel nie im Chat, nur über die gesicherte Abfrage der Umgebung). Lizenz bzw. Nutzungsbedingungen müssen die Veröffentlichung des Videos erlauben; nicht ausdrücklich erlaubte Wege (z. B. inoffizielle Zugänge zu Diensten) scheiden aus.
-4. **Erzeugungsweg:** **Python ist für die Videoerzeugung erlaubt** (Ausnahme zu AGENTS.md, dort vermerkt). Python bleibt auf die Erzeugung des Videos beschränkt: nicht in `src/`, nicht in `public/`, keine Änderung an `package.json`, CI oder Build. Eine Python-Umgebung (z. B. `venv`) und heruntergeladene Modelle werden nicht eingecheckt. Annahme: Wo es sinnvoll ist, bleiben Aufnahme (Playwright) und Orchestrierung in TypeScript; Python kommt nur dort hinzu, wo es die Stimme oder Musik besser macht.
-5. **Musik:** **lizenzfreie Fertigmusik**, modern und energiegeladen wie in einem aktuellen Erklär- und Werbevideo, mit Aufbau (Einstieg, Schwung, Schlusspunkt). Vor der Verwendung wird für jeden Titel die Lizenz geprüft (muss die Veröffentlichung in einer öffentlichen Web-App erlauben, mit oder ohne Namensnennung; falls Namensnennung nötig ist, kommt sie auf die Video-Seite). Titel, Quelle und Lizenz werden festgehalten (in einer Hinweisdatei, wie `public/vocab/NOTICE.md` für die Vokabeln; Ort ist bei der Einbindung des Videos festzulegen). Stil und konkrete Titel sind offen: Der Nutzer wählt aus Hörproben.
-6. **Sprechertext:** wird **neu geschrieben**, im munteren Werbe-Ton, gleicher Ablauf und gleiche Inhalte (Szenen und Einblendungen bleiben). Der Entwurf geht dem Nutzer zur Freigabe vor, bevor etwas erzeugt wird. Der Text steht unten in „Sprechertext am Stück“ und in der Ablauftabelle; der Ton ist freigegeben.
-
-### Ablauf der nächsten Iteration
-
-1. Neuen Sprechertext schreiben, Nutzer gibt frei.
-2. Hörproben vorlegen: mehrere junge Männerstimmen, die Deutsch und Spanisch können, mit je ein bis zwei Sätzen des neuen Texts, die auch spanische Stellen enthalten (Szenen 1, 3 und 6), dazu Musikausschnitte mit Lizenzangabe. Der Nutzer wählt.
-3. Erst danach das ganze Video erzeugen (Aufnahme, Ton, Schnitt) und dem Nutzer zur Ansicht geben (Ablage: siehe „Automatische Erzeugung“).
+1. **Sprecher:** junge Männerstimme, energiegeladen, sympathisch, zügiges Tempo (rund 3 Wörter je Sekunde). **Eine einzige Stimme spricht den gesamten Text**, auch die spanischen Wörter (der Nutzer findet das leichter verständlich). Favorit nach der Hörprobe: **Stimme „2a“** (Qwen3-TTS VoiceDesign, siehe „Technische Hinweise“); sie wird für alle Szenen geklont, damit sie durchgehend gleich klingt.
+2. **Spanische Wörter und Sätze:** kein zweiter Sprecher, kein Stimmwechsel. Die Stimme muss Deutsch und Spanisch können und die spanischen Stellen (*Una cerveza, por favor*, *camión*, *fue*, *ser*, *ir*, *podemos*, *poder*, *¡Vámonos!*) richtig, möglichst mexikanisch aussprechen, auch mitten im deutschen Satz. **Ausweichlösung (Nutzer):** Klappt das nicht überzeugend oder gibt es zu wenige Kandidaten, ist der Nutzer bereit, auf **zwei Stimmen** auszuweichen, eine für Deutsch, eine für Spanisch (Spanisch: Geschlecht und Dialekt offen, Mexiko bevorzugt, Klangfarbe und Energie passend zum deutschen Sprecher). Die Ein-Stimmen-Lösung bleibt die erste Wahl; auch bei zwei Stimmen wählt der Nutzer nach Hörprobe.
+3. **Lokal oder Cloud, Konten:** Der Nutzer wollte erst Hörproben, dann entscheiden. Bisher wurde nur lokal erzeugt (Qwen3-TTS läuft lokal auf der CPU, ohne Konto) und das Ergebnis gefällt. Randbedingung bleibt: **möglichst nichts, was ein Konto braucht**, keine Zahlungsdaten. Braucht ein Kandidat doch ein Konto oder einen Schlüssel, vorher mit dem Nutzer klären (Schlüssel nie im Chat, nur über die gesicherte Abfrage der Umgebung). Lizenz bzw. Nutzungsbedingungen müssen die Veröffentlichung des Videos erlauben; inoffizielle Zugänge zu Diensten scheiden aus.
+4. **Erzeugungsweg:** **Python ist für die Videoerzeugung erlaubt** (Ausnahme zu `AGENTS.md`, dort vermerkt), aber nur dafür: nicht in `src/`, `public/`, Build oder CI. Python-Umgebung (`.venv/` oder `.video-work/`, beide in `.gitignore`) und Modelle werden nicht eingecheckt. Aufnahme (Playwright) und Orchestrierung bleiben, wo sinnvoll, in TypeScript.
+5. **Musik:** lizenzfreie Fertigmusik, modern und energiegeladen, mit Aufbau. Gewählt: „Vibrant Momentum“ (Details unten). Die Lizenz wird vor der Verwendung auf der Originalseite geprüft; die Namensnennung kommt auf die Video-Seite in der App. Titel, Quelle und Lizenz werden in einer Hinweisdatei festgehalten (wie `public/vocab/NOTICE.md` für die Vokabeln; Ort bei der Einbindung festlegen).
+6. **Sprechertext:** neu geschrieben, im munteren Werbe-Ton, vom Nutzer freigegeben (Abschnitt „Sprechertext am Stück“). Änderungen nur nach Rücksprache.
+7. **Länge:** Der Nutzer erlaubt bis zu **70 s** (vorher 60 s). Ziel 65 s; der Agent darf innerhalb von 70 s entscheiden, wenn der Schnitt es verlangt.
+8. **Einblendungen:** vier Stück, Gestaltung freigegeben (Abschnitt „Einblendungen: Gestaltung“).
+9. **Git:** Nichts aus der Erzeugung ohne Rücksprache einchecken oder pushen (siehe oben).
 
 ## Eckdaten
 
 | Punkt | Festlegung |
 |---|---|
-| Länge | höchstens 60 s, Ziel 58 s |
+| Länge | **höchstens 70 s, Ziel 65 s** (Nutzer, 2026-11-20; vorher 60 s). Szene 7 ist kürzbar (spart rund 4 s). |
 | Sprache | Deutsch, Sprecher duzt (wie die App) |
-| Ton | **frech, munter, jugendlich**, Klang eines modernen Erklär- und Werbevideos mit Schwung und Spaß beim Zuhören (vom Nutzer freigegeben, 2026-11-20). Die erste Version (locker, trocken, Understatement, kein Werbegeschrei) wirkte zu zurückhaltend. Kurze Sätze und ein bisschen Witz bleiben. |
+| Ton | **frech, munter, jugendlich**, Klang eines modernen Erklär- und Werbevideos mit Schwung und Spaß beim Zuhören. Kurze Sätze und ein bisschen Witz. |
 | Bild | echte Aufnahme der App, automatisch durchgeklickt. **Hochformat 9:16** (1080 × 1920), damit man es auf dem Handy ansehen kann, ohne den Bildschirm zu drehen. |
-| Sprecher | **junge Männerstimme, energiegeladen, zügiges Tempo**, wie ein Sprecher in einer Werbung, die Spaß macht. **Eine Stimme für den ganzen Text, auch für die spanischen Wörter** (kein Stimmwechsel; Ausweichlösung mit zwei Stimmen: Festlegungen, Punkt 2). **Favorit des Nutzers nach der ersten Hörprobe (2026-11-20): Stimme „2a“**, erzeugt mit Qwen3-TTS (VoiceDesign 1.7B, Apache-2.0, lokal auf der CPU, ohne Konto). VoiceDesign erzeugt bei jedem Aufruf eine neue Stimme; für ein einheitliches Video wird der Clip 2a als Referenz für die Stimmklonung (Qwen3-TTS Base) genutzt. Ob die Klonstimme die spanischen Stellen durchgehend sauber spricht, wird in der nächsten Hörprobe geprüft. Offen sind noch Tempo (Ziel rund 3 Wörter je Sekunde) und Feinschliff. Verworfen: Piper „Thorsten“ und die spanische Stimme der ersten Version. |
-| Musik | **lizenzfreie Fertigmusik**, modern und energiegeladen wie in einem aktuellen Erklär- und Werbevideo, mit Aufbau. Durchgehend, unter dem Sprecher leiser (Ducking), in den Sprechpausen etwas lauter, Schlusspunkt am Ende. **Favorit des Nutzers nach der ersten Hörprobe (2026-11-20): „Vibrant Momentum“ von LolaMoore** (Freesound, laut Openverse CC BY 4.0, rund 2 min), Namensnennung nötig; Lizenz vor der Verwendung auf der Originalseite prüfen. Weitere Titel nur, wenn der Nutzer es wünscht. Verworfen: die per Skript erzeugte Marimba-Melodie. |
+| Sprecher | **Eine junge, energiegeladene Männerstimme für den ganzen Text**, auch für die spanischen Wörter. Favorit: Stimme „2a“ (Qwen3-TTS), geklont. Ausweichlösung zwei Stimmen: „Entscheidungen“, Punkt 2. Verworfen: Piper „Thorsten“ und die spanische Stimme der ersten Version. |
+| Musik | **„Vibrant Momentum“ von LolaMoore** (Freesound, CC BY 4.0, rund 2 min), modern und energiegeladen. Durchgehend, unter dem Sprecher leiser (Ducking), in den Sprechpausen etwas lauter, am Ende ausgeblendet oder mit Schlusspunkt. Verworfen: die per Skript erzeugte Marimba-Melodie. |
 | Höhepunkt | **Formsuche** (gebeugte Formen finden, SPEC §3.3a): längste Szene, zwei Beispiele, als einzige Szene angekündigt. |
-| Texteinblendungen | **höchstens Stichworte, nur wo nötig**: vier Stück (Szene 2, Szene 6 zweimal, Szene 8), weil das Bild der App den Rest auch ohne Ton erklärt. Die zweite Einblendung in Szene 6 übersetzt die Pointe „Podemos!“ („Ja, wir können das!“, in Anführungszeichen mit Ausrufezeichen), damit auch Zuschauer ohne Spanisch sie verstehen; sie erscheint genau, wenn der Sprecher „Podemos“ sagt. Spanische Stellen sonst nicht übersetzen (nicht „Una cerveza, por favor“, nicht „¡Vámonos!“). Keine Untertitel. |
+| Texteinblendungen | **Höchstens Stichworte, nur wo nötig**: vier Stück (Szene 2, Szene 6 zweimal, Szene 8). Die zweite in Szene 6 übersetzt die Pointe: „Ja, wir können das!“, erscheint genau beim gesprochenen „Podemos“. Spanische Stellen sonst nicht übersetzen (nicht „Una cerveza, por favor“, nicht „¡Vámonos!“). Keine Untertitel. Gestaltung: „Einblendungen: Gestaltung“. |
 | Abspann | Wortmarke und Slogan, **keine Adresse**. |
 
 ## Ablauf
 
-Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der gesprochenen Sätze. Klicks sind sichtbar (Tipp-Punkt, der kurz aufleuchtet).
+Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der gesprochenen Sätze. Die Zeiten sind für 65 s ausgelegt (Szene 6 bekommt viel Raum, weil Bild und Sprechertext dort am dichtesten sind). Klicks sind sichtbar (Tipp-Punkt, der kurz aufleuchtet).
 
 | # | Zeit | Bild (Klickpfad) | Einblendung | Sprechertext |
 |---|---|---|---|---|
-| 1 | 0:00–0:05 | Begrüßungskarte schwebt über der Lernseite: „¡Bienvenido a Palabrita“. Tipp, Karte dreht sich: „Willkommen zu Palabrita“. Tipp, Karte verschwindet. Musik setzt mit dem ersten Bild ein. | – | „Una cerveza, por favor“ – und dann? Peinliches Schweigen? Muss nicht sein. Das ist Palabrita! |
-| 2 | 0:05–0:10 | Lernseite. Thema öffnen, „Unterwegs & Transport“ wählen, „Starten“ tippen. | Über 800 Wörter | Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel! |
-| 3 | 0:10–0:19 | Karte „Bus · Lastwagen“. „Umdrehen“: *el camión* / *los camiones*, Badge „maskulin“, Beispielsatz, Hinweis „In Mexiko bedeutet „camión“ auch Stadtbus …“. Tipp auf 🔊, man hört *el camión* (vom Sprecher gesprochen). Kurzer Zoom auf den Hinweis. | – | Umdrehen, anhören, merken. Beispiel: „camión“. Lastwagen? Nein, in Mexiko fährst du damit Bus. Palabrita sagt dir das, bevor du einsteigst. |
-| 4 | 0:19–0:26 | Buttons „Nochmal“ (1 Min) und „Gewusst“ (10 Min) kurz hervorgehoben. Tipp auf „Gewusst“. Zwei weitere Karten im Zeitraffer (umdrehen, bewerten). | – | Gewusst oder nochmal? Ehrlich sein! Palabrita merkt sich, wann du ein Wort vergessen würdest, und fragt genau davor nochmal. |
-| 5 | 0:26–0:31 | Karte „können · dürfen“, umdrehen: *poder* mit grauer Zeile *(ue)*. Tipp auf „Konjugation“, die Formentabelle fährt von unten herein, kurz scrollen. | – | Konjugation? Gibt’s gratis dazu. Auch für die fiesen, unregelmäßigen Verben. |
-| 6 | 0:31–0:45 | **Höhepunkt.** Tab „Verzeichnis“. Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | Findet auch gebeugte Formen; beim gesprochenen „Podemos!“ am Ende: „Ja, wir können das!“ (ca. 2 s, genau im Moment des Worts) | Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen. Und „podemos“ führt direkt zu poder. Können wir das? Podemos! |
-| 7 | 0:45–0:49 | Tab „Statistik“: Balken neu, lernend, gefestigt je Richtung (vorbereiteter Lernstand, siehe Erzeugung). | – | Die Statistik zeigt, was schon sitzt. Perfektes Angeber-Material. [kürzbar] |
-| 8 | 0:49–0:55 | Tab „Mehr“ mit Markenkopf, dann ein Handy-Symbol mit Flugmodus-Zeichen über der weiter laufenden App. | Offline · ohne Konto · ohne Tracking | Läuft im Browser, auch offline. Kein Konto, kein Tracking. Nur du und die Wörter. |
-| 9 | 0:55–0:58 | Große Wortmarke (Wimpel, „Palabrita“, Greca) auf ruhigem Hintergrund, darunter Slogan „Tu app de vocabulario de español“, keine Adresse. Musik klingt mit einem Schlussakkord aus. | – | Palabrita. Probier’s aus. ¡Vámonos! |
+| 1 | 0:00–0:06 | Begrüßungskarte schwebt über der Lernseite: „¡Bienvenido a Palabrita“. Tipp, Karte dreht sich: „Willkommen zu Palabrita“. Tipp, Karte verschwindet. Musik setzt mit dem ersten Bild ein. | – | „Una cerveza, por favor“ – und dann? Peinliches Schweigen? Muss nicht sein. Das ist Palabrita! |
+| 2 | 0:06–0:11 | Lernseite. Thema öffnen, „Unterwegs & Transport“ wählen, „Starten“ tippen. | Über 800 Wörter | Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel! |
+| 3 | 0:11–0:20 | Karte „Bus · Lastwagen“. „Umdrehen“: *el camión* / *los camiones*, Badge „maskulin“, Beispielsatz, Hinweis „In Mexiko bedeutet „camión“ auch Stadtbus …“. Tipp auf 🔊, man hört *el camión* (vom Sprecher gesprochen). Kurzer Zoom auf den Hinweis. | – | Umdrehen, anhören, merken. Beispiel: „camión“. Lastwagen? Nein, in Mexiko heißt „camión“ nicht nur Lastwagen, sondern auch Bus. Palabrita sagt dir das, bevor du einsteigst. |
+| 4 | 0:20–0:28 | Buttons „Nochmal“ (1 Min) und „Gewusst“ (10 Min) kurz hervorgehoben. Tipp auf „Gewusst“. Zwei weitere Karten im Zeitraffer (umdrehen, bewerten). | – | Gewusst oder nochmal? Ehrlich sein! Palabrita merkt sich, wann du ein Wort vergessen würdest, und fragt genau davor nochmal. |
+| 5 | 0:28–0:33 | Karte „können · dürfen“, umdrehen: *poder* mit grauer Zeile *(ue)*. Tipp auf „Konjugation“, die Formentabelle fährt von unten herein, kurz scrollen. | – | Konjugation? Gibt’s gratis dazu. Auch für die fiesen, unregelmäßigen Verben. |
+| 6 | 0:33–0:51 | **Höhepunkt.** Tab „Verzeichnis“. Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | „Findet auch gebeugte Formen“ (ca. 3 s, wenn der Sprecher „gebeugte Formen“ sagt); beim gesprochenen „Podemos!“ am Ende „Ja, wir können das!“ (ca. 2 s, genau im Moment des Worts) | Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen von Verben und zeigt dir den zugehörigen Infinitiv. Und „podemos“ führt direkt zu poder. Können wir das? Podemos! |
+| 7 | 0:51–0:55 | Tab „Statistik“: Balken neu, lernend, gefestigt je Richtung (vorbereiteter Lernstand, siehe Erzeugung). | – | Die Statistik zeigt, was schon sitzt. Perfektes Angeber-Material. [kürzbar] |
+| 8 | 0:55–1:01 | Tab „Mehr“ mit Markenkopf, dann ein Handy-Symbol mit Flugmodus-Zeichen über der weiter laufenden App. | „Offline“, „Ohne Konto“, „Ohne Tracking“ (drei Chips nacheinander) | Läuft im Browser, auch offline. Kein Konto, kein Tracking. Nur du und die Wörter. |
+| 9 | 1:01–1:05 | Große Wortmarke (Wimpel, „Palabrita“, Greca) auf ruhigem Hintergrund, darunter Slogan „Tu app de vocabulario de español“, keine Adresse. Musik klingt aus. | – | Palabrita. Probier’s aus. ¡Vámonos! |
 
 ## Sprechertext am Stück
 
-**Ton vom Nutzer freigegeben (2026-11-20)**, frech und munter, ohne die Zusätze „Die Cerveza ist erst der Anfang“ (Szene 2), „Ja, genau für die“ (Szene 5) und „Spanisch macht keine Gefangenen“ (Szene 6). Szene 3 wurde am 2026-11-20 umgeschrieben (der Camión-Witz war ohne Vorwissen unverständlich); Variante B vom Nutzer gewählt. Ablauf, Szenen und Inhalte wie zuvor. Für die Sprachausgabe; Pausen zwischen den Szenen ergeben sich aus dem Schnitt. Etwa 136 Wörter. Bei einem zügigen Sprecher (rund 3 Wörter je Sekunde) sind das rund 45 s reine Sprechzeit; der Rest sind Musikpausen und Schnitt. Wird es nach der Sprachausgabe zu lang, zuerst Szene 7 [kürzbar] streichen. Der Wortwitz in Szene 6 („podemos“ = „wir können“) braucht eine klar spanische Betonung von *podemos*; in der Hörprobe prüfen.
+**Vom Nutzer freigegeben (2026-11-20).** Der Text wurde in mehreren Runden mit dem Nutzer geschärft: Ton frech und munter, Szene 3 mit der Erklärung statt des Camión-Witzes (Variante B), in Szene 6 der Satz mit dem zugehörigen Infinitiv. Gestrichen wurden bewusst die Zusätze „Die Cerveza ist erst der Anfang“ (Szene 2), „Ja, genau für die“ (Szene 5) und „Spanisch macht keine Gefangenen“ (Szene 6). Etwa 148 Wörter, bei zügigem Tempo (rund 3 Wörter je Sekunde) rund 49 s reine Sprechzeit; der Rest sind Pausen, Musik und Schnitt. Wird es nach der Sprachausgabe zu lang, zuerst Szene 7 [kürzbar] streichen. Der Wortwitz in Szene 6 („podemos“ = „wir können“) braucht eine klar spanische Betonung von *podemos*. Szene 6 hat 42 Wörter und ist am dichtesten; läuft der Sprecher dem Bild voraus, bekommt die Szene mehr Zeit (Zeitbudget bis 70 s).
 
 > „Una cerveza, por favor“ – und dann? Peinliches Schweigen? Muss nicht sein. Das ist Palabrita!
 >
 > Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel!
 >
-> Umdrehen, anhören, merken. Beispiel: „camión“. Lastwagen? Nein, in Mexiko fährst du damit Bus. Palabrita sagt dir das, bevor du einsteigst.
+> Umdrehen, anhören, merken. Beispiel: „camión“. Lastwagen? Nein, in Mexiko heißt „camión“ nicht nur Lastwagen, sondern auch Bus. Palabrita sagt dir das, bevor du einsteigst.
 >
 > Gewusst oder nochmal? Ehrlich sein! Palabrita merkt sich, wann du ein Wort vergessen würdest, und fragt genau davor nochmal.
 >
 > Konjugation? Gibt’s gratis dazu. Auch für die fiesen, unregelmäßigen Verben.
 >
-> Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen. Und „podemos“ führt direkt zu poder. Können wir das? Podemos!
+> Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen von Verben und zeigt dir den zugehörigen Infinitiv. Und „podemos“ führt direkt zu poder. Können wir das? Podemos!
 >
 > Die Statistik zeigt, was schon sitzt. Perfektes Angeber-Material. [kürzbar]
 >
@@ -83,12 +103,102 @@ Zeiten sind Richtwerte; die genauen Schnitte ergeben sich aus der Länge der ges
 
 Die spanischen Wörter (*Una cerveza, por favor*, *camión*, *fue*, *ser*, *ir*, *podemos*, *poder*, *¡Vámonos!*) sollen vom selben Sprecher spanisch ausgesprochen werden, nicht eingedeutscht. Die Formsuche-Szene (6) bleibt in jedem Fall vollständig, gekürzt wird nur an anderer Stelle.
 
+## Einblendungen: Gestaltung
+
+Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mir sehr gut, kann so bleiben“). Vorgabe des Nutzers: coole, moderne Einblendungen wie in aktueller Werbung, **mitreißend, aber nicht nach Clickbait**; höchstens ein minimaler Hauch davon. Der Entwurf zeigt vier Einblendungen auf echten App-Bildern (Handy-Ansicht 412 × 915 CSS-Pixel, Skalierung 2; für das Video mal 2,62, damit 1080 × 1920 entsteht). Das Entwurfsbild selbst ist eine Binärdatei und liegt nicht im Repo; die folgenden Angaben und das CSS reichen zum Nachbauen.
+
+**Gestaltungsprinzipien**
+
+- Schrift: **Inter Display**, Gewicht 900 (in der Erzeugungsumgebung installiert; sonst „Inter“, dann `system-ui`), enge Laufweite (-0.02 em), Zeilenhöhe 1.02.
+- Farben aus dem Markenbild der App: Türkis `#0f766e`, Magenta `#be185d`, Gelb `#f5b800`, dazu ein warmes Hellgelb `#ffe27a` für Betonungen. Text weiß, Betonung gelb. Keine Großbuchstaben-Schlagzeilen (außer dem kleinen „ÜBER“), kein Rot, keine Pfeile, kein Dauerblinken.
+- Leichte Schräglage (-1 bis -3°), große Rundungen, weiche Schatten. Das ist der „minimale Hauch Clickbait“.
+- **Position: die App muss sichtbar bleiben.** Einblendungen liegen im unteren Drittel über der Tab-Leiste (etwa 120 bis 150 px Abstand von unten, Rand 18 px) und dürfen nicht verdecken, was gerade gezeigt wird: in Szene 6 die Treffer-Karte „podemos → poder“, in Szene 8 die Menüeinträge.
+- Animation (Annahme, vom Nutzer nicht festgelegt): kurzes Hereinspringen mit leichtem Überschwingen (rund 0,25 s), ausblenden in rund 0,2 s. Verweildauer: Szene 2 etwa 3 s, Szene 6 „Findet auch gebeugte Formen“ etwa 3 s, „Ja, wir können das!“ etwa 2 s, Szene 8 drei Chips nacheinander (je etwa 0,3 s versetzt) insgesamt rund 4 s.
+
+**Die vier Einblendungen**
+
+| # | Szene | Text | Aufbau |
+|---|---|---|---|
+| 1 | 2 | „ÜBER 800 Wörter“ | kleines „ÜBER“ mit Laufweite, große Zahl „800“ (104 px) mit weiß-gelbem Verlauf und türkisem Versatzschatten, „Wörter“ auf gelbem Marker (schwarzer Text) |
+| 2 | 6 | „Findet auch gebeugte Formen“ | türkiser Kasten mit weißem Innenrand, „gebeugte Formen“ in Hellgelb, leicht gekippt |
+| 3 | 6, bei „Podemos!“ | „„Ja, wir können das!““ | magentafarbener Kasten (Verlauf nach `#e11d74`), „können“ in Hellgelb, kleiner Funken (✨) an der Ecke, stärker gekippt (-3°) |
+| 4 | 8 | „Offline“, „Ohne Konto“, „Ohne Tracking“ | drei weiße Chips untereinander mit türkisem Kreis-Symbol (✈, ✓, ✓), leicht versetzt und gekippt |
+
+**CSS des Entwurfs** (Maße in CSS-Pixel bei 412 px Breite; `.ov` ist der absolut positionierte Einblendungs-Container im Bild, `.frame` das 412 × 915 große Bild):
+
+```css
+:root{--tq:#0f766e;--mg:#be185d;--yl:#f5b800}
+.ov{position:absolute;left:18px;right:18px;color:#fff;font-weight:900;
+    font-family:"Inter Display","Inter",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.02}
+/* 1: Zahl (Szene 2) */
+.o1{bottom:130px;transform:rotate(-2deg)}
+.o1 .pre{font-size:34px;letter-spacing:.14em;margin-left:6px;text-shadow:0 3px 14px rgba(0,0,0,.45);display:block}
+.o1 .big{font-size:104px;background:linear-gradient(95deg,#fff 10%,#ffe27a 90%);-webkit-background-clip:text;color:transparent;
+         filter:drop-shadow(0 6px 0 rgba(15,118,110,.9)) drop-shadow(0 14px 22px rgba(0,0,0,.35));display:block}
+.o1 .sm{font-size:56px;margin-top:2px;text-shadow:0 3px 16px rgba(0,0,0,.45);display:block}
+.o1 .sm b{background:var(--yl);color:#12201e;padding:0 10px;border-radius:10px;display:inline-block;transform:rotate(1.5deg);margin-left:6px}
+/* Verlauf unter der Zahl, damit sie lesbar bleibt (nur Szene 2) */
+.dim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,18,0) 40%,rgba(8,20,18,.55) 100%)}
+/* 2: Kasten (Szene 6, Formen) */
+.o2{bottom:150px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.pill{background:linear-gradient(100deg,var(--tq),#0b5f59);padding:16px 22px 18px;border-radius:22px;font-size:40px;
+      box-shadow:0 12px 30px rgba(0,0,0,.35),0 0 0 3px rgba(255,255,255,.9) inset;transform:rotate(-1.5deg)}
+.pill em{font-style:normal;color:#ffe27a}
+/* 3: Aufschrei (Szene 6, Podemos) */
+.o3{bottom:120px;text-align:center;transform:rotate(-3deg)}
+.o3 .q{display:inline-block;font-size:60px;color:#fff;background:linear-gradient(100deg,var(--mg),#e11d74);padding:14px 26px 18px;
+       border-radius:26px;box-shadow:0 14px 34px rgba(0,0,0,.4);line-height:1.04;position:relative}
+.o3 .q i{font-style:normal;color:#ffe27a}
+.o3 .spark{position:absolute;right:-12px;top:-26px;font-size:46px;transform:rotate(14deg)}
+/* 4: Chips (Szene 8) */
+.o4{bottom:118px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.chip{display:inline-flex;gap:10px;align-items:center;font-size:30px;background:rgba(255,255,255,.95);color:#12201e;
+      padding:12px 20px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.25);letter-spacing:-.01em;transform:rotate(-1deg)}
+.chip .ic{width:34px;height:34px;border-radius:50%;background:var(--tq);color:#fff;display:grid;place-items:center;font-size:20px}
+.chip:nth-child(2){transform:rotate(1deg);margin-left:20px}.chip:nth-child(3){margin-left:6px}
+```
+
+Die HTML-Struktur dazu: `.o1` enthält `<span class="pre">ÜBER</span><span class="big">800</span><span class="sm"><b>Wörter</b></span>`; `.o2` enthält `<div class="pill">Findet auch <em>gebeugte Formen</em></div>`; `.o3` enthält `<div class="q"><span class="spark">✨</span>„Ja, wir <i>können</i> das!“</div>`; `.o4` enthält drei `.chip` mit `<span class="ic">…</span>Text`. Szene 2 hat zusätzlich den Verlauf `.dim` unter der Einblendung, Szene 6 (Podemos) bewusst nicht, damit die Treffer-Karte hell bleibt.
+
 ## Automatische Erzeugung
 
-- **Aufnahme:** Playwright mit der vorinstallierten Chromium-Version gegen `npm run preview`, Handy-Ansicht (z. B. 412 × 915 CSS-Pixel, Skalierung so, dass 1080 × 1920 entsteht), Videoaufnahme oder Einzelbilder je Szene. Tipp-Punkte und Zooms werden per eingeblendetem Overlay bzw. im Schnitt erzeugt, nicht in der App.
+- **Aufnahme:** Playwright mit der vorinstallierten Chromium-Version gegen `npm run preview` (nach `npm run build`; `dist/` ist ignoriert), Handy-Ansicht (412 × 915 CSS-Pixel, Skalierung so, dass 1080 × 1920 entsteht), Videoaufnahme oder Einzelbilder je Szene. Tipp-Punkte und Zooms werden per eingeblendetem Overlay bzw. im Schnitt erzeugt, nicht in der App. Die Begrüßung (Szene 1) erscheint nur, wenn `localStorage` den Schlüssel `palabrita.welcomeSeen` nicht auf `"1"` hat (`src/data/welcomeFlag.ts`); für alle anderen Szenen den Schlüssel vorher setzen. Routen (HashRouter): `#/` (Lernen), `#/dictionary` (Verzeichnis), `#/dictionary/:id`, `#/stats`, `#/more`.
 - **Vorbereiteter Lernstand:** Damit in Szene 3 bis 5 genau *el camión* und *poder* erscheinen und die Statistik (Szene 7) nicht leer ist, wird IndexedDB vor der Aufnahme mit einem passenden Zustand befüllt. Die App selbst wird dafür nicht geändert.
 - **Aussprache in Szene 3:** Die Browser-Sprachausgabe klingt in einer automatisierten Aufnahme nicht mit. Das *el camión* spricht deshalb der Sprecher (dieselbe Stimme wie der übrige Text, bei der Ausweichlösung mit zwei Stimmen die spanische) und wird an der Stelle des Tipps eingemischt.
-- **Sprecher (Auswahl per Hörprobe):** Die Festlegung der ersten Version (Piper, „Thorsten“, spanische Wörter mit einer spanischen Piper-Stimme, Rückfall auf aussprachenahe Schreibung) ist **gestrichen**. Stimme und Dienst werden nach „Festlegungen für die nächste Iteration“ ausgewählt; eine einzige mehrsprachige Stimme spricht den ganzen Text samt spanischer Wörter (Ausweichlösung mit zwei Stimmen: Festlegungen, Punkt 2); Python ist dafür erlaubt. Die Lizenz bzw. Nutzungsbedingungen des gewählten Modells oder Dienstes werden vor der Verwendung geprüft.
-- **Musik (Auswahl per Hörprobe):** Die Festlegung der ersten Version (TypeScript-Skript mit Marimba-Melodie) ist **gestrichen**. Verwendet wird lizenzfreie Fertigmusik; sie wird im Schnitt auf die Länge gebracht (Schlusspunkt am Ende). Titel, Quelle und Lizenz werden festgehalten.
-- **Schnitt:** `ffmpeg` (in der Cloud-Umgebung vorhanden) setzt Aufnahme, Sprecher, Musik (mit Ducking) und die vier Stichworte zusammen. Ausgabe MP4 (H.264/AAC), 1080 × 1920, Ziel unter 40 MB.
+- **Sprecher:** Qwen3-TTS, geklonte Stimme 2a, siehe „Technische Hinweise zur Stimme“.
+- **Musik:** „Vibrant Momentum“, siehe „Technische Hinweise zur Musik“. Das Stück ist länger als das Video (rund 2 min): ab dem Anfang schneiden, am Ende ausblenden (Fade), mit Ducking unter dem Sprecher.
+- **Zeitpunkt der Einblendung „Ja, wir können das!“:** Aus der fertigen Sprecher-Aufnahme Wortzeiten lesen (z. B. Whisper mit `return_timestamps="word"`, Modell `openai/whisper-small`) und die Einblendung bei „Podemos“ starten. Für die anderen Einblendungen genügen die Szenengrenzen.
+- **Schnitt:** `ffmpeg` (in der Cloud-Umgebung vorhanden) setzt Aufnahme, Sprecher, Musik (mit Ducking) und die vier Einblendungen zusammen. Ausgabe MP4 (H.264/AAC), 1080 × 1920, Ziel unter 40 MB.
 - **Ablage:** Das fertige Video wird nicht eingecheckt, sondern nur außerhalb des Repos abgelegt und dem Nutzer zur Ansicht gegeben (Regel in `docs/TASKS.md`).
+
+## Technische Hinweise zur Stimme (Qwen3-TTS)
+
+Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15 GB RAM, keine GPU; PyPI, Hugging Face und `download.pytorch.org` sind erreichbar, es musste kein Host freigeschaltet werden).
+
+- **Modelle:** `Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign` (Stimme per Textbeschreibung) und `Qwen/Qwen3-TTS-12Hz-1.7B-Base` (Stimme aus einem Referenzclip klonen). Lizenz **Apache-2.0**, Deutsch und Spanisch unter den 10 Sprachen.
+- **Installation (in einer Umgebung außerhalb von Git):** `python3 -m venv .venv`, dann `.venv/bin/pip install --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio qwen-tts soundfile`. Beim Start erscheinen harmlose Warnungen („flash-attn is not installed“, „sox not found“).
+- **Laden und Erzeugen auf der CPU:** `Qwen3TTSModel.from_pretrained(name, device_map="cpu", dtype=torch.float32)`, `torch.set_num_threads(4)`. Rechenzeit rund 4 bis 7 Sekunden je Sekunde Sprache. API: `generate_voice_design(text, instruct, language="German")`; zum Klonen `create_voice_clone_prompt(ref_audio=..., ref_text=..., x_vector_only_mode=False)` und `generate_voice_clone(text, language="German", voice_clone_prompt=prompt)`. `x_vector_only_mode=True` übernimmt nur den Stimmcharakter (ohne Referenztext) und ist die Rückfalloption, falls der volle Modus (ICL) schlecht klingt.
+- **VoiceDesign würfelt bei jedem Aufruf eine neue Stimme**, auch bei gleicher Beschreibung. Deshalb wird eine gewählte Stimme geklont (oder der Zufall mit einem festen Seed fixiert).
+- **Stimme 2a:** entstand mit der englischen Beschreibung („A young adult man in his mid twenties with a clear, slightly deeper voice. Very upbeat, fast-paced and playful, like a charismatic host of a modern app commercial or a popular YouTube explainer. Smiling, cheeky and energetic, never sleepy or monotone. Natural Mexican Spanish pronunciation for the Spanish words.“) und dem Text von Szene 1 als Referenz: „„Una cerveza, por favor“ – und dann? Peinliches Schweigen? Muss nicht sein. Das ist Palabrita!“ Der Nutzer hörte darin „Una cerveza, por favor“ „ganz gut“. Eine automatische Rückübersetzung (Whisper) verstand den Satzanfang schlechter; das Gehör des Nutzers zählt.
+- **Referenzclip nicht im Repo.** Der Clip `stimme_2a_Szene1.wav` liegt nur in der Sitzung bzw. beim Nutzer (siehe „Übergabe“).
+- **Prüfhilfen, kein Ersatz fürs Anhören:** Grundtonhöhe (`librosa.pyin`) und Rückübersetzung mit Whisper (`openai/whisper-small`, Sprache „de“), um grobe Fehler zu finden (ausgelassene oder deutsch ausgesprochene spanische Wörter).
+- **Geprüft und verworfen:**
+  - **Kokoro-82M:** Die Modellkarte nennt nur Englisch, kein Deutsch (Blogvergleiche behaupten teils das Gegenteil).
+  - **Chatterbox Multilingual V3** (MIT, 23 Sprachen): läuft nur mit der GitHub-Version des Pakets (`t3_model="v3"`), auf der CPU nur mit Patch von `torch.load` (`map_location`) und `setuptools<81` (für das Wasserzeichen-Modul). Die Standardstimme klang höher, ließ „Una cerveza, por favor“ aus und sprach die spanischen Wörter deutsch aus („Poda“, „warmonos“). Das eingebaute Wasserzeichen nicht entfernen.
+  - **NVIDIA Magpie TTS Multilingual:** Lizenz „other“ (NVIDIA Open Model License), nicht weiter geprüft.
+  - **Coqui XTTS-v2:** nicht kommerzielle Lizenz (CPML), ungeeignet.
+  - **Piper:** in der ersten Version verworfen (Thorsten).
+
+## Technische Hinweise zur Musik
+
+- **Gewählt: „Vibrant Momentum“** (LolaMoore, Freesound-Sound 762602, rund 120 s). Seite: `https://freesound.org/people/LolaMoore/sounds/762602`, Vorschau-MP3: `https://cdn.freesound.org/previews/762/762602_16085454-hq.mp3` (rund 190 kbps, Lautheit rund -15,7 LUFS). Lizenz laut Openverse: **CC BY 4.0**, also Namensnennung nötig, kommerzielle Nutzung erlaubt. Die Lizenz vor der Verwendung auf der Freesound-Seite prüfen. Der Original-Download bei Freesound braucht ein Konto: ohne Rücksprache mit dem Nutzer keines anlegen, die Vorschau-MP3 reicht für Hörproben.
+- **Namensnennung (Vorschlag):** „Musik: „Vibrant Momentum“ von LolaMoore (Freesound), CC BY 4.0“ auf der Video-Seite in der App und in der Hinweisdatei.
+- **Weitere gehörte Titel (nicht gewählt):** „Arcade Aroma“ (Touda, Sound 614130, CC0), „Path To Victory“ (UNIVERSFIELD, 704530, CC BY 4.0), „Stagepop“ (kjartan_abel, 610677, CC BY 4.0).
+- **Suche:** Die Openverse-API (`https://api.openverse.org/v1/audio/?q=…&license=cc0,by`) ist erreichbar und liefert Lizenz, Dauer, Tags und Download-URL. Nicht erreichbar oder blockiert in dieser Umgebung: Pixabay, Chosic, Musopen (403), Uppbeat und Wikimedia-Upload (429).
+
+## Offen
+
+- Klonstimme 2a: Hörprobe mit dem aktuellen Text, Entscheidung des Nutzers (siehe „Übergabe“). Bei Misserfolg Ausweichlösung zwei Stimmen.
+- Tempo der geklonten Stimme (Ziel rund 3 Wörter je Sekunde; die Proben lagen mit 1,4 bis 2,5 Wörtern je Sekunde darunter, beim Zusammenbau lässt sich leicht beschleunigen).
+- Ort der Hinweisdatei für Musik und Namensnennung (bei der Einbindung des Videos in die App).
+- Video-Einbindung in die App (neue Seite im Tab „Mehr“): Anforderungen in `docs/TASKS.md`.

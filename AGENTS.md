@@ -4,7 +4,7 @@ Hinweise für KI-Agenten, die in diesem Repo arbeiten.
 
 ## Projekt
 
-**Palabrita**: Vokabel-Lern-App für Spanisch (Mexiko/Guatemala). Läuft komplett im Browser (PWA, offline-fähig), kein Backend. Fortschritt liegt in IndexedDB. Details: `README.md`, `docs/SPEC.md` (einzige Spezifikation: Teil A Anforderungen, Teil B Technik), `docs/TASKS.md` (offene Aufgaben). Weitere Dokumente: `docs/VOKABELN.md`, `docs/ABNAHME.md`, `docs/ERKLAERVIDEO.md` (Drehbuch des Erklärvideos).
+**Palabrita**: Vokabel-Lern-App für Spanisch (Mexiko/Guatemala). Läuft komplett im Browser (PWA, offline-fähig), kein Backend. Fortschritt liegt in IndexedDB. Details: `README.md`, `docs/SPEC.md` (einzige Spezifikation: Teil A Anforderungen, Teil B Technik), `docs/TASKS.md` (offene Aufgaben). Weitere Dokumente: `docs/VOKABELN.md`, `docs/ABNAHME.md`, `docs/ERKLAERVIDEO.md` (Drehbuch, Entscheidungen, Gestaltung und Übergabe für das Erklärvideo; vor Arbeiten am Video zuerst lesen).
 
 Stack: React 19, TypeScript 6, Vite 8, vite-plugin-pwa, react-router-dom 7, idb, Vitest 5, ESLint, Prettier. Deployment als statische PWA auf GitHub Pages.
 
