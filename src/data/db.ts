@@ -2,6 +2,10 @@ import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 import type { Card, Settings } from "../domain/types";
 
 export const DB_NAME = "palabrita";
+// ACHTUNG: Es gibt aktive Nutzer (SPEC §10.4). Jede Änderung am Schema (Stores, Schlüssel,
+// Felder von Settings/Card) braucht hier einen Versionssprung und einen Upgrade-Schritt, damit
+// Fortschritt und Einstellungen erhalten bleiben. Bestehende Schritte nie ändern, Version nie senken.
+// Ist eine Migration nicht einfach machbar, vorher dem Nutzer berichten.
 export const DB_VERSION = 1;
 
 export interface PalabritaDB extends DBSchema {

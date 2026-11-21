@@ -50,6 +50,8 @@ export type DirectionSetting = Direction | "both";
 export type CardStatus = "new" | "learning" | "mature";
 export type Grade = "again" | "good";
 
+// Settings und Card sind gespeicherte Nutzerdaten (IndexedDB). Es gibt aktive Nutzer: Änderungen
+// an den Feldern brauchen eine Migration (SPEC §10.4, DB_VERSION in data/db.ts).
 export interface Settings {
   maxLevel: Level;
   theme: "system" | "light" | "dark";
