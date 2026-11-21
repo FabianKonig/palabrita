@@ -4,7 +4,7 @@ Stand: 2026-11-21. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS
 
 ## Übergabe an einen neuen Agenten (Kurzfassung)
 
-**Wo wir stehen.** Eine erste Version des Videos wurde schon erzeugt und vom Nutzer verworfen (Stimmen und Musik, siehe „Erkenntnisse“). Für die zweite Version sind Text, Länge, Ablauf, Einblendungen, Musik und Stimme festgelegt. **Die erste vollständige Fassung der zweiten Version wurde am 2026-11-21 erzeugt** (67,2 s, 1080 × 1920, rund 7 MB) und dem Nutzer als Datei in den Chat geschickt. Sie liegt nicht im Repo. Der Nutzer hat die Annahmen bestätigt (2026-11-21); eine Rückmeldung zu Bild und Ton steht noch aus. Annahmen und Rezept: Abschnitt „Erzeugte Fassung (2026-11-21)“.
+**Wo wir stehen.** Eine erste Version des Videos wurde schon erzeugt und vom Nutzer verworfen (Stimmen und Musik, siehe „Erkenntnisse“). Für die zweite Version sind Text, Länge, Ablauf, Einblendungen, Musik und Stimme festgelegt. **Die erste vollständige Fassung der zweiten Version wurde am 2026-11-21 erzeugt** (67,2 s, 1080 × 1920, rund 7 MB) und dem Nutzer als Datei in den Chat geschickt. **Diese Fassung liegt mit Zustimmung des Nutzers im Repo** (2026-11-21): `public/video/palabrita-erklaervideo.mp4` (7,3 MB, 67,6 s), das Vorschaubild `public/video/palabrita-erklaervideo-poster.jpg` und die Hinweisdatei `public/video/NOTICE.md` mit der Namensnennung der Musik. Der Nutzer hat die Annahmen und das Vorschaubild bestätigt; eine Rückmeldung zu Bild und Ton steht noch aus. Annahmen und Rezept: Abschnitt „Erzeugte Fassung (2026-11-21)“.
 
 **Entschieden (alles vom Nutzer, 2026-11-20):**
 
@@ -199,11 +199,11 @@ Die HTML-Struktur dazu: `.o1` enthält `<span class="big">800+</span><span class
 - **Musik:** „Vibrant Momentum“, siehe „Technische Hinweise zur Musik“. Das Stück ist länger als das Video (rund 2 min): ab dem Anfang schneiden, am Ende ausblenden (Fade), mit Ducking unter dem Sprecher.
 - **Zeitpunkt der Einblendung „Ja, wir können das!“:** Aus der fertigen Sprecher-Aufnahme Wortzeiten lesen (z. B. Whisper mit `return_timestamps="word"`, Modell `openai/whisper-small`) und die Einblendung bei „Podemos“ starten. Für die anderen Einblendungen genügen die Szenengrenzen.
 - **Schnitt:** `ffmpeg` (in der Cloud-Umgebung vorhanden) setzt Aufnahme, Sprecher, Musik (mit Ducking) und die vier Einblendungen zusammen. Ausgabe MP4 (H.264/AAC), 1080 × 1920, Ziel unter 40 MB.
-- **Ablage:** Das fertige Video wird nicht eingecheckt, sondern nur außerhalb des Repos abgelegt und dem Nutzer zur Ansicht gegeben (Regel in `docs/TASKS.md`).
+- **Ablage:** Die freigegebene Fassung (2026-11-21) liegt in `public/video/` (Video, Vorschaubild, `NOTICE.md`). **Weitere Fassungen werden nicht ohne Rücksprache eingecheckt**, weil jede Fassung (rund 7 MB) dauerhaft in der Git-Historie bleibt: Neue Fassungen zuerst außerhalb des Repos ablegen (`.video-work/`) und dem Nutzer zeigen, erst nach seiner ausdrücklichen Bestätigung die Dateien in `public/video/` ersetzen (Regel in `docs/TASKS.md`).
 
 ## Erzeugte Fassung (2026-11-21)
 
-**Ergebnis:** `palabrita_erklaervideo_v2.mp4`, 67,2 s, 1080 × 1920, H.264/AAC, rund 7 MB, Lautheit -16 LUFS, Spitze -1,9 dB. Dem Nutzer als Datei geschickt, nicht im Repo. Der Ton wurde nur gemessen, nicht gehört (Agent ohne Gehör); die Bilder wurden an Einzelbildern geprüft.
+**Ergebnis:** `palabrita_erklaervideo_v2.mp4`, 67,2 s, 1080 × 1920, H.264/AAC, rund 7 MB, Lautheit -16 LUFS, Spitze -1,9 dB. Dem Nutzer als Datei geschickt; eingecheckt als `public/video/palabrita-erklaervideo.mp4` (Fassung vom 2026-11-21 mit 67,6 s, der Zeitplan oben stammt von der ersten Fassung mit 67,2 s; der Unterschied ist die neu gesprochene Szene 9). Der Ton wurde nur gemessen, nicht gehört (Agent ohne Gehör); die Bilder wurden an Einzelbildern geprüft.
 
 **Zeitplan** (aus den echten Längen der Sprecherclips): Jede Szene beginnt mit 0,4 s Vorlauf, danach spricht der Sprecher. Szenenstart in s: 0, 6,0, 13,4, 25,1, 32,7, 38,1, 54,1, 58,1, 63,4; Ende 67,2. Die Sprecherclips sind (nach Tempo 1,25) 5,0 / 4,2 / 10,8 / 6,9 / 4,4 / 15,0 / 3,4 / 4,4 / 2,6 s lang.
 
@@ -272,14 +272,12 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 - **B. In den Metadaten der MP4-Datei** (Felder `title`, `artist`/`comment`, per ffmpeg `-metadata`). Die Angabe reist so mit der Datei, wenn jemand sie direkt weitergibt.
 - **C. Zusätzlich eine kleine Zeile im Abspann** („Musik: Vibrant Momentum von LolaMoore, CC BY 4.0“, ohne Adresse). Nur nötig, wenn das Video auch **ohne** die App-Seite verbreitet werden soll (z. B. die Datei direkt verschickt oder auf einer anderen Plattform hochgeladen). Ein Link passt dort nicht hinein. Der Abspann hat laut Drehbuch keine Adresse, eine Namenszeile ist keine Adresse.
 
-Wird der **Teilen-Link** als Adresse der Video-Seite festgelegt (nicht der Datei-URL), erreicht jeden Besucher auch die Angabe unter dem Player.
+**Teilen-Link (Nutzer, 2026-11-21): die Seite** (`<Basis-URL>/#/video`), nicht die Datei-URL. So erreicht jeden Besucher auch die Angabe unter dem Player. Die Datei bleibt zusätzlich unter `<Basis-URL>/video/palabrita-erklaervideo.mp4` abrufbar, gilt aber nicht als Teilen-Link.
 
-**Einbindung (Nutzer, 2026-11-21):** Das Video muss **nicht offline abspielbar** sein und wird nicht vorab gecacht. Wer die Seite der App öffnet, soll es nicht herunterladen müssen: Der Player lädt erst beim Abspielen (`preload="none"`), und die Videodatei gehört nicht ins Service-Worker-Precache (`globPatterns` in `vite.config.ts` kennt kein `mp4`/`webm`, so bleibt es). **Vorschaubild (Poster): ja (Nutzer, 2026-11-21).** Ein Bild aus dem Video (Szene 2, bei 8,6 s: Lernen-Seite mit „800+ Wörter. Mexiko & Guatemala“), JPEG 540 px breit, rund 47 KB, vom Skript `07-zusammenbau.cjs` erzeugt (`POSTER_T` wählt einen anderen Zeitpunkt). Es wird als `poster` des Players eingebunden, damit der Player vor dem Abspielen nicht leer wirkt, ohne das Video zu laden. Wie die Videodatei wird es erst nach ausdrücklicher Bestätigung des Nutzers eingecheckt; der Nutzer hat das Bild noch nicht bestätigt.
+**Einbindung (Nutzer, 2026-11-21):** Das Video muss **nicht offline abspielbar** sein und wird nicht vorab gecacht. Wer die Seite der App öffnet, soll es nicht herunterladen müssen: Der Player lädt erst beim Abspielen (`preload="none"`), und die Videodatei gehört nicht ins Service-Worker-Precache (`globPatterns` in `vite.config.ts` kennt kein `mp4`/`webm`, so bleibt es). **Vorschaubild (Poster): ja und bestätigt (Nutzer, 2026-11-21).** Ein Bild aus dem Video (Szene 2, bei 8,6 s: Lernen-Seite mit „800+ Wörter. Mexiko & Guatemala“), JPEG 540 px breit, rund 47 KB, vom Skript `07-zusammenbau.cjs` erzeugt (`POSTER_T` wählt einen anderen Zeitpunkt). Es wird als `poster` des Players eingebunden, damit der Player vor dem Abspielen nicht leer wirkt, ohne das Video zu laden. Es liegt als `public/video/palabrita-erklaervideo-poster.jpg` im Repo. Das Poster wird nicht vorab gecacht (`globPatterns` kennt kein `jpg`), es lädt also nur, wenn die Video-Seite geöffnet wird.
 
 ## Offen
 
 - Rückmeldung des Nutzers zur ersten Fassung (Bild, Ton, Tempo, Einblendungen, Musik).
-- Der Nutzer bestätigt das Vorschaubild (Szene 2, 8,6 s) oder wählt ein anderes Bild.
-- **Teilen-Link:** Seite (`/#/video`, mit Namensnennung unter dem Player) oder Datei-URL; Empfehlung des Agenten: die Seite.
-- Ort der Hinweisdatei für die Musik (bei der Einbindung des Videos in die App).
-- Video-Einbindung in die App (neue Seite im Tab „Mehr“): Anforderungen in `docs/TASKS.md`.
+- **Nächste Aufgabe: Spezifikation der Video-Seite** in `docs/SPEC.md` (neue Kachel im Tab „Mehr“, Route `/video`, Player mit `preload="none"` und `poster`, Namensnennung der Musik unter dem Player mit dem Text aus `public/video/NOTICE.md`, Teilen-Link auf die Seite, kein Offline-Cache, Ergänzung im Browser-Smoke-Test Abschnitt 8e6). Anforderungen: `docs/TASKS.md`.
+- Der Referenzclip der Stimme 2a (`stimme_2a_Szene1.wav`, 326 KB) liegt nicht im Repo; nur nötig, wenn die Stimme neu erzeugt werden soll.
