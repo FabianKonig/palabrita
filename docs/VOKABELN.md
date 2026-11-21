@@ -6,6 +6,12 @@ Die Vokabeln liegen in 13 Themendateien `public/vocab/<thema>.json` (Liste: `pub
 
 IDs haben das Format `v` plus vier Ziffern, sind eindeutig und werden nie wiederverwendet. Neue Einträge bekommen die nächste freie Nummer, unabhängig vom Thema.
 
+Es gibt aktive Nutzer (SPEC §10.4): Ihr Lernfortschritt hängt über `vocabId` an der ID. Deshalb:
+
+- Eine ID nie ändern und nie für ein anderes Wort wiederverwenden. Ändert sich die **Bedeutung** eines Eintrags (anderes Wort, andere Übersetzung, andere Wortart), bekommt er eine neue ID. Sonst erbt das neue Wort den Fortschritt des alten. Tippfehler, Beispielsätze, Hinweise und Ergänzungen bei `de` dürfen unter derselben ID geändert werden, solange die Bedeutung dieselbe bleibt.
+- Einen Eintrag zu entfernen ist möglich: Karten zu nicht mehr vorhandenen IDs bleiben liegen und werden ignoriert (SPEC §10.2). Der Nutzer verliert damit aber diesen Fortschritt; Entfernen deshalb bewusst tun und im Zweifel erst berichten.
+- `level` oder `topic` ändern wirkt auf die Sichtbarkeit und die Filter (z. B. verschwindet ein Wort, wenn das Niveau über das eingestellte Höchstniveau steigt), der Fortschritt bleibt erhalten. Kurz prüfen, ob die Änderung gewollt ist.
+
 ## Inhaltliche Schwerpunkte
 
 - **begruessung:** Grüße je Tageszeit, Verabschiedung, Höflichkeit (*usted*, *con permiso*, *disculpe*), Vorstellen, Dank und Bitte. Viele Phrasen.

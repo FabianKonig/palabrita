@@ -53,8 +53,18 @@ Vor einem Commit mindestens `npm run lint`, `npm run format:check`, `npm test` u
 - Arbeitsweise: kleine Commits auf einem Feature-Branch, kein Push ohne Rückfrage (es sei denn, es ist anders vorgegeben). Offene Aufgaben stehen in `docs/TASKS.md`: Ist etwas erledigt, kommt das Ergebnis in `docs/SPEC.md` und der Punkt verschwindet aus `docs/TASKS.md`. Bei Unklarheit eine Annahme treffen und unter „Hinweise“ in `docs/TASKS.md` festhalten.
 - Neue Seiten: unter der Layout-Route in `src/App.tsx` anlegen, Inhalt in `.screen`, Überschrift als direktes `h1`-Kind von `.screen`. Das Logo oben rechts (`.corner-logo`) kommt dann automatisch an dieselbe Stelle; nur `/more` lässt es weg. Die Prüfung „Logo oben rechts“ in `scripts/browser-smoke.ts` (Abschnitt 8e6) listet die Seiten auf: neue Seiten dort ergänzen.
 
+## Aktive Nutzer: Abwärtskompatibilität und Migrationen (wichtig)
+
+**Es gibt aktive Nutzer** (seit 2026-11-21, vom Nutzer festgelegt; vorher galt „keine Nutzer, keine Migrationen“). Ihr Lernfortschritt und ihre Einstellungen liegen nur in ihrem Browser (IndexedDB, `localStorage`) und dürfen durch ein Update nicht verloren gehen. Vollständige Regeln: `docs/SPEC.md` §10.4, Entscheidung in §2 (Kompatibilität).
+
+- **Vor jeder Änderung an Datenmodell, Schema, Speicherformaten, Vokabel-IDs, Routen oder Adresse prüfen**, ob Bestandsdaten betroffen sind (Liste in SPEC §10.4). Das gilt auch für scheinbar kleine Änderungen, etwa ein neues Pflichtfeld in `Settings` oder `Card`.
+- **Ziel:** Bestandsnutzer laden die neue Version über den Banner „Aktualisieren“ und behalten Fortschritt und Einstellungen. Wenn es möglich und mit vertretbarem Aufwand umsetzbar ist, Code oder Daten so ändern, dass das gilt: `DB_VERSION` in `src/data/db.ts` erhöhen, Upgrade-Schritt ergänzen (bestehende Schritte nie ändern), Test mit Daten im alten Format.
+- **Vokabeln:** IDs nie ändern oder wiederverwenden, die Bedeutung eines Eintrags unter derselben ID nicht ändern, `added` nie nachträglich ändern (`docs/VOKABELN.md`).
+- **Berichten statt entscheiden:** Ist eine Migration nicht einfach umsetzbar, würde sie einen extrem großen Umbau erzwingen oder lässt sich Datenverlust nicht vermeiden, **vor der Umsetzung dem Nutzer berichten** (was ändert sich, wen betrifft es, wie aufwendig wäre die Migration, Alternativen). Der Nutzer entscheidet, ob der Aufwand betrieben wird oder ein Breaking Change stattfindet; den spezifizieren wir dann gemeinsam. Nie stillschweigend einen Breaking Change einbauen und nie stillschweigend einen sehr großen Umbau betreiben.
+- Das genaue Migrationsverfahren ist noch nicht ausgearbeitet (`docs/TASKS.md`); der Standardweg steht in SPEC §10.4.
+
 ## Stand
 
-- Es gibt noch keine Nutzer: Änderungen brauchen keine Abwärtskompatibilität und keine Migrationen (SPEC §2, Kompatibilität).
+- Der Hinweis „Es gibt noch keine Nutzer“ gilt nicht mehr. Siehe Abschnitt „Aktive Nutzer“ oben.
 - Der Code entspricht `docs/SPEC.md`, soweit dort nichts als „noch nicht umgesetzt“ steht (Liste: `docs/TASKS.md`). Weicht der Code von der Spezifikation ab, nicht stillschweigend eines von beiden ändern, sondern mit dem Nutzer klären.
 - Abnahme der Lernsitzung: `docs/ABNAHME.md`.

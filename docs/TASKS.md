@@ -17,10 +17,11 @@ Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), da
 
 ## Prüfungen und Entscheidungen des Nutzers
 
-- [ ] **Vor dem Livegang: Hinweis „keine Nutzer“ aufheben.** Sobald es die ersten echten Nutzer gibt, also deren Daten (IndexedDB, `localStorage`) erhalten bleiben müssen, gilt die Freiheit von Migrationen nicht mehr. Dann diese Stellen ändern: SPEC §2 (Zeile „Kompatibilität“), SPEC §10.2 (Satz zu Migrationen) und `AGENTS.md` (Abschnitt „Stand“). Danach festlegen, wie Änderungen an Datenbank und Datenformaten künftig migriert werden (z. B. Versionssprung in `data/db.ts` mit Upgrade-Schritt und Tests).
+- [ ] **Migrationsverfahren ausarbeiten.** Die ersten echten Nutzer sind gestartet (2026-11-21); der Hinweis „keine Nutzer“ ist aufgehoben (`AGENTS.md`, SPEC §2, §10.2, §10.4). Der Standardweg steht in SPEC §10.4 (Versionssprung in `data/db.ts` mit Upgrade-Schritt und Test mit altem Format). Noch offen und mit dem Nutzer zu klären, sobald die erste datenberührende Änderung ansteht: genauer Aufbau der Upgrade-Schritte, Umgang mit `blocked`/`blocking` bei mehreren offenen Tabs, Hinweis an Nutzer bei einem Breaking Change. Bis dahin gilt: Änderungen, die Bestandsdaten berühren, nach SPEC §10.4 bauen oder dem Nutzer berichten.
 
 ## Hinweise
 
+- Annahme (aktive Nutzer, 2026-11-21): Der Stand der Datenbank (Version 1, `data/db.ts`) gilt als Ausgangspunkt für Migrationen. Der Code ergänzt keine fehlenden Felder (`orderSeed`, `startedAt`, `Card.introduced`) in Datensätzen früherer Entwicklungsstände. Falls Nutzer mit einem solchen Stand gestartet sind, muss das nachgezogen werden (dem Nutzer berichten).
 - Bekannte Einschränkung: Gehört ein deutsches Wort zu mehreren spanischen Vokabeln, sind die DE→ES-Karten für den Nutzer mehrdeutig. In v1 nicht behandelt.
 - Verworfen: eine Docker-Image-Variante (GHCR, `docker compose pull` auf einem VPS). Nicht umsetzen, die App läuft über GitHub Pages.
 - Annahmen, die ein Agent bei Unklarheit trifft, kommen als kurzer Eintrag in diesen Abschnitt.

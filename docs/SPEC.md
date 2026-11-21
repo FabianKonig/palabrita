@@ -28,7 +28,7 @@ Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte
 | Kartenrichtung & SRS | **Getrennter SRS-Zustand je Richtung** (DE→ES und ES→DE sind je eigene Karten mit eigenem Intervall, Ease und Fälligkeit). Die Statistik zählt Karten je Richtung. |
 | Niveau-Konfiguration | Ein **maximales Niveau** (A1, A2, B1) wird persistent in den Einstellungen gespeichert, siehe §3.2. Höhere Niveaus werden beim Lernen und in der Statistik ausgeblendet (das Verzeichnis zeigt sie, §3.3), ihr Fortschritt bleibt erhalten. |
 | Projektstruktur | Das Projekt liegt **direkt im Repo-Root**, Dokumentation in `docs/` (§9). |
-| Kompatibilität | **Es gibt noch keine Nutzer** (Stand 2026-11-19). Änderungen müssen nicht abwärtskompatibel sein: keine Migrationsskripte, kein Übergang für alte IndexedDB-Daten, alte Datenformate oder gespeicherte Zustände. Datenmodell, Schema und Formate dürfen frei geändert werden. Gilt, bis der Nutzer etwas anderes festlegt. |
+| Kompatibilität | **Es gibt aktive Nutzer** (seit 2026-11-21, vom Nutzer festgelegt; vorher galt „keine Nutzer, keine Migrationen“). Ihr Lernfortschritt und ihre Einstellungen liegen nur auf ihren Geräten und dürfen durch eine neue Version nicht verloren gehen. Änderungen an Datenmodell, Schema, Formaten und Vokabel-IDs müssen so umgesetzt werden, dass Bestandsnutzer die neue Version über „Aktualisieren“ (§15) laden und weiternutzen können, sofern möglich und mit vertretbarem Aufwand. Ist eine Migration nicht einfach umsetzbar, wird das dem Nutzer berichtet, bevor etwas umgesetzt wird; ein Breaking Change gilt nur, wenn der Nutzer ihn ausdrücklich entscheidet. Regeln und Ablauf: §10.4. |
 | PWA-Updates | **Hinweis mit Button**: Ein Banner „Neue Version verfügbar.“ mit Button „Aktualisieren“ erscheint. Es wird nie automatisch neu geladen, auch nicht mitten in einer Lernsitzung (§15). |
 
 Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Filter (MX/GT), Sync zwischen Geräten, eine dritte Bewertung „Kenne ich schon“ (würde eine neue Karte ohne Lernschritte direkt abschließen, kann später ergänzt werden).
@@ -271,7 +271,7 @@ Zusätzlich gilt für jedes Verb:
 - Oberfläche auf **Deutsch**.
 - **Barrierefreiheit:** ausreichender Kontrast, Tastaturbedienung, Labels für Screenreader.
 - **Touch-Verhalten:** Kein farbiges Antipp-Rechteck (Chrome Android, Safari iOS: `-webkit-tap-highlight-color: transparent` auf `html`), Hover-Stile nur bei echtem Hover (`@media (hover: hover)`). Fokus in Suchfeld, Filterknöpfen (Verzeichnis) und Dropdowns (Einstellungen) türkis, ebenso bei den Auswahloptionen im Auswahlfenster der Lernen-Seite (§14.4). Sonstiger Tastaturfokus magenta, auch bei den Kacheln und dem Button „Starten“ der Lernen-Seite.
-- **Datenhaltung:** IndexedDB, Versionierung des Datenschemas, damit spätere Vokabelupdates den Fortschritt nicht zerstören (Vokabel-IDs bleiben stabil).
+- **Datenhaltung:** IndexedDB, Versionierung des Datenschemas, damit spätere Vokabelupdates den Fortschritt nicht zerstören (Vokabel-IDs bleiben stabil). Es gibt aktive Nutzer: Schemaänderungen brauchen eine Migration (§10.4).
 - Keine Tracker, keine externen Dienste, alles offline.
 
 ---
@@ -395,7 +395,7 @@ Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zw
 
 Eine Karte wird **erst beim ersten Lernen angelegt** (kein Vorab-Befüllen von 1000 Karten). „Neu“ = Vokabel ohne Card-Eintrag für diese Richtung.
 
-Beide Stores werden beim Anlegen erzeugt. Es gibt keine Migrationen: Das Projekt hat noch keine Nutzer (§2, Kompatibilität), das Schema ist die Version 1 (`data/db.ts`). Auch fehlende Felder in Datensätzen einer früheren Entwicklungsversion (`orderSeed`, `startedAt`, `Card.introduced`) werden nicht ergänzt; `getSettings` gibt einen vorhandenen Datensatz unverändert zurück. Wer eine frühere Version genutzt hat, installiert die App neu (Website-Daten löschen). Ein früher angelegter Store `userVocab` wird nicht mehr gelesen und nicht gelöscht. Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht).
+Beide Stores werden beim Anlegen erzeugt. Das Schema ist die Version 1 (`data/db.ts`) und der Ausgangspunkt für alle Migrationen (§10.4). Das Schema darf nicht mehr ohne Migration geändert werden. Fehlende Felder in Datensätzen früherer Entwicklungsstände (`orderSeed`, `startedAt`, `Card.introduced`) ergänzt der Code bisher nicht; `getSettings` gibt einen vorhandenen Datensatz unverändert zurück. Ein früher angelegter Store `userVocab` wird nicht mehr gelesen und nicht gelöscht. Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht).
 
 ### 10.3 Lernfortschritt zurücksetzen (`data/progressRepo.ts`)
 
@@ -406,6 +406,47 @@ Beide Stores werden beim Anlegen erzeugt. Es gibt keine Migrationen: Das Projekt
 - Der React-Zustand (`resetProgress` in `hooks/useAppData.tsx`) wird aus dem Rückgabewert gesetzt, nicht aus dem alten Zustand. Karten halten die Oberflächen nicht im Speicher: Die Lernsitzung lädt sie beim Start, die Statistik beim Öffnen; beide sind beim Zurücksetzen (Tab „Mehr“) nicht offen.
 - `localStorage` (`palabrita.welcomeSeen`) und der Service Worker bleiben unberührt, ebenso die Vokabeldateien.
 - Tests: `data/progressRepo.test.ts`.
+
+### 10.4 Bestehende Nutzer: Kompatibilität und Migrationen (festgelegt 2026-11-21)
+
+Seit 2026-11-21 nutzen die ersten echten Nutzer die App (Entscheidung des Nutzers). Ihre Daten liegen nur auf ihrem Gerät und lassen sich weder von uns reparieren noch neu erzeugen. Jede Änderung am Code oder an den Daten muss deshalb daraufhin geprüft werden, ob sie bestehende Daten oder gespeicherte Zustände unbrauchbar macht.
+
+**Grundsatz.** Wenn es möglich ist und mit vertretbarem Aufwand umsetzbar, wird Code oder Datenformat so geändert, dass Bestandsnutzer die neue Version laden (Banner „Aktualisieren“, §15) und ihren Lernfortschritt und ihre Einstellungen behalten. Ein Datenverlust ist kein Normalfall, sondern eine Entscheidung des Nutzers.
+
+**Was als Nutzerdaten und gespeicherter Zustand gilt:**
+
+- IndexedDB `palabrita`: Store `settings` (`main`) und Store `cards` (§10.2). Dazu zählen `orderSeed` und `startedAt`: Sie bestimmen die Reihenfolge neuer Karten und welche Vokabeln als „neu“ gelten (§12.1).
+- `localStorage`: `palabrita.welcomeSeen` (§14.1). Neue Schlüssel gelten ab dem Anlegen ebenso.
+- Vokabel-IDs: Karten verweisen nur über `vocabId` auf die Vokabeln (§10.1). Die Bedeutung hinter einer ID muss gleich bleiben.
+- Die Adresse der App (Origin): Daten sind daran gebunden (§16). Ein Wechsel von Domain, Pfad oder Protokoll lässt Bestandsnutzer mit leerem Speicher zurück.
+- Hash-Routen (`/#/...`): Nutzer können Links teilen und speichern (z. B. `/#/video`). Routen nicht ohne Weiterleitung umbenennen oder entfernen.
+- Der Service Worker und sein Cache: Ein Fehler im Update-Pfad (§15) kann Bestandsnutzer auf einer alten Version festhalten.
+
+**Breaking Change** heißt: Nach dem Update ginge für einen Bestandsnutzer Fortschritt oder Einstellung verloren, würde falsch angezeigt, oder die App liefe nicht mehr. Typische Auslöser:
+
+- Felder in `Settings` oder `Card` umbenennen, entfernen, ihren Typ oder ihre Bedeutung ändern oder neue Pflichtfelder einführen (alte Datensätze haben sie nicht).
+- Stores oder Schlüssel (`keyPath`) ändern, umbenennen oder löschen.
+- Vokabel-IDs ändern, wiederverwenden oder die Bedeutung eines Eintrags unter derselben ID ändern. Entfernte Vokabeln bleiben als verwaiste Karten liegen und werden ignoriert (§10.2); das ist erlaubt, geht aber nur bewusst.
+- Das Lernmodell so ändern, dass vorhandene Kartenwerte (`ease`, `interval`, `state`, `step`, §11) anders gelesen werden.
+- `localStorage`-Schlüssel ändern; Origin oder Routen ändern (siehe oben).
+
+**Umsetzung von Migrationen (Standardweg):**
+
+- Datenbank: `DB_VERSION` in `data/db.ts` erhöhen und für den Sprung einen Schritt in `upgrade(db, oldVersion, …)` ergänzen. Bestehende Schritte nie ändern oder entfernen, denn Nutzer können von jeder früheren Version aus springen. Die Version nie senken.
+- Neue Felder: Wo möglich beim Upgrade in den vorhandenen Datensätzen befüllen oder beim Lesen tolerant mit einem Standardwert behandeln.
+- Test mit einer Datenbank im alten Format (mit `fake-indexeddb`), die nach dem Upgrade alle alten Daten unverändert liefert (`data/db.test.ts` ist der Ort).
+- Mehrere offene Tabs: Eine alte Version, die in einem anderen Tab offen ist, kann das Upgrade blockieren (`blocked`/`blocking` der `idb`-Optionen). Eine alte Code-Version kann eine Datenbank mit neuerer Version nicht öffnen (`VersionError`). Einen Deploy nach einem Versionssprung zurückzunehmen ist darum nicht folgenlos.
+- Vokabeldaten: Regeln in `docs/VOKABELN.md` (IDs, `added`).
+- Danach SPEC (dieser Abschnitt und §10.2) und die Tests nachziehen; ein Sprung der Datenbankversion wird in §10.2 festgehalten.
+
+**Ablauf bei Änderungen, die Daten betreffen:**
+
+1. Prüfen, ob die Änderung Bestandsdaten berührt (Liste oben). Wenn nicht, normal weiterarbeiten.
+2. Wenn ja: die Änderung so bauen, dass Bestandsnutzer nichts verlieren (Migration, tolerantes Lesen, Weiterleitung).
+3. **Berichten (Pflicht), bevor umgesetzt wird,** wenn eine Migration nicht einfach machbar ist, einen extrem großen Umbau erzwingen würde, oder sich Datenverlust nicht vermeiden lässt. Der Bericht nennt: was sich ändern soll, wen und was es betrifft, wie aufwendig eine Migration wäre, Alternativen. **Der Nutzer entscheidet,** ob der Aufwand betrieben wird oder ein Breaking Change stattfindet. Ein Breaking Change wird dann gemeinsam mit dem Nutzer spezifiziert (z. B. Ankündigung, Übergang); kein Agent entscheidet ihn allein.
+4. Nicht stillschweigend einen Breaking Change einbauen, und auch nicht stillschweigend einen sehr großen Umbau betreiben, nur um ihn zu vermeiden.
+
+Offen: Ein genaueres Verfahren (z. B. Aufbau der Upgrade-Schritte, Hinweis an Nutzer bei einem Breaking Change) ist noch nicht spezifiziert. Es wird mit dem Nutzer festgelegt, sobald die erste Änderung es braucht (`docs/TASKS.md`).
 
 ## 11. Lernmodell (`domain/srs.ts`)
 
