@@ -27,7 +27,7 @@ python3 -m venv .venv
 | Wortzeiten | `.venv/bin/python scripts/video/04-wortzeiten.py` | `.video-work/build/words.json` |
 | Zeitplan | `node scripts/video/05-zeitplan.cjs` | `.video-work/build/timeline.json` (Länge muss unter 70 s bleiben) |
 | Aufnahme | `NODE_PATH=$(npm root -g) node scripts/video/06-aufnahme.cjs` | Bilder und `frames.json` in `.video-work/build/` |
-| Zusammenbau | `node scripts/video/07-zusammenbau.cjs` | `.video-work/build/palabrita_erklaervideo.mp4` |
+| Zusammenbau | `node scripts/video/07-zusammenbau.cjs` | `.video-work/build/palabrita_erklaervideo.mp4` (mit Namensnennung der Musik in den Metadaten) und `palabrita_erklaervideo_poster.jpg` (Vorschaubild) |
 
 Der Sprechertext steht in `sprechertext.json` und muss mit `docs/ERKLAERVIDEO.md` („Sprechertext am Stück“) übereinstimmen. Ändert sich der Text, beides anpassen und ab „Stimme klonen“ neu laufen lassen. Mit `VIDEO_WORK=<Ordner>` lässt sich ein anderer Arbeitsordner wählen.
 

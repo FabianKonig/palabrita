@@ -2,7 +2,7 @@
 // Aufruf (aus dem Repo-Wurzelordner): node scripts/video/07-zusammenbau.cjs
 // AUDIO_ONLY=1 baut nur die Tonspur und das MP4 neu (Bild bleibt, z. B. nach Änderung der Lautstärke).
 const fs = require("node:fs");
-const { execSync } = require("node:child_process");
+const { execSync, execFileSync } = require("node:child_process");
 const { work } = require("./lib/paths.cjs");
 
 const TL = JSON.parse(fs.readFileSync(work("build", "timeline.json"), "utf8"));
@@ -53,12 +53,63 @@ sh(
   `ffmpeg -v error -y -i "${work("music", "vibrant-momentum.mp3")}" ${inputs} -filter_complex "${fc}" -map "[out]" -c:a aac -b:a 192k -t ${total} "${work("build", "audio_mix.m4a")}"`,
 );
 const out = work("build", "palabrita_erklaervideo.mp4");
-sh(
-  `ffmpeg -v error -y -i "${work("build", "video_silent.mp4")}" -i "${work("build", "audio_mix.m4a")}" -c:v copy -c:a copy -shortest -movflags +faststart "${out}"`,
+// Namensnennung der Musik (CC BY 4.0) reist in den Metadaten der MP4-Datei mit (docs/ERKLAERVIDEO.md).
+const MUSIK =
+  "Musik: „Vibrant Momentum (Energetic Track for Engaging Content)“ von LolaMoore (https://freesound.org/people/LolaMoore/sounds/762602), " +
+  "Lizenz CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Für das Video gekürzt, ein- und ausgeblendet und in der Lautstärke angepasst.";
+execFileSync(
+  "ffmpeg",
+  [
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    work("build", "video_silent.mp4"),
+    "-i",
+    work("build", "audio_mix.m4a"),
+    "-c:v",
+    "copy",
+    "-c:a",
+    "copy",
+    "-shortest",
+    "-movflags",
+    "+faststart",
+    "-metadata",
+    "title=Palabrita – Erklärvideo",
+    "-metadata",
+    "copyright=Musik: LolaMoore, CC BY 4.0",
+    "-metadata",
+    "comment=" + MUSIK,
+    out,
+  ],
+  { stdio: "inherit" },
+);
+// Vorschaubild für den Player (poster): ein Bild aus dem Video, standardmäßig bei 8,6 s (Szene 2).
+const poster = work("build", "palabrita_erklaervideo_poster.jpg");
+execFileSync(
+  "ffmpeg",
+  [
+    "-v",
+    "error",
+    "-y",
+    "-ss",
+    process.env.POSTER_T ?? "8.6",
+    "-i",
+    out,
+    "-frames:v",
+    "1",
+    "-vf",
+    "scale=540:-2",
+    "-q:v",
+    "4",
+    poster,
+  ],
+  { stdio: "inherit" },
 );
 console.log(out);
+console.log(poster);
 console.log(
   execSync(
-    `ffprobe -v error -show_entries format=duration,size:stream=codec_name,width,height -of default=nw=1 "${out}"`,
+    `ffprobe -v error -show_entries format=duration,size:format_tags=title,copyright,comment:stream=codec_name,width,height -of default=nw=1 "${out}"`,
   ).toString(),
 );

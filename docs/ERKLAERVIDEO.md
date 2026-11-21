@@ -226,7 +226,7 @@ Die HTML-Struktur dazu: `.o1` enthält `<span class="big">800+</span><span class
 4. **Sprachausgabe-Attrappe** (Init-Skript): `speechSynthesis.getVoices` liefert eine Stimme `es-MX`, `speak`/`cancel` tun nichts, `SpeechSynthesisUtterance` ist ein einfacher Ersatz. Sonst zeigt die Karte „Keine spanische Stimme gefunden“ und der Lautsprecher ist deaktiviert.
 5. **Aufnahme:** Chromium (Playwright) mit Viewport 412 × 732 und `deviceScaleFactor` 1080/412. Bildaufnahme per CDP-Screencast (`Page.startScreencast`, JPEG Qualität 92, `maxWidth` 1080, `maxHeight` 1920, `everyNthFrame` 2); jedes Bild wird mit dem Zeitstempel der Aufnahme gespeichert. Ein Zeitplan führt alle Aktionen (Tippen, Scrollen, Einblenden) zu festen Zeiten seit dem Seitenstart aus. Ein Tipp = Tipp-Punkt (CSS-Ebene, 0,6 s) und 140 ms später der echte Klick. Die Ebene (`#fx`) enthält Tipp-Punkte, Hervorhebungen und die Einblendungen (CSS aus „Einblendungen: Gestaltung“).
 6. **Bild:** Die Bilder mit ihren Zeitstempeln per ffmpeg-`concat` zu einem Video mit 30 Bildern pro Sekunde zusammensetzen (`scale` auf 1080 × 1920, Hintergrund `#f3f6f5`, `libx264` CRF 19).
-7. **Ton:** Sprecherclips mit `adelay` an den Szenenstart (+ 0,4 s) legen, Musik zuschneiden und absenken, mischen, `loudnorm=I=-16:TP=-1.5`, AAC 192 kbit/s. Mit dem Bild zu MP4 vereinen (`+faststart`).
+7. **Ton:** Sprecherclips mit `adelay` an den Szenenstart (+ 0,4 s) legen, Musik zuschneiden und absenken, mischen, `loudnorm=I=-16:TP=-1.5`, AAC 192 kbit/s. Mit dem Bild zu MP4 vereinen (`+faststart`) und die Namensnennung der Musik in die Metadaten schreiben (`title`, `copyright`, `comment`). Aus dem Video ein Vorschaubild (Poster) ziehen: JPEG, 540 px breit, Bild bei 8,6 s (Szene 2), rund 47 KB.
 
 ## Technische Hinweise zur Stimme (Qwen3-TTS)
 
@@ -266,7 +266,7 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 
 > Musik: „Vibrant Momentum (Energetic Track for Engaging Content)“ von LolaMoore (https://freesound.org/people/LolaMoore/sounds/762602), Lizenz CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Für das Video gekürzt, ein- und ausgeblendet und in der Lautstärke angepasst.
 
-**Wo die Angabe stehen kann** (Entscheidung des Nutzers steht noch aus; Empfehlung des Agenten ist A plus B):
+**Entscheidung (Nutzer, 2026-11-21): A und B.** Die Angabe steht unter dem Player auf der Video-Seite, in einer Hinweisdatei im Repo und in den Metadaten der MP4-Datei. Eine Zeile im Abspann (C) ist nicht nötig, der Abspann bleibt unverändert; das Video muss deshalb nicht neu erzeugt werden. Die Metadaten setzt `scripts/video/07-zusammenbau.cjs` (Felder `title`, `copyright`, `comment` mit dem vorgeschlagenen Text); geprüft mit `ffprobe`. Die Möglichkeiten im Einzelnen:
 
 - **A. Unter dem Player auf der Video-Seite in der App** (Tab „Mehr“, `/#/video`) und in einer Hinweisdatei im Repo (wie `public/vocab/NOTICE.md`). Das ist die übliche Stelle und deckt jeden ab, der das Video über die Seite ansieht.
 - **B. In den Metadaten der MP4-Datei** (Felder `title`, `artist`/`comment`, per ffmpeg `-metadata`). Die Angabe reist so mit der Datei, wenn jemand sie direkt weitergibt.
@@ -274,11 +274,12 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 
 Wird der **Teilen-Link** als Adresse der Video-Seite festgelegt (nicht der Datei-URL), erreicht jeden Besucher auch die Angabe unter dem Player.
 
-**Einbindung (Nutzer, 2026-11-21):** Das Video muss **nicht offline abspielbar** sein und wird nicht vorab gecacht. Wer die Seite der App öffnet, soll es nicht herunterladen müssen: Der Player lädt erst beim Abspielen (`preload="none"`), und die Videodatei gehört nicht ins Service-Worker-Precache (`globPatterns` in `vite.config.ts` kennt kein `mp4`/`webm`, so bleibt es). Ein kleines Vorschaubild (Poster, ein Bild aus dem Video, rund 50 KB) wäre eine mögliche Ergänzung, wenn der Player vor dem Abspielen nicht leer wirken soll; nicht entschieden.
+**Einbindung (Nutzer, 2026-11-21):** Das Video muss **nicht offline abspielbar** sein und wird nicht vorab gecacht. Wer die Seite der App öffnet, soll es nicht herunterladen müssen: Der Player lädt erst beim Abspielen (`preload="none"`), und die Videodatei gehört nicht ins Service-Worker-Precache (`globPatterns` in `vite.config.ts` kennt kein `mp4`/`webm`, so bleibt es). **Vorschaubild (Poster): ja (Nutzer, 2026-11-21).** Ein Bild aus dem Video (Szene 2, bei 8,6 s: Lernen-Seite mit „800+ Wörter. Mexiko & Guatemala“), JPEG 540 px breit, rund 47 KB, vom Skript `07-zusammenbau.cjs` erzeugt (`POSTER_T` wählt einen anderen Zeitpunkt). Es wird als `poster` des Players eingebunden, damit der Player vor dem Abspielen nicht leer wirkt, ohne das Video zu laden. Wie die Videodatei wird es erst nach ausdrücklicher Bestätigung des Nutzers eingecheckt; der Nutzer hat das Bild noch nicht bestätigt.
 
 ## Offen
 
 - Rückmeldung des Nutzers zur ersten Fassung (Bild, Ton, Tempo, Einblendungen, Musik).
-- Namensnennung der Musik: Der Nutzer entscheidet über die Stelle (A Seite plus Hinweisdatei, B MP4-Metadaten, C Zeile im Abspann), siehe „Namensnennung der Musik und Einbindung“. Wird C gewählt, ist das Video neu zu erzeugen; das Video ist deshalb noch nicht eingecheckt.
+- Der Nutzer bestätigt das Vorschaubild (Szene 2, 8,6 s) oder wählt ein anderes Bild.
+- **Teilen-Link:** Seite (`/#/video`, mit Namensnennung unter dem Player) oder Datei-URL; Empfehlung des Agenten: die Seite.
 - Ort der Hinweisdatei für die Musik (bei der Einbindung des Videos in die App).
 - Video-Einbindung in die App (neue Seite im Tab „Mehr“): Anforderungen in `docs/TASKS.md`.
