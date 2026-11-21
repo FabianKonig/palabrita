@@ -846,5 +846,21 @@
     "note": null,
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v0928",
+    "de": ["Häppchen", "Snack"],
+    "es": "el bocadillo",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "added": "2026-11-21",
+    "example": {
+      "es": "En la fiesta sirven bocadillos y refrescos.",
+      "de": "Auf dem Fest gibt es Häppchen und Erfrischungsgetränke."
+    },
+    "note": "Verkleinerung von el bocado (Bissen). In Mexiko ein Häppchen, etwa auf Feiern oder in Bars; el bocadillo de coco ist eine Kokossüßigkeit. In Spanien ist el bocadillo ein belegtes Brötchen, das in Mexiko la torta heißt.",
+    "gender": "m",
+    "plural": "los bocadillos"
   }
 ]
