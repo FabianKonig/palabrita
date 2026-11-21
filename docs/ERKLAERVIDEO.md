@@ -1,10 +1,10 @@
 # Palabrita: Drehbuch Erklärvideo
 
-Stand: 2026-11-20. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS.md`. Ist das Video fertig und eingebunden, kommen die Festlegungen in `docs/SPEC.md`. Diese Datei ist die einzige Quelle für das Video: Entscheidungen, Text, Ablauf, Gestaltung und technische Hinweise.
+Stand: 2026-11-21. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS.md`. Ist das Video fertig und eingebunden, kommen die Festlegungen in `docs/SPEC.md`. Diese Datei ist die einzige Quelle für das Video: Entscheidungen, Text, Ablauf, Gestaltung und technische Hinweise.
 
 ## Übergabe an einen neuen Agenten (Kurzfassung)
 
-**Wo wir stehen.** Eine erste Version des Videos wurde schon erzeugt und vom Nutzer verworfen (Stimmen und Musik, siehe „Erkenntnisse“). Für die zweite Version sind Text, Länge, Ablauf, Einblendungen, Musikfavorit und Stimmfavorit festgelegt. **Das Video selbst ist noch nicht neu erzeugt.**
+**Wo wir stehen.** Eine erste Version des Videos wurde schon erzeugt und vom Nutzer verworfen (Stimmen und Musik, siehe „Erkenntnisse“). Für die zweite Version sind Text, Länge, Ablauf, Einblendungen, Musik und Stimme festgelegt. **Die erste vollständige Fassung der zweiten Version wurde am 2026-11-21 erzeugt** (67,2 s, 1080 × 1920, rund 7 MB) und dem Nutzer als Datei in den Chat geschickt. Sie liegt nicht im Repo; der Nutzer hat sie bei der Übergabe noch nicht gesehen. Annahmen und Rezept: Abschnitt „Erzeugte Fassung (2026-11-21)“.
 
 **Entschieden (alles vom Nutzer, 2026-11-20):**
 
@@ -15,14 +15,14 @@ Stand: 2026-11-20. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS
 - **Vier Einblendungen** mit freigegebener Gestaltung (Abschnitt „Einblendungen: Gestaltung“).
 - Python ist für die Videoerzeugung erlaubt (Ausnahme in `AGENTS.md`).
 - **Stimme 2a ist geklont und vom Nutzer freigegeben** (Hörprobe 2026-11-20): Klonmodus **„nur Stimmcharakter“** (`x_vector_only_mode=True`), weil die spanischen Wörter dort besser klingen; Tempo **1,25-fach** (ffmpeg `atempo=1.25`) passt. Die spanischen Wörter stören nicht, die Ausweichlösung mit zwei Stimmen ist damit nicht nötig.
-- **Wartestand:** Die Lernen-Seite ist auf Kacheln und Auswahlfenster umgebaut (Stand siehe Abschnitt „Lernen-Seite: Stand für die Aufnahme“). Der Nutzer ändert Oberfläche und Aussehen **noch einmal** und sagt Bescheid. Mit der Aufnahme erst nach seiner Bestätigung beginnen.
+- **Lernen-Seite:** Der Nutzer plant vorerst keine weiteren Änderungen an der Oberfläche (2026-11-21). Die Aufnahme beruht auf dem Stand `main` bei `f3c34e5` (Abschnitt „Lernen-Seite: Stand für die Aufnahme“). Ändert sich die App sichtbar (Lernen-Seite, Lernsitzung, Verzeichnis, Statistik, „Mehr“), ist die Aufnahme neu zu erzeugen.
 
 **Als Nächstes zu tun (in dieser Reihenfolge):**
 
-1. **Warten, bis der Nutzer die Lernen-Seite für fertig erklärt.** Bei der nächsten Änderung `main` mergen, den Abschnitt „Lernen-Seite: Stand für die Aufnahme“ und die Klickpfade der Szenen 1 und 2 prüfen und anpassen. Die Szenen 3 bis 9 sind von der Umgestaltung nicht betroffen (geprüft am 2026-11-20: Lernsitzung, Konjugation, Verzeichnis und „Mehr“ unverändert).
-2. Alle neun Szenen mit der geklonten Stimme 2a im Modus „nur Stimmcharakter“ erzeugen (bisher nur Szene 1, 3 und 6 gehört und freigegeben), mit `atempo=1.25` beschleunigen. Sprechertext ändert sich nicht. Das lässt sich schon vor dem Merge machen, nur wenn der Nutzer es wünscht.
-3. Danach das Video erzeugen (Aufnahme, Ton, Musik mit Ducking, Einblendungen, Abspann) und dem Nutzer zur Ansicht geben.
-4. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken.
+1. **Der Nutzer sieht die Fassung an und sagt, was zu ändern ist** (Bild, Ton, Tempo, Einblendungen, Musiklautstärke, Länge). Keine Änderungen ohne seine Rückmeldung.
+2. Änderungen umsetzen. Dafür die Schritte aus „Erzeugte Fassung (2026-11-21)“ wiederholen; die Hilfsskripte (Aufnahme, Zeitplan, Ton) lagen nur im Arbeitsordner der Sitzung und sind **nicht im Repo**. Das Rezept dort reicht zum Nachbauen.
+3. Das Video dem Nutzer wieder als Datei schicken.
+4. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken (Videodatei und Einbindung in die App: `docs/TASKS.md`).
 
 **Regeln, die immer gelten:**
 
@@ -100,12 +100,12 @@ Die Lernen-Seite (Szene 1 und 2) kann sich noch einmal ändern (siehe „Lernen-
 |---|---|---|---|---|
 | 1 | 0:00–0:06 | Begrüßungskarte schwebt über der Lernseite: „¡Bienvenido a Palabrita“. Tipp, Karte dreht sich: „Willkommen zu Palabrita“. Tipp, Karte verschwindet. Musik setzt mit dem ersten Bild ein. | – | „Una cerveza, por favor“ – und dann? Peinliches Schweigen? Muss nicht sein. Das ist Palabrita! |
 | 2 | 0:06–0:13 | Lernseite im Standardzustand (4 Kacheln, Startblock, untere Hälfte leer). Kachel „Thema“ antippen, das Auswahlfenster erscheint (ohne Animation), „Unterwegs & Transport“ antippen, das Fenster schließt, Kachel und Zusammenfassung zeigen das Thema, „Starten“ tippen. | „800+ Wörter. Mexiko & Guatemala“ (ca. 3 s, gleich zu Beginn der Szene, solange die ruhige Seite zu sehen ist; danach erst die Kachel antippen) | Über achthundert Wörter für Mexiko und Guatemala. Vom Markt bis zum Maya-Tempel! |
-| 3 | 0:13–0:22 | Karte „Bus · Lastwagen“. „Umdrehen“: *el camión* / *los camiones*, Badge „maskulin“, Beispielsatz, Hinweis „In Mexiko bedeutet „camión“ auch Stadtbus …“. Tipp auf 🔊, man hört *el camión* (vom Sprecher gesprochen). Kurzer Zoom auf den Hinweis. | – | Umdrehen, anhören, merken. Beispiel: „camión“. Lastwagen? Nein, in Mexiko heißt „camión“ nicht nur Lastwagen, sondern auch Bus. Palabrita sagt dir das, bevor du einsteigst. |
-| 4 | 0:22–0:30 | Buttons „Nochmal“ (1 Min) und „Gewusst“ (10 Min) kurz hervorgehoben. Tipp auf „Gewusst“. Zwei weitere Karten im Zeitraffer (umdrehen, bewerten). | – | Gewusst oder nochmal? Ehrlich sein! Palabrita merkt sich, wann du ein Wort vergessen würdest, und fragt genau davor nochmal. |
-| 5 | 0:30–0:35 | Karte „können · dürfen“, umdrehen: *poder* mit grauer Zeile *(ue)*. Tipp auf „Konjugation“, die Formentabelle fährt von unten herein, kurz scrollen. | – | Konjugation? Gibt’s gratis dazu. Auch für die fiesen, unregelmäßigen Verben. |
-| 6 | 0:35–0:53 | **Höhepunkt.** Tab „Verzeichnis“. Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | „Findet auch gebeugte Formen“ mit dem Etikett „podemos → poder ✓“ darunter (ca. 3 s, wenn der Sprecher „gebeugte Formen“ sagt); beim gesprochenen „Podemos!“ am Ende „Ja, wir können das!“ (ca. 1,5 s, genau im Moment des Worts, darf die Treffer-Karte überdecken) | Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen von Verben und zeigt dir den zugehörigen Infinitiv. Und „podemos“ führt direkt zu poder. Können wir das? Podemos! |
-| 7 | 0:53–0:57 | Tab „Statistik“: Balken neu, lernend, gefestigt je Richtung (vorbereiteter Lernstand, siehe Erzeugung). | – | Die Statistik zeigt, was schon sitzt. Perfektes Angeber-Material. [kürzbar] |
-| 8 | 0:57–1:03 | Tab „Mehr“ mit Markenkopf, dann ein Handy-Symbol mit Flugmodus-Zeichen über der weiter laufenden App. | „Offline“, „Ohne Konto“, „Ohne Tracking“ (drei Chips nacheinander) | Läuft im Browser, auch offline. Kein Konto, kein Tracking. Nur du und die Wörter. |
+| 3 | 0:13–0:25 | Karte „Bus · Lastwagen“. „Umdrehen“: *el camión* / *los camiones*, Badge „maskulin“, Beispielsatz, Hinweis „In Mexiko bedeutet „camión“ auch Stadtbus …“. Tipp auf 🔊, man hört *el camión* (vom Sprecher gesprochen). Kurzer Zoom auf den Hinweis. | – | Umdrehen, anhören, merken. Beispiel: „camión“. Lastwagen? Nein, in Mexiko heißt „camión“ nicht nur Lastwagen, sondern auch Bus. Palabrita sagt dir das, bevor du einsteigst. |
+| 4 | 0:25–0:33 | Buttons „Nochmal“ (1 Min) und „Gewusst“ (10 Min) kurz hervorgehoben. Tipp auf „Gewusst“. Zwei weitere Karten im Zeitraffer (umdrehen, bewerten). | – | Gewusst oder nochmal? Ehrlich sein! Palabrita merkt sich, wann du ein Wort vergessen würdest, und fragt genau davor nochmal. |
+| 5 | 0:33–0:38 | Karte „fliegen“, umdrehen: *volar* mit grauer Zeile *(ue)* (ein unregelmäßiges Verb aus dem Thema Transport; *poder* gehört zu „Smalltalk & Alltag“ und käme in dieser Sitzung nicht vor). Tipp auf „Konjugation“, die Formentabelle erscheint von unten, kurz scrollen. | – | Konjugation? Gibt’s gratis dazu. Auch für die fiesen, unregelmäßigen Verben. |
+| 6 | 0:38–0:54 | **Höhepunkt.** Harter Schnitt zum Tab „Verzeichnis“ (in der Lernsitzung gibt es keine Tab-Leiste). Ins Suchfeld wird „fue“ getippt (Buchstabe für Buchstabe). Treffer: **fue** → ser, **fue** → ir, **fue** → irse, jeweils mit „3. Sg. Pretérito indefinido“; Zoom auf die Pfeilzeilen. Suchfeld leeren, „podemos“ tippen: **podemos** → poder, „1. Pl. Presente“. Zeile antippen: Detailseite von *poder*, die Zelle *podemos* ist in der Tabelle hervorgehoben, Zoom darauf. | „Findet auch gebeugte Formen“ mit dem Etikett „podemos → poder ✓“ darunter (ca. 3 s, wenn der Sprecher „gebeugte Formen“ sagt); beim gesprochenen „Podemos!“ am Ende „Ja, wir können das!“ (ca. 1,5 s, genau im Moment des Worts, darf die Treffer-Karte überdecken) | Jetzt wird’s gut! Irgendwo „fue“ aufgeschnappt? Tipp es ein. Ser? Ir? Beides kann passen und erscheint in der Suche! Palabrita findet auch gebeugte Formen von Verben und zeigt dir den zugehörigen Infinitiv. Und „podemos“ führt direkt zu poder. Können wir das? Podemos! |
+| 7 | 0:54–0:58 | Tab „Statistik“: Balken neu, lernend, gefestigt je Richtung (vorbereiteter Lernstand, siehe Erzeugung). | – | Die Statistik zeigt, was schon sitzt. Perfektes Angeber-Material. [kürzbar] |
+| 8 | 0:58–1:03 | Tab „Mehr“ mit Markenkopf, dann ein Handy-Symbol mit Flugmodus-Zeichen über der weiter laufenden App. | „Offline“, „Ohne Konto“, „Ohne Tracking“ (drei Chips nacheinander) | Läuft im Browser, auch offline. Kein Konto, kein Tracking. Nur du und die Wörter. |
 | 9 | 1:03–1:07 | Große Wortmarke (Wimpel, „Palabrita“, Greca) auf ruhigem Hintergrund, darunter Slogan „Tu app de vocabulario de español“, keine Adresse. Musik klingt aus. | – | Palabrita. Probier’s aus. ¡Vámonos! |
 
 ## Sprechertext am Stück
@@ -148,7 +148,7 @@ Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mi
 
 | # | Szene | Text | Aufbau |
 |---|---|---|---|
-| 1 | 2 | „800+ Wörter. Mexiko & Guatemala“ | große Zahl „800+“ (104 px) mit weiß-gelbem Verlauf und türkisem Versatzschatten, darunter „Wörter.“ (weiß) und „Mexiko & Guatemala“ auf einem gelben Rechteck (schwarzer Text, leicht gekippt); liegt in der leeren unteren Hälfte der Lernen-Seite (y ca. 535–840, Position 125 px von unten; sie ist etwa 240 px hoch und berührt dann den Startblock nicht, eine leichte Überlagerung wäre erlaubt); erscheint zu Beginn der Szene, bevor die Kachel „Thema“ angetippt wird, damit sie nicht mit dem Auswahlfenster kollidiert |
+| 1 | 2 | „800+ Wörter. Mexiko & Guatemala“ | große Zahl „800+“ (84 px bei der Aufnahme mit 412 × 732, im Entwurf bei 412 × 915 waren es 104 px) mit weiß-gelbem Verlauf und türkisem Versatzschatten, darunter „Wörter.“ (weiß) und „Mexiko & Guatemala“ auf einem gelben Rechteck (schwarzer Text, leicht gekippt); liegt in der leeren unteren Hälfte der Lernen-Seite (y ca. 535–840, Position 125 px von unten; sie ist etwa 240 px hoch und berührt dann den Startblock nicht, eine leichte Überlagerung wäre erlaubt); erscheint zu Beginn der Szene, bevor die Kachel „Thema“ angetippt wird, damit sie nicht mit dem Auswahlfenster kollidiert |
 | 2 | 6 | „Findet auch gebeugte Formen“ + „podemos → poder ✓“ | türkiser Kasten mit weißem Innenrand, „gebeugte Formen“ in Hellgelb, leicht gekippt; darunter ein kleines weißes Etikett mit magentafarbener Schrift „podemos → poder ✓“ (zeigt das Ergebnis der Suche) |
 | 3 | 6, bei „Podemos!“ | „„Ja, wir können das!““ | magentafarbener Kasten (Verlauf nach `#e11d74`), „können“ in Hellgelb, kleiner Funken (✨) an der Ecke, stärker gekippt (-3°); größer (68 px) und darf den Bildschirm überragen |
 | 4 | 8 | „Offline“, „Ohne Konto“, „Ohne Tracking“ | drei weiße Chips untereinander mit türkisem Kreis-Symbol (✈, ✓, ✓), leicht versetzt und gekippt |
@@ -160,10 +160,10 @@ Vom Nutzer nach einem Screenshot-Entwurf freigegeben (2026-11-20: „gefällt mi
 .ov{position:absolute;left:18px;right:18px;color:#fff;font-weight:900;
     font-family:"Inter Display","Inter",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.02}
 /* 1: Zahl (Szene 2) */
-.o1{bottom:125px;transform:rotate(-2deg)}
-.o1 .big{font-size:104px;background:linear-gradient(95deg,#fff 10%,#ffe27a 90%);-webkit-background-clip:text;color:transparent;
+.o1{bottom:70px;transform:rotate(-2deg)}
+.o1 .big{font-size:84px;background:linear-gradient(95deg,#fff 10%,#ffe27a 90%);-webkit-background-clip:text;color:transparent;
          filter:drop-shadow(0 6px 0 rgba(15,118,110,.9)) drop-shadow(0 14px 22px rgba(0,0,0,.35));display:block}
-.o1 .sm{font-size:40px;margin-top:2px;text-shadow:0 3px 16px rgba(0,0,0,.45);display:block}
+.o1 .sm{font-size:32px;margin-top:2px;text-shadow:0 3px 16px rgba(0,0,0,.45);display:block}
 .o1 .sm b{background:var(--yl);color:#12201e;padding:0 10px;border-radius:10px;display:inline-block;transform:rotate(1.5deg);margin-left:6px}
 /* Verlauf unter der Einblendung, damit sie lesbar bleibt (Szene 2 und „Ja, wir können das!“) */
 .dim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,18,0) 40%,rgba(8,20,18,.55) 100%)}
@@ -192,14 +192,41 @@ Die HTML-Struktur dazu: `.o1` enthält `<span class="big">800+</span><span class
 
 ## Automatische Erzeugung
 
-- **Aufnahme:** Playwright mit der vorinstallierten Chromium-Version gegen `npm run preview` (nach `npm run build`; `dist/` ist ignoriert), Handy-Ansicht (412 × 915 CSS-Pixel, Skalierung so, dass 1080 × 1920 entsteht), Videoaufnahme oder Einzelbilder je Szene. Tipp-Punkte und Zooms werden per eingeblendetem Overlay bzw. im Schnitt erzeugt, nicht in der App. Die Begrüßung (Szene 1) erscheint nur, wenn `localStorage` den Schlüssel `palabrita.welcomeSeen` nicht auf `"1"` hat (`src/data/welcomeFlag.ts`); für alle anderen Szenen den Schlüssel vorher setzen. Routen (HashRouter): `#/` (Lernen), `#/dictionary` (Verzeichnis), `#/dictionary/:id`, `#/stats`, `#/more`.
-- **Vorbereiteter Lernstand:** Damit in Szene 3 bis 5 genau *el camión* und *poder* erscheinen und die Statistik (Szene 7) nicht leer ist, wird IndexedDB vor der Aufnahme mit einem passenden Zustand befüllt. Die App selbst wird dafür nicht geändert.
+- **Aufnahme:** Playwright mit der vorinstallierten Chromium-Version gegen `npm run preview` (nach `npm run build`; `dist/` ist ignoriert), Handy-Ansicht **412 × 732 CSS-Pixel mit Skalierung 1080 / 412 (rund 2,62)**, das ergibt genau 9:16 bzw. 1080 × 1919 und wird auf 1080 × 1920 aufgefüllt. (Die frühere Angabe „412 × 915“ war nicht 9:16; 915 px Höhe gelten nur für die Entwurfsbilder der Einblendungen.) Tipp-Punkte, Hervorhebungen und Einblendungen werden als Ebene über die App gelegt, nicht in der App. Die Begrüßung (Szene 1) erscheint nur, wenn `localStorage` den Schlüssel `palabrita.welcomeSeen` nicht auf `"1"` hat (`src/data/welcomeFlag.ts`); für alle anderen Szenen den Schlüssel vorher setzen. Routen (HashRouter): `#/` (Lernen), `#/dictionary` (Verzeichnis), `#/dictionary/:id`, `#/stats`, `#/more`.
+- **Vorbereiteter Lernstand:** Damit in Szene 3 bis 5 nacheinander *el camión*, *el taxi*, *el avión* und *volar* erscheinen und die Statistik (Szene 7) nicht leer ist, wird IndexedDB vor der Aufnahme befüllt (Details: „Erzeugte Fassung“). Die App selbst wird nicht geändert.
 - **Aussprache in Szene 3:** Die Browser-Sprachausgabe klingt in einer automatisierten Aufnahme nicht mit. Das *el camión* spricht deshalb der Sprecher (dieselbe Stimme wie der übrige Text, bei der Ausweichlösung mit zwei Stimmen die spanische) und wird an der Stelle des Tipps eingemischt.
 - **Sprecher:** Qwen3-TTS, geklonte Stimme 2a, siehe „Technische Hinweise zur Stimme“.
 - **Musik:** „Vibrant Momentum“, siehe „Technische Hinweise zur Musik“. Das Stück ist länger als das Video (rund 2 min): ab dem Anfang schneiden, am Ende ausblenden (Fade), mit Ducking unter dem Sprecher.
 - **Zeitpunkt der Einblendung „Ja, wir können das!“:** Aus der fertigen Sprecher-Aufnahme Wortzeiten lesen (z. B. Whisper mit `return_timestamps="word"`, Modell `openai/whisper-small`) und die Einblendung bei „Podemos“ starten. Für die anderen Einblendungen genügen die Szenengrenzen.
 - **Schnitt:** `ffmpeg` (in der Cloud-Umgebung vorhanden) setzt Aufnahme, Sprecher, Musik (mit Ducking) und die vier Einblendungen zusammen. Ausgabe MP4 (H.264/AAC), 1080 × 1920, Ziel unter 40 MB.
 - **Ablage:** Das fertige Video wird nicht eingecheckt, sondern nur außerhalb des Repos abgelegt und dem Nutzer zur Ansicht gegeben (Regel in `docs/TASKS.md`).
+
+## Erzeugte Fassung (2026-11-21)
+
+**Ergebnis:** `palabrita_erklaervideo_v2.mp4`, 67,2 s, 1080 × 1920, H.264/AAC, rund 7 MB, Lautheit -16 LUFS, Spitze -1,9 dB. Dem Nutzer als Datei geschickt, nicht im Repo. Der Ton wurde nur gemessen, nicht gehört (Agent ohne Gehör); die Bilder wurden an Einzelbildern geprüft.
+
+**Zeitplan** (aus den echten Längen der Sprecherclips): Jede Szene beginnt mit 0,4 s Vorlauf, danach spricht der Sprecher. Szenenstart in s: 0, 6,0, 13,4, 25,1, 32,7, 38,1, 54,1, 58,1, 63,4; Ende 67,2. Die Sprecherclips sind (nach Tempo 1,25) 5,0 / 4,2 / 10,8 / 6,9 / 4,4 / 15,0 / 3,4 / 4,4 / 2,6 s lang.
+
+**Annahmen, die der Agent getroffen hat** (der Nutzer hat sie noch nicht bestätigt):
+
+- **Aufnahmeformat 412 × 732 statt 412 × 915**, damit das Video wirklich 9:16 ist und den Bildschirm füllt. Dadurch ist die leere Fläche unter dem Startblock der Lernen-Seite nur noch etwa y 535–664 hoch; die Einblendung „800+“ ist deshalb kleiner (84 px) und liegt 70 px über dem unteren Rand.
+- **Szene 5 zeigt *volar* („fliegen“) statt *poder*.** *poder* liegt im Thema „Smalltalk & Alltag“, in der Sitzung „Unterwegs & Transport“ kommt es nicht vor. *volar* ist unregelmäßig (Stammwechsel o → ue) wie *poder*.
+- **Statt Zoom Hervorhebungen:** Eine pulsierende magentafarbene Umrandung markiert den Hinweis auf der Karte (Szene 3), die Bewertungsknöpfe (Szene 4) und die Treffer „fue → ir“ und „fue → irse“ (Szene 6). In Szene 6 wird die Trefferliste nach unten gescrollt, damit mehrere Zeilen zu sehen sind.
+- **Szene 6 beginnt mit hartem Schnitt** zum Verzeichnis, weil die Lernsitzung keine Tab-Leiste hat.
+- **Szene 3: *el camión*** hört man, weil der Sprecher das Wort in „Beispiel: camión“ sagt; der Tipp auf das Lautsprecher-Symbol wird auf dieses Wort gelegt. Es gibt keinen eigenen Clip.
+- **Handy-Symbol in Szene 8:** ein einfaches Symbol (Telefon mit durchgestrichenem Flugzeug), erscheint kurz am Szenenanfang über dem Markenkopf. Die drei Chips erscheinen nacheinander bei „offline“, „Kein Konto“ und „Tracking“.
+- **Abspann:** Markenkopf der „Mehr“-Seite (Wimpel, Wortmarke, Greca, Slogan) auf ruhigem Hintergrund, Tab-Leiste, Menü und Widmung ausgeblendet, 1,3-fach vergrößert; keine Adresse.
+- **Musik:** ab dem Anfang des Stücks, 0,6 s Einblendung, 3,2 s Ausblendung, Lautstärke 0,42, abgesenkt unter dem Sprecher (`sidechaincompress`, Schwelle 0,012, Verhältnis 14, 12 ms/500 ms). Mischverhältnis Musik : Sprecher = 0,9 : 1,45. Falls die Musik zu leise oder zu laut ist, diese Werte ändern.
+
+**Rezept zum Nachbauen** (alle Schritte außerhalb des Repos; Python-Umgebung und Modelle nicht einchecken):
+
+1. **Stimme:** Alle neun Szenen mit Qwen3-TTS Base im Modus „nur Stimmcharakter“ erzeugen (Referenzclip `stimme_2a_Szene1.wav` mit dem Referenztext von Szene 1). Danach je Clip: Stille am Rand abschneiden (`silenceremove`), `atempo=1.25`, `loudnorm=I=-18:TP=-2`.
+2. **Wortzeiten:** Whisper `openai/whisper-small` mit `return_timestamps="word"` auf jedem Clip. Daraus die Ankerzeiten für Tipps und Einblendungen (z. B. „Kamion“ in Szene 3, „Tipp“, „gebeugte“, „Podemos“ in Szene 6; Whisper schreibt spanische Wörter deutsch, deshalb nach Anfangsbuchstaben suchen). Die Szenenlängen ergeben sich aus den Clip-Längen.
+3. **Lernstand und Kartenfolge:** `orderSeed = 125947` bewirkt im Thema „Unterwegs & Transport“ (alle Niveaus, beide Richtungen) die Folge *el camión*, *el taxi*, *el avión*, *volar* (die Folge ergibt sich aus der Hash-Position in `position()` in `src/domain/queue.ts`; gefunden durch Durchprobieren von Seeds). `startedAt` = jetzt, damit keine „Neuzugänge“ vorgezogen werden, `maxLevel` B1, `theme` light. Für die Statistik rund 120 weitere Karten aus anderen Themen (A1-Vokabeln aus Grundwortschatz, Begrüßung, Zahlen & Zeit, Essen, Smalltalk, Orte): 80 gefestigt und 40 lernend in Richtung DE → ES, 55 gefestigt und 35 lernend in Richtung ES → DE, alle in der Zukunft fällig, alle früher als heute eingeführt. Das Statistikbild zeigt dann etwa 682 neu, 43 lernend, 80 gefestigt (DE → ES). Die Datenbank `palabrita` (Version 1, Speicher `settings` und `cards`) wird per `indexedDB` direkt befüllt, dann die Seite neu laden. `localStorage` `palabrita.welcomeSeen` bleibt ungesetzt, damit die Begrüßungskarte (Szene 1) erscheint.
+4. **Sprachausgabe-Attrappe** (Init-Skript): `speechSynthesis.getVoices` liefert eine Stimme `es-MX`, `speak`/`cancel` tun nichts, `SpeechSynthesisUtterance` ist ein einfacher Ersatz. Sonst zeigt die Karte „Keine spanische Stimme gefunden“ und der Lautsprecher ist deaktiviert.
+5. **Aufnahme:** Chromium (Playwright) mit Viewport 412 × 732 und `deviceScaleFactor` 1080/412. Bildaufnahme per CDP-Screencast (`Page.startScreencast`, JPEG Qualität 92, `maxWidth` 1080, `maxHeight` 1920, `everyNthFrame` 2); jedes Bild wird mit dem Zeitstempel der Aufnahme gespeichert. Ein Zeitplan führt alle Aktionen (Tippen, Scrollen, Einblenden) zu festen Zeiten seit dem Seitenstart aus. Ein Tipp = Tipp-Punkt (CSS-Ebene, 0,6 s) und 140 ms später der echte Klick. Die Ebene (`#fx`) enthält Tipp-Punkte, Hervorhebungen und die Einblendungen (CSS aus „Einblendungen: Gestaltung“).
+6. **Bild:** Die Bilder mit ihren Zeitstempeln per ffmpeg-`concat` zu einem Video mit 30 Bildern pro Sekunde zusammensetzen (`scale` auf 1080 × 1920, Hintergrund `#f3f6f5`, `libx264` CRF 19).
+7. **Ton:** Sprecherclips mit `adelay` an den Szenenstart (+ 0,4 s) legen, Musik zuschneiden und absenken, mischen, `loudnorm=I=-16:TP=-1.5`, AAC 192 kbit/s. Mit dem Bild zu MP4 vereinen (`+faststart`).
 
 ## Technische Hinweise zur Stimme (Qwen3-TTS)
 
@@ -229,7 +256,6 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 
 ## Offen
 
-- Lernen-Seite: Der Nutzer ändert Oberfläche und Aussehen noch einmal und gibt Bescheid. Erst danach aufnehmen (siehe „Übergabe“).
-- Alle neun Szenen im Modus „nur Stimmcharakter“ erzeugen (siehe „Übergabe“, Punkt 2).
+- Rückmeldung des Nutzers zur ersten Fassung (Bild, Ton, Tempo, Einblendungen, Musik).
 - Ort der Hinweisdatei für Musik und Namensnennung (bei der Einbindung des Videos in die App).
 - Video-Einbindung in die App (neue Seite im Tab „Mehr“): Anforderungen in `docs/TASKS.md`.
