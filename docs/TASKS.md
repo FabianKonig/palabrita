@@ -21,7 +21,7 @@ Für jeden Punkt zuerst die Spezifikation schreiben (mit dem Nutzer klären), da
 
 ## Hinweise
 
-- Annahme (aktive Nutzer, 2026-11-21): Der Stand der Datenbank (Version 1, `data/db.ts`) gilt als Ausgangspunkt für Migrationen. Der Code ergänzt keine fehlenden Felder (`orderSeed`, `startedAt`, `Card.introduced`) in Datensätzen früherer Entwicklungsstände. Falls Nutzer mit einem solchen Stand gestartet sind, muss das nachgezogen werden (dem Nutzer berichten).
+- Festgelegt (Nutzer, 2026-11-21): Alle bisherigen Nutzer haben mit dem Stand von `main` bei `0ddd381` gestartet. Ihre Datenbank ist damit Version 1 (`data/db.ts`) mit allen Feldern aus SPEC §10.2 (`orderSeed`, `startedAt`, `Card.introduced`). Das ist der Ausgangspunkt für Migrationen; Datensätze früherer Entwicklungsstände müssen nicht berücksichtigt werden.
 - Bekannte Einschränkung: Gehört ein deutsches Wort zu mehreren spanischen Vokabeln, sind die DE→ES-Karten für den Nutzer mehrdeutig. In v1 nicht behandelt.
 - Verworfen: eine Docker-Image-Variante (GHCR, `docker compose pull` auf einem VPS). Nicht umsetzen, die App läuft über GitHub Pages.
 - Annahmen, die ein Agent bei Unklarheit trifft, kommen als kurzer Eintrag in diesen Abschnitt.

@@ -395,7 +395,7 @@ Es gibt **keine Profile** (entschieden, siehe §3.2): ein Nutzer pro Browser. Zw
 
 Eine Karte wird **erst beim ersten Lernen angelegt** (kein Vorab-Befüllen von 1000 Karten). „Neu“ = Vokabel ohne Card-Eintrag für diese Richtung.
 
-Beide Stores werden beim Anlegen erzeugt. Das Schema ist die Version 1 (`data/db.ts`) und der Ausgangspunkt für alle Migrationen (§10.4). Das Schema darf nicht mehr ohne Migration geändert werden. Fehlende Felder in Datensätzen früherer Entwicklungsstände (`orderSeed`, `startedAt`, `Card.introduced`) ergänzt der Code bisher nicht; `getSettings` gibt einen vorhandenen Datensatz unverändert zurück. Ein früher angelegter Store `userVocab` wird nicht mehr gelesen und nicht gelöscht. Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht).
+Beide Stores werden beim Anlegen erzeugt. Das Schema ist die Version 1 (`data/db.ts`) und der Ausgangspunkt für alle Migrationen (§10.4). Das Schema darf nicht mehr ohne Migration geändert werden. Alle bisherigen Nutzer haben mit dem Stand von `main` bei `0ddd381` gestartet (Nutzer, 2026-11-21), ihre Datensätze haben also alle Felder aus dieser Tabelle. Datensätze früherer Entwicklungsstände (ohne `orderSeed`, `startedAt`, `Card.introduced`) gibt es nicht bei Nutzern und werden nicht ergänzt; `getSettings` gibt einen vorhandenen Datensatz unverändert zurück. Ein früher angelegter Store `userVocab` wird nicht mehr gelesen und nicht gelöscht. Vokabel-IDs bleiben stabil, Cards referenzieren nur `vocabId`. Nicht mehr vorhandene `vocabId`s werden beim Laden ignoriert (nicht gelöscht).
 
 ### 10.3 Lernfortschritt zurücksetzen (`data/progressRepo.ts`)
 
