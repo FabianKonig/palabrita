@@ -20,13 +20,13 @@ Stand: 2026-11-21. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS
 **Als Nächstes zu tun (in dieser Reihenfolge):**
 
 1. **Der Nutzer sieht die Fassung an und sagt, was zu ändern ist** (Bild, Ton, Tempo, Einblendungen, Musiklautstärke, Länge). Keine Änderungen ohne seine Rückmeldung.
-2. Änderungen umsetzen. Dafür die Schritte aus „Erzeugte Fassung (2026-11-21)“ wiederholen; die Hilfsskripte (Aufnahme, Zeitplan, Ton) lagen nur im Arbeitsordner der Sitzung und sind **nicht im Repo**. Das Rezept dort reicht zum Nachbauen.
+2. Änderungen umsetzen. Dafür die Schritte aus „Erzeugte Fassung (2026-11-21)“ wiederholen; die Skripte dazu liegen im Repo in **`scripts/video/`** (Aufrufreihenfolge und Voraussetzungen: `scripts/video/README.md`). Ein Probelauf aus dem Repo-Ordner hat am 2026-11-21 ein gleichwertiges Video ergeben (Bildähnlichkeit zur ersten Fassung über 0,97; die Stimme klingt bei jeder Erzeugung leicht anders).
 3. Das Video dem Nutzer wieder als Datei schicken.
 4. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken (Videodatei und Einbindung in die App: `docs/TASKS.md`).
 
 **Regeln, die immer gelten:**
 
-- **Nichts von dem, was bei der Erzeugung anfällt, wird ohne Rücksprache gepusht:** keine Videodatei, keine Audiodateien (Stimmproben, Musik), keine Modelle, keine Python-Umgebung, keine Zwischenstände. Grund: Große Dateien bleiben für immer in der Git-Historie. Details und `.gitignore`: `docs/TASKS.md`. Hörproben und Videos werden dem Nutzer direkt als Datei gezeigt.
+- **Nichts von dem, was bei der Erzeugung anfällt, wird ohne Rücksprache gepusht** (die Skripte in `scripts/video/` sind Text und eingecheckt, das Erzeugte nicht): keine Videodatei, keine Audiodateien (Stimmproben, Musik), keine Modelle, keine Python-Umgebung, keine Zwischenstände. Grund: Große Dateien bleiben für immer in der Git-Historie. Details und `.gitignore`: `docs/TASKS.md`. Hörproben und Videos werden dem Nutzer direkt als Datei gezeigt.
 - Offene Entscheidungen oder Unklarheiten: mit dem Nutzer klären, nicht raten.
 - Der **Referenzclip der Stimme 2a** liegt nicht im Repo und lässt sich nicht neu erzeugen (VoiceDesign würfelt bei jedem Aufruf eine neue Stimme). Hat der neue Agent ihn nicht, den Nutzer um die Datei `stimme_2a_Szene1.wav` bitten (24 kHz, mono, rund 7 s). Gibt es sie nicht mehr, neue Kandidaten erzeugen und den Nutzer wählen lassen (technische Hinweise unten).
 
@@ -218,7 +218,7 @@ Die HTML-Struktur dazu: `.o1` enthält `<span class="big">800+</span><span class
 - **Abspann:** Markenkopf der „Mehr“-Seite (Wimpel, Wortmarke, Greca, Slogan) auf ruhigem Hintergrund, Tab-Leiste, Menü und Widmung ausgeblendet, 1,3-fach vergrößert; keine Adresse.
 - **Musik:** ab dem Anfang des Stücks, 0,6 s Einblendung, 3,2 s Ausblendung, Lautstärke 0,42, abgesenkt unter dem Sprecher (`sidechaincompress`, Schwelle 0,012, Verhältnis 14, 12 ms/500 ms). Mischverhältnis Musik : Sprecher = 0,9 : 1,45. Falls die Musik zu leise oder zu laut ist, diese Werte ändern.
 
-**Rezept zum Nachbauen** (alle Schritte außerhalb des Repos; Python-Umgebung und Modelle nicht einchecken):
+**Rezept zum Nachbauen.** Die Skripte zu jedem Schritt liegen in `scripts/video/` (README dort; Nutzer-Entscheidung 2026-11-21: Python, Shell und CommonJS sind für das Video erlaubt, sonst nirgends). Erzeugtes, Python-Umgebung und Modelle werden nicht eingecheckt:
 
 1. **Stimme:** Alle neun Szenen mit Qwen3-TTS Base im Modus „nur Stimmcharakter“ erzeugen (Referenzclip `stimme_2a_Szene1.wav` mit dem Referenztext von Szene 1). Danach je Clip: Stille am Rand abschneiden (`silenceremove`), `atempo=1.25`, `loudnorm=I=-18:TP=-2`.
 2. **Wortzeiten:** Whisper `openai/whisper-small` mit `return_timestamps="word"` auf jedem Clip. Daraus die Ankerzeiten für Tipps und Einblendungen (z. B. „Kamion“ in Szene 3, „Tipp“, „gebeugte“, „Podemos“ in Szene 6; Whisper schreibt spanische Wörter deutsch, deshalb nach Anfangsbuchstaben suchen). Die Szenenlängen ergeben sich aus den Clip-Längen.
