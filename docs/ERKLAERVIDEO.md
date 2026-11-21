@@ -4,7 +4,7 @@ Stand: 2026-11-21. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS
 
 ## Übergabe an einen neuen Agenten (Kurzfassung)
 
-**Wo wir stehen.** Eine erste Version des Videos wurde schon erzeugt und vom Nutzer verworfen (Stimmen und Musik, siehe „Erkenntnisse“). Für die zweite Version sind Text, Länge, Ablauf, Einblendungen, Musik und Stimme festgelegt. **Die erste vollständige Fassung der zweiten Version wurde am 2026-11-21 erzeugt** (67,2 s, 1080 × 1920, rund 7 MB) und dem Nutzer als Datei in den Chat geschickt. Sie liegt nicht im Repo; der Nutzer hat sie bei der Übergabe noch nicht gesehen. Annahmen und Rezept: Abschnitt „Erzeugte Fassung (2026-11-21)“.
+**Wo wir stehen.** Eine erste Version des Videos wurde schon erzeugt und vom Nutzer verworfen (Stimmen und Musik, siehe „Erkenntnisse“). Für die zweite Version sind Text, Länge, Ablauf, Einblendungen, Musik und Stimme festgelegt. **Die erste vollständige Fassung der zweiten Version wurde am 2026-11-21 erzeugt** (67,2 s, 1080 × 1920, rund 7 MB) und dem Nutzer als Datei in den Chat geschickt. Sie liegt nicht im Repo. Der Nutzer hat die Annahmen bestätigt (2026-11-21); eine Rückmeldung zu Bild und Ton steht noch aus. Annahmen und Rezept: Abschnitt „Erzeugte Fassung (2026-11-21)“.
 
 **Entschieden (alles vom Nutzer, 2026-11-20):**
 
@@ -207,7 +207,7 @@ Die HTML-Struktur dazu: `.o1` enthält `<span class="big">800+</span><span class
 
 **Zeitplan** (aus den echten Längen der Sprecherclips): Jede Szene beginnt mit 0,4 s Vorlauf, danach spricht der Sprecher. Szenenstart in s: 0, 6,0, 13,4, 25,1, 32,7, 38,1, 54,1, 58,1, 63,4; Ende 67,2. Die Sprecherclips sind (nach Tempo 1,25) 5,0 / 4,2 / 10,8 / 6,9 / 4,4 / 15,0 / 3,4 / 4,4 / 2,6 s lang.
 
-**Annahmen, die der Agent getroffen hat** (der Nutzer hat sie noch nicht bestätigt):
+**Annahmen des Agenten, vom Nutzer bestätigt (2026-11-21):** Aufnahmeformat 412 × 732, *volar* statt *poder*, pulsierende Umrandung statt Zoom, harter Schnitt in Szene 6, Handy-Symbol und Abspann. Ebenfalls bestätigt: Die Qualität der Musik (Vorschau-MP3, rund 190 kbit/s) reicht, und das Ziel ist 67 s. Im Einzelnen:
 
 - **Aufnahmeformat 412 × 732 statt 412 × 915**, damit das Video wirklich 9:16 ist und den Bildschirm füllt. Dadurch ist die leere Fläche unter dem Startblock der Lernen-Seite nur noch etwa y 535–664 hoch; die Einblendung „800+“ ist deshalb kleiner (84 px) und liegt 70 px über dem unteren Rand.
 - **Szene 5 zeigt *volar* („fliegen“) statt *poder*.** *poder* liegt im Thema „Smalltalk & Alltag“, in der Sitzung „Unterwegs & Transport“ kommt es nicht vor. *volar* ist unregelmäßig (Stammwechsel o → ue) wie *poder*.
@@ -250,12 +250,35 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 ## Technische Hinweise zur Musik
 
 - **Gewählt: „Vibrant Momentum“** (LolaMoore, Freesound-Sound 762602, rund 120 s). Seite: `https://freesound.org/people/LolaMoore/sounds/762602`, Vorschau-MP3: `https://cdn.freesound.org/previews/762/762602_16085454-hq.mp3` (rund 190 kbps, Lautheit rund -15,7 LUFS). Lizenz laut Openverse: **CC BY 4.0**, also Namensnennung nötig, kommerzielle Nutzung erlaubt. Die Lizenz vor der Verwendung auf der Freesound-Seite prüfen. Der Original-Download bei Freesound braucht ein Konto: ohne Rücksprache mit dem Nutzer keines anlegen, die Vorschau-MP3 reicht für Hörproben.
-- **Namensnennung (Vorschlag):** „Musik: „Vibrant Momentum“ von LolaMoore (Freesound), CC BY 4.0“ auf der Video-Seite in der App und in der Hinweisdatei.
+- **Namensnennung:** siehe Abschnitt „Namensnennung der Musik und Einbindung“ (Text, Veränderungen, mögliche Stellen).
 - **Weitere gehörte Titel (nicht gewählt):** „Arcade Aroma“ (Touda, Sound 614130, CC0), „Path To Victory“ (UNIVERSFIELD, 704530, CC BY 4.0), „Stagepop“ (kjartan_abel, 610677, CC BY 4.0).
 - **Suche:** Die Openverse-API (`https://api.openverse.org/v1/audio/?q=…&license=cc0,by`) ist erreichbar und liefert Lizenz, Dauer, Tags und Download-URL. Nicht erreichbar oder blockiert in dieser Umgebung: Pixabay, Chosic, Musopen (403), Uppbeat und Wikimedia-Upload (429).
+
+## Namensnennung der Musik und Einbindung
+
+**Lizenz:** „Vibrant Momentum (Energetic Track for Engaging Content)“ von LolaMoore, **CC BY 4.0** (`https://creativecommons.org/licenses/by/4.0/`). Die Angabe wurde am 2026-11-21 über die Openverse-Schnittstelle bestätigt (Titel, Urheber, Lizenz, Version). Die Freesound-Seite selbst ist für Skripte nicht lesbar (JavaScript); der Nutzer kann sie unter `https://freesound.org/people/LolaMoore/sounds/762602` ansehen.
+
+**Was CC BY 4.0 verlangt** (sinngemäß, kein Rechtsrat): Name des Urhebers, Titel, Link zur Quelle, Hinweis auf die Lizenz mit Link, und der Hinweis, **dass das Stück verändert wurde**. Die Angabe darf „in jeder angemessenen Weise“ erfolgen, passend zu Medium und Zusammenhang. Sie muss nicht im Video selbst stehen; es genügt eine gut sichtbare Angabe dort, wo das Video gezeigt wird.
+
+**Veränderungen am Stück:** gekürzt (die ersten 67 s), 0,6 s eingeblendet, 3,2 s ausgeblendet, in der Lautstärke angepasst und unter dem Sprecher abgesenkt, mit dem Sprecher gemischt.
+
+**Vorgeschlagener Text** (für die Video-Seite und die Hinweisdatei):
+
+> Musik: „Vibrant Momentum (Energetic Track for Engaging Content)“ von LolaMoore (https://freesound.org/people/LolaMoore/sounds/762602), Lizenz CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Für das Video gekürzt, ein- und ausgeblendet und in der Lautstärke angepasst.
+
+**Wo die Angabe stehen kann** (Entscheidung des Nutzers steht noch aus; Empfehlung des Agenten ist A plus B):
+
+- **A. Unter dem Player auf der Video-Seite in der App** (Tab „Mehr“, `/#/video`) und in einer Hinweisdatei im Repo (wie `public/vocab/NOTICE.md`). Das ist die übliche Stelle und deckt jeden ab, der das Video über die Seite ansieht.
+- **B. In den Metadaten der MP4-Datei** (Felder `title`, `artist`/`comment`, per ffmpeg `-metadata`). Die Angabe reist so mit der Datei, wenn jemand sie direkt weitergibt.
+- **C. Zusätzlich eine kleine Zeile im Abspann** („Musik: Vibrant Momentum von LolaMoore, CC BY 4.0“, ohne Adresse). Nur nötig, wenn das Video auch **ohne** die App-Seite verbreitet werden soll (z. B. die Datei direkt verschickt oder auf einer anderen Plattform hochgeladen). Ein Link passt dort nicht hinein. Der Abspann hat laut Drehbuch keine Adresse, eine Namenszeile ist keine Adresse.
+
+Wird der **Teilen-Link** als Adresse der Video-Seite festgelegt (nicht der Datei-URL), erreicht jeden Besucher auch die Angabe unter dem Player.
+
+**Einbindung (Nutzer, 2026-11-21):** Das Video muss **nicht offline abspielbar** sein und wird nicht vorab gecacht. Wer die Seite der App öffnet, soll es nicht herunterladen müssen: Der Player lädt erst beim Abspielen (`preload="none"`), und die Videodatei gehört nicht ins Service-Worker-Precache (`globPatterns` in `vite.config.ts` kennt kein `mp4`/`webm`, so bleibt es). Ein kleines Vorschaubild (Poster, ein Bild aus dem Video, rund 50 KB) wäre eine mögliche Ergänzung, wenn der Player vor dem Abspielen nicht leer wirken soll; nicht entschieden.
 
 ## Offen
 
 - Rückmeldung des Nutzers zur ersten Fassung (Bild, Ton, Tempo, Einblendungen, Musik).
-- Ort der Hinweisdatei für Musik und Namensnennung (bei der Einbindung des Videos in die App).
+- Namensnennung der Musik: Der Nutzer entscheidet über die Stelle (A Seite plus Hinweisdatei, B MP4-Metadaten, C Zeile im Abspann), siehe „Namensnennung der Musik und Einbindung“. Wird C gewählt, ist das Video neu zu erzeugen; das Video ist deshalb noch nicht eingecheckt.
+- Ort der Hinweisdatei für die Musik (bei der Einbindung des Videos in die App).
 - Video-Einbindung in die App (neue Seite im Tab „Mehr“): Anforderungen in `docs/TASKS.md`.
