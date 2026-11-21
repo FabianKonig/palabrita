@@ -16,8 +16,8 @@ Lautstärke angepasst.
 - Änderungen: auf rund 67 s gekürzt, 0,6 s eingeblendet, 3,2 s ausgeblendet, in der Lautstärke angepasst, unter dem
   Sprecher abgesenkt und mit dem Sprecher gemischt
 
-Dieselbe Angabe steht in den Metadaten der MP4-Datei (Felder `title`, `copyright`, `comment`) und, sobald die
-Video-Seite der App existiert, unter dem Player.
+Dieselbe Angabe steht in den Metadaten der MP4-Datei (Felder `title`, `copyright`, `comment`) und unter dem Player
+auf der Video-Seite der App (`/#/video`, `src/features/video/Video.tsx`).
 
 ## Sprecher
 

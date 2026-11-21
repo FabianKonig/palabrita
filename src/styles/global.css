@@ -2079,3 +2079,7 @@ body:has(.session-bar) .update-banner {
   height: 18px;
   margin-left: 2px;
 }
+
+.video-page > .notice {
+  margin: 12px 0 0;
+}

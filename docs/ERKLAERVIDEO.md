@@ -1,6 +1,6 @@
 # Palabrita: Drehbuch Erklärvideo
 
-Stand: 2026-11-21. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS.md`. Ist das Video fertig und eingebunden, kommen die Festlegungen in `docs/SPEC.md`. Diese Datei ist die einzige Quelle für das Video: Entscheidungen, Text, Ablauf, Gestaltung und technische Hinweise.
+Stand: 2026-11-21. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS.md`. Die Einbindung in die App (Seite, Player, Namensnennung) ist in `docs/SPEC.md` §14.6 festgelegt. Diese Datei ist die einzige Quelle für das Video: Entscheidungen, Text, Ablauf, Gestaltung und technische Hinweise.
 
 ## Übergabe an einen neuen Agenten (Kurzfassung)
 
@@ -22,7 +22,7 @@ Stand: 2026-11-21. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS
 1. **Der Nutzer sieht die Fassung an und sagt, was zu ändern ist** (Bild, Ton, Tempo, Einblendungen, Musiklautstärke, Länge). Keine Änderungen ohne seine Rückmeldung.
 2. Änderungen umsetzen. Dafür die Schritte aus „Erzeugte Fassung (2026-11-21)“ wiederholen; die Skripte dazu liegen im Repo in **`scripts/video/`** (Aufrufreihenfolge und Voraussetzungen: `scripts/video/README.md`). Ein Probelauf aus dem Repo-Ordner hat am 2026-11-21 ein gleichwertiges Video ergeben (Bildähnlichkeit zur ersten Fassung über 0,97; die Stimme klingt bei jeder Erzeugung leicht anders).
 3. Das Video dem Nutzer wieder als Datei schicken.
-4. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken (Videodatei und Einbindung in die App: `docs/TASKS.md`).
+4. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken (Videodatei: `docs/TASKS.md`; die Einbindung in die App ist fertig, `docs/SPEC.md` §14.6).
 
 **Regeln, die immer gelten:**
 
@@ -279,4 +279,4 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 ## Offen
 
 - Rückmeldung des Nutzers zur ersten Fassung (Bild, Ton, Tempo, Einblendungen, Musik).
-- **Nächste Aufgabe: Spezifikation der Video-Seite** in `docs/SPEC.md` (neue Kachel im Tab „Mehr“, Route `/video`, Player mit `preload="none"` und `poster`, Namensnennung der Musik unter dem Player mit dem Text aus `public/video/NOTICE.md`, Teilen-Link auf die Seite, kein Offline-Cache, Ergänzung im Browser-Smoke-Test Abschnitt 8e6). Anforderungen: `docs/TASKS.md`.
+- **Einbindung in die App: erledigt (2026-11-21).** Seite `/#/video`, Eintrag im Tab „Mehr“, Player mit `preload="none"` und Vorschaubild, Namensnennung der Musik unter dem Player, Teilen-Link auf die Seite, kein Offline-Cache, Prüfungen im Browser-Smoke-Test. Festlegungen und Umsetzung: `docs/SPEC.md` §14.6.

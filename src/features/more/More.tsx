@@ -119,8 +119,7 @@ export function More() {
         <li>
           <Link to="/video" className="link-featured">
             <span className="link-featured-text">
-              <span>Erklärvideo</span>
-              <small>Palabrita in einer Minute</small>
+              <span>Erklärvideo</span> <small>Palabrita in einer Minute</small>
             </span>
             <span className="link-featured-play">
               <PlayIcon />
