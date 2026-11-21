@@ -2011,3 +2011,71 @@ body:has(.session-bar) .update-banner {
   outline: 3px solid var(--turquoise);
   outline-offset: 2px;
 }
+
+/* Video-Seite: Player im Hochformat (9:16), auf großen Bildschirmen begrenzt */
+.video-frame {
+  width: min(100%, calc(62vh * 9 / 16));
+  margin: 16px auto 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--shadow);
+}
+
+.video-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+}
+
+.video-meta {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+}
+
+.video-credit {
+  margin: 16px 0 0;
+  font-size: 0.85rem;
+}
+
+.video-credit a {
+  color: inherit;
+}
+
+/* „Erklärvideo“ im Tab „Mehr“: wie die anderen Einträge, plus gelbes Play-Symbol rechts */
+.link-list > li > a.link-featured {
+  justify-content: space-between;
+  gap: 12px;
+  padding-right: 10px;
+}
+
+.link-featured-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 8px;
+}
+
+.link-featured-text small {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.link-featured-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: #12201e;
+}
+
+.link-featured-play .svg-icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 2px;
+}

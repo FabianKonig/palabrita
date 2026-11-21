@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import { Brand } from "../../components/Brand";
+import { PlayIcon } from "../../components/icons";
 import type { WelcomeOutletContext } from "../../components/WelcomeOverlay";
 import { useAppData } from "../../hooks/useAppData";
 import { APP_VERSION } from "../../version";
@@ -115,6 +116,17 @@ export function More() {
             <Link to={e.to}>{e.label}</Link>
           </li>
         ))}
+        <li>
+          <Link to="/video" className="link-featured">
+            <span className="link-featured-text">
+              <span>Erklärvideo</span>
+              <small>Palabrita in einer Minute</small>
+            </span>
+            <span className="link-featured-play">
+              <PlayIcon />
+            </span>
+          </Link>
+        </li>
       </ul>
       <ResetProgress />
       <p className="muted app-version">Version: {APP_VERSION}</p>
