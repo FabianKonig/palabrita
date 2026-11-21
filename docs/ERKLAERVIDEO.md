@@ -1,10 +1,10 @@
 # Palabrita: Drehbuch Erklärvideo
 
-Stand: 2026-11-21. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS.md`. Die Einbindung in die App (Seite, Player, Namensnennung) ist in `docs/SPEC.md` §14.6 festgelegt. Diese Datei ist die einzige Quelle für das Video: Entscheidungen, Text, Ablauf, Gestaltung und technische Hinweise.
+Stand: 2026-11-21. Das Video ist fertig, abgenommen und eingebunden. Die Einbindung in die App (Seite, Player, Namensnennung) ist in `docs/SPEC.md` §14.6 festgelegt. Diese Datei ist die einzige Quelle für das Video: Entscheidungen, Text, Ablauf, Gestaltung und technische Hinweise.
 
 ## Übergabe an einen neuen Agenten (Kurzfassung)
 
-**Wo wir stehen.** Eine erste Version des Videos wurde schon erzeugt und vom Nutzer verworfen (Stimmen und Musik, siehe „Erkenntnisse“). Für die zweite Version sind Text, Länge, Ablauf, Einblendungen, Musik und Stimme festgelegt. **Die erste vollständige Fassung der zweiten Version wurde am 2026-11-21 erzeugt** (67,2 s, 1080 × 1920, rund 7 MB) und dem Nutzer als Datei in den Chat geschickt. **Diese Fassung liegt mit Zustimmung des Nutzers im Repo** (2026-11-21): `public/video/palabrita-erklaervideo.mp4` (7,3 MB, 67,6 s), das Vorschaubild `public/video/palabrita-erklaervideo-poster.jpg` und die Hinweisdatei `public/video/NOTICE.md` mit der Namensnennung der Musik. Der Nutzer hat die Annahmen und das Vorschaubild bestätigt; eine Rückmeldung zu Bild und Ton steht noch aus. Annahmen und Rezept: Abschnitt „Erzeugte Fassung (2026-11-21)“.
+**Wo wir stehen.** Eine erste Version des Videos wurde schon erzeugt und vom Nutzer verworfen (Stimmen und Musik, siehe „Erkenntnisse“). Für die zweite Version sind Text, Länge, Ablauf, Einblendungen, Musik und Stimme festgelegt. **Die erste vollständige Fassung der zweiten Version wurde am 2026-11-21 erzeugt** (67,2 s, 1080 × 1920, rund 7 MB) und dem Nutzer als Datei in den Chat geschickt. **Diese Fassung liegt mit Zustimmung des Nutzers im Repo** (2026-11-21): `public/video/palabrita-erklaervideo.mp4` (7,3 MB, 67,6 s), das Vorschaubild `public/video/palabrita-erklaervideo-poster.jpg` und die Hinweisdatei `public/video/NOTICE.md` mit der Namensnennung der Musik. **Der Nutzer hat die Fassung abgenommen** (2026-11-21: „ich bin zufrieden, das passt so“); sie ist endgültig, solange er nichts anderes wünscht. Annahmen und Rezept: Abschnitt „Erzeugte Fassung (2026-11-21)“.
 
 **Entschieden (alles vom Nutzer, 2026-11-20):**
 
@@ -17,16 +17,12 @@ Stand: 2026-11-21. Gehört zur Aufgabe „Erklärvideo der App“ in `docs/TASKS
 - **Stimme 2a ist geklont und vom Nutzer freigegeben** (Hörprobe 2026-11-20): Klonmodus **„nur Stimmcharakter“** (`x_vector_only_mode=True`), weil die spanischen Wörter dort besser klingen; Tempo **1,25-fach** (ffmpeg `atempo=1.25`) passt. Die spanischen Wörter stören nicht, die Ausweichlösung mit zwei Stimmen ist damit nicht nötig.
 - **Lernen-Seite:** Der Nutzer plant vorerst keine weiteren Änderungen an der Oberfläche (2026-11-21). Die Aufnahme beruht auf dem Stand `main` bei `f3c34e5` (Abschnitt „Lernen-Seite: Stand für die Aufnahme“). Ändert sich die App sichtbar (Lernen-Seite, Lernsitzung, Verzeichnis, Statistik, „Mehr“), ist die Aufnahme neu zu erzeugen.
 
-**Als Nächstes zu tun (in dieser Reihenfolge):**
-
-1. **Der Nutzer sieht die Fassung an und sagt, was zu ändern ist** (Bild, Ton, Tempo, Einblendungen, Musiklautstärke, Länge). Keine Änderungen ohne seine Rückmeldung.
-2. Änderungen umsetzen. Dafür die Schritte aus „Erzeugte Fassung (2026-11-21)“ wiederholen; die Skripte dazu liegen im Repo in **`scripts/video/`** (Aufrufreihenfolge und Voraussetzungen: `scripts/video/README.md`). Ein Probelauf aus dem Repo-Ordner hat am 2026-11-21 ein gleichwertiges Video ergeben (Bildähnlichkeit zur ersten Fassung über 0,97; die Stimme klingt bei jeder Erzeugung leicht anders).
-3. Das Video dem Nutzer wieder als Datei schicken.
-4. Erst nach seiner ausdrücklichen Bestätigung etwas einchecken (Videodatei: `docs/TASKS.md`; die Einbindung in die App ist fertig, `docs/SPEC.md` §14.6).
+**Status:** Das Video ist fertig, abgenommen und in die App eingebunden (`docs/SPEC.md` §14.6). Es ist nichts mehr zu tun. Eine neue Fassung gibt es nur, wenn der Nutzer sie wünscht oder sich die App sichtbar ändert (Lernen-Seite, Lernsitzung, Verzeichnis, Statistik, „Mehr“). Dann die Schritte aus „Erzeugte Fassung (2026-11-21)“ wiederholen (Skripte in `scripts/video/`, Aufrufreihenfolge und Voraussetzungen: `scripts/video/README.md`; die Stimme klingt bei jeder Erzeugung leicht anders), das Ergebnis dem Nutzer als Datei zeigen und **erst nach seiner ausdrücklichen Bestätigung** einchecken.
 
 **Regeln, die immer gelten:**
 
-- **Nichts von dem, was bei der Erzeugung anfällt, wird ohne Rücksprache gepusht** (die Skripte in `scripts/video/` sind Text und eingecheckt, das Erzeugte nicht): keine Videodatei, keine Audiodateien (Stimmproben, Musik), keine Modelle, keine Python-Umgebung, keine Zwischenstände. Grund: Große Dateien bleiben für immer in der Git-Historie. Details und `.gitignore`: `docs/TASKS.md`. Hörproben und Videos werden dem Nutzer direkt als Datei gezeigt.
+- **Die Videodatei nie selbst ins Repository einchecken** (kein `git add`, kein Commit, kein Push, auch nicht auf einem Feature-Branch). Ein Agent legt eine neue Fassung nur außerhalb des Repos ab (z. B. im Scratchpad oder in einem von `.gitignore` erfassten Ordner) und zeigt sie dem Nutzer. Erst nach seiner ausdrücklichen Bestätigung kommt sie ins Repository. Grund: Jede eingecheckte Version bleibt für immer in der Git-Historie. Auch Zwischenstände und verworfene Versionen gehören nicht hinein. Die jetzige Fassung liegt mit Zustimmung des Nutzers in `public/video/`.
+- **Nichts von dem, was bei der Erzeugung anfällt, wird ohne Rücksprache gepusht** (die Skripte in `scripts/video/` sind Text und eingecheckt, das Erzeugte nicht): keine Videodatei, keine Audiodateien (Stimmproben, Musik), keine Modelle, keine Python-Umgebung, keine Zwischenstände. Grund: Große Dateien bleiben für immer in der Git-Historie. `.gitignore` fängt gängige Audio- und Modelldateien sowie `.video-work/` und `.venv/` ab; das ersetzt die Rücksprache nicht. Hörproben und Videos werden dem Nutzer direkt als Datei gezeigt.
 - Offene Entscheidungen oder Unklarheiten: mit dem Nutzer klären, nicht raten.
 - Der **Referenzclip der Stimme 2a** liegt im Repo: `scripts/video/ref/stimme_2a_Szene1.wav` (24 kHz, mono, 6,8 s, 326 KB; mit Zustimmung des Nutzers eingecheckt, 2026-11-21). Er lässt sich nicht neu erzeugen (VoiceDesign würfelt bei jedem Aufruf eine neue Stimme), deshalb nicht ersetzen oder löschen. Eine andere Stimme nur nach Rücksprache mit dem Nutzer (neue Kandidaten: `01-stimme-wuerfeln.py`).
 
@@ -278,5 +274,4 @@ Ergebnis der Recherche und Hörproben vom 2026-11-20 (Cloud-Umgebung: 4 CPUs, 15
 
 ## Offen
 
-- Rückmeldung des Nutzers zur ersten Fassung (Bild, Ton, Tempo, Einblendungen, Musik).
-- **Einbindung in die App: erledigt (2026-11-21).** Seite `/#/video`, Eintrag im Tab „Mehr“, Player mit `preload="none"` und Vorschaubild, Namensnennung der Musik unter dem Player, Teilen-Link auf die Seite, kein Offline-Cache, Prüfungen im Browser-Smoke-Test. Festlegungen und Umsetzung: `docs/SPEC.md` §14.6.
+Nichts. Das Video ist abgenommen (2026-11-21) und eingebunden. Festlegungen und Umsetzung der Einbindung: `docs/SPEC.md` §14.6.

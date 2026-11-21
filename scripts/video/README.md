@@ -2,7 +2,7 @@
 
 Alles hier dient **nur** der Erzeugung des Erklärvideos (`docs/ERKLAERVIDEO.md` ist die Quelle für Entscheidungen, Text, Ablauf und Gestaltung). Python, Shell und CommonJS sind hier ausdrücklich erlaubt (Nutzer, 2026-11-21), aber nirgends sonst im Projekt. Die Skripte gehören nicht zur App, zur CI oder zum Build; ESLint überspringt diesen Ordner.
 
-**Nichts von dem, was die Skripte erzeugen, wird eingecheckt** (Audio, Bilder, Video, Modelle, Python-Umgebung). Alles landet in `.video-work/` (in `.gitignore`), die Umgebung in `.venv/`. Vor jedem Push mit dem Nutzer sprechen (`docs/TASKS.md`).
+**Nichts von dem, was die Skripte erzeugen, wird eingecheckt** (Audio, Bilder, Video, Modelle, Python-Umgebung). Alles landet in `.video-work/` (in `.gitignore`), die Umgebung in `.venv/`. Vor jedem Push mit dem Nutzer sprechen (`docs/ERKLAERVIDEO.md`, „Regeln, die immer gelten“).
 
 ## Voraussetzungen
 
