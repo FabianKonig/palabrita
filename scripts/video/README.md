@@ -15,7 +15,7 @@ python3 -m venv .venv
 ```
 
 - Die App gebaut und laufend: `npm run build`, dann `npm run preview -- --port 4173` (andere Adresse: `VIDEO_BASE`).
-- Der Referenzclip der Stimme: `.video-work/ref/stimme_2a_Szene1.wav` (24 kHz, mono, rund 7 s). Er ist **nicht im Repo** und lässt sich nicht neu erzeugen; beim Nutzer erfragen. Fehlt er, mit `01-stimme-wuerfeln.py` neue Kandidaten erzeugen und den Nutzer wählen lassen.
+- Der Referenzclip der Stimme liegt im Repo: `scripts/video/ref/stimme_2a_Szene1.wav` (24 kHz, mono, 6,8 s, 326 KB, mit Zustimmung des Nutzers eingecheckt). Er lässt sich nicht neu erzeugen (VoiceDesign würfelt bei jedem Aufruf neu). Eine Datei gleichen Namens in `.video-work/ref/` hat Vorrang. Für eine andere Stimme mit `01-stimme-wuerfeln.py` Kandidaten erzeugen und den Nutzer wählen lassen.
 
 ## Reihenfolge (alles aus dem Repo-Wurzelordner)
 

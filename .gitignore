@@ -7,6 +7,8 @@ dist/
 # Stimmproben, Musik und Zwischenstände bleiben außerhalb der Git-Historie.
 # Die fertige Videodatei wird nur nach ausdrücklicher Bestätigung des Nutzers eingecheckt (docs/TASKS.md).
 *.wav
+# Ausnahme: der Referenzclip der Sprecherstimme (326 KB, mit Zustimmung des Nutzers, 2026-11-21)
+!scripts/video/ref/*.wav
 *.mp3
 *.ogg
 *.flac

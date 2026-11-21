@@ -1,6 +1,7 @@
 """Erzeugt die Sprecherclips der Szenen mit der geklonten Stimme (Qwen3-TTS Base).
 
-Referenz: $VIDEO_WORK/ref/stimme_2a_Szene1.wav (nicht im Repo, beim Nutzer erfragen) mit dem Text von Szene 1.
+Referenz: scripts/video/ref/stimme_2a_Szene1.wav (im Repo, 24 kHz, mono, 6,8 s) mit dem Text von Szene 1. Liegt eine Datei
+gleichen Namens in $VIDEO_WORK/ref/, hat sie Vorrang (z. B. für eine neu gewählte Stimme).
 Modus "nur Stimmcharakter" (x_vector_only_mode=True) ist freigegeben; "icl" nutzt zusätzlich Referenzclip und -text.
 
 Aufruf (aus dem Repo-Wurzelordner):
@@ -21,11 +22,13 @@ CFG = json.loads((Path(__file__).parent / "sprechertext.json").read_text(encodin
 ap = argparse.ArgumentParser()
 ap.add_argument("--modus", choices=["xvec", "icl"], default="xvec")
 ap.add_argument("--szenen", nargs="*", default=list(CFG["scenes"]))
-ap.add_argument("--ref", default=str(WORK / "ref" / "stimme_2a_Szene1.wav"))
+REPO_REF = Path(__file__).parent / "ref" / "stimme_2a_Szene1.wav"
+WORK_REF = WORK / "ref" / "stimme_2a_Szene1.wav"
+ap.add_argument("--ref", default=str(WORK_REF if WORK_REF.exists() else REPO_REF))
 args = ap.parse_args()
 
 if not Path(args.ref).exists():
-    raise SystemExit(f"Referenzclip fehlt: {args.ref}. Beim Nutzer erfragen oder mit 01-stimme-wuerfeln.py neu wählen.")
+    raise SystemExit(f"Referenzclip fehlt: {args.ref}. Neu wählen mit 01-stimme-wuerfeln.py und mit dem Nutzer abstimmen.")
 
 torch.set_num_threads(os.cpu_count() or 4)
 out = WORK / "clone"
