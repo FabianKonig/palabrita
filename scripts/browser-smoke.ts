@@ -1084,6 +1084,7 @@ async function main() {
     "legend",
     "imprint",
     "privacy",
+    "video",
   ];
   const cornerPositions: string[] = [];
   for (const route of cornerRoutes) {
@@ -1112,15 +1113,75 @@ async function main() {
   await send("Page.navigate", { url: `${BASE}#/more` });
   await waitFor(`document.querySelector(".link-list")`, "Mehr");
   check(
-    "Mehr: Version steht unter Einstellungen, Legende, Datenschutz und Impressum",
+    "Mehr: Version steht unter Einstellungen, Legende, Datenschutz, Impressum und Erklärvideo",
     await evaluate<boolean>(`(() => {
       const list = document.querySelector(".link-list");
       const v = document.querySelector(".app-version");
       return !!v && /^Version: /.test(v.textContent)
         && !!(list.compareDocumentPosition(v) & Node.DOCUMENT_POSITION_FOLLOWING)
-        && [...list.querySelectorAll("a")].map((a) => a.textContent).join("|") === "Einstellungen|Legende|Datenschutz|Impressum";
+        && [...list.querySelectorAll("a")].map((a) => a.textContent).join("|") === "Einstellungen|Legende|Datenschutz|Impressum|Erklärvideo Palabrita in einer Minute";
     })()`),
   );
+
+  // 8e7a. Erklärvideo (SPEC §14.6): Eintrag steht nach „Impressum“ und vor „Lernfortschritt
+  // zurücksetzen“ und ist so hoch wie die anderen Einträge. Die Seite hat einen Player ohne
+  // Vorladen, darunter die Namensnennung der Musik. Der Service Worker hält das Video nicht vor.
+  check(
+    "Mehr: Eintrag „Erklärvideo“ steht als letzter Link, vor dem Zurücksetzen, und ist so hoch wie die anderen",
+    await evaluate<boolean>(`(() => {
+      const links = [...document.querySelectorAll(".link-list > li > a")];
+      const video = links.find((a) => a.getAttribute("href") === "#/video");
+      const reset = document.querySelector(".reset-progress");
+      const heights = new Set(links.map((a) => Math.round(a.getBoundingClientRect().height)));
+      return !!video && links.indexOf(video) === links.length - 1
+        && links.length === 5 && heights.size === 1
+        && !!(video.compareDocumentPosition(reset) & Node.DOCUMENT_POSITION_FOLLOWING);
+    })()`),
+  );
+  await evaluate(
+    `document.querySelector('.link-list a[href="#/video"]').click()`,
+  );
+  await waitFor(
+    `!!document.querySelector("video.video-player")`,
+    "Video-Seite",
+  );
+  check(
+    "Video-Seite: Überschrift, Zurück-Link „← Mehr“, Player mit Vorschaubild und preload none",
+    await evaluate<boolean>(`(() => {
+      const v = document.querySelector("video.video-player");
+      const back = document.querySelector(".screen > .back");
+      return document.querySelector(".screen > h1").textContent === "Erklärvideo"
+        && !!back && back.textContent === "← Mehr" && back.getAttribute("href") === "#/more"
+        && v.hasAttribute("controls") && v.getAttribute("preload") === "none"
+        && /palabrita-erklaervideo\\.mp4$/.test(v.getAttribute("src"))
+        && /palabrita-erklaervideo-poster\\.jpg$/.test(v.getAttribute("poster"));
+    })()`),
+  );
+  check(
+    "Video-Seite: Namensnennung der Musik (Titel, Urheber, Lizenz CC BY 4.0, Links, Änderungen)",
+    await evaluate<boolean>(`(() => {
+      const c = document.querySelector(".video-credit");
+      const hrefs = [...c.querySelectorAll("a")].map((a) => a.getAttribute("href"));
+      return /Vibrant Momentum/.test(c.textContent) && /LolaMoore/.test(c.textContent)
+        && /CC BY 4\\.0/.test(c.textContent) && /gekürzt/.test(c.textContent)
+        && hrefs.includes("https://freesound.org/people/LolaMoore/sounds/762602")
+        && hrefs.includes("https://creativecommons.org/licenses/by/4.0/");
+    })()`),
+  );
+  await sleep(300);
+  check(
+    "Video-Seite: lädt die Videodatei nicht vor dem Abspielen",
+    await evaluate<boolean>(
+      `!performance.getEntriesByType("resource").some((e) => /\\.mp4/.test(e.name))`,
+    ),
+  );
+  check(
+    "Service Worker: Video und Vorschaubild stehen nicht im Precache",
+    await evaluate<boolean>(
+      `fetch("sw.js").then((r) => r.text()).then((t) => !/\\.(mp4|jpg)/.test(t))`,
+    ),
+  );
+
   await send("Page.navigate", { url: `${BASE}#/settings` });
   await waitFor(`document.querySelector(".setting select")`, "Einstellungen");
   check(

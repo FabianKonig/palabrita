@@ -25,6 +25,7 @@ import { More } from "./features/more/More";
 import { Settings } from "./features/settings/Settings";
 import { Stats } from "./features/stats/Stats";
 import { Study } from "./features/study/Study";
+import { Video } from "./features/video/Video";
 import { AppDataProvider } from "./hooks/useAppData";
 
 function Layout() {
@@ -84,6 +85,7 @@ export function App() {
             <Route path="more" element={<More />} />
             <Route path="imprint" element={<Imprint />} />
             <Route path="privacy" element={<Privacy />} />
+            <Route path="video" element={<Video />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
