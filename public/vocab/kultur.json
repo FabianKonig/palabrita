@@ -654,5 +654,45 @@
     "note": "Verkleinerungsform von palabra. Diminutive auf -ito/-ita sind im mexikanischen und guatemaltekischen Spanisch sehr häufig.",
     "gender": "f",
     "plural": "las palabritas"
+  },
+  {
+    "id": "v1017",
+    "de": ["zeichnen"],
+    "es": "dibujar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "kultur",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi hija dibuja animales en su cuaderno.",
+      "de": "Meine Tochter zeichnet Tiere in ihr Heft."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1023",
+    "de": ["trainieren"],
+    "es": "entrenar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "kultur",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi equipo entrena los martes y los jueves.",
+      "de": "Meine Mannschaft trainiert dienstags und donnerstags."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
   }
 ]

@@ -626,5 +626,45 @@
     "note": null,
     "gender": "f",
     "plural": "las estrellas"
+  },
+  {
+    "id": "v0994",
+    "de": ["schwimmen"],
+    "es": "nadar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "natur",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Los niños nadan en el lago.",
+      "de": "Die Kinder schwimmen im See."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0995",
+    "de": ["angeln", "fischen"],
+    "es": "pescar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi abuelo pesca en el río todos los sábados.",
+      "de": "Mein Opa angelt jeden Samstag im Fluss."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
   }
 ]

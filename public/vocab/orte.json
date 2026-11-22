@@ -710,5 +710,25 @@
     "note": null,
     "gender": "m/f",
     "plural": "los turistas"
+  },
+  {
+    "id": "v0993",
+    "de": ["spazieren gehen"],
+    "es": "pasear",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Los domingos paseamos por la plaza.",
+      "de": "Sonntags gehen wir auf der Plaza spazieren."
+    },
+    "note": "dar un paseo = einen Spaziergang machen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
   }
 ]

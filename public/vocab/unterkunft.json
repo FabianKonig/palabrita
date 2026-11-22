@@ -686,5 +686,45 @@
     "note": "Der Wäschetrockner. In Mexiko auch der Föhn (la secadora de pelo); sonst heißt der Föhn el secador.",
     "gender": "f",
     "plural": "las secadoras"
+  },
+  {
+    "id": "v0992",
+    "de": ["mieten"],
+    "es": "rentar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Rentamos un departamento cerca de la playa.",
+      "de": "Wir mieten eine Wohnung in der Nähe des Strandes."
+    },
+    "note": "Mexiko; sonst meist alquilar. Auch: vermieten (Se renta = Zu vermieten).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1016",
+    "de": ["mieten"],
+    "es": "alquilar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Alquilamos un cuarto cerca del lago.",
+      "de": "Wir mieten ein Zimmer in der Nähe des Sees."
+    },
+    "note": "In Mexiko meist rentar. alquilar kann auch vermieten heißen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
   }
 ]
