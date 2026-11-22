@@ -29,7 +29,7 @@ Eine Vokabel-Lern-App für Spanisch, mit Fokus auf Reise-Alltag, Kultur und Orte
 | Niveau-Konfiguration | Ein **maximales Niveau** (A1, A2, B1) wird persistent in den Einstellungen gespeichert, siehe §3.2. Höhere Niveaus werden beim Lernen und in der Statistik ausgeblendet (das Verzeichnis zeigt sie, §3.3), ihr Fortschritt bleibt erhalten. |
 | Projektstruktur | Das Projekt liegt **direkt im Repo-Root**, Dokumentation in `docs/` (§9). |
 | Kompatibilität | **Es gibt aktive Nutzer** (seit 2026-11-21, vom Nutzer festgelegt; vorher galt „keine Nutzer, keine Migrationen“). Ihr Lernfortschritt und ihre Einstellungen liegen nur auf ihren Geräten und dürfen durch eine neue Version nicht verloren gehen. Änderungen an Datenmodell, Schema, Formaten und Vokabel-IDs müssen so umgesetzt werden, dass Bestandsnutzer die neue Version über „Aktualisieren“ (§15) laden und weiternutzen können, sofern möglich und mit vertretbarem Aufwand. Ist eine Migration nicht einfach umsetzbar, wird das dem Nutzer berichtet, bevor etwas umgesetzt wird; ein Breaking Change gilt nur, wenn der Nutzer ihn ausdrücklich entscheidet. Regeln und Ablauf: §10.4. |
-| Erklärvideo | Ein KI-erzeugtes Video erklärt die App. Es ist **in der App eingebettet** (Seite `/#/video`, Eintrag im Tab „Mehr“), ohne externen Dienst, lädt erst beim Abspielen und ist nicht offline verfügbar (§14.6). |
+| Erklärvideo | Ein KI-erzeugtes Video erklärt die App. Es ist **in der App eingebettet** (Seite `/#/video`, Eintrag im Tab „Mehr“, Hinweisleiste auf der Lernauswahl §14.1), ohne externen Dienst, lädt erst beim Abspielen und ist nicht offline verfügbar (§14.6). |
 | PWA-Updates | **Hinweis mit Button**: Ein Banner „Neue Version verfügbar.“ mit Button „Aktualisieren“ erscheint. Es wird nie automatisch neu geladen, auch nicht mitten in einer Lernsitzung (§15). |
 
 Nicht in v1: Multiple-Choice-Quiz, Tipp-Abfrage, Cloud-Konten, Regionalismen-Filter (MX/GT), Sync zwischen Geräten, eine dritte Bewertung „Kenne ich schon“ (würde eine neue Karte ohne Lernschritte direkt abschließen, kann später ergänzt werden).
@@ -336,10 +336,12 @@ src/
     db.ts                   # idb-Schema (settings, cards)
     settingsRepo.ts  cardRepo.ts
     progressRepo.ts         # Lernfortschritt zurücksetzen (§10.3)
+    localFlag.ts            # Ja/Nein-Merker in localStorage (Grundlage der beiden folgenden)
     welcomeFlag.ts          # Begrüßung gesehen (localStorage)
+    videoHintFlag.ts        # Hinweisleiste Erklärvideo erledigt (localStorage)
   features/
     study/  dictionary/  stats/  settings/  legend/  legal/  more/  video/
-  components/               # Flashcard, Speaker, VerbTable, VerbDetail, VerbOverlay, WelcomeOverlay, Brand, TabBar, UpdateBanner, ...
+  components/               # Flashcard, Speaker, VerbTable, VerbDetail, VerbOverlay, WelcomeOverlay, VideoHint, Brand, TabBar, UpdateBanner, ...
   hooks/                    # useAppData (Vokabeln + Einstellungen als Kontext), useSpeech
   styles/                   # global.css
 ```
@@ -406,7 +408,7 @@ Beide Stores werden beim Anlegen erzeugt. Das Schema ist die Version 1 (`data/db
 - `cards`: `clear()`, alle Datensätze beider Richtungen.
 - `settings`: Der Datensatz `main` wird ersetzt durch `{ ...createSettings(), maxLevel, theme }`: `maxLevel` und `theme` aus dem bisherigen Datensatz (ohne bisherigen Datensatz die Defaults), `orderSeed` und `startedAt` neu wie beim ersten Anlegen (§10.2, `createSettings` in `settingsRepo.ts`).
 - Der React-Zustand (`resetProgress` in `hooks/useAppData.tsx`) wird aus dem Rückgabewert gesetzt, nicht aus dem alten Zustand. Karten halten die Oberflächen nicht im Speicher: Die Lernsitzung lädt sie beim Start, die Statistik beim Öffnen; beide sind beim Zurücksetzen (Tab „Mehr“) nicht offen.
-- `localStorage` (`palabrita.welcomeSeen`) und der Service Worker bleiben unberührt, ebenso die Vokabeldateien.
+- `localStorage` (`palabrita.welcomeSeen`, `palabrita.videoHintDone`) und der Service Worker bleiben unberührt, ebenso die Vokabeldateien.
 - Tests: `data/progressRepo.test.ts`.
 
 ### 10.4 Bestehende Nutzer: Kompatibilität und Migrationen (festgelegt 2026-11-21)
@@ -418,7 +420,7 @@ Seit 2026-11-21 nutzen die ersten echten Nutzer die App (Entscheidung des Nutzer
 **Was als Nutzerdaten und gespeicherter Zustand gilt:**
 
 - IndexedDB `palabrita`: Store `settings` (`main`) und Store `cards` (§10.2). Dazu zählen `orderSeed` und `startedAt`: Sie bestimmen die Reihenfolge neuer Karten und welche Vokabeln als „neu“ gelten (§12.1).
-- `localStorage`: `palabrita.welcomeSeen` (§14.1). Neue Schlüssel gelten ab dem Anlegen ebenso.
+- `localStorage`: `palabrita.welcomeSeen` und `palabrita.videoHintDone` (§14.1). Neue Schlüssel gelten ab dem Anlegen ebenso.
 - Vokabel-IDs: Karten verweisen nur über `vocabId` auf die Vokabeln (§10.1). Die Bedeutung hinter einer ID muss gleich bleiben.
 - Die Adresse der App (Origin): Daten sind daran gebunden (§16). Ein Wechsel von Domain, Pfad oder Protokoll lässt Bestandsnutzer mit leerem Speicher zurück.
 - Hash-Routen (`/#/...`): Nutzer können Links teilen und speichern (z. B. `/#/video`). Routen nicht ohne Weiterleitung umbenennen oder entfernen.
@@ -606,6 +608,14 @@ Layout: mobile-first, untere Tab-Leiste (Lernen, Verzeichnis, Statistik, Mehr). 
 - Erstes Tippen dreht die Karte um, zweites Tippen schließt das Overlay. Enter oder Leertaste wirken wie Tippen. Beim Erststart reagiert die Fläche neben der Karte nicht: es muss die Karte angetippt werden.
 - Gemerkt wird das Schließen pro Gerät in `localStorage` (`palabrita.welcomeSeen`), nicht in IndexedDB. Ist der Speicher nicht nutzbar, erscheint der Hinweis nicht.
 - Erneut öffnen: Ein Tippen auf den ganzen Markenblock im Tab „Mehr“ (Wimpel, Schriftzug, Slogan und Widmung) zeigt dieselbe Karte, wieder Spanisch vorne. Umdrehen und Schließen funktionieren gleich, danach bleibt man auf „Mehr“. Ein Klick auf die Fläche neben der Karte schließt sie beim erneuten Öffnen sofort. Das speichert nichts, und der Erststart-Zustand ändert sich dadurch nicht. Die Karte liegt in `Layout` (`App.tsx`) über der App, die Unterseite bekommt `openWelcome` über den Router-Kontext.
+
+**Hinweisleiste „Neu hier? Erklärvideo ansehen“** (`components/VideoHint.tsx`, Flag in `data/videoHintFlag.ts`, festgelegt 2026-11-22):
+- Auf der Lernauswahl (`StudySetup`, nicht in der Sitzung und nicht auf den Abschlussseiten) schwebt über der Tab-Leiste eine weiße Leiste mit gelbem Rand (2 px, `--yellow`): links der gelbe Play-Kreis (44 px, wie im Eintrag in „Mehr“, §14.6), daneben fett „Neu hier? Erklärvideo ansehen“ und klein grau „Palabrita in einer Minute“, rechts ein ✕ (48 px Tippfläche, `aria-label` „Hinweis schließen“). Die Leiste ist ein `aside` („Hinweis zum Erklärvideo“). Sie blendet in 400 ms von unten ein.
+- Sie erscheint erst, wenn keine Begrüßungskarte mehr darüber liegt (`welcomeVisible` im Router-Kontext, §14.1 oben), also bei neuen Nutzern direkt nach dem Schließen der Karte. **Bestandsnutzer sehen sie einmalig ebenfalls** (Entscheidung des Nutzers), weil der Schlüssel bei ihnen fehlt.
+- Ein Tipp auf die Leiste öffnet `/video`; ein Tipp auf ✕ blendet sie aus. Beides merkt sich pro Gerät in `localStorage` (`palabrita.videoHintDone` = `"1"`, nicht in IndexedDB), danach erscheint sie nie wieder. Ohne die Aktion bleibt sie auf der Lernauswahl stehen, auch nach Neuladen. Ist der Speicher nicht nutzbar, erscheint sie nicht. Die erneut geöffnete Begrüßungskarte (Tab „Mehr“) zeigt sie nicht und ändert das Flag nicht.
+- Lage: `position: fixed` mit Abstand 14 px über der Tab-Leiste, höchstens 560 px breit, `z-index` unter dem Auswahlfenster. Liegt der Update-Banner (§15) an derselben Stelle, rückt die Leiste darüber. Die Seite bekommt unten zusätzlichen Platz, damit beim Scrollen nichts verdeckt bleibt. **Bei Bildschirmen bis 700 px Höhe** (kleine Handys) schwebt sie nicht, sondern steht im Fluss unter dem „Starten“-Block, weil sie sonst den Button verdeckt; sie blendet dann nur ein.
+- Bestandsnutzer (§10.4): neuer `localStorage`-Schlüssel, kein Eingriff in IndexedDB, Vokabeln oder Routen. Keine Migration nötig.
+- Tests: `data/videoHintFlag.test.ts`; `scripts/browser-smoke.ts` 1b/1c (fehlt bei offener Begrüßung, erscheint danach mit Link `#/video`, schwebt auf hohen und steht auf niedrigen Bildschirmen im Fluss, ✕ und Link setzen `palabrita.videoHintDone`, bleibt danach weg).
 
 **Karte umdrehen** (`components/Flashcard.tsx`):
 - Klick/Tippen auf die Karte **wechselt** zwischen Vorder- und Rückseite, beliebig oft (`onToggle` in `Flashcard`).

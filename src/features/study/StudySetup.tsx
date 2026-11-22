@@ -1,5 +1,8 @@
 import { Fragment, useEffect, useRef, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import { PageTitle } from "../../components/PageTitle";
+import { VideoHint } from "../../components/VideoHint";
+import type { WelcomeOutletContext } from "../../components/WelcomeOverlay";
 import { POS_LABEL_PLURAL } from "../../domain/dictionary";
 import type { QueueFilters } from "../../domain/queue";
 import type { DirectionSetting, Level, Pos } from "../../domain/types";
@@ -24,6 +27,7 @@ export function StudySetup({
   onStart: (filters: QueueFilters) => void;
 }) {
   const { topics, settings } = useAppData();
+  const { welcomeVisible } = useOutletContext<WelcomeOutletContext>();
   const [topic, setTopic] = useState("");
   const [level, setLevel] = useState<Level | "">("");
   const [pos, setPos] = useState<Pos | "">("");
@@ -170,6 +174,7 @@ export function StudySetup({
           onClose={() => setOpen(null)}
         />
       )}
+      <VideoHint hidden={welcomeVisible} />
     </div>
   );
 }

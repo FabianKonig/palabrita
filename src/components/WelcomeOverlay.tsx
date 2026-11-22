@@ -17,6 +17,8 @@ const CLOSE_MS = 250;
 export interface WelcomeOutletContext {
   /** Öffnet die Begrüßungskarte erneut. Speichert nichts. */
   openWelcome: () => void;
+  /** True, solange die Erststart-Begrüßung über der Lernseite liegt. */
+  welcomeVisible: boolean;
 }
 
 /**

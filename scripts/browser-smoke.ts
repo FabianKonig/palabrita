@@ -313,6 +313,10 @@ async function main() {
     "Begrüßung erscheint beim ersten Start",
     await waitFor(`!!document.querySelector(".welcome-card")`, "Begrüßung"),
   );
+  check(
+    "Hinweisleiste „Erklärvideo“ fehlt, solange die Begrüßung offen ist",
+    await evaluate<boolean>(`!document.querySelector(".video-hint")`),
+  );
   await evaluate(`document.querySelector(".welcome-card").click()`);
   await evaluate(`document.querySelector(".welcome-card").click()`);
   check(
@@ -321,6 +325,89 @@ async function main() {
       `!document.querySelector(".welcome-backdrop") && localStorage.getItem("palabrita.welcomeSeen") === "1"`,
       "Begrüßung geschlossen",
     ),
+  );
+
+  // 1c. Hinweisleiste „Neu hier? Erklärvideo ansehen“ (SPEC §14.1): erscheint nach der Begrüßung
+  // über der Tab-Leiste, bis ✕ oder das Video; gemerkt wird das in `palabrita.videoHintDone`.
+  check(
+    "Hinweisleiste „Erklärvideo“ erscheint nach der Begrüßung mit Text und Link auf #/video",
+    await waitFor(
+      `(() => {
+        const hint = document.querySelector(".video-hint");
+        return !!hint
+          && hint.textContent.includes("Neu hier? Erklärvideo ansehen")
+          && hint.querySelector("a").getAttribute("href") === "#/video"
+          && localStorage.getItem("palabrita.videoHintDone") === null;
+      })()`,
+      "Hinweisleiste",
+    ),
+  );
+  // Lage: auf hohen Bildschirmen schwebt sie über der Tab-Leiste, auf niedrigen (bis 700 px)
+  // steht sie unter dem „Starten“-Block und verdeckt ihn nicht.
+  await send("Emulation.setDeviceMetricsOverride", {
+    width: 412,
+    height: 900,
+    deviceScaleFactor: 1,
+    mobile: true,
+  });
+  check(
+    "Hinweisleiste schwebt auf hohem Bildschirm über der Tab-Leiste",
+    await waitFor(
+      `(() => {
+        const hint = document.querySelector(".video-hint");
+        const tabbar = document.querySelector(".tabbar");
+        return getComputedStyle(hint).position === "fixed"
+          && hint.getBoundingClientRect().bottom <= tabbar.getBoundingClientRect().top;
+      })()`,
+      "Hinweisleiste schwebend",
+    ),
+  );
+  await send("Emulation.setDeviceMetricsOverride", {
+    width: 360,
+    height: 640,
+    deviceScaleFactor: 1,
+    mobile: true,
+  });
+  check(
+    "Hinweisleiste steht auf niedrigem Bildschirm unter „Starten“ und verdeckt es nicht",
+    await waitFor(
+      `(() => {
+        const hint = document.querySelector(".video-hint");
+        const start = document.querySelector(".study-start-btn");
+        return getComputedStyle(hint).position === "static"
+          && hint.getBoundingClientRect().top >= start.getBoundingClientRect().bottom;
+      })()`,
+      "Hinweisleiste im Fluss",
+    ),
+  );
+  await send("Emulation.clearDeviceMetricsOverride");
+  await evaluate(`document.querySelector(".video-hint-close").click()`);
+  check(
+    "Hinweisleiste: ✕ blendet sie aus und merkt es sich",
+    await waitFor(
+      `!document.querySelector(".video-hint") && localStorage.getItem("palabrita.videoHintDone") === "1"`,
+      "Hinweisleiste weg",
+    ),
+  );
+  await evaluate(`localStorage.removeItem("palabrita.videoHintDone")`);
+  await evaluate(`location.reload()`);
+  check(
+    "Hinweisleiste kommt nach dem Neuladen wieder, solange sie nicht erledigt ist",
+    await waitFor(`!!document.querySelector(".video-hint")`, "Hinweisleiste"),
+  );
+  await evaluate(`document.querySelector(".video-hint a").click()`);
+  check(
+    "Hinweisleiste: Tipp öffnet das Erklärvideo und merkt es sich",
+    await waitFor(
+      `location.hash === "#/video" && localStorage.getItem("palabrita.videoHintDone") === "1"`,
+      "Videoseite",
+    ),
+  );
+  await send("Page.navigate", { url: BASE });
+  await waitFor(`document.querySelector("h1")?.textContent === "Lernen"`, "h1");
+  check(
+    "Hinweisleiste bleibt danach weg",
+    await evaluate<boolean>(`!document.querySelector(".video-hint")`),
   );
 
   // 2. Dictionary shows all words.
