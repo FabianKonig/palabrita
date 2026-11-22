@@ -58,20 +58,12 @@ export function stressedIndex(word: string): number {
 }
 
 /**
- * Attaches an enclitic pronoun (dropping `drop` trailing letters first) and adds the
- * written accent if the stress would otherwise move: llama+te → llámate.
+ * Attaches an enclitic pronoun (dropping `drop` trailing letters first) and keeps the stress
+ * on the same vowel: the written accent is added if needed (llama+te → llámate) and removed
+ * if the new word does not need it (detén+te → detente).
  */
 export function attachClitic(word: string, clitic: string, drop = 0): string {
-  const stressed = stressedIndex(word);
-  const combined = word.slice(0, word.length - drop) + clitic;
-  if (stressed < 0 || [...combined].some((c) => ACCENTED.includes(c)))
-    return combined;
-  if (stressedIndex(combined) === stressed) return combined;
-  return (
-    combined.slice(0, stressed) +
-    ACCENT[combined[stressed]] +
-    combined.slice(stressed + 1)
-  );
+  return respell(word, drop, clitic);
 }
 
 const PLAIN: Record<string, string> = {

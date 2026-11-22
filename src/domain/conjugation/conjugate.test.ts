@@ -594,6 +594,10 @@ describe("accent helpers", () => {
   it("adds the written accent only when needed", () => {
     expect(attachClitic("llama", "te")).toBe("llámate");
     expect(attachClitic("pon", "te")).toBe("ponte");
+    expect(attachClitic("detén", "te")).toBe("detente");
+    expect(attachClitic("ríe", "te")).toBe("ríete");
+    expect(attachClitic("reúne", "te")).toBe("reúnete");
+    expect(attachClitic("envía", "te")).toBe("envíate");
     expect(attachClitic("di", "me")).toBe("dime");
     expect(attachClitic("llamad", "os", 1)).toBe("llamaos");
     expect(attachClitic("vestid", "os", 1)).toBe("vestíos");
