@@ -2083,3 +2083,131 @@ body:has(.session-bar) .update-banner {
 .video-page > .notice {
   margin: 12px 0 0;
 }
+
+/* Hinweisleiste „Neu hier? Erklärvideo ansehen“: schwebt über der Tab-Leiste der Lernauswahl */
+.video-hint {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--tabbar-h) + 14px + env(safe-area-inset-bottom, 0px));
+  z-index: 19;
+  transform: translateX(-50%);
+  width: min(560px, calc(100% - 24px));
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 8px 8px 8px;
+  border: 2px solid var(--yellow);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 8px 28px rgb(18 32 30 / 0.22);
+  animation: video-hint-in 400ms ease-out both;
+}
+
+/* Liegt der Update-Banner an derselben Stelle, rückt die Leiste darüber. */
+body:has(.update-banner) .video-hint {
+  bottom: calc(var(--tabbar-h) + 86px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Unter der Leiste bleibt Platz, damit beim Scrollen nichts verdeckt wird. */
+.screen:has(.video-hint) {
+  padding-bottom: calc(
+    var(--tabbar-h) + 100px + env(safe-area-inset-bottom, 0px)
+  );
+}
+
+.video-hint-link {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  border-radius: 16px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.video-hint-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: #12201e;
+}
+
+.video-hint-play .svg-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 2px;
+}
+
+.video-hint-text {
+  line-height: 1.25;
+}
+
+.video-hint-text b {
+  display: block;
+  font-size: 0.98rem;
+}
+
+.video-hint-text small {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.video-hint-close {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.video-hint-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes video-hint-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+}
+
+/* Niedrige Bildschirme: Die schwebende Leiste würde „Starten“ verdecken. Sie steht dann unter der Auswahl. */
+@media (max-height: 700px) {
+  .video-hint,
+  body:has(.update-banner) .video-hint {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: 16px;
+    box-shadow: var(--shadow);
+    animation-name: video-hint-fade;
+  }
+
+  .screen:has(.video-hint) {
+    padding-bottom: calc(
+      var(--tabbar-h) + 28px + env(safe-area-inset-bottom, 0px)
+    );
+  }
+}
+
+@keyframes video-hint-fade {
+  from {
+    opacity: 0;
+  }
+}

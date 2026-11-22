@@ -38,12 +38,12 @@ function Layout() {
   }, [pathname]);
   const openWelcome = useCallback(() => setWelcomeReplay(true), []);
   const closeWelcomeReplay = useCallback(() => setWelcomeReplay(false), []);
-  const outletContext = useMemo<WelcomeOutletContext>(
-    () => ({ openWelcome }),
-    [openWelcome],
-  );
   // Erststart-Begrüßung liegt über der Lernseite; die App dahinter ist solange gesperrt.
   const showWelcome = pathname === "/" && !welcomeSeen;
+  const outletContext = useMemo<WelcomeOutletContext>(
+    () => ({ openWelcome, welcomeVisible: showWelcome }),
+    [openWelcome, showWelcome],
+  );
   return (
     <>
       <div className="app" inert={showWelcome || welcomeReplay}>
