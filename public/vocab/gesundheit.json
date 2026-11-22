@@ -670,5 +670,105 @@
     "note": null,
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v0999",
+    "de": ["stehlen"],
+    "es": "robar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Me robaron la cartera en el mercado.",
+      "de": "Mir wurde auf dem Markt der Geldbeutel gestohlen."
+    },
+    "note": "Diebstahl anzeigen: poner una denuncia (Mexiko auch levantar una denuncia).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1008",
+    "de": ["krank werden"],
+    "es": "enfermarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi hijo se enferma cada vez que cambia el clima.",
+      "de": "Mein Sohn wird jedes Mal krank, wenn das Wetter umschlägt."
+    },
+    "note": "In Lateinamerika üblich; in Spanien eher ponerse enfermo.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v1009",
+    "de": ["sich verletzen"],
+    "es": "lastimarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Los niños se lastiman seguido jugando futbol.",
+      "de": "Die Kinder verletzen sich oft beim Fußballspielen."
+    },
+    "note": "In Lateinamerika üblich; in Spanien eher hacerse daño. lastimarse la mano = sich an der Hand verletzen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v1010",
+    "de": ["heilen"],
+    "es": "curar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi abuela cura la tos con té de miel y limón.",
+      "de": "Meine Oma heilt Husten mit Honig-Zitronen-Tee."
+    },
+    "note": "curarse = gesund werden, heilen (Wunde).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1018",
+    "de": ["rauchen"],
+    "es": "fumar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "gesundheit",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Aquí no se puede fumar.",
+      "de": "Hier darf man nicht rauchen."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
   }
 ]

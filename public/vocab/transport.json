@@ -718,5 +718,81 @@
     "note": null,
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v0988",
+    "de": ["anhalten", "stehen bleiben"],
+    "es": "detenerse",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "transport",
+    "added": "2026-11-22",
+    "example": {
+      "es": "El camión se detiene en cada esquina.",
+      "de": "Der Bus hält an jeder Ecke."
+    },
+    "note": "Konjugiert wie tener. Im Alltag oft parar: El camión para aquí.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["go", "ie"],
+      "reflexive": true,
+      "overrides": {
+        "indefinido": {
+          "1s": "detuve",
+          "2s": "detuviste",
+          "3s": "detuvo",
+          "1p": "detuvimos",
+          "2p": "detuvisteis",
+          "3p": "detuvieron"
+        },
+        "futuro": {
+          "stem": "detendr"
+        },
+        "imperativo": {
+          "2s": "detén"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0990",
+    "de": ["parken"],
+    "es": "estacionar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Dónde puedo estacionar el carro?",
+      "de": "Wo kann ich das Auto parken?"
+    },
+    "note": "Lateinamerika; in Spanien aparcar. el estacionamiento = der Parkplatz.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0991",
+    "de": ["packen", "einpacken"],
+    "es": "empacar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mañana empaco mis cosas para el viaje.",
+      "de": "Morgen packe ich meine Sachen für die Reise."
+    },
+    "note": "Lateinamerika; in Spanien hacer la maleta.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
   }
 ]

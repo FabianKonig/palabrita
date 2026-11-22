@@ -710,5 +710,90 @@
     "note": null,
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v1014",
+    "de": ["kassieren", "berechnen"],
+    "es": "cobrar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Cuánto me cobra por la blusa?",
+      "de": "Wie viel verlangen Sie für die Bluse?"
+    },
+    "note": "¿Me cobra, por favor? = Ich möchte bitte bezahlen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1015",
+    "de": ["wert sein", "kosten"],
+    "es": "valer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "einkaufen",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Cuánto vale esta hamaca?",
+      "de": "Wie viel kostet diese Hängematte?"
+    },
+    "note": "¿Cuánto vale? bedeutet dasselbe wie ¿Cuánto cuesta? In Mexiko umgangssprachlich und etwas derb: me vale = ist mir egal.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["go"],
+      "reflexive": false,
+      "overrides": {
+        "futuro": {
+          "stem": "valdr"
+        }
+      }
+    }
+  },
+  {
+    "id": "v1021",
+    "de": ["anprobieren"],
+    "es": "probarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Me puedo probar estos pantalones?",
+      "de": "Kann ich diese Hose anprobieren?"
+    },
+    "note": "probar = probieren, kosten (Essen); probarse = Kleidung anprobieren.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v1022",
+    "de": ["wiegen"],
+    "es": "pesar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-22",
+    "example": {
+      "es": "La señora pesa los tomates en la báscula.",
+      "de": "Die Frau wiegt die Tomaten auf der Waage."
+    },
+    "note": "Auch intransitiv: ¿Cuánto pesas? = Wie viel wiegst du?",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
   }
 ]

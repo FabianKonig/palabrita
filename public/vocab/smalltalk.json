@@ -1112,5 +1112,255 @@
         }
       }
     }
+  },
+  {
+    "id": "v0930",
+    "de": ["meinen", "eine Meinung haben"],
+    "es": "opinar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Qué opinas de la nueva película?",
+      "de": "Was hältst du von dem neuen Film?"
+    },
+    "note": "¿Qué opinas de …? = Was hältst du von …?",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0939",
+    "de": ["übersetzen"],
+    "es": "traducir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Me puedes traducir este mensaje?",
+      "de": "Kannst du mir diese Nachricht übersetzen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "traduje",
+          "2s": "tradujiste",
+          "3s": "tradujo",
+          "1p": "tradujimos",
+          "2p": "tradujisteis",
+          "3p": "tradujeron"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0944",
+    "de": ["plaudern", "sich unterhalten"],
+    "es": "platicar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Me gusta platicar con mis vecinos.",
+      "de": "Ich plaudere gern mit meinen Nachbarn."
+    },
+    "note": "In Mexiko und Guatemala das übliche Wort; in Spanien eher charlar. la plática = das Gespräch.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0945",
+    "de": ["sich unterhalten"],
+    "es": "conversar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Conversamos un rato después de la clase.",
+      "de": "Wir unterhalten uns nach dem Unterricht eine Weile."
+    },
+    "note": "Etwas förmlicher als platicar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0946",
+    "de": ["bedeuten"],
+    "es": "significar",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Qué significa esta palabra?",
+      "de": "Was bedeutet dieses Wort?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0947",
+    "de": ["buchstabieren"],
+    "es": "deletrear",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Me puede deletrear su apellido?",
+      "de": "Können Sie mir Ihren Nachnamen buchstabieren?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0948",
+    "de": ["aussprechen"],
+    "es": "pronunciar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Cómo se pronuncia esta palabra?",
+      "de": "Wie spricht man dieses Wort aus?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0953",
+    "de": ["sich freuen"],
+    "es": "alegrarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Me alegro mucho de verte.",
+      "de": "Ich freue mich sehr, dich zu sehen."
+    },
+    "note": "alegrarse de algo = sich über etwas freuen; Me alegro = Das freut mich.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0954",
+    "de": ["sich verlieben"],
+    "es": "enamorarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi hermano se enamora muy rápido.",
+      "de": "Mein Bruder verliebt sich sehr schnell."
+    },
+    "note": "enamorarse de alguien = sich in jemanden verlieben.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0955",
+    "de": ["sich langweilen"],
+    "es": "aburrirse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Los niños se aburren en los viajes largos.",
+      "de": "Die Kinder langweilen sich auf langen Reisen."
+    },
+    "note": "estar aburrido = sich langweilen, ser aburrido = langweilig sein.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0964",
+    "de": ["vermissen"],
+    "es": "extrañar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Extraño mucho a mi familia.",
+      "de": "Ich vermisse meine Familie sehr."
+    },
+    "note": "In Lateinamerika üblich; in Spanien eher echar de menos. Personen mit a.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0965",
+    "de": ["genießen"],
+    "es": "disfrutar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Disfrutamos mucho la comida guatemalteca.",
+      "de": "Wir genießen das guatemaltekische Essen sehr."
+    },
+    "note": "Auch mit de: disfrutar de la vida. In Lateinamerika oft ohne de.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
   }
 ]

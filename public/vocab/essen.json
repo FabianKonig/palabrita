@@ -862,5 +862,137 @@
     "note": "Verkleinerung von el bocado (Bissen). In Mexiko ein Häppchen, etwa auf Feiern oder in Bars; el bocadillo de coco ist eine Kokossüßigkeit. In Spanien ist el bocadillo ein belegtes Brötchen, das in Mexiko la torta heißt.",
     "gender": "m",
     "plural": "los bocadillos"
+  },
+  {
+    "id": "v1011",
+    "de": ["riechen"],
+    "es": "oler",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-22",
+    "example": {
+      "es": "La cocina huele a tortillas recién hechas.",
+      "de": "Die Küche riecht nach frisch gemachten Tortillas."
+    },
+    "note": "oler a algo = nach etwas riechen. Die betonten Formen beginnen mit h-: huelo, hueles, huele, huelen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "huelo",
+          "2s": "hueles",
+          "3s": "huele",
+          "3p": "huelen"
+        },
+        "imperativo": {
+          "2s": "huele",
+          "3s": "huela",
+          "3p": "huelan"
+        }
+      }
+    }
+  },
+  {
+    "id": "v1012",
+    "de": ["frittieren", "braten"],
+    "es": "freír",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi mamá fríe plátanos para la cena.",
+      "de": "Meine Mutter brät Kochbananen zum Abendessen."
+    },
+    "note": "Partizip meist frito (huevos fritos); freído ist ebenfalls korrekt.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["i", "irr"],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "frío",
+          "2s": "fríes",
+          "3s": "fríe",
+          "3p": "fríen"
+        },
+        "indefinido": {
+          "3s": "frio",
+          "3p": "frieron"
+        },
+        "imperativo": {
+          "2s": "fríe",
+          "3s": "fría",
+          "3p": "frían"
+        },
+        "participio": "frito",
+        "gerundio": "friendo"
+      }
+    }
+  },
+  {
+    "id": "v1013",
+    "de": ["mischen"],
+    "es": "mezclar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Primero mezclo la harina con el agua.",
+      "de": "Zuerst mische ich das Mehl mit dem Wasser."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1019",
+    "de": ["aufwärmen", "erhitzen"],
+    "es": "calentar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Me calienta las tortillas, por favor?",
+      "de": "Können Sie mir bitte die Tortillas aufwärmen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1020",
+    "de": ["backen"],
+    "es": "hornear",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Los domingos horneamos pan dulce.",
+      "de": "Sonntags backen wir süßes Gebäck."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
   }
 ]

@@ -5669,5 +5669,1308 @@
     "note": "Auch: de todas formas.",
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v0929",
+    "de": ["beschreiben"],
+    "es": "describir",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "El libro describe la vida en un pueblo maya.",
+      "de": "Das Buch beschreibt das Leben in einem Maya-Dorf."
+    },
+    "note": "Partizip unregelmäßig: descrito (wie escribir → escrito); in Argentinien und Uruguay auch descripto.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "participio": "descrito"
+      }
+    }
+  },
+  {
+    "id": "v0931",
+    "de": ["vorschlagen", "anregen"],
+    "es": "sugerir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Te sugiero llegar temprano al mercado.",
+      "de": "Ich schlage dir vor, früh zum Markt zu kommen."
+    },
+    "note": "Oft mit Subjuntivo: Te sugiero que vengas temprano.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie-i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0932",
+    "de": ["vorschlagen"],
+    "es": "proponer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Ana propone una solución al problema.",
+      "de": "Ana schlägt eine Lösung für das Problem vor."
+    },
+    "note": "Konjugiert wie poner: propongo, propuse, propuesto. Ähnlich: sugerir.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["go"],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "propuse",
+          "2s": "propusiste",
+          "3s": "propuso",
+          "1p": "propusimos",
+          "2p": "propusisteis",
+          "3p": "propusieron"
+        },
+        "futuro": {
+          "stem": "propondr"
+        },
+        "imperativo": {
+          "2s": "propón"
+        },
+        "participio": "propuesto"
+      }
+    }
+  },
+  {
+    "id": "v0933",
+    "de": ["überzeugen"],
+    "es": "convencer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "No me convence la idea.",
+      "de": "Die Idee überzeugt mich nicht."
+    },
+    "note": "convencer a alguien de algo = jemanden von etwas überzeugen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0934",
+    "de": ["verneinen", "leugnen"],
+    "es": "negar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi hermano niega haberse comido el pastel.",
+      "de": "Mein Bruder leugnet, den Kuchen gegessen zu haben."
+    },
+    "note": "negarse a = sich weigern zu.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0935",
+    "de": ["vertrauen"],
+    "es": "confiar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Confío en ti.",
+      "de": "Ich vertraue dir."
+    },
+    "note": "confiar en alguien. Betonung auf dem i: confío, confías, confía.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "confío",
+          "2s": "confías",
+          "3s": "confía",
+          "3p": "confían"
+        },
+        "imperativo": {
+          "2s": "confía",
+          "3s": "confíe",
+          "3p": "confíen"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0936",
+    "de": ["zweifeln", "bezweifeln"],
+    "es": "dudar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Dudo que el camión llegue a tiempo.",
+      "de": "Ich bezweifle, dass der Bus pünktlich kommt."
+    },
+    "note": "dudar de algo; Dudo que … mit Subjuntivo.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0937",
+    "de": ["bemerken", "merken"],
+    "es": "notar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Notas la diferencia?",
+      "de": "Merkst du den Unterschied?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0938",
+    "de": ["herausfinden"],
+    "es": "averiguar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Voy a averiguar a qué hora sale el camión.",
+      "de": "Ich werde herausfinden, wann der Bus abfährt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0940",
+    "de": ["verlangen", "fordern"],
+    "es": "exigir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "El hotel exige una identificación.",
+      "de": "Das Hotel verlangt einen Ausweis."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0941",
+    "de": ["verbieten"],
+    "es": "prohibir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "En el camión se prohíbe fumar.",
+      "de": "Im Bus ist Rauchen verboten."
+    },
+    "note": "Betonung auf dem i: prohíbo, prohíbe. Auf Schildern: Prohibido fumar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "prohíbo",
+          "2s": "prohíbes",
+          "3s": "prohíbe",
+          "3p": "prohíben"
+        },
+        "imperativo": {
+          "2s": "prohíbe",
+          "3s": "prohíba",
+          "3p": "prohíban"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0942",
+    "de": ["warnen", "hinweisen"],
+    "es": "advertir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Te advierto que hoy hay mucho tráfico.",
+      "de": "Ich warne dich, heute ist viel Verkehr."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie-i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0943",
+    "de": ["empfehlen"],
+    "es": "recomendar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Qué me recomienda?",
+      "de": "Was empfehlen Sie mir?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0949",
+    "de": ["still sein", "schweigen"],
+    "es": "callarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Cuando habla la maestra, todos se callan.",
+      "de": "Wenn die Lehrerin spricht, sind alle still."
+    },
+    "note": "¡Cállate! klingt grob; höflicher: ¿Puedes guardar silencio?",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0950",
+    "de": ["ablehnen"],
+    "es": "rechazar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "La máquina rechaza mi tarjeta.",
+      "de": "Der Automat lehnt meine Karte ab."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0951",
+    "de": ["wählen (Telefonnummer)", "markieren"],
+    "es": "marcar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Para llamar a Guatemala, primero marcas el 502.",
+      "de": "Um nach Guatemala anzurufen, wählst du zuerst die 502."
+    },
+    "note": "In Mexiko auch „anrufen“: Te marco más tarde = Ich rufe dich später an.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0952",
+    "de": ["herunterladen"],
+    "es": "descargar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Descargo la aplicación en mi celular.",
+      "de": "Ich lade die App auf mein Handy herunter."
+    },
+    "note": "Auch: abladen, entladen (descargar la mercancía).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0956",
+    "de": ["müde werden"],
+    "es": "cansarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Me canso mucho cuando subo al volcán.",
+      "de": "Ich werde sehr müde, wenn ich auf den Vulkan steige."
+    },
+    "note": "cansarse de algo = etwas satthaben.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0957",
+    "de": ["erschrecken", "Angst bekommen"],
+    "es": "asustarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi perro se asusta con los cohetes.",
+      "de": "Mein Hund erschrickt bei den Böllern."
+    },
+    "note": "Ohne -se: asustar a alguien = jemanden erschrecken.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0958",
+    "de": ["sich irren"],
+    "es": "equivocarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Si me equivoco, corrígeme, por favor.",
+      "de": "Wenn ich mich irre, korrigier mich bitte."
+    },
+    "note": "equivocarse de + Nomen = das Falsche erwischen (me equivoqué de camión = ich habe den falschen Bus genommen).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0959",
+    "de": ["bereuen"],
+    "es": "arrepentirse",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "No me arrepiento de nada.",
+      "de": "Ich bereue nichts."
+    },
+    "note": "Immer reflexiv: arrepentirse de algo.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie-i"],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0960",
+    "de": ["sich entspannen"],
+    "es": "relajarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Los domingos me relajo en la hamaca.",
+      "de": "Sonntags entspanne ich mich in der Hängematte."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0961",
+    "de": ["sich gewöhnen an"],
+    "es": "acostumbrarse",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Todavía no me acostumbro a la comida picante.",
+      "de": "Ich habe mich noch nicht an das scharfe Essen gewöhnt."
+    },
+    "note": "acostumbrarse a algo = sich an etwas gewöhnen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0962",
+    "de": ["sich trauen"],
+    "es": "atreverse",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Te atreves a probar los chapulines?",
+      "de": "Traust du dich, die Heuschrecken zu probieren?"
+    },
+    "note": "atreverse a + Infinitiv = sich trauen, etwas zu tun.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0963",
+    "de": ["sich beeilen"],
+    "es": "apurarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¡Apúrate, ya viene el camión!",
+      "de": "Beeil dich, der Bus kommt schon!"
+    },
+    "note": "In Lateinamerika üblich; in Spanien: darse prisa.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0966",
+    "de": ["wünschen"],
+    "es": "desear",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Te deseo un feliz cumpleaños.",
+      "de": "Ich wünsche dir alles Gute zum Geburtstag."
+    },
+    "note": "Im Geschäft höflich: ¿Qué desea? = Was darf es sein?",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0967",
+    "de": ["verdienen"],
+    "es": "merecer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Ustedes merecen un descanso.",
+      "de": "Ihr habt eine Pause verdient."
+    },
+    "note": "Nur im Sinn von „wert sein“ (Lob, Strafe); Geld verdienen: ganar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["zco"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0968",
+    "de": ["aushalten", "ertragen"],
+    "es": "aguantar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "No aguanto el calor de la costa.",
+      "de": "Ich halte die Hitze an der Küste nicht aus."
+    },
+    "note": "Mexiko umgangssprachlich: aguántame tantito = warte kurz.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0969",
+    "de": ["sich kämmen"],
+    "es": "peinarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi hija ya se peina sola.",
+      "de": "Meine Tochter kämmt sich schon allein."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0970",
+    "de": ["sich bürsten", "sich die Zähne putzen"],
+    "es": "cepillarse",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Me cepillo los dientes después de comer.",
+      "de": "Ich putze mir nach dem Essen die Zähne."
+    },
+    "note": "Zähne putzen auch: lavarse los dientes.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0971",
+    "de": ["sich beruhigen"],
+    "es": "calmarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Cálmate, todo va a estar bien.",
+      "de": "Beruhige dich, alles wird gut."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v0972",
+    "de": ["trocknen", "abtrocknen"],
+    "es": "secar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi mamá seca la ropa al sol.",
+      "de": "Meine Mutter trocknet die Wäsche in der Sonne."
+    },
+    "note": "Reflexiv: secarse = sich abtrocknen (me seco el pelo).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0973",
+    "de": ["bügeln"],
+    "es": "planchar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Plancho mi camisa antes del trabajo.",
+      "de": "Ich bügle mein Hemd vor der Arbeit."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0974",
+    "de": ["fegen", "kehren"],
+    "es": "barrer",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Los sábados barremos el patio.",
+      "de": "Samstags fegen wir den Hof."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0975",
+    "de": ["aufräumen", "ordnen"],
+    "es": "ordenar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Tengo que ordenar mi cuarto.",
+      "de": "Ich muss mein Zimmer aufräumen."
+    },
+    "note": "In Lateinamerika auch: bestellen (¿Ya van a ordenar?).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0976",
+    "de": ["einschalten", "anmachen"],
+    "es": "prender",
+    "pos": "verb",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Puedes prender la luz, por favor?",
+      "de": "Kannst du bitte das Licht anmachen?"
+    },
+    "note": "In Lateinamerika üblich (Licht, Geräte, Feuer); in Spanien eher encender. Ausschalten: apagar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0977",
+    "de": ["lösen"],
+    "es": "resolver",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Tenemos que resolver este problema hoy.",
+      "de": "Wir müssen dieses Problem heute lösen."
+    },
+    "note": "Participio unregelmäßig: resuelto.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false,
+      "overrides": {
+        "participio": "resuelto"
+      }
+    }
+  },
+  {
+    "id": "v0978",
+    "de": ["reparieren", "in Ordnung bringen"],
+    "es": "arreglar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi papá arregla el carro los domingos.",
+      "de": "Mein Vater repariert sonntags das Auto."
+    },
+    "note": "arreglarse = sich zurechtmachen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0979",
+    "de": ["füllen"],
+    "es": "llenar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Me llena la botella de agua, por favor?",
+      "de": "Füllen Sie mir bitte die Wasserflasche auf?"
+    },
+    "note": "llenar un formulario = ein Formular ausfüllen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0980",
+    "de": ["hinzufügen"],
+    "es": "añadir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Añade un poco de sal a la sopa.",
+      "de": "Gib ein bisschen Salz in die Suppe."
+    },
+    "note": "In Mexiko im Alltag meist agregar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0981",
+    "de": ["schicken", "senden"],
+    "es": "enviar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Te envío la dirección por mensaje.",
+      "de": "Ich schicke dir die Adresse per Nachricht."
+    },
+    "note": "Betonung auf dem i: envío, envías, envía. Im Alltag oft mandar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "envío",
+          "2s": "envías",
+          "3s": "envía",
+          "3p": "envían"
+        },
+        "imperativo": {
+          "2s": "envía",
+          "3s": "envíe",
+          "3p": "envíen"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0982",
+    "de": ["überprüfen", "kontrollieren"],
+    "es": "revisar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "El mecánico revisa los frenos del carro.",
+      "de": "Der Mechaniker überprüft die Bremsen des Autos."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0983",
+    "de": ["aufhängen", "auflegen"],
+    "es": "colgar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Cuelgo la ropa en el patio para que se seque.",
+      "de": "Ich hänge die Wäsche im Hof auf, damit sie trocknet."
+    },
+    "note": "colgar (el teléfono) = auflegen: ¡No me cuelgues! = Leg nicht auf!",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0984",
+    "de": ["laden", "tragen"],
+    "es": "cargar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Tengo que cargar mi celular.",
+      "de": "Ich muss mein Handy laden."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0985",
+    "de": ["rückgängig machen", "auspacken"],
+    "es": "deshacer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Siempre deshago la maleta al llegar al hotel.",
+      "de": "Ich packe den Koffer immer aus, wenn ich im Hotel ankomme."
+    },
+    "note": "Konjugiert wie hacer: deshago, deshice, desharé, deshecho.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["go"],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "deshice",
+          "2s": "deshiciste",
+          "3s": "deshizo",
+          "1p": "deshicimos",
+          "2p": "deshicisteis",
+          "3p": "deshicieron"
+        },
+        "futuro": {
+          "stem": "deshar"
+        },
+        "imperativo": {
+          "2s": "deshaz"
+        },
+        "participio": "deshecho"
+      }
+    }
+  },
+  {
+    "id": "v0986",
+    "de": ["passen", "hineinpassen"],
+    "es": "caber",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "No cabe nada más en la maleta.",
+      "de": "In den Koffer passt nichts mehr hinein."
+    },
+    "note": "Für Kleidung, die passt: quedar (Me queda bien).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["irr"],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "quepo"
+        },
+        "indefinido": {
+          "1s": "cupe",
+          "2s": "cupiste",
+          "3s": "cupo",
+          "1p": "cupimos",
+          "2p": "cupisteis",
+          "3p": "cupieron"
+        },
+        "futuro": {
+          "stem": "cabr"
+        },
+        "imperativo": {
+          "3s": "quepa",
+          "1p": "quepamos",
+          "3p": "quepan"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0987",
+    "de": ["gehen", "laufen"],
+    "es": "andar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Ando por el centro con unos amigos.",
+      "de": "Ich bin mit ein paar Freunden in der Innenstadt unterwegs."
+    },
+    "note": "In Mexiko auch: sich befinden, sein (¿Cómo andas? = Wie geht's?).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "indefinido": {
+          "1s": "anduve",
+          "2s": "anduviste",
+          "3s": "anduvo",
+          "1p": "anduvimos",
+          "2p": "anduvisteis",
+          "3p": "anduvieron"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0989",
+    "de": ["fortsetzen", "weitermachen"],
+    "es": "continuar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Después del almuerzo continuamos con la clase.",
+      "de": "Nach dem Mittagessen machen wir mit dem Unterricht weiter."
+    },
+    "note": "Betonung auf dem u: continúo, continúas, continúa.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "presente": {
+          "1s": "continúo",
+          "2s": "continúas",
+          "3s": "continúa",
+          "3p": "continúan"
+        },
+        "imperativo": {
+          "2s": "continúa",
+          "3s": "continúe",
+          "3p": "continúen"
+        }
+      }
+    }
+  },
+  {
+    "id": "v0996",
+    "de": ["springen"],
+    "es": "saltar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "El perro salta muy alto.",
+      "de": "Der Hund springt sehr hoch."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0997",
+    "de": ["ziehen"],
+    "es": "jalar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Jala la puerta, no la empujes.",
+      "de": "Zieh an der Tür, drück nicht."
+    },
+    "note": "Mexiko; an Türen steht Jale (ziehen) und Empuje (drücken). In Spanien tirar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v0998",
+    "de": ["nehmen", "greifen", "packen"],
+    "es": "agarrar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Agarra tu mochila, ya nos vamos.",
+      "de": "Nimm deinen Rucksack, wir gehen jetzt."
+    },
+    "note": "In Lateinamerika statt coger, das dort vulgär klingt.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1000",
+    "de": ["bestehen (Prüfung)", "genehmigen"],
+    "es": "aprobar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi hermano siempre aprueba los exámenes de matemáticas.",
+      "de": "Mein Bruder besteht die Matheprüfungen immer."
+    },
+    "note": "aprobar un examen = eine Prüfung bestehen; aprobar un proyecto = ein Projekt genehmigen. Gegenteil in Mexiko: reprobar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1001",
+    "de": ["üben"],
+    "es": "practicar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Practico español todos los días con mis vecinos.",
+      "de": "Ich übe jeden Tag Spanisch mit meinen Nachbarn."
+    },
+    "note": "practicar un deporte = eine Sportart betreiben.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1002",
+    "de": ["korrigieren"],
+    "es": "corregir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "La maestra corrige las tareas en la tarde.",
+      "de": "Die Lehrerin korrigiert die Hausaufgaben am Nachmittag."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["i"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1003",
+    "de": ["organisieren"],
+    "es": "organizar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mis primas organizan una fiesta para el sábado.",
+      "de": "Meine Cousinen organisieren eine Feier für Samstag."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1004",
+    "de": ["entwickeln"],
+    "es": "desarrollar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "La empresa desarrolla aplicaciones para celulares.",
+      "de": "Die Firma entwickelt Apps für Handys."
+    },
+    "note": "Fotos entwickeln heißt revelar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1005",
+    "de": ["einschließen", "beinhalten"],
+    "es": "incluir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿El precio incluye el desayuno?",
+      "de": "Ist das Frühstück im Preis inbegriffen?"
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["y"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1006",
+    "de": ["bedienen", "sich kümmern um"],
+    "es": "atender",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "¿Ya lo atienden, señor?",
+      "de": "Werden Sie schon bedient?"
+    },
+    "note": "atender el teléfono = ans Telefon gehen. Nicht verwechseln mit asistir a = teilnehmen an.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1007",
+    "de": ["verteidigen"],
+    "es": "defender",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-22",
+    "example": {
+      "es": "Mi hermano mayor siempre me defiende.",
+      "de": "Mein großer Bruder verteidigt mich immer."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ie"],
+      "reflexive": false
+    }
   }
 ]
