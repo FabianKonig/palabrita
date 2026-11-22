@@ -38,7 +38,8 @@ Vor einem Commit mindestens `npm run lint`, `npm run format:check`, `npm test` u
 - `src/` App-Code (`domain/` Fachlogik wie Lernmodell, Warteschlange und Konjugation, `features/`, `components/`, `hooks/`, `data/`, `styles/`). Verzeichnisbaum: `docs/SPEC.md` §9.
 - `src/features/legal/` Impressum und Datenschutz (Betreiberangaben in `operator.ts`; bei Änderung von Hosting oder externen Diensten Texte prüfen)
 - `public/vocab/` Vokabeln als JSON je Thema (`NOTICE.md`: Quellen- und Lizenzhinweis); Schema: `scripts/vocab.schema.json`, Themen und Regeln: `docs/VOKABELN.md`
-- `scripts/` Vokabel-Validierung (`validate-vocab.ts` mit `validateVocab.ts`, `vocab.schema.json`), Icon-Erzeugung (`make-icons.ts`), Browser-Smoke-Test (`browser-smoke.ts`)
+- `scripts/` Vokabel-Validierung (`validate-vocab.ts` mit `validateVocab.ts`, `vocab.schema.json`), Icon-Erzeugung (`make-icons.ts`), Browser-Smoke-Test (`browser-smoke.ts`), Formen-Ausgabe zum Gegenprüfen neuer Vokabeln (`vocab-forms.ts`)
+- `.claude/skills/vokabeln-hinzufuegen/` Skill zum Hinzufügen neuer Vokabeln (Modell Opus 5.5, Effort hoch; Vorgehen, Wiktionary-Abgleich, Berichtspflicht bei Unsicherheit). Bei Vokabeln diesen Skill nutzen.
 - `scripts/video/` Skripte zur Erzeugung des Erklärvideos (Python, Shell, CommonJS; eigene `README.md`; von ESLint ausgenommen)
 - `docs/` `SPEC.md`, `TASKS.md`, `VOKABELN.md`, `ABNAHME.md`
 - `.github/workflows/pages.yml` Deployment auf GitHub Pages (Lint, Tests, Vokabelprüfung, Build, Veröffentlichung)
