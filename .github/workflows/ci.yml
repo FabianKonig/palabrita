@@ -1,0 +1,32 @@
+name: CI
+
+# Prüft jeden Pull Request gegen main. Der Job "check" ist der Pflicht-Check
+# im Ruleset für main (Settings → Rules). Bewusst kein paths-Filter: Ein
+# übersprungener Pflicht-Check würde den PR dauerhaft blockieren.
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run validate:vocab
+      - run: npm run build
