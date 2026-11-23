@@ -23,11 +23,9 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      # Lint, Format, Tests und Vokabelprüfung laufen im PR (ci.yml). Hier nur
+      # der Build: Er setzt den Versionsstempel aus dem HEAD-Commit auf main.
       - run: npm ci
-      - run: npm run lint
-      - run: npm run format:check
-      - run: npm test
-      - run: npm run validate:vocab
       - run: npm run build
       - uses: actions/upload-pages-artifact@v5
         with:

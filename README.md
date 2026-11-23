@@ -27,7 +27,7 @@ npm run validate:vocab        # Vokabeldateien prüfen (Schema, IDs, Dubletten, 
 
 ## Deployment (GitHub Pages)
 
-Die App liegt als statische Dateien (`dist/`) auf GitHub Pages (HTTPS inklusive, kein eigener Server). Der Workflow `.github/workflows/pages.yml` führt Lint, Tests, Vokabelprüfung und Build aus und veröffentlicht danach `dist/`.
+Die App liegt als statische Dateien (`dist/`) auf GitHub Pages (HTTPS inklusive, kein eigener Server). Der Workflow `.github/workflows/ci.yml` führt auf jedem Pull Request Lint, Format-Check, Tests, Vokabelprüfung und Build aus. Der Workflow `.github/workflows/pages.yml` baut nach dem Merge auf `main` neu und veröffentlicht `dist/`.
 
 Einmalige Einrichtung:
 1. Repo auf GitHub: *Settings → Pages → Build and deployment → Source: GitHub Actions*.
@@ -36,7 +36,9 @@ Einmalige Einrichtung:
    Die Domain `fabiankonig.de` ist bei GitHub verifiziert (*Settings → Pages* im Account, Domain hinzufügen). Dafür liegt ein TXT-Eintrag `_github-pages-challenge-FabianKonig.fabiankonig.de` beim DNS-Anbieter. Er muss dort bleiben.
 4. Die URL steht im Deploy-Job (erwartet: `https://palabrita.fabiankonig.de/`). Die alte Adresse `https://fabiankonig.github.io/palabrita/` leitet dorthin weiter.
 
-Aktualisieren: Jeder Push auf `main` startet den Workflow und veröffentlicht die neue Version (nur bei grünem Lint, Tests und Vokabelprüfung). Zusätzlich lässt er sich unter *Actions → Pages → Run workflow* manuell starten.
+Aktualisieren: Jeder Push auf `main` (in der Praxis der Merge eines Pull Requests) startet den Workflow `pages.yml` und veröffentlicht die neue Version, sofern der Build gelingt. Die Tests laufen nicht erneut, sondern vorher im Pull Request (`ci.yml`). Zusätzlich lässt sich `pages.yml` unter *Actions → Pages → Run workflow* manuell starten.
+
+Schutz von `main` (Settings → Rules → Rulesets): Änderungen nur per Pull Request, nur Squash-Merge, Pflicht-Check `check` (aus `ci.yml`) und „Require branches to be up to date before merging“, Bypass-Liste leer. Nur so gilt: Was auf `main` landet, wurde in genau diesem Stand geprüft.
 
 Der Lernfortschritt (IndexedDB) ist an die Adresse (Origin) gebunden. Eine neue Adresse startet leer.
 

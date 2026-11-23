@@ -42,7 +42,8 @@ Vor einem Commit mindestens `npm run lint`, `npm run format:check`, `npm test` u
 - `.claude/skills/vokabeln-hinzufuegen/` Skill zum Hinzufügen neuer Vokabeln (Modell Opus 5.5, Effort hoch; Vorgehen, Wiktionary-Abgleich, Berichtspflicht bei Unsicherheit). Bei Vokabeln diesen Skill nutzen.
 - `scripts/video/` Skripte zur Erzeugung des Erklärvideos (Python, Shell, CommonJS; eigene `README.md`; von ESLint ausgenommen)
 - `docs/` `SPEC.md`, `TASKS.md`, `VOKABELN.md`, `ABNAHME.md`
-- `.github/workflows/pages.yml` Deployment auf GitHub Pages (Lint, Tests, Vokabelprüfung, Build, Veröffentlichung)
+- `.github/workflows/ci.yml` Prüfung jedes Pull Requests (Job `check`: Lint, Format, Tests, Vokabelprüfung, Build; Pflicht-Check im Ruleset für `main`)
+- `.github/workflows/pages.yml` Deployment auf GitHub Pages nach dem Merge auf `main` (nur Build und Veröffentlichung, ohne Tests; Regeln: `docs/SPEC.md` §16)
 
 ## Konventionen
 
