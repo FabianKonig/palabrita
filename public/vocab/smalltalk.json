@@ -1362,5 +1362,21 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1031",
+    "de": ["ein Foto machen", "ein Foto schießen"],
+    "es": "tomar una foto",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-24",
+    "example": {
+      "es": "¿Puede tomarnos una foto, por favor?",
+      "de": "Können Sie bitte ein Foto von uns machen?"
+    },
+    "note": "Auch: sacar una foto.",
+    "gender": null,
+    "plural": null
   }
 ]

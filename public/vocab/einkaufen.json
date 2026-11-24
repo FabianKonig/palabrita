@@ -795,5 +795,21 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1030",
+    "de": ["Geldschein"],
+    "es": "el billete",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-24",
+    "example": {
+      "es": "¿Tiene un billete más pequeño?",
+      "de": "Haben Sie einen kleineren Schein?"
+    },
+    "note": "In Lateinamerika nur Geldschein; Münze: la moneda. Fahrkarte: el boleto (in Spanien: el billete).",
+    "gender": "m",
+    "plural": "los billetes"
   }
 ]

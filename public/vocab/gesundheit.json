@@ -770,5 +770,21 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1026",
+    "de": ["krank sein"],
+    "es": "estar enfermo",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "gesundheit",
+    "added": "2026-11-24",
+    "example": {
+      "es": "Mi hermana está enferma y no puede ir a trabajar.",
+      "de": "Meine Schwester ist krank und kann nicht zur Arbeit gehen."
+    },
+    "note": "Mit estar, weil es ein vorübergehender Zustand ist. Krank werden: enfermarse.",
+    "gender": null,
+    "plural": null
   }
 ]
