@@ -315,7 +315,7 @@
       "es": "Compré dos boletos para Oaxaca.",
       "de": "Ich habe zwei Fahrkarten nach Oaxaca gekauft."
     },
-    "note": "In Lateinamerika üblich für Fahr- und Eintrittskarten; in Spanien heißt es „billete“. Nicht verwechseln mit el billete = Geldschein.",
+    "note": "In Lateinamerika üblich für Fahr- und Eintrittskarten; in Spanien heißt die Fahrkarte „billete“, die Eintrittskarte „entrada“. Nicht verwechseln mit el billete = Geldschein.",
     "gender": "m",
     "plural": "los boletos"
   },
@@ -807,7 +807,7 @@
       "es": "El tren sale del andén dos.",
       "de": "Der Zug fährt von Bahnsteig zwei ab."
     },
-    "note": "Auch in der Metro. Daneben Gehweg (u. a. in Guatemala und Kolumbien); in Mexiko: la banqueta.",
+    "note": "Auch in der Metro. Daneben Gehweg (u. a. in Guatemala und Kolumbien); in Mexiko und auch in Guatemala: la banqueta.",
     "gender": "m",
     "plural": "los andenes"
   },
