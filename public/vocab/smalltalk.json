@@ -1378,5 +1378,21 @@
     "note": "Auch: sacar una foto.",
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v1032",
+    "de": ["Foto"],
+    "es": "la foto",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-24",
+    "example": {
+      "es": "Me gusta esta foto de la playa.",
+      "de": "Mir gefällt dieses Foto vom Strand."
+    },
+    "note": "Trotz der Endung -o weiblich: Kurzform von la fotografía (wie la mano). Ein Foto machen: tomar una foto.",
+    "gender": "f",
+    "plural": "las fotos"
   }
 ]

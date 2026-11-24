@@ -315,7 +315,7 @@
       "es": "Compré dos boletos para Oaxaca.",
       "de": "Ich habe zwei Fahrkarten nach Oaxaca gekauft."
     },
-    "note": "In Lateinamerika üblich für Fahr- und Eintrittskarten; in Spanien heißt es „billete“.",
+    "note": "In Lateinamerika üblich für Fahr- und Eintrittskarten; in Spanien heißt es „billete“. Nicht verwechseln mit el billete = Geldschein.",
     "gender": "m",
     "plural": "los boletos"
   },
@@ -823,7 +823,7 @@
       "es": "El barco llega al puerto por la mañana.",
       "de": "Das Schiff kommt morgens im Hafen an."
     },
-    "note": "Nicht verwechseln mit la puerta (Tür). In Ortsnamen häufig: Puerto Vallarta (Mexiko), Puerto Barrios (Guatemala).",
+    "note": "Nicht verwechseln mit la puerta (Tür): fast gleich geschrieben, aber anderes Genus (el puerto, la puerta). In Ortsnamen häufig: Puerto Vallarta (Mexiko), Puerto Barrios (Guatemala).",
     "gender": "m",
     "plural": "los puertos"
   },
