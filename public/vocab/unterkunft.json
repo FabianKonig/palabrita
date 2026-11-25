@@ -267,7 +267,7 @@
       "es": "La puerta no cierra bien.",
       "de": "Die Tür schließt nicht richtig."
     },
-    "note": null,
+    "note": "Nicht verwechseln mit el puerto (Hafen): fast gleich geschrieben, aber anderes Genus (la puerta, el puerto).",
     "gender": "f",
     "plural": "las puertas"
   },

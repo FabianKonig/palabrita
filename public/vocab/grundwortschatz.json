@@ -6972,5 +6972,21 @@
       "tags": ["ie"],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1025",
+    "de": ["Papier"],
+    "es": "el papel",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-24",
+    "example": {
+      "es": "Necesito una hoja de papel.",
+      "de": "Ich brauche ein Blatt Papier."
+    },
+    "note": "Das Material Papier; ein einzelnes Blatt ist la hoja (una hoja de papel). Plural los papeles = Papiere, Dokumente (Unterlagen, Ausweispapiere). Toilettenpapier: papel higiénico (Mexiko auch papel de baño, papel sanitario); Papierhandtuch: toalla de papel.",
+    "gender": "m",
+    "plural": "los papeles"
   }
 ]

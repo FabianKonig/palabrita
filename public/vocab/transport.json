@@ -315,7 +315,7 @@
       "es": "Compré dos boletos para Oaxaca.",
       "de": "Ich habe zwei Fahrkarten nach Oaxaca gekauft."
     },
-    "note": "In Lateinamerika üblich für Fahr- und Eintrittskarten; in Spanien heißt es „billete“.",
+    "note": "In Lateinamerika üblich für Fahr- und Eintrittskarten; in Spanien heißt die Fahrkarte „billete“, die Eintrittskarte „entrada“. Nicht verwechseln mit el billete = Geldschein.",
     "gender": "m",
     "plural": "los boletos"
   },
@@ -794,5 +794,69 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1024",
+    "de": ["Bahnsteig"],
+    "es": "el andén",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-24",
+    "example": {
+      "es": "El tren sale del andén dos.",
+      "de": "Der Zug fährt von Bahnsteig zwei ab."
+    },
+    "note": "Auch in der Metro. Daneben Gehweg (u. a. in Guatemala und Kolumbien); in Mexiko und auch in Guatemala: la banqueta.",
+    "gender": "m",
+    "plural": "los andenes"
+  },
+  {
+    "id": "v1027",
+    "de": ["Hafen"],
+    "es": "el puerto",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-24",
+    "example": {
+      "es": "El barco llega al puerto por la mañana.",
+      "de": "Das Schiff kommt morgens im Hafen an."
+    },
+    "note": "Nicht verwechseln mit la puerta (Tür): fast gleich geschrieben, aber anderes Genus (el puerto, la puerta). In Ortsnamen häufig: Puerto Vallarta (Mexiko), Puerto Barrios (Guatemala).",
+    "gender": "m",
+    "plural": "los puertos"
+  },
+  {
+    "id": "v1028",
+    "de": ["Zollbeamter"],
+    "es": "el aduanero",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "transport",
+    "added": "2026-11-24",
+    "example": {
+      "es": "El aduanero revisa mi maleta.",
+      "de": "Der Zollbeamte kontrolliert meinen Koffer."
+    },
+    "note": "Weiblich: la aduanera. Zoll/Zollbehörde: la aduana.",
+    "gender": "m",
+    "plural": "los aduaneros"
+  },
+  {
+    "id": "v1029",
+    "de": ["U-Bahn"],
+    "es": "el metro",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "added": "2026-11-24",
+    "example": {
+      "es": "Voy al centro en metro.",
+      "de": "Ich fahre mit der U-Bahn ins Zentrum."
+    },
+    "note": "Mexiko-Stadt hat ein großes Metronetz; der Transmetro in Guatemala-Stadt ist dagegen ein Schnellbussystem. Gleiche Form: el metro = Meter.",
+    "gender": "m",
+    "plural": "los metros"
   }
 ]

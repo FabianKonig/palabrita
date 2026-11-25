@@ -1362,5 +1362,37 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1031",
+    "de": ["ein Foto machen", "ein Foto schießen"],
+    "es": "tomar una foto",
+    "pos": "phrase",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-24",
+    "example": {
+      "es": "¿Puede tomarnos una foto, por favor?",
+      "de": "Können Sie bitte ein Foto von uns machen?"
+    },
+    "note": "Auch: sacar una foto.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1032",
+    "de": ["Foto"],
+    "es": "la foto",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-24",
+    "example": {
+      "es": "Me gusta esta foto de la playa.",
+      "de": "Mir gefällt dieses Foto vom Strand."
+    },
+    "note": "Trotz der Endung -o weiblich (wie la mano), da Kurzform von la fotografía. Ein Foto machen: tomar una foto.",
+    "gender": "f",
+    "plural": "las fotos"
   }
 ]
