@@ -811,5 +811,21 @@
     "note": "Auch Fahrkarte: in Spanien üblich (el billete de tren), in manchen Regionen auch sonst. In Mexiko und Guatemala steht dafür el boleto, nicht verwechseln. Münze: la moneda.",
     "gender": "m",
     "plural": "los billetes"
+  },
+  {
+    "id": "v1034",
+    "de": ["orange"],
+    "es": "naranja",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-26",
+    "example": {
+      "es": "Mi mochila es naranja.",
+      "de": "Mein Rucksack ist orange."
+    },
+    "note": "Im Plural auch unverändert möglich: zapatos naranja. Auch: anaranjado. Die Frucht: la naranja.",
+    "gender": null,
+    "plural": null
   }
 ]
