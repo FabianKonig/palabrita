@@ -1394,5 +1394,21 @@
     "note": "Trotz der Endung -o weiblich (wie la mano), da Kurzform von la fotografía. Ein Foto machen: tomar una foto.",
     "gender": "f",
     "plural": "las fotos"
+  },
+  {
+    "id": "v1035",
+    "de": ["verdammt", "Scheiß-", "mies"],
+    "es": "pinche",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "smalltalk",
+    "added": "2026-11-26",
+    "example": {
+      "es": "¡Qué pinche calor hace hoy!",
+      "de": "Was für eine verdammte Hitze heute!"
+    },
+    "note": "Derb, in Mexiko und Guatemala: verstärkt Ärger oder Abwertung, meist vor dem Nomen (este pinche tráfico = dieser Scheißverkehr). Unter Fremden und in formellen Situationen vermeiden.",
+    "gender": null,
+    "plural": null
   }
 ]

@@ -726,5 +726,21 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1036",
+    "de": ["Glasscheibe", "Kristall"],
+    "es": "el cristal",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "unterkunft",
+    "added": "2026-11-26",
+    "example": {
+      "es": "El cristal de la ventana está roto.",
+      "de": "Die Fensterscheibe ist kaputt."
+    },
+    "note": "Glas als Material heißt meist vidrio, auch die Scheibe oft (el vidrio de la ventana). Kristallgläser: copas de cristal.",
+    "gender": "m",
+    "plural": "los cristales"
   }
 ]

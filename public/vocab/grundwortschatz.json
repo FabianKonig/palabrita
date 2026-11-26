@@ -6988,5 +6988,21 @@
     "note": "Das Material Papier; ein einzelnes Blatt ist la hoja (una hoja de papel). Plural los papeles = Papiere, Dokumente (Unterlagen, Ausweispapiere). Toilettenpapier: papel higiénico (Mexiko auch papel de baño, papel sanitario); Papierhandtuch: toalla de papel.",
     "gender": "m",
     "plural": "los papeles"
+  },
+  {
+    "id": "v1037",
+    "de": ["Glas"],
+    "es": "el vidrio",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-26",
+    "example": {
+      "es": "La botella es de vidrio, no de plástico.",
+      "de": "Die Flasche ist aus Glas, nicht aus Plastik."
+    },
+    "note": "Glas als Material, auch die Scheibe (el vidrio de la ventana). Trinkglas: vaso, Weinglas: copa.",
+    "gender": "m",
+    "plural": "los vidrios"
   }
 ]

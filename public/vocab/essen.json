@@ -994,5 +994,21 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1033",
+    "de": ["Orange"],
+    "es": "la naranja",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-26",
+    "example": {
+      "es": "Quiero una naranja, por favor.",
+      "de": "Ich möchte bitte eine Orange."
+    },
+    "note": "Die Frucht; der Baum heißt el naranjo. Orangensaft: jugo de naranja. Die Farbe als Nomen: el naranja (männlich).",
+    "gender": "f",
+    "plural": "las naranjas"
   }
 ]
