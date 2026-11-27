@@ -812,22 +812,6 @@
     "plural": "los semáforos"
   },
   {
-    "id": "v1143",
-    "de": ["Bürgersteig", "Gehweg"],
-    "es": "la acera",
-    "pos": "noun",
-    "level": "B1",
-    "topic": "orte",
-    "added": "2026-11-27",
-    "example": {
-      "es": "Caminen por la acera, no por la calle.",
-      "de": "Geht auf dem Gehweg, nicht auf der Straße."
-    },
-    "note": "In Mexiko und Guatemala sagt man meist la banqueta.",
-    "gender": "f",
-    "plural": "las aceras"
-  },
-  {
     "id": "v1144",
     "de": ["Gegend", "Zone", "Gebiet"],
     "es": "la zona",

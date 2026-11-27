@@ -7466,26 +7466,6 @@
     }
   },
   {
-    "id": "v1195",
-    "de": ["nehmen (Spanien)", "greifen (Spanien)"],
-    "es": "coger",
-    "pos": "verb",
-    "level": "B1",
-    "topic": "grundwortschatz",
-    "added": "2026-11-27",
-    "example": {
-      "es": "En España la gente coge el metro para ir al trabajo.",
-      "de": "In Spanien nehmen die Leute die U-Bahn zur Arbeit."
-    },
-    "note": "Vorsicht, vulgär: In Mexiko, Guatemala und weiten Teilen Lateinamerikas bedeutet coger Sex haben. Dort agarrar oder tomar sagen; nur in Spanien ist das Wort harmlos.",
-    "gender": null,
-    "plural": null,
-    "verb": {
-      "tags": [],
-      "reflexive": false
-    }
-  },
-  {
     "id": "v1196",
     "de": ["werfen", "hineintun", "schütten"],
     "es": "echar",
@@ -7666,26 +7646,6 @@
     "verb": {
       "tags": [],
       "reflexive": false
-    }
-  },
-  {
-    "id": "v1209",
-    "de": ["sich ärgern", "wütend werden"],
-    "es": "enfadarse",
-    "pos": "verb",
-    "level": "B1",
-    "topic": "grundwortschatz",
-    "added": "2026-11-27",
-    "example": {
-      "es": "Mi jefe se enfada cuando llego tarde.",
-      "de": "Mein Chef ärgert sich, wenn ich zu spät komme."
-    },
-    "note": "Vor allem in Spanien üblich; in Mexiko und Guatemala sagt man enojarse.",
-    "gender": null,
-    "plural": null,
-    "verb": {
-      "tags": [],
-      "reflexive": true
     }
   },
   {

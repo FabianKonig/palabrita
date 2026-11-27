@@ -1735,42 +1735,6 @@
     "plural": null
   },
   {
-    "id": "v1071",
-    "de": ["ihr"],
-    "es": "vosotros",
-    "pos": "other",
-    "level": "B1",
-    "topic": "smalltalk",
-    "added": "2026-11-27",
-    "example": {
-      "es": "En España dicen vosotros; aquí decimos ustedes.",
-      "de": "In Spanien sagt man vosotros; hier sagen wir ustedes."
-    },
-    "note": "Nur in Spanien. In Lateinamerika heißt ihr immer ustedes, auch unter Freunden (siehe usted). Weiblich: vosotras.",
-    "gender": null,
-    "plural": null
-  },
-  {
-    "id": "v1192",
-    "de": ["plaudern", "sich unterhalten"],
-    "es": "charlar",
-    "pos": "verb",
-    "level": "B1",
-    "topic": "smalltalk",
-    "added": "2026-11-27",
-    "example": {
-      "es": "Después de la clase charlamos un rato en el café.",
-      "de": "Nach dem Unterricht plaudern wir noch ein bisschen im Café."
-    },
-    "note": "Vor allem in Spanien; in Mexiko und Guatemala sagt man meist platicar. la charla = das Gespräch, auch der Vortrag.",
-    "gender": null,
-    "plural": null,
-    "verb": {
-      "tags": [],
-      "reflexive": false
-    }
-  },
-  {
     "id": "v1207",
     "de": ["sich widmen", "beruflich machen"],
     "es": "dedicarse",
@@ -1911,8 +1875,8 @@
     "topic": "smalltalk",
     "added": "2026-11-27",
     "example": {
-      "es": "Es una pena que el museo esté cerrado.",
-      "de": "Schade, dass das Museum geschlossen ist."
+      "es": "Le cuento mis penas a mi mejor amiga.",
+      "de": "Ich erzähle meiner besten Freundin von meinem Kummer."
     },
     "note": "es una pena = es ist schade; vale la pena = es lohnt sich. In Mexiko und Mittelamerika oft auch Scham, Verlegenheit: Me da pena = Es ist mir peinlich.",
     "gender": "f",

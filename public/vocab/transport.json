@@ -1008,26 +1008,6 @@
     }
   },
   {
-    "id": "v1190",
-    "de": ["parken"],
-    "es": "aparcar",
-    "pos": "verb",
-    "level": "B1",
-    "topic": "transport",
-    "added": "2026-11-27",
-    "example": {
-      "es": "En Madrid es difícil aparcar en el centro.",
-      "de": "In Madrid ist es schwierig, im Zentrum zu parken."
-    },
-    "note": "Spanien; in Mexiko und Guatemala sagt man estacionar.",
-    "gender": null,
-    "plural": null,
-    "verb": {
-      "tags": [],
-      "reflexive": false
-    }
-  },
-  {
     "id": "v1278",
     "de": ["Schiff", "Boot"],
     "es": "el barco",
