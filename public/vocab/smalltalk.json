@@ -1410,5 +1410,524 @@
     "note": "Derb, in Mexiko und Guatemala: verstärkt Ärger oder Abwertung, meist vor dem Nomen (este pinche tráfico = dieser Scheißverkehr). Unter Fremden und in formellen Situationen vermeiden.",
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v1039",
+    "de": ["Großmutter", "Oma"],
+    "es": "la abuela",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi abuela vive en un pueblo cerca de Oaxaca.",
+      "de": "Meine Großmutter wohnt in einem Dorf in der Nähe von Oaxaca."
+    },
+    "note": "Liebevoll oft: la abuelita.",
+    "gender": "f",
+    "plural": "las abuelas"
+  },
+  {
+    "id": "v1040",
+    "de": ["Großvater", "Opa"],
+    "es": "el abuelo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi abuelo tiene ochenta años.",
+      "de": "Mein Großvater ist achtzig Jahre alt."
+    },
+    "note": "Plural los abuelos = Großeltern.",
+    "gender": "m",
+    "plural": "los abuelos"
+  },
+  {
+    "id": "v1041",
+    "de": ["Tante"],
+    "es": "la tía",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi tía hace los mejores tamales de la familia.",
+      "de": "Meine Tante macht die besten Tamales der Familie."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las tías"
+  },
+  {
+    "id": "v1042",
+    "de": ["Onkel"],
+    "es": "el tío",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi tío trabaja en Estados Unidos.",
+      "de": "Mein Onkel arbeitet in den USA."
+    },
+    "note": "Plural los tíos = Onkel und Tanten.",
+    "gender": "m",
+    "plural": "los tíos"
+  },
+  {
+    "id": "v1043",
+    "de": ["Neffe"],
+    "es": "el sobrino",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi sobrino aprende a nadar.",
+      "de": "Mein Neffe lernt schwimmen."
+    },
+    "note": "Nichte: la sobrina. Plural los sobrinos auch für Neffen und Nichten zusammen.",
+    "gender": "m",
+    "plural": "los sobrinos"
+  },
+  {
+    "id": "v1044",
+    "de": ["Cousin"],
+    "es": "el primo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi primo me presta su carro.",
+      "de": "Mein Cousin leiht mir sein Auto."
+    },
+    "note": "Plural los primos auch für Cousins und Cousinen zusammen.",
+    "gender": "m",
+    "plural": "los primos"
+  },
+  {
+    "id": "v1045",
+    "de": ["Cousine"],
+    "es": "la prima",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi prima estudia en la capital.",
+      "de": "Meine Cousine studiert in der Hauptstadt."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las primas"
+  },
+  {
+    "id": "v1046",
+    "de": ["Mama", "Mutter"],
+    "es": "la mamá",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi mamá me llama todos los domingos.",
+      "de": "Meine Mama ruft mich jeden Sonntag an."
+    },
+    "note": "In Mexiko und Guatemala sagen auch Erwachsene im Alltag mi mamá; la madre klingt förmlicher.",
+    "gender": "f",
+    "plural": "las mamás"
+  },
+  {
+    "id": "v1047",
+    "de": ["Papa", "Vater"],
+    "es": "el papá",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi papá maneja un taxi.",
+      "de": "Mein Papa fährt Taxi."
+    },
+    "note": "Plural los papás = Eltern, in Mexiko und Guatemala sehr üblich. Mit Akzent; ohne Akzent: la papa = Kartoffel, el papa = Papst.",
+    "gender": "m",
+    "plural": "los papás"
+  },
+  {
+    "id": "v1048",
+    "de": ["Nachbar"],
+    "es": "el vecino",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El vecino tiene un perro muy grande.",
+      "de": "Der Nachbar hat einen sehr großen Hund."
+    },
+    "note": "Nachbarin: la vecina.",
+    "gender": "m",
+    "plural": "los vecinos"
+  },
+  {
+    "id": "v1049",
+    "de": ["Student", "Schüler"],
+    "es": "el/la estudiante",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Soy estudiante de medicina.",
+      "de": "Ich studiere Medizin."
+    },
+    "note": "Gilt auch für Schülerinnen und Schüler.",
+    "gender": "m/f",
+    "plural": "los estudiantes"
+  },
+  {
+    "id": "v1050",
+    "de": ["Lehrer", "Professor"],
+    "es": "el profesor",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El profesor explica muy bien.",
+      "de": "Der Lehrer erklärt sehr gut."
+    },
+    "note": "Weiblich: la profesora. Für Lehrkräfte an Schule und Uni; in der Grundschule sagt man meist el maestro, la maestra.",
+    "gender": "m",
+    "plural": "los profesores"
+  },
+  {
+    "id": "v1051",
+    "de": ["Lehrer"],
+    "es": "el maestro",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El maestro llega temprano a la escuela.",
+      "de": "Der Lehrer kommt früh in die Schule."
+    },
+    "note": "Lehrerin: la maestra. In Mexiko auch lockere, respektvolle Anrede für Handwerker: ¡Gracias, maestro!",
+    "gender": "m",
+    "plural": "los maestros"
+  },
+  {
+    "id": "v1058",
+    "de": ["Kumpel"],
+    "es": "el cuate",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Esta noche salgo con mis cuates.",
+      "de": "Heute Abend gehe ich mit meinen Kumpels aus."
+    },
+    "note": "Mexiko, umgangssprachlich; weiblich: la cuata. Auch: Zwilling (aus dem Nahuatl). Neutral: el amigo.",
+    "gender": "m",
+    "plural": "los cuates"
+  },
+  {
+    "id": "v1059",
+    "de": ["Spanisch"],
+    "es": "el español",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hablo un poco de español.",
+      "de": "Ich spreche ein bisschen Spanisch."
+    },
+    "note": "Sprachnamen schreibt man klein. Auch: el castellano.",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1060",
+    "de": ["spanisch"],
+    "es": "español",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi profesora es española, de Sevilla.",
+      "de": "Meine Lehrerin ist Spanierin, aus Sevilla."
+    },
+    "note": "Auch für Personen: un español = ein Spanier, una española = eine Spanierin. Klein geschrieben.",
+    "gender": null,
+    "plural": null,
+    "adj": {
+      "f": "española"
+    }
+  },
+  {
+    "id": "v1061",
+    "de": ["Englisch"],
+    "es": "el inglés",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi hermano habla inglés y francés.",
+      "de": "Mein Bruder spricht Englisch und Französisch."
+    },
+    "note": "Als Adjektiv: inglés, inglesa = englisch.",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1062",
+    "de": ["deutsch"],
+    "es": "alemán",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Somos alemanes, de Berlín.",
+      "de": "Wir sind Deutsche, aus Berlin."
+    },
+    "note": "Auch für Personen: un alemán = ein Deutscher, una alemana = eine Deutsche. Die Sprache: el alemán = Deutsch.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1063",
+    "de": ["mexikanisch"],
+    "es": "mexicano",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi novia es mexicana.",
+      "de": "Meine Freundin ist Mexikanerin."
+    },
+    "note": "Auch für Personen: el mexicano, la mexicana. Geschrieben mit x wie México, gesprochen wie j.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1064",
+    "de": ["guatemaltekisch"],
+    "es": "guatemalteco",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El café guatemalteco es famoso en todo el mundo.",
+      "de": "Guatemaltekischer Kaffee ist auf der ganzen Welt berühmt."
+    },
+    "note": "Auch für Personen: el guatemalteco, la guatemalteca. Umgangssprachlich: chapín, chapina.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1207",
+    "de": ["sich widmen", "beruflich machen"],
+    "es": "dedicarse",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi hermano se dedica a la música.",
+      "de": "Mein Bruder macht beruflich Musik."
+    },
+    "note": "Immer mit a: Me dedico al turismo = Ich arbeite im Tourismus. Frage nach dem Beruf: ¿A qué se dedica?",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": true
+    }
+  },
+  {
+    "id": "v1213",
+    "de": ["Lieblings-"],
+    "es": "favorito",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Cuál es tu comida favorita?",
+      "de": "Was ist dein Lieblingsessen?"
+    },
+    "note": "Steht nach dem Nomen: mi color favorito = meine Lieblingsfarbe. Ähnlich: preferido.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1225",
+    "de": ["bewegend", "ergreifend"],
+    "es": "emotivo",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Es una canción muy emotiva.",
+      "de": "Das ist ein sehr bewegendes Lied."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1240",
+    "de": ["ein bisschen", "kurz"],
+    "es": "tantito",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Me espera tantito? Ya casi termino.",
+      "de": "Können Sie kurz warten? Ich bin fast fertig."
+    },
+    "note": "Mexiko, umgangssprachlich; Verkleinerungsform von tanto. tantito más = ein bisschen mehr.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1284",
+    "de": ["Baby"],
+    "es": "el/la bebé",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El bebé duerme casi todo el día.",
+      "de": "Das Baby schläft fast den ganzen Tag."
+    },
+    "note": null,
+    "gender": "m/f",
+    "plural": "los bebés"
+  },
+  {
+    "id": "v1286",
+    "de": ["Studium", "Lernen"],
+    "es": "el estudio",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mis estudios de medicina duran seis años.",
+      "de": "Mein Medizinstudium dauert sechs Jahre."
+    },
+    "note": "Für die Ausbildung meist im Plural (mis estudios). Auch: Studie; Studio (Einzimmerwohnung).",
+    "gender": "m",
+    "plural": "los estudios"
+  },
+  {
+    "id": "v1289",
+    "de": ["Gespräch", "Plauderei"],
+    "es": "la plática",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Después de comer, la plática sigue por horas.",
+      "de": "Nach dem Essen geht das Gespräch stundenlang weiter."
+    },
+    "note": "In Mexiko und Guatemala üblich; in Spanien eher la charla. In Mexiko auch: kurzer Vortrag. Verb: platicar.",
+    "gender": "f",
+    "plural": "las pláticas"
+  },
+  {
+    "id": "v1303",
+    "de": ["Akzent"],
+    "es": "el acento",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Usted habla con acento alemán.",
+      "de": "Sie sprechen mit deutschem Akzent."
+    },
+    "note": "Auch das geschriebene Akzentzeichen (á, é), dafür auch la tilde.",
+    "gender": "m",
+    "plural": "los acentos"
+  },
+  {
+    "id": "v1310",
+    "de": ["Kummer", "Leid"],
+    "es": "la pena",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Le cuento mis penas a mi mejor amiga.",
+      "de": "Ich erzähle meiner besten Freundin von meinem Kummer."
+    },
+    "note": "es una pena = es ist schade; vale la pena = es lohnt sich. In Mexiko und Mittelamerika oft auch Scham, Verlegenheit: Me da pena = Es ist mir peinlich.",
+    "gender": "f",
+    "plural": "las penas"
+  },
+  {
+    "id": "v1324",
+    "de": ["Witz"],
+    "es": "el chiste",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi tío siempre cuenta chistes malos.",
+      "de": "Mein Onkel erzählt immer schlechte Witze."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los chistes"
+  },
+  {
+    "id": "v1325",
+    "de": ["Job", "Arbeit"],
+    "es": "la chamba",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi primo busca chamba en la capital.",
+      "de": "Mein Cousin sucht in der Hauptstadt einen Job."
+    },
+    "note": "Umgangssprachlich, in Mexiko und Mittelamerika sehr verbreitet; neutral: el trabajo. Verb dazu: chambear = arbeiten.",
+    "gender": "f",
+    "plural": "las chambas"
+  },
+  {
+    "id": "v1331",
+    "de": ["Mut", "Stimmung"],
+    "es": "el ánimo",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "smalltalk",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Sus palabras me dan mucho ánimo.",
+      "de": "Ihre Worte machen mir viel Mut."
+    },
+    "note": "¡Ánimo! = Kopf hoch!, Nur Mut!; el estado de ánimo = die Stimmung, die Gemütsverfassung.",
+    "gender": "m",
+    "plural": "los ánimos"
   }
 ]

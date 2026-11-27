@@ -742,5 +742,293 @@
     "note": "Glas als Material heißt meist vidrio, auch die Scheibe oft (el vidrio de la ventana). Kristallgläser: copas de cristal.",
     "gender": "m",
     "plural": "los cristales"
+  },
+  {
+    "id": "v1094",
+    "de": ["Ausweis"],
+    "es": "la identificación",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Me permite su identificación, por favor?",
+      "de": "Darf ich bitte Ihren Ausweis sehen?"
+    },
+    "note": "Jeder amtliche Lichtbildausweis; Reisende zeigen meist den Reisepass (el pasaporte). In Mexiko sagt man für den Personalausweis oft einfach INE, in Guatemala DPI.",
+    "gender": "f",
+    "plural": "las identificaciones"
+  },
+  {
+    "id": "v1114",
+    "de": ["Wohnung", "Apartment"],
+    "es": "el departamento",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El departamento tiene dos cuartos y una cocina.",
+      "de": "Die Wohnung hat zwei Zimmer und eine Küche."
+    },
+    "note": "Mexiko; in Guatemala meist el apartamento, in Spanien el piso. Auch: Abteilung; in Guatemala außerdem Verwaltungsbezirk (das Land hat 22 departamentos).",
+    "gender": "m",
+    "plural": "los departamentos"
+  },
+  {
+    "id": "v1115",
+    "de": ["Stockwerk", "Fußboden"],
+    "es": "el piso",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Nuestro cuarto está en el último piso.",
+      "de": "Unser Zimmer ist im obersten Stockwerk."
+    },
+    "note": "In Lateinamerika auch das übliche Wort für den Fußboden: Se cayó al piso = Es ist auf den Boden gefallen. In Spanien heißt piso außerdem Wohnung.",
+    "gender": "m",
+    "plural": "los pisos"
+  },
+  {
+    "id": "v1116",
+    "de": ["Zimmer"],
+    "es": "el cuarto",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Tienen un cuarto para dos personas?",
+      "de": "Haben Sie ein Zimmer für zwei Personen?"
+    },
+    "note": "Im Alltag in Mexiko und Guatemala sehr üblich, auch im Hotel; etwas förmlicher: la habitación. Auch: Viertel (las dos y cuarto = Viertel nach zwei).",
+    "gender": "m",
+    "plural": "los cuartos"
+  },
+  {
+    "id": "v1117",
+    "de": ["Fenster"],
+    "es": "la ventana",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Puedo cerrar la ventana? Hace frío.",
+      "de": "Darf ich das Fenster schließen? Es ist kalt."
+    },
+    "note": "Das Fenster in Auto, Bus oder Flugzeug und der Schalter heißen la ventanilla.",
+    "gender": "f",
+    "plural": "las ventanas"
+  },
+  {
+    "id": "v1118",
+    "de": ["Wand"],
+    "es": "la pared",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Las paredes del hotel son muy delgadas.",
+      "de": "Die Wände des Hotels sind sehr dünn."
+    },
+    "note": "Eine frei stehende Mauer heißt meist el muro.",
+    "gender": "f",
+    "plural": "las paredes"
+  },
+  {
+    "id": "v1119",
+    "de": ["Innenhof", "Hof"],
+    "es": "el patio",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Desayunamos en el patio del hostal.",
+      "de": "Wir frühstücken im Innenhof des Hostals."
+    },
+    "note": "Typisch für Häuser im Kolonialstil: Die Zimmer liegen um einen offenen Innenhof.",
+    "gender": "m",
+    "plural": "los patios"
+  },
+  {
+    "id": "v1120",
+    "de": ["Kleiderschrank", "Wandschrank"],
+    "es": "el clóset",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Puedes guardar tu ropa en el clóset.",
+      "de": "Du kannst deine Kleidung im Schrank verstauen."
+    },
+    "note": "Lateinamerika, meist ein Einbauschrank; in Spanien el armario.",
+    "gender": "m",
+    "plural": "los clósets"
+  },
+  {
+    "id": "v1122",
+    "de": ["Stuhl"],
+    "es": "la silla",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Falta una silla en esta mesa.",
+      "de": "An diesem Tisch fehlt ein Stuhl."
+    },
+    "note": "la silla de ruedas = Rollstuhl.",
+    "gender": "f",
+    "plural": "las sillas"
+  },
+  {
+    "id": "v1123",
+    "de": ["Sessel"],
+    "es": "el sillón",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi papá lee el periódico en el sillón.",
+      "de": "Mein Vater liest im Sessel die Zeitung."
+    },
+    "note": "Vergrößerungsform von la silla (Stuhl): ein großer, gepolsterter Sitz.",
+    "gender": "m",
+    "plural": "los sillones"
+  },
+  {
+    "id": "v1124",
+    "de": ["Hängematte"],
+    "es": "la hamaca",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Me gusta dormir en la hamaca.",
+      "de": "Ich schlafe gern in der Hängematte."
+    },
+    "note": "Typisch für Yucatán und die Küste. Das Wort stammt aus dem Taíno, einer Sprache der Karibik.",
+    "gender": "f",
+    "plural": "las hamacas"
+  },
+  {
+    "id": "v1125",
+    "de": ["Dusche"],
+    "es": "la regadera",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El agua de la regadera sale fría.",
+      "de": "Das Wasser aus der Dusche kommt kalt."
+    },
+    "note": "Mexiko; sonst meist la ducha. In Spanien heißt regadera nur Gießkanne.",
+    "gender": "f",
+    "plural": "las regaderas"
+  },
+  {
+    "id": "v1126",
+    "de": ["Aufzug", "Fahrstuhl"],
+    "es": "el elevador",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Tomamos el elevador hasta el quinto piso.",
+      "de": "Wir nehmen den Aufzug in den fünften Stock."
+    },
+    "note": "Mexiko und Guatemala; in Spanien el ascensor.",
+    "gender": "m",
+    "plural": "los elevadores"
+  },
+  {
+    "id": "v1131",
+    "de": ["Lärm", "Geräusch"],
+    "es": "el ruido",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hay mucho ruido en la calle por la noche.",
+      "de": "Nachts ist auf der Straße viel Lärm."
+    },
+    "note": "hacer ruido = Lärm machen.",
+    "gender": "m",
+    "plural": "los ruidos"
+  },
+  {
+    "id": "v1214",
+    "de": ["bequem", "komfortabel"],
+    "es": "cómodo",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La cama del hotel es muy cómoda.",
+      "de": "Das Bett im Hotel ist sehr bequem."
+    },
+    "note": "Mit estar auch für Personen: ¿Están cómodos? = Haben Sie es bequem?",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1219",
+    "de": ["schmutzig", "dreckig"],
+    "es": "sucio",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Las toallas del baño están sucias.",
+      "de": "Die Handtücher im Bad sind schmutzig."
+    },
+    "note": "Gegenstück: limpio.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1272",
+    "de": ["Saison", "Zeit"],
+    "es": "la temporada",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En temporada alta los hoteles cuestan más.",
+      "de": "In der Hochsaison kosten die Hotels mehr."
+    },
+    "note": "temporada alta = Hochsaison, temporada baja = Nebensaison. Auch: temporada de lluvias (Regenzeit), temporada de huracanes.",
+    "gender": "f",
+    "plural": "las temporadas"
+  },
+  {
+    "id": "v1285",
+    "de": ["Regal"],
+    "es": "el estante",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "unterkunft",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Las toallas están en el estante del baño.",
+      "de": "Die Handtücher liegen im Regal im Bad."
+    },
+    "note": "In Spanien sagt man für das ganze Regal eher la estantería.",
+    "gender": "m",
+    "plural": "los estantes"
   }
 ]

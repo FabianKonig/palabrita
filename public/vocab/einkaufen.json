@@ -827,5 +827,405 @@
     "note": "Im Plural auch unverändert möglich: zapatos naranja. Auch: anaranjado. Die Frucht: la naranja.",
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v1052",
+    "de": ["Verkäufer"],
+    "es": "el vendedor",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El vendedor de elotes está en la esquina.",
+      "de": "Der Maisverkäufer steht an der Ecke."
+    },
+    "note": "Verkäuferin: la vendedora. Straßenhändler: vendedor ambulante.",
+    "gender": "m",
+    "plural": "los vendedores"
+  },
+  {
+    "id": "v1054",
+    "de": ["Kassierer"],
+    "es": "el cajero",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El cajero me da el cambio.",
+      "de": "Der Kassierer gibt mir das Wechselgeld."
+    },
+    "note": "Kassiererin: la cajera. Kurz auch für den Geldautomaten (el cajero automático).",
+    "gender": "m",
+    "plural": "los cajeros"
+  },
+  {
+    "id": "v1055",
+    "de": ["Geldautomat"],
+    "es": "el cajero automático",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Hay un cajero automático por aquí?",
+      "de": "Gibt es hier in der Nähe einen Geldautomaten?"
+    },
+    "note": "Im Alltag oft nur el cajero.",
+    "gender": "m",
+    "plural": "los cajeros automáticos"
+  },
+  {
+    "id": "v1072",
+    "de": ["Jacke"],
+    "es": "la chamarra",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Por la noche necesitas una chamarra.",
+      "de": "Nachts brauchst du eine Jacke."
+    },
+    "note": "In Mexiko üblich; in Guatemala sagt man meist la chumpa, in Spanien la chaqueta.",
+    "gender": "f",
+    "plural": "las chamarras"
+  },
+  {
+    "id": "v1073",
+    "de": ["Bluse"],
+    "es": "la blusa",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Esta blusa está bordada a mano.",
+      "de": "Diese Bluse ist handbestickt."
+    },
+    "note": "Die traditionelle Bluse der Maya-Frauen heißt el huipil.",
+    "gender": "f",
+    "plural": "las blusas"
+  },
+  {
+    "id": "v1074",
+    "de": ["T-Shirt"],
+    "es": "la playera",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Las playeras cuestan cien pesos.",
+      "de": "Die T-Shirts kosten hundert Pesos."
+    },
+    "note": "In Mexiko und Mittelamerika üblich; in Spanien la camiseta.",
+    "gender": "f",
+    "plural": "las playeras"
+  },
+  {
+    "id": "v1075",
+    "de": ["Hut"],
+    "es": "el sombrero",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Ponte un sombrero, que hace mucho sol.",
+      "de": "Setz dir einen Hut auf, die Sonne scheint stark."
+    },
+    "note": "Jeder Hut, nicht nur der breitkrempige mexikanische. Schirmmütze, Kappe: la gorra.",
+    "gender": "m",
+    "plural": "los sombreros"
+  },
+  {
+    "id": "v1076",
+    "de": ["Brille"],
+    "es": "los lentes",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mis lentes están en la mesa.",
+      "de": "Meine Brille liegt auf dem Tisch."
+    },
+    "note": "Meist im Plural; el lente allein ist die Linse. Auch: los anteojos; in Spanien las gafas. Sonnenbrille: los lentes de sol.",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1078",
+    "de": ["Tasche", "Tüte", "Beutel"],
+    "es": "la bolsa",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Me da una bolsa, por favor?",
+      "de": "Können Sie mir bitte eine Tüte geben?"
+    },
+    "note": "In Mexiko auch die Handtasche (in Spanien el bolso) und die Hosentasche. Plastiktüte: la bolsa de plástico.",
+    "gender": "f",
+    "plural": "las bolsas"
+  },
+  {
+    "id": "v1079",
+    "de": ["Geldbeutel", "Brieftasche"],
+    "es": "la cartera",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi cartera está vacía.",
+      "de": "Mein Geldbeutel ist leer."
+    },
+    "note": "Auch: la billetera. In manchen Ländern Südamerikas heißt cartera auch Handtasche.",
+    "gender": "f",
+    "plural": "las carteras"
+  },
+  {
+    "id": "v1088",
+    "de": ["Waage"],
+    "es": "la báscula",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Pon la maleta en la báscula.",
+      "de": "Stell den Koffer auf die Waage."
+    },
+    "note": "Gleichbedeutend: la balanza.",
+    "gender": "f",
+    "plural": "las básculas"
+  },
+  {
+    "id": "v1090",
+    "de": ["Souvenir", "Andenken"],
+    "es": "el souvenir",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Compramos souvenirs en el mercado.",
+      "de": "Wir kaufen Souvenirs auf dem Markt."
+    },
+    "note": "Auch: el recuerdo, verkleinert un recuerdito.",
+    "gender": "m",
+    "plural": "los souvenirs"
+  },
+  {
+    "id": "v1092",
+    "de": ["Kredit"],
+    "es": "el crédito",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El banco me da un crédito para el carro.",
+      "de": "Die Bank gibt mir einen Kredit für das Auto."
+    },
+    "note": "Kreditkarte: la tarjeta de crédito; Debitkarte: la tarjeta de débito.",
+    "gender": "m",
+    "plural": "los créditos"
+  },
+  {
+    "id": "v1100",
+    "de": ["Baumwolle"],
+    "es": "el algodón",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Prefiero ropa de algodón cuando hace calor.",
+      "de": "Bei Hitze trage ich lieber Baumwollkleidung."
+    },
+    "note": "Auch: Watte (in der Apotheke).",
+    "gender": "m",
+    "plural": "los algodones"
+  },
+  {
+    "id": "v1102",
+    "de": ["Farbe"],
+    "es": "el color",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿De qué color es tu mochila?",
+      "de": "Welche Farbe hat dein Rucksack?"
+    },
+    "note": "Malfarbe, Anstrich: la pintura.",
+    "gender": "m",
+    "plural": "los colores"
+  },
+  {
+    "id": "v1105",
+    "de": ["Produkt", "Erzeugnis"],
+    "es": "el producto",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Este producto es de Guatemala.",
+      "de": "Dieses Produkt kommt aus Guatemala."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los productos"
+  },
+  {
+    "id": "v1107",
+    "de": ["Theke", "Tresen", "Schalter"],
+    "es": "el mostrador",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Pague en el mostrador, por favor.",
+      "de": "Bezahlen Sie bitte an der Theke."
+    },
+    "note": "Am Flughafen auch der Schalter der Fluggesellschaft.",
+    "gender": "m",
+    "plural": "los mostradores"
+  },
+  {
+    "id": "v1108",
+    "de": ["Angebot", "Sonderangebot"],
+    "es": "la oferta",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hoy los mangos están en oferta.",
+      "de": "Heute sind die Mangos im Angebot."
+    },
+    "note": "Auch: Stellenangebot (una oferta de trabajo).",
+    "gender": "f",
+    "plural": "las ofertas"
+  },
+  {
+    "id": "v1136",
+    "de": ["Supermarkt"],
+    "es": "el supermercado",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Compramos agua en el supermercado.",
+      "de": "Wir kaufen Wasser im Supermarkt."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los supermercados"
+  },
+  {
+    "id": "v1151",
+    "de": ["Geschäft", "Laden"],
+    "es": "el negocio",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi tía tiene un negocio de ropa en el mercado.",
+      "de": "Meine Tante hat ein Kleidergeschäft auf dem Markt."
+    },
+    "note": "Auch allgemein Geschäft im Sinne von Handel oder Unternehmen (hacer negocios = Geschäfte machen). Der Laden im engeren Sinn heißt meist la tienda.",
+    "gender": "m",
+    "plural": "los negocios"
+  },
+  {
+    "id": "v1210",
+    "de": ["weiß"],
+    "es": "blanco",
+    "pos": "adj",
+    "level": "A1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Busco una camisa blanca de manga corta.",
+      "de": "Ich suche ein weißes Hemd mit kurzen Ärmeln."
+    },
+    "note": "vino blanco = Weißwein.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1233",
+    "de": ["orange", "orangefarben"],
+    "es": "anaranjado",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Me gusta la blusa anaranjada.",
+      "de": "Mir gefällt die orangefarbene Bluse."
+    },
+    "note": "Gleichbedeutend: naranja (auch unverändert: zapatos naranja); anaranjado richtet sich immer nach dem Nomen.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1281",
+    "de": ["Kilo"],
+    "es": "el kilo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Un kilo de tomates, por favor.",
+      "de": "Ein Kilo Tomaten, bitte."
+    },
+    "note": "Kurz für el kilogramo. medio kilo = ein halbes Kilo (500 g).",
+    "gender": "m",
+    "plural": "los kilos"
+  },
+  {
+    "id": "v1282",
+    "de": ["Dollar"],
+    "es": "el dólar",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Aceptan dólares?",
+      "de": "Nehmen Sie Dollar?"
+    },
+    "note": "Landeswährung: el peso in Mexiko, el quetzal in Guatemala.",
+    "gender": "m",
+    "plural": "los dólares"
+  },
+  {
+    "id": "v1329",
+    "de": ["Ware"],
+    "es": "la mercancía",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "einkaufen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La mercancía llega al mercado muy temprano.",
+      "de": "Die Ware kommt sehr früh auf den Markt."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las mercancías"
   }
 ]

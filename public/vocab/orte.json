@@ -730,5 +730,325 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1133",
+    "de": ["Büro"],
+    "es": "la oficina",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La oficina abre de lunes a viernes.",
+      "de": "Das Büro ist von Montag bis Freitag geöffnet."
+    },
+    "note": "la oficina de turismo = Touristeninformation.",
+    "gender": "f",
+    "plural": "las oficinas"
+  },
+  {
+    "id": "v1134",
+    "de": ["Museum"],
+    "es": "el museo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El museo cierra los lunes.",
+      "de": "Das Museum ist montags geschlossen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los museos"
+  },
+  {
+    "id": "v1139",
+    "de": ["Palast"],
+    "es": "el palacio",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El palacio tiene un patio enorme.",
+      "de": "Der Palast hat einen riesigen Innenhof."
+    },
+    "note": "In vielen Städten Mexikos heißt das Rathaus el palacio municipal.",
+    "gender": "m",
+    "plural": "los palacios"
+  },
+  {
+    "id": "v1140",
+    "de": ["Universität", "Hochschule"],
+    "es": "la universidad",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿En qué universidad estudias?",
+      "de": "An welcher Universität studierst du?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las universidades"
+  },
+  {
+    "id": "v1142",
+    "de": ["Ampel"],
+    "es": "el semáforo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Cruzamos cuando el semáforo está en verde.",
+      "de": "Wir gehen über die Straße, wenn die Ampel grün ist."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los semáforos"
+  },
+  {
+    "id": "v1144",
+    "de": ["Gegend", "Zone", "Gebiet"],
+    "es": "la zona",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Esta zona es muy tranquila de noche.",
+      "de": "Diese Gegend ist nachts sehr ruhig."
+    },
+    "note": "In Guatemala-Stadt heißen die nummerierten Stadtbezirke zonas (Zona 1 = Altstadt). la zona arqueológica = archäologische Stätte.",
+    "gender": "f",
+    "plural": "las zonas"
+  },
+  {
+    "id": "v1145",
+    "de": ["Hauptplatz"],
+    "es": "el zócalo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El zócalo se llena de gente los domingos.",
+      "de": "Sonntags füllt sich der Hauptplatz mit Menschen."
+    },
+    "note": "Mexiko; der Zócalo von Mexiko-Stadt heißt offiziell Plaza de la Constitución. In Guatemala sagt man parque central oder plaza central.",
+    "gender": "m",
+    "plural": "los zócalos"
+  },
+  {
+    "id": "v1146",
+    "de": ["Hauptstadt"],
+    "es": "la capital",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mañana viajamos a la capital.",
+      "de": "Morgen fahren wir in die Hauptstadt."
+    },
+    "note": "Nicht verwechseln mit el capital = das Kapital (Geld).",
+    "gender": "f",
+    "plural": "las capitales"
+  },
+  {
+    "id": "v1147",
+    "de": ["Region", "Gegend"],
+    "es": "la región",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En esta región hace calor todo el año.",
+      "de": "In dieser Region ist es das ganze Jahr warm."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las regiones"
+  },
+  {
+    "id": "v1149",
+    "de": ["Süden"],
+    "es": "el sur",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La playa está al sur de la ciudad.",
+      "de": "Der Strand liegt südlich der Stadt."
+    },
+    "note": "Die anderen Himmelsrichtungen: el norte, el este (auch el oriente), el oeste (auch el poniente). In Antigua Guatemala tragen die Straßen solche Zusätze (5a Avenida Norte, 4a Calle Oriente).",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1228",
+    "de": ["zentral", "Zentral-", "Haupt-"],
+    "es": "central",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El mercado central abre a las seis.",
+      "de": "Der Zentralmarkt öffnet um sechs."
+    },
+    "note": "Für zentral gelegene Hotels meist céntrico. América Central = Mittelamerika; in Mexiko la central de autobuses = Busbahnhof.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1234",
+    "de": ["gerade"],
+    "es": "recto",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La carretera es recta hasta el próximo pueblo.",
+      "de": "Die Landstraße verläuft gerade bis zum nächsten Dorf."
+    },
+    "note": "Für geradeaus sagt man in Lateinamerika derecho, in Spanien meist recto.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1244",
+    "de": ["da", "dort"],
+    "es": "ahí",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Puede dejar su maleta ahí.",
+      "de": "Sie können Ihren Koffer da abstellen."
+    },
+    "note": "ahí = da (beim Gegenüber), allá = dort (weiter weg). Nicht verwechseln mit hay (es gibt).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1245",
+    "de": ["oben", "nach oben"],
+    "es": "arriba",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Las habitaciones están arriba.",
+      "de": "Die Zimmer sind oben."
+    },
+    "note": "Gegenstück: abajo (unten). Auch als Anfeuerungsruf: ¡Arriba México!",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1246",
+    "de": ["unten", "darunter"],
+    "es": "debajo",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La llave está debajo de la maceta.",
+      "de": "Der Schlüssel liegt unter dem Blumentopf."
+    },
+    "note": "Mit Nomen: debajo de (debajo de la cama = unter dem Bett).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1247",
+    "de": ["neben", "bei"],
+    "es": "junto a",
+    "pos": "other",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Nos sentamos junto a la ventana.",
+      "de": "Wir setzen uns ans Fenster."
+    },
+    "note": "Gleichbedeutend: al lado de. Nicht verwechseln mit juntos (zusammen).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1248",
+    "de": ["gegenüber", "vor"],
+    "es": "frente a",
+    "pos": "other",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La parada está frente al hospital.",
+      "de": "Die Haltestelle ist gegenüber dem Krankenhaus."
+    },
+    "note": "Gleichbedeutend: enfrente de. frente al mar = direkt am Meer.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1280",
+    "de": ["Kilometer"],
+    "es": "el kilómetro",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El pueblo está a cinco kilómetros de aquí.",
+      "de": "Das Dorf ist fünf Kilometer von hier entfernt."
+    },
+    "note": "Entfernung: estar a … kilómetros = … Kilometer entfernt sein.",
+    "gender": "m",
+    "plural": "los kilómetros"
+  },
+  {
+    "id": "v1290",
+    "de": ["linke Seite", "Linke"],
+    "es": "la izquierda",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En la foto, mi hermano es el de la izquierda.",
+      "de": "Auf dem Foto ist mein Bruder der Linke."
+    },
+    "note": "Fest in a la izquierda (links, nach links). Die linke Hand: la mano izquierda. In der Politik: die Linke.",
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v1320",
+    "de": ["Tourismus"],
+    "es": "el turismo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Esta región vive del turismo.",
+      "de": "Diese Gegend lebt vom Tourismus."
+    },
+    "note": "hacer turismo = Sehenswürdigkeiten besichtigen, als Tourist unterwegs sein.",
+    "gender": "m",
+    "plural": null
   }
 ]

@@ -1010,5 +1010,613 @@
     "note": "Die Frucht; der Baum heißt el naranjo. Orangensaft: jugo de naranja. Die Farbe als Nomen: el naranja (männlich).",
     "gender": "f",
     "plural": "las naranjas"
+  },
+  {
+    "id": "v1121",
+    "de": ["Tisch"],
+    "es": "la mesa",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Tienen una mesa para cuatro personas?",
+      "de": "Haben Sie einen Tisch für vier Personen?"
+    },
+    "note": "poner la mesa = den Tisch decken.",
+    "gender": "f",
+    "plural": "las mesas"
+  },
+  {
+    "id": "v1135",
+    "de": ["Restaurant"],
+    "es": "el restaurante",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Este restaurante tiene comida típica guatemalteca.",
+      "de": "Dieses Restaurant hat typisch guatemaltekisches Essen."
+    },
+    "note": "Einfache, günstige Lokale heißen in Mexiko oft fonda, in Guatemala comedor.",
+    "gender": "m",
+    "plural": "los restaurantes"
+  },
+  {
+    "id": "v1154",
+    "de": ["Zucker"],
+    "es": "el azúcar",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Me pasas el azúcar, por favor?",
+      "de": "Gibst du mir bitte den Zucker?"
+    },
+    "note": "Meist männlich (el azúcar), weiblicher Gebrauch ist aber auch korrekt und in Lateinamerika häufig: azúcar morena = brauner Zucker.",
+    "gender": "m",
+    "plural": "los azúcares"
+  },
+  {
+    "id": "v1155",
+    "de": ["Mehl"],
+    "es": "la harina",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Las tortillas de harina son típicas del norte de México.",
+      "de": "Weizentortillas sind typisch für den Norden Mexikos."
+    },
+    "note": "Ohne Zusatz meist Weizenmehl; Maismehl für Tortillas und Tamales: harina de maíz.",
+    "gender": "f",
+    "plural": "las harinas"
+  },
+  {
+    "id": "v1156",
+    "de": ["Honig"],
+    "es": "la miel",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En las mañanas como pan con miel.",
+      "de": "Morgens esse ich Brot mit Honig."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las mieles"
+  },
+  {
+    "id": "v1157",
+    "de": ["Limette", "Zitrone"],
+    "es": "el limón",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Los tacos llevan limón y sal.",
+      "de": "Auf die Tacos kommen Limette und Salz."
+    },
+    "note": "In Mexiko und Mittelamerika meist die kleine grüne Limette; die gelbe Zitrone heißt in Mexiko oft limón amarillo.",
+    "gender": "m",
+    "plural": "los limones"
+  },
+  {
+    "id": "v1158",
+    "de": ["Tomate"],
+    "es": "el tomate",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Cuánto cuesta el kilo de tomate?",
+      "de": "Was kostet das Kilo Tomaten?"
+    },
+    "note": "In Zentralmexiko heißt die rote Tomate meist el jitomate; tomate (verde) ist dort oft die grüne Tomatillo für die Salsa verde.",
+    "gender": "m",
+    "plural": "los tomates"
+  },
+  {
+    "id": "v1159",
+    "de": ["Obst", "Frucht"],
+    "es": "la fruta",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Qué fruta te gusta más?",
+      "de": "Welches Obst magst du am liebsten?"
+    },
+    "note": "Obst als Sammelbegriff steht meist im Singular: Como mucha fruta = Ich esse viel Obst.",
+    "gender": "f",
+    "plural": "las frutas"
+  },
+  {
+    "id": "v1160",
+    "de": ["Papaya"],
+    "es": "la papaya",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En el desayuno siempre hay papaya.",
+      "de": "Zum Frühstück gibt es immer Papaya."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las papayas"
+  },
+  {
+    "id": "v1161",
+    "de": ["Banane", "Kochbanane"],
+    "es": "el plátano",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Los plátanos fritos se comen con frijoles.",
+      "de": "Gebratene Kochbananen isst man mit Bohnen."
+    },
+    "note": "In Mexiko jede Banane, die Kochbanane heißt dort plátano macho. In Guatemala ist plátano die Kochbanane, die süße Banane heißt el banano.",
+    "gender": "m",
+    "plural": "los plátanos"
+  },
+  {
+    "id": "v1162",
+    "de": ["Zwiebel"],
+    "es": "la cebolla",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Sin cebolla, por favor.",
+      "de": "Ohne Zwiebeln, bitte."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las cebollas"
+  },
+  {
+    "id": "v1163",
+    "de": ["Nuss"],
+    "es": "la nuez",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Este postre lleva nuez?",
+      "de": "Sind in diesem Dessert Nüsse?"
+    },
+    "note": "Ohne Zusatz in Mexiko meist die Pekannuss; die Walnuss heißt dort nuez de Castilla.",
+    "gender": "f",
+    "plural": "las nueces"
+  },
+  {
+    "id": "v1164",
+    "de": ["Chili", "Chilischote"],
+    "es": "el chile",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Este platillo lleva chile?",
+      "de": "Ist in diesem Gericht Chili?"
+    },
+    "note": "In Mexiko und Guatemala Grundzutat vieler Gerichte und Salsas (chile relleno = gefüllte Chilischote). In Mexiko auch doppeldeutige Anspielung auf den Penis in Wortspielen; beim Essen völlig normal.",
+    "gender": "m",
+    "plural": "los chiles"
+  },
+  {
+    "id": "v1165",
+    "de": ["Kokosnuss"],
+    "es": "el coco",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En la playa venden cocos fríos.",
+      "de": "Am Strand werden kalte Kokosnüsse verkauft."
+    },
+    "note": "agua de coco = Kokoswasser, am Strand oft direkt aus der Nuss getrunken.",
+    "gender": "m",
+    "plural": "los cocos"
+  },
+  {
+    "id": "v1166",
+    "de": ["Schwein", "Schweinefleisch"],
+    "es": "el cerdo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Los tacos al pastor son de carne de cerdo.",
+      "de": "Tacos al pastor werden mit Schweinefleisch gemacht."
+    },
+    "note": "In Mexiko sagt man beim Essen oft puerco: carne de puerco, tacos de puerco.",
+    "gender": "m",
+    "plural": "los cerdos"
+  },
+  {
+    "id": "v1167",
+    "de": ["Heuschrecke", "Grashüpfer"],
+    "es": "el chapulín",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En Oaxaca venden chapulines en el mercado.",
+      "de": "In Oaxaca werden auf dem Markt Heuschrecken verkauft."
+    },
+    "note": "Wort aus dem Náhuatl. Geröstete Heuschrecken mit Chili und Limette sind ein typischer Snack in Oaxaca.",
+    "gender": "m",
+    "plural": "los chapulines"
+  },
+  {
+    "id": "v1168",
+    "de": ["Mole"],
+    "es": "el mole",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hoy comemos pollo con mole.",
+      "de": "Heute essen wir Hähnchen mit Mole."
+    },
+    "note": "Dicke, dunkle Soße aus Chilis, Gewürzen, oft Nüssen oder Samen und Schokolade, meist zu Huhn oder Truthahn. Bekannt: mole poblano aus Puebla und die Moles aus Oaxaca. Wort aus dem Náhuatl.",
+    "gender": "m",
+    "plural": "los moles"
+  },
+  {
+    "id": "v1169",
+    "de": ["Soße", "Salsa"],
+    "es": "la salsa",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿La salsa verde pica mucho?",
+      "de": "Ist die grüne Soße sehr scharf?"
+    },
+    "note": "In Mexiko steht meist scharfe Chilisoße auf dem Tisch (salsa roja, salsa verde). Auch der Tanz: bailar salsa.",
+    "gender": "f",
+    "plural": "las salsas"
+  },
+  {
+    "id": "v1170",
+    "de": ["Kuchen", "Torte"],
+    "es": "el pastel",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Compramos un pastel para el cumpleaños de Ana.",
+      "de": "Wir kaufen eine Torte für Anas Geburtstag."
+    },
+    "note": "In Mexiko und Guatemala das übliche Wort für Kuchen und Torte; in Spanien eher tarta. Nicht verwechseln mit la torta (in Mexiko ein belegtes Brötchen).",
+    "gender": "m",
+    "plural": "los pasteles"
+  },
+  {
+    "id": "v1171",
+    "de": ["belegtes Brötchen", "Torta"],
+    "es": "la torta",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Me compro una torta de jamón en la esquina.",
+      "de": "Ich kaufe mir an der Ecke ein Brötchen mit Schinken."
+    },
+    "note": "In Mexiko ein warmes oder kaltes belegtes Brötchen aus bolillo oder telera. In Spanien und anderen Ländern meist ein flacher Kuchen oder Fladen; Kuchen heißt in Mexiko el pastel.",
+    "gender": "f",
+    "plural": "las tortas"
+  },
+  {
+    "id": "v1172",
+    "de": ["Quesadilla"],
+    "es": "la quesadilla",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Dos quesadillas de flor de calabaza, por favor.",
+      "de": "Zwei Quesadillas mit Kürbisblüten, bitte."
+    },
+    "note": "Gefaltete Tortilla mit Käse oder anderer Füllung. In Mexiko-Stadt ist nicht immer Käse darin, dann bestellt man con queso. In Guatemala ist la quesadilla ein süßer Kuchen mit Käse.",
+    "gender": "f",
+    "plural": "las quesadillas"
+  },
+  {
+    "id": "v1173",
+    "de": ["Sope"],
+    "es": "el sope",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Los sopes de esta señora son los mejores del mercado.",
+      "de": "Die Sopes dieser Frau sind die besten auf dem Markt."
+    },
+    "note": "Dicker, kleiner Fladen aus Maisteig mit hochgezogenem Rand, belegt etwa mit Bohnen, Salsa, Käse und Sauerrahm. Typisch mexikanisch.",
+    "gender": "m",
+    "plural": "los sopes"
+  },
+  {
+    "id": "v1174",
+    "de": ["Tlacoyo"],
+    "es": "el tlacoyo",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En la esquina venden tlacoyos de frijol.",
+      "de": "An der Ecke werden Tlacoyos mit Bohnen verkauft."
+    },
+    "note": "Länglicher, gefüllter Fladen aus Maisteig (oft aus blauem Mais) mit Bohnen, Käse oder Saubohnen, darauf Salsa und Käse. Straßenessen in Zentralmexiko; Wort aus dem Náhuatl.",
+    "gender": "m",
+    "plural": "los tlacoyos"
+  },
+  {
+    "id": "v1175",
+    "de": ["Limonade", "Erfrischungsgetränk"],
+    "es": "el refresco",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Qué refrescos tienen?",
+      "de": "Welche Limonaden haben Sie?"
+    },
+    "note": "In Mexiko das übliche Wort für Softdrinks wie Cola.",
+    "gender": "m",
+    "plural": "los refrescos"
+  },
+  {
+    "id": "v1176",
+    "de": ["Tee"],
+    "es": "el té",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Quieren café o té?",
+      "de": "Möchtet ihr Kaffee oder Tee?"
+    },
+    "note": "Mit Akzent; ohne Akzent ist te das Pronomen (dich, dir). Oft ist Kräutertee gemeint, etwa té de manzanilla (Kamille).",
+    "gender": "m",
+    "plural": "los tés"
+  },
+  {
+    "id": "v1177",
+    "de": ["Getränk"],
+    "es": "la bebida",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Qué bebidas tienen sin alcohol?",
+      "de": "Welche alkoholfreien Getränke haben Sie?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las bebidas"
+  },
+  {
+    "id": "v1178",
+    "de": ["Eis", "Eiswürfel"],
+    "es": "el hielo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿El hielo es de agua purificada?",
+      "de": "Ist das Eis aus gereinigtem Wasser?"
+    },
+    "note": "Speiseeis heißt el helado. Ohne Eis bestellen: sin hielo.",
+    "gender": "m",
+    "plural": "los hielos"
+  },
+  {
+    "id": "v1179",
+    "de": ["Teller", "Gericht"],
+    "es": "el plato",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Me trae otro plato, por favor?",
+      "de": "Bringen Sie mir bitte noch einen Teller?"
+    },
+    "note": "Auch das Gericht: un plato típico = ein typisches Gericht; el plato fuerte = Hauptgericht.",
+    "gender": "m",
+    "plural": "los platos"
+  },
+  {
+    "id": "v1180",
+    "de": ["Gericht", "Speise"],
+    "es": "el platillo",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El pozole es un platillo muy popular en México.",
+      "de": "Pozole ist ein sehr beliebtes Gericht in Mexiko."
+    },
+    "note": "In Mexiko und Mittelamerika häufig für ein zubereitetes Gericht (platillo típico). Wörtlich kleiner Teller, auch die Untertasse.",
+    "gender": "m",
+    "plural": "los platillos"
+  },
+  {
+    "id": "v1181",
+    "de": ["Glas", "Trinkglas"],
+    "es": "el vaso",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Necesitamos dos vasos más, por favor.",
+      "de": "Wir brauchen bitte noch zwei Gläser."
+    },
+    "note": "Das Trinkgefäß ohne Stiel, auch der Becher (vaso de plástico). Glas als Material: el vidrio; Weinglas: la copa.",
+    "gender": "m",
+    "plural": "los vasos"
+  },
+  {
+    "id": "v1182",
+    "de": ["Weinglas", "Glas"],
+    "es": "la copa",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Una copa de vino tinto, por favor.",
+      "de": "Ein Glas Rotwein, bitte."
+    },
+    "note": "Glas mit Stiel (Wein, Sekt); normales Trinkglas: el vaso. Auch der Pokal: la Copa del Mundo = die Fußball-WM.",
+    "gender": "f",
+    "plural": "las copas"
+  },
+  {
+    "id": "v1183",
+    "de": ["Flasche"],
+    "es": "la botella",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Una botella de agua, por favor.",
+      "de": "Eine Flasche Wasser, bitte."
+    },
+    "note": "agua embotellada = Wasser aus der Flasche; Leitungswasser trinkt man in Mexiko und Guatemala besser nicht.",
+    "gender": "f",
+    "plural": "las botellas"
+  },
+  {
+    "id": "v1184",
+    "de": ["Speisekarte", "Menü"],
+    "es": "el menú",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Me puede traer el menú, por favor?",
+      "de": "Können Sie mir bitte die Speisekarte bringen?"
+    },
+    "note": "Gleichbedeutend: la carta. Günstiges Mittagsmenü zum Festpreis in Mexiko: la comida corrida.",
+    "gender": "m",
+    "plural": "los menús"
+  },
+  {
+    "id": "v1185",
+    "de": ["Bissen", "Happen"],
+    "es": "el bocado",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Me das un bocado de tu torta?",
+      "de": "Gibst du mir einen Bissen von deinem Brötchen?"
+    },
+    "note": "Davon el bocadillo (Häppchen). No probé bocado = Ich habe keinen Bissen gegessen.",
+    "gender": "m",
+    "plural": "los bocados"
+  },
+  {
+    "id": "v1186",
+    "de": ["Gelüst", "Heißhunger"],
+    "es": "el antojo",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Tengo antojo de algo dulce.",
+      "de": "Ich habe Lust auf etwas Süßes."
+    },
+    "note": "Davon el antojito (kleines mexikanisches Gericht). Verb: Se me antoja un café = Ich hätte Lust auf einen Kaffee.",
+    "gender": "m",
+    "plural": "los antojos"
+  },
+  {
+    "id": "v1188",
+    "de": ["Apfel"],
+    "es": "la manzana",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Siempre llevo una manzana en la mochila.",
+      "de": "Ich habe immer einen Apfel im Rucksack."
+    },
+    "note": "Auch: Häuserblock. Entfernungen gibt man in Mexiko und Guatemala aber meist in cuadras an (a dos cuadras).",
+    "gender": "f",
+    "plural": "las manzanas"
+  },
+  {
+    "id": "v1271",
+    "de": ["Hunger"],
+    "es": "el hambre",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Después de la caminata tenemos mucha hambre.",
+      "de": "Nach der Wanderung haben wir großen Hunger."
+    },
+    "note": "Feminin, aber im Singular mit el wie el agua: mucha hambre. Hunger haben: tener hambre.",
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v1288",
+    "de": ["Bestellung"],
+    "es": "la orden",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "essen",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El mesero toma la orden.",
+      "de": "Der Kellner nimmt die Bestellung auf."
+    },
+    "note": "In Mexiko auch Portion: una orden de tacos. Sonst auch Befehl (a sus órdenes = zu Ihren Diensten). Nicht verwechseln mit el orden = Ordnung, Reihenfolge.",
+    "gender": "f",
+    "plural": "las órdenes"
   }
 ]

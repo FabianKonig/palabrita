@@ -694,5 +694,313 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1057",
+    "de": ["Wrestler", "Kämpfer"],
+    "es": "el luchador",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi luchador favorito usa una máscara plateada.",
+      "de": "Mein Lieblingswrestler trägt eine silberne Maske."
+    },
+    "note": "Weiblich: la luchadora. Meist im Zusammenhang mit der lucha libre.",
+    "gender": "m",
+    "plural": "los luchadores"
+  },
+  {
+    "id": "v1101",
+    "de": ["Webarbeit", "Gewebe"],
+    "es": "el tejido",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Los tejidos de Chichicastenango tienen muchos colores.",
+      "de": "Die Webarbeiten aus Chichicastenango sind sehr bunt."
+    },
+    "note": "Von tejer (weben, stricken). In Guatemala vor allem die handgewebten Maya-Textilien (tejidos típicos). Stoff allgemein: la tela.",
+    "gender": "m",
+    "plural": "los tejidos"
+  },
+  {
+    "id": "v1103",
+    "de": ["Instrument"],
+    "es": "el instrumento",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Tocas algún instrumento?",
+      "de": "Spielst du ein Instrument?"
+    },
+    "note": "Ein Instrument spielen: tocar, nicht jugar.",
+    "gender": "m",
+    "plural": "los instrumentos"
+  },
+  {
+    "id": "v1104",
+    "de": ["Mannschaft", "Team"],
+    "es": "el equipo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿De qué equipo eres?",
+      "de": "Für welche Mannschaft bist du?"
+    },
+    "note": "Auch: Ausrüstung (el equipo de buceo = Tauchausrüstung). Nicht verwechseln mit el equipaje = Gepäck.",
+    "gender": "m",
+    "plural": "los equipos"
+  },
+  {
+    "id": "v1106",
+    "de": ["Böller", "Feuerwerkskörper", "Rakete"],
+    "es": "el cohete",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En la fiesta del pueblo truenan cohetes toda la noche.",
+      "de": "Beim Dorffest knallen die ganze Nacht Böller."
+    },
+    "note": "Bei Festen in Mexiko und Guatemala allgegenwärtig. Knallen lassen: tronar. Feuerwerk: los fuegos artificiales. Auch: Weltraumrakete.",
+    "gender": "m",
+    "plural": "los cohetes"
+  },
+  {
+    "id": "v1137",
+    "de": ["Kino"],
+    "es": "el cine",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Vamos al cine el viernes?",
+      "de": "Gehen wir am Freitag ins Kino?"
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los cines"
+  },
+  {
+    "id": "v1138",
+    "de": ["Stadion"],
+    "es": "el estadio",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El estadio está lleno los domingos.",
+      "de": "Sonntags ist das Stadion voll."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los estadios"
+  },
+  {
+    "id": "v1152",
+    "de": ["Jahrmarkt", "Volksfest", "Messe"],
+    "es": "la feria",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En la feria hay juegos mecánicos y mucha comida.",
+      "de": "Auf dem Jahrmarkt gibt es Fahrgeschäfte und viel Essen."
+    },
+    "note": "Oft zum Fest des Ortsheiligen; auch Fachmesse (la feria del libro = Buchmesse). In Mexiko umgangssprachlich auch Kleingeld: No traigo feria = Ich habe kein Kleingeld dabei.",
+    "gender": "f",
+    "plural": "las ferias"
+  },
+  {
+    "id": "v1206",
+    "de": ["weben", "stricken"],
+    "es": "tejer",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En este pueblo, casi todas las mujeres tejen.",
+      "de": "In diesem Dorf weben fast alle Frauen."
+    },
+    "note": "In Guatemala weben Maya-Frauen oft am telar de cintura (Rückengurtwebstuhl), etwa einen huipil. el tejido = Gewebe, Stoff.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1211",
+    "de": ["klassisch"],
+    "es": "clásico",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Esta noche hay un concierto de música clásica.",
+      "de": "Heute Abend gibt es ein Konzert mit klassischer Musik."
+    },
+    "note": "Bei den Maya: la época clásica (etwa 250–900 n. Chr.), die Blütezeit von Tikal und Palenque.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1212",
+    "de": ["typisch", "landestypisch"],
+    "es": "típico",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Qué plato típico nos recomienda?",
+      "de": "Welches typische Gericht empfehlen Sie uns?"
+    },
+    "note": "comida típica = landestypisches Essen; in Guatemala ist el traje típico die traditionelle Maya-Tracht.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1317",
+    "de": ["Zeremonie", "Feier"],
+    "es": "la ceremonia",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La ceremonia empieza a las cuatro en la iglesia.",
+      "de": "Die Zeremonie beginnt um vier in der Kirche."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las ceremonias"
+  },
+  {
+    "id": "v1319",
+    "de": ["Unabhängigkeit"],
+    "es": "la independencia",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En septiembre celebran la independencia con desfiles.",
+      "de": "Im September feiern sie die Unabhängigkeit mit Umzügen."
+    },
+    "note": "Unabhängigkeitstag in Mexiko: 16. September (am Vorabend el Grito), in Guatemala: 15. September.",
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v1321",
+    "de": ["Verstorbener"],
+    "es": "el difunto",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Las familias recuerdan a sus difuntos en noviembre.",
+      "de": "Die Familien gedenken im November ihrer Verstorbenen."
+    },
+    "note": "Weiblich: la difunta. Taktvoller als el muerto.",
+    "gender": "m",
+    "plural": "los difuntos"
+  },
+  {
+    "id": "v1322",
+    "de": ["Fußball"],
+    "es": "el fútbol",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Aquí todos hablan de fútbol.",
+      "de": "Hier reden alle über Fußball."
+    },
+    "note": "In Mexiko meist futbol geschrieben und auf der letzten Silbe betont. Fußball spielen: in Lateinamerika meist jugar fútbol (ohne al).",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1323",
+    "de": ["Konzert"],
+    "es": "el concierto",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El concierto empieza a las nueve de la noche.",
+      "de": "Das Konzert beginnt um neun Uhr abends."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los conciertos"
+  },
+  {
+    "id": "v1326",
+    "de": ["Fotografie", "Foto"],
+    "es": "la fotografía",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Me interesa mucho la fotografía.",
+      "de": "Ich interessiere mich sehr für Fotografie."
+    },
+    "note": "Für ein einzelnes Bild sagt man im Alltag meist kurz la foto.",
+    "gender": "f",
+    "plural": "las fotografías"
+  },
+  {
+    "id": "v1327",
+    "de": ["Sport", "Sportart"],
+    "es": "el deporte",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Qué deporte te gusta más?",
+      "de": "Welchen Sport magst du am liebsten?"
+    },
+    "note": "Sport treiben: hacer deporte; eine Sportart betreiben: practicar un deporte.",
+    "gender": "m",
+    "plural": "los deportes"
+  },
+  {
+    "id": "v1332",
+    "de": ["Weihnachten"],
+    "es": "la Navidad",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "kultur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En Navidad visitamos a la familia en Puebla.",
+      "de": "An Weihnachten besuchen wir die Familie in Puebla."
+    },
+    "note": "Groß gefeiert wird an Heiligabend (la Nochebuena) um Mitternacht, oft mit Tamales. Gruß: ¡Feliz Navidad!",
+    "gender": "f",
+    "plural": null
   }
 ]

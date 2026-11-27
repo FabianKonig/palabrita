@@ -7004,5 +7004,1240 @@
     "note": "Glas als Material, auch die Scheibe (el vidrio de la ventana). Trinkglas: vaso, Weinglas: copa.",
     "gender": "m",
     "plural": "los vidrios"
+  },
+  {
+    "id": "v1066",
+    "de": ["welche(r)", "was"],
+    "es": "cuál",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Cuál prefieres, el rojo o el azul?",
+      "de": "Welchen magst du lieber, den roten oder den blauen?"
+    },
+    "note": "Vor ser meist cuál statt qué: ¿Cuál es tu nombre? = Wie ist dein Name? Plural: cuáles.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1067",
+    "de": ["etwas"],
+    "es": "algo",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Quieres tomar algo?",
+      "de": "Möchtest du etwas trinken?"
+    },
+    "note": "¿Algo más? = Sonst noch etwas? Vor Adjektiven: ein bisschen (algo caro = etwas teuer). Verneint: nada.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1068",
+    "de": ["jemand"],
+    "es": "alguien",
+    "pos": "other",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Alguien habla inglés aquí?",
+      "de": "Spricht hier jemand Englisch?"
+    },
+    "note": "Als Objekt mit a: Busco a alguien = Ich suche jemanden. Verneint: nadie = niemand.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1069",
+    "de": ["mit mir"],
+    "es": "conmigo",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Quieres venir conmigo al mercado?",
+      "de": "Willst du mit mir zum Markt kommen?"
+    },
+    "note": "Nie con mí. Aber: con él, con ella, con usted.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1070",
+    "de": ["mit dir"],
+    "es": "contigo",
+    "pos": "other",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Voy contigo a la parada.",
+      "de": "Ich gehe mit dir zur Haltestelle."
+    },
+    "note": "Nie con ti. Höflich: con usted.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1080",
+    "de": ["Handy"],
+    "es": "el celular",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi celular no tiene señal aquí.",
+      "de": "Mein Handy hat hier keinen Empfang."
+    },
+    "note": "In Lateinamerika üblich, in Spanien el móvil. Umgangssprachlich in Mexiko auch el cel.",
+    "gender": "m",
+    "plural": "los celulares"
+  },
+  {
+    "id": "v1081",
+    "de": ["Telefon"],
+    "es": "el teléfono",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Suena el teléfono.",
+      "de": "Das Telefon klingelt."
+    },
+    "note": "In Mexiko meldet man sich am Telefon mit ¿Bueno? Auch kurz für die Telefonnummer: ¿Me das tu teléfono?",
+    "gender": "m",
+    "plural": "los teléfonos"
+  },
+  {
+    "id": "v1082",
+    "de": ["Ladegerät"],
+    "es": "el cargador",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Tienes un cargador para este celular?",
+      "de": "Hast du ein Ladegerät für dieses Handy?"
+    },
+    "note": "Von cargar (laden).",
+    "gender": "m",
+    "plural": "los cargadores"
+  },
+  {
+    "id": "v1083",
+    "de": ["App", "Anwendung"],
+    "es": "la aplicación",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Pido el taxi con una aplicación.",
+      "de": "Ich bestelle das Taxi über eine App."
+    },
+    "note": "Umgangssprachlich auch la app.",
+    "gender": "f",
+    "plural": "las aplicaciones"
+  },
+  {
+    "id": "v1084",
+    "de": ["Nachricht"],
+    "es": "el mensaje",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Tengo tres mensajes nuevos.",
+      "de": "Ich habe drei neue Nachrichten."
+    },
+    "note": "Für SMS und Chatnachrichten. Nachrichten im Sinn von Neuigkeiten oder Fernsehnachrichten: las noticias.",
+    "gender": "m",
+    "plural": "los mensajes"
+  },
+  {
+    "id": "v1085",
+    "de": ["WhatsApp"],
+    "es": "el WhatsApp",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Tienes WhatsApp?",
+      "de": "Hast du WhatsApp?"
+    },
+    "note": "Gesprochen etwa guatsap. In Mexiko umgangssprachlich auch el whats: Te mando un whats = Ich schreib dir auf WhatsApp.",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1086",
+    "de": ["Verbindung", "Anschluss"],
+    "es": "la conexión",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La conexión a internet es muy lenta.",
+      "de": "Die Internetverbindung ist sehr langsam."
+    },
+    "note": "Auch der Anschluss auf Reisen: Perdí mi conexión = Ich habe meinen Anschluss verpasst.",
+    "gender": "f",
+    "plural": "las conexiones"
+  },
+  {
+    "id": "v1087",
+    "de": ["Maschine", "Gerät"],
+    "es": "la máquina",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La máquina de café no funciona.",
+      "de": "Die Kaffeemaschine funktioniert nicht."
+    },
+    "note": "Auch: Automat. Waschmaschine: la lavadora.",
+    "gender": "f",
+    "plural": "las máquinas"
+  },
+  {
+    "id": "v1089",
+    "de": ["Plakat", "Schild"],
+    "es": "el cartel",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El cartel dice que hoy hay concierto.",
+      "de": "Auf dem Plakat steht, dass heute ein Konzert ist."
+    },
+    "note": "Für Hinweis- und Ladenschilder oft el letrero. Das Drogenkartell heißt meist el cártel (Betonung auf der ersten Silbe).",
+    "gender": "m",
+    "plural": "los carteles"
+  },
+  {
+    "id": "v1093",
+    "de": ["Dokument", "Unterlage"],
+    "es": "el documento",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Necesito imprimir un documento.",
+      "de": "Ich muss ein Dokument ausdrucken."
+    },
+    "note": "Im Plural oft die Ausweispapiere: ¿Trae sus documentos? = Haben Sie Ihre Papiere dabei?",
+    "gender": "m",
+    "plural": "los documentos"
+  },
+  {
+    "id": "v1095",
+    "de": ["Heft"],
+    "es": "el cuaderno",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Apunto las palabras nuevas en mi cuaderno.",
+      "de": "Ich schreibe die neuen Wörter in mein Heft."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los cuadernos"
+  },
+  {
+    "id": "v1096",
+    "de": ["Blatt"],
+    "es": "la hoja",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Me das una hoja para escribir?",
+      "de": "Gibst du mir ein Blatt zum Schreiben?"
+    },
+    "note": "Wie im Deutschen auch das Blatt einer Pflanze: las hojas del árbol. Seite im Buch: la página.",
+    "gender": "f",
+    "plural": "las hojas"
+  },
+  {
+    "id": "v1097",
+    "de": ["Seite"],
+    "es": "la página",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Abran el libro en la página diez.",
+      "de": "Schlagt das Buch auf Seite zehn auf."
+    },
+    "note": "Auch: Webseite (la página web). Seite im Sinn von Richtung oder Seite einer Sache: el lado.",
+    "gender": "f",
+    "plural": "las páginas"
+  },
+  {
+    "id": "v1098",
+    "de": ["Plastik", "Kunststoff"],
+    "es": "el plástico",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Aquí no dan bolsas de plástico.",
+      "de": "Hier gibt es keine Plastiktüten."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los plásticos"
+  },
+  {
+    "id": "v1099",
+    "de": ["Holz"],
+    "es": "la madera",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La mesa es de madera.",
+      "de": "Der Tisch ist aus Holz."
+    },
+    "note": "Holz als Material; Brennholz: la leña.",
+    "gender": "f",
+    "plural": "las maderas"
+  },
+  {
+    "id": "v1111",
+    "de": ["Rand", "Kante"],
+    "es": "el borde",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "No pongas el vaso en el borde de la mesa.",
+      "de": "Stell das Glas nicht an die Tischkante."
+    },
+    "note": "al borde de = am Rand von, übertragen auch: kurz vor.",
+    "gender": "m",
+    "plural": "los bordes"
+  },
+  {
+    "id": "v1112",
+    "de": ["Schlange", "Reihe"],
+    "es": "la fila",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hay que hacer fila para comprar boletos.",
+      "de": "Man muss Schlange stehen, um Fahrkarten zu kaufen."
+    },
+    "note": "In Spanien sagt man eher hacer cola. Auch Sitzreihe: la primera fila = die erste Reihe.",
+    "gender": "f",
+    "plural": "las filas"
+  },
+  {
+    "id": "v1128",
+    "de": ["Licht"],
+    "es": "la luz",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "No hay luz en el baño.",
+      "de": "Im Bad gibt es kein Licht."
+    },
+    "note": "Auch: Strom (Se fue la luz = Der Strom ist ausgefallen). Licht an: prender la luz, aus: apagar la luz.",
+    "gender": "f",
+    "plural": "las luces"
+  },
+  {
+    "id": "v1129",
+    "de": ["Müll", "Abfall"],
+    "es": "la basura",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Dónde puedo tirar la basura?",
+      "de": "Wo kann ich den Müll wegwerfen?"
+    },
+    "note": "In Mexiko heißt der Mülleimer el bote de basura.",
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v1132",
+    "de": ["Stille", "Ruhe"],
+    "es": "el silencio",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Me gusta el silencio del lago por la mañana.",
+      "de": "Ich mag die Stille am See am Morgen."
+    },
+    "note": "¡Silencio, por favor! = Ruhe, bitte! guardar silencio = still sein.",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1191",
+    "de": ["hinzufügen", "dazugeben"],
+    "es": "agregar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Siempre le agrego chile a mis tacos.",
+      "de": "Ich gebe immer Chili auf meine Tacos."
+    },
+    "note": "In Mexiko im Alltag üblicher als añadir. Auch: agregar a alguien en WhatsApp = jemanden bei WhatsApp hinzufügen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1193",
+    "de": ["teilnehmen an", "besuchen"],
+    "es": "asistir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Muchos turistas asisten a la misa del domingo.",
+      "de": "Viele Touristen besuchen die Sonntagsmesse."
+    },
+    "note": "Immer mit a: asistir a clases = den Unterricht besuchen. Nicht verwechseln mit atender = bedienen; helfen heißt ayudar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1194",
+    "de": ["erschrecken", "Angst machen"],
+    "es": "asustar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Los truenos asustan a mi gato.",
+      "de": "Der Donner erschreckt meine Katze."
+    },
+    "note": "Jemanden erschrecken, mit a bei Personen und Tieren. Selbst erschrecken: asustarse. ¡Me asustaste! = Du hast mich erschreckt!",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1196",
+    "de": ["werfen", "hineintun", "schütten"],
+    "es": "echar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Le echo azúcar a tu café?",
+      "de": "Soll ich dir Zucker in den Kaffee tun?"
+    },
+    "note": "echar de menos = vermissen (vor allem Spanien; in Lateinamerika extrañar). Mexiko: ¡Échale ganas! = Gib dein Bestes!",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1197",
+    "de": ["heben", "hochheben"],
+    "es": "levantar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "No puedo levantar esta maleta, pesa mucho.",
+      "de": "Ich kann diesen Koffer nicht hochheben, er ist sehr schwer."
+    },
+    "note": "levantar la mano = die Hand heben. Mexiko: levantar una denuncia = Anzeige erstatten. Aufstehen: levantarse.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1198",
+    "de": ["durchfallen", "nicht bestehen"],
+    "es": "reprobar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Si no estudio, repruebo el examen.",
+      "de": "Wenn ich nicht lerne, falle ich durch die Prüfung."
+    },
+    "note": "In Mexiko üblich; in Spanien suspender. Gegenteil: aprobar. reprobar a un alumno = einen Schüler durchfallen lassen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1199",
+    "de": ["enthüllen", "verraten"],
+    "es": "revelar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El mago nunca revela sus trucos.",
+      "de": "Der Zauberer verrät nie seine Tricks."
+    },
+    "note": "Auch: Fotos entwickeln (revelar fotos).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1202",
+    "de": ["ankündigen", "bekannt geben"],
+    "es": "anunciar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Anuncian lluvia para mañana.",
+      "de": "Für morgen ist Regen angesagt."
+    },
+    "note": "Auch: durchsagen (am Flughafen, im Bus). el anuncio = Ankündigung, Anzeige, Werbung.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1203",
+    "de": ["bedecken", "abdecken"],
+    "es": "cubrir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Las nubes cubren el volcán.",
+      "de": "Die Wolken bedecken den Vulkan."
+    },
+    "note": "Auch: Kosten übernehmen (El seguro cubre los gastos = Die Versicherung übernimmt die Kosten). Gegenstück: descubrir.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false,
+      "overrides": {
+        "participio": "cubierto"
+      }
+    }
+  },
+  {
+    "id": "v1204",
+    "de": ["zerstören"],
+    "es": "destruir",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Los huracanes destruyen muchas casas en la costa.",
+      "de": "Die Hurrikane zerstören viele Häuser an der Küste."
+    },
+    "note": "Gegenteil: construir, mit demselben Konjugationsmuster.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["y"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1205",
+    "de": ["beißen"],
+    "es": "morder",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Su perro muerde?",
+      "de": "Beißt Ihr Hund?"
+    },
+    "note": "Insekten stechen: picar. In Mexiko umgangssprachlich: la mordida = Schmiergeld (eigentlich: der Biss).",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": ["ue"],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1208",
+    "de": ["entschuldigen", "verzeihen"],
+    "es": "disculpar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Disculpen las molestias.",
+      "de": "Entschuldigen Sie die Unannehmlichkeiten."
+    },
+    "note": "Als Anrede: disculpe (usted), disculpa (tú). Sich entschuldigen: disculparse. Ähnlich: perdonar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1215",
+    "de": ["wunderschön", "schön"],
+    "es": "hermoso",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Desde aquí hay una vista hermosa del volcán.",
+      "de": "Von hier hat man einen wunderschönen Blick auf den Vulkan."
+    },
+    "note": "Etwas gehobener und stärker als bonito.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1216",
+    "de": ["ernst", "seriös"],
+    "es": "serio",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi jefe es muy serio, casi nunca se ríe.",
+      "de": "Mein Chef ist sehr ernst, er lacht fast nie."
+    },
+    "note": "¿En serio? = Im Ernst? / Echt?",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1217",
+    "de": ["riesig", "enorm"],
+    "es": "enorme",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En el mercado venden aguacates enormes.",
+      "de": "Auf dem Markt verkaufen sie riesige Avocados."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1218",
+    "de": ["breit", "weit"],
+    "es": "ancho",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La avenida es muy ancha y tiene muchos carriles.",
+      "de": "Die Straße ist sehr breit und hat viele Fahrspuren."
+    },
+    "note": "Bei Kleidung: me queda ancho = ist mir zu weit. Gegenstück: angosto, estrecho (schmal, eng).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1223",
+    "de": ["grundlegend", "Grund-"],
+    "es": "básico",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Primero aprendo las palabras básicas.",
+      "de": "Zuerst lerne ich die grundlegenden Wörter."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1224",
+    "de": ["vielfältig", "verschieden"],
+    "es": "diverso",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La comida mexicana es muy diversa.",
+      "de": "Die mexikanische Küche ist sehr vielfältig."
+    },
+    "note": "Im Plural vor dem Nomen: verschiedene, mehrere (diversos idiomas = verschiedene Sprachen).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1226",
+    "de": ["national", "National-", "inländisch"],
+    "es": "nacional",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Prefiero comprar productos nacionales.",
+      "de": "Ich kaufe lieber einheimische Produkte."
+    },
+    "note": "parque nacional = Nationalpark; vuelo nacional = Inlandsflug.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1227",
+    "de": ["Haupt-", "wichtigste"],
+    "es": "principal",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La entrada principal está cerrada, use la otra puerta.",
+      "de": "Der Haupteingang ist geschlossen, benutzen Sie die andere Tür."
+    },
+    "note": "Steht meist nach dem Nomen: la calle principal = die Hauptstraße.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1229",
+    "de": ["lokal", "örtlich", "einheimisch"],
+    "es": "local",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Nos gusta probar la comida local.",
+      "de": "Wir probieren gern das lokale Essen."
+    },
+    "note": "hora local = Ortszeit. Als Nomen: el local = Geschäftsraum, Lokal.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1231",
+    "de": ["üblich", "häufig", "gemeinsam"],
+    "es": "común",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Es muy común comer tortillas con todo.",
+      "de": "Es ist ganz üblich, zu allem Tortillas zu essen."
+    },
+    "note": "sentido común = gesunder Menschenverstand; tener algo en común = etwas gemeinsam haben.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1243",
+    "de": ["langsam"],
+    "es": "despacio",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Maneje despacio, la calle está mojada.",
+      "de": "Fahren Sie langsam, die Straße ist nass."
+    },
+    "note": "Adverb (hablar despacio); das Adjektiv heißt lento.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1249",
+    "de": ["genau", "exakt"],
+    "es": "exacto",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Tiene la hora exacta?",
+      "de": "Haben Sie die genaue Uhrzeit?"
+    },
+    "note": "Als Antwort: ¡Exacto! = Genau!",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1250",
+    "de": ["genau"],
+    "es": "exactamente",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Qué quiere decir exactamente?",
+      "de": "Was meinen Sie genau?"
+    },
+    "note": "Adjektiv: exacto.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1251",
+    "de": ["auf rätselhafte Weise", "geheimnisvoll"],
+    "es": "misteriosamente",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La señora sonríe misteriosamente.",
+      "de": "Die Frau lächelt geheimnisvoll."
+    },
+    "note": "Adjektiv: misterioso (geheimnisvoll, rätselhaft).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1252",
+    "de": ["noch", "immer noch"],
+    "es": "aún",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Aún no sé si me quedo una semana más.",
+      "de": "Ich weiß noch nicht, ob ich noch eine Woche bleibe."
+    },
+    "note": "Gleichbedeutend: todavía. Ohne Akzent heißt aun sogar (aun así = trotzdem).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1264",
+    "de": ["Schaden"],
+    "es": "el daño",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El huracán hace mucho daño en la costa.",
+      "de": "Der Hurrikan richtet an der Küste großen Schaden an."
+    },
+    "note": "hacer daño = schaden, wehtun. Sich verletzen heißt in Lateinamerika eher lastimarse als hacerse daño.",
+    "gender": "m",
+    "plural": "los daños"
+  },
+  {
+    "id": "v1287",
+    "de": ["Maßnahme"],
+    "es": "la medida",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Es una medida de seguridad.",
+      "de": "Das ist eine Sicherheitsmaßnahme."
+    },
+    "note": "tomar medidas = Maßnahmen ergreifen. Auch: Maß, Abmessung (las medidas de la maleta = die Maße des Koffers).",
+    "gender": "f",
+    "plural": "las medidas"
+  },
+  {
+    "id": "v1291",
+    "de": ["Ende"],
+    "es": "el fin",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "A fin de mes tengo poco dinero.",
+      "de": "Am Monatsende habe ich wenig Geld."
+    },
+    "note": "por fin = endlich; el fin de semana = Wochenende. Ähnlich: el final.",
+    "gender": "m",
+    "plural": "los fines"
+  },
+  {
+    "id": "v1295",
+    "de": ["Wahrheit"],
+    "es": "la verdad",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Siempre te digo la verdad.",
+      "de": "Ich sage dir immer die Wahrheit."
+    },
+    "note": "¿verdad? am Satzende = nicht wahr?; La verdad, … = Ehrlich gesagt, …; de verdad = wirklich.",
+    "gender": "f",
+    "plural": "las verdades"
+  },
+  {
+    "id": "v1296",
+    "de": ["Unterricht", "Unterrichtsstunde"],
+    "es": "la clase",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hoy no hay clase porque es día festivo.",
+      "de": "Heute ist kein Unterricht, weil Feiertag ist."
+    },
+    "note": "Auch: Art, Sorte (toda clase de frutas = alle möglichen Früchte) und Klasse beim Reisen (primera clase = erste Klasse).",
+    "gender": "f",
+    "plural": "las clases"
+  },
+  {
+    "id": "v1297",
+    "de": ["Kurs"],
+    "es": "el curso",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Tomo un curso de español en Antigua.",
+      "de": "Ich mache in Antigua einen Spanischkurs."
+    },
+    "note": "Einen Kurs belegen: in Lateinamerika meist tomar un curso, ebenso tomar clases.",
+    "gender": "m",
+    "plural": "los cursos"
+  },
+  {
+    "id": "v1298",
+    "de": ["Hausaufgabe", "Aufgabe"],
+    "es": "la tarea",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Los niños hacen la tarea después de comer.",
+      "de": "Die Kinder machen nach dem Essen ihre Hausaufgaben."
+    },
+    "note": "In Lateinamerika das übliche Wort für Hausaufgaben, meist im Singular: hacer la tarea. In Spanien: los deberes.",
+    "gender": "f",
+    "plural": "las tareas"
+  },
+  {
+    "id": "v1299",
+    "de": ["Prüfung"],
+    "es": "el examen",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mañana tengo un examen de historia.",
+      "de": "Morgen habe ich eine Prüfung in Geschichte."
+    },
+    "note": "Eine Prüfung ablegen: presentar un examen; bestehen: aprobar (Gegenteil in Mexiko: reprobar). Auch: Untersuchung (el examen médico).",
+    "gender": "m",
+    "plural": "los exámenes"
+  },
+  {
+    "id": "v1300",
+    "de": ["Übung"],
+    "es": "el ejercicio",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Este ejercicio es muy fácil.",
+      "de": "Diese Übung ist sehr leicht."
+    },
+    "note": "Auch körperliche Bewegung: hacer ejercicio = Sport treiben, sich bewegen.",
+    "gender": "m",
+    "plural": "los ejercicios"
+  },
+  {
+    "id": "v1301",
+    "de": ["Mathematik"],
+    "es": "las matemáticas",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "A mi hija le encantan las matemáticas.",
+      "de": "Meine Tochter liebt Mathematik."
+    },
+    "note": "Meist im Plural gebraucht.",
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v1302",
+    "de": ["Nachname", "Familienname"],
+    "es": "el apellido",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi apellido es difícil de pronunciar.",
+      "de": "Mein Nachname ist schwer auszusprechen."
+    },
+    "note": "In Lateinamerika hat man meist zwei Nachnamen: zuerst den ersten des Vaters, dann den ersten der Mutter. Vorname: el nombre.",
+    "gender": "m",
+    "plural": "los apellidos"
+  },
+  {
+    "id": "v1304",
+    "de": ["Satz"],
+    "es": "la frase",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "No entiendo esta frase.",
+      "de": "Ich verstehe diesen Satz nicht."
+    },
+    "note": "Im Alltag das übliche Wort für Satz; grammatisch heißt er la oración. Auch: Spruch, Redewendung.",
+    "gender": "f",
+    "plural": "las frases"
+  },
+  {
+    "id": "v1305",
+    "de": ["Ausdruck"],
+    "es": "la expresión",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Esa expresión es muy mexicana.",
+      "de": "Dieser Ausdruck ist typisch mexikanisch."
+    },
+    "note": "Auch: Gesichtsausdruck.",
+    "gender": "f",
+    "plural": "las expresiones"
+  },
+  {
+    "id": "v1306",
+    "de": ["Fehler", "Irrtum"],
+    "es": "el error",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Creo que hay un error en la cuenta.",
+      "de": "Ich glaube, in der Rechnung ist ein Fehler."
+    },
+    "note": "Einen Fehler machen: cometer un error; por error = aus Versehen. Sich irren: equivocarse.",
+    "gender": "m",
+    "plural": "los errores"
+  },
+  {
+    "id": "v1307",
+    "de": ["Problem"],
+    "es": "el problema",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Tenemos un problema con el agua caliente.",
+      "de": "Wir haben ein Problem mit dem warmen Wasser."
+    },
+    "note": "Trotz der Endung -a männlich (wie el mapa, el día). No hay problema = Kein Problem.",
+    "gender": "m",
+    "plural": "los problemas"
+  },
+  {
+    "id": "v1308",
+    "de": ["Lösung"],
+    "es": "la solución",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Para todo hay una solución.",
+      "de": "Für alles gibt es eine Lösung."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las soluciones"
+  },
+  {
+    "id": "v1309",
+    "de": ["Grund"],
+    "es": "la razón",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La razón de mi viaje es aprender español.",
+      "de": "Der Grund meiner Reise ist, Spanisch zu lernen."
+    },
+    "note": "tener razón = recht haben; por esa razón = aus diesem Grund. Auch: Vernunft.",
+    "gender": "f",
+    "plural": "las razones"
+  },
+  {
+    "id": "v1314",
+    "de": ["Aufmerksamkeit"],
+    "es": "la atención",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hay que poner atención al cruzar la calle.",
+      "de": "Beim Überqueren der Straße muss man aufpassen."
+    },
+    "note": "Aufpassen: poner atención (in Mexiko üblich) oder prestar atención. Auch: Service, Betreuung (la atención al cliente = Kundenservice).",
+    "gender": "f",
+    "plural": "las atenciones"
+  },
+  {
+    "id": "v1315",
+    "de": ["im Voraus", "rechtzeitig"],
+    "es": "con anticipación",
+    "pos": "phrase",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Compramos los boletos con anticipación.",
+      "de": "Wir kaufen die Tickets im Voraus."
+    },
+    "note": "Gleichbedeutend: con tiempo.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1316",
+    "de": ["Spannung", "Anspannung"],
+    "es": "la tensión",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Antes del partido hay mucha tensión en el estadio.",
+      "de": "Vor dem Spiel herrscht große Anspannung im Stadion."
+    },
+    "note": "Elektrische Spannung: el voltaje; Blutdruck heißt in Lateinamerika meist la presión.",
+    "gender": "f",
+    "plural": "las tensiones"
+  },
+  {
+    "id": "v1328",
+    "de": ["Formular"],
+    "es": "el formulario",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El formulario está en inglés y en español.",
+      "de": "Das Formular ist auf Englisch und auf Spanisch."
+    },
+    "note": "Ausfüllen: llenar un formulario (in Spanien: rellenar).",
+    "gender": "m",
+    "plural": "los formularios"
+  },
+  {
+    "id": "v1330",
+    "de": ["Eile"],
+    "es": "la prisa",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "grundwortschatz",
+    "added": "2026-11-27",
+    "example": {
+      "es": "No hay prisa, el museo cierra a las seis.",
+      "de": "Keine Eile, das Museum schließt erst um sechs."
+    },
+    "note": "tener prisa = es eilig haben. Sich beeilen: in Lateinamerika meist apurarse statt darse prisa.",
+    "gender": "f",
+    "plural": null
   }
 ]

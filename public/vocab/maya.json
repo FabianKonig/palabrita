@@ -601,5 +601,53 @@
     "note": null,
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v1065",
+    "de": ["aztekisch"],
+    "es": "azteca",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "maya",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En el museo hay un calendario azteca de piedra.",
+      "de": "Im Museum gibt es einen aztekischen Kalender aus Stein."
+    },
+    "note": "Auch Nomen: los aztecas = die Azteken. Ihre Hauptstadt Tenochtitlan lag dort, wo heute Mexiko-Stadt ist.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1153",
+    "de": ["Grab", "Grabmal"],
+    "es": "la tumba",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "maya",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La tumba del rey está dentro de la pirámide.",
+      "de": "Das Grab des Königs liegt im Inneren der Pyramide."
+    },
+    "note": "Friedhof: el cementerio, in Mexiko oft el panteón.",
+    "gender": "f",
+    "plural": "las tumbas"
+  },
+  {
+    "id": "v1318",
+    "de": ["Zivilisation", "Hochkultur"],
+    "es": "la civilización",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "maya",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La civilización maya construyó ciudades enormes.",
+      "de": "Die Maya-Zivilisation baute riesige Städte."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las civilizaciones"
   }
 ]

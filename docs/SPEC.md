@@ -134,7 +134,7 @@ Innerhalb der Gruppen 1 und 3 gilt die Reihenfolge aus §3.3, innerhalb der Grup
 | `come` | comer | Form | 3. Sg. Presente · 2. Sg. Imperativo |
 | `pod` | poder | normal (keine Formzeile, F = G) | – |
 | `pued` | poder | Form: **puedo** | 1. Sg. Presente + 5 weitere Formen |
-| `levanto` | levantarse | Form: **levanto** | 1. Sg. Presente + 1 weitere Form |
+| `levanto` | levantarse (daneben mit gleicher Form auch *levantar*, wie *ir*/*irse*) | Form: **levanto** | 1. Sg. Presente + 1 weitere Form |
 | `levantó` | levantarse | Form: **levantó** | 3. Sg. Pretérito indefinido + 1 weitere Form |
 | `levantate` | levantarse | Form | 2. Sg. Imperativo |
 | `me levanto` | – (kein Formtreffer) | – | – |
