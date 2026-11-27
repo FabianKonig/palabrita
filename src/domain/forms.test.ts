@@ -148,16 +148,16 @@ describe("Soll-Beispiele aus SPEC §3.3a (echte Vokabeln)", () => {
   });
 
   it("levanto / levantó → levantarse, je +1 weitere Form", () => {
-    const [a] = search("levanto");
-    expect(a.vocab.es).toBe("levantarse");
-    expect(a.form).toMatchObject({
+    // Seit *levantar* eine eigene Vokabel ist, erscheint es mit gleicher Form daneben (wie ir/irse).
+    const a = row(search("levanto"), "levantarse");
+    expect(a?.form).toMatchObject({
       form: "levanto",
       label: "1. Sg. Presente",
       more: 1,
     });
-    expect(a.form?.highlight).toHaveLength(2);
-    const [b] = search("levantó");
-    expect(b.form).toMatchObject({
+    expect(a?.form?.highlight).toHaveLength(2);
+    const b = row(search("levantó"), "levantarse");
+    expect(b?.form).toMatchObject({
       form: "levantó",
       label: "3. Sg. Pretérito indefinido",
       more: 1,
