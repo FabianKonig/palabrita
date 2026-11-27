@@ -38,7 +38,7 @@ Einmalige Einrichtung:
 
 Aktualisieren: Jeder Push auf `main` (in der Praxis der Merge eines Pull Requests) startet den Workflow `pages.yml` und veröffentlicht die neue Version, sofern der Build gelingt. Die Tests laufen nicht erneut, sondern vorher im Pull Request (`ci.yml`). Zusätzlich lässt sich `pages.yml` unter *Actions → Pages → Run workflow* manuell starten.
 
-Schutz von `main` (Settings → Rules → Rulesets, Ruleset `protect-main-branch`): Änderungen nur per Pull Request, nur Squash-Merge, lineare Historie, Pflicht-Check `check` (aus `ci.yml`) und „Require branches to be up to date before merging“, Bypass-Liste leer. Nur so gilt: Was auf `main` landet, wurde in genau diesem Stand geprüft. Auto-merge ist nicht aktiviert: Gemergt wird vom Nutzer oder von einem Agenten auf dessen ausdrückliche Freigabe. Alle Einstellungen im Detail: `docs/SPEC.md` §16.
+Schutz von `main` (Settings → Rules → Rulesets, Ruleset `protect-main-branch`): Änderungen nur per Pull Request, nur Squash-Merge, lineare Historie, Pflicht-Check `check` (aus `ci.yml`) und „Require branches to be up to date before merging“, Bypass-Liste leer. Nur so gilt: Was auf `main` landet, wurde in genau diesem Stand geprüft. Auto-merge ist in den Repo-Einstellungen erlaubt: Gemergt (oder Auto-merge für einen PR aktiviert) wird vom Nutzer oder von einem Agenten auf dessen ausdrückliche Freigabe für den jeweiligen PR. Alle Einstellungen im Detail: `docs/SPEC.md` §16.
 
 Der Lernfortschritt (IndexedDB) ist an die Adresse (Origin) gebunden. Eine neue Adresse startet leer.
 
