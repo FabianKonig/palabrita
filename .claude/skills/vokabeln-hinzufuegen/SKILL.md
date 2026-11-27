@@ -126,7 +126,6 @@ Melde dem Nutzer, statt zu raten oder zu „probieren“, wenn:
 
 - eine Form (Konjugation, Plural, Femininum, Partizip, Imperativ, Akzent) nicht sicher ist oder Wiktionary und dein Wissen sich widersprechen,
 - die Bedeutung, das Genus oder die Variante (Mexiko, Guatemala, Spanien) nicht eindeutig ist, oder ein Wort regional sehr unterschiedlich verwendet wird,
-- das Wort ein Tabu- oder Vulgärwort ist oder die Wirkung auf Lernende unklar ist,
 - Niveau oder Thema fraglich sind,
 - das Wort bereits (auch als ähnliche Form) im Bestand steht,
 - das Modul eine Form nicht richtig erzeugen kann,
