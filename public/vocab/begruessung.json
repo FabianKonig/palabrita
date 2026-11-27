@@ -657,5 +657,41 @@
     "note": "Förmlicher als muchas gracias.",
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v1200",
+    "de": ["vorstellen"],
+    "es": "presentar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "begruessung",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Les presento a mi esposa, Ana.",
+      "de": "Ich stelle Ihnen meine Frau Ana vor."
+    },
+    "note": "Auch: vorzeigen, einreichen (presentar el pasaporte = den Pass vorzeigen; Quisiera presentar una queja = Ich möchte mich beschweren). Sich selbst vorstellen: presentarse.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1313",
+    "de": ["Freundlichkeit"],
+    "es": "la amabilidad",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "begruessung",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La amabilidad de la gente nos sorprende.",
+      "de": "Die Freundlichkeit der Leute überrascht uns."
+    },
+    "note": "Von amable (freundlich).",
+    "gender": "f",
+    "plural": null
   }
 ]

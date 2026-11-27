@@ -666,5 +666,277 @@
       "tags": [],
       "reflexive": false
     }
+  },
+  {
+    "id": "v1130",
+    "de": ["Luft"],
+    "es": "el aire",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Aquí en la montaña el aire es fresco.",
+      "de": "Hier in den Bergen ist die Luft frisch."
+    },
+    "note": "al aire libre = im Freien; el aire acondicionado = Klimaanlage.",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1148",
+    "de": ["Land", "Feld"],
+    "es": "el campo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mis abuelos viven en el campo.",
+      "de": "Meine Großeltern leben auf dem Land."
+    },
+    "note": "Das Land im Gegensatz zur Stadt; das Land als Staat heißt el país. Auch: Sportplatz (el campo de fútbol).",
+    "gender": "m",
+    "plural": "los campos"
+  },
+  {
+    "id": "v1150",
+    "de": ["Küste"],
+    "es": "la costa",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Este fin de semana vamos a la costa.",
+      "de": "Dieses Wochenende fahren wir an die Küste."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las costas"
+  },
+  {
+    "id": "v1187",
+    "de": ["Orangenbaum"],
+    "es": "el naranjo",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En el patio de la casa hay un naranjo.",
+      "de": "Im Innenhof des Hauses steht ein Orangenbaum."
+    },
+    "note": "Die Frucht: la naranja. Obstbäume heißen oft wie die Frucht, aber auf -o: la manzana → el manzano.",
+    "gender": "m",
+    "plural": "los naranjos"
+  },
+  {
+    "id": "v1221",
+    "de": ["klar", "wolkenlos"],
+    "es": "despejado",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hoy el cielo está despejado y se ve el volcán.",
+      "de": "Heute ist der Himmel klar und man sieht den Vulkan."
+    },
+    "note": "Gegenstück: nublado.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1266",
+    "de": ["Erdbeben"],
+    "es": "el sismo",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En la Ciudad de México suena una alarma antes de un sismo.",
+      "de": "In Mexiko-Stadt ertönt vor einem Erdbeben ein Alarm."
+    },
+    "note": "In Mexiko das übliche Wort, z. B. in den Nachrichten und bei der alerta sísmica (Erdbebenalarm). Umgangssprachlich: el temblor; schweres Beben: el terremoto.",
+    "gender": "m",
+    "plural": "los sismos"
+  },
+  {
+    "id": "v1267",
+    "de": ["Erdstoß", "Beben"],
+    "es": "el temblor",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En Guatemala los temblores son frecuentes.",
+      "de": "In Guatemala gibt es häufig Erdstöße."
+    },
+    "note": "Wörtlich: Zittern. In Mexiko und Guatemala umgangssprachlich für ein Erdbeben, meist ohne große Schäden; ¡Está temblando! = Die Erde bebt! Schweres Beben: el terremoto.",
+    "gender": "m",
+    "plural": "los temblores"
+  },
+  {
+    "id": "v1268",
+    "de": ["Klima", "Wetter"],
+    "es": "el clima",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hoy el clima está muy agradable.",
+      "de": "Heute ist das Wetter sehr angenehm."
+    },
+    "note": "Männlich trotz -a. In Lateinamerika auch für das aktuelle Wetter (¿Cómo está el clima?); in Mexiko umgangssprachlich auch die Klimaanlage.",
+    "gender": "m",
+    "plural": "los climas"
+  },
+  {
+    "id": "v1269",
+    "de": ["Vorhersage", "Prognose"],
+    "es": "el pronóstico",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El pronóstico dice que va a llover en la tarde.",
+      "de": "Laut Vorhersage regnet es am Nachmittag."
+    },
+    "note": "Wettervorhersage: el pronóstico del tiempo, in Lateinamerika auch del clima. Beim Arzt: Prognose.",
+    "gender": "m",
+    "plural": "los pronósticos"
+  },
+  {
+    "id": "v1270",
+    "de": ["Hitze", "Wärme"],
+    "es": "el calor",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En mayo el calor es muy fuerte en Yucatán.",
+      "de": "Im Mai ist die Hitze in Yucatán sehr stark."
+    },
+    "note": "Hace calor = Es ist heiß (Wetter); Tengo calor = Mir ist heiß.",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1273",
+    "de": ["Zeit", "Epoche"],
+    "es": "la época",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Diciembre es una buena época para visitar Guatemala.",
+      "de": "Dezember ist eine gute Zeit, um Guatemala zu besuchen."
+    },
+    "note": "época de lluvias = Regenzeit, época seca = Trockenzeit; in Guatemala sagt man dafür oft invierno und verano. Auch: Epoche (la época colonial).",
+    "gender": "f",
+    "plural": "las épocas"
+  },
+  {
+    "id": "v1274",
+    "de": ["Tier"],
+    "es": "el animal",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En la selva vemos muchos animales.",
+      "de": "Im Dschungel sehen wir viele Tiere."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los animales"
+  },
+  {
+    "id": "v1275",
+    "de": ["Hund"],
+    "es": "el perro",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Hay muchos perros en la calle.",
+      "de": "Auf der Straße gibt es viele Hunde."
+    },
+    "note": "Hündin: la perra, das auch ein derbes Schimpfwort ist.",
+    "gender": "m",
+    "plural": "los perros"
+  },
+  {
+    "id": "v1276",
+    "de": ["Vogel"],
+    "es": "el ave",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En el lago viven muchas aves.",
+      "de": "Am See leben viele Vögel."
+    },
+    "note": "Feminin, aber im Singular mit el wie el agua (el ave blanca). Im Alltag für kleine Vögel meist el pájaro.",
+    "gender": "f",
+    "plural": "las aves"
+  },
+  {
+    "id": "v1277",
+    "de": ["Cenote"],
+    "es": "el cenote",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En Yucatán hay muchos cenotes para nadar.",
+      "de": "In Yucatán gibt es viele Cenoten zum Schwimmen."
+    },
+    "note": "Natürliches, mit Wasser gefülltes Karstloch, typisch für die Halbinsel Yucatán; für die Maya heilig. Das Wort stammt aus dem Maya (ts'ono'ot).",
+    "gender": "m",
+    "plural": "los cenotes"
+  },
+  {
+    "id": "v1283",
+    "de": ["Pflanze"],
+    "es": "la planta",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi abuela tiene muchas plantas en el patio.",
+      "de": "Meine Oma hat viele Pflanzen im Innenhof."
+    },
+    "note": "Auch: Stockwerk in planta baja (Erdgeschoss, im Aufzug PB) und planta alta (Obergeschoss).",
+    "gender": "f",
+    "plural": "las plantas"
+  },
+  {
+    "id": "v1312",
+    "de": ["Höhe"],
+    "es": "la altura",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "natur",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La Ciudad de México está a más de dos mil metros de altura.",
+      "de": "Mexiko-Stadt liegt über zweitausend Meter hoch."
+    },
+    "note": "a la altura de = auf Höhe von (bei Wegbeschreibungen). Höhenkrankheit: el mal de altura.",
+    "gender": "f",
+    "plural": "las alturas"
   }
 ]

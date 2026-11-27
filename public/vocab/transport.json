@@ -858,5 +858,221 @@
     "note": "Mexiko-Stadt hat ein großes Metronetz; der Transmetro in Guatemala-Stadt ist dagegen ein Schnellbussystem. Gleiche Form: el metro = Meter.",
     "gender": "m",
     "plural": "los metros"
+  },
+  {
+    "id": "v1053",
+    "de": ["Mechaniker"],
+    "es": "el mecánico",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Necesitamos un mecánico, el carro no arranca.",
+      "de": "Wir brauchen einen Mechaniker, das Auto springt nicht an."
+    },
+    "note": "Die Werkstatt heißt el taller mecánico.",
+    "gender": "m",
+    "plural": "los mecánicos"
+  },
+  {
+    "id": "v1077",
+    "de": ["Rucksack"],
+    "es": "la mochila",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi mochila pesa mucho.",
+      "de": "Mein Rucksack ist sehr schwer."
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las mochilas"
+  },
+  {
+    "id": "v1091",
+    "de": ["Visum"],
+    "es": "la visa",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Necesito visa para entrar a México?",
+      "de": "Brauche ich ein Visum für die Einreise nach Mexiko?"
+    },
+    "note": "In Lateinamerika la visa, in Spanien el visado.",
+    "gender": "f",
+    "plural": "las visas"
+  },
+  {
+    "id": "v1109",
+    "de": ["Bremse"],
+    "es": "el freno",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El freno de la bicicleta no funciona.",
+      "de": "Die Bremse des Fahrrads funktioniert nicht."
+    },
+    "note": "Bremsen: frenar. Handbremse: el freno de mano.",
+    "gender": "m",
+    "plural": "los frenos"
+  },
+  {
+    "id": "v1110",
+    "de": ["Sitzplatz", "Sitz"],
+    "es": "el asiento",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi asiento es el número doce.",
+      "de": "Mein Sitzplatz ist die Nummer zwölf."
+    },
+    "note": "Fensterplatz: asiento de ventanilla, Gangplatz: asiento de pasillo. Tome asiento = Nehmen Sie Platz.",
+    "gender": "m",
+    "plural": "los asientos"
+  },
+  {
+    "id": "v1113",
+    "de": ["Verkehr"],
+    "es": "el tráfico",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "A esta hora hay mucho tráfico.",
+      "de": "Um diese Zeit ist viel Verkehr."
+    },
+    "note": "Oft im Sinn von Stau. Gleichbedeutend: el tránsito. Auch: illegaler Handel (el tráfico de drogas).",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1127",
+    "de": ["Parkplatz"],
+    "es": "el estacionamiento",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿El hotel tiene estacionamiento?",
+      "de": "Hat das Hotel einen Parkplatz?"
+    },
+    "note": "Mexiko; in Guatemala meist el parqueo, in Spanien el aparcamiento. Verb: estacionar.",
+    "gender": "m",
+    "plural": "los estacionamientos"
+  },
+  {
+    "id": "v1141",
+    "de": ["Busbahnhof", "Terminal"],
+    "es": "la terminal",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La terminal de autobuses queda lejos del centro.",
+      "de": "Der Busbahnhof liegt weit vom Zentrum entfernt."
+    },
+    "note": "Meist kurz für la terminal de autobuses; auch am Flughafen. In Mexiko auch la central de autobuses (kurz: la central).",
+    "gender": "f",
+    "plural": "las terminales"
+  },
+  {
+    "id": "v1189",
+    "de": ["anhalten", "halten"],
+    "es": "parar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Este camión para en el mercado?",
+      "de": "Hält dieser Bus am Markt?"
+    },
+    "note": "no parar de + Infinitiv = nicht aufhören zu: No para de llover. In Lateinamerika: pararse = aufstehen, sich hinstellen.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1190",
+    "de": ["parken"],
+    "es": "aparcar",
+    "pos": "verb",
+    "level": "B1",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En Madrid es difícil aparcar en el centro.",
+      "de": "In Madrid ist es schwierig, im Zentrum zu parken."
+    },
+    "note": "Spanien; in Mexiko und Guatemala sagt man estacionar.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1278",
+    "de": ["Schiff", "Boot"],
+    "es": "el barco",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El barco a la isla sale cada hora.",
+      "de": "Das Schiff zur Insel fährt jede Stunde."
+    },
+    "note": "Kleines Motorboot: la lancha, etwa auf dem Lago de Atitlán.",
+    "gender": "m",
+    "plural": "los barcos"
+  },
+  {
+    "id": "v1292",
+    "de": ["Hinfahrt", "Hinweg"],
+    "es": "la ida",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La ida en camión dura cuatro horas.",
+      "de": "Die Hinfahrt mit dem Bus dauert vier Stunden."
+    },
+    "note": "Gegenstück: la vuelta. Nur hin: un boleto de ida; hin und zurück: de ida y vuelta.",
+    "gender": "f",
+    "plural": "las idas"
+  },
+  {
+    "id": "v1293",
+    "de": ["Rückfahrt", "Rückweg"],
+    "es": "la vuelta",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-27",
+    "example": {
+      "es": "A la vuelta paramos en Oaxaca.",
+      "de": "Auf der Rückfahrt halten wir in Oaxaca."
+    },
+    "note": "In Lateinamerika auch el regreso. Weitere Bedeutungen: Runde, Umdrehung; dar una vuelta = eine Runde drehen, spazieren gehen.",
+    "gender": "f",
+    "plural": "las vueltas"
   }
 ]

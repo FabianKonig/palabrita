@@ -802,5 +802,297 @@
     "note": "In Mexiko oft kurz el gel, etwa am Taco-Stand: ¿Quiere gel? = Möchten Sie Desinfektionsgel? Auch: alcohol en gel, gel desinfectante. Nicht verwechseln mit la pomada = Salbe.",
     "gender": "m",
     "plural": "los geles antibacteriales"
+  },
+  {
+    "id": "v1056",
+    "de": ["Polizei"],
+    "es": "la policía",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La policía llega en diez minutos.",
+      "de": "Die Polizei kommt in zehn Minuten."
+    },
+    "note": "Auch die einzelne Person: el policía = der Polizist, la policía = die Polizistin.",
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v1201",
+    "de": ["bluten"],
+    "es": "sangrar",
+    "pos": "verb",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Me sangra la nariz.",
+      "de": "Meine Nase blutet."
+    },
+    "note": "Wie bei doler wird der Körperteil zum Subjekt: Me sangran las encías = Mein Zahnfleisch blutet. Blut: la sangre.",
+    "gender": null,
+    "plural": null,
+    "verb": {
+      "tags": [],
+      "reflexive": false
+    }
+  },
+  {
+    "id": "v1222",
+    "de": ["geschwollen"],
+    "es": "hinchado",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Tengo el tobillo hinchado desde ayer.",
+      "de": "Mein Knöchel ist seit gestern geschwollen."
+    },
+    "note": "Von hincharse = anschwellen.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1232",
+    "de": ["antibakteriell"],
+    "es": "antibacterial",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En la farmacia venden jabón antibacterial.",
+      "de": "In der Apotheke gibt es antibakterielle Seife."
+    },
+    "note": "In Lateinamerika üblich, in Spanien eher antibacteriano. el gel antibacterial = Desinfektionsgel.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1235",
+    "de": ["hygienisch"],
+    "es": "higiénico",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "No es higiénico comer sin lavarse las manos.",
+      "de": "Es ist nicht hygienisch, ohne Händewaschen zu essen."
+    },
+    "note": "papel higiénico = Toilettenpapier (Mexiko auch papel de baño).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1236",
+    "de": ["sanitär", "gesundheitlich", "Gesundheits-"],
+    "es": "sanitario",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El restaurante tiene que cumplir las normas sanitarias.",
+      "de": "Das Restaurant muss die Hygienevorschriften einhalten."
+    },
+    "note": "Als Nomen in Mexiko häufig auf Schildern: los sanitarios = die Toiletten.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1253",
+    "de": ["Haar", "Haare"],
+    "es": "el pelo",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Necesito cortarme el pelo.",
+      "de": "Ich muss mir die Haare schneiden lassen."
+    },
+    "note": "Für das Kopfhaar meist im Singular: Tiene el pelo largo = Sie hat lange Haare. Gehobener: el cabello.",
+    "gender": "m",
+    "plural": "los pelos"
+  },
+  {
+    "id": "v1254",
+    "de": ["Zahn"],
+    "es": "el diente",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Me duele un diente desde ayer.",
+      "de": "Mir tut seit gestern ein Zahn weh."
+    },
+    "note": "Backenzahn: la muela; Zahnschmerzen heißen oft dolor de muelas.",
+    "gender": "m",
+    "plural": "los dientes"
+  },
+  {
+    "id": "v1255",
+    "de": ["Ohr"],
+    "es": "la oreja",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Mi hijo tiene las orejas rojas por el frío.",
+      "de": "Mein Sohn hat von der Kälte rote Ohren."
+    },
+    "note": "Das äußere Ohr. Das innere Ohr und das Gehör: el oído (Me duele el oído = Ich habe Ohrenschmerzen).",
+    "gender": "f",
+    "plural": "las orejas"
+  },
+  {
+    "id": "v1256",
+    "de": ["Grippe"],
+    "es": "la gripe",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Tengo gripe, por eso hoy me quedo en casa.",
+      "de": "Ich habe die Grippe, deshalb bleibe ich heute zu Hause."
+    },
+    "note": "In Mexiko meist la gripa, umgangssprachlich auch für eine kräftige Erkältung. Leichte Erkältung: el resfriado.",
+    "gender": "f",
+    "plural": "las gripes"
+  },
+  {
+    "id": "v1257",
+    "de": ["Krankheit"],
+    "es": "la enfermedad",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El dengue es una enfermedad que transmiten los mosquitos.",
+      "de": "Dengue ist eine Krankheit, die von Mücken übertragen wird."
+    },
+    "note": "Verwandt: enfermo (krank), enfermarse (krank werden).",
+    "gender": "f",
+    "plural": "las enfermedades"
+  },
+  {
+    "id": "v1258",
+    "de": ["Penicillin"],
+    "es": "la penicilina",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El médico me receta penicilina para la infección.",
+      "de": "Der Arzt verschreibt mir Penicillin gegen die Infektion."
+    },
+    "note": "Bei einer Allergie: Tengo alergia a la penicilina.",
+    "gender": "f",
+    "plural": null
+  },
+  {
+    "id": "v1259",
+    "de": ["Pollen", "Blütenstaub"],
+    "es": "el polen",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "En primavera hay mucho polen en el aire.",
+      "de": "Im Frühling sind viele Pollen in der Luft."
+    },
+    "note": "Pollenallergie: la alergia al polen.",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1260",
+    "de": ["Salbe"],
+    "es": "la pomada",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "¿Tiene una pomada para las picaduras de mosquito?",
+      "de": "Haben Sie eine Salbe gegen Mückenstiche?"
+    },
+    "note": null,
+    "gender": "f",
+    "plural": "las pomadas"
+  },
+  {
+    "id": "v1261",
+    "de": ["Medikament", "Arzneimittel"],
+    "es": "el medicamento",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Este medicamento se toma tres veces al día.",
+      "de": "Dieses Medikament nimmt man dreimal täglich."
+    },
+    "note": "Etwas formeller als la medicina, etwa auf Packungen und beim Arzt.",
+    "gender": "m",
+    "plural": "los medicamentos"
+  },
+  {
+    "id": "v1262",
+    "de": ["Alkohol"],
+    "es": "el alcohol",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Con este medicamento no debes tomar alcohol.",
+      "de": "Mit diesem Medikament solltest du keinen Alkohol trinken."
+    },
+    "note": "Auch der Desinfektionsalkohol aus der Apotheke; alcohol en gel = Desinfektionsgel (el gel antibacterial).",
+    "gender": "m",
+    "plural": null
+  },
+  {
+    "id": "v1263",
+    "de": ["Desinfektionsmittel"],
+    "es": "el desinfectante",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Necesito desinfectante para limpiar la herida.",
+      "de": "Ich brauche Desinfektionsmittel, um die Wunde zu reinigen."
+    },
+    "note": null,
+    "gender": "m",
+    "plural": "los desinfectantes"
+  },
+  {
+    "id": "v1265",
+    "de": ["Anzeige", "Strafanzeige"],
+    "es": "la denuncia",
+    "pos": "noun",
+    "level": "B1",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Quiero poner una denuncia por robo.",
+      "de": "Ich möchte Anzeige wegen Diebstahls erstatten."
+    },
+    "note": "poner una denuncia = Anzeige erstatten; in Mexiko auch levantar una denuncia.",
+    "gender": "f",
+    "plural": "las denuncias"
   }
 ]

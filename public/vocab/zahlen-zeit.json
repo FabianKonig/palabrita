@@ -694,5 +694,165 @@
     "note": null,
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v1220",
+    "de": ["verspätet", "im Rückstand"],
+    "es": "atrasado",
+    "pos": "adj",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El vuelo viene atrasado una hora.",
+      "de": "Der Flug hat eine Stunde Verspätung."
+    },
+    "note": "In Lateinamerika häufig, gleichbedeutend: retrasado. Bei Uhren: el reloj está atrasado = die Uhr geht nach.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1230",
+    "de": ["nächster", "kommend"],
+    "es": "próximo",
+    "pos": "adj",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El próximo camión sale a las tres.",
+      "de": "Der nächste Bus fährt um drei."
+    },
+    "note": "Steht meist vor dem Nomen: la próxima parada = die nächste Haltestelle.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1237",
+    "de": ["gestern Abend", "letzte Nacht"],
+    "es": "anoche",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Anoche llovió mucho en la ciudad.",
+      "de": "Letzte Nacht hat es in der Stadt viel geregnet."
+    },
+    "note": "Gegenstück: esta noche = heute Abend.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1238",
+    "de": ["danach", "später", "nachher"],
+    "es": "después",
+    "pos": "adv",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Ahora no puedo, te llamo después.",
+      "de": "Jetzt kann ich nicht, ich rufe dich später an."
+    },
+    "note": "Mit Nomen oder Infinitiv: después de (después de comer = nach dem Essen). Ähnlich: luego.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1239",
+    "de": ["gleich", "jetzt gleich"],
+    "es": "ahorita",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Ahorita vengo, voy por agua.",
+      "de": "Bin gleich zurück, ich hole Wasser."
+    },
+    "note": "Sehr typisch für Mexiko und Mittelamerika. Kann je nach Lage sofort, gleich, gerade eben oder ein unbestimmtes Später heißen; ahorita no = höfliches Nein.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1241",
+    "de": ["bald"],
+    "es": "pronto",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "La lluvia va a parar pronto.",
+      "de": "Der Regen hört bald auf."
+    },
+    "note": "¡Hasta pronto! = Bis bald! de pronto = plötzlich. Früh heißt temprano.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1242",
+    "de": ["gerade erst", "frisch"],
+    "es": "recién",
+    "pos": "adv",
+    "level": "B1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El pan está recién salido del horno.",
+      "de": "Das Brot kommt frisch aus dem Ofen."
+    },
+    "note": "Vor Partizipien: recién casados = frisch verheiratet. In Lateinamerika auch vor Verben: recién llegué = ich bin gerade erst angekommen.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1279",
+    "de": ["Mitternacht"],
+    "es": "la medianoche",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El restaurante cierra a medianoche.",
+      "de": "Das Restaurant schließt um Mitternacht."
+    },
+    "note": "Gegenstück: el mediodía (Mittag).",
+    "gender": "f",
+    "plural": "las medianoches"
+  },
+  {
+    "id": "v1294",
+    "de": ["Es ist halb drei.", "Es ist zwei Uhr dreißig."],
+    "es": "Son las dos y media.",
+    "pos": "phrase",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "El tour empieza a las nueve y media.",
+      "de": "Die Tour beginnt um halb zehn."
+    },
+    "note": "Achtung: y media zählt von der vollen Stunde davor, las dos y media = halb drei. Ebenso: y cuarto = Viertel nach, menos cuarto = Viertel vor.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1311",
+    "de": ["Weile"],
+    "es": "el rato",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Descansamos un rato en el parque.",
+      "de": "Wir ruhen uns eine Weile im Park aus."
+    },
+    "note": "Meist in un rato = eine Weile. In Mexiko auch al rato = später, gleich; un ratito = einen Moment.",
+    "gender": "m",
+    "plural": "los ratos"
   }
 ]
