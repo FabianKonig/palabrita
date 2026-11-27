@@ -786,5 +786,21 @@
     "note": "Mit estar, weil es ein vorübergehender Zustand ist. Krank werden: enfermarse.",
     "gender": null,
     "plural": null
+  },
+  {
+    "id": "v1038",
+    "de": ["Desinfektionsgel", "Handdesinfektionsmittel"],
+    "es": "el gel antibacterial",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "gesundheit",
+    "added": "2026-11-27",
+    "example": {
+      "es": "Siempre llevo gel antibacterial en la mochila.",
+      "de": "Ich habe immer Desinfektionsgel im Rucksack."
+    },
+    "note": "In Mexiko oft kurz el gel, etwa am Taco-Stand: ¿Quiere gel? = Möchten Sie Desinfektionsgel? Auch: alcohol en gel, gel desinfectante. Nicht verwechseln mit la pomada = Salbe.",
+    "gender": "m",
+    "plural": "los geles antibacteriales"
   }
 ]
