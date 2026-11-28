@@ -1929,5 +1929,37 @@
     "note": "¡Ánimo! = Kopf hoch!, Nur Mut!; el estado de ánimo = die Stimmung, die Gemütsverfassung.",
     "gender": "m",
     "plural": "los ánimos"
+  },
+  {
+    "id": "v1333",
+    "de": ["Ehefrau", "Frau"],
+    "es": "la esposa",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-28",
+    "example": {
+      "es": "Mi esposa es de Guatemala.",
+      "de": "Meine Frau kommt aus Guatemala."
+    },
+    "note": "Ehemann: el esposo. Auch üblich: mi mujer. Im Plural auch „Handschellen“ (las esposas).",
+    "gender": "f",
+    "plural": "las esposas"
+  },
+  {
+    "id": "v1334",
+    "de": ["Ehemann", "Mann"],
+    "es": "el esposo",
+    "pos": "noun",
+    "level": "A1",
+    "topic": "smalltalk",
+    "added": "2026-11-28",
+    "example": {
+      "es": "Mi esposo trabaja en un hotel.",
+      "de": "Mein Mann arbeitet in einem Hotel."
+    },
+    "note": "Ehefrau: la esposa. Umgangssprachlich auch: el marido.",
+    "gender": "m",
+    "plural": "los esposos"
   }
 ]

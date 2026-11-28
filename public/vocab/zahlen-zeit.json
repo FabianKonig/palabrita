@@ -854,5 +854,149 @@
     "note": "Meist in un rato = eine Weile. In Mexiko auch al rato = später, gleich; un ratito = einen Moment.",
     "gender": "m",
     "plural": "los ratos"
+  },
+  {
+    "id": "v1341",
+    "de": ["hundert", "ein-hundert"],
+    "es": "cien",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-28",
+    "example": {
+      "es": "El boleto cuesta cien pesos.",
+      "de": "Das Ticket kostet ein-hundert Pesos."
+    },
+    "note": "Mit weiteren Zahlen heißt es ciento: ciento veinte.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1342",
+    "de": ["zwei-hundert"],
+    "es": "doscientos",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-28",
+    "example": {
+      "es": "Hay doscientas personas en el concierto.",
+      "de": "Beim Konzert sind zwei-hundert Leute."
+    },
+    "note": "Vor weiblichen Nomen -cientas: doscientas personas. Gilt für alle Hunderter außer cien.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1343",
+    "de": ["drei-hundert"],
+    "es": "trescientos",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-28",
+    "example": {
+      "es": "El hotel está a trescientos metros de la playa.",
+      "de": "Das Hotel liegt drei-hundert Meter vom Strand entfernt."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1344",
+    "de": ["vier-hundert"],
+    "es": "cuatrocientos",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-28",
+    "example": {
+      "es": "La habitación cuesta cuatrocientos quetzales por noche.",
+      "de": "Das Zimmer kostet vier-hundert Quetzales pro Nacht."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1345",
+    "de": ["fünf-hundert"],
+    "es": "quinientos",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-28",
+    "example": {
+      "es": "La cena para dos cuesta quinientos pesos.",
+      "de": "Das Abendessen für zwei kostet fünf-hundert Pesos."
+    },
+    "note": "Unregelmäßig: nicht cincocientos.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1346",
+    "de": ["sechs-hundert"],
+    "es": "seiscientos",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-28",
+    "example": {
+      "es": "El pueblo tiene seiscientos habitantes.",
+      "de": "Das Dorf hat sechs-hundert Einwohner."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1347",
+    "de": ["sieben-hundert"],
+    "es": "setecientos",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-28",
+    "example": {
+      "es": "Son setecientos quetzales en total.",
+      "de": "Das macht insgesamt sieben-hundert Quetzales."
+    },
+    "note": "Ohne ie: nicht sietecientos.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1348",
+    "de": ["acht-hundert"],
+    "es": "ochocientos",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-28",
+    "example": {
+      "es": "De aquí a la frontera son ochocientos kilómetros.",
+      "de": "Von hier bis zur Grenze sind es acht-hundert Kilometer."
+    },
+    "note": null,
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1349",
+    "de": ["neun-hundert"],
+    "es": "novecientos",
+    "pos": "num",
+    "level": "A1",
+    "topic": "zahlen-zeit",
+    "added": "2026-11-28",
+    "example": {
+      "es": "El vestido cuesta novecientos pesos.",
+      "de": "Das Kleid kostet neun-hundert Pesos."
+    },
+    "note": "Mit o: nicht nuevecientos.",
+    "gender": null,
+    "plural": null
   }
 ]

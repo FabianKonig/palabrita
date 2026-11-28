@@ -1050,5 +1050,69 @@
     "note": "hacer turismo = Sehenswürdigkeiten besichtigen, als Tourist unterwegs sein.",
     "gender": "m",
     "plural": null
+  },
+  {
+    "id": "v1335",
+    "de": ["nirgends", "nirgendwo"],
+    "es": "en ninguna parte",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-28",
+    "example": {
+      "es": "No encuentro mis llaves en ninguna parte.",
+      "de": "Ich finde meine Schlüssel nirgends."
+    },
+    "note": "Auch sehr gebräuchlich: en ningún lado. Steht der Ausdruck nach dem Verb, braucht der Satz no (doppelte Verneinung).",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1336",
+    "de": ["überall"],
+    "es": "en todas partes",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-28",
+    "example": {
+      "es": "En México hay tacos en todas partes.",
+      "de": "In Mexiko gibt es überall Tacos."
+    },
+    "note": "Auch: por todas partes, umgangssprachlich oft por todos lados. Gegenstück: en ninguna parte.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1338",
+    "de": ["draußen"],
+    "es": "afuera",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-28",
+    "example": {
+      "es": "Los niños juegan afuera.",
+      "de": "Die Kinder spielen draußen."
+    },
+    "note": "In Lateinamerika meist afuera, in Spanien eher fuera. Auch „nach draußen“: ¡Vamos afuera! Gegenstück: adentro.",
+    "gender": null,
+    "plural": null
+  },
+  {
+    "id": "v1339",
+    "de": ["drinnen"],
+    "es": "adentro",
+    "pos": "adv",
+    "level": "A2",
+    "topic": "orte",
+    "added": "2026-11-28",
+    "example": {
+      "es": "Hace frío, mejor comemos adentro.",
+      "de": "Es ist kalt, wir essen lieber drinnen."
+    },
+    "note": "In Lateinamerika meist adentro, in Spanien eher dentro. Im Inneren von etwas: dentro de (dentro de la pirámide). Gegenstück: afuera.",
+    "gender": null,
+    "plural": null
   }
 ]
