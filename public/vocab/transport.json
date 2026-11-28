@@ -1054,5 +1054,21 @@
     "note": "In Lateinamerika auch el regreso. Weitere Bedeutungen: Runde, Umdrehung; dar una vuelta = eine Runde drehen, spazieren gehen.",
     "gender": "f",
     "plural": "las vueltas"
+  },
+  {
+    "id": "v1337",
+    "de": ["Kofferraum"],
+    "es": "la cajuela",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "transport",
+    "added": "2026-11-28",
+    "example": {
+      "es": "¿Puedo poner la maleta en la cajuela?",
+      "de": "Kann ich den Koffer in den Kofferraum legen?"
+    },
+    "note": "In Mexiko üblich. In Spanien: el maletero.",
+    "gender": "f",
+    "plural": "las cajuelas"
   }
 ]

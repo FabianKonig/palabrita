@@ -1030,5 +1030,21 @@
     "note": "In Spanien sagt man für das ganze Regal eher la estantería.",
     "gender": "m",
     "plural": "los estantes"
+  },
+  {
+    "id": "v1340",
+    "de": ["Internetverbindung"],
+    "es": "la conexión a internet",
+    "pos": "noun",
+    "level": "A2",
+    "topic": "unterkunft",
+    "added": "2026-11-28",
+    "example": {
+      "es": "En el hotel no hay conexión a internet.",
+      "de": "Im Hotel gibt es keine Internetverbindung."
+    },
+    "note": "Allgemeiner: la conexión (Verbindung, Anschluss). WLAN: el wifi.",
+    "gender": "f",
+    "plural": "las conexiones a internet"
   }
 ]
